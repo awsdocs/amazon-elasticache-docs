@@ -8,7 +8,7 @@ An Amazon EC2 instance can connect to a cluster node only if you have authorized
 
 ## Step 5\.1: Find your Node Endpoints<a name="GettingStarted.FindEndpoints"></a>
 
-Once your cluster is in the **available** state and you've authorized access to it, you can log in to an Amazon EC2 instance and connect to a node in the cluster\. To do so, you must first determine the node endpoint\.
+Once a cluster is in the **available** state and you've authorized access to it, you can log in to an Amazon EC2 instance and connect to a node in the cluster\. To do so, you must first determine the node endpoint\.
 
 To find your node's endpoints, see the relevant topic\. When you find the endpoint you need, copy it to your clipboard for use in Step 5\.2\.
 
