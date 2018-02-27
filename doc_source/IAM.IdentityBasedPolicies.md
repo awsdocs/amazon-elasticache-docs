@@ -37,8 +37,6 @@ The policy has two statements:
 
 + The first statement grants permissions for the Amazon ElastiCache actions \(`elasticache:CreateCacheCluster`, `elasticache:DescribeCacheClusters`, `elasticache:ModifyCacheCluster`, and `elasticache:RebootCacheCluster`\) on any cache cluster owned by the account\. Currently, Amazon ElastiCache doesn't support permissions for actions at the resource\-level\. Therefore, the policy specifies a wildcard character \(\*\) as the `Resource` value\.
 
-+ The second statement grants permissions for the IAM action \(`iam:PassRole`\) on IAM roles\. The wildcard character \(\*\) at the end of the `Resource` value means that the statement allows permission for the `iam:PassRole` action on any IAM role\. To limit this permission to a specific role, replace the wildcard character \(\*\) in the resource ARN with the specific role name\.
-
 The policy doesn't specify the `Principal` element because in an identity\-based policy you don't specify the principal who gets the permission\. When you attach policy to a user, the user is the implicit principal\. When you attach a permissions policy to an IAM role, the principal identified in the role's trust policy gets the permissions\. 
 
 For a table showing all of the Amazon ElastiCache API actions and the resources that they apply to, see [ElastiCache API Permissions: Actions, Resources, and Conditions Reference](IAM.APIReference.md)\. 
