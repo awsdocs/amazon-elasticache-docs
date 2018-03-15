@@ -2,7 +2,7 @@
 
 When you create a new Redis cluster, you can seed it with data from a Redis \.rdb backup file\. Seeding the cluster is useful if you currently manage a Redis instance outside of ElastiCache and want to populate your new ElastiCache for Redis cluster with your existing Redis data\.
 
-To see a new Redis cluster from a Redis backup created within Amazon ElastiCache, see [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
+To seed a new Redis cluster from a Redis backup created within Amazon ElastiCache, see [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
 
 When you use a Redis \.rdb file to seed a new Redis cluster, you can do the following:
 
