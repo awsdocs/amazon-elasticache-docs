@@ -129,7 +129,7 @@ You can upgrade to newer engine versions \(see [Upgrading Engine Versions](Versi
 
    1. For **Notifications**, choose an existing Amazon Simple Notification Service \(Amazon SNS\) topic, or choose manual ARN input and type in the topic Amazon Resource Name \(ARN\)\. Amazon SNS allows you to push notifications to Internet\-connected smart devices\. The default is to disable notifications\. For more information, see [https://aws\.amazon\.com/sns/](https://aws.amazon.com/sns/)\.
 
-1. Review all your entries and choices, then go back and make any needed corrections\. When you're ready, choose **Create** to launch your cluster\.
+1. Review all your entries and choices, then go back and make any needed corrections\. When you're ready to launch your cluster, choose **Create**\.
 
 As soon as your cluster's status is *available*, you can grant Amazon EC2 access to it, connect to it, and begin using it\. For more information, see [Step 4: Authorize Access](GettingStarted.AuthorizeAccess.md) and [Step 5: Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)\.
 
