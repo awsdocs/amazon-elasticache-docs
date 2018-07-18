@@ -142,7 +142,7 @@ Read replicas guard against potential data loss because your data is replicated 
 
 **Replication: Limits and Exclusions**
 
-+ AOF is not supported on node type `cache.t1.micro`\.
++ AOF is not supported on node types `cache.t1.micro` and `cache.t2.*`\.
 
 + Multi\-AZ with automatic failover is only supported on Redis versions 2\.6\.8 and later\.
 
