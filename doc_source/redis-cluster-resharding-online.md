@@ -20,7 +20,7 @@ Currently, the following limitations apply to ElastiCache for Redis online resha
 + These processes require Redis engine version 3\.2\.10 or newer\. For information on upgrading your engine version, see [Upgrading Engine Versions](VersionManagement.md)\.
 + There are limitations with slots or keyspaces and large items:
 
-  If any of the keys in a shard contain a large item, that key isn't be migrated to a new shard when scaling out or rebalancing\. This functionality can result in unbalanced shards\.
+  If any of the keys in a shard contain a large item, that key isn't migrated to a new shard when scaling out or rebalancing\. This functionality can result in unbalanced shards\.
 
   If any of the keys in a shard contain a large item \(items greater than 256 MB after serialization\), that shard isn't deleted when scaling in\. This functionality can result in some shards not being deleted\.
 + When scaling out, the number of nodes in any new shards equals the number of nodes in the smallest existing shard\.
@@ -297,7 +297,7 @@ Redis \(cluster mode enabled\) clusters have a value of 1 or greater in the **Sh
 Use the following parameters with `modify-replication-group-shard-configuration`\.
 
 **Parameters**
-+ `-apply-mmediately` – Required\. Specifies the shard reconfiguration operation is to be started immediately\.
++ `-apply-immediately` – Required\. Specifies the shard reconfiguration operation is to be started immediately\.
 + `--replication-group-id` – Required\. Specifies which replication group \(cluster\) the shard reconfiguration operation is to be performed on\.
 + `--node-group-count` – Required\. To rebalance the keyspaces across all shards in the cluster, this value must be the same as the current number of shards\.
 
