@@ -2,7 +2,7 @@
 
 The `AWS/ElastiCache` namespace includes the following Redis metrics\.
 
-With the exception of `ReplicationLag`, these metrics are derived from the Redis info command\. Each metric is calculated at the cache node level\.
+With the exception of `ReplicationLag` and `EngineCPUUtilization`, these metrics are derived from the Redis info command\. Each metric is calculated at the cache node level\.
 
 For complete documentation of the Redis info command, see [ http://redis\.io/commands/info](http://redis.io/commands/info)\. 
 
@@ -12,19 +12,18 @@ For complete documentation of the Redis info command, see [ http://redis\.io/com
 
 | Metric  | Description  | Unit  | 
 | --- | --- | --- | 
-| ActiveDefragHits | The number of value reallocations per minute performed by the active defragmentation process\. | Number | 
-| BytesUsedForCache | The total number of bytes allocated by Redis\. | Bytes | 
-| CacheHits | The number of successful key lookups\. | Count | 
-| CacheMisses | The number of unsuccessful key lookups\. | Count | 
-| CurrConnections | The number of client connections, excluding connections from read replicas\. ElastiCache uses two to three of the connections to monitor the cluster in each case\. | Count | 
+| ActiveDefragHits | The number of value reallocations per minute performed by the active defragmentation process\. This is derived from active\_defrag\_hits statistic at [Redis INFO](http://redis.io/commands/info)\. | Number | 
+| BytesUsedForCache | The total number of bytes allocated by Redis for all purposes, including the dataset, buffers, etc\. This is derived from used\_memory statistic at [Redis INFO](http://redis.io/commands/info)\. | Bytes | 
+| CacheHits | The number of successful read\-only key lookups in the main dictionary\. This is derived from keyspace\_hits statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
+| CacheMisses | The number of unsuccessful read\-only key lookups in the main dictionary\. This is derived from keyspace\_misses at [Redis INFO](http://redis.io/commands/info)\.  | Count | 
+| CurrConnections | The number of client connections, excluding connections from read replicas\. ElastiCache uses two to three of the connections to monitor the cluster in each case\. This is derived from the connected\_clients statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
 | EngineCPUUtilization | `EngineCPUUtilization` provides access to the Redis process CPU utilization to gain better insights into your Redis workloads\. As Redis is single threaded and uses just one CPU core at any given point in time, `EngineCPUUtilization` provides more precise visibility into the load of the Redis process itself\. `EngineCPUUtilization` adds to the pre\-existing `CPUUtilization` metric which exposes CPU utilization for the server instance as a whole including other operating system and management processes\. We recommend that you use both `EngineCPUUtilization` and `CPUUtilization` metrics together to get a detailed understanding of CPU utilization for your Redis environment\.  | Percent | 
-| Evictions | The number of keys that have been evicted due to the maxmemory limit\. | Count | 
-| HyperLogLogBasedCmds | The total number of HyperLogLog based commands\. This is derived from the Redis commandstats statistic by summing all of the pf type of commands \(pfadd, pfcount, pfmerge\)\. | Count | 
-| NewConnections | The total number of connections that have been accepted by the server during this period\. | Count | 
-| Reclaimed | The total number of key expiration events\. | Count | 
-| ReplicationBytes | For primaries with attached replicas, ReplicationBytes reports the number of bytes that the primary is sending to all of its replicas\. This metric is representative of the write load on the replication group\. For replicas and standalone primaries, ReplicationBytes is always 0\.  | Bytes | 
+| Evictions | The number of keys that have been evicted due to the maxmemory limit\. This is derived from the evicted\_keys statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
+| NewConnections | The total number of connections that have been accepted by the server during this period\. This is derived from the total\_connections\_received statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
+| Reclaimed | The total number of key expiration events\. This is derived from the expired\_keys statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
+| ReplicationBytes | For nodes in a replicated configuration, ReplicationBytes reports the number of bytes that the primary is sending to all of its replicas\. This metric is representative of the write load on the replication group\. This is derived from the master\_repl\_offset statistic at [Redis INFO](http://redis.io/commands/info)\.  | Bytes | 
 | ReplicationLag | This metric is only applicable for a node running as a read replica\. It represents how far behind, in seconds, the replica is in applying changes from the primary node\. | Seconds | 
-| SaveInProgress | This binary metric returns 1 whenever a background save \(forked or forkless\) is in progress, and 0 otherwise\. A background save process is typically used during snapshots and syncs\. These operations can cause degraded performance\. Using the  SaveInProgress metric, you can diagnose whether or not degraded performance was caused by a background save process\. | Count | 
+| SaveInProgress | This binary metric returns 1 whenever a background save \(forked or forkless\) is in progress, and 0 otherwise\. A background save process is typically used during snapshots and syncs\. These operations can cause degraded performance\. Using the  SaveInProgress metric, you can diagnose whether or not degraded performance was caused by a background save process\. This is derived from the rdb\_bgsave\_in\_progress statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
 
 **EngineCPUUtilization availability**  
 Nodes in a region created or replaced after the date and time specified in the following table will include the `EngineCPUUtilization` metric\.
@@ -58,11 +57,12 @@ These are aggregations of certain kinds of commands, derived from info commandst
 | Metric  | Description  | Unit  | 
 | --- | --- | --- | 
 | CurrItems | The number of items in the cache\. This is derived from the Redis keyspace statistic, summing all of the keys in the entire keyspace\. | Count | 
-| GetTypeCmds | The total number of get types of commands\. This is derived from the Redis commandstats statistic by summing all of the get types of commands \(get, mget, hget, etc\.\) | Count | 
+| GetTypeCmds | The total number of read\-only type commands\. This is derived from the Redis commandstats statistic by summing all of the read\-only type commands \(get, hget, scard, lrange, etc\.\) | Count | 
 | HashBasedCmds | The total number of commands that are hash\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more hashes\. | Count | 
-| KeyBasedCmds | The total number of commands that are key\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more keys\. | Count | 
+| HyperLogLogBasedCmds | The total number of HyperLogLog\-based commands\. This is derived from the Redis commandstats statistic by summing all of the pf type of commands \(pfadd, pfcount, pfmerge, etc\.\)\. | Count | 
+| KeyBasedCmds | The total number of commands that are key\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more keys across multiple data structures \(del, expire, rename, etc\.\)\. | Count | 
 | ListBasedCmds | The total number of commands that are list\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more lists\. | Count | 
 | SetBasedCmds | The total number of commands that are set\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more sets\. | Count | 
-| SetTypeCmds | The total number of set types of commands\. This is derived from the Redis commandstats statistic by summing all of the set types of commands \(set, hset, etc\.\) | Count | 
+| SetTypeCmds | The total number of write types of commands\. This is derived from the Redis commandstats statistic by summing all of the mutative types of commands that operate on data \(set, hset, sadd, lpop, etc\.\) | Count | 
 | SortedSetBasedCmds | The total number of commands that are sorted set\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more sorted sets\. | Count | 
 | StringBasedCmds | The total number of commands that are string\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more strings\. | Count | 

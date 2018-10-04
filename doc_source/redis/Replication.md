@@ -4,9 +4,9 @@ Single\-node Amazon ElastiCache Redis clusters are in\-memory entities with limi
 
 As seen in the following graphic, the replication structure is contained within a shard \(called *node group* in the API/CLI\) which is contained within a Redis cluster\. Redis \(cluster mode disabled\) clusters always have one shard\. Redis \(cluster mode enabled\) clusters can have up to 15 shards with the cluster's data partitioned across the shards\.
 
-![\[Image: Redis (cluster mode disabled) cluster has one shard and 1 to 5 replica nodes\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCacheClusters-CSN-Redis-Replicas.png)
+![\[Image: Redis (cluster mode disabled) cluster has one shard and 0 to 5 replica nodes\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCacheClusters-CSN-Redis-Replicas.png)
 
-*Redis \(cluster mode disabled\) cluster has one shard and 1 to 5 replica nodes*
+*Redis \(cluster mode disabled\) cluster has one shard and 0 to 5 replica nodes*
 
 If the cluster with replicas has Multi\-AZ with Automatic Failover enabled and the primary node fails, the primary fails over to a read replica\. Because the data is updated on the replica nodes asynchronously, there may be some data loss due to latency in updating the replica nodes\. For more information, see [Mitigating Failures when Running Redis](FaultTolerance.md#FaultTolerance.Redis)\.
 

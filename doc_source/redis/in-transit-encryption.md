@@ -185,15 +185,15 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
       client = yes
       accept = 127.0.0.1:6379
       connect = master.ssltest.wif01h.use1.cache.amazonaws.com:6379
-   [redis-cli-slave]
+   [redis-cli-replica]
       client = yes
       accept = 127.0.0.1:6380
       connect = ssltest-02.ssltest.wif01h.use1.cache.amazonaws.com:6379
    ```
 
-   In this example, the config file has two connections, the `redis-cli` and the `redis-cli-slave`\. The parameters are set as follows:
+   In this example, the config file has two connections, the `redis-cli` and the `redis-cli-replica`\. The parameters are set as follows:
    + **client** is set to yes to specify this stunnel instance is a client\.
-   + **accept** is set to the client IP\. In this example, the master is set to the Redis default 127\.0\.0\.1 on port 6379\. The slave must call a different port and set to 6380\. You can use ephemeral ports 1024–65535\. For more information, see [Ephemeral Ports](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html#VPC_ACLs_Ephemeral_Ports) in the *Amazon VPC User Guide\.*
+   + **accept** is set to the client IP\. In this example, the master is set to the Redis default 127\.0\.0\.1 on port 6379\. The replica must call a different port and set to 6380\. You can use ephemeral ports 1024–65535\. For more information, see [Ephemeral Ports](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html#VPC_ACLs_Ephemeral_Ports) in the *Amazon VPC User Guide\.*
    + **connect** is set to the Redis server endpoint\. For more information, see [Finding Connection Endpoints](Endpoints.md)\.
 
 1. Start `stunnel`\.

@@ -274,6 +274,6 @@ These steps assume the following:
 The following topics may be of additional interest\.
 + [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
 + [Accessing an ElastiCache Cluster from an Application Running in a Customer's Data Center](elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center)
-+ [NAT Instances](https://docs.aws.amazon.com/AmazonVPC/latest/mem-ug/VPC_NAT_Instance.html)
++ [NAT Instances](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html)
 + [Configuring ElastiCache Clients](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ClientConfig.html)
 + [High Availability for Amazon VPC NAT Instances: An Example](https://aws.amazon.com/articles/2781451301784570)
