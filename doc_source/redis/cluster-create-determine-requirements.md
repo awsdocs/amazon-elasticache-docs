@@ -49,7 +49,7 @@ For more information, see [Managing Your ElastiCache Clusters](Clusters.md)\.
 
 ## Scaling Requirements<a name="cluster-create-determine-requirements-scaling"></a>
 
-All clusters can be scaled up by creating a new cluster with the new, larger node type\. When scaling a Redis cluster you can seed if from a backup and avoid having the new cluster start out empty\.
+All clusters can be scaled up by creating a new cluster with the new, larger node type\. When scaling a Redis cluster you can seed it from a backup and avoid having the new cluster start out empty\.
 
 For more information, see [Scaling ElastiCache for Redis Clusters](Scaling.md) in this guide\.
 
