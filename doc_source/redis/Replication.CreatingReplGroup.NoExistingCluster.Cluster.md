@@ -305,7 +305,7 @@ redis
 **EngineVersion**  
 3\.2\.4
 
-If you want to enable in\-transit or at\-rest encryption on this replication group, add either or both of the `TrasitEncryptionEnabled=true` or `AtRestEncryptionEnabled=true` parameters and meet the following conditions\.
+If you want to enable in\-transit or at\-rest encryption on this replication group, add either or both of the `TransitEncryptionEnabled=true` or `AtRestEncryptionEnabled=true` parameters and meet the following conditions\.
 + Your replication group must be running Redis version 3\.2\.6 or 4\.0\.10\.
 + The replication group must be created in an Amazon VPC\.
 + You must also include the parameter `CacheSubnetGroup`\.
