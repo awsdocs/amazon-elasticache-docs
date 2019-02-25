@@ -45,7 +45,7 @@ If you're implementing a Redis \(cluster mode disabled\) cluster, your node type
 
    
 
-  For example, if you estimate that the total size of all your items to be 12 GB, you can use a `cache.m3.xlarge` node with 13\.3 GB of memory or a `cache.r3.large` node with 13\.5 GB of memory\. However, you may need more memory for `BGSAVE` operations\. If your application is write heavy, you should double the memory requirements to at least 24 GB, meaning you should use either a `cache.m3.2xlarge` with 27\.9 GB of memory or a `cache.r3.rge` with 28\.4 GB of memory\.
+  For example, if you estimate that the total size of all your items to be 12 GB, you can use a `cache.m3.xlarge` node with 13\.3 GB of memory or a `cache.r3.large` node with 13\.5 GB of memory\. However, you may need more memory for `BGSAVE` operations\. If your application is write heavy, you should double the memory requirements to at least 24 GB, meaning you should use either a `cache.m3.2xlarge` with 27\.9 GB of memory or a `cache.r3.large` with 28\.4 GB of memory\.
 
    
 
