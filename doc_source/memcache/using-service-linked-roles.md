@@ -233,7 +233,7 @@ Before you can use IAM to delete a service\-linked role, you must first confirm 
 1. On the **Access Advisor** tab, review recent activity for the service\-linked role\.
 
 **To delete ElastiCache resources that require AWSServiceRoleForElastiCache \(console\)**
-+ To delete a cluster, see one of the following:
++ To delete a cluster, see the following:
   + [Using the AWS Management Console](Clusters.Delete.md#Clusters.Delete.CON)
   + [Using the AWS CLI](Clusters.Delete.md#Clusters.Delete.CLI)
   + [Using the ElastiCache API](Clusters.Delete.md#Clusters.Delete.API)

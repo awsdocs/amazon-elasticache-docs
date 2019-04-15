@@ -80,7 +80,7 @@ Even though backups copied to an Amazon S3 bucket are encrypted, your data may b
      ```
 
       
-   + AWS GovCloud \(US\) Region: 
+   + AWS GovCloud \(US\-West\) Region: 
 
      ```
      40fa568277ad703bd160f66ae4f83fc9dfdfd06c2f1b5060ca22442ac3ef8be6

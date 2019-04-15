@@ -16,7 +16,7 @@ Answering the following questions will help you determine the minimum node type 
 
    
 
-  Redis versions prior to 2\.8\.22 require you to reserve more memory for failover, snapshot, synchronizing, and promoting a replica to primary operations\. This requirement occurs because you must have sufficient memory available for all writes that occur during the process\. 
+  Redis versions before 2\.8\.22 require you to reserve more memory for failover, snapshot, synchronizing, and promoting a replica to primary operations\. This requirement occurs because you must have sufficient memory available for all writes that occur during the process\. 
 
   Redis version 2\.8\.22 and later use a forkless save process that requires less available memory than the earlier process\.
 

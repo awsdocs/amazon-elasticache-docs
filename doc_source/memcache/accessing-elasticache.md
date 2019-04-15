@@ -204,7 +204,7 @@ These steps assume the following:
 
 1. Create a NAT instance in the same VPC as your cache cluster but in a public subnet\.
 
-   By default, the VPC wizard will launch a *cache\.m1\.small* node type\. You should select a node size based on your needs\.
+   By default, the VPC wizard will launch a *cache\.m1\.small* node type\. You should select a node size based on your needs\. You must use EC2 NAT AMI to be able to access ElastiCache from outside AWS\.
 
    For information about creating a NAT instance, see [NAT Instances](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html) in the AWS VPC User Guide\.
 
@@ -274,6 +274,6 @@ These steps assume the following:
 The following topics may be of additional interest\.
 + [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
 + [Accessing an ElastiCache Cluster from an Application Running in a Customer's Data Center](elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center)
-+ [NAT Instances](https://docs.aws.amazon.com/AmazonVPC/latest/mem-ug/VPC_NAT_Instance.html)
++ [NAT Instances](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html)
 + [Configuring ElastiCache Clients](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ClientConfig.html)
 + [High Availability for Amazon VPC NAT Instances: An Example](https://aws.amazon.com/articles/2781451301784570)

@@ -48,7 +48,7 @@ For instructions on how to connect to an Amazon EC2 instance, see the [Amazon EC
 
 1. Download and compile the *redis\-cli* utility\. This utility is included in the Redis software distribution\. At the command prompt of your EC2 instance, type the following commands:
 **Note**  
-For Ubuntu systems, prior to running `make`, run `make distclean`\.
+For Ubuntu systems, before running `make`, run `make distclean`\.
 
    ```
    wget http://download.redis.io/redis-stable.tar.gz

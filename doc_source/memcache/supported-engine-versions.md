@@ -3,11 +3,31 @@
 ElastiCache supports the following Memcached versions and upgrading to newer versions\. When upgrading to a newer version, pay careful attention to the conditions that if not met cause your upgrade to fail\.
 
 **Topics**
++ [Memcached Version 1\.5\.10](#memcached-version-1-5-10)
 + [Memcached Version 1\.4\.34](#memcached-version-1-4-34)
 + [Memcached Version 1\.4\.33](#memcached-version-1-4-33)
 + [Memcached Version 1\.4\.24](#memcached-version-1-4-24)
 + [Memcached Version 1\.4\.14](#memcached-version-1-4-14)
 + [Memcached Version 1\.4\.5](#memcached-version-1-4-5)
+
+## Memcached Version 1\.5\.10<a name="memcached-version-1-5-10"></a>
+
+ElastiCache for Memcached version 1\.5\.10 supports the following Memcached features:
++ Automated slab rebalancing\.
++ Faster hash table lookups with `murmur3` algorithm\.
++ Segmented LRU algorithm\.
++ LRU crawler to background\-reclaim memory\.
++ `--enable-seccomp`: A compile\-time option\.
+
+It also introduces the `no_modern` and `inline_ascii_resp` parameters\. For more information, see [Memcached 1\.5\.10 Parameter Changes](ParameterGroups.Memcached.md#ParameterGroups.Memcached.1-5-10)\.
+
+Memcached improvements added since ElastiCache for Memcached version 1\.4\.34 include the following: 
++ Cumulative fixes, such as ASCII multigets, CVE\-2017\-9951 and limit crawls for `metadumper`\. 
++ Better connection management by closing connections at the connection limit\. 
++ Improved item\-size management for item size above 1MB\. 
++ Better performance and memory\-overhead improvements by reducing memory requirements per\-item by a few bytes\.
+
+For more information, see [Memcached 1\.5\.10 Release Notes](https://github.com/memcached/memcached/wiki/ReleaseNotes1510) at Memcached on GitHub\.
 
 ## Memcached Version 1\.4\.34<a name="memcached-version-1-4-34"></a>
 

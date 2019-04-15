@@ -89,7 +89,7 @@ You can also create your own custom IAM policies to allow permissions for Amazon
 
 ## Customer Managed Policy Examples<a name="IAM.IdentityBasedPolicies.CustomerManagedPolicies"></a>
 
-If you are not using default policy and choose to use a custom managed policy, please ensure you have either permissions to call `iam:createServiceLinkedRole` \(see [Example 5: Allow a User to Call IAM CreateServiceLinkedRole API](#create-service-linked-role-policy)\) or you have created the ElastiCache Service Linked Role\. 
+If you are not using default policy and choose to use a custom managed policy, ensure that you have either permissions to call `iam:createServiceLinkedRole` \(see [Example 5: Allow a User to Call IAM CreateServiceLinkedRole API](#create-service-linked-role-policy)\) or you have created the ElastiCache Service Linked Role\. 
 
 When combined with the minimum permissions needed to use the Amazon ElastiCache console, the example policies in this section grant additional permissions\. The examples are also relevant to the AWS SDKs and the AWS CLI\. For more information about what permissions are needed to use the ElastiCache console, see [Permissions Required to Use the Amazon ElastiCache Console](#IAM.IdentityBasedPolicies.MinCONPolicies)\.
 

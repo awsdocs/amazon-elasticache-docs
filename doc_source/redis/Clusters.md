@@ -2,7 +2,7 @@
 
 A *cluster* is a collection of one or more cache nodes, all of which run an instance of the Redis cache engine software\. When you create a cluster, you specify the engine and version that all of the nodes will use\.
 
-The following diagram illustrates a typical Redis cluster\. Redis clusters can contain a single node or up to six nodes inside a shard \(API/CLI: node group\), A single\-node Redis \(cluster mode disabled\) cluster has no shard, and a multi\-node Redis \(cluster mode disabled\) cluster has a single shard\. Redis \(cluster mode enabled\) clusters can have up to 15 shards, with your data partitioned across the shards\. When you have multiple nodes in a shard, one of the nodes is a read/write primary node\. All other nodes in the shard are read\-only replicas\.
+The following diagram illustrates a typical Redis cluster\. Redis clusters can contain a single node or up to six nodes inside a shard \(API/CLI: node group\), A single\-node Redis \(cluster mode disabled\) cluster has no shard, and a multi\-node Redis \(cluster mode disabled\) cluster has a single shard\. Redis \(cluster mode enabled\) clusters can have up to 90 shards, with your data partitioned across the shards\. When you have multiple nodes in a shard, one of the nodes is a read/write primary node\. All other nodes in the shard are read\-only replicas\.
 
 ![\[Image: Typical Redis Clusters\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-Cluster-Redis.png)
 
@@ -14,11 +14,12 @@ Every cluster must have a cluster identifier\. The cluster identifier is a custo
 
 ElastiCache supports multiple engine versions\. Unless you have specific reasons, we recommend always using the your engine's latest version\.
 
-ElastiCache clusters are designed to be accessed via an Amazon EC2 instance\. If you launch your cluster in an Amazon VPC, you can access if from outside AWS\. For more information, see:
+ElastiCache clusters are designed to be accessed by using an Amazon EC2 instance\. If you launch your cluster in a VPC based on the Amazon VPC service, you can access it from outside AWS\. For more information, see the following:
 + [Step 2: Authorize Access](GettingStarted.AuthorizeAccess.md)
 + [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)
 
 ## Supported Redis Versions<a name="Clusters.RedisVersions"></a>
++ [ElastiCache for Redis Version 5\.0\.0 \(Enhanced\)](supported-engine-versions.md#redis-version-5-0)
 + [ElastiCache for Redis Version 4\.0\.10 \(Enhanced\)](supported-engine-versions.md#redis-version-4-0-10)
 + [ElastiCache for Redis Version 3\.2\.10 \(Enhanced\)](supported-engine-versions.md#redis-version-3-2-10)
 + [ElastiCache for Redis Version 3\.2\.6 \(Enhanced\)](supported-engine-versions.md#redis-version-3-2-6)

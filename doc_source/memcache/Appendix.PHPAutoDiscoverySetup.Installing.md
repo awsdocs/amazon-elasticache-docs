@@ -189,7 +189,7 @@
    $ sudo pecl install /home/AmazonElastiCacheClusterClient-X.Y.Z-PHP54-64bit.tgz
    ```
 **Note**  
-Please use the latest version of the install artifact\.
+Be sure to use the latest version of the install artifact\.
 
 1. With root/sudo permission, add a new file named `memcached.ini` in the `/etc/php.d` directory, and insert "extension=amazon\-elasticache\-cluster\-client\.so" in the file: 
 
@@ -256,7 +256,7 @@ Please use the latest version of the install artifact\.
    $ sudo pecl install <package download path>
    ```
 **Note**  
-This installation step installs the build artifact `amazon-elasticache-cluster-client.so` into the `/usr/lib/php5/20121212*` directory\. Please verify the absolute path of the build artifact because it is needed by the next step\. 
+This installation step installs the build artifact `amazon-elasticache-cluster-client.so` into the `/usr/lib/php5/20121212*` directory\. Verify the absolute path of the build artifact, because you need it in the next step\. 
 
    If the previous command doesn't work, you need to manually extract the PHP client artifact `amazon-elasticache-cluster-client.so` from the downloaded `*.tgz` file, and copy it to the `/usr/lib/php5/20121212*` directory\.
 
@@ -310,7 +310,7 @@ This installation step installs the build artifact `amazon-elasticache-cluster-c
    ```
 
 **Note**  
-If Step 5 doesn't work for any of the previous platforms, please verify the install path for `amazon-elasticache-cluster-client.so`, and specify the full path of the binary in the extension\. Also, verify that the PHP in use is a supported version\. We support versions 5\.3 through 5\.5\. 
+If Step 5 doesn't work for any of the previous platforms, verify the install path for `amazon-elasticache-cluster-client.so`\. Also, specify the full path of the binary in the extension\. In addition, verify that the PHP in use is a supported version\. We support versions 5\.3 through 5\.5\. 
 
  
 

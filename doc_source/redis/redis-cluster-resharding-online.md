@@ -1,6 +1,6 @@
 # Online Resharding and Shard Rebalancing for Redis \(cluster mode enabled\)<a name="redis-cluster-resharding-online"></a>
 
-By using online resharding and shard rebalancing with Amazon ElastiCache for Redis version 3\.2\.10, you can scale your ElastiCache for Redis \(cluster mode enabled\) dynamically with no downtime\. This approach means that your cluster can continue to serve requests even while scaling or rebalancing is in process\.
+By using online resharding and shard rebalancing with Amazon ElastiCache for Redis version 3\.2\.10 or newer, you can scale your ElastiCache for Redis \(cluster mode enabled\) dynamically with no downtime\. This approach means that your cluster can continue to serve requests even while scaling or rebalancing is in process\.
 
 You can do the following:
 + **Scale out** – Increase read and write capacity by adding shards \(node groups\) to your Redis \(cluster mode enabled\) cluster \(replication group\)\.
@@ -11,9 +11,9 @@ You can do the following:
 
 You can't do the following:
 + **Scale up/down:** Change your node type\. To do this, you must use the offline process\.
-+ **Upgrade your engine:** Change your engine version to a newer version\. To do this, you must use the offline process\.
++ **Upgrade your engine:** Change your engine version to a newer version\.
 + **Configure shards independently:**
-  + You can't specify the number of nodes in each shard independently\. To do this, you must use the offline process\.
+  + You can't specify the number of nodes in each shard independently\. 
   + You can't specify the keyspace for shards independently\. To do this, you must use the offline process\.
 
 Currently, the following limitations apply to ElastiCache for Redis online resharding and rebalancing:

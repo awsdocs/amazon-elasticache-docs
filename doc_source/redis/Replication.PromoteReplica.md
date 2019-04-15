@@ -36,7 +36,7 @@ The following procedure uses the console to promote a replica node to primary\.
 
 ## Using the AWS CLI<a name="Replication.PromoteReplica.CLI"></a>
 
-You can't promote a read replica to primary if the replication group is Multi\-AZ enabled\. If the replica that you want to promote is a member of a replication group where Multi\-AZ is enabled, you must modify the replication group to disable Multi\-AZ before you proceed\. Doing this doesn't require that all your clusters be in the same Availability Zone\. For more information on modifying a replication group, see [Modifying a Replication Group](Replication.Modify.md)\.
+You can't promote a read replica to primary if the replication group is Multi\-AZ enabled\. In some cases, the replica that you want to promote might be a member of a replication group where Multi\-AZ is enabled\. In these cases, you must modify the replication group to disable Multi\-AZ before you proceed\. Doing this doesn't require that all your clusters be in the same Availability Zone\. For more information on modifying a replication group, see [Modifying a Replication Group](Replication.Modify.md)\.
 
 The following AWS CLI command modifies the replication group `sample-repl-group`, making the read replica `my-replica-1` the primary in the replication group\.
 
@@ -60,7 +60,7 @@ For more information on modifying a replication group, see [modify\-replication\
 
 ## Using the ElastiCache API<a name="Replication.PromoteReplica.API"></a>
 
-You can't promote a read replica to primary if the replication group is Multi\-AZ enabled\. If the replica that you want to promote is a member of a replication group where Multi\-AZ is enabled, you must modify the replication group to disable Multi\-AZ before you proceed\. Doing this doesn't require that all your clusters be in the same Availability Zone\. For more information on modifying a replication group, see [Modifying a Replication Group](Replication.Modify.md)\.
+You can't promote a read replica to primary if the replication group is Multi\-AZ enabled\. In some cases, the replica that you want to promote might be a member of a replication group where Multi\-AZ is enabled\. In these cases, you must modify the replication group to disable Multi\-AZ before you proceed\. Doing this doesn't require that all your clusters be in the same Availability Zone\. For more information on modifying a replication group, see [Modifying a Replication Group](Replication.Modify.md)\.
 
 The following ElastiCache API action modifies the replication group `myReplGroup`, making the read replica `myReplica-1` the primary in the replication group\.
 

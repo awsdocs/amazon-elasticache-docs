@@ -217,5 +217,5 @@ customer_record = get_customer(12345)
 
 ## Related Topics<a name="Strategies.SeeAlso"></a>
 + [In\-Memory Data Store](elasticache-use-cases.md#elasticache-use-cases-data-store)
-+ [Choosing an Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html)
++ [Choosing an Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html)
 + [Scaling ElastiCache for Memcached Clusters](Scaling.md)

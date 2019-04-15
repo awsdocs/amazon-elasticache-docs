@@ -63,7 +63,7 @@ Look behind the scenes to learn about Amazon ElastiCache's design and architectu
 
 #### DAT317—How IFTTT uses ElastiCache for Redis to Predict Events \(re:Invent 2016\)<a name="WhatIs.Videos.Advanced.2016.DAT317"></a>
 
-IFTTT is a free servcie that empowers people to do more with the services they love, from automating simple tasks to transforming how someone interacts with and controls theiir home\. IFTTT uses ElastiCache for Redis to store transaction run history and schedule predictions as well as indexes for log documents on Amazon S3\. View this session to learn how the scripting power of Lua and the data types of Redis allowed people to accomplish something they wouldn't have been able to elsewhere\.
+IFTTT is a free service that empowers people to do more with the services they love, from automating simple tasks to transforming how someone interacts with and controls their home\. IFTTT uses ElastiCache for Redis to store transaction run history and schedule predictions as well as indexes for log documents on Amazon S3\. View this session to learn how the scripting power of Lua and the data types of Redis allowed people to accomplish something they wouldn't have been able to elsewhere\.
 
 [![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/eQbsXN0kcc0/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/eQbsXN0kcc0)
 

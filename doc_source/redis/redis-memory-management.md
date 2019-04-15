@@ -9,7 +9,7 @@ Reserved memory is memory set aside for nondata use\. When performing a backup o
 
 ## How Much Reserved Memory Do You Need?<a name="redis-memory-management-need"></a>
 
-If you are running a version of Redis prior to 2\.8\.22, you need to reserve more memory for backups and failovers than if you are running Redis 2\.8\.22 or later\. This requirement is due to the different ways that ElastiCache for Redis implements the backup process\. The rule of thumb is to reserve half of a node type’s `maxmemory` value for Redis overhead for versions prior to 2\.8\.22, and one\-fourth for Redis versions 2\.8\.22 and later\. For more information, see:
+If you are running a version of Redis before 2\.8\.22, you need to reserve more memory for backups and failovers than if you are running Redis 2\.8\.22 or later\. This requirement is due to the different ways that ElastiCache for Redis implements the backup process\. The rule of thumb is to reserve half of a node type’s `maxmemory` value for Redis overhead for versions before 2\.8\.22, and one\-fourth for Redis versions 2\.8\.22 and later\. For more information, see:
 + [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)
 + [How Synchronization and Backup are Implemented](Replication.Redis.Versions.md)
 
@@ -26,7 +26,7 @@ If, after reading about the two Redis memory management parameters, you prefer t
 
 ### The reserved\-memory Parameter<a name="redis-memory-management-parameters-reserved-memory"></a>
 
-Prior to March 16, 2017, all ElastiCache for Redis reserved memory management was done using the parameter `reserved-memory`\. The default value of `reserved-memory` is 0\. This default reserves no memory for Redis overhead and allows Redis to consume all of a node's memory with data\. Changing `reserved-memory` so you have sufficient memory available for backups and failovers requires you to create a custom parameter group\. In this custom parameter group, you set `reserved-memory` to a value appropriate for the Redis version running on your cluster and cluster’s node type\. For more information, see [How Much Reserved Memory Do You Need?](#redis-memory-management-need)\.
+Before March 16, 2017, all ElastiCache for Redis reserved memory management was done using the parameter `reserved-memory`\. The default value of `reserved-memory` is 0\. This default reserves no memory for Redis overhead and allows Redis to consume all of a node's memory with data\. Changing `reserved-memory` so you have sufficient memory available for backups and failovers requires you to create a custom parameter group\. In this custom parameter group, you set `reserved-memory` to a value appropriate for the Redis version running on your cluster and cluster’s node type\. For more information, see [How Much Reserved Memory Do You Need?](#redis-memory-management-need)\.
 
 The ElastiCache for Redis parameter `reserved-memory` is specific to ElastiCache for Redis and isn't part of the Redis distribution\.
 
@@ -45,7 +45,7 @@ The following procedure shows how to use `reserved-memory` to manage the memory 
 
 1. Calculate how many bytes of memory you need to reserve for Redis overhead\. You can find the value of `maxmemory` for your node type at [Redis Node\-Type Specific Parameters](ParameterGroups.Redis.md#ParameterGroups.Redis.NodeSpecific)\.
 
-1. Modify the custom parameter group so that the parameter `reserved-memory` is the number of bytes you calculated in the previous step\. The following AWS CLI example assumes you’re running a version of Redis prior to 2\.8\.22 and need to reserve half of the node’s `maxmemory`\. For more information, see [Modifying a Parameter Group](ParameterGroups.Modifying.md)\.
+1. Modify the custom parameter group so that the parameter `reserved-memory` is the number of bytes you calculated in the previous step\. The following AWS CLI example assumes you’re running a version of Redis before 2\.8\.22 and need to reserve half of the node’s `maxmemory`\. For more information, see [Modifying a Parameter Group](ParameterGroups.Modifying.md)\.
 
    ```
    aws elasticache modify-cache-parameter-group \
@@ -86,7 +86,7 @@ To use `reserved-memory-percent` to manage the memory on your ElastiCache for Re
 + If you are running Redis 2\.8\.22 or later, just assign the default parameter group to your cluster\. The default 25 percent should be adequate\. If not, you can follow the steps in the next bullet to change the value\.
 
    
-+ If you are running a version of Redis prior to 2\.8\.22, you likely will need to reserve more memory than `reserved-memory-percent`'s default 25 percent\. To do so, use the following procedure\. 
++ If you are running a version of Redis before 2\.8\.22, you likely will need to reserve more memory than `reserved-memory-percent`'s default 25 percent\. To do so, use the following procedure\. 
 
    
 

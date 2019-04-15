@@ -15,7 +15,7 @@ The following helps you find the correct topic for the scaling actions you want 
 
 Memcached clusters are composed of 1 to 20 nodes\. Scaling a Memcached cluster out and in is as easy as adding or removing nodes from the cluster\. 
 
-If you need more than 20 nodes in a Memcached cluster, or more than 100 nodes total in an AWS Region, please fill out the ElastiCache Limit Increase Request form at [https://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
+If you need more than 20 nodes in a Memcached cluster, or more than 100 nodes total in an AWS Region, fill out the ElastiCache Limit Increase Request form at [https://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
 
 Because you can partition your data across all the nodes in a Memcached cluster, scaling up to a node type with greater memory is seldom required\. However, because the Memcached engine does not persist data, if you do scale to a different node type, your new cluster starts out empty unless your application populates it\.
 
@@ -27,7 +27,7 @@ Because you can partition your data across all the nodes in a Memcached cluster,
 
 The Memcached engine supports partitioning your data across multiple nodes\. Because of this, Memcached clusters scale horizontally easily\. A Memcached cluster can have from 1 to 20 nodes\. To horizontally scale your Memcached cluster, merely add or remove nodes\.
 
-If you need more than 20 nodes in a Memcached cluster, or more than 100 nodes total in an AWS Region, please fill out the ElastiCache Limit Increase Request form at [https://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
+If you need more than 20 nodes in a Memcached cluster, or more than 100 nodes total in an AWS Region, fill out the ElastiCache Limit Increase Request form at [https://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
 
 The following topics detail how to scale your Memcached cluster out or in by adding or removing nodes\.
 + [Adding Nodes to a Cluster](Clusters.AddNode.md)

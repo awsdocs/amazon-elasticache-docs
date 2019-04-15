@@ -1,6 +1,9 @@
 # Creating a Redis \(cluster mode enabled\) Replication Group from Scratch<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster"></a>
 
-You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: *replication group*\) using the ElastiCache console, the AWS CLI, or the ElastiCache API\. A Redis \(cluster mode enabled\) replication group has from 1 to 15 shards \(API/CLI: node groups\), a primary node in each shard, and up to 5 read replicas in each shard\. When you use the ElastiCache console to create the cluster, every shard has the same number of read replicas\.
+You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: *replication group*\) using the ElastiCache console, the AWS CLI, or the ElastiCache API\. A Redis \(cluster mode enabled\) replication group has from 1 to 90 shards \(API/CLI: node groups\), a primary node in each shard, and up to 5 read replicas in each shard\. You can create a cluster with higher number of shards and lower number of replicas totaling up to 90 nodes per cluster\. This cluster configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number of replicas allowed\.
+
+**Note**  
+The node or shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and select limit type "Nodes per cluster per instance type”\. 
 
 **Topics**
 + [Using the ElastiCache Console](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON)
@@ -35,16 +38,18 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 + General purpose:
   + Current generation: 
 
-    **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
-
-    **M3 node types:** `cache.m3.medium`, `cache.m3.large`, `cache.m3.xlarge`, `cache.m3.2xlarge`
+    **M5 node types:** `cache.m5.large`, `cache.m5.xlarge`, `cache.m5.2xlarge`, `cache.m5.4xlarge`, `cache.m5.12xlarge`, `cache.m5.24xlarge` 
 
     **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
+
+    **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
   + Previous generation: \(not recommended\)
 
     **T1 node types:** `cache.t1.micro`
 
     **M1 node types:** `cache.m1.small`, `cache.m1.medium`, `cache.m1.large`, `cache.m1.xlarge`
+
+    **M3 node types:** `cache.m3.medium`, `cache.m3.large`, `cache.m3.xlarge`, `cache.m3.2xlarge`
 + Compute optimized:
   + Previous generation: \(not recommended\)
 
@@ -52,18 +57,18 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 + Memory optimized:
   + Current generation: 
 
-    **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
+    **R5 node types:** `cache.r5.large`, `cache.r5.xlarge`, `cache.r5.2xlarge`, `cache.r5.4xlarge`, `cache.r5.12xlarge`, `cache.r5.24xlarge`
 
     **R4 node types:** `cache.r4.large`, `cache.r4.xlarge`, `cache.r4.2xlarge`, `cache.r4.4xlarge`, `cache.r4.8xlarge`, `cache.r4.16xlarge`
   + Previous generation: \(not recommended\)
 
     **M2 node types:** `cache.m2.xlarge`, `cache.m2.2xlarge`, `cache.m2.4xlarge`
+
+    **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
 **Additional node type info**  
-+ All T2 instances are created in an Amazon Virtual Private Cloud \(Amazon VPC\)\.
-+ Redis backup and restore is not supported for T2 instances\.
++ All current generation instance types are created in Amazon VPC by default\.
 + Redis append\-only files \(AOF\) are not supported for T1 or T2 instances\.
 + Redis Multi\-AZ with automatic failover is not supported on T1 instances\.
-+ Redis Multi\-AZ with automatic failover is supported on T2 instances only when running Redis \(cluster mode enabled\) \- version 3\.2\.4 or later with the `default.redis3.2.cluster.on` parameter group or one derived from it\.
 + Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.
 
 **\-\-cache\-parameter\-group**  
@@ -76,7 +81,8 @@ redis
 3\.2\.4
 
 **\-\-num\-node\-groups**  
-The number of node groups in this replication group\. Valid values are 1 to 15\.
+The number of node groups in this replication group\. Valid values are 1 to 90\.  
+The node/shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and select limit type "Nodes per cluster per instance type”\. 
 
 **\-\-replicas\-per\-node\-group**  
 The number of replica nodes in each node group\. Valid values are 0 to 5\.
@@ -241,7 +247,7 @@ The name of the replication group you are creating\.
 Description of the replication group\.
 
 **NumNodeGroups**  
-The number of node groups you want created with this replication group\. Valid values are 1 to 15\.
+The number of node groups you want created with this replication group\. Valid values are 1 to 90\.
 
 **ReplicasPerNodeGroup**  
 The number of replica nodes in each node group\. Valid values are 1 to 5\.
@@ -265,16 +271,18 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 + General purpose:
   + Current generation: 
 
-    **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
-
-    **M3 node types:** `cache.m3.medium`, `cache.m3.large`, `cache.m3.xlarge`, `cache.m3.2xlarge`
+    **M5 node types:** `cache.m5.large`, `cache.m5.xlarge`, `cache.m5.2xlarge`, `cache.m5.4xlarge`, `cache.m5.12xlarge`, `cache.m5.24xlarge` 
 
     **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
+
+    **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
   + Previous generation: \(not recommended\)
 
     **T1 node types:** `cache.t1.micro`
 
     **M1 node types:** `cache.m1.small`, `cache.m1.medium`, `cache.m1.large`, `cache.m1.xlarge`
+
+    **M3 node types:** `cache.m3.medium`, `cache.m3.large`, `cache.m3.xlarge`, `cache.m3.2xlarge`
 + Compute optimized:
   + Previous generation: \(not recommended\)
 
@@ -282,18 +290,18 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 + Memory optimized:
   + Current generation: 
 
-    **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
+    **R5 node types:** `cache.r5.large`, `cache.r5.xlarge`, `cache.r5.2xlarge`, `cache.r5.4xlarge`, `cache.r5.12xlarge`, `cache.r5.24xlarge`
 
     **R4 node types:** `cache.r4.large`, `cache.r4.xlarge`, `cache.r4.2xlarge`, `cache.r4.4xlarge`, `cache.r4.8xlarge`, `cache.r4.16xlarge`
   + Previous generation: \(not recommended\)
 
     **M2 node types:** `cache.m2.xlarge`, `cache.m2.2xlarge`, `cache.m2.4xlarge`
+
+    **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
 **Additional node type info**  
-+ All T2 instances are created in an Amazon Virtual Private Cloud \(Amazon VPC\)\.
-+ Redis backup and restore is not supported for T2 instances\.
++ All current generation instance types are created in Amazon VPC by default\.
 + Redis append\-only files \(AOF\) are not supported for T1 or T2 instances\.
 + Redis Multi\-AZ with automatic failover is not supported on T1 instances\.
-+ Redis Multi\-AZ with automatic failover is supported on T2 instances only when running Redis \(cluster mode enabled\) \- version 3\.2\.4 or later with the `default.redis3.2.cluster.on` parameter group or one derived from it\.
 + Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.
 
 **CacheParameterGroup**  

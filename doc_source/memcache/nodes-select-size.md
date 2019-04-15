@@ -14,11 +14,10 @@ cluster_capacity = number_of_nodes * (node_capacity - system_overhead)
 
 The number of nodes in the cluster is a key factor in the availability of your cluster running Memcached\. The failure of a single node can have an impact on the availability of your application and the load on your back\-end database while ElastiCache provisions a replacement for the failed node and it gets repopulated\. You can reduce this potential availability impact by spreading your memory and compute capacity over a larger number of nodes, each with smaller capacity, rather than using a fewer number of high capacity nodes\.
 
-In a scenario where you want to have 40 GB of cache memory, you can set it up in any of the following configurations:
-+ 13 `cache.t2.medium` nodes with 3\.22 GB of memory and 2 threads each = 41\.86 GB and 26 threads\.
-+ 7 `cache.m3.large` nodes with 6\.05 GB of memory and 2 threads each = 42\.35 GB and 14 threads\.
-+ 7 `cache.m4.large` nodes with 6\.42 GB of memory and 2 threads each = 44\.94 GB and 14 threads\.
-+ 3 `cache.r3.large` nodes with 13\.50 GB of memory and 2 threads each = 40\.50 GB and 6 threads\.
+In a scenario where you want to have 35 GB of cache memory, you can set it up in any of the following configurations:
++ 11 `cache.t2.medium` nodes with 3\.22 GB of memory and 2 threads each = 35\.42 GB and 22 threads\.
++ 6 `cache.m4.large` nodes with 6\.42 GB of memory and 2 threads each = 38\.52 GB and 12 threads\.
++ 3 `cache.r4.large` nodes with 12\.3 GB of memory and 2 threads each = 36\.90 GB and 6 threads\.
 + 3 `cache.m4.xlarge` nodes with 14\.28 GB of memory and 4 threads each = 42\.84 GB and 12 threads\.
 
 
@@ -31,7 +30,7 @@ For clusters running Memcached, some of the available memory on each node is use
 
 Using multiple nodes will require spreading the keys across them\. Each node has its own endpoint\. For easy endpoint management, you can use the ElastiCache the Auto Discovery feature, which enables client programs to automatically identify all of the nodes in a cluster\. For more information, see [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\.
 
-If you're unsure about how much capacity you need, for testing we recommend starting with one `cache.m3.medium` node and monitoring the memory usage, CPU utilization, and cache hit rate with the ElastiCache metrics that are published to CloudWatch\. For more information on CloudWatch metrics for ElastiCache, see [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)\. For production and larger workloads, the R3 nodes provide the best performance and RAM cost value\.
+If you're unsure about how much capacity you need, for testing we recommend starting with one `cache.m5.large` node and monitoring the memory usage, CPU utilization, and cache hit rate with the ElastiCache metrics that are published to CloudWatch\. For more information on CloudWatch metrics for ElastiCache, see [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)\. For production and larger workloads, the R5 nodes provide the best performance and RAM cost value\.
 
 If your cluster does not have the desired hit rate, you can easily add more nodes, thereby increasing the total available memory in your cluster\.
 

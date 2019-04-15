@@ -39,15 +39,13 @@ Selecting more than 20 nodes disables viewing metrics on the console\.
 ## Monitoring CloudWatch Cluster and Node Metrics Using the CloudWatch CLI<a name="CloudWatchMetrics.CLI"></a>
 
  **To gather CPU utilization statistics for a cache cluster** 
-+ Use the CloudWatch command mon\-get\-stats with the following parameters \(note that the start and end times are shown as examples only; you will need to substitute your own appropriate start and end times\):
-
-  For Linux, macOS, or Unix:
++ For Linux, macOS, or Unix:
 
   ```
   aws cloudwatch get-metric-statistics \
       --namespace AWS/ElastiCache \
       --metric-name CPUUtilization \
-      --dimensions="CacheClusterId=mycachecluster,CacheNodeId=0002" \
+      --dimensions=""Name=CacheClusterId=mycachecluster,Value=CacheNodeId=0002" \	
       --statistics=Average \
       --start-time 2018-07-05T00:00:00 \
       --end-time 2018-07-06T00:00:00 \
@@ -60,7 +58,7 @@ Selecting more than 20 nodes disables viewing metrics on the console\.
   aws cloudwatch get-metric-statistics ^
       --namespace AWS/ElastiCache ^
       --metric-name CPUUtilization ^
-      --dimensions="CacheClusterId=mycachecluster,CacheNodeId=0002" ^
+      --dimensions=""Name=CacheClusterId=mycachecluster,Value=CacheNodeId=0002" ^
       --statistics=Average ^
       --start-time 2018-07-05T00:00:00 ^
       --end-time 2018-07-06T00:00:00 ^

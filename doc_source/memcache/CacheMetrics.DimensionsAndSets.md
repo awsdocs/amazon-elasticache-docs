@@ -7,4 +7,4 @@ Each metric is published under a single set of dimensions\. When retrieving metr
 **Contents**
 + [Host\-Level Metrics](CacheMetrics.HostLevel.md)
 + [Metrics for Memcached](CacheMetrics.Memcached.md)
-+ [Which Metrics Should I Monitor?](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheMetrics.WhichShouldIMonitor.html)
++ [Which Metrics Should I Monitor?](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug//CacheMetrics.WhichShouldIMonitor.html)

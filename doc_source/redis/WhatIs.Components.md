@@ -30,7 +30,7 @@ For more information on nodes, see [Managing Nodes](CacheNodes.md)\.
 
 ## ElastiCache for Redis Shards<a name="WhatIs.Components.Shards"></a>
 
-A Redis *shard* \(called a *node group* in the API and CLI\) is a grouping of one to six related nodes\. A Redis \(cluster mode disabled\) cluster always has one shard\. A Redis \(cluster mode enabled\) cluster can have 1–15 shards\.
+A Redis *shard* \(called a *node group* in the API and CLI\) is a grouping of one to six related nodes\. A Redis \(cluster mode disabled\) cluster always has one shard\. A Redis \(cluster mode enabled\) cluster can have 1–90 shards\.
 
 A *multiple node shard* implements replication by have one read/write primary node and 1–5 replica nodes\. For more information, see [High Availability Using Replication Groups](Replication.md)\.
 
@@ -63,13 +63,13 @@ For more detailed information, see the following related topics:
 
 ### Typical Cluster Configurations<a name="WhatIs.Components.Clusters.TypicalConfigurations"></a>
 
-A Redis cluster contains 1–15 shards \(in the API, called node groups\), each of which is a partition of your data\. Redis \(cluster mode disabled\) always has just one shard\.
+A Redis cluster contains 1–90 shards \(in the API, called node groups\), each of which is a partition of your data\. Redis \(cluster mode disabled\) always has just one shard\.
 
 Following are typical cluster configurations\.
 
 #### Redis Clusters<a name="WhatIs.Components.Clusters.TypicalConfigurations.Redis"></a>
 
-A Redis \(cluster mode enabled\) cluster contains 1–15 shards \(in the API and CLI, called *node groups*\)\. Redis \(cluster mode disabled\) clusters always contain just one shard \(in the API and CLI, one node group\)\. A Redis shard contains one to six nodes\. If there is more than one node in a shard, the shard supports replication with one node being the read/write primary node and the others read\-only replica nodes\.
+A Redis \(cluster mode enabled\) cluster contains 1–90 shards \(in the API and CLI, called *node groups*\)\. Redis \(cluster mode disabled\) clusters always contain just one shard \(in the API and CLI, one node group\)\. A Redis shard contains one to six nodes\. If there is more than one node in a shard, the shard supports replication with one node being the read/write primary node and the others read\-only replica nodes\.
 
 For improved fault tolerance, we recommend having at least two nodes in a Redis cluster and enabling Multi\-AZ with automatic failover\. For more information, see [Mitigating Failures](FaultTolerance.md)\.
 
@@ -85,7 +85,7 @@ Replication is implemented by grouping from two to six nodes in a shard \(in the
 
 Each replica node maintains a copy of the data from the primary node\. Replica nodes use asynchronous replication mechanisms to keep synchronized with the primary node\. Applications can read from any node in the cluster but can write only to primary nodes\. Read replicas enhance scalability by spreading reads across multiple endpoints\. Read replicas also improve fault tolerance by maintaining multiple copies of the data\. Locating read replicas in multiple Availability Zones further improves fault tolerance\. For more information on fault tolerance, see [Mitigating Failures](FaultTolerance.md)\.
 
-Redis \(cluster mode disabled\) clusters support one shard \(in the API and CLI, called a *node group*\)\. Redis \(cluster mode enabled\) clusters support 1–15 shards \(in the API and CLI, called node groups\)\.
+Redis \(cluster mode disabled\) clusters support one shard \(in the API and CLI, called a *node group*\)\. Redis \(cluster mode enabled\) clusters support 1–90 shards \(in the API and CLI, called node groups\)\.
 
 The following graphic illustrates replication for Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\) clusters using the console's view and terminology\.
 
@@ -107,8 +107,7 @@ Read replicas guard against potential data loss because your data is replicated 
 
 **Replication: Limits and Exclusions**
 + AOF is not supported on node type `cache.t1.micro`\.
-+ Multi\-AZ with automatic failover is only supported on Redis versions 2\.6\.8 and later\.
-+ Multi\-AZ with automatic failover is not supported on node types T1 and T2\.
++ Multi\-AZ with automatic failover is not supported on node types T1\.
 
 For more information on AOF and Multi\-AZ, see [Mitigating Failures](FaultTolerance.md)\.
 
@@ -160,7 +159,7 @@ By default, all new ElastiCache for Redis clusters are launched in an Amazon Vir
 
 In addition to restricting access to your nodes, ElastiCache for Redis supports TLS and in\-place encryption for nodes running specified versions of the ElastiCache for Redis engine\. For more information, see the following:
 + [Data Security](encryption.md)
-+ [ElastiCache for Redis HIPAA Compliance](elasticache-compliance.md#elasticache-compliance-hipaa)
++ [HIPAA Compliance in ElastiCache for Redis](elasticache-compliance.md#elasticache-compliance-hipaa)
 + [Authenticating Users with Redis AUTH](auth.md)
 
 ## ElastiCache Security Groups<a name="WhatIs.Components.SecurityGroups"></a>

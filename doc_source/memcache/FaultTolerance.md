@@ -16,7 +16,7 @@ To mitigate the impact of a node failure, spread your cached data over more node
 
 When you create your Memcached cluster you can create it with 1 to 20 nodes, or more by special request\. Partitioning your data across a greater number of nodes means you'll lose less data if a node fails\. For example, if you partition your data across 10 nodes, any single node stores approximately 10% of your cached data\. In this case, a node failure loses approximately 10% of your cache which needs to be replaced when a replacement node is created and provisioned\. If the same data were cached in 3 larger nodes, the failure of a node would lose approximately 33% of your cached data\.
 
-If you need more than 20 nodes in a Memcached cluster, or more than 100 nodes total in an AWS Region, please fill out the ElastiCache Limit Increase Request form at [https://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
+If you need more than 20 nodes in a Memcached cluster, or more than 100 nodes total in an AWS Region, fill out the ElastiCache Limit Increase Request form at [https://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
 
 For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached Cluster \(Console\)](Clusters.Create.CON.Memcached.md)\.
 
@@ -41,10 +41,10 @@ There are two types of failures you need to plan for, individual node failures a
 
 ### Minimizing the Impact of Failures<a name="FaultTolerance.Recommendations.NodeFailure"></a>
 
-To minimize the impact of a node failure, we recommend that your implementation use multiple nodes in each shard and distribute the nodes across multiple availability zones\.
+To minimize the impact of a node failure, we recommend that your implementation use multiple nodes in each shard and distribute the nodes across multiple Availability Zones\.
 
 When running Memcached and partitioning your data across nodes, the more nodes you use the smaller the data loss if any one node fails\.
 
 ### Minimizing the Impact of Availability Zone Failures<a name="FaultTolerance.Recommendations.AZFailure"></a>
 
-To minimize the impact of an availability zone failure, we recommend launching your nodes in as many different availability zones as are available\. Spreading your nodes evenly across AZs will minimize the impact in the unlikely event of an AZ failure\.
+To minimize the impact of an Availability Zone failure, we recommend launching your nodes in as many different Availability Zones as are available\. Spreading your nodes evenly across AZs will minimize the impact in the unlikely event of an AZ failure\.

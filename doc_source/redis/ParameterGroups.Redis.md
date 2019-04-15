@@ -3,6 +3,8 @@
 If you do not specify a parameter group for your Redis cluster, then a default parameter group appropriate to your engine version will be used\. You cannot change the values of any parameters in the default parameter group; however, you can create a custom parameter group and assign it to your cluster at any time as long as the values of conditionally modifiable parameters are the same in both parameter groups\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
 
 **Topics**
++ [Redis 5\.0\.3 Parameter Changes](#ParameterGroups.Redis.5-0-3)
++ [Redis 5\.0\.0 Parameter Changes](#ParameterGroups.Redis.5.0)
 + [Redis 4\.0\.10 Parameter Changes](#ParameterGroups.Redis.4-0-10)
 + [Redis 3\.2\.10 Parameter Changes](#ParameterGroups.Redis.3-2-10)
 + [Redis 3\.2\.6 Parameter Changes](#ParameterGroups.Redis.3-2-6)
@@ -28,6 +30,65 @@ For more information, see the following topics:
 | **Create Replication Group** | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
 
+## Redis 5\.0\.3 Parameter Changes<a name="ParameterGroups.Redis.5-0-3"></a>
+
+**Parameter group family:** redis5\.0
+
+Redis 5\.0 default parameter groups
++ `default.redis5.0` – Use this parameter group, or one derived from it, for Redis \(cluster mode disabled\) clusters and replication groups\.
++ `default.redis5.0.cluster.on` – Use this parameter group, or one derived from it, for Redis \(cluster mode enabled\) clusters and replication groups\.
+
+
+**Parameters added in Redis 5\.0\.3**  
+
+|  Name  |  Details |  Description  | 
+| --- | --- | --- | 
+| rename\-commands |  Default: none Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | A space\-separated list of renamed Redis commands\. The following is a restricted list of commands available for renaming:  `APPEND AUTH BITCOUNT BITFIELD BITOP BITPOS BLPOP BRPOP BRPOPLPUSH BZPOPMIN BZPOPMAX CLIENT CLUSTER COMMAND DBSIZE DECR DECRBY DEL DISCARD DUMP ECHO EVAL EVALSHA EXEC EXISTS EXPIRE EXPIREAT FLUSHALL FLUSHDB GEOADD GEOHASH GEOPOS GEODIST GEORADIUS GEORADIUSBYMEMBER GET GETBIT GETRANGE GETSET HDEL HEXISTS HGET HGETALL HINCRBY HINCRBYFLOAT HKEYS HLEN HMGET HMSET HSET HSETNX HSTRLEN HVALS INCR INCRBY INCRBYFLOAT INFO KEYS LASTSAVE LINDEX LINSERT LLEN LPOP LPUSH LPUSHX LRANGE LREM LSET LTRIM MEMORY MGET MONITOR MOVE MSET MSETNX MULTI OBJECT PERSIST PEXPIRE PEXPIREAT PFADD PFCOUNT PFMERGE PING PSETEX PSUBSCRIBE PUBSUB PTTL PUBLISH PUNSUBSCRIBE RANDOMKEY READONLY READWRITE RENAME RENAMENX RESTORE ROLE RPOP RPOPLPUSH RPUSH RPUSHX SADD SCARD SCRIPT SDIFF SDIFFSTORE SELECT SET SETBIT SETEX SETNX SETRANGE SINTER SINTERSTORE SISMEMBER SLOWLOG SMEMBERS SMOVE SORT SPOP SRANDMEMBER SREM STRLEN SUBSCRIBE SUNION SUNIONSTORE SWAPDB TIME TOUCH TTL TYPE UNSUBSCRIBE UNLINK UNWATCH WAIT WATCH ZADD ZCARD ZCOUNT ZINCRBY ZINTERSTORE ZLEXCOUNT ZPOPMAX ZPOPMIN ZRANGE ZRANGEBYLEX ZREVRANGEBYLEX ZRANGEBYSCORE ZRANK ZREM ZREMRANGEBYLEX ZREMRANGEBYRANK ZREMRANGEBYSCORE ZREVRANGE ZREVRANGEBYSCORE ZREVRANK ZSCORE ZUNIONSTORE SCAN SSCAN HSCAN ZSCAN XINFO XADD XTRIM XDEL XRANGE XREVRANGE XLEN XREAD XGROUP XREADGROUP XACK XCLAIM XPENDING GEORADIUS_RO GEORADIUSBYMEMBER_RO LOLWUT XSETID SUBSTR`  | 
+
+For more information, see [ElastiCache for Redis Version 5\.0\.3 \(Enhanced\)](supported-engine-versions.md#redis-version-5-0.3)\. 
+
+## Redis 5\.0\.0 Parameter Changes<a name="ParameterGroups.Redis.5.0"></a>
+
+**Parameter group family:** redis5\.0
+
+Redis 5\.0 default parameter groups
++ `default.redis5.0` – Use this parameter group, or one derived from it, for Redis \(cluster mode disabled\) clusters and replication groups\.
++ `default.redis5.0.cluster.on` – Use this parameter group, or one derived from it, for Redis \(cluster mode enabled\) clusters and replication groups\.
+
+
+**Parameters added in Redis 5\.0**  
+
+|  Name  |  Details |  Description  | 
+| --- | --- | --- | 
+| stream\-node\-max\-bytes |  Permitted values: 0\+ Default: 4096 Type: integer Modifiable: Yes Changes take effect: Immediately | The stream data structure is a radix tree of nodes that encode multiple items inside\. Use this configuration to specify the maximum size of a single node in radix tree in Bytes\. If set to 0, the size of the tree node is unlimited\.  | 
+| stream\-node\-max\-entries |  Permitted values: 0\+ Default: 100 Type: integer Modifiable: Yes Changes take effect: Immediately | The stream data structure is a radix tree of nodes that encode multiple items inside\. Use this configuration to specify the maximum number of items a single node can contain before switching to a new node when appending new stream entries\. If set to 0, the number of items in the tree node is unlimited  | 
+| active\-defrag\-max\-scan\-fields |  Permitted values: 1 to 1000000 Default: 1000 Type: integer Modifiable: Yes Changes take effect: Immediately | Maximum number of set/hash/zset/list fields that will be processed from the main dictionary scan  | 
+| lua\-replicate\-commands |  Permitted values: yes/no Default: yes Type: boolean Modifiable: Yes Changes take effect: Immediately | Always enable Lua effect replication or not in Lua scripts  | 
+| replica\-ignore\-maxmemory |  Default: yes Type: boolean Modifiable: No  | Determines if replica ignores maxmemory setting by not evicting items independent from the master  | 
+
+Redis has renamed several parameters in engine version 5\.0 in response to community feedback\. For more information, see [What's New in Redis 5?](https://aws.amazon.com/redis/Whats_New_Redis5/)\. The following table lists the new names and how they map to previous versions\.
+
+
+**Parameters renamed in Redis 5\.0**  
+
+|  Name  |  Details |  Description  | 
+| --- | --- | --- | 
+| replica\-lazy\-flush |  Default: no Type: boolean Modifiable: No Former name: slave\-lazy\-flush  | Performs an asynchronous flushDB during replica sync\. | 
+| client\-output\-buffer\-limit\-replica\-hard\-limit | Default: For values see [Redis Node\-Type Specific Parameters](#ParameterGroups.Redis.NodeSpecific) Type: integer Modifiable: No Former name: client\-output\-buffer\-limit\-slave\-hard\-limit | For Redis read replicas: If a client's output buffer reaches the specified number of bytes, the client will be disconnected\. | 
+| client\-output\-buffer\-limit\-replica\-soft\-limit | Default: For values see [Redis Node\-Type Specific Parameters](#ParameterGroups.Redis.NodeSpecific) Type: integer Modifiable: No Former name: client\-output\-buffer\-limit\-slave\-soft\-limit | For Redis read replicas: If a client's output buffer reaches the specified number of bytes, the client will be disconnected, but only if this condition persists for client\-output\-buffer\-limit\-replica\-soft\-seconds\. | 
+| client\-output\-buffer\-limit\-replica\-soft\-seconds | Default: 60 Type: integer Modifiable: No Former name: client\-output\-buffer\-limit\-slave\-soft\-seconds  | For Redis read replicas: If a client's output buffer remains at client\-output\-buffer\-limit\-replica\-soft\-limit bytes for longer than this number of seconds, the client will be disconnected\. | 
+| replica\-allow\-chaining | Default: no Type: string Modifiable: No Former name: slave\-allow\-chaining | Determines whether a read replica in Redis can have read replicas of its own\. | 
+| min\-replicas\-to\-write | Default: 0 Type: integer Modifiable: Yes Former name: min\-slaves\-to\-write Changes Take Effect: Immediately | The minimum number of read replicas which must be available in order for the primary node to accept writes from clients\. If the number of available replicas falls below this number, then the primary node will no longer accept write requests\. If either this parameter or min\-replicas\-max\-lag is 0, then the primary node will always accept writes requests, even if no replicas are available\. | 
+| min\-replicas\-max\-lag  | Default: 10 Type: integer Modifiable: Yes Former name: min\-slaves\-max\-lag Changes Take Effect: Immediately | The number of seconds within which the primary node must receive a ping request from a read replica\. If this amount of time passes and the primary does not receive a ping, then the replica is no longer considered available\. If the number of available replicas drops below min\-replicas\-to\-write, then the primary will stop accepting writes at that point\. If either this parameter or min\-replicas\-to\-write is 0, then the primary node will always accept write requests, even if no replicas are available\. | 
+| close\-on\-replica\-write  | Default: yes Type: boolean Modifiable: Yes Former name: close\-on\-slave\-write Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
+
+
+**Parameters removed in Redis 5\.0**  
+
+|  Name  |  Details |  Description  | 
+| --- | --- | --- | 
+| repl\-timeout |  Default: 60 Modifiable: No  | Parameter is not available in this version\. | 
+
 ## Redis 4\.0\.10 Parameter Changes<a name="ParameterGroups.Redis.4-0-10"></a>
 
 **Parameter group family:** redis4\.0
@@ -41,7 +102,7 @@ Redis 4\.0\.x default parameter groups
 
 |  Name  |  Details |  Description  | 
 | --- | --- | --- | 
-| maxmemory\-policy |  Permitted values: `allkeys-lru`, `volatile-lru`, **allkeys\-lfu**, **volatile\-lfu**, `allkeys-random`, `volatile-random`, `volatile-ttl`, `noeviction` Default: noeviction Type: string Modifiable: Yes Changes take place: immediately | maxmemory\-policy was added in version 2\.6\.13\. In version 4\.0\.10 two new permitted values are added: allkeys\-lfu and volatile\-lfu\. | 
+| maxmemory\-policy |  Permitted values: `allkeys-lru`, `volatile-lru`, **allkeys\-lfu**, **volatile\-lfu**, `allkeys-random`, `volatile-random`, `volatile-ttl`, `noeviction` Default: volatile\-lru Type: string Modifiable: Yes Changes take place: immediately | maxmemory\-policy was added in version 2\.6\.13\. In version 4\.0\.10 two new permitted values are added: allkeys\-lfu and volatile\-lfu\. | 
 
 
 **Parameters Added in Redis 4\.0\.10**  
@@ -104,9 +165,9 @@ For Redis 3\.2\.4 the following additional parameters are supported\.
 | --- | --- | --- | 
 | list\-max\-ziplist\-size | Default: \-2 Type: integer Modifiable: No  | Lists are encoded in a special way to save space\. The number of entries allowed per internal list node can be specified as a fixed maximum size or a maximum number of elements\. For a fixed maximum size, use \-5 through \-1, meaning: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html) | 
 | list\-compress\-depth | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | Lists may also be compressed\. Compress depth is the number of quicklist ziplist nodes from each side of the list to exclude from compression\. The head and tail of the list are always uncompressed for fast push and pop operations\. Settings are: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html) | 
-| cluster\-enabled |  Default: no/yes \* Type: string Modifiable: Yes | Indicates whether this is a Redis \(cluster mode enabled\) replication group in cluster mode \(yes\) or a Redis \(cluster mode enabled\) replication group in non\-cluster mode \(no\)\. Redis \(cluster mode enabled\) replication groups in cluster mode can partition their data across up to 15 node groups\. \* Redis 3\.2\.*x* has two default parameter groups\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html)\. | 
-| cluster\-require\-full\-coverage | Default: no Type: boolean Modifiable: yes Changes Take Effect: Immediately |  When set to `yes`, Redis \(cluster mode enabled\) nodes in cluster mode stop accepting queries if they detect there is at least one hash slot uncovered \(no available node is serving it\)\. This way if the cluster is partially down, the cluster becomes unavailable\. It automatically becomes available again as soon as all the slots are covered again\. However, sometimes you want the subset of the cluster which is working to continue to accept queries for the part of the key space that is still covered\. In order to do so, just set the `cluster-require-full-coverage` option to `no`\. | 
-| hll\-sparse\-max\-bytes | Default: 3000 Type: integer Modifiable: Yes Changes Take Effect: Immediately | HyperLogLog sparse representation bytes limit\. The limit includes the 16 byte header\. When a HyperLogLog using the sparse representation crosses this limit, it is converted into the dense representation\. A value greater than 16000 is not recommended, because at that point the dense representation is more memory efficient\. We recommend a value of \~3000 in order to have the benefits of the space efficient encoding without slowing down PFADD too much, which is O\(N\) with the sparse encoding\. The value can be raised to \~10000 when CPU is not a concern, but space is, and the data set is composed of many HyperLogLogs with cardinality in the 0 \- 15000 range\. | 
+| cluster\-enabled |  Default: no/yes \* Type: string Modifiable: Yes | Indicates whether this is a Redis \(cluster mode enabled\) replication group in cluster mode \(yes\) or a Redis \(cluster mode enabled\) replication group in non\-cluster mode \(no\)\. Redis \(cluster mode enabled\) replication groups in cluster mode can partition their data across up to 90 node groups\. \* Redis 3\.2\.*x* has two default parameter groups\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html)\. | 
+| cluster\-require\-full\-coverage | Default: no Type: boolean Modifiable: yes Changes Take Effect: Immediately |  When set to `yes`, Redis \(cluster mode enabled\) nodes in cluster mode stop accepting queries if they detect there is at least one hash slot uncovered \(no available node is serving it\)\. This way if the cluster is partially down, the cluster becomes unavailable\. It automatically becomes available again as soon as all the slots are covered again\. However, sometimes you want the subset of the cluster which is working to continue to accept queries for the part of the key space that is still covered\. To do so, just set the `cluster-require-full-coverage` option to `no`\. | 
+| hll\-sparse\-max\-bytes | Default: 3000 Type: integer Modifiable: Yes Changes Take Effect: Immediately | HyperLogLog sparse representation bytes limit\. The limit includes the 16 byte header\. When a HyperLogLog using the sparse representation crosses this limit, it is converted into the dense representation\. A value greater than 16000 is not recommended, because at that point the dense representation is more memory efficient\. We recommend a value of about 3000 to have the benefits of the space\-efficient encoding without slowing down PFADD too much, which is O\(N\) with the sparse encoding\. The value can be raised to \~10000 when CPU is not a concern, but space is, and the data set is composed of many HyperLogLogs with cardinality in the 0 \- 15000 range\. | 
 | reserved\-memory\-percent | Default: 25 Type: integer Modifiable: Yes Changes Take Effect: Immediately |  The percent of a node's memory reserved for nondata use\. By default, the Redis data footprint grows until it consumes all of the node's memory\. If this occurs, then node performance will likely suffer due to excessive memory paging\. By reserving memory, you can set aside some of the available memory for non\-Redis purposes to help reduce the amount of paging\. This parameter is specific to ElastiCache, and is not part of the standard Redis distribution\. For more information, see `reserved-memory` and [Managing Reserved Memory](redis-memory-management.md)\. | 
 
 ### Parameters Changed in Redis 3\.2\.4 \(Enhanced\)<a name="ParameterGroups.Redis.3-2-4.Changed"></a>
@@ -148,25 +209,25 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w4aac20c45c55c21b9"></a>
+### How close\-on\-slave\-write works<a name="w4aac20c45c57c25b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
-![\[Image: close-on-slave-write, everything working fine\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-01.png)
+![\[Image: close-on-replica-write, everything working fine\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-01.png)
 
-If the read\-replica cluster is promoted to primary for any reason other than a Multi\-AZ enabled replication group failing over, the client will continue trying to write to endpoint A\. Because endpoint A is now the endpoint for a read\-replica, these writes will fail\. This is the behavior for Redis prior to ElastiCache introducing `close-on-slave-write` and the behavior if you disable `close-on-slave-write`\.
+If the read\-replica cluster is promoted to primary for any reason other than a Multi\-AZ enabled replication group failing over, the client will continue trying to write to endpoint A\. Because endpoint A is now the endpoint for a read\-replica, these writes will fail\. This is the behavior for Redis before ElastiCache introducing `close-on-replica-write` and the behavior if you disable `close-on-replica-write`\.
 
 ![\[Image: close-on-slave-write, writes failing\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-02.png)
 
-With `close-on-slave-write` enabled, any time a client attempts to write to a read\-replica, the client connection to the cluster is closed\. Your application logic should detect the disconnection, check the DNS table, and reconnect to the primary endpoint, which now would be endpoint B\.
+With `close-on-replica-write` enabled, any time a client attempts to write to a read\-replica, the client connection to the cluster is closed\. Your application logic should detect the disconnection, check the DNS table, and reconnect to the primary endpoint, which now would be endpoint B\.
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### Why disable close\-on\-slave\-write?<a name="w4aac20c45c55c21c11"></a>
+### Why disable close\-on\-replica\-write?<a name="w4aac20c45c57c25c11"></a>
 
-If disabling `close-on-slave-write` results in writes to the failing cluster, why would you want to disable `close-on-slave-write`?
+If disabling `close-on-replica-write` results in writes to the failing cluster, why would you want to disable `close-on-replica-write`?
 
-As previously mentioned, with `close-on-slave-write` enabled, any time a client attempts to write to a read\-replica the client connection to the cluster is closed\. Since establishing a new connection to the node takes time, disconnecting and reconnecting as a result of a write request to the replica would also impact the latency of read requests that were served through the same connection, until a new connection is established\. Therefore, if your application is especially read\-heavy or very latency\-sensitive, you my prefer to keep your clients connected so as to not degrade read performance\. 
+As previously mentioned, with `close-on-replica-write` enabled, any time a client attempts to write to a read\-replica the client connection to the cluster is closed\. Since establishing a new connection to the node takes time, disconnecting and reconnecting as a result of a write request to the replica would also impact the latency of read requests that were served through the same connection, until a new connection is established\. Therefore, if your application is especially read\-heavy or very latency\-sensitive, you my prefer to keep your clients connected so as to not degrade read performance\. 
 
 ## Redis 2\.8\.22 \(Enhanced\) Added Parameters<a name="ParameterGroups.Redis.2-8-22"></a>
 
@@ -288,6 +349,12 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.m4\.2xlarge | 31889126359 | 3188912636 | 3188912636 | 
 | cache\.m4\.4xlarge | 65257290629 | 6525729063 | 6525729063 | 
 | cache\.m4\.10xlarge | 166047614239 | 16604761424 | 16604761424 | 
+| cache\.m5\.large | 6854542746 | 685454275  | 685454275 | 
+| cache\.m5\.xlarge | 13891921715 | 1389192172 | 1389192172 | 
+| cache\.m5\.2xlarge | 27966669210 | 2796666921 | 2796666921 | 
+| cache\.m5\.4xlarge | 56116178125 | 5611617812 | 5611617812 | 
+| cache\.m5\.12xlarge | 168715971994 | 16871597199 | 16871597199 | 
+| cache\.m5\.24xlarge | 337500562842 | 33750056284 | 33750056284 | 
 | cache\.c1\.xlarge | 6501171200 | 650117120 | 650117120 | 
 | cache\.r3\.large | 14470348800 | 1468006400 | 1468006400 | 
 | cache\.r3\.xlarge | 30513561600 | 3040870400 | 3040870400 | 
@@ -300,10 +367,15 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.r4\.4xlarge | 108858546586 | 10885854658 | 10885854658 | 
 | cache\.r4\.8xlarge | 218255432090 | 21825543209 | 21825543209 | 
 | cache\.r4\.16xlarge | 437021573120 | 43702157312 | 43702157312 | 
+| cache\.r5\.large | 14037181030 | 1403718103 | 1403718103 | 
+| cache\.r5\.xlarge | 28261849702 | 2826184970 | 2826184970 | 
+| cache\.r5\.2xlarge | 56711183565 | 5671118356 | 5671118356 | 
+| cache\.r5\.4xlarge | 113609865216 | 11360986522 | 11360986522 | 
+| cache\.r5\.12xlarge | 341206346547 | 34120634655 | 34120634655 | 
+| cache\.r5\.24xlarge | 682485973811 | 68248597381 |  | 
 
 **Note**  
 T1 instances do not support Multi\-AZ with automatic failover\.  
 T1 and T2 instances do not support Redis AOF\.  
 All T2 instances are created in an Amazon Virtual Private Cloud \(Amazon VPC\)\.  
-T2 instances do not support Redis backup/restore\.  
 T2 instances support Multi\-AZ with automatic failover only when running Redis \(cluster mode enabled\)\.
