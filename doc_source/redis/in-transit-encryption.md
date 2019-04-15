@@ -103,7 +103,7 @@ Use the AWS CLI operation `create-replication-group` and the following parameter
 + **\-\-engine\-version**—Must be 3\.2\.6, 4\.0\.10 or later\.
 + **\-\-transit\-encryption\-enabled**—Required\. If you enable in\-transit encryption you must also provide a value for the `--cache-subnet-group` parameter\.
 + Use one of the following parameter sets to specify the configuration of the replication group's node groups:
-  + **\-\-num\-node\-groups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 15\.
+  + **\-\-num\-node\-groups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 90\.
 
     **\-\-replicas\-per\-node\-group**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **\-\-node\-group\-configuration**—Specifies the configuration of each shard independently\.
@@ -145,7 +145,7 @@ Use the ElastiCache API operation `CreateReplicationGroup` and the following par
 
   When `TransitEncryptionEnabled` is set to `true`, you must also provide a value for `CacheSubnetGroup`\.
 + Use one of the following parameter sets to specify the configuration of the replication group's node groups:
-  + **NumNodeGroups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 15\.
+  + **NumNodeGroups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 90 but can be increased to a maximum of 250 via service limit increase request\. For more information, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html?id=docs_gateway)\.
 
     **ReplicasPerNodeGroup**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **NodeGroupConfiguration**—Specifies the configuration of each shard independently\.

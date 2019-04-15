@@ -1,6 +1,8 @@
 # Minimizing Downtime: Multi\-AZ with Automatic Failover<a name="AutoFailover"></a>
 
-In certain cases, such as certain types of planned maintenance, or the unlikely event of a primary node or Availability Zone failure, ElastiCache for Redis will detect and replace the primary node\. This results in some down time for the cluster\. If you have Multi\-AZ with automatic failover enabled on the cluster the down time is minimized because the role of primary node fails over to one of the read replicas rather than having to create and provision a new primary node\. This failure detection and replica promotion ensure that you can resume writing to the new primary as soon as promotion is complete\. 
+In certain cases, ElastiCache for Redis detects and replaces a primary node\. These cases include certain types of planned maintenance and the unlikely event of a primary node or Availability Zone failure\. 
+
+This replacement results in some downtime for the cluster\. If you have Multi\-AZ with automatic failover enabled on the cluster, the downtime is minimized\. In this case, the role of primary node fails over to one of the read replicas\. There's no need to create and provision a new primary node\. This failure detection and replica promotion ensure that you can resume writing to the new primary as soon as promotion is complete\. 
 
 ElastiCache also propagates the Domain Name Service \(DNS\) name of the promoted replica\. It does so because then if your application is writing to the primary endpoint, no endpoint change is required in your application\. However, because you read from individual endpoints, you need to change the read endpoint of the replica promoted to primary to the new replica's endpoint\.
 
@@ -8,7 +10,7 @@ From failure to promotion, failover typically completes within sixty seconds\. T
 
 You can enable Multi\-AZ with Automatic Failover using the ElastiCache Management Console, the AWS CLI, or the ElastiCache API\.
 
-Enabling Amazon ElastiCache's Multi\-AZ with automatic failover functionality on your Redis cluster \(in the API and AWS CLI, replication group\) improves your fault tolerance in those cases where your cluster's read/write primary cluster becomes unreachable or fails for any reason\. Multi\-AZ with automatic failover is only supported on Redis clusters that support replication\.
+Enabling ElastiCache Multi\-AZ with automatic failover on your Redis cluster \(in the API and CLI, replication group\) improves your fault tolerance\. This is true particularly in cases where your cluster's read/write primary cluster becomes unreachable or fails for any reason\. Multi\-AZ with automatic failover is only supported on Redis clusters that support replication\.
 
 **Topics**
 + [Important Notes on Redis Multi\-AZ with Automatic Failover](#AutoFailover.Notes)
@@ -21,34 +23,31 @@ Enabling Amazon ElastiCache's Multi\-AZ with automatic failover functionality on
 The following points should be noted for Redis Multi\-AZ with Automatic Failover:
 + Multi\-AZ with Automatic Failover is supported on Redis version 2\.8\.6 and later\.
 + Redis Multi\-AZ with Automatic Failover is not supported on T1 node types\.
-+ Redis Multi\-AZ with Automatic Failover is supported on T2 node types only if you are running Redis version 3\.2\.4 or later with cluster mode enabled\.
 + Redis replication is asynchronous\. Therefore, when a primary cluster fails over to a replica, a small amount of data might be lost due to replication lag\.
 
-  To minimize the amount of lost data, when choosing the replica to promote to primary, ElastiCache for Redis chooses the replica with the least replication lag \(that is, the one that is most current\)\. The replica with the least replication lag can be in the same or different availability zone from the failed primary node\.
-+ Manually promoting read replicas to primary:
-  + You can only promote a read replica to primary when Multi\-AZ with Automatic Failover is disabled\. 
+  When choosing the replica to promote to primary, ElastiCache for Redis chooses the replica with the least replication lag\. In other words, it chooses the replica that is most current\. Doing so helps minimize the amount of lost data\. The replica with the least replication lag can be in the same or different Availability Zone from the failed primary node\.
++ When you manually promote read replicas to primary, you can only do so when Multi\-AZ with Automatic Failover is disabled\. To promote a read replica to primary, take the following steps:
 
-**To promote a read replica node to primary**
+  1. Disable Multi\-AZ with Automatic Failover on the cluster\.
 
-    1. Disable Multi\-AZ with Automatic Failover on the cluster\.
+  1. Promote the read replica to primary\.
 
-    1. Promote the read replica to primary\.
+  1. Re\-enable Multi\-AZ with Automatic Failover\.
 
-    1. Re\-enable Multi\-AZ with Automatic Failover\.
-  + You cannot disable Multi\-AZ with Automatic Failover on Redis \(cluster mode enabled\) clusters\. Therefore, you cannot manually promote a replica to primary on any Redis \(cluster mode enabled\) cluster\.
+  You cannot disable Multi\-AZ with Automatic Failover on Redis \(cluster mode enabled\) clusters\. Therefore, you cannot manually promote a replica to primary on any Redis \(cluster mode enabled\) cluster\.
 + ElastiCache for Redis Multi\-AZ with Automatic Failover and append\-only file \(AOF\) are mutually exclusive\. If you enable one, you cannot enable the other\.
-+ When a node's failure is caused by the rare event of an entire Availability Zone failing, the replica replacing the failed primary is created only when the Availability Zone is back up\. For example, consider a replication group with the primary in AZ\-a and replicas in AZ\-b and AZ\-c\. If the primary fails, the replica with the least replication lag is promoted to primary cluster\. Then, ElastiCache creates a new replica in AZ\-a \(where the failed primary was located\) only when AZ\-a is back up and available\.
++ A node's failure can be caused by the rare event of an entire Availability Zone failing\. In this case, the replica replacing the failed primary is created only when the Availability Zone is back up\. For example, consider a replication group with the primary in AZ\-a and replicas in AZ\-b and AZ\-c\. If the primary fails, the replica with the least replication lag is promoted to primary cluster\. Then, ElastiCache creates a new replica in AZ\-a \(where the failed primary was located\) only when AZ\-a is back up and available\.
 + A customer\-initiated reboot of a primary does not trigger automatic failover\. Other reboots and failures do trigger automatic failover\.
 + Whenever the primary is rebooted, it is cleared of data when it comes back online\. When the read replicas see the cleared primary cluster, they clear their copy of the data, which causes data loss\.
 + After a read replica has been promoted, the other replicas sync with the new primary\. After the initial sync, the replicas' content is deleted and they sync the data from the new primary, causing a brief interruption during which the replicas are not accessible\. This sync process also causes a temporary load increase on the primary while syncing with the replicas\. This behavior is native to Redis and isn’t unique to ElastiCache Multi\-AZ\. For details regarding this Redis behavior, see [http://redis\.io/topics/replication](http://redis.io/topics/replication)\.
 
 **Important**  
 For Redis version 2\.8\.22 and later, external replicas are not permitted\.
-For Redis versions prior to 2\.8\.22, we recommend that you do not connect an external Redis replica to an ElastiCache Redis cluster that is Multi\-AZ with Automatic Failover enabled\. This is an unsupported configuration that can create issues that prevent ElastiCache from properly performing failover and recovery\. If you need to connect an external Redis replica to an ElastiCache cluster, make sure that Multi\-AZ with Automatic Failover is disabled before you make the connection\.
+For Redis versions before 2\.8\.22, we recommend that you do not connect an external Redis replica to an ElastiCache Redis cluster that is Multi\-AZ with Automatic Failover enabled\. This is an unsupported configuration that can create issues that prevent ElastiCache from properly performing failover and recovery\. If you need to connect an external Redis replica to an ElastiCache cluster, make sure that Multi\-AZ with Automatic Failover is disabled before you make the connection\.
 
 ## Failure Scenarios with Multi\-AZ and Automatic Failover Responses<a name="AutoFailover.Scenarios"></a>
 
-Prior to the introduction of Multi\-AZ with Automatic Failover, ElastiCache detected and replaced a cluster's failed nodes by recreating and reprovisioning the failed node\. By enabling Multi\-AZ with Automatic Failover, a failed primary node fails over to the replica with the least replication lag\. The selected replica is automatically promoted to primary, which is much faster than creating and reprovisioning a new primary node\. This process usually takes just a few seconds until you can write to the cluster again\.
+Before the introduction of Multi\-AZ with Automatic Failover, ElastiCache detected and replaced a cluster's failed nodes by recreating and reprovisioning the failed node\. By enabling Multi\-AZ with Automatic Failover, a failed primary node fails over to the replica with the least replication lag\. The selected replica is automatically promoted to primary, which is much faster than creating and reprovisioning a new primary node\. This process usually takes just a few seconds until you can write to the cluster again\.
 
 When Multi\-AZ with Automatic Failover is enabled, ElastiCache continually monitors the state of the primary node\. If the primary node fails, one of the following actions is performed depending on the nature of the failure\.
 
@@ -293,7 +292,7 @@ When testing, note the following:
 + You can use this operation to test automatic failover on up to five shards \(called node groups in the ElastiCache API and AWS CLI\) in any rolling 24\-hour period\.
 + If you call this operation on shards in different clusters \(called replication groups in the API and CLI\), you can make the calls concurrently\.
 + If you call this operation multiple times on different shards in the same Redis \(cluster mode enabled\) replication group, the first node replacement must complete before a subsequent call can be made\.
-+ To determine whether the node replacement is complete you can check Events using the Amazon ElastiCache console, the AWS CLI, or the ElastiCache API\. Look for the following automatic failover related events, listed here in order of occurrence:
++ To determine whether the node replacement is complete you can check events using the Amazon ElastiCache console, the AWS CLI, or the ElastiCache API\. Look for the following events related to automatic failover, listed here in order of likely occurrence:
 
   1. Replication group message: `Test Failover API called for node group <node-group-id>`
 

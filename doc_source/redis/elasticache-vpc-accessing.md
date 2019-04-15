@@ -72,7 +72,7 @@ A VPC peering connection is a networking connection between two VPCs that enable
 
 1. Make sure that the two VPCs do not have an overlapping IP range or you will not be able to peer them\.
 
-1. Peer the two VPCs\. For more information, see [Creating and Accepting a Amazon VPC Peering Connection](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/create-vpc-peering-connection.html)\.
+1. Peer the two VPCs\. For more information, see [Creating and Accepting an Amazon VPC Peering Connection](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/create-vpc-peering-connection.html)\.
 
 1. Update your routing table\. For more information, see [Updating Your Route Tables for a VPC Peering Connection](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-routing.html)
 

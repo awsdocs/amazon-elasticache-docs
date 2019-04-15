@@ -1,6 +1,6 @@
 # Supported ElastiCache for Redis Versions<a name="supported-engine-versions"></a>
 
-If you enable at\-rest encryption, in\-transit encryption, and Redis AUTH when you create a Redis cluster using ElastiCache for Redis version 3\.2\.6 or 4\.0\.10, you can use Amazon ElastiCache for Redis to build HIPAA\-compliant applications\. You can store healthcare\-related information, including protected health information \(PHI\), under an executed Business Associate Agreement \(BAA\) with AWS\. AWS Services in Scope have been fully assessed by a third\-party auditor and result in a certification, attestation of compliance, or Authority to Operate \(ATO\)\. For more information, see the following topics:
+If you enable at\-rest encryption, in\-transit encryption, and Redis AUTH when you create a Redis cluster using ElastiCache for Redis versions 3\.2\.6, 4\.0\.10 or later, you can use Amazon ElastiCache for Redis to build HIPAA\-compliant applications\. You can store healthcare\-related information, including protected health information \(PHI\), under an executed Business Associate Agreement \(BAA\) with AWS\. AWS Services in Scope have been fully assessed by a third\-party auditor and result in a certification, attestation of compliance, or Authority to Operate \(ATO\)\. For more information, see the following topics:
 + [AWS Cloud Compliance](https://aws.amazon.com/compliance/)
 + [HIPAA Compliance](https://aws.amazon.com/compliance/hipaa-compliance/)
 + [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/)
@@ -9,6 +9,8 @@ If you enable at\-rest encryption, in\-transit encryption, and Redis AUTH when y
 + [Authenticating Users with Redis AUTH](auth.md)
 
 **Topics**
++ [Redis 5\.0\.3 \(Enhanced\)](#redis-version-5-0.3)
++ [Redis 5\.0\.0 \(Enhanced\)](#redis-version-5-0)
 + [Redis 4\.0\.10 \(Enhanced\)](#redis-version-4-0-10)
 + [Redis 3\.2\.10 \(Enhanced\)](#redis-version-3-2-10)
 + [Redis 3\.2\.6 \(Enhanced\)](#redis-version-3-2-6)
@@ -32,6 +34,67 @@ For more information, see the following topics:
 | **Modify Cluster** | [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)  This action cannot be used to create a replication group with cluster mode enabled\.  | [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)  This action cannot be used to create a replication group with cluster mode enabled\. | 
 | **Create Replication Group** | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
+
+## ElastiCache for Redis Version 5\.0\.3 \(Enhanced\)<a name="redis-version-5-0.3"></a>
+
+Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache\. It includes the following enhancements:
++ Bug fixes to improve sorted set edge cases, accurate memory usage and more\. For more information, see [Redis 5\.0\.3 release notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES)\.
++ Ability to rename commands: ElastiCache for Redis 5\.0\.3 includes a new parameter called `rename-commands` that allows you to rename potentially dangerous or expensive Redis commands that may cause accidental data loss, such as `FLUSHALL` or `FLUSHDB`\. This is the similar to the rename\-command configuration in open source Redis\. However, ElastiCache has improved the experience by providing a fully managed workflow\. The command name changes are applied immediately, and automatically propagated across all nodes in the cluster that contain the command list\. There is no intervention required on your part, such as rebooting nodes\. 
+
+  The following examples demonstrate how to modify existing parameter groups\. They include the `rename-commands` parameter, which is a space\-separated list of commands you want to rename:
+
+   
+
+  ```
+  aws elasticache modify-cache-parameter-group --cache-parameter-group-name custom_param_group
+  --parameter-name-values "ParameterName=rename-commands,  ParameterValue='flushall restrictedflushall'" --region region
+  ```
+
+  In this example, the *rename\-commands* parameter is used to rename the `flushall` command to `restrictedflushall`\.
+
+  To rename multiple commands, use the following:
+
+  ```
+  aws elasticache modify-cache-parameter-group --cache-parameter-group-name custom_param_group
+  --parameter-name-values "ParameterName=rename-commands,  ParameterValue='flushall restrictedflushall flushdb restrictedflushdb''" --region region
+  ```
+
+  To revert any change, re\-run the command and exclude any renamed values from the `ParameterValue` list that you want to retain, as shown following:
+
+  ```
+  aws elasticache modify-cache-parameter-group --cache-parameter-group-name custom_param_group
+  --parameter-name-values "ParameterName=rename-commands,  ParameterValue='flushall restrictedflushall'" --region region
+  ```
+
+  In this case, the `flushall` command will be renamed to `restrictedflushall` and any other renamed commands will revert to their original command names\.
+**Note**  
+When renaming commands, you are restricted to the following limitations:  
+All renamed commands should be alphanumeric\.
+The maximum length of new command names is 20 alphanumeric characters\.
+When renaming commands, ensure that you update the parameter group associated with your cluster\.
+To prevent a command's use entirely, use the keyword `blocked`, as shown following:  
+
+    ```
+    aws elasticache modify-cache-parameter-group --cache-parameter-group-name custom_param_group
+    --parameter-name-values "ParameterName=rename-commands,  ParameterValue='flushall blocked'" --region region
+    ```
+
+  For more information on the parameter changes and a list of what commands are eligible for renaming, see [Redis 5\.0\.3 Parameter Changes](ParameterGroups.Redis.md#ParameterGroups.Redis.5-0-3)\.
+
+## ElastiCache for Redis Version 5\.0\.0 \(Enhanced\)<a name="redis-version-5-0"></a>
+
+Amazon ElastiCache for Redis introduces the next major version of the Redis engine supported by Amazon ElastiCache\. ElastiCache for Redis 5\.0\.0 brings support for the following improvements:
++ Redis Streams: This models a log data structure that allows producers to append new items in real time and also allows consumers to consume messages either in a blocking or non\-blocking fashion\. Streams also allow consumer groups, which represent a group of clients to cooperatively consume different portions of the same stream of messages, similar to [Apache Kafka](https://kafka.apache.org/documentation/)\. For more information, see [Introduction to Redis Streams](https://redis.io/topics/streams-intro)\.
++ Support for a family of stream commands, such as `XADD`, `XRANGE` and `XREAD`\. For more information, see [Redis Streams Commands](https://redis.io/commands#stream)\.
++ A number of new and renamed parameters\. For more information, see [Redis 5\.0\.0 Parameter Changes](ParameterGroups.Redis.md#ParameterGroups.Redis.5.0)\.
++ A new Redis metric, `StreamBasedCmds`\.
++ Slightly faster snapshot time for Redis nodes\.
+
+**Important**  
+Amazon ElastiCache for Redis has back\-ported two critical bug fixes from [Redis open source version 5\.0\.1](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES)\. They are listed following:   
+RESTORE mismatch reply when certain keys have already expired\.
+The `XCLAIM` command could potentially return a wrong entry or desynchronized the protocol\.
+To emphasize, both of these bug fixes are included in ElastiCache for Redis support for Redis engine version 5\.0\.0 and will be consumed in future version updates\.
 
 ## ElastiCache for Redis Version 4\.0\.10 \(Enhanced\)<a name="redis-version-4-0-10"></a>
 
@@ -69,7 +132,7 @@ For more information, see:
 Amazon ElastiCache for Redis introduces the next major version of the Redis engine supported by Amazon ElastiCache\. ElastiCache for Redis 3\.2\.6 users have all the functionality of earlier Redis versions plus the option to encrypt their data\. For more information, see:
 + [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)
 + [ElastiCache for Redis At\-Rest Encryption](at-rest-encryption.md)
-+ [ElastiCache for Redis HIPAA Compliance](elasticache-compliance.md#elasticache-compliance-hipaa)
++ [HIPAA Compliance in ElastiCache for Redis](elasticache-compliance.md#elasticache-compliance-hipaa)
 
 ## ElastiCache for Redis Version 3\.2\.4 \(Enhanced\)<a name="redis-version-3-2-4"></a>
 
@@ -80,7 +143,7 @@ Amazon ElastiCache for Redis version 3\.2\.4 introduces the next major version o
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html)
 
 **Notes:**
-+ **Partitioning** – the ability to split your data across 2 to 15 node groups \(shards\) with replication support for each node group\.
++ **Partitioning** – the ability to split your data across 2 to 90 node groups \(shards\) with replication support for each node group\.
 + **Geospatial indexing** – Redis 3\.2\.4 introduces support for geospatial indexing via six GEO commands\. For more information, see the Redis GEO\* command documentation [Redis Commands: GEO](http://redis.io/commands#geo) on the Redis Commands page \(filtered for GEO\)\.
 
 For information about additional Redis 3 features, see [Redis 3\.2 release notes](https://raw.githubusercontent.com/antirez/redis/3.2/00-RELEASENOTES) and [Redis 3\.0 release notes](https://raw.githubusercontent.com/antirez/redis/3.0/00-RELEASENOTES)\.

@@ -139,7 +139,7 @@ For additional information, see [Bucket Restrictions and Limitations](https://do
         ```
 
          
-      + AWS GovCloud \(US\) Region: 
+      + AWS GovCloud \(US\-West\) Region: 
 
         ```
         40fa568277ad703bd160f66ae4f83fc9dfdfd06c2f1b5060ca22442ac3ef8be6

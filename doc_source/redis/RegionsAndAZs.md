@@ -1,8 +1,8 @@
 # Choosing Regions and Availability Zones<a name="RegionsAndAZs"></a>
 
-AWS cloud computing resources are housed in highly available data center facilities\. To provide additional scalability and reliability, these data center facilities are located in different physical locations\. These locations are categorized by *regions* and *Availability Zones*\.
+AWS Cloud computing resources are housed in highly available data center facilities\. To provide additional scalability and reliability, these data center facilities are located in different physical locations\. These locations are categorized by *regions* and *Availability Zones*\.
 
-Regions are large and widely dispersed into separate geographic locations\. Availability Zones are distinct locations within a region that are engineered to be isolated from failures in other Availability Zones and provide inexpensive, low latency network connectivity to other Availability Zones in the same region\.
+AWS Regions are large and widely dispersed into separate geographic locations\. Availability Zones are distinct locations within an AWS Region that are engineered to be isolated from failures in other Availability Zones\. They provide inexpensive, low\-latency network connectivity to other Availability Zones in the same AWS Region\.
 
 **Important**  
 Each region is completely independent\. Any ElastiCache activity you initiate \(for example, creating clusters\) runs only in your current default region\.
@@ -19,7 +19,7 @@ To create or work with a cluster in a specific region, use the corresponding reg
 
 ## Supported Regions & Endpoints<a name="SupportedRegions"></a>
 
-Amazon ElastiCache is available in multiple regions so that you can launch ElastiCache clusters in locations that meet your requirements, such as launching in the region closest to your customers or to meet certain legal requirements\.
+Amazon ElastiCache is available in multiple AWS Regions\. This means that you can launch ElastiCache clusters in locations that meet your requirements\. For example, you can launch in the AWS Region closest to your customers, or launch in a particular AWS Region to meet certain legal requirements\.
 
 By default, the AWS SDKs, AWS CLI, ElastiCache API, and ElastiCache console reference the US\-West \(Oregon\) region\. As ElastiCache expands availability to new regions, new endpoints for these regions are also available to use in your HTTP requests, the AWS SDKs, AWS CLI, and the console\.
 

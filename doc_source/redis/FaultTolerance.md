@@ -22,10 +22,10 @@ To mitigate the impact of Redis node failures, you have the following options:
 
 When AOF is enabled for Redis, whenever data is written to your Redis cluster, a corresponding transaction record is written to a Redis append only file \(AOF\)\. If your Redis process restarts, ElastiCache creates a replacement cluster and provisions it\. You can then run the AOF against the cluster to repopulate it with data\.
 
-Some of the shortcomings of using Redis AOF to mitigate cluster failures are:
-+ It is time consuming\.
+Some of the shortcomings of using Redis AOF to mitigate cluster failures are the following:
++ It is time\-consuming\.
 
-  Creating and provisioning a cluster can take several minutes\. Depending upon the size of the AOF, running it against the cluster will add even more time during which your application cannot access your cluster for data, forcing it to hit the database directly\.
+  Creating and provisioning a cluster can take several minutes\. Depending on the size of the AOF, running it against the cluster adds even more time when your application can't access your cluster for data\. This forces your application to hit the database directly\.
 
    
 + The AOF can get big\.
@@ -33,9 +33,9 @@ Some of the shortcomings of using Redis AOF to mitigate cluster failures are:
   Because every write to your cluster is written to a transaction record, AOFs can become very large, larger than the \.rdb file for the dataset in question\. Because ElastiCache relies on the local instance store, which is limited in size, enabling AOF can cause out\-of\-disk\-space issues\. You can avoid out\-of\-disk\-space issues by using a replication group with Multi\-AZ enabled\.
 
    
-+ Using AOF cannot protect you from all failure scenarios\.
++ Using AOF can't protect you from all failure scenarios\.
 
-  For example, if a node fails due to a hardware fault in an underlying physical server, ElastiCache will provision a new node on a different server\. In this case, the AOF is not available and cannot be used to recover the data\.
+  For example, if a node fails due to a hardware fault in an underlying physical server, ElastiCache will provision a new node on a different server\. In this case, the AOF is not available and can't be used to recover the data\.
 
 For more information, see [ElastiCache for Redis Append Only Files \(AOF\)](RedisAOF.md)\.
 
@@ -86,7 +86,7 @@ For more information, see [Minimizing Downtime: Multi\-AZ with Automatic Failove
 
 1. When the sync is finished, the new node functions as the cluster's Primary node\.
 
-During this process, steps 1 through 4, your application cannot write to the Primary node\. However, your application can continue reading from your replica nodes\.
+During this process, steps 1 through 4, your application can't write to the Primary node\. However, your application can continue reading from your replica nodes\.
 
 For added protection, we recommend that you launch the nodes in your replication group in different Availability Zones \(AZs\)\. If you do this, an AZ failure will only impact the nodes in that AZ and not the others\.
 
@@ -110,13 +110,13 @@ There are two types of failures you need to plan for, individual node failures a
 
 ### Minimizing the Impact of Failures<a name="FaultTolerance.Recommendations.NodeFailure"></a>
 
-To minimize the impact of a node failure, we recommend that your implementation use multiple nodes in each shard and distribute the nodes across multiple availability zones\.
+To minimize the impact of a node failure, we recommend that your implementation use multiple nodes in each shard and distribute the nodes across multiple Availability Zones\.
 
 When running Redis, we recommend that you enable Multi\-AZ on your replication group so that ElastiCache will automatically fail over to a replica if the primary node fails\.
 
 ### Minimizing the Impact of Availability Zone Failures<a name="FaultTolerance.Recommendations.AZFailure"></a>
 
-To minimize the impact of an availability zone failure, we recommend launching your nodes in as many different availability zones as are available\. Spreading your nodes evenly across AZs will minimize the impact in the unlikely event of an AZ failure\.
+To minimize the impact of an Availability Zone failure, we recommend launching your nodes in as many different Availability Zones as are available\. Spreading your nodes evenly across AZs will minimize the impact in the unlikely event of an AZ failure\.
 
 ### Other precautions<a name="FaultTolerance.Recommendations.Other"></a>
 

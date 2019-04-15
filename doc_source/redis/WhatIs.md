@@ -13,8 +13,8 @@ Existing applications that use Redis can use ElastiCache with almost no modifica
 ElastiCache for Redis has multiple features to enhance reliability for critical production deployments:
 + Automatic detection and recovery from cache node failures\.
 + Multi\-AZ with automatic failover of a failed primary cluster to a read replica in Redis clusters that support replication\.
-+ Redis \(cluster mode enabled\) supports partitioning your data across up to 15 shards\.
-+ Redis version 3\.2\.6 supports in\-transit and at\-rest encryption with authentication so you can build HIPAA\-compliant applications\.
++ Redis \(cluster mode enabled\) supports partitioning your data across up to 90 shards\.
++ Starting with Redis version 3\.2\.6, all subsuquent supported versions support in\-transit and at\-rest encryption with authentication so you can build HIPAA\-compliant applications\. 
 + Flexible Availability Zone placement of nodes and clusters for increased fault tolerance\.
 + Integration with other AWS services such as Amazon EC2, Amazon CloudWatch, AWS CloudTrail, and Amazon SNS to provide a secure, high\-performance, managed in\-memory caching solution\.
 

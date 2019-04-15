@@ -14,6 +14,11 @@ On the surface, the engines look similar\. Each of them is an in\-memory key\-va
 + You need to cache objects, such as a database\.
 
 **Choose Redis with a version of ElastiCache for Redis if the following apply for you:**
++ **ElastiCache for Redis version 5\.0\.0 \(Enhanced\)**
+
+  You want to use [ Redis streams](https://redis.io/topics/streams-intro), a log data structure that allows producers to append new items in real time and also allows consumers to consume messages either in a blocking or non\-blocking fashion\.
+
+  For more information, see [Redis Version 5\.0\.0 \(Enhanced\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html#redis-version-5-0)\.
 + **ElastiCache for Redis version 4\.0\.10 \(Enhanced\)**
 
   Supports both encryption and dynamically adding or removing shards from your Redis \(cluster mode enabled\) cluster\.
@@ -40,7 +45,7 @@ Currently ElastiCache for Redis 3\.2\.10 doesn't support encryption\.
 + **ElastiCache for Redis \(Cluster mode enabled\) version 3\.2\.4**
 
   If you need the functionality of Redis 2\.8\.x plus the following features, choose Redis 3\.2\.4 \(clustered mode\):
-  + You need to partition your data across two to 15 node groups \(clustered mode only\)\.
+  + You need to partition your data across two to 90 node groups \(clustered mode only\)\.
   + You need geospatial indexing \(clustered mode or non\-clustered mode\)\.
   + You don't need to support multiple databases\.
 **Important**  

@@ -22,7 +22,7 @@ The following diagram and table describe the Amazon VPC environment, along with 
 
 |  |  | 
 | --- |--- |
-|  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/callouts/1.png)  |  The Amazon VPC is an isolated portion of the AWS cloud that is assigned its own block of IP addresses\.  | 
+|  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/callouts/1.png)  |  The Amazon VPC is an isolated portion of the AWS Cloud that is assigned its own block of IP addresses\.  | 
 |  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/callouts/2.png)  |  An Internet gateway connects your Amazon VPC directly to the Internet and provides access to other AWS resources such as Amazon Simple Storage Service \(Amazon S3\) that are running outside your Amazon VPC\.  | 
 |  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/callouts/3.png)  |  An Amazon VPC subnet is a segment of the IP address range of an Amazon VPC where you can isolate AWS resources according to your security and operational needs\.  | 
 |  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/callouts/4.png)  |  A routing table in the Amazon VPC directs network traffic between the subnet and the Internet\. The Amazon VPC has an implied router, which is symbolized in this diagram by the circle with the R\.  | 
@@ -48,7 +48,7 @@ For a comparison of Amazon EC2 Classic, Default VPC, and Non\-default VPC, see [
 
 ## Prerequisites<a name="ElastiCacheAndVPC.Prereqs"></a>
 
-In order to create an ElastiCache cluster within an Amazon VPC, your Amazon VPC must meet the following requirements:
+To create an ElastiCache cluster within an Amazon VPC, your Amazon VPC must meet the following requirements:
 + The Amazon VPC must allow nondedicated Amazon EC2 instances\. You cannot use ElastiCache in an Amazon VPC that is configured for dedicated instance tenancy\.
 + A cache subnet group must be defined for your Amazon VPC\. ElastiCache uses that cache subnet group to select a subnet and IP addresses within that subnet to associate with your cache nodes\.
 + A cache security group must be defined for your Amazon VPC, or you can use the default provided\.

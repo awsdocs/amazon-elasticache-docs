@@ -37,7 +37,7 @@ If you are planning to delete the cluster and it’s important to preserve the d
 
 The following constraints should be considered when planning or making backups:
 + At this time, backup and restore are supported only for clusters running on Redis\.
-+ For Redis \(cluster mode disabled\) clusters, backup and restore are not supported on `cache.t1.micro` or `cache.t2.*` nodes\. All other cache node types are supported\.
++ For Redis \(cluster mode disabled\) clusters, backup and restore are not supported on `cache.t1.micro` nodes\. All other cache node types are supported\.
 + For Redis \(cluster mode enabled\) clusters, backup and restore are supported for all node types\.
 + During any contiguous 24\-hour period, you can create no more than 20 manual backups per node in the cluster\.
 + Redis \(cluster mode enabled\) only supports taking backups on the cluster level \(for the API or CLI, the replication group level\), not at the shard level \(for the API or CLI, the node group level\)\.
@@ -57,7 +57,7 @@ Redis backups, in versions 2\.8\.22 and later, choose between two backup methods
 
 If the write load is high during a forkless backup, writes to the cache are delayed to ensure that you don't accumulate too many changes and thus prevent a successful backup\.
 
-### Backups when running Redis versions prior to 2\.8\.22<a name="w4aac20c37c25b7"></a>
+### Backups when running Redis versions before 2\.8\.22<a name="w4aac20c37c25b7"></a>
 
 Backups are created using Redis' native BGSAVE operation: The Redis process on the cache node spawns a child process to write all the data from the cache to a Redis \.rdb file\. It can take up to ten seconds to spawn the child process, and during this time the parent process is unable to accept incoming application requests\. After the child process is running independently, the parent process resumes normal operations\. The child process exits when the backup operation is complete\. 
 
