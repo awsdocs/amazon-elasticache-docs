@@ -3,6 +3,7 @@
 If you do not specify a parameter group for your Memcached cluster, then a default parameter group appropriate to your engine version will be used\. You cannot change the values of any parameters in a default parameter group; however, you can create a custom parameter group and assign it to your cluster at any time\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
 
 **Topics**
++ [Memcached 1\.5\.10 Parameter Changes](#ParameterGroups.Memcached.1-5-10)
 + [Memcached 1\.4\.34 Added Parameters](#ParameterGroups.Memcached.1-4-34)
 + [Memcached 1\.4\.33 Added Parameters](#ParameterGroups.Memcached.1-4-33)
 + [Memcached 1\.4\.24 Added Parameters](#ParameterGroups.Memcached.1-4-24)
@@ -10,6 +11,26 @@ If you do not specify a parameter group for your Memcached cluster, then a defau
 + [Memcached 1\.4\.5 Supported Parameters](#ParameterGroups.Memcached.1-4-5)
 + [Memcached Connection Overhead](#ParameterGroups.Memcached.Overhead)
 + [Memcached Node\-Type Specific Parameters](#ParameterGroups.Memcached.NodeSpecific)
+
+## Memcached 1\.5\.10 Parameter Changes<a name="ParameterGroups.Memcached.1-5-10"></a>
+
+For Memcached 1\.5\.10, the following additional parameters are supported\.
+
+**Parameter group family:** memcached1\.5
+
+
+| Name | Details | Description | 
+| --- | --- | --- | 
+| no\_modern  | Default: 0 Type: boolean Modifiable: Yes Allowed\_Values: 0,1 Changes Take Effect: At launch  |  An alias for disabling `slab_reassign`, `slab_automove`, `lru_crawler`, `lru_maintainer`, `maxconns_fast` commands\. `No modern` also sets the hash\_algorithm to `jenkins` and allows inlining of ASCII VALUE\. Applicable to memcached 1\.5 and higher\. To revert to `modern`, which is now the default, you must re\-launch\. | 
+| inline\_ascii\_resp  | Default: 0 Type: boolean Modifiable: Yes Allowed\_Values: 0,1 Changes Take Effect: At launch  |  Stores numbers from `VALUE` response, inside an item, using up to 24 bytes\. Small slowdown for ASCII `get`, `faster` sets\.  | 
+
+For Memcached 1\.5\.10, the following parameters are removed\.
+
+
+| Name | Details | Description | 
+| --- | --- | --- | 
+| expirezero\_does\_not\_evict  | Default: 0 Type: boolean Modifiable: Yes Allowed\_Values: 0,1 Changes Take Effect: At launch  |  No longer supported in this version\. | 
+| modern  | Default: 1 Type: boolean Modifiable: Yes \(requires re\-launch if set to `no-modern`\) Allowed\_Values: 0,1 Changes Take Effect: At launch  |  No longer supported in this version\. Starting with this version, `modern` is enabled by default with every launch or re\-launch\.  | 
 
 ## Memcached 1\.4\.34 Added Parameters<a name="ParameterGroups.Memcached.1-4-34"></a>
 

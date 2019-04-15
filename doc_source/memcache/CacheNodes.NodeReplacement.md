@@ -2,7 +2,7 @@
 
 Amazon ElastiCache for Memcached frequently upgrades its fleet with patches and upgrades being applied to instances seamlessly\. However, from time to time we need to relaunch your ElastiCache for Memcached nodes to apply mandatory OS updates to the underlying host\. These replacements are required to apply upgrades that strengthen security, reliability, and operational performance\.
 
-You have the option to manage these replacements yourself at any time prior to the scheduled node replacement window\. When you manage a replacement yourself, your instance will receive the OS update when you relaunch the node and your scheduled node replacement will be cancelled\. You may continue to receive alerts indicating that the node replacement will take place\. If you've already manually mitigated the need for the maintenance, you can ignore these alerts\.
+You have the option to manage these replacements yourself at any time before the scheduled node replacement window\. When you manage a replacement yourself, your instance will receive the OS update when you relaunch the node and your scheduled node replacement will be cancelled\. You may continue to receive alerts indicating that the node replacement will take place\. If you've already manually mitigated the need for the maintenance, you can ignore these alerts\.
 
 The following list identifies actions you can take when ElastiCache schedules one of your Memcached nodes for replacement\.
 + **Do nothing** – If you do nothing, ElastiCache will replace the node as scheduled\. When ElastiCache automatically replaces the node with a new node, the new node is initially empty\.

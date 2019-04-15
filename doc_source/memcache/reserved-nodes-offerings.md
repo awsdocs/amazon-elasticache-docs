@@ -2,7 +2,7 @@
 
 Before you purchase reserved nodes, you can get information about available reserved node offerings\. 
 
-The following exampleS show how to get pricing and information about available reserved node offerings using the AWS Management Console, AWS CLI, and ElastiCache API\. 
+The following examples show how to get pricing and information about available reserved node offerings using the AWS Management Console, AWS CLI, and ElastiCache API\. 
 
 **Topics**
 + [Using the AWS Management Console](#reserved-nodes-offerings-console)
@@ -11,7 +11,7 @@ The following exampleS show how to get pricing and information about available r
 
 ## Getting Info About Reserved Node Offerings \(Console\)<a name="reserved-nodes-offerings-console"></a>
 
-To get pricing and other information about available reserved cluster offerings using the AWS Management Console, follow the steps in the follwing procedure\.
+To get pricing and other information about available reserved cluster offerings using the AWS Management Console, use the following procedure\.
 
 **To get information about available reserved node offerings**
 
@@ -21,16 +21,16 @@ To get pricing and other information about available reserved cluster offerings 
 
 1. Choose **Purchase Reserved Cache Node**\.
 
-1. From the **Product Description** drop down list box, choose Memcached\.
+1. For **Product Description**, choose Memcached\.
 
-1. To determine the available offerings, make selections from the next 3 drop down list boxes:
+1. To determine the available offerings, make selections for the next three lists:
    + **Cache Node Type**
    + **Term**
    + **Offering Type**
 
    After you make these selections, the cost per node and total cost of your selections is shows in the **Purchase Reserved Cache Nodes** wizard\.
 
-1.  Choose **Cancel** to avoid purchasing these nodes and incurring charges\. 
+1. Choose **Cancel** to avoid purchasing these nodes and incurring charges\. 
 
 ## Getting Info About Reserved Node Offerings \(AWS CLI\)<a name="reserved-nodes-offerings-cli"></a>
 

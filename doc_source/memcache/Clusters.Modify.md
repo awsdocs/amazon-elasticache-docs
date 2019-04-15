@@ -4,7 +4,7 @@ In addition to adding or removing nodes from a cluster, there can be times where
 
 We recommend that you have your maintenance window fall at the time of lowest usage\. Thus it might need modification from time to time\.
 
-When you make a change to a cluster's parameters, either by changing the cluster's parameter group or by changing a parameter value in the cluster's parameter group, the changes are applied to the cluster either immediately or after the cluster is restarted\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Memcached Specific Parameters](ParameterGroups.Memcached.md) and  \. For information on rebooting a cluster, see [Rebooting a Cluster](Clusters.Rebooting.md)\.
+When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Memcached Specific Parameters](ParameterGroups.Memcached.md) and  \. For information on rebooting a cluster, see [Rebooting a Cluster](Clusters.Rebooting.md)\.
 
 ## Using the AWS Management Console<a name="Clusters.Modify.CON"></a>
 
@@ -26,7 +26,7 @@ When you make a change to a cluster's parameters, either by changing the cluster
 
 1. In the **Modify Cluster** window, make the modification\(s\) you want\.
 **Important**  
-You can upgrade to newer engine versions \(see [Upgrading Engine Versions](VersionManagement.md)\), but you cannot downgrade to older engine versions except by deleting the existing cluster and creating it anew\.
+You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
    The **Apply Immediately** box applies only to engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, engine version modifications will be applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
 
@@ -37,7 +37,7 @@ You can upgrade to newer engine versions \(see [Upgrading Engine Versions](Versi
 You can modify an existing cluster using the AWS CLI `modify-cache-cluster` operation\. To modify a cluster's configuration value, specify the cluster's ID, the parameter to change and the parameter's new value\. The following example changes the maintenance window for a cluster named `my-cluster` and applies the change immediately\.
 
 **Important**  
-You can upgrade to newer engine versions \(see [Upgrading Engine Versions](VersionManagement.md)\), but you cannot downgrade to older engine versions except by deleting the existing cluster and creating it anew\.
+You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
 For Linux, macOS, or Unix:
 
@@ -64,7 +64,7 @@ For more information, see the AWS CLI for ElastiCache topic [https://docs.aws.am
 You can modify an existing cluster using the ElastiCache API `ModifyCacheCluster` operation\. To modify a cluster's configuration value, specify the cluster's ID, the parameter to change and the parameter's new value\. The following example changes the maintenance window for a cluster named `my-cluster` and applies the change immediately\.
 
 **Important**  
-You can upgrade to newer engine versions \(see [Upgrading Engine Versions](VersionManagement.md)\), but you cannot downgrade to older engine versions except by deleting the existing cluster and creating it anew\.
+You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
 Line breaks are added for ease of reading\.
 

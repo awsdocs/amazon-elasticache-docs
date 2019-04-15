@@ -51,7 +51,7 @@ In each of these cases, the metadata is consistent among all the nodes at all ti
 
 ### Adding a Node<a name="AutoDiscovery.HowAutoDiscoveryWorks.OtherOps.AddNode"></a>
 
-During the time that the node is being spun up, its endpoint is not included in the metadata\. As soon as the node is available, it is added to the metadata of each of the cluster’s nodes\. In this scenario, the metadata is consistent among all the nodes and you will be able to interact with the new node only after it is available\. Prior to the node being available, you will not know about it and will interact with the nodes in your cluster the same as though the new node does not exist\.
+During the time that the node is being spun up, its endpoint is not included in the metadata\. As soon as the node is available, it is added to the metadata of each of the cluster’s nodes\. In this scenario, the metadata is consistent among all the nodes and you will be able to interact with the new node only after it is available\. Before the node being available, you will not know about it and will interact with the nodes in your cluster the same as though the new node does not exist\.
 
 ### Deleting a Node<a name="AutoDiscovery.HowAutoDiscoveryWorks.OtherOps.DelNode"></a>
 

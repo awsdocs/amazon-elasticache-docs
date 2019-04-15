@@ -15,7 +15,7 @@ Knowing the answers to these questions before you begin will expedite creating y
 + Will you launch your cluster in a VPC or an Amazon VPC? 
 **Important**  
 If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group in the same VPC before you start creating a cluster\. For more information, see [Subnets and Subnet Groups](SubnetGroups.md)\.  
-An advantage of launching in a Amazon VPC is that, though ElastiCache is designed to be accessed from within AWS using Amazon EC2, if your cluster is in an Amazon VPC you can provide access from outside AWS\. For more information, see [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)\.
+ElastiCache is designed to be accessed from within AWS using Amazon EC2\. However, if you launch in a VPC based on Amazon VPC and your cluster is in an VPC, you can provide access from outside AWS\. For more information, see [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)\.
 + Do you need to customize any parameter values?
 
   If you do, you need to create a custom Parameter Group\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.

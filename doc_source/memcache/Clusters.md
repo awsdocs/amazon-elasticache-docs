@@ -14,7 +14,7 @@ Every cluster must have a cluster identifier\. The cluster identifier is a custo
 
 ElastiCache supports multiple engine versions\. Unless you have specific reasons, we recommend always using the your engine's latest version\.
 
-ElastiCache clusters are designed to be accessed via an Amazon EC2 instance\. If you launch your cluster in an Amazon VPC, you can access if from outside AWS\. For more information, see:
+ElastiCache clusters are designed to be accessed by using an Amazon EC2 instance\. If you launch your cluster in a VPC based on the Amazon VPC service, you can access it from outside AWS\. For more information, see the following:
 + [Step 2: Authorize Access](GettingStarted.AuthorizeAccess.md)
 + [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)
 

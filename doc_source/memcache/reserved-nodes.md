@@ -7,14 +7,31 @@ You can use the AWS Management Console, the AWS CLI, or the ElastiCache API to l
 For more information on reserved nodes, see [Amazon ElastiCache Reserved Cache Nodes](https://aws.amazon.com/elasticache/reserved-cache-nodes/)\.
 
 **Topics**
-+ [Understanding Utilization Levels](#reserved-nodes-utilization)
++ [Standard Reserved Node Cache Offerings](#reserved-nodes-standard)
++ [Legacy Reserved Node Cache Offerings](#reserved-nodes-utilization)
 + [Getting Info About Reserved Node Offerings](reserved-nodes-offerings.md)
 + [Purchasing a Reserved Node](reserved-nodes-purchasing.md)
 + [Getting Info About Your Reserved Nodes](reserved-nodes-describing.md)
 
-## Understanding Utilization Levels<a name="reserved-nodes-utilization"></a>
+## Standard Reserved Node Cache Offerings<a name="reserved-nodes-standard"></a>
 
-There are three levels of node reservations – Heavy Utilization, Medium Utilization, and Light Utilization\. Nodes can be reserved at any utilization level for either 1 or 3 years\. The node type, utilization level, and reservation term will impact your total costs\. You should verify the savings that reserved nodes can provide your business by comparing various models before you purchase reserved nodes\.
+When you purchase a standard reserved node instance \(RI\) in Amazon ElastiCache, you purchase a commitment to getting a discounted rate on a specific cache node instance type and region for the duration of the reserved node instance\. To use an Amazon ElastiCache reserved node instance, you create a new ElastiCache node instance, just as you would for an on\-demand instance\.
+
+ The new node instance that you create must exactly match the specifications of the reserved node instance\. If the specifications of the new node instance match an existing reserved node instance for your account, you are billed at the discounted rate offered for the reserved node instance\. Otherwise, the node instance is billed at an on\-demand rate\. These standard RIs are available from R5 and M5 instance families onwards\. 
+
+**Note**  
+All three offering types discussed next are available in one\-year and three\-year terms\.
+
+**Offering Types**  
+**No Upfront ** RI provides access to a reserved ElastiCache instance without requiring an upfront payment\. Your *No Upfront* reserved ElastiCache instance bills a discounted hourly rate for every hour within the term, regardless of usage\. 
+
+**Partial Upfront** RI requires a part of the reserved ElasticCache instance to be paid upfront\. The remaining hours in the term are billed at a discounted hourly rate, regardless of usage\. This option is the replacement for the legacy *Heavy Utilization* option, which is explained in the next section\.
+
+**All Upfront** RI requires full payment to be made at the start of the RI term, with no other costs incurred for the remainder of the term, regardless of the number of hours used\. 
+
+## Legacy Reserved Node Cache Offerings<a name="reserved-nodes-utilization"></a>
+
+There are three levels of legacy node reservations – Heavy Utilization, Medium Utilization, and Light Utilization\. Nodes can be reserved at any utilization level for either 1 or 3 years\. The node type, utilization level, and reservation term will impact your total costs\. You should verify the savings that reserved nodes can provide your business by comparing various models before you purchase reserved nodes\.
 
 Nodes purchased at one utilization level or term cannot be converted to a different utilization level or term\.
 
@@ -26,7 +43,7 @@ Nodes purchased at one utilization level or term cannot be converted to a differ
 *Light Utilization reserved nodes* are ideal for periodic workloads that run only a couple of hours a day or a few days per week\. Using Light Utilization reserved nodes, you pay a one\-time fee followed by a discounted hourly usage fee when your node is running\. You can start saving when your node is running more than 17 percent of the reserved node term, and you can save up to 56 percent off of the On\-Demand rates over the entire term of your reserved node\.
 
 
-**Reserved Cache Node Offerings**  
+**Legacy Reserved Cache Node Offerings**  
 
 | Offering | Up\-Front Cost | Usage Fee | Advantage | 
 | --- | --- | --- | --- | 

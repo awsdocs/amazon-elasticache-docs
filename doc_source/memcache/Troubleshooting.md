@@ -25,7 +25,7 @@ We recommend the following processes to diagnose and resolve problems with the E
   To do this, simply open a browser window and submit a query request to the ElastiCache service \(such as https://elasticache\.amazonaws\.com\)\. A MissingAuthenticationTokenException or 500 Internal Server Error confirms that the service is available and responding to requests\.
 + Check the structure of your request\.
 
-  Each ElastiCache operation has a reference page in the *ElastiCache API Reference*\. Double\-check that you are using parameters correctly\. In order to give you ideas regarding what might be wrong, look at the sample requests or user scenarios to see if those examples are doing similar operations\.
+  Each ElastiCache operation has a reference page in the *ElastiCache API Reference*\. Double\-check that you are using parameters correctly\. To give you ideas regarding what might be wrong, look at the sample requests or user scenarios to see if those examples are doing similar operations\.
 + Check the forum\.
 
   ElastiCache has a discussion forum where you can search for solutions to problems others have experienced along the way\. To view the forum, see 
