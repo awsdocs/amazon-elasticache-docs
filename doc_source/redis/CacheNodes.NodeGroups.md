@@ -15,6 +15,4 @@ When you create a Redis \(cluster mode enabled\) cluster, you specify from 1 to 
 **Note**  
 The node or shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and select limit type "Nodes per cluster per instance type”\. 
 
- Currently, however, unlike Redis \(cluster mode disabled\) clusters, once a Redis \(cluster mode enabled\) cluster is created, its structure cannot be altered in any way; you cannot add or delete nodes or shards\. If you need to add or delete nodes, or change node types, you must create the cluster anew\.
-
 When you create a new cluster, as long as the cluster group has the same number of shards as the old cluster, you can seed it with data from the old cluster so it doesn’t start out empty\. This can be helpful if you need change your node type or engine version\. For more information, see [Making Manual Backups](backups-manual.md) and [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
