@@ -2,7 +2,7 @@
 
 When you create a new Redis cluster, you can seed it with data from a Redis \.rdb backup file\. Seeding the cluster is useful if you currently manage a Redis instance outside of ElastiCache and want to populate your new ElastiCache for Redis cluster with your existing Redis data\.
 
-To see a new Redis cluster from a Redis backup created within Amazon ElastiCache, see [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
+To seed a new Redis cluster from a Redis backup created within Amazon ElastiCache, see [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
 
 When you use a Redis \.rdb file to seed a new Redis cluster, you can do the following:
 + Upgrade from a nonpartitioned cluster to a Redis \(cluster mode enabled\) cluster running Redis version 3\.2\.4\.
@@ -58,7 +58,7 @@ When you have created the backup file, you need to upload it to a folder within 
 
 1. Follow the instructions for creating an Amazon S3 bucket in [Creating a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service Console User Guide*\.
 
-   The of your Amazon S3 bucket must be DNS\-compliant\. Otherwise, ElastiCache cannot access your backup file\. The rules for DNS compliance are:
+   The name of your Amazon S3 bucket must be DNS\-compliant\. Otherwise, ElastiCache cannot access your backup file\. The rules for DNS compliance are:
    + Names must be at least 3 and no more than 63 characters long\.
    + Names must be a series of one or more labels separated by a period \(\.\) where each label:
      + Starts with a lowercase letter or a number\.

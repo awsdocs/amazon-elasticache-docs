@@ -16,7 +16,7 @@ The following scenarios expose your data in ways you may not want\.
 To control access to your backups, only allow access to the Amazon Amazon S3 bucket to those who you want to access your data\. For information about managing access to an Amazon Amazon S3 bucket, see [Managing Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) in the *Amazon S3 Developer Guide*\.  
  
 **When another person has permissions to use the CopySnapshot API\.**  
-Users or groups that have permissions to use the *CopySnapshot* API can create their own Amazon S3 buckets and copy backups to it\. To control access to your backups, use an IAM policy to control who has the ability to use the *CopySnapshot* API\. For more information about using IAM to control the use of ElastiCache APIs, see [Authentication and Access Control for Amazon ElastiCache](IAM.md) in the *ElastiCache User Guide*\.
+Users or groups that have permissions to use the *CopySnapshot* API can create their own Amazon S3 buckets and copy backups to it\. To control access to your backups, use an IAM policy to control who has the ability to use the *CopySnapshot* API\. For more information about using IAM to control the use of ElastiCache APIs, see [Identity and Access Management in Amazon ElastiCache](IAM.md) in the *ElastiCache User Guide*\.
 
 **Topics**
 + [Step 1: Create an Amazon S3 Bucket](#backups-exporting-create-s3-bucket)
@@ -37,7 +37,7 @@ The following procedure uses the Amazon S3 console to create an Amazon S3 bucket
 
    1. In **Bucket Name**, type a name for your Amazon S3 bucket\.
 
-      The of your Amazon S3 bucket must be DNS\-compliant\. Otherwise, ElastiCache cannot access your backup file\. The rules for DNS compliance are:
+      The name of your Amazon S3 bucket must be DNS\-compliant\. Otherwise, ElastiCache cannot access your backup file\. The rules for DNS compliance are:
       + Names must be at least 3 and no more than 63 characters long\.
       + Names must be a series of one or more labels separated by a period \(\.\) where each label:
         + Starts with a lowercase letter or a number\.

@@ -22,5 +22,5 @@ You can also write application code directly against the ElastiCache web service
 
 For more detailed information on managing your Amazon ElastiCache for Redis deployment, see the following:
 + [Managing Your ElastiCache for Redis Implementation](managing-elasticache.md)
-+ [Securing Network Access](Security.md)
-+ [Monitoring Usage, Events, and Costs](MonitoringECMetrics.md)
++ [Internetwork Traffic Privacy](Security.md)
++ [Logging and Monitoring in Elasticache](MonitoringECMetrics.md)

@@ -15,7 +15,3 @@ In this section, you can find details about how to manage the various components
 + [ElastiCache for Redis Backup and Restore](backups.md)
 + [Scaling ElastiCache for Redis Clusters](Scaling.md)
 + [Configuring Engine Parameters Using Parameter Groups](ParameterGroups.md)
-+ [Data Security](encryption.md)
-+ [ElastiCache for Redis Compliance](elasticache-compliance.md)
-+ [Securing Network Access](Security.md)
-+ [Authentication and Access Control for Amazon ElastiCache](IAM.md)

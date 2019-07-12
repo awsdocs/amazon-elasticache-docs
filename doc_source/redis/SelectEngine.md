@@ -72,4 +72,4 @@ No changing the number of replicas in a node group \(partition\)
 **Comparison summary of Memcached, Redis \(cluster mode disabled\), and Redis \(cluster mode enabled\)**  
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html)
 
-After you choose the engine for your cluster, we recommend that you use the most recent version of that engine\. For more information, see [Supported ElastiCache for Memcached Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/memcached-versions.html) or [Supported ElastiCache for Redis Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/redis-versions.html)\.
+After you choose the engine for your cluster, we recommend that you use the most recent version of that engine\. For more information, see [Supported ElastiCache for Memcached Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) or [Supported ElastiCache for Redis Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)\.

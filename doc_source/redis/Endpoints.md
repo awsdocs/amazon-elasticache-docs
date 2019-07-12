@@ -6,7 +6,7 @@ Your application connects to your cluster using endpoints\. An endpoint is a nod
 + **Redis standalone node**, use the node's endpoint for both read and write operations\.
 
    
-+ **Redis \(cluster mode disabled\) clusters**, use the *Primary Endpoint* for all write operations\. Use the individual *Node Endpoints* for read operations \(In the API/CLI these are referred to as Read Endpoints\)\.
++ **Redis \(cluster mode disabled\) clusters**, use the *Primary Endpoint* for all write operations\. Use the *Reader Endpoint* to evenly split incoming connections to the endpoint between all read replicas\. Use the individual *Node Endpoints* for read operations \(In the API/CLI these are referred to as Read Endpoints\)\.
 
    
 + **Redis \(cluster mode enabled\) clusters**, use the cluster's *Configuration Endpoint* for all operations\. You must use a client that supports Redis Cluster \(Redis 3\.2\)\. You can still read from individual node endpoints \(In the API/CLI these are referred to as Read Endpoints\)\.
@@ -23,7 +23,13 @@ The following sections guide you through discovering the endpoints you'll need f
 
 ## Finding a Redis \(cluster mode disabled\) Cluster's Endpoints \(Console\)<a name="Endpoints.Find.Redis"></a>
 
-If a Redis \(cluster mode disabled\) cluster has only one node, the node's endpoint is used for both reads and writes\. If a Redis \(cluster mode disabled\) cluster has multiple nodes, there are two types of endpoints, the Primary endpoint which always points to whichever node is serving as Primary, and the node endpoints\. The Primary endpoint is used for writes\. The node endpoints are used for reads\.
+If a Redis \(cluster mode disabled\) cluster has only one node, the node's endpoint is used for both reads and writes\. If a Redis \(cluster mode disabled\) cluster has multiple nodes, there are three types of endpoints; the *primary endpoint*, the *reader endpoint* and the *node endpoints*\.
+
+The primary endpoint is a DNS name that always resolves to the primary node in the cluster\. The primary endpoint is immune to changes to your cluster, such as promoting a read replica to the primary role\. For write activity, we recommend that your applications connect to the primary endpoint instead of connecting directly to the primary\.
+
+A reader endpoint will evenly split incoming connections to the endpoint between all read replicas in a ElastiCache for Redis cluster\. Reader endpoints keep up with cluster changes in real\-time as replicas are added or removed\. You can place your ElastiCache for Redis cluster’s multiple read replicas in different AWS Availability Zones \(AZ\) to ensure high availability of reader endpoints\. 
+
+For read activity, applications can also connect to any node in the cluster\. Unlike the primary endpoint, node endpoints resolve to specific endpoints\. If you make a change in your cluster, such as adding or deleting a replica, you must update the node endpoints in your application\.
 
 **To find a Redis \(cluster mode disabled\) cluster's endpoints**
 
@@ -33,12 +39,12 @@ If a Redis \(cluster mode disabled\) cluster has only one node, the node's endpo
 
    The clusters screen will appear with a list of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\) clusters\.
 
-1. To find the cluster's Primary endpoint, choose the box to the left of cluster's name\.
+1. To find the cluster's Primary and/or Reader endpoints, choose the box to the left of cluster's name\.  
+![\[Image: Primary endpoint for a Redis (cluster mode disabled) cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/Reader-Endpoint.png)
 
-   If there is only one node in the cluster, there is no primary endpoint and you can continue at the next step\.  
-![\[Image: Primary endpoint for a Redis (cluster mode disabled) cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-Endpoints-Redis-Primary.png)
+   *Primary and Reader endpoints for a Redis \(cluster mode disabled\) cluster*
 
-   *Primary endpoint for a Redis \(cluster mode disabled\) cluster*
+   If there is only one node in the cluster, there is no primary endpoint and you can continue at the next step\.
 
 1. If the Redis \(cluster mode disabled\) cluster has replica nodes, you can find the cluster's replica node endpoints by choosing the cluster's name\.
 
@@ -158,7 +164,7 @@ You can use the AWS CLI for Amazon ElastiCache to discover the endpoints for nod
 You can use the AWS CLI to discover the endpoints for a cluster and its nodes with the `describe-cache-clusters` command\. For Redis clusters, the command returns the cluster endpoint\.  If you include the optional parameter `--show-cache-node-info`, the command will also return the endpoints of the individual nodes in the cluster\.
 
 **Example**  
-The following command retrieves the clusster information for the single\-node Redis \(cluster mode disabled\) cluster *mycluster*\.  
+The following command retrieves the cluster information for the single\-node Redis \(cluster mode disabled\) cluster *mycluster*\.  
 The parameter `--cache-cluster-id` can be used with single\-node Redis \(cluster mode disabled\) cluster id or specific node ids in Redis replication groups\. The `--cache-cluster-id` of a Redis replication group is a 4\-digit value such as `0001`\. If `--cache-cluster-id` is the id of a cluster \(node\) in a Redis replication group, the `replication-group-id` is included in the output\.
 For Linux, macOS, or Unix:  
 
@@ -230,11 +236,9 @@ For more information, see the topic [describe\-cache\-clusters](https://docs.aws
 
 ### Finding the Endpoints for Replication Groups \(AWS CLI\)<a name="Endpoints.Find.CLI.ReplGroups"></a>
 
-You can use the AWS CLI to discover the endpoints for a replication group and its clusters with the `describe-replication-groups` command\. The command returns the replication group's primary endpoint and a list of all the clusters \(nodes\) in the replication group with their endpoints\. 
+You can use the AWS CLI to discover the endpoints for a replication group and its clusters with the `describe-replication-groups` command\. The command returns the replication group's primary endpoint and a list of all the clusters \(nodes\) in the replication group with their endpoints, along with the reader endpoint\. 
 
-The following operation retrieves the primary endpoint \(PrimaryEndpoint\) and individual node endpoints \(ReadEndpoint\) for the replication group `myreplgroup`\. Use the primary endpoint for all write operations and the individual node endpoints for all read operations\.
-
-For Linux, macOS, or Unix:
+The following operation retrieves the primary endpoint and reader endpoint for the replication group `myreplgroup`\. Use the primary endpoint for all write operations\. 
 
 ```
 aws elasticache describe-replication-groups \
@@ -295,6 +299,10 @@ Output from this operation should look something like this \(JSON format\)\.
                "PrimaryEndpoint": {
                   "Port": 6379, 
                   "Address": "myreplgroup.1abc4d.ng.0001.usw2.cache.amazonaws.com"
+               },
+               "ReaderEndpoint": {
+                  "Port": 6379, 
+                  "Address": "myreplgroup-ro.1abc4d.ng.0001.usw2.cache.amazonaws.com"
                }
             }
          ], 
@@ -342,9 +350,9 @@ https://elasticache.us-west-2.amazonaws.com/
 
 ### Finding Endpoints for Replication Groups \(ElastiCache API\)<a name="Endpoints.Find.API.ReplGroups"></a>
 
-You can use the ElastiCache API to discover the endpoints for a replication group and its clusters with the `DescribeReplicationGroups` action\. The action returns the replication group's primary endpoint and a list of all the clusters in the replication group with their endpoints\. 
+You can use the ElastiCache API to discover the endpoints for a replication group and its clusters with the `DescribeReplicationGroups` action\. The action returns the replication group's primary endpoint and a list of all the clusters in the replication group with their endpoints, along with the reader endpoint\. 
 
-The following operation retrieves the primary endpoint \(PrimaryEndpoint\) and individual node endpoints \(ReadEndpoint\) for the replication group `myreplgroup`\. Use the primary endpoint for all write operations and the individual node endpoints for all read operations\.
+The following operation retrieves the primary endpoint \(PrimaryEndpoint\), reader endpoint \(ReaderEndpoint\) and individual node endpoints \(ReadEndpoint\) for the replication group `myreplgroup`\. Use the primary endpoint for all write operations\.
 
 ```
 https://elasticache.us-west-2.amazonaws.com/

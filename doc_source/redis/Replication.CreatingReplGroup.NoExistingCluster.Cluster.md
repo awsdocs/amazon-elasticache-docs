@@ -107,6 +107,8 @@ aws elasticache create-replication-group \
    --cache-parameter-group default.redis3.2.cluster.on \
    --engine redis \
    --engine-version 3.2.4
+   --security-group-ids SECURITY_GROUP_ID       
+   --cache-subnet-group-name SUBNET_GROUP_NAME>
 ```
 
 For Windows:
@@ -121,6 +123,8 @@ aws elasticache create-replication-group ^
    --cache-parameter-group default.redis3.2.cluster.on ^
    --engine redis ^
    --engine-version 3.2.4
+   --security-group-ids SECURITY_GROUP_ID       
+   --cache-subnet-group-name SUBNET_GROUP_NAME>
 ```
 
 The preceding command generates the following output\.

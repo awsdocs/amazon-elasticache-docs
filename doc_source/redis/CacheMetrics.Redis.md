@@ -51,19 +51,19 @@ Nodes in a region created or replaced after the date and time specified in the f
 | sa\-east\-1 | South America \(São Paulo\) | February 7, 2017 | 04:35 \(UTC\) | 
 | us\-gov\-west\-1 | AWS GovCloud \(US\-West\) | February 16, 2017 | 20:11 \(UTC\) | 
 
-These are aggregations of certain kinds of commands, derived from info commandstats:
+These are aggregations of certain kinds of commands, derived from info commandstats\. For a full list of available commands, see [redis commands](https://redis.io/commands)\.
 
 
 | Metric  | Description  | Unit  | 
 | --- | --- | --- | 
 | CurrItems | The number of items in the cache\. This is derived from the Redis keyspace statistic, summing all of the keys in the entire keyspace\. | Count | 
 | GetTypeCmds | The total number of read\-only type commands\. This is derived from the Redis commandstats statistic by summing all of the read\-only type commands \(get, hget, scard, lrange, etc\.\) | Count | 
-| HashBasedCmds | The total number of commands that are hash\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more hashes\. | Count | 
+| HashBasedCmds | The total number of commands that are hash\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more hashes \(hget, hkeys, hvals, hdel, etc\)\. | Count | 
 | HyperLogLogBasedCmds | The total number of HyperLogLog\-based commands\. This is derived from the Redis commandstats statistic by summing all of the pf type of commands \(pfadd, pfcount, pfmerge, etc\.\)\. | Count | 
 | KeyBasedCmds | The total number of commands that are key\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more keys across multiple data structures \(del, expire, rename, etc\.\)\. | Count | 
-| ListBasedCmds | The total number of commands that are list\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more lists\. | Count | 
-| SetBasedCmds | The total number of commands that are set\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more sets\. | Count | 
+| ListBasedCmds | The total number of commands that are list\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more lists \(lindex, lrange, lpush, ltrim, etc\)\. | Count | 
+| SetBasedCmds | The total number of commands that are set\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more sets \(scard,  sdiff,  sadd, sunion, etc\)\. | Count | 
 | SetTypeCmds | The total number of write types of commands\. This is derived from the Redis commandstats statistic by summing all of the mutative types of commands that operate on data \(set, hset, sadd, lpop, etc\.\) | Count | 
-| SortedSetBasedCmds | The total number of commands that are sorted set\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more sorted sets\. | Count | 
-| StringBasedCmds | The total number of commands that are string\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more strings\. | Count | 
-| StreamBasedCmds | The total number of commands that are stream\-based\. This is derived from the Redis commandstats statistic at [Redis INFO](http://redis.io/commands/info) by summing all of the commands that act upon one or more streams data type\. | Count | 
+| SortedSetBasedCmds | The total number of commands that are sorted set\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more sorted sets \(zcount, zrange, zrank, zadd, etc\)\. | Count | 
+| StringBasedCmds | The total number of commands that are string\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more strings \(strlen, setex, setrange, etc\)\. | Count | 
+| StreamBasedCmds | The total number of commands that are stream\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more streams data types \(xrange, xlen, xadd, xdel, etc\)\. | Count | 

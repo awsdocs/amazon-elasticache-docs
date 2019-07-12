@@ -4,21 +4,15 @@ Amazon ElastiCache provides console, CLI, and API support for scaling your Redis
 
 When the scale\-up process is initiated, ElastiCache does the following:
 
-1. Blocks all reads from and writes to the primary node\. Reads from the replicas continue until step 5 when they are briefly interrupted while ElastiCache switches you from your current replicas to the new replicas\.
-
-1. Launches a new Redis replication group using the new node type\.
+1. Launches a replication group using the new node type\.
 
 1. Copies all the data from the current primary node to the new primary node\.
 
-1. Sync the new read replicas with the new primary node\.
+1. Syncs the new read replicas with the new primary node\.
 
-1. Updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\.
-**Important**  
-Reads from read replica nodes are interrupted while ElastiCache switches you from your current replicas to the new replicas\.
+1. Updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. You will notice a brief interruption of reads and writes from the primary node while the DNS entry is updated\.
 
-1. Reinstates reads from and writes to the new primary node\.
-
-1. Deletes the old cluster \(CLI/API: replication group\)\.
+1. Deletes the old nodes \(CLI/API: replication group\)\.
 
 How long this process takes is dependent upon your node type and how much data is in your cluster\.
 

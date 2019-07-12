@@ -21,9 +21,13 @@ The following list identifies actions you can take when ElastiCache schedules on
 **Redis node replacement options**
 + **Do nothing** – If you do nothing, ElastiCache will replace the node as scheduled\. 
 
-  If the node is a member of a Redis \(cluster mode disabled\) cluster, the replacement node will sync with the primary node\.
+  If the node is a member of an auto failover enabled cluster, ElastiCache for Redis provides improved availability during patching, updates and other maintenance\-related node replacements\.
 
-  If the node is standalone, ElastiCache will first launch a replacement node and then sync from the existing node\. The existing node will not be available for service requests during this time\. Once the sync is complete, the existing node is terminated and the new node takes its place\. ElastiCache makes a best effort to retain your data during this operation\.
+   For ElastiCache for Redis Cluster configurations that are set up to use ElastiCache for Redis Cluster clients, will now complete while the cluster serves incoming write requests\. 
+
+  For non\-ElastiCache for Redis Cluster configurations, you may notice a brief write interruption, of up to a few seconds, associated with DNS update\.
+
+  If the node is standalone, Amazon ElastiCache will first launch a replacement node and then sync from the existing node\. The existing node will not be available for service requests during this time\. Once the sync is complete, the existing node is terminated and the new node takes its place\. ElastiCache makes a best effort to retain your data during this operation\. 
 
    
 + **Change your maintenance window** – For scheduled maintenance events where you receive an email or a notification event from ElastiCache, if you change your maintenance window before the scheduled replacement time, your node will now be replaced at the new time\. For more information, see:

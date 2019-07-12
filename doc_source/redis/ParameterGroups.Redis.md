@@ -209,7 +209,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w4aac20c45c57c25b9"></a>
+### How close\-on\-slave\-write works<a name="w18aac16c45c57c25b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -223,7 +223,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### Why disable close\-on\-replica\-write?<a name="w4aac20c45c57c25c11"></a>
+### Why disable close\-on\-replica\-write?<a name="w18aac16c45c57c25c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why would you want to disable `close-on-replica-write`?
 
@@ -333,7 +333,7 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.t2\.micro | 581959680 | 58195968 | 58195968 | 
 | cache\.t2\.small | 1665138688 | 166513868 | 166513868 | 
 | cache\.t2\.medium | 3461349376 | 346134937 | 346134937 | 
-| cache\.m1\.small | 943718400 | 943718400 | 943718400 | 
+| cache\.m1\.small | 943718400 | 94371840 | 94371840 | 
 | cache\.m1\.medium | 3093299200 | 309329920 | 309329920 | 
 | cache\.m1\.large | 7025459200 | 702545920 | 702545920 | 
 | cache\.m1\.xlarge | 14889779200 | 1488977920 | 1488977920 | 
@@ -372,10 +372,10 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.r5\.2xlarge | 56711183565 | 5671118356 | 5671118356 | 
 | cache\.r5\.4xlarge | 113609865216 | 11360986522 | 11360986522 | 
 | cache\.r5\.12xlarge | 341206346547 | 34120634655 | 34120634655 | 
-| cache\.r5\.24xlarge | 682485973811 | 68248597381 |  | 
+| cache\.r5\.24xlarge | 682485973811 | 68248597381 | 68248597381 | 
 
 **Note**  
+All current generation instance types are created in an Amazon Virtual Private Cloud VPC by default\.  
 T1 instances do not support Multi\-AZ with automatic failover\.  
 T1 and T2 instances do not support Redis AOF\.  
-All T2 instances are created in an Amazon Virtual Private Cloud \(Amazon VPC\)\.  
-T2 instances support Multi\-AZ with automatic failover only when running Redis \(cluster mode enabled\)\.
+Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.

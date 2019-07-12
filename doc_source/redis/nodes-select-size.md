@@ -45,7 +45,7 @@ If you're implementing a Redis \(cluster mode disabled\) cluster, your node type
 
    
 
-  For example, if you estimate that the total size of all your items to be 12 GB, you can use a `cache.m3.xlarge` node with 13\.3 GB of memory or a `cache.r3.large` node with 13\.5 GB of memory\. However, you may need more memory for `BGSAVE` operations\. If your application is write heavy, you should double the memory requirements to at least 24 GB, meaning you should use either a `cache.m3.2xlarge` with 27\.9 GB of memory or a `cache.r3.rge` with 28\.4 GB of memory\.
+  For example, if you estimate that the total size of all your items to be 12 GB, you can use a `cache.m3.xlarge` node with 13\.3 GB of memory or a `cache.r3.large` node with 13\.5 GB of memory\. However, you may need more memory for `BGSAVE` operations\. If your application is write heavy, you should double the memory requirements to at least 24 GB, meaning you should use either a `cache.m3.2xlarge` with 27\.9 GB of memory or a `cache.r3.xlarge` with 30\.5 GB of memory\.
 
    
 
@@ -57,8 +57,6 @@ If you're implementing a Redis \(cluster mode enabled\) cluster with multiple sh
   For example, if you estimate that the total size of all your items to be 12 GB and you have 2 shards, you can use a `cache.m3.large` node with 6\.05 GB of memory \(12 GB / 2\)\. However, you may need more memory for `BGSAVE` operations\. If your application is write heavy, you should double the memory requirements to at least 12 GB per shard, meaning you should use either a `cache.m3.xlarge` with 13\.3 GB of memory or a `cache.r3.large` with 13\.5 GB of memory\.
 
    
-
-  Currently you cannot add shards to a Redis \(cluster mode enabled\) cluster\. Therefore, you may want to use a somewhat larger node type to accommodate anticipated growth\.
 
    
 

@@ -4,6 +4,9 @@ If you no longer need one of your clusters with replicas \(called *replication g
 
 Once you have begun this operation, it cannot be interrupted or cancelled\.
 
+**Warning**  
+When you delete an ElastiCache for Redis cluster, your manual snapshots are retained\. You will also have an option to create a final snapshot before the cluster is deleted\. Automatic cache snapshots are not retained\.
+
 ## Deleting a Replication Group \(Console\)<a name="Replication.DeletingRepGroup.CON"></a>
 
 To delete a cluster that has replicas, see [Deleting a Cluster](Clusters.Delete.md)\.

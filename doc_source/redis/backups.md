@@ -51,19 +51,19 @@ ElastiCache allows you to store one backup for each active Redis cluster free of
 
 The backup process depends upon which Redis version you're running\. Beginning with Redis 2\.8\.22, the process is forkless\.
 
-### Backups when running Redis 2\.8\.22 and later<a name="w4aac20c37c25b5"></a>
+### Backups when running Redis 2\.8\.22 and later<a name="w18aac16c37c25b5"></a>
 
 Redis backups, in versions 2\.8\.22 and later, choose between two backup methods\. If there is insufficient memory to support a forked backup, ElastiCache use a forkless method that employs cooperative background processing\. If there is sufficient memory to support a forked save process, the same process as in prior Redis versions is employed\.
 
 If the write load is high during a forkless backup, writes to the cache are delayed to ensure that you don't accumulate too many changes and thus prevent a successful backup\.
 
-### Backups when running Redis versions before 2\.8\.22<a name="w4aac20c37c25b7"></a>
+### Backups when running Redis versions before 2\.8\.22<a name="w18aac16c37c25b7"></a>
 
 Backups are created using Redis' native BGSAVE operation: The Redis process on the cache node spawns a child process to write all the data from the cache to a Redis \.rdb file\. It can take up to ten seconds to spawn the child process, and during this time the parent process is unable to accept incoming application requests\. After the child process is running independently, the parent process resumes normal operations\. The child process exits when the backup operation is complete\. 
 
 While the backup is being written, additional cache node memory is used for new writes\. If this additional memory usage exceeds the node's available memory, processing can become slow due to excessive paging, or fail\.
 
-### Improving Backup Performance<a name="w4aac20c37c25b9"></a>
+### Improving Backup Performance<a name="w18aac16c37c25b9"></a>
 
 The following are guidelines for improving backup performance\.
 + Set the *reserved\-memory\-percent* parameter—To mitigate excessive paging, we recommend that you set the *reserved\-memory\-percent* parameter\. This parameter prevents Redis from consuming all of the node's available memory, and can help reduce the amount of paging\. You might also see performance improvements by simply using a larger node\. For more information about the *reserved\-memory* and *reserved\-memory\-percent* parameters, see [Managing Reserved Memory](redis-memory-management.md)\.

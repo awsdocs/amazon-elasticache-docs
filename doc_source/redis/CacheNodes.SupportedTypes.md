@@ -52,7 +52,7 @@ Supported engine versions vary by region\. The latest engine versions are suppor
 | US West \(N\. California\) | us\-west\-1 | Yes | Yes | Yes | Yes | Yes | 
 | US West \(Oregon\) | us\-west\-2 | Yes | Yes  | Yes | Yes | Yes | 
 | Canada \(Central\) | ca\-central\-1 | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | Yes | Yes | Yes |  | 
+| Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Tokyo\) | ap\-northeast\-1 | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Seoul\) | ap\-northeast\-2 | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Osaka\-Local\) \* | ap\-northeast\-3 | Yes |   |   | Yes |  | 
@@ -63,8 +63,8 @@ Supported engine versions vary by region\. The latest engine versions are suppor
 | EU \(London\) | eu\-west\-2 | Yes | Yes | Yes | Yes | Yes | 
 | EU \(Paris\) | eu\-west\-3 | Yes |   | Yes | Yes | Yes | 
 | South America \(São Paulo\) | sa\-east\-1 | Yes | Yes | Yes | Yes |  | 
-| China \(Beijing\) | cn\-north\-1 | Yes | Yes |   | Yes |  | 
-| China \(Ningxia\) | cn\-northwest\-1 | Yes | Yes |   | Yes |  | 
+| China \(Beijing\) | cn\-north\-1 | Yes | Yes |   | Yes | Yes | 
+| China \(Ningxia\) | cn\-northwest\-1 | Yes | Yes |   | Yes | Yes | 
 | AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | Yes |  | Yes | Yes | Yes | 
 |  \* The Asia Pacific \(Osaka\-Local\) Region is a local region that is available to select AWS customers who request access\. If you want to use the Asia Pacific \(Osaka\-Local\) Region, speak with your sales representative\. The Asia Pacific \(Osaka\-Local\) Region supports a single Availability Zone\. | 
 

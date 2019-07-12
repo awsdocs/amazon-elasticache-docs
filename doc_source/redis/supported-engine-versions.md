@@ -5,10 +5,11 @@ If you enable at\-rest encryption, in\-transit encryption, and Redis AUTH when y
 + [HIPAA Compliance](https://aws.amazon.com/compliance/hipaa-compliance/)
 + [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/)
 + [ElastiCache for Redis Compliance](elasticache-compliance.md)
-+ [Data Security](encryption.md)
++ [Data Security in Amazon ElastiCache](encryption.md)
 + [Authenticating Users with Redis AUTH](auth.md)
 
 **Topics**
++ [Redis 5\.0\.4 \(Enhanced\)](#redis-version-5-0.4)
 + [Redis 5\.0\.3 \(Enhanced\)](#redis-version-5-0.3)
 + [Redis 5\.0\.0 \(Enhanced\)](#redis-version-5-0)
 + [Redis 4\.0\.10 \(Enhanced\)](#redis-version-4-0-10)
@@ -35,11 +36,23 @@ For more information, see the following topics:
 | **Create Replication Group** | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
 
+## ElastiCache for Redis Version 5\.0\.4 \(Enhanced\)<a name="redis-version-5-0.4"></a>
+
+Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache\. It includes the following enhancements:
++ Engine stability guarantee in special conditions\.
++ Improved Hyperloglog error handling\.
++ Enhanced handshake commands for reliable replication\.
++ Consistent message delivery tracking via `XCLAIM` command\.
++ Improved `LFU `field management in objects\.
++ Enhanced transaction management when using `ZPOP`\. 
+
+For more information, see [Redis 5\.0\.4 Release Notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES) at Redis on GitHub\.
+
 ## ElastiCache for Redis Version 5\.0\.3 \(Enhanced\)<a name="redis-version-5-0.3"></a>
 
 Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache\. It includes the following enhancements:
 + Bug fixes to improve sorted set edge cases, accurate memory usage and more\. For more information, see [Redis 5\.0\.3 release notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES)\.
-+ Ability to rename commands: ElastiCache for Redis 5\.0\.3 includes a new parameter called `rename-commands` that allows you to rename potentially dangerous or expensive Redis commands that may cause accidental data loss, such as `FLUSHALL` or `FLUSHDB`\. This is the similar to the rename\-command configuration in open source Redis\. However, ElastiCache has improved the experience by providing a fully managed workflow\. The command name changes are applied immediately, and automatically propagated across all nodes in the cluster that contain the command list\. There is no intervention required on your part, such as rebooting nodes\. 
++ Ability to rename commands: ElastiCache for Redis 5\.0\.3 includes a new parameter called `rename-commands` that allows you to rename potentially dangerous or expensive Redis commands that may cause accidental data loss, such as `FLUSHALL` or `FLUSHDB`\. This is similar to the rename\-command configuration in open source Redis\. However, ElastiCache has improved the experience by providing a fully managed workflow\. The command name changes are applied immediately, and automatically propagated across all nodes in the cluster that contain the command list\. There is no intervention required on your part, such as rebooting nodes\. 
 
   The following examples demonstrate how to modify existing parameter groups\. They include the `rename-commands` parameter, which is a space\-separated list of commands you want to rename:
 
@@ -102,7 +115,7 @@ Amazon ElastiCache for Redis introduces the next major version of the Redis engi
 + Both Online cluster resizing and encryption in a single ElastiCache for Redis version\. For more information, see:
   + [Scaling Redis \(cluster mode enabled\) Clusters](scaling-redis-cluster-mode-enabled.md)
   + [Online Resharding and Shard Rebalancing for Redis \(cluster mode enabled\)](redis-cluster-resharding-online.md)
-  + [Data Security](encryption.md)
+  + [Data Security in Amazon ElastiCache](encryption.md)
 + A number of new parameters\. For more information, see [Redis 4\.0\.10 Parameter Changes](ParameterGroups.Redis.md#ParameterGroups.Redis.4-0-10)\.
 + Support for family of memory commands, such as `MEMORY`\. For more information, see [Redis Commands](https://redis.io/commands#) \(search on MEMO\)\.
 + Support for memory defragmentation while online thus allowing more efficient memory utilization and more memory available for your data\.
@@ -132,7 +145,7 @@ For more information, see:
 Amazon ElastiCache for Redis introduces the next major version of the Redis engine supported by Amazon ElastiCache\. ElastiCache for Redis 3\.2\.6 users have all the functionality of earlier Redis versions plus the option to encrypt their data\. For more information, see:
 + [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)
 + [ElastiCache for Redis At\-Rest Encryption](at-rest-encryption.md)
-+ [HIPAA Compliance in ElastiCache for Redis](elasticache-compliance.md#elasticache-compliance-hipaa)
++ [HIPAA Compliance](elasticache-compliance.md#elasticache-compliance-hipaa)
 
 ## ElastiCache for Redis Version 3\.2\.4 \(Enhanced\)<a name="redis-version-3-2-4"></a>
 

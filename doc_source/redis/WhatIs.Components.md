@@ -87,10 +87,6 @@ Each replica node maintains a copy of the data from the primary node\. Replica n
 
 Redis \(cluster mode disabled\) clusters support one shard \(in the API and CLI, called a *node group*\)\. Redis \(cluster mode enabled\) clusters support 1–90 shards \(in the API and CLI, called node groups\)\.
 
-The following graphic illustrates replication for Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\) clusters using the console's view and terminology\.
-
-![\[Image: Redis replication (console view), single shard and multiple shards.\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCacheClusters-CSN-RedisRepl.png)
-
 Replication from the API and CLI perspective uses different terminology to maintain compatibility with previous versions, but the results are the same\. The following table shows the API and CLI terms for implementing replication\.
 
 **Comparing Replication: Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\)**
@@ -106,7 +102,7 @@ All of the shards \(in the API and CLI, node groups\) and nodes must reside in t
 Read replicas guard against potential data loss because your data is replicated over two or more nodes—the primary and one or more read replicas\. For greater reliability and faster recovery, we recommend that you create one or more read replicas in different Availability Zones, and enable Multi\-AZ with automatic failover instead of using AOF\. AOF is disabled when Multi\-AZ with automatic failover is enabled\. For more information, see [Minimizing Downtime: Multi\-AZ with Automatic Failover](AutoFailover.md)\.
 
 **Replication: Limits and Exclusions**
-+ AOF is not supported on node type `cache.t1.micro`\.
++ AOF is not supported on node type `cache.t1.micro` and cache\.t2\. For nodes of these types, the `appendonly` parameter value is ignored\.
 + Multi\-AZ with automatic failover is not supported on node types T1\.
 
 For more information on AOF and Multi\-AZ, see [Mitigating Failures](FaultTolerance.md)\.
@@ -158,8 +154,8 @@ For enhanced security, ElastiCache for Redis node access is restricted to applic
 By default, all new ElastiCache for Redis clusters are launched in an Amazon Virtual Private Cloud \(Amazon VPC\) environment\. You can use *subnet groups* to grant cluster access from Amazon EC2 instances running on specific subnets\. If you choose to run your cluster outside of Amazon VPC, you can create *security groups* to authorize Amazon EC2 instances running within specific Amazon EC2 security groups\.
 
 In addition to restricting access to your nodes, ElastiCache for Redis supports TLS and in\-place encryption for nodes running specified versions of the ElastiCache for Redis engine\. For more information, see the following:
-+ [Data Security](encryption.md)
-+ [HIPAA Compliance in ElastiCache for Redis](elasticache-compliance.md#elasticache-compliance-hipaa)
++ [Data Security in Amazon ElastiCache](encryption.md)
++ [HIPAA Compliance](elasticache-compliance.md#elasticache-compliance-hipaa)
 + [Authenticating Users with Redis AUTH](auth.md)
 
 ## ElastiCache Security Groups<a name="WhatIs.Components.SecurityGroups"></a>

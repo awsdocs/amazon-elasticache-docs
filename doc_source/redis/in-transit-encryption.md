@@ -37,7 +37,7 @@ The following constraints on Amazon ElastiCache in\-transit encryption should be
 Because of the processing required to encrypt and decrypt the data at the endpoints, implementing in\-transit encryption can reduce performance\. Benchmark in\-transit encryption compared to no encryption on your own data to determine its impact on performance for your implementation\.
 
 **Tip**  
-Because creating new connections can be expensive, you can reduce the performance impact of in\-transit encryption by persisting your SSL connections, \.
+Because creating new connections can be expensive, you can reduce the performance impact of in\-transit encryption by persisting your SSL connections\.
 
 ## Enabling In\-Transit Encryption<a name="in-transit-encryption-enable"></a>
 
@@ -165,13 +165,13 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 1. From an SSH client, install `stunnel`\.
 
    ```
-   $ sudo yum install stunnel
+   sudo yum install stunnel
    ```
 
-1. In the `redis-cli.conf` file, add a Redis cluster endpoint to one or more connection parameters\.
+1. Run the following command to create and edit file `'/etc/stunnel/redis-cli.conf'` simultaneously to add a ElastiCache for Redis cluster endpoint to one or more connection parameters, using provided output below as template:\.
 
    ```
-   $ cat /etc/stunnel/redis-cli.conf
+   cat /etc/stunnel/redis-cli.conf
    				
    fips = no
    setuid = root
@@ -199,35 +199,50 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 1. Start `stunnel`\.
 
    ```
-   $ sudo stunnel /etc/stunnel/redis-cli.conf
+   sudo stunnel /etc/stunnel/redis-cli.conf
    ```
 
    Use the `netstat` command to confirm that the tunnels started\.
 
    ```
-   $ sudo netstat -tulnp | grep -i stunnel
+   sudo netstat -tulnp | grep -i stunnel
    				
    tcp        0      0 127.0.0.1:6379              0.0.0.0:*                   LISTEN      3189/stunnel        
    tcp        0      0 127.0.0.1:6380              0.0.0.0:*                   LISTEN      3189/stunnel
    ```
 
 1. Connect to the encrypted Redis node using the local endpoint of the tunnel\.
+   + If no AUTH password was used during ElastiCache for Redis cluster creation, this example uses the redis\-cli to connect to the ElastiCache for Redis server using complete path for redis\-cli, on Amazon Linux: 
 
-   This example uses redis\-cli to connect to the Redis server\.
+     ```
+     /home/ec2-user/redis-stable/src/redis-cli -h localhost -p 6379
+     ```
 
-   ```
-   $ redis-cli -h localhost -p 6379 -a my-secret-password
-   				
-   localhost:6379>set foo "bar"
-   OK
-   localhost:6379>get foo
-   "bar"
-   ```
+     If AUTH password was used during Redis cluster creation, this example uses redis\-cli to connect to the Redis server using complete path for redis\-cli, on Amazon Linux: 
+
+     ```
+      /home/ec2-user/redis-stable/src/redis-cli -h localhost -p 6379 -a my-secret-password
+     ```
+
+   OR
+   + Change directory to redis\-stable and do the following:
+
+     If no AUTH password was used during ElastiCache for Redis cluster creation, this example uses the redis\-cli to connect to the ElastiCache for Redis server using complete path for redis\-cli, on Amazon Linux: 
+
+     ```
+     src/redis-cli -h localhost -p 6379
+     ```
+
+     If AUTH password was used during Redis cluster creation, this example uses redis\-cli to connect to the Redis server using complete path for redis\-cli, on Amazon Linux: 
+
+     ```
+     src/redis-cli -h localhost -p 6379 -a my-secret-password	
+     ```
 
    This example uses Telnet to connect to the Redis server\.
 
    ```
-   $ telnet localhost 6379
+   telnet localhost 6379
    			
    Trying 127.0.0.1...
    Connected to localhost.
@@ -242,11 +257,11 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 1. To stop and close the SSL tunnels, `pkill` the stunnel process\.
 
    ```
-   $ sudo pkill stunnel
+   sudo pkill stunnel
    ```
 
 ## See Also<a name="in-transit-encryption-see-also"></a>
 + [ElastiCache for Redis At\-Rest Encryption](at-rest-encryption.md)
 + [Authenticating Users with Redis AUTH](auth.md)
 + [Amazon VPCs and ElastiCache Security](VPCs.md)
-+ [Authentication and Access Control for Amazon ElastiCache](IAM.md)
++ [Identity and Access Management in Amazon ElastiCache](IAM.md)

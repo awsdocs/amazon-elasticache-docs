@@ -18,8 +18,7 @@ The following procedure details how to view the details of a Redis \(cluster mod
 
 1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. In the ElastiCache console dashboard, choose **Redis** to display a list of all your clusters that are running any version of Redis\.  
-![\[Image: Memcached cluster list\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-ViewDetails-Memcached-ClusterList.png)
+1. In the ElastiCache console dashboard, choose **Redis** to display a list of all your clusters that are running any version of Redis\.
 
 1. To see details of a cluster, select the check box to the left of the cluster's name\. Make sure you select a cluster running the Redis engine, not Clustered Redis\. Doing this displays details about the cluster, including the cluster's primary endpoint\.
 

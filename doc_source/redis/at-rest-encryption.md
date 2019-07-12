@@ -1,12 +1,12 @@
 # ElastiCache for Redis At\-Rest Encryption<a name="at-rest-encryption"></a>
 
-To help keep your data secure, Amazon ElastiCache and Amazon S3 provide mechanisms to restrict access to your data when it's in your cache\. For more information, see [Amazon VPCs and ElastiCache Security](VPCs.md) and [Authentication and Access Control for Amazon ElastiCache](IAM.md)\.
+To help keep your data secure, Amazon ElastiCache and Amazon S3 provide mechanisms to restrict access to your data when it's in your cache\. For more information, see [Amazon VPCs and ElastiCache Security](VPCs.md) and [Identity and Access Management in Amazon ElastiCache](IAM.md)\.
 
 When ElastiCache for Redis at\-rest encryption is enabled on a replication group, your data is encrypted when it's on the disk during sync and backup operations\. This approach is different from ElastiCache for Redis in\-transit encryption\. In\-transit encryption encrypts your data when it is moving from one place to another, such as between your replication group and your application\. For information about ElastiCache for Redis in\-transit encryption, see [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)\. At\-rest encryption is optional, and can be enabled on a replication group only when it is created\. 
 
 Amazon ElastiCache for Redis at\-rest encryption is an optional feature to increase data security by encrypting on\-disk data during sync and backup or snapshot operations\. Because there is some processing needed to encrypt and decrypt the data, enabling at\-rest encryption can have some performance impact during these operations\. You should benchmark your data with and without at\-rest encryption to determine the performance impact for your use cases\. 
 
-The current implimentation of ElastiCache encryption does not support user supplied encryption keys\.
+The current implementation of ElastiCache encryption does not support user supplied encryption keys\.
 
 **Topics**
 + [At\-Rest Encryption Conditions](#at-rest-encryption-constraints)
@@ -240,4 +240,4 @@ For additional information, see the following:
 
 ## See Also<a name="at-rest-encryption-see-also"></a>
 + [Amazon VPCs and ElastiCache Security](VPCs.md)
-+ [Authentication and Access Control for Amazon ElastiCache](IAM.md)
++ [Identity and Access Management in Amazon ElastiCache](IAM.md)

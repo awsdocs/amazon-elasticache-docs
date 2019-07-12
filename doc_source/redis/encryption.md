@@ -1,4 +1,4 @@
-# Data Security<a name="encryption"></a>
+# Data Security in Amazon ElastiCache<a name="encryption"></a>
 
 To help keep your data secure, Amazon ElastiCache and Amazon EC2 provide mechanisms to guard against unauthorized access of your data on the server\.
 

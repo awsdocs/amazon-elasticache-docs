@@ -10,8 +10,7 @@ You can do the following:
 + **Rebalance** – Move the keyspaces among the shards in your ElastiCache for Redis \(cluster mode enabled\) cluster so they are as equally distributed among the shards as possible\.
 
 You can't do the following:
-+ **Scale up/down:** Change your node type\. To do this, you must use the offline process\.
-+ **Upgrade your engine:** Change your engine version to a newer version\.
++ **Scale up/down:** Change your node type\. To scale up cluster\-mode enabled Redis cluster, or scale\-down any Redis cluster, you must use the offline process\.
 + **Configure shards independently:**
   + You can't specify the number of nodes in each shard independently\. 
   + You can't specify the keyspace for shards independently\. To do this, you must use the offline process\.
@@ -164,7 +163,7 @@ You can remove shards from your Redis \(cluster mode enabled\) cluster using the
 
 The following process describes how to reconfigure the shards in your Redis \(cluster mode enabled\) cluster by removing shards using the AWS Management Console\.
 
-Before removing node groups \(shards\) from your replication group, ElastiCache makes sure that all your data fits in the remaining shards\. If the data fits, the specified shards are deleted from the replication group as requested\. If the data doesn't fit in the remaining node groups, the process is terminated\. Terminating the process leaves your replication group with the same node group configuration as before the request was made\.
+Before removing node groups \(shards\) from your replication group, ElastiCache makes sure that all your data will fit in the remaining shards\. If the data will fit, the specified shards are deleted from the replication group as requested\. If the data won't fit in the remaining node groups, the process is terminated and the replication group is left with the same node group configuration as before the request was made\.
 
 You can use the AWS Management Console to remove one or more shards from your Redis \(cluster mode enabled\) cluster\. You cannot remove all the shards in a replication group\. Instead, you must delete the replication group\. For more information, see [Deleting a Replication Group](Replication.DeletingRepGroup.md)\. The following procedure describes the process for deleting one or more shards\.
 
@@ -187,7 +186,7 @@ Redis \(cluster mode enabled\) clusters have a value of 1 or greater in the **Sh
 The following process describes how to reconfigure the shards in your Redis \(cluster mode enabled\) cluster by removing shards using the AWS CLI\.
 
 **Important**  
-Before removing node groups \(shards\) from your replication group, ElastiCache makes sure that all your data fits in the remaining shards\. If the data fits, the specified shards \(`--node-groups-to-remove`\) are deleted from the replication group as requested and their keyspaces mapped into the remaining shards\. If the data doesn't fit in the remaining node groups, the process is terminated\. Terminating the process leaves your replication group with the same node group configuration as before the request was made\.
+Before removing node groups \(shards\) from your replication group, ElastiCache makes sure that all your data will fit in the remaining shards\. If the data will fit, the specified shards \(`--node-groups-to-remove`\) are deleted from the replication group as requested and their keyspaces mapped into the remaining shards\. If the data will not fit in the remaining node groups, the process is terminated and the replication group is left with the same node group configuration as before the request was made\.
 
 You can use the AWS CLI to remove one or more shards from your Redis \(cluster mode enabled\) cluster\. You cannot remove all the shards in a replication group\. Instead, you must delete the replication group\. For more information, see [Deleting a Replication Group](Replication.DeletingRepGroup.md)\.
 
@@ -231,7 +230,7 @@ You can use the ElastiCache API to reconfigure the shards in your Redis \(cluste
 The following process describes how to reconfigure the shards in your Redis \(cluster mode enabled\) cluster by removing shards using the ElastiCache API\.
 
 **Important**  
-Before removing node groups \(shards\) from your replication group, ElastiCache makes sure that all your data fits in the remaining shards\. If the data fits, the specified shards \(`NodeGroupsToRemove`\) are deleted from the replication group as requested and their keyspaces mapped into the remaining shards\. If the data doesn't fit in the remaining node groups, the process is terminated\. Terminating the process leaves your replication group with the same node group configuration as before the request was made\.
+Before removing node groups \(shards\) from your replication group, ElastiCache makes sure that all your data will fit in the remaining shards\. If the data will fit, the specified shards \(`NodeGroupsToRemove`\) are deleted from the replication group as requested and their keyspaces mapped into the remaining shards\. If the data will not fit in the remaining node groups, the process is terminated and the replication group is left with the same node group configuration as before the request was made\.
 
 You can use the ElastiCache API to remove one or more shards from your Redis \(cluster mode enabled\) cluster\. You cannot remove all the shards in a replication group\. Instead, you must delete the replication group\. For more information, see [Deleting a Replication Group](Replication.DeletingRepGroup.md)\.
 

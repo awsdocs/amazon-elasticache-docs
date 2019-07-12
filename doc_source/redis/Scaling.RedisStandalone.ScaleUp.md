@@ -2,17 +2,13 @@
 
 When you scale up a single\-node Redis cluster, ElastiCache performs the following process, whether you use the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
-1. All reads from and writes to the cache cluster are blocked\.
-
 1. A new cache cluster with the new node type is spun up in the same Availability Zone as the existing cache cluster\.
 
 1. The cache data in the existing cache cluster is copied to the new cache cluster\. How long this process takes depends upon your node type and how much data is in the cache cluster\.
 
-1. Reads and writes are resumed using the new cache cluster\. Because the new cache cluster's endpoints are the same as they were for the old cache cluster, you do not need to update the endpoints in your application\.
+1. Reads and writes are now served using the new cache cluster\. Because the new cache cluster's endpoints are the same as they were for the old cache cluster, you do not need to update the endpoints in your application\. You will notice a brief interruption of reads and writes from the primary node while the DNS entry is updated\.
 
 1. ElastiCache deletes the old cache cluster\.
-
-Because writes to and reads from your cache cluster are blocked during the scale\-up process, you should schedule the scale up for a time of low demand on your cache cluster\.
 
 As shown in the following table, your Redis scale\-up operation is blocked if you have an engine upgrade scheduled for the next maintenance window\. For more information on Maintenance Windows, see [Managing Maintenance](maintenance-window.md)\.
 

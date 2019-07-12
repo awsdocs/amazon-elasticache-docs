@@ -2,6 +2,9 @@
 
 As long as a cluster is in the *available* state, you are being charged for it, whether or not you are actively using it\. To stop incurring charges, delete the cluster\.
 
+**Warning**  
+When you delete an ElastiCache for Redis cluster, your manual snapshots are retained\. You will also have an option to create a final snapshot before the cluster is deleted\. Automatic cache snapshots are not retained\.
+
 ## Using the AWS Management Console<a name="Clusters.Delete.CON"></a>
 
 The following procedure deletes a single cluster from your deployment\. To delete multiple clusters, repeat the procedure for each cluster you want to delete\. You do not need to wait for one cluster to finish deleting before starting the procedure to delete another cluster\.

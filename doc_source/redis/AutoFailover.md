@@ -2,11 +2,11 @@
 
 In certain cases, ElastiCache for Redis detects and replaces a primary node\. These cases include certain types of planned maintenance and the unlikely event of a primary node or Availability Zone failure\. 
 
-This replacement results in some downtime for the cluster\. If you have Multi\-AZ with automatic failover enabled on the cluster, the downtime is minimized\. In this case, the role of primary node fails over to one of the read replicas\. There's no need to create and provision a new primary node\. This failure detection and replica promotion ensure that you can resume writing to the new primary as soon as promotion is complete\. 
+This replacement results in some downtime for the cluster\. If you have Multi\-AZ with automatic failover enabled on the cluster, the downtime is minimized\. In this case, the role of primary node fails over to one of the read replicas\. There's no need to create and provision a new primary node\. This failover and replica promotion ensure that you can resume writing to the new primary as soon as promotion is complete\. 
 
-ElastiCache also propagates the Domain Name Service \(DNS\) name of the promoted replica\. It does so because then if your application is writing to the primary endpoint, no endpoint change is required in your application\. However, because you read from individual endpoints, you need to change the read endpoint of the replica promoted to primary to the new replica's endpoint\.
+ElastiCache also propagates the Domain Name Service \(DNS\) name of the promoted replica\. It does so because then if your application is writing to the primary endpoint, no endpoint change is required in your application\. If you are reading from individual endpoints, you need to change the read endpoint of the replica promoted to primary to the new replica's endpoint\.
 
-From failure to promotion, failover typically completes within sixty seconds\. This process is much faster than recreating and provisioning a new primary, which is the process if you don't enable Multi\-AZ with automatic failover\.
+For ElastiCache for Redis Cluster configurations that are set up to use ElastiCache for Redis Cluster clients, the planned node replacements will now complete while the cluster serves incoming write requests\. For non\-ElastiCache for Redis Cluster configurations, you may notice a brief write interruption, of up to a few seconds, associated with DNS update\. This process is much faster than recreating and provisioning a new primary, which is the process if you don't enable Multi\-AZ with automatic failover\.
 
 You can enable Multi\-AZ with Automatic Failover using the ElastiCache Management Console, the AWS CLI, or the ElastiCache API\.
 
