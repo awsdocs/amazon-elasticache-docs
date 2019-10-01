@@ -114,7 +114,7 @@ After you receive notification that service updates are available, you can inspe
   For more information, see [DescribeServiceUpdates](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeServiceUpdates.html)\. 
 + To review update actions that have a `not-applied` or `stopped` status: 
 
-  `aws describe-update-actions --service-update-name sample-service-update --update-action-status not-applied stopped`
+  `aws elasticache describe-update-actions --service-update-name sample-service-update --update-action-status not-applied stopped`
 
   For more information, see [DescribeUpdateActions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeUpdateActions.html)\. 
 + To apply a service update on a list of replication groups: 
