@@ -196,6 +196,7 @@ These steps assume the following:
   + IP address – *10\.0\.1\.230*
   + Default Redis port – *6379*
   + Security group – *sg\-bd56b7da*
+  + AWS instance IP address - *10\.0\.0\.55*
 + Your trusted client has the IP address *198\.51\.100\.27*\.
 + Your NAT instance has the Elastic IP Address *203\.0\.113\.73*\.
 + Your NAT instance has security group *sg\-ce56b7a9*\.
@@ -242,7 +243,20 @@ These steps assume the following:
    iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6380 -j DNAT --to 10.0.1.231:6379
    iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6381 -j DNAT --to 10.0.1.232:6379
    ```
-
+   
+   Next you need NAT in the opposite direction:
+   
+   ```
+   iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 10.0.0.55
+   ```
+   
+   Also you need to enable IP forwarding which is disabled by default:
+   
+   ```
+   sudo sed -i 's/net.ipv4.ip_forward=0/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
+   sudo sysctl --system
+   ```
+   
 1. Confirm that the trusted client is able to connect to the cluster\.
 
    The trusted client should connect to the EIP associated with the NAT instance and the cluster port corresponding to the appropriate cluster node\. For example, the connection string for PHP might look like the following:
