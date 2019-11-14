@@ -5,8 +5,8 @@ Following, you can find recommended best practices for Amazon ElastiCache\. Foll
 **Topics**
 + [Caching Strategies](Strategies.md)
 + [Restricted Redis Commands](RestrictedCommands.md)
-+ [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)
++ [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)
 + [Managing Reserved Memory](redis-memory-management.md)
 + [Mitigating Out\-of\-Disk\-Space Issues When Using Redis AOF](BestPractices.AOF.md)
 + [Best Practices: Online Cluster Resizing](best-practices-online-resharding.md)
-+ [Best Pratices: Minimizing Downtime During Maintenance](BestPractices.MinimizeDowntime.md)
++ [Best Practices: Minimizing Downtime During Maintenance](BestPractices.MinimizeDowntime.md)

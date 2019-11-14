@@ -28,5 +28,5 @@ You might decide not to use the default policy and instead to use a custom\-mana
 
 For more information, see the following:
 + [Creating a New Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) \(IAM\)
-+ [AWS Managed \(Predefined\) Policies for Amazon ElastiCache](IAM.IdentityBasedPolicies.md#IAM.IdentityBasedPolicies.PredefinedPolicies)
++ [AWS\-Managed \(Predefined\) Policies for Amazon ElastiCache](IAM.IdentityBasedPolicies.md#IAM.IdentityBasedPolicies.PredefinedPolicies)
 + [Using Service\-Linked Roles for Amazon ElastiCache](using-service-linked-roles.md)

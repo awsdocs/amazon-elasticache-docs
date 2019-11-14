@@ -17,5 +17,5 @@ If you want to enable in\-transit or at\-rest encryption, you must meet the foll
 
 **Topics**
 + [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)
-+ [ElastiCache for Redis At\-Rest Encryption](at-rest-encryption.md)
-+ [Authenticating Users with Redis AUTH](auth.md)
++ [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
++ [Authenticating Users with the Redis AUTH Command](auth.md)

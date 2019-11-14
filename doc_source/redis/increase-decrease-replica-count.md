@@ -7,5 +7,5 @@ To dynamically change the number of replicas in your Redis replication group, ch
 
 | To Do This | For Redis \(cluster mode enabled\) | For Redis \(cluster mode disabled\) | 
 | --- | --- | --- | 
-|  Add replicas  |  [Increasing the Number of Replicas in a Shard](increase-replica-count.md)  |  [Increasing the Number of Replicas in a Shard](increase-replica-count.md) [Adding a Read Replica, for Redis \(cluster mode disabled\) Replication Groups](Replication.AddReadReplica.md)  | 
-|  Delete replicas  |  [Decreasing the Number of Replicas in a Shard](decrease-replica-count.md)  |  [Decreasing the Number of Replicas in a Shard](decrease-replica-count.md) [Deleting a Read Replica, for Redis \(cluster mode disabled\) Replication Groups ](Replication.RemoveReadReplica.md)  | 
+|  Add replicas  |  [Increasing the Number of Replicas in a Shard](increase-replica-count.md)  |  [Increasing the Number of Replicas in a Shard](increase-replica-count.md) [Adding a Read Replica, for Redis \(Cluster Mode Disabled\) Replication Groups](Replication.AddReadReplica.md)  | 
+|  Delete replicas  |  [Decreasing the Number of Replicas in a Shard](decrease-replica-count.md)  |  [Decreasing the Number of Replicas in a Shard](decrease-replica-count.md) [Deleting a Read Replica, for Redis \(Cluster Mode Disabled\) Replication Groups ](Replication.RemoveReadReplica.md)  | 

@@ -6,8 +6,8 @@ To seed a new Redis cluster from a Redis backup created within Amazon ElastiCach
 
 When you use a Redis \.rdb file to seed a new Redis cluster, you can do the following:
 + Upgrade from a nonpartitioned cluster to a Redis \(cluster mode enabled\) cluster running Redis version 3\.2\.4\.
-+ Specify a number of shards \(called node groups in the API and CLI\) in the new cluster that is different from the number of shards in the cluster that was used to create the backup file\.
-+ Specify a different node type for the new cluster—larger or smaller than that used in the cluster that made the backup\. If you scale to a smaller node type, be sure that the new node type has sufficient memory for your data and Redis overhead\. For more information, see [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
++ Specify a number of shards \(called node groups in the API and CLI\) in the new cluster\. This number can be different from the number of shards in the cluster that was used to create the backup file\.
++ Specify a different node type for the new cluster—larger or smaller than that used in the cluster that made the backup\. If you scale to a smaller node type, be sure that the new node type has sufficient memory for your data and Redis overhead\. For more information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
 + Distribute your keys in the slots of the new Redis \(cluster mode enabled\) cluster differently than in the cluster that was used to create the backup file\.
 
 **Note**  
@@ -15,9 +15,9 @@ You cannot seed a Redis \(cluster mode disabled\) cluster from an \.rdb file cre
 
 **Important**  
 You must ensure that your Redis backup data doesn't exceed the resources of the node\. For example, you can't upload an \.rdb file with 5 GB of Redis data to a cache\.m3\.medium node that has 2\.9 GB of memory\.  
-If the backup is too large, the resulting cluster will have a status of `restore-failed`\. If this happens, you must delete the cluster and start over\.  
+If the backup is too large, the resulting cluster has a status of `restore-failed`\. If this happens, you must delete the cluster and start over\.  
 For a complete listing of node types and specifications, see [Redis Node\-Type Specific Parameters](ParameterGroups.Redis.md#ParameterGroups.Redis.NodeSpecific) and [Amazon ElastiCache Product Features and Details](https://aws.amazon.com/elasticache/details/)\.
-Encrypting a Redis \.rdb file with Amazon S3 server\-side encryption \(SSE\) is not supported\.
+You can encrypt a Redis \.rdb file with Amazon S3 server\-side encryption \(SSE\-S3\) only\. For more information, see [Protecting Data Using Server\-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html)\.
 
 Following, you can find topics that walk you through migrating your Redis cluster from outside ElastiCache for Redis to ElastiCache for Redis\.
 
@@ -36,7 +36,7 @@ Following, you can find topics that walk you through migrating your Redis cluste
 
 ## Step 1: Create a Redis Backup<a name="backups-seeding-redis-create-backup"></a>
 
-**To create the Redis backup from which you will seed your ElastiCache for Redis instance**
+**To create the Redis backup to seed your ElastiCache for Redis instance**
 
 1. Connect to your existing Redis instance\.
 
@@ -58,23 +58,23 @@ When you have created the backup file, you need to upload it to a folder within 
 
 1. Follow the instructions for creating an Amazon S3 bucket in [Creating a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service Console User Guide*\.
 
-   The name of your Amazon S3 bucket must be DNS\-compliant\. Otherwise, ElastiCache cannot access your backup file\. The rules for DNS compliance are:
+   The name of your Amazon S3 bucket must be DNS\-compliant\. Otherwise, ElastiCache can't access your backup file\. The rules for DNS compliance are:
    + Names must be at least 3 and no more than 63 characters long\.
    + Names must be a series of one or more labels separated by a period \(\.\) where each label:
      + Starts with a lowercase letter or a number\.
      + Ends with a lowercase letter or a number\.
      + Contains only lowercase letters, numbers, and dashes\.
-   + Names cannot be formatted as an IP address \(e\.g\., 192\.0\.2\.0\)\.
+   + Names can't be formatted as an IP address \(for example, 192\.0\.2\.0\)\.
 
-   We strongly recommend that you create your Amazon S3 bucket in the same region as your new ElastiCache for Redis cluster\. This approach will ensure the highest data transfer speed when ElastiCache reads your \.rdb file from Amazon S3\.
-**Security Advisory**  
-To keep your data as secure as possible, make the permissions on your Amazon S3 bucket as restrictive as you can while still allowing the bucket and its contents to be used to seed your new Redis cluster\.
+   We strongly recommend that you create your Amazon S3 bucket in the same AWS Region as your new ElastiCache for Redis cluster\. This approach makes sure that the highest data transfer speed when ElastiCache reads your \.rdb file from Amazon S3\.
+**Note**  
+To keep your data as secure as possible, make the permissions on your Amazon S3 bucket as restrictive as you can\. At the same time, the permissions still need to allow the bucket and its contents to be used to seed your new Redis cluster\.
 
 **To add a folder to an Amazon S3 bucket**
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Choose the name of the bucket you will upload your \.rdb file to\.
+1. Choose the name of the bucket to upload your \.rdb file to\.
 
 1. Choose **Create folder**\.
 
@@ -86,7 +86,7 @@ To keep your data as secure as possible, make the permissions on your Amazon S3 
 
 ## Step 3: Upload Your Backup to Amazon S3<a name="backups-seeding-redis-upload"></a>
 
-It is now time to upload the \.rdb file your created in [Step 1: Create a Redis Backup](#backups-seeding-redis-create-backup) to the Amazon S3 bucket and folder you created in [Step 2: Create an Amazon S3 Bucket and Folder](#backups-seeding-redis-create-s3-bucket)\. For more information on this task, see [Add an Object to a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html)\. Between steps 2 and 3, choose the name of the folder you created \.
+Now, upload the \.rdb file that you created in [Step 1: Create a Redis Backup](#backups-seeding-redis-create-backup)\. You upload it to the Amazon S3 bucket and folder that you created in [Step 2: Create an Amazon S3 Bucket and Folder](#backups-seeding-redis-create-s3-bucket)\. For more information on this task, see [Add an Object to a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html)\. Between steps 2 and 3, choose the name of the folder you created \.
 
 **To upload your \.rdb file to an Amazon S3 folder**
 
@@ -106,7 +106,7 @@ It is now time to upload the \.rdb file your created in [Step 1: Create a Redis 
 
 1. Confirm the correct file or files are listed in the **Upload** dialog box, and then choose **Upload**\.
 
-It is important that you note the path to your \.rdb file\. For example, if my bucket name is `myBucket` and the path is `myFolder/redis.rdb`, you type `myBucket/myFolder/redis.rdb`\. You need this path to seed the new cluster with the data in this backup\.
+Note the path to your \.rdb file\. For example, if your bucket name is `myBucket` and the path is `myFolder/redis.rdb`, enter `myBucket/myFolder/redis.rdb`\. You need this path to seed the new cluster with the data in this backup\.
 
 For additional information, see [Bucket Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
@@ -120,7 +120,7 @@ For additional information, see [Bucket Restrictions and Limitations](https://do
 
 1. Choose the name of the folder that contains your \.rdb file\.
 
-1. Choose the name of your \.rdb backup file\. The name of the selected file will appear above the tabs at the top of the page\.  
+1. Choose the name of your \.rdb backup file\. The name of the selected file appears above the tabs at the top of the page\.  
 ![\[Image: File selected in S3 console\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/S3-SelectedFile.png)
 
    *File selected in S3 console*
@@ -131,7 +131,7 @@ For additional information, see [Bucket Restrictions and Limitations](https://do
 
    1. Under *Access for other AWS accounts*, choose **\+ Add account**\.
 
-   1. In the box, add the region's canonical id as shown in the following list:
+   1. In the box, add the AWS Region's canonical ID as shown in the following list:
       + China \(Beijing\) and China \(Ningxia\) Regions: 
 
         ```
@@ -146,7 +146,7 @@ For additional information, see [Bucket Restrictions and Limitations](https://do
         ```
 **Important**  
 The backup must be located in an S3 bucket in AWS GovCloud \(US\) for you to download it to a Redis cluster in AWS GovCloud \(US\)\.
-      + All other regions: 
+      + All other AWS Regions: 
 
         ```
         540804c33a284a299d2547575ce1010f2312ef3da9b3a053c8bc45bf233e4353
@@ -173,7 +173,7 @@ The method you use to tell ElastiCache where to find the Redis backup you upload
 **Seed the ElastiCache for Redis cluster or replication group with the \.rdb file data**
 + **Using the ElastiCache Console**
 
-  After you choose the Redis engine, expand the **Advanced Redis settings** section and locate **Import data to cluster**\. In the **Seed RDB file S3 location** box, type in the Amazon S3 path for the files\(s\)\. If you have multiple \.rdb files, type in the path for each file in a comma separated list\. The Amazon S3 path will look something like `myBucket/myFolder/myBackupFilename.rdb`\.
+  After you choose the Redis engine, expand the **Advanced Redis settings** section and locate **Import data to cluster**\. In the **Seed RDB file S3 location** box, type in the Amazon S3 path for the files\(s\)\. If you have multiple \.rdb files, type in the path for each file in a comma separated list\. The Amazon S3 path looks something like `myBucket/myFolder/myBackupFilename.rdb`\.
 
    
 + **Using the AWS CLI**
@@ -186,8 +186,8 @@ The method you use to tell ElastiCache where to find the Redis backup you upload
   If you use the `CreateCacheCluster` or the `CreateReplicationGroup` ElastiCache API operation, use the parameter `SnapshotArns` to specify a fully qualified ARN for each \.rdb file\. For example, `arn:aws:s3:::myBucket/myFolder/myBackupFilename.rdb`\. The ARN must resolve to the backup files you stored in Amazon S3\.
 
 **Important**  
-When seeding a Redis \(cluster mode enabled\) cluster, you must configure each node group \(shard\) in the new cluster or replication group\. Use the parameter `--node-group-configuration` \(API: `NodeGroupConfiguration`\) to do this\. For more information, see:  
+When seeding a Redis \(cluster mode enabled\) cluster, you must configure each node group \(shard\) in the new cluster or replication group\. Use the parameter `--node-group-configuration` \(API: `NodeGroupConfiguration`\) to do this\. For more information, see the following:  
 CLI: [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html) in the AWS CLI Reference
 API: [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) in the ElastiCache API Reference
 
-During the process of creating your cluster, the data in your Redis backup will be written to the cluster\. You can monitor the progress by viewing the ElastiCache event messages\. To do this, see the ElastiCache console and choose **Cache Events**\. You can also use the AWS ElastiCache command line interface or ElastiCache API to obtain event messages\. For more information, see [Viewing ElastiCache Events](ECEvents.Viewing.md)\.
+During the process of creating your cluster, the data in your Redis backup is written to the cluster\. You can monitor the progress by viewing the ElastiCache event messages\. To do this, see the ElastiCache console and choose **Cache Events**\. You can also use the AWS ElastiCache command line interface or ElastiCache API to obtain event messages\. For more information, see [Viewing ElastiCache Events](ECEvents.Viewing.md)\.

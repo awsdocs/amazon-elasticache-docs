@@ -1,4 +1,4 @@
-# Deleting a Read Replica, for Redis \(cluster mode disabled\) Replication Groups<a name="Replication.RemoveReadReplica"></a>
+# Deleting a Read Replica, for Redis \(Cluster Mode Disabled\) Replication Groups<a name="Replication.RemoveReadReplica"></a>
 
 Information in the following topic applies to Redis \(cluster mode disabled\) replication groups only\.
 
@@ -20,5 +20,5 @@ For directions on deleting a cluster from a Redis replication group, see the fol
 + [Using the AWS Management Console](Clusters.Delete.md#Clusters.Delete.CON)
 + [Using the AWS CLI](Clusters.Delete.md#Clusters.Delete.CLI)
 + [Using the ElastiCache API](Clusters.Delete.md#Clusters.Delete.API)
-+ [Scaling Redis \(cluster mode enabled\) Clusters](scaling-redis-cluster-mode-enabled.md)
++ [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)
 + [Decreasing the Number of Replicas in a Shard](decrease-replica-count.md)

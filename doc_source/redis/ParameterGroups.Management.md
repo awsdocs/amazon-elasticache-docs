@@ -6,5 +6,6 @@ To fine\-tune your cluster's performance, you can modify some parameter values o
 
 **Constraints**
 + You cannot modify or delete the default parameter groups\. If you need custom parameter values, you must create a custom parameter group\.
++ The parameter group family and the cluster you're assigning it to must be compatible\. For example, if your cluster is running Redis version 3\.2\.10, you can only use parameter groups, default or custom, from the Redis3\.2 family\.
 + If you change a cluster's parameter group, the values for any conditionally modifiable parameter must be the same in both the current and new parameter groups\.
 + When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Redis Specific Parameters](ParameterGroups.Redis.md)\. For information on rebooting a cluster, see [Rebooting a Cluster](Clusters.Rebooting.md)\.

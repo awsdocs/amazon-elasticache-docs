@@ -1,6 +1,6 @@
 # Using Service\-Linked Roles for Amazon ElastiCache<a name="using-service-linked-roles"></a>
 
-Amazon ElastiCache uses AWS Identity and Access Management \(IAM\) [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to an AWS service, such as Amazon ElastiCache\. Amazon ElastiCache service\-linked roles are predefined by Amazon ElastiCache and include all the permissions that the service requires to call AWS services on behalf of your clusters\. 
+Amazon ElastiCache uses AWS Identity and Access Management \(IAM\) [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to an AWS service, such as Amazon ElastiCache\. Amazon ElastiCache service\-linked roles are predefined by Amazon ElastiCache\. They include all the permissions that the service requires to call AWS services on behalf of your clusters\. 
 
 A service\-linked role makes setting up Amazon ElastiCache easier because you don’t have to manually add the necessary permissions\. The roles already exist within your AWS account but are linked to Amazon ElastiCache use cases and have predefined permissions\. Only Amazon ElastiCache can assume these roles, and only these roles can use the predefined permissions policy\. You can delete the roles only after first deleting their related resources\. This protects your Amazon ElastiCache resources because you can't inadvertently remove necessary permissions to access the resources\.
 
@@ -24,7 +24,7 @@ For information about other services that support service\-linked roles, see [AW
 
 ## Service\-Linked Role Permissions for Amazon ElastiCache<a name="service-linked-role-permissions"></a>
 
-Amazon ElastiCache uses the service\-linked role named **AWSServiceRoleForElastiCache** – This policy allows ElastiCache to manage AWS resources on your behalf as necessary for managing your cache\.\.
+Amazon ElastiCache uses the service\-linked role named **AWSServiceRoleForElastiCache** – This policy allows ElastiCache to manage AWS resources on your behalf as necessary for managing your cache\.
 
 The AWSServiceRoleForElastiCache service\-linked role permissions policy allows Amazon ElastiCache to complete the following actions on the specified resources:
 
@@ -115,7 +115,7 @@ You can use the IAM console to create a service\-linked role\.
 
 ### Creating a Service\-Linked Role \(IAM CLI\)<a name="create-service-linked-role-iam-cli"></a>
 
-You can use IAM operations from the AWS Command Line Interface to create a service\-linked role with the trust policy and inline policies that the service needs to assume the role\.
+You can use IAM operations from the AWS Command Line Interface to create a service\-linked role\. This role can include the trust policy and inline policies that the service needs to assume the role\.
 
 **To create a service\-linked role \(CLI\)**
 
@@ -127,7 +127,7 @@ $ aws iam [create\-service\-linked\-role](https://docs.aws.amazon.com/cli/latest
 
 ### Creating a Service\-Linked Role \(IAM API\)<a name="create-service-linked-role-iam-api"></a>
 
-You can use the IAM API to create a service\-linked role with the trust policy and inline policies that the service needs to assume the role\.
+You can use the IAM API to create a service\-linked role\. This role can contain the trust policy and inline policies that the service needs to assume the role\.
 
 **To create a service\-linked role \(API\)**
 
@@ -149,7 +149,7 @@ You can use the IAM console to edit a service\-linked role description\.
 
 1. To the far right of **Role description**, choose **Edit**\. 
 
-1. Type a new description in the box and choose **Save**\.
+1. Enter a new description in the box and choose **Save**\.
 
 ### Editing a Service\-Linked Role Description \(IAM CLI\)<a name="edit-service-linked-role-iam-cli"></a>
 
@@ -220,7 +220,7 @@ Amazon ElastiCache does not delete the service\-linked role for you\.
 
 ### Cleaning Up a Service\-Linked Role<a name="service-linked-role-review-before-delete"></a>
 
-Before you can use IAM to delete a service\-linked role, you must first confirm that the role has no resources, clusters or replication groups, associated with the role\.
+Before you can use IAM to delete a service\-linked role, first confirm that the role has no resources \(clusters or replication groups\) associated with it\.
 
 **To check whether the service\-linked role has an active session in the IAM console**
 
@@ -264,21 +264,21 @@ You can use IAM operations from the AWS Command Line Interface to delete a servi
 
 **To delete a service\-linked role \(CLI\)**
 
-1. If you don't know the name of the service\-linked role that you want to delete, type the following operation to list the roles and their Amazon Resource Names \(ARNs\) in your account:
+1. If you don't know the name of the service\-linked role that you want to delete, enter the following command\. This command lists the roles and their Amazon Resource Names \(ARNs\) in your account\.
 
    ```
    $ aws iam [get\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/get-role.html) --role-name role-name
    ```
 
-   Use the role name, not the ARN, to refer to roles with the CLI operations\. For example, if a role has the following ARN: `arn:aws:iam::123456789012:role/myrole`, you refer to the role as **myrole**\.
+   Use the role name, not the ARN, to refer to roles with the CLI operations\. For example, if a role has the ARN `arn:aws:iam::123456789012:role/myrole`, you refer to the role as **myrole**\.
 
-1. Because a service\-linked role cannot be deleted if it is being used or has associated resources, you must submit a deletion request\. That request can be denied if these conditions are not met\. You must capture the `deletion-task-id` from the response to check the status of the deletion task\. Type the following to submit a service\-linked role deletion request:
+1. Because a service\-linked role cannot be deleted if it is being used or has associated resources, you must submit a deletion request\. That request can be denied if these conditions are not met\. You must capture the `deletion-task-id` from the response to check the status of the deletion task\. Enter the following to submit a service\-linked role deletion request\.
 
    ```
    $ aws iam [delete\-service\-linked\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/delete-service-linked-role.html) --role-name role-name
    ```
 
-1. Type the following to check the status of the deletion task:
+1. Enter the following to check the status of the deletion task\.
 
    ```
    $ aws iam [get\-service\-linked\-role\-deletion\-status](https://docs.aws.amazon.com/cli/latest/reference/iam/get-service-linked-role-deletion-status.html) --deletion-task-id deletion-task-id

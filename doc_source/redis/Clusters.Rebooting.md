@@ -6,7 +6,7 @@ When you reboot a cluster, the cluster flushes all its data and restarts its eng
 
 You are able to reboot a cluster using the ElastiCache console, the AWS CLI, or the ElastiCache API\. Whether you use the ElastiCache console, the AWS CLI or the ElastiCache API, you can only initiate rebooting a single cluster\. To reboot multiple clusters you must iterate on the process or operation\.
 
-**Redis \(cluster mode enabled\) and Reboots**  
+**Redis \(Cluster Mode Enabled\) and Reboots**  
 If you make changes to parameters that require a Redis \(cluster mode enabled\) cluster reboot for the changes to be applied, follow these steps\.  
 Create a manual backup of your cluster\. See [Making Manual Backups](backups-manual.md)\.
 Delete the Redis \(cluster mode enabled\) cluster\. See [Deleting a Cluster](Clusters.Delete.md)\.

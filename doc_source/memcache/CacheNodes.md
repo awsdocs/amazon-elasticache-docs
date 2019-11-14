@@ -2,7 +2,7 @@
 
 A node is the smallest building block of an Amazon ElastiCache deployment\. It is a fixed\-size chunk of secure, network\-attached RAM\. Each node runs the engine that was chosen when the cluster was created or last modified\. Each node has its own Domain Name Service \(DNS\) name and port\. Multiple types of ElastiCache nodes are supported, each with varying amounts of associated memory and computational power\.
 
-Generally speaking, due to its support for sharding, Memcached deployments will have a number of smaller nodes\. See [Choosing Your Memcached Node Size](nodes-select-size.md#CacheNodes.SelectSize) for a more detailed discussion of which node size to use\.
+Generally speaking, due to its support for sharding, Memcached deployments have a number of smaller nodes\. For a more detailed discussion of which node size to use, see [Choosing Your Memcached Node Size](nodes-select-size.md#CacheNodes.SelectSize)\. 
 
 **Topics**
 + [Connecting to Nodes](nodes-connecting.md)
@@ -10,9 +10,7 @@ Generally speaking, due to its support for sharding, Memcached deployments will 
 + [Supported Node Types](CacheNodes.SupportedTypes.md)
 + [Replacing Nodes](CacheNodes.NodeReplacement.md)
 
-Other ElastiCache Node Operations
-
-Additional operations involving nodes: 
+Some important operations involving nodes are the following: 
 + [Adding Nodes to a Cluster](Clusters.AddNode.md)
 + [Removing Nodes from a Cluster](Clusters.DeleteNode.md)
 + [Scaling ElastiCache for Memcached Clusters](Scaling.md)

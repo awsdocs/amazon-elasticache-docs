@@ -18,11 +18,11 @@ ElastiCache supports replication when you use the Redis engine\. To monitor the 
 
    1. In **Name**, type a name for your cluster\.
 
-**Cluster naming constraints**
-      + Must contain from 1 to 20 alphanumeric characters or hyphens\.
+      Cluster naming constraints are as follows:
+      + Must contain 1–40 alphanumeric characters or hyphens\.
       + Must begin with a letter\.
-      + Cannot contain two consecutive hyphens\.
-      + Cannot end with a hyphen\.
+      + Can't contain two consecutive hyphens\.
+      + Can't end with a hyphen\.
 
    1. In the **Description** box, type in a description for this cluster\.
 
@@ -89,7 +89,7 @@ You can upgrade to newer engine versions\. For more information on doing so, see
 
    1. If you want regularly scheduled automatic backups, choose **Enable automatic backups**, and then type the number of days you want an automatic backup retained before it is automatically deleted\. If you don't want regularly scheduled automatic backups, clear the **Enable automatic backups** check box\. In either case, you always have the option to create manual backups, which must be deleted manually\.
 
-      For more information on Redis backup and restore, see [ElastiCache for Redis Backup and Restore](backups.md)\.
+      For more information on Redis backup and restore, see [Backup and Restore for ElastiCache for Redis ](backups.md)\.
 
    1. The **Maintenance window** is the time, generally an hour in length, each week when ElastiCache schedules system maintenance for your cluster\. You can allow ElastiCache to choose the day and time for your maintenance window \(**No preference**\), or you can choose the day, time, and duration yourself \(**Specify maintenance window**\)\. If you choose **Specify maintenance window**, choose the **Start day**, **Start time**, and **Duration** \(in hours\) for your maintenance window\. All times are UCT times\.
 

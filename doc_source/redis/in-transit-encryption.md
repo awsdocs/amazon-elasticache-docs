@@ -29,7 +29,12 @@ ElastiCache in\-transit encryption implements the following features:
 The following constraints on Amazon ElastiCache in\-transit encryption should be kept in mind when you plan your implementation:
 + In\-transit encryption is supported on replication groups running Redis versions 3\.2\.6, 4\.0\.10 and later\.
 + In\-transit encryption is supported only for replication groups running in an Amazon VPC\.
-+ In\-transit encryption is only supported for replication groups running most current generation node types\. It is not supported on replication groups running on previous generation node types\. For more information, see [Supported Node Types](CacheNodes.SupportedTypes.md)
++ In\-transit encryption is only supported for replication groups running the following node types\.
+  + R5, R4, R3
+  + M5, M4, M3
+  + T2
+
+  For more information, see [Supported Node Types](CacheNodes.SupportedTypes.md)\.
 + In\-transit encryption is enabled by explicitly setting the parameter `TransitEncryptionEnabled` to `true`\.
 + You can enable in\-transit encryption on a replication group only when creating the replication group\. You cannot toggle in\-transit encryption on and off by modifying a replication group\. For information on implementing in\-transit encryption on an existing replication group, see [Enabling In\-Transit Encryption](#in-transit-encryption-enable)\.
 + To connect to an in\-transit encryption enabled replication group, a database must be enabled for transport layer security \(TLS\)\. To connect to a replication group that is not in\-transit encryption enabled, the database cannot be TLS\-enabled\.
@@ -72,7 +77,7 @@ To enable in\-transit encryption when creating a replication group using the AWS
 
 For the step\-by\-step process, see the following:
 + [Creating a Redis \(cluster mode disabled\) Cluster \(Console\)](Clusters.Create.CON.Redis.md)
-+ [Creating a Redis \(cluster mode enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
++ [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
 
  
 
@@ -80,7 +85,7 @@ For the step\-by\-step process, see the following:
 
 To enable in\-transit encryption when creating a Redis replication group using the AWS CLI, use the parameter `transit-encryption-enabled`\.
 
-#### Enabling In\-Transit Encryption on a Redis \(cluster mode disabled\) Cluster \(CLI\)<a name="in-transit-encryption-enable-cli-redis-classic-rg"></a>
+#### Enabling In\-Transit Encryption on Redis \(Cluster Mode Disabled\) Cluster \(CLI\)<a name="in-transit-encryption-enable-cli-redis-classic-rg"></a>
 
 Use the AWS CLI operation `create-replication-group` and the following parameters to create a Redis replication group with replicas that has in\-transit encryption enabled:
 
@@ -91,10 +96,10 @@ Use the AWS CLI operation `create-replication-group` and the following parameter
 + **\-\-num\-cache\-clusters**—Must be at least 1\. The maximum value for this parameter is six\.
 
 For more information, see the following:
-+ [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI)
++ [Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI)
 + [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 
-#### Enabling In\-Transit Encryption on a Redis \(cluster mode enabled\) Cluster \(CLI\)<a name="in-transit-encryption-enable-cli-redis-cluster"></a>
+#### Enabling In\-Transit Encryption on a Cluster for Redis \(Cluster Mode Enabled\) \(CLI\)<a name="in-transit-encryption-enable-cli-redis-cluster"></a>
 
 Use the AWS CLI operation `create-replication-group` and the following parameters to create a Redis \(cluster mode enabled\) replication group that has in\-transit encryption enabled:
 
@@ -109,7 +114,7 @@ Use the AWS CLI operation `create-replication-group` and the following parameter
   + **\-\-node\-group\-configuration**—Specifies the configuration of each shard independently\.
 
 For more information, see the following:
-+ [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
++ [Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
 + [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 
  
@@ -118,7 +123,7 @@ For more information, see the following:
 
 To enable in\-transit encryption when creating a Redis replication group using the ElastiCache API, set the parameter `TransitEncryptionEnabled` to `true` with either `CreateCacheCluster` for a single node Redis replication group, or `CreateReplicationGroup` for a replication group with read replicas\.
 
-#### Enabling In\-Transit Encryption on a Redis \(cluster mode disabled\) Cluster \(API\)<a name="in-transit-encryption-enable-api-redis-classic-rg"></a>
+#### Enabling In\-Transit Encryption on a Cluster for Redis \(Cluster Mode Disabled\) \(API\)<a name="in-transit-encryption-enable-api-redis-classic-rg"></a>
 
 Use the ElastiCache API operation `CreateReplicationGroup` and the following parameters to create a Redis \(cluster mode disabled\) replication group that has in\-transit encryption enabled:
 
@@ -134,7 +139,7 @@ For more information, see the following:
 + [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API)
 + [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 
-#### Enabling In\-Transit Encryption on a Redis \(cluster mode enabled\) Cluster \(API\)<a name="in-transit-encryption-enable-api-redis-cluster"></a>
+#### Enabling In\-Transit Encryption on a Cluster for Redis \(Cluster Mode Enabled\) \(API\)<a name="in-transit-encryption-enable-api-redis-cluster"></a>
 
 Use the ElastiCache API operation `CreateReplicationGroup` and the following parameters to create a Redis \(cluster mode enabled\) replication group that has in\-transit encryption enabled:
 
@@ -151,7 +156,7 @@ Use the ElastiCache API operation `CreateReplicationGroup` and the following par
   + **NodeGroupConfiguration**—Specifies the configuration of each shard independently\.
 
 For more information, see the following:
-+ [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
++ [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
 + [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 
 ## Connecting to Amazon ElastiCache for Redis Nodes Enabled with In\-Transit Encryption Using redis\-cli<a name="connect-tls"></a>
@@ -261,7 +266,7 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
    ```
 
 ## See Also<a name="in-transit-encryption-see-also"></a>
-+ [ElastiCache for Redis At\-Rest Encryption](at-rest-encryption.md)
-+ [Authenticating Users with Redis AUTH](auth.md)
++ [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
++ [Authenticating Users with the Redis AUTH Command](auth.md)
 + [Amazon VPCs and ElastiCache Security](VPCs.md)
 + [Identity and Access Management in Amazon ElastiCache](IAM.md)

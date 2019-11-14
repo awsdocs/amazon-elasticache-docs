@@ -14,13 +14,11 @@ If you don't already have an AWS account, create one now\. AWS accounts are free
 
 **To create an AWS account**
 
-1. Open [https://aws\.amazon\.com/](https://aws.amazon.com/), and then choose **Create an AWS Account**\.
-**Note**  
-If you previously signed in to the AWS Management Console using AWS account root user credentials, choose **Sign in to a different account**\. If you previously signed in to the console using IAM credentials, choose **Sign\-in using root account credentials**\. Then choose **Create a new AWS account**\.
+1. Open [https://portal\.aws\.amazon\.com/billing/signup](https://portal.aws.amazon.com/billing/signup)\.
 
 1. Follow the online instructions\.
 
-   Part of the sign\-up procedure involves receiving a phone call and entering a verification code using the phone keypad\.
+   Part of the sign\-up procedure involves receiving a phone call and entering a verification code on the phone keypad\.
 
 ## Set Up Your Permissions \(New ElastiCache Users Only\)<a name="elasticache-set-up-permissions"></a>
 
@@ -30,5 +28,5 @@ You might decide not to use the default policy and instead to use a custom\-mana
 
 For more information, see the following:
 + [Creating a New Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) \(IAM\)
-+ [AWS Managed \(Predefined\) Policies for Amazon ElastiCache](IAM.IdentityBasedPolicies.md#IAM.IdentityBasedPolicies.PredefinedPolicies)
-+ [Using Service\-Linked Roles for ElastiCache](using-service-linked-roles.md)
++ [AWS\-Managed \(Predefined\) Policies for Amazon ElastiCache](IAM.IdentityBasedPolicies.md#IAM.IdentityBasedPolicies.PredefinedPolicies)
++ [Using Service\-Linked Roles for Amazon ElastiCache](using-service-linked-roles.md)

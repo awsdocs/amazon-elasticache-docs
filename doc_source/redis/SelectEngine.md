@@ -30,18 +30,18 @@ On the surface, the engines look similar\. Each of them is an in\-memory key\-va
 **Important**  
 Currently ElastiCache for Redis 3\.2\.10 doesn't support encryption\.
 
-  For more information, see:
+  For more information, see the following:
   + [Redis Version 3\.2\.10 \(Enhanced\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html#redis-version-3-2-10)
-  + Online resharding best practices for Redis, for more information, see:
+  + Online resharding best practices for Redis, For more information, see the following:
     + [Best Practices: Online Resharding](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/best-practices-online-resharding.html)
-    + [Online Resharding and Shard Rebalancing for Redis \(cluster mode enabled\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/redis-cluster-resharding-online.html)
+    + [Online Resharding and Shard Rebalancing for Redis \(Cluster Mode Enabled\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/redis-cluster-resharding-online.html)
   + For more information on scaling Redis clusters, see [Scaling](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)\.
 + **ElastiCache for Redis version 3\.2\.6 \(Enhanced\)**
 
   If you need the functionality of earlier Redis versions plus the following features, choose ElastiCache for Redis 3\.2\.6:
   + In\-transit encryption\. For more information, see [Amazon ElastiCache for Redis In\-Transit Encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\.
   + At\-rest encryption\. For more information, see [Amazon ElastiCache for Redis At\-Rest Encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html)\.
-  + HIPAA compliance certification\. For more information, see [HIPAA Compliance for Amazon ElastiCache for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance-hipaa.html)\.
+  + HIPAA eligibility certification\. For more information, see [HIPAA Eligibility for Amazon ElastiCache for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance-hipaa.html)\.
 + **ElastiCache for Redis \(Cluster mode enabled\) version 3\.2\.4**
 
   If you need the functionality of Redis 2\.8\.x plus the following features, choose Redis 3\.2\.4 \(clustered mode\):
@@ -52,10 +52,6 @@ Currently ElastiCache for Redis 3\.2\.10 doesn't support encryption\.
 Redis \(cluster mode enabled\) has the following limitations:  
 No scale\-up to larger node types
 No changing the number of replicas in a node group \(partition\)
-
-  Redis version 3\.2\.4 \(cluster mode enabled\) has the following limitations:
-  + No dynamic scale\-up to larger node types\.
-  + No dynamic changing the number of replicas in a node group \(partition\)\.
 + **ElastiCache for Redis \(non\-clustered mode\) 2\.8x and 3\.2\.4 \(Enhanced\)**
 
   If the following apply for you, choose Redis 2\.8\.x or Redis 3\.2\.4 \(non\-clustered mode\):

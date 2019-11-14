@@ -38,7 +38,7 @@ To increase the number of replicas in a Redis shard, use the `increase-replica-c
 + `--replica-configuration` – Optional\. Allows you to set the number of replicas and Availability Zones for each node group independently\. Use this parameter for Redis \(cluster mode enabled\) groups where you want to configure each node group independently\. 
 
   `--replica-configuration` has three optional members:
-  + `NodeGroupId` – The four\-digit ID for the node group that you are configuring\. For Redis \(cluster mode disabled\) replication groups, the shard ID is always `0001`\. To find a Redis \(cluster mode enabled\) node group's \(shard's\) ID, see [Finding a Shard's Id](shard-find-id.md)\.
+  + `NodeGroupId` – The four\-digit ID for the node group that you are configuring\. For Redis \(cluster mode disabled\) replication groups, the shard ID is always `0001`\. To find a Redis \(cluster mode enabled\) node group's \(shard's\) ID, see [Finding a Shard's ID](shard-find-id.md)\.
   + `NewReplicaCount` – The number of replicas that you want in this node group at the end of this operation\. The value must be more than the current number of replicas, up to a maximum of five\. If this value is not larger than the current number of replicas in the node group, the call fails with an exception\.
   + `PreferredAvailabilityZones` – A list of `PreferredAvailabilityZone` strings that specify which Availability Zones the replication group's nodes are to be in\. The number of `PreferredAvailabilityZone` values must equal the value of `NewReplicaCount` plus 1 to account for the primary node\. If this member of `--replica-configuration` is omitted, ElastiCache for Redis chooses the Availability Zone for each of the new replicas\.
 
@@ -96,7 +96,7 @@ To increase the number of replicas in a Redis shard, use the `IncreaseReplicaCou
 + `ReplicaConfiguration` – Optional\. Allows you to set the number of replicas and Availability Zones for each node group independently\. Use this parameter for Redis \(cluster mode enabled\) groups where you want to configure each node group independently\. 
 
   `ReplicaConfiguraion` has three optional members:
-  + `NodeGroupId` – The four\-digit ID for the node group you are configuring\. For Redis \(cluster mode disabled\) replication groups, the node group \(shard\) ID is always `0001`\. To find a Redis \(cluster mode enabled\) node group's \(shard's\) ID, see [Finding a Shard's Id](shard-find-id.md)\.
+  + `NodeGroupId` – The four\-digit ID for the node group you are configuring\. For Redis \(cluster mode disabled\) replication groups, the node group \(shard\) ID is always `0001`\. To find a Redis \(cluster mode enabled\) node group's \(shard's\) ID, see [Finding a Shard's ID](shard-find-id.md)\.
   + `NewReplicaCount` – The number of replicas that you want in this node group at the end of this operation\. The value must be more than the current number of replicas and a maximum of five\. If this value is not larger than the current number of replicas in the node group, the call fails with an exception\.
   + `PreferredAvailabilityZones` – A list of `PreferredAvailabilityZone` strings that specify which Availability Zones the replication group's nodes are to be in\. The number of `PreferredAvailabilityZone` values must equal the value of `NewReplicaCount` plus 1 to account for the primary node\. If this member of `ReplicaConfiguration` is omitted, ElastiCache for Redis chooses the Availability Zone for each of the new replicas\.
 

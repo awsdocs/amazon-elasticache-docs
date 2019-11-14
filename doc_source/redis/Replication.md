@@ -15,7 +15,7 @@ If the cluster with replicas has Multi\-AZ with Automatic Failover enabled and t
 
 **Topics**
 + [Understanding Redis Replication](Replication.Redis.Groups.md)
-+ [Replication: Redis \(cluster mode disabled\) vs\. Redis \(cluster mode enabled\)](Replication.Redis-RedisCluster.md)
++ [Replication: Redis \(Cluster Mode Disabled\) vs\. Redis \(Cluster Mode Enabled\)](Replication.Redis-RedisCluster.md)
 + [Minimizing Downtime: Multi\-AZ with Automatic Failover](AutoFailover.md)
 + [How Synchronization and Backup are Implemented](Replication.Redis.Versions.md)
 + [Creating a Redis Replication Group](Replication.CreatingRepGroup.md)

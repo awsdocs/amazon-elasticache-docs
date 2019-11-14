@@ -1,23 +1,23 @@
 # Applying the Self\-Service Updates<a name="applying-updates"></a>
 
-You can start applying the service updates to your Redis fleet from the time that the updates have an **available** status until they have an **expired** status\. Service updates of the type **security** are cumulative\. In other words, any non\-expired updates that you haven't applied yet are included with your latest update\.
+You can start applying the service updates to your Redis fleet from the time that the updates have an **available** status until they have an **expired** status\. Service updates of the type **security** are cumulative\. In other words, any nonexpired updates that you haven't applied yet are included with your latest update\.
 
 **Note**  
 You can apply only those service updates that have an **available** status, even if the recommended apply by date is past due\. 
 
-For more information about reviewing your Redis fleet and applying any service\-specific updates to applicable Redis clusters, see [Using the Redis Console](#applying-updates-console-redis-console)\.
+For more information about reviewing your Redis fleet and applying any service\-specific updates to applicable Redis clusters, see [Applying the Service Updates Using the Console for Redis](#applying-updates-console-redis-console)\.
 
 When a new service update is available for one or more Redis clusters in your fleet, you can use the ElastiCache console, API, or AWS CLI to apply the update\. The following sections explain the options that you can use to apply updates\.
 
-## Using the Console<a name="applying-updates-console"></a>
+## Applying the Service Updates Using the Console<a name="applying-updates-console"></a>
 
 You can apply the service updates using one of the following console options\. ElastiCache provides you two different perspectives to help you decide how and when to apply the updates:
 
 **Topics**
-+ [Using the Redis Console](#applying-updates-console-redis-console)
-+ [Using the ElastiCache Service Update Console](#applying-updates-elasticache-update-console-redis)
++ [Applying the Service Updates Using the Console for Redis](#applying-updates-console-redis-console)
++ [Applying the Service Updates Using the Service Updates List](#applying-updates-elasticache-update-console-redis)
 
-### Using the Redis Console<a name="applying-updates-console-redis-console"></a>
+### Applying the Service Updates Using the Console for Redis<a name="applying-updates-console-redis-console"></a>
 
 Choose this to review the **Update Status** of individual Redis clusters, and then choose **Apply**, **View**, or **Stop** for the service updates\. If a service update is available, the console displays a banner at the top of the **Redis** page, as shown following:
 
@@ -27,7 +27,7 @@ Choose this to review the **Update Status** of individual Redis clusters, and th
 If you choose **Dismiss**, the console stops displaying the banner for that console session\. However, the banner reappears the next time that you refresh your session\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/service-update-apply-now.png)
 
-  Note the following about the **Apply Updates Now** page:
+  Be aware of the following about the **Apply Updates Now** page:
   + **Auto\-Update after Due Date**: If you choose not to apply the self\-service update before it expires, any clusters or individual nodes that aren't updated remain out of compliance until the next cumulative update is available\. ElastiCache doesn't automatically apply the service update on your behalf\.
   + The ratio of **Nodes Updated** on your Redis cluster and the **Estimated Update Time** allow you to plan your maintenance schedule\. If service updates exceed the estimated time constraints for your business flows, you have the option to stop them and re\-apply them at a later date\. For more information, see [Stopping the Self\-Service Updates](stopping-self-service-updates.md)\.
   + If you choose to apply the service updates to any or all available Redis clusters, choose **Confirm**\. If you choose this, you can then view the **Service Updates** page, where you can monitor the status of your service update\.
@@ -39,14 +39,14 @@ You can inspect your Redis clusters on an individual basis to determine their **
 
 **Update Status** displays one of the following:
 + **update available**: An update is available to apply to this cluster\.
-+ **in\-progress**: The update is being applied to this cluster, rendering it unavailable for business flows\.
++ **in\-progress**: The update is being applied to this cluster, rendering it unavailable for the duration of the **Estimated Update Time**\.
 + **stopping**: An in\-progress update has been interrupted before completion\.
 + **stopped**: The update has been terminated\.
 **Note**  
 If you stop an in\-progress update on a Redis cluster, some nodes might be updated while others are not\. The **stopping** process doesn't roll back any changes to already updated nodes\. You can re\-apply the update to those nodes that still have an **available** status at your convenience, as long as the update doesn't have an **Expired** status\.
 + **up to date**: The update has been applied and your cluster is compliant\. For more information about compliance, see [Self\-Service Security Updates for Compliance](elasticache-compliance.md#elasticache-compliance-self-service)\.
 
-### Using the ElastiCache Service Update Console<a name="applying-updates-elasticache-update-console-redis"></a>
+### Applying the Service Updates Using the Service Updates List<a name="applying-updates-elasticache-update-console-redis"></a>
 
 To review the list of individual service updates and their status, along with other relevant information, choose the **Service Updates List** tab\. 
 
@@ -99,12 +99,13 @@ When viewing the **Service Updates Status** list, note the following:
   + **no**: The service update might have been applied successfully to one or more nodes, but other nodes within the cluster still have an **available** status\. This typically happens when a service update is applied and then stopped\. 
 **Note**  
 If you stop the progress of a service update on a cluster, any nodes that are already updated have a **complete** status\. Any nodes that have an **In Progress** or **Stopping** status revert to a **Stopped** status, and the **Service Update SLA Met** status changes to **no**\. 
+  + **N/A**: The replication group was created after the recommended apply\-by date\. 
 + **Cluster Status Modified Date**: The latest date that the cluster was modified with a service update\.
 
 **Note**  
 The **Show Previous Updates** check box, if selected, displays a list of previous updates that are no longer available\.
 
-## Using the AWS CLI<a name="applying-updates-cli-redis"></a>
+## Applying the Service Updates Using the AWS CLI<a name="applying-updates-cli-redis"></a>
 
 After you receive notification that service updates are available, you can inspect and apply them using the AWS CLI:
 + To retrieve a description of the service updates that are available:
@@ -114,7 +115,7 @@ After you receive notification that service updates are available, you can inspe
   For more information, see [DescribeServiceUpdates](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeServiceUpdates.html)\. 
 + To review update actions that have a `not-applied` or `stopped` status: 
 
-  `aws describe-update-actions --service-update-name sample-service-update --update-action-status not-applied stopped`
+  `aws elasticache describe-update-actions --service-update-name sample-service-update --update-action-status not-applied stopped`
 
   For more information, see [DescribeUpdateActions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeUpdateActions.html)\. 
 + To apply a service update on a list of replication groups: 

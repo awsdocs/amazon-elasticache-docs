@@ -1,8 +1,8 @@
-# Scaling Single\-Node Redis \(cluster mode disabled\) Clusters<a name="Scaling.RedisStandalone"></a>
+# Scaling Single\-Node Clusters for Redis \(Cluster Mode Disabled\)<a name="Scaling.RedisStandalone"></a>
 
 Redis \(cluster mode disabled\) nodes must be large enough to contain all the cache's data plus Redis overhead\. To change the data capacity of your Redis \(cluster mode disabled\) cluster, you must scale vertically; scaling up to a larger node type to increase data capacity, or scaling down to a smaller node type to reduce data capacity\.
 
-The ElastiCache for Redis scaling up process is designed to make a best effort to retain your existing data and requires successful Redis replication\. For Redis \(cluster mode disabled\) Redis clusters, we recommend that sufficient memory be made available to Redis as described in the topic [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\. 
+The ElastiCache for Redis scaling up process is designed to make a best effort to retain your existing data and requires successful Redis replication\. For Redis \(cluster mode disabled\) Redis clusters, we recommend that sufficient memory be made available to Redis as described in the topic [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\. 
 
 The scaling down process is completely manual and makes no attempt at data retention other than what you do\.
 
@@ -18,5 +18,5 @@ If you're using `reserved-memory-percent`, doing this is not necessary\.
 For more information, see [Managing Reserved Memory](redis-memory-management.md)\.
 
 **Topics**
-+ [Scaling Up Single\-Node Redis \(cluster mode disabled\) Clusters](Scaling.RedisStandalone.ScaleUp.md)
++ [Scaling Up Single\-Node Clusters for Redis \(Cluster Mode Disabled\)](Scaling.RedisStandalone.ScaleUp.md)
 + [Scaling Down Single\-Node Redis Clusters](Scaling.RedisStandalone.ScaleDown.md)

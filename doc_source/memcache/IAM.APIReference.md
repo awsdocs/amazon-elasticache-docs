@@ -1,6 +1,6 @@
 # ElastiCache API Permissions: Actions, Resources, and Conditions Reference<a name="IAM.APIReference"></a>
 
-When you are setting up [Access Control](IAM.md#IAM.AccessControl) and writing permissions policies that you can attach to an IAM identity \(identity\-based policies\), you can use the following table as a reference\. The table lists each Amazon ElastiCache API operation and the corresponding actions for which you can grant permissions to perform the action\. You specify the actions in the policy's `Action` field, and you specify a wildcard character \(\*\) as the resource value in the policy's `Resource` field\. 
+When you set up [access control](IAM.md#IAM.AccessControl) and write permissions policies to attach to an IAM identity \(identity\-based policies\), use the following table as a reference\. The table lists each Amazon ElastiCache API operation and the corresponding actions for which you can grant permissions to perform the action\. You specify the actions in the policy's `Action` field, and you specify a wildcard character \(\*\) as the resource value in the policy's `Resource` field\. 
 
 You can use AWS\-wide condition keys in your ElastiCache policies to express conditions\. For a complete list of AWS\-wide keys, see [Available Keys for Conditions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\.
 

@@ -46,7 +46,7 @@ To display a list of backups, use the `DescribeSnapshots` operation\.
 
 **Examples**
 
-The following operation uses the parameter `MaxRecords` to list up to 20 backups associated with your account\. Omitting the parameter `MaxRecords` will list up to 50 backups\.
+The following operation uses the parameter `MaxRecords` to list up to 20 backups associated with your account\. Omitting the parameter `MaxRecords` lists up to 50 backups\.
 
 ```
 https://elasticache.us-west-2.amazonaws.com/

@@ -39,7 +39,7 @@ Amazon ElastiCache supports locating all of a cluster's nodes in a single or mul
 
 By locating the nodes in different AZs, you eliminate the chance that a failure, such as a power outage, in one AZ will cause your entire system to fail\. Testing has demonstrated that there is no significant latency difference between locating all nodes in one AZ or spreading them across multiple AZs\. 
 
-You can specify an AZ for each node when you create a cluster or by adding nodes when you modify an existing cluster\. For more information, see:
+You can specify an AZ for each node when you create a cluster or by adding nodes when you modify an existing cluster\. For more information, see the following:
 + [Creating a Cluster](Clusters.Create.md)
 + [Modifying an ElastiCache Cluster](Clusters.Modify.md)
 + [Adding Nodes to a Cluster](Clusters.AddNode.md)

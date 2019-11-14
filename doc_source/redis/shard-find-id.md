@@ -1,6 +1,6 @@
-# Finding a Shard's Id<a name="shard-find-id"></a>
+# Finding a Shard's ID<a name="shard-find-id"></a>
 
-You can find a shard's id using the AWS Management Console, the AWS CLI or the ElastiCache API\.
+You can find a shard's ID using the AWS Management Console, the AWS CLI or the ElastiCache API\.
 
 **Topics**
 + [Using the AWS Management Console](#shard-find-id-con)
@@ -10,24 +10,24 @@ You can find a shard's id using the AWS Management Console, the AWS CLI or the E
 ## Using the AWS Management Console<a name="shard-find-id-con"></a>
 
 **Topics**
-+ [For Redis \(cluster mode disabled\)](#shard-find-id-con-classic)
-+ [For Redis \(cluster mode enabled\)](#shard-find-id-con-cluster)
++ [For Redis \(Cluster Mode Disabled\)](#shard-find-id-con-classic)
++ [For Redis \(Cluster Mode Enabled\)](#shard-find-id-con-cluster)
 
-### For Redis \(cluster mode disabled\)<a name="shard-find-id-con-classic"></a>
+### For Redis \(Cluster Mode Disabled\)<a name="shard-find-id-con-classic"></a>
 
-Redis \(cluster mode disabled\) replication group shard id's are always `0001`\.
+Redis \(cluster mode disabled\) replication group shard IDs are always `0001`\.
 
-### For Redis \(cluster mode enabled\)<a name="shard-find-id-con-cluster"></a>
+### For Redis \(Cluster Mode Enabled\)<a name="shard-find-id-con-cluster"></a>
 
-The following procedure uses the AWS Management Console to find a Redis \(cluster mode enabled\)'s replication group's shard id\.
+The following procedure uses the AWS Management Console to find a Redis \(cluster mode enabled\)'s replication group's shard ID\.
 
-**To find the shard id in a Redis \(cluster mode enabled\) replication group**
+**To find the shard ID in a Redis \(cluster mode enabled\) replication group**
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the navigation pane, choose **Redis**, then choose the name of the Redis \(cluster mode enabled\) replication group you want to find the shard id's for\.
+1. On the navigation pane, choose **Redis**, then choose the name of the Redis \(cluster mode enabled\) replication group you want to find the shard IDs for\.
 
-1. In the **Shard Name** column, the shard id is the last four digits of the shard name\.
+1. In the **Shard Name** column, the shard ID is the last four digits of the shard name\.
 
 ## Using the AWS CLI<a name="shard-find-id-cli"></a>
 

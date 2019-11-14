@@ -1,25 +1,22 @@
 # What Is Amazon ElastiCache for Redis?<a name="WhatIs"></a>
 
-Welcome to the *Amazon ElastiCache for Redis User Guide*\. ElastiCache is a web service that makes it easy to set up, manage, and scale a distributed in\-memory data store or cache environment in the cloud\. It provides a high\-performance, scalable, and cost\-effective caching solution, while removing the complexity associated with deploying and managing a distributed cache environment\.
+Welcome to the *Amazon ElastiCache for Redis User Guide*\. Amazon ElastiCache is a web service that makes it easy to set up, manage, and scale a distributed in\-memory data store or cache environment in the cloud\. It provides a high\-performance, scalable, and cost\-effective caching solution\. At the same time, it helps remove the complexity associated with deploying and managing a distributed cache environment\.
 
-
-|  | 
-| --- |
-|    The Amazon ElastiCache documentation has been reorganized so that the information for the Memcached and Redis engines is in separate guides\. Your former links might no longer work\. If you know which guide you need, go directly there by choosing the link to the guide you need\. If you're unsure which engine you want to use, see [Comparing Memcached and Redis](SelectEngine.md) in this guide\.  | 
-|  ![\[\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/memcached-icon.png) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html) |  ![\[\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/redis-icon.png) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html) | 
+**Note**  
+Amazon ElastiCache works with both the Redis and Memcached engines\. Use the guide for the engine that you're interested in\. If you're unsure which engine you want to use, see [Comparing Memcached and Redis](SelectEngine.md) in this guide\.
 
 Existing applications that use Redis can use ElastiCache with almost no modification\. Your applications simply need information about the host names and port numbers of the ElastiCache nodes that you have deployed\. 
 
-ElastiCache for Redis has multiple features to enhance reliability for critical production deployments:
-+ Automatic detection and recovery from cache node failures\.
-+ Multi\-AZ with automatic failover of a failed primary cluster to a read replica in Redis clusters that support replication\.
+ElastiCache for Redis has multiple features that help make the service more reliable for critical production deployments:
++ Automatic detection of and recovery from cache node failures\.
++ Multi\-AZ with automatic failover for a failed primary cluster to a read replica, in Redis clusters that support replication\.
 + Redis \(cluster mode enabled\) supports partitioning your data across up to 90 shards\.
-+ Starting with Redis version 3\.2\.6, all subsuquent supported versions support in\-transit and at\-rest encryption with authentication so you can build HIPAA\-compliant applications\. 
++ For Redis version 3\.2\.and later, all versions support encryption in transit and encryption at rest encryption with authentication\. This support helps you build HIPAA\-compliant applications\. 
 + Flexible Availability Zone placement of nodes and clusters for increased fault tolerance\.
-+ Integration with other AWS services such as Amazon EC2, Amazon CloudWatch, AWS CloudTrail, and Amazon SNS to provide a secure, high\-performance, managed in\-memory caching solution\.
++ Integration with other AWS services such as Amazon EC2, Amazon CloudWatch, AWS CloudTrail, and Amazon SNS\. This integration helps provide a managed in\-memory caching solution that is high\-performance and highly secure\.
 
 **Topics**
-+ [Use Cases and How ElastiCache Can Help](elasticache-use-cases.md)
++ [Common ElastiCache Use Cases and How ElastiCache Can Help](elasticache-use-cases.md)
 + [Amazon ElastiCache Resources](WhatIs.FirstTimeUser.md)
 + [ElastiCache for Redis Components and Features](WhatIs.Components.md)
 + [ElastiCache for Redis Terminology](WhatIs.Terms.md)

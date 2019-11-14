@@ -3,7 +3,7 @@
 The following examples show how to purchase a reserved node offering using the AWS Management Console, the AWS CLI, and the ElastiCache API\. 
 
 **Important**  
- Following the examples in this section will incur charges on your AWS account that you cannot reverse\. 
+ Following the examples in this section incurs charges on your AWS account that you can't reverse\. 
 
 **Topics**
 + [Using the AWS Management Console](#reserved-nodes-purchasing-console)
@@ -34,7 +34,7 @@ The following procedure uses the AWS Management Console to purchase the reserved
    +  Choose the offering type from the **Offering Type** drop\-down list box\.
    + Enter a reserved node ID in the **Reserved Cache Node ID** text box\. 
 **Note**  
-The Reserved Cache Node ID is an unique customer\-specified identifier to track this reservation\. If this box is left blank, ElastiCache automatically generates an identifier for the reservation\.
+The Reserved Cache Node ID is a unique customer\-specified identifier to track this reservation\. If this box is left blank, ElastiCache automatically generates an identifier for the reservation\.
 
 1.  Choose the **Next** button\. 
 

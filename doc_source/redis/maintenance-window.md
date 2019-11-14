@@ -28,7 +28,7 @@ The 60\-minute maintenance window is chosen at random from an 8\-hour block of t
 The maintenance window should fall at the time of lowest usage and thus might need modification from time to time\. You can modify your cluster or replication group to specify a time range of up to 24 hours in duration during which any maintenance activities you have requested should occur\. Any deferred or pending cluster modifications you requested occur during this time\.
 
 **More information**  
-For information on your maintenance window and node replacement, see:
+For information on your maintenance window and node replacement, see the following:
 + [ElastiCache Maintenance](https://aws.amazon.com/elasticache/elasticache-maintenance/)—FAQ on maintenance and node replacement
 + [Replacing Nodes](CacheNodes.NodeReplacement.md)—Managing node replacement
 + [Modifying an ElastiCache Cluster](Clusters.Modify.md)—Changing a cluster's maintenance window

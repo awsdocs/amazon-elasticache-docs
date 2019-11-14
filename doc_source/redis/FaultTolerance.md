@@ -37,7 +37,7 @@ Some of the shortcomings of using Redis AOF to mitigate cluster failures are the
 
   For example, if a node fails due to a hardware fault in an underlying physical server, ElastiCache will provision a new node on a different server\. In this case, the AOF is not available and can't be used to recover the data\.
 
-For more information, see [ElastiCache for Redis Append Only Files \(AOF\)](RedisAOF.md)\.
+For more information, see [Append Only Files \(AOF\) in ElastiCache for Redis](RedisAOF.md)\.
 
 #### Mitigating Failures: Redis Replication Groups<a name="FaultTolerance.Redis.Cluster.Replication"></a>
 
@@ -120,4 +120,4 @@ To minimize the impact of an Availability Zone failure, we recommend launching y
 
 ### Other precautions<a name="FaultTolerance.Recommendations.Other"></a>
 
-If you're running Redis, then in addition to the above, we recommend that you schedule regular backups of your cluster\. Backups \(snapshots\) create a \.rdb file you can use to restore your cluster in case of failure or corruption\. For more information, see [ElastiCache for Redis Backup and Restore](backups.md)\.
+If you're running Redis, then in addition to the above, we recommend that you schedule regular backups of your cluster\. Backups \(snapshots\) create a \.rdb file you can use to restore your cluster in case of failure or corruption\. For more information, see [Backup and Restore for ElastiCache for Redis ](backups.md)\.

@@ -9,10 +9,10 @@ The following helps you find the correct topic for the scaling actions you want 
 
 | Action | Redis \(cluster mode disabled\) | Redis \(cluster mode enabled\) | 
 | --- | --- | --- | 
-|  Scaling in  |  [Removing Nodes from a Cluster](Clusters.DeleteNode.md)  |  [Scaling Redis \(cluster mode enabled\) Clusters](scaling-redis-cluster-mode-enabled.md)  | 
+|  Scaling in  |  [Removing Nodes from a Cluster](Clusters.DeleteNode.md)  |  [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)  | 
 |  Changing node types  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)  | 
-|  Changing the number of node groups  |  Not supported for Redis \(cluster mode disabled\) clusters  |  [Scaling Redis \(cluster mode enabled\) Clusters](scaling-redis-cluster-mode-enabled.md)  | 
+|  Changing the number of node groups  |  Not supported for Redis \(cluster mode disabled\) clusters  |  [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)  | 
 
 **Topics**
-+ [Scaling Redis \(cluster mode disabled\) Clusters](scaling-redis-classic.md)
-+ [Scaling Redis \(cluster mode enabled\) Clusters](scaling-redis-cluster-mode-enabled.md)
++ [Scaling Clusters for Redis \(Cluster Mode Disabled\)](scaling-redis-classic.md)
++ [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)

@@ -1,6 +1,6 @@
 # Memcached Specific Parameters<a name="ParameterGroups.Memcached"></a>
 
-If you do not specify a parameter group for your Memcached cluster, then a default parameter group appropriate to your engine version will be used\. You cannot change the values of any parameters in a default parameter group; however, you can create a custom parameter group and assign it to your cluster at any time\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
+If you do not specify a parameter group for your Memcached cluster, then a default parameter group appropriate to your engine version will be used\. You can't change the values of any parameters in a default parameter group\. However, you can create a custom parameter group and assign it to your cluster at any time\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
 
 **Topics**
 + [Memcached 1\.5\.10 Parameter Changes](#ParameterGroups.Memcached.1-5-10)
@@ -50,7 +50,6 @@ For Memcached 1\.4\.33, the following additional parameters are supported\.
 |  modern  | Default: enabled Type: boolean Modifiable: Yes Changes Take Effect: At launch  |  An alias to multiple features\. Enabling `modern` is equivalent to turning following commands on and using a murmur3 hash algorithm: `slab_reassign`, `slab_automove`, `lru_crawler`, `lru_maintainer`, `maxconns_fast`, and `hash_algorithm=murmur3`\. | 
 |  watch  | Default: enabled Type: boolean Modifiable: Yes Changes Take Effect: Immediately Logs can get dropped if user hits their `watcher_logbuf_size` and `worker_logbuf_size` limits\.  |  Logs fetches, evictions or mutations\. When, for example, user turns `watch` on, they can see logs when `get`, `set`, `delete`, or `update` occur\. | 
 |  idle\_timeout  | Default: 0 \(disabled\) Type: integer Modifiable: Yes Changes Take Effect: At Launch  |  The minimum number of seconds a client will be allowed to idle before being asked to close\. Range of values: 0 to 86400\. | 
-|  cache\_memlimit  | Type: integer Modifiable: Yes Changes Take Effect: Immediately  |  If memory isn't being preallocated, allows dynamically increasing the memory limit of a running system\. `cache_memlimit N` where N is a value in megabytes\. Value can go up or down\. Range: 8 \(MB\) to the node type's `maxmemory`\. | 
 |  track\_sizes  | Default: disabled Type: boolean Modifiable: Yes Changes Take Effect: At Launch  |  Shows the sizes each slab group has consumed\. Enabling `track_sizes` lets you run `stats sizes` without the need to run `stats sizes_enable`\. | 
 |  watcher\_logbuf\_size  | Default: 256 \(KB\) Type: integer Modifiable: Yes Changes Take Effect: At Launch  |  The `watch` command turns on stream logging for Memcached\. However `watch` can drop logs if the rate of evictions, mutations or fetches are high enough to cause the logging buffer to become full\. In such situations, users can increase the buffer size to reduce the chance of log losses\. | 
 |  worker\_logbuf\_size  | Default: 64 \(KB\) Type: integer Modifiable: Yes Changes Take Effect: At Launch  |  The `watch` command turns on stream logging for Memcached\. However `watch` can drop logs if the rate of evictions, mutations or fetches are high enough to cause logging buffer get full\. In such situations, users can increase the buffer size to reduce the chance of log losses\. | 
@@ -133,42 +132,52 @@ If your cluster is using a parameter group that you have created yourself, you c
 Although most parameters have a single value, some parameters have different values depending on the node type used\. The following table shows the default values for the `max_cache_memory` and `num_threads` parameters for each node type\. The values on these parameters cannot be modified\.
 
 
-**Node Type\-Specific Parameters**  
-
-| Node Type | max\_cache\_memory \(MiB\) | num\-threads  | 
+|  Node Type  | max\_cache\_memory \(in megabytes\)  | num\_threads  | 
 | --- | --- | --- | 
-| cache\.t1\.micro | 213 | 1 | 
+| cache\.t1\.micro | 213  | 1 | 
 | cache\.t2\.micro | 555 | 1 | 
 | cache\.t2\.small | 1588 | 1 | 
 | cache\.t2\.medium | 3301 | 2 | 
-| cache\.m1\.small | 1300 | 1 | 
+| cache\.m1\.small | 3301 | 1 | 
 | cache\.m1\.medium | 3350 | 1 | 
 | cache\.m1\.large | 7100 | 2 | 
-| cache\.m1\.xlarge | 14600 | 4 | 
-| cache\.m2\.xlarge | 16700 | 2 | 
-| cache\.m2\.2xlarge | 33800 | 4 | 
-| cache\.m2\.4xlarge | 68000 | 8 | 
+| cache\.m1\.xlarge | 14600  | 4 | 
+| cache\.m2\.xlarge | 33800 | 2 | 
+| cache\.m2\.2xlarge | 30412 | 4 | 
+| cache\.m2\.4xlarge | 68000  | 16 | 
 | cache\.m3\.medium | 2850 | 1 | 
 | cache\.m3\.large | 6200 | 2 | 
 | cache\.m3\.xlarge | 13600 | 4 | 
 | cache\.m3\.2xlarge | 28600 | 8 | 
 | cache\.m4\.large | 6573 | 2 | 
-| cache\.m4\.xlarge | 14618 | 4 | 
+| cache\.m4\.xlarge | 14618  | 4 | 
 | cache\.m4\.2xlarge | 30412 | 8 | 
 | cache\.m4\.4xlarge | 62234 | 16 | 
 | cache\.m4\.10xlarge | 158355 | 40 | 
+| cache\.m5\.large | 6537 | 2 | 
+| cache\.m5\.xlarge | 13248 | 4 | 
+| cache\.m5\.2xlarge | 26671 | 8 | 
+| cache\.m5\.4xlarge | 53516 | 16 | 
+| cache\.m5\.12xlarge | 160900 | 48 | 
+| cache\.m5\.24xlarge | 321865  | 96 | 
 | cache\.c1\.xlarge | 6600 | 8 | 
 | cache\.r3\.large | 13800 | 2 | 
 | cache\.r3\.xlarge | 29100 | 4 | 
 | cache\.r3\.2xlarge | 59600 | 8 | 
 | cache\.r3\.4xlarge | 120600 | 16 | 
-| cache\.r3\.8xlarge | 242600 | 32 | 
+| cache\.r3\.8xlarge | 120600 | 32 | 
 | cache\.r4\.large | 12590 | 2 | 
 | cache\.r4\.xlarge | 25652 | 4 | 
 | cache\.r4\.2xlarge | 51686 | 8 | 
 | cache\.r4\.4xlarge | 103815 | 16 | 
 | cache\.r4\.8xlarge | 208144 | 32 | 
 | cache\.r4\.16xlarge | 416776 | 64 | 
+| cache\.r5\.large | 13387 | 2 | 
+| cache\.r5\.xlarge | 26953 | 4 | 
+| cache\.r5\.2xlarge | 54084 | 8 | 
+| cache\.r5\.4xlarge | 108347 | 16 | 
+| cache\.r5\.12xlarge | 325400 | 48 | 
+| cache\.r5\.24xlarge | 650869 | 96 | 
 
 **Note**  
 All T2 instances are created in an Amazon Virtual Private Cloud \(Amazon VPC\)\.

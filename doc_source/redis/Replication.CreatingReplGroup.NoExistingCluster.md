@@ -2,8 +2,8 @@
 
 This topic covers how to create a Redis replication group without using an existing Redis cluster as the primary\. You can create a Redis \(cluster mode disabled\) or Redis \(cluster mode enabled\) replication group from scratch using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
-Before you continue, decide whether you want to create a Redis \(cluster mode disabled\) or a Redis \(cluster mode enabled\) replication group\. For guidance in deciding, see [Replication: Redis \(cluster mode disabled\) vs\. Redis \(cluster mode enabled\)](Replication.Redis-RedisCluster.md)\.
+Before you continue, decide whether you want to create a Redis \(cluster mode disabled\) or a Redis \(cluster mode enabled\) replication group\. For guidance in deciding, see [Replication: Redis \(Cluster Mode Disabled\) vs\. Redis \(Cluster Mode Enabled\)](Replication.Redis-RedisCluster.md)\.
 
 **Topics**
 + [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.Classic.md)
-+ [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md)
++ [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md)

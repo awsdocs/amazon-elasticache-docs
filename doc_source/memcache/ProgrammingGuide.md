@@ -6,4 +6,4 @@ This section provides task\-oriented descriptions of how to use and implement El
 + [Using the Query API](ProgrammingGuide.QueryAPI.md)
 + [Available Libraries](using-libraries.md)
 + [Troubleshooting Applications](Troubleshooting.md)
-+ [Logging ElastiCache API Calls with AWS CloudTrail](logging-using-cloudtrail.md)
++ [Logging Amazon ElastiCache API Calls with AWS CloudTrail](logging-using-cloudtrail.md)

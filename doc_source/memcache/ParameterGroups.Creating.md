@@ -24,12 +24,12 @@ The following procedure shows how to create a parameter group using the ElastiCa
 
    When creating a cluster or modifying a cluster's parameter group, you will choose the parameter group by its name\. Therefore, we recommend that the name be informative and somehow identify the parameter group's family\.
 
-**Parameter Group naming constraints**
+   Parameter group naming constraints are as follows:
    + Must begin with an ASCII letter\.
    + Can only contain ASCII letters, digits, and hyphens\.
-   + Must be between 1 and 255 characters long\.
-   + Cannot contain two consecutive hyphens\.
-   + Cannot end with a hyphen\.
+   + Must be 1–255 characters long\.
+   + Can't contain two consecutive hyphens\.
+   + Can't end with a hyphen\.
 
 1. In the **Description** box, type in a description for the parameter group\.
 
@@ -44,12 +44,12 @@ The following procedure shows how to create a parameter group using the ElastiCa
 To create a parameter group using the AWS CLI, use the command `create-cache-parameter-group` with these parameters\.
 + `--cache-parameter-group-name` — The name of the parameter group\.
 
-**Parameter Group naming constraints**
+  Parameter group naming constraints are as follows:
   + Must begin with an ASCII letter\.
   + Can only contain ASCII letters, digits, and hyphens\.
-  + Must be between 1 and 255 characters long\.
-  + Cannot contain two consecutive hyphens\.
-  + Cannot end with a hyphen\.
+  + Must be 1–255 characters long\.
+  + Can't contain two consecutive hyphens\.
+  + Can't end with a hyphen\.
 + `--cache-parameter-group-family` — The engine and version family for the parameter group\.
 + `--description` — A user supplied description for the parameter group\.
 
@@ -92,12 +92,12 @@ For more information, see [https://docs.aws.amazon.com/cli/latest/reference/elas
 To create a parameter group using the ElastiCache API, use the `CreateCacheParameterGroup` action with these parameters\.
 + `ParameterGroupName` — The name of the parameter group\.
 
-**Parameter Group naming constraints**
+  Parameter group naming constraints are as follows:
   + Must begin with an ASCII letter\.
   + Can only contain ASCII letters, digits, and hyphens\.
-  + Must be between 1 and 255 characters long\.
-  + Cannot contain two consecutive hyphens\.
-  + Cannot end with a hyphen\.
+  + Must be 1–255 characters long\.
+  + Can't contain two consecutive hyphens\.
+  + Can't end with a hyphen\.
 + `CacheParameterGroupFamily` — The engine and version family for the parameter group\. For example, `memcached1.4`\.
 + `Description` — A user supplied description for the parameter group\.
 

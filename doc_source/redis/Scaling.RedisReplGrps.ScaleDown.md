@@ -1,6 +1,6 @@
 # Scaling Down Redis Clusters with Replicas<a name="Scaling.RedisReplGrps.ScaleDown"></a>
 
-The following sections walk you through how to scale a Redis \(cluster mode disabled\) cache cluster with replica nodes down to a smaller node type\. Ensuring that the new, smaller node type is large enough to accommodate all the data and overhead is very important to success\. For more information, see [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
+The following sections walk you through how to scale a Redis \(cluster mode disabled\) cache cluster with replica nodes down to a smaller node type\. Ensuring that the new, smaller node type is large enough to accommodate all the data and overhead is very important to success\. For more information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
 
 **Important**  
 If your parameter group uses `reserved-memory` to set aside memory for Redis overhead, before you begin scaling be sure that you have a custom parameter group that reserves the correct amount of memory for your new node type\. Alternatively, you can modify a custom parameter group so that it uses `reserved-memory-percent` and use that parameter group for your new cluster\.  
@@ -18,7 +18,7 @@ The following process scales your Redis cluster with replica nodes to a smaller 
 
 **To scale down a Redis cluster with replica nodes \(console\)**
 
-1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
+1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
 
 1. If your parameter group uses `reserved-memory` to set aside memory for Redis overhead, ensure that you have a custom parameter group to set aside the correct amount of memory for your new node type\.
 
@@ -32,7 +32,7 @@ The following process scales your Redis cluster with replica nodes to a smaller 
 
    Alternatively, you can launch a new cluster using the new node type and seeding it from the snapshot\. For more information, see [Seeding a New Cluster with an Externally Created Backup](backups-seeding-redis.md)\.
 
-1. In your application, update the endpoints to the new cluster's endpoints\. For more information, see [Finding a Redis \(cluster mode disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)\.
+1. In your application, update the endpoints to the new cluster's endpoints\. For more information, see [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)\.
 
 1. Delete the old cluster\. For more information, see [Deleting a Replication Group \(Console\)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CON)\.
 

@@ -6,9 +6,9 @@ The [Stopping](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference
 
 When the **Stopping** workflow is complete, the nodes that have a **Stopping** status change to a **Stopped** status\. Depending on the workflow of the update, some clusters won't have any nodes updated\. Other clusters might include some nodes that are updated and others that still have an **update available** status\. 
 
-You can return later to finish the update process as your business flows permit\. In this case, choose the applicable clusters that you want to complete updates on, and then choose **Apply Now**\. For more information, see [Using the Redis Console](applying-updates.md#applying-updates-console-redis-console)\. 
+You can return later to finish the update process as your business flows permit\. In this case, choose the applicable clusters that you want to complete updates on, and then choose **Apply Now**\. For more information, see [Applying the Service Updates Using the Console for Redis](applying-updates.md#applying-updates-console-redis-console)\. 
 
-## Using the Console<a name="stopping-updates-console-redis"></a>
+## Stopping the Service Updates Using the Console<a name="stopping-updates-console-redis"></a>
 
 You can interrupt a service update using the Redis console\. The following demonstrates how to do this:
 + After a service update has progressed on a selected Redis cluster, the ElastiCache console displays the **View/Stop Update** tab at the top of the Redis dashboard\.  
@@ -18,7 +18,7 @@ You can interrupt a service update using the Redis console\. The following demon
 + When you stop the update, choose the Redis cluster and examine the status\. It reverts to a **Stopping** status, as shown following, and eventually a **Stopped** status\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ssp-stopping.png)
 
-## Using the AWS CLI<a name="stopping-updates-cli-redis"></a>
+## Stopping the Service Updates Using the AWS CLI<a name="stopping-updates-cli-redis"></a>
 
 You can interrupt a service update using the AWS CLI\. The following code example shows how to do this:
 

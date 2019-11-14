@@ -21,9 +21,9 @@ The Amazon ElastiCache for Redis restore process supports the following:
 
 **Important**  
 You cannot restore from a backup created using a Redis \(cluster mode enabled\) cluster to a Redis \(cluster mode disabled\) cluster\.
-Redis \(cluster mode enabled\) clusters do not support multiple databases\. Therefore, when restoring to a Redis \(cluster mode enabled\) your restore will fail if the RDB file references more than one database\.
+Redis \(cluster mode enabled\) clusters do not support multiple databases\. Therefore, when restoring to a Redis \(cluster mode enabled\) your restore fails if the \.rdb file references more than one database\.
 
-Whether you make any changes when restoring a cluster from a backup or not is governed by the choices you make in the **Restore Cluster** dialog box when using the ElastiCache console, or parameter values when using the AWS CLI or ElastiCache API to restore\.
+Whether you make any changes when restoring a cluster from a backup is governed by choices that you make\. You make these choices in the **Restore Cluster** dialog box when using the ElastiCache console to restore\. You make these choices by setting parameter values when using the AWS CLI or ElastiCache API to restore\.
 
 During the restore operation, ElastiCache creates the new cluster, and then populates it with data from the backup file\. When this process is complete, the Redis cluster is warmed up and ready to accept requests\.
 
@@ -40,7 +40,7 @@ The following procedures show you how to restore a backup to a new cluster using
 
 ## Restoring From a Backup \(Console\)<a name="backups-restoring-CON"></a>
 
-You can restore a Redis backup to either a single\-node Redis \(cluster mode disabled\) cluster or to a Redis cluster with read replicas \(replication group\)— either Redis \(cluster mode disabled\) or Redis \(cluster mode enabled\)\.
+You can restore a Redis backup in two ways\. You can restore to a single\-node Redis \(cluster mode disabled\) cluster\. Or you can restore to a Redis cluster with read replicas \(a replication group\), either Redis \(cluster mode disabled\) or Redis \(cluster mode enabled\)\.
 
 **To restore a backup to a new cluster \(console\)**
 
@@ -54,13 +54,13 @@ You can restore a Redis backup to either a single\-node Redis \(cluster mode dis
 
 1. Complete the **Restore Cluster** dialog box\. Be sure to complete all the "Required" fields and any of the others you want to change from the defaults\.
 
-**Redis \(cluster mode disabled\)**
+**Redis \(Cluster Mode Disabled\)**
 
    1. **Cluster ID** – Required\. The name of the new cluster\.
 
    1. **Engine version compatibility** – The ElastiCache for Redis engine version you want to run\.
 
-   1. **Cluster mode enabled \(scale out\)** – Choose this to convert your Redis \(cluster mode disabled\) cluster to a Redis \(cluster mode enabled\) \(the engine version will become 3\.2\.4\.
+   1. **Cluster mode enabled \(scale out\)** – Choose this to convert your Redis \(cluster mode disabled\) cluster to a Redis \(cluster mode enabled\)\. The engine version becomes 3\.2\.4\.
 
       If you choose **Cluster mode enabled \(scale out\)**:
 
@@ -82,7 +82,7 @@ You can restore a Redis backup to either a single\-node Redis \(cluster mode dis
 
     
 
-**Redis \(cluster mode enabled\)**
+**Redis \(Cluster Mode Enabled\)**
 
    1. **Cluster ID** – Required\. The name of the new cluster\.
 
@@ -108,7 +108,7 @@ You can restore a Redis backup to either a single\-node Redis \(cluster mode dis
 
 ## Restoring From a Backup \(AWS CLI\)<a name="backups-restoring-CLI"></a>
 
-You can restore a Redis \(cluster mode disabled\) backup to either a single\-node Redis \(cluster mode disabled\) cluster using the AWS CLI operation `create-cache-cluster` or a Redis cluster with read replicas \(replication group\)— either Redis \(cluster mode disabled\) or Redis \(cluster mode enabled\) using the AWS CLI operation `create-replication-group` and seeding it with a Redis \.rdb file\.
+You can restore a Redis \(cluster mode disabled\) backup in two ways\. You can restore to a single\-node Redis \(cluster mode disabled\) cluster using the AWS CLI operation `create-cache-cluster`\. Or you can restore to a Redis cluster with read replicas \(a replication group\)\. To do the latter, you can use either Redis \(cluster mode disabled\) or Redis \(cluster mode enabled\) with the AWS CLI operation `create-replication-group`\. In this case, you seed the restore with a Redis \.rdb file\.
 
 When using either the `create-cache-cluster` or `create-replication-group` operation, be sure to include the parameter `--snapshot-name` or `--snapshot-arns` to seed the new cluster or replication group with the data from the backup\.
 

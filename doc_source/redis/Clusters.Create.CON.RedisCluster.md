@@ -1,4 +1,4 @@
-# Creating a Redis \(cluster mode enabled\) Cluster \(Console\)<a name="Clusters.Create.CON.RedisCluster"></a>
+# Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Clusters.Create.CON.RedisCluster"></a>
 
 If you are running Redis 3\.2\.4 or later, you can create a Redis \(cluster mode enabled\) cluster\. Redis \(cluster mode enabled\) clusters support partitioning your data across 1 to 90 shards \(API/CLI: node groups\) but with some limitations\. For a comparison of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\), see [Supported ElastiCache for Redis Versions](supported-engine-versions.md)\.
 
@@ -23,11 +23,11 @@ You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication g
 
    1. In the **Name** box, type a name for your cluster\.
 
-**Cluster naming constraints**
-      + Must contain from 1 to 20 alphanumeric characters or hyphens\.
+      Cluster naming constraints are as follows:
+      + Must contain 1–40 alphanumeric characters or hyphens\.
       + Must begin with a letter\.
-      + Cannot contain two consecutive hyphens\.
-      + Cannot end with a hyphen\.
+      + Can't contain two consecutive hyphens\.
+      + Can't end with a hyphen\.
 
    1. In the **Description** box, type a description of the cluster\.
 
@@ -66,7 +66,7 @@ You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication g
    1. For **Number of shards**, choose the number of shards \(partitions/node groups\) you want for this Redis \(cluster mode enabled\) cluster\.
 
       In Redis \(cluster mode enabled\), depending upon the version of Redis running on your cluster, you may be able to change the number of shards in your cluster dynamically\.
-      + **Redis 3\.2\.10**—If your cluster is running Redis 3\.2\.10 you can change the number of shards in your cluster dynamically\. For more information, see [Scaling Redis \(cluster mode enabled\) Clusters](scaling-redis-cluster-mode-enabled.md)\.
+      + **Redis 3\.2\.10**—If your cluster is running Redis 3\.2\.10 you can change the number of shards in your cluster dynamically\. For more information, see [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\.
       + **Other Redis versions**—If your cluster is running a version of Redis other than version 3\.2\.10, to change the number of shards in your cluster, you must create a new cluster with the new number of shards\. For more information, see [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
 
    1. For **Replicas per shard**, choose the number of read replica nodes you want in each shard\.
@@ -114,7 +114,7 @@ You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication g
 
    1. If you want regularly scheduled automatic backups, choose **Enable automatic backups** the type the number of days you want each automatic backup retained before it is automatically deleted\. If you don't want regularly scheduled automatic backups, clear the **Enable automatic backups** check box\. In either case, you always have the option to create manual backups\.
 
-      For more information on Redis backup and restore, see [ElastiCache for Redis Backup and Restore](backups.md)\.
+      For more information on Redis backup and restore, see [Backup and Restore for ElastiCache for Redis ](backups.md)\.
 
    1. The **Maintenance window** is the time, generally an hour in length, each week when ElastiCache schedules system maintenance for your cluster\. You can allow ElastiCache to choose the day and time for your maintenance window \(*No preference*\), or you can choose the day, time, and duration yourself \(*Specify maintenance window*\)\. If you choose *Specify maintenance window* from the lists, choose the *Start day*, *Start time*, and *Duration* \(in hours\) for your maintenance window\. All times are UCT times\.
 
@@ -124,7 +124,7 @@ You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication g
 
 1. Review all your entries and choices, then go back and make any needed corrections\. When you're ready, choose **Create cluster** to launch your cluster, or **Cancel** to cancel the operation\.
 
-To create the equivalent using the ElastiCache API or AWS CLI instead of the ElastiCache console, see: 
+To create the equivalent using the ElastiCache API or AWS CLI instead of the ElastiCache console, see the following: 
 + API: [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 + CLI: [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 

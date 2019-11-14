@@ -4,7 +4,7 @@ When you have granted your Amazon EC2 instance access to your ElastiCache cluste
 
 ## Using the AWS Management Console<a name="WhatIs.Managing.Means.CON"></a>
 
-The AWS Management Console is the easiest way to manage Amazon ElastiCache\. The console lets you create cache clusters, add and remove cache nodes, and perform other administrative tasks without having to write any code\. The console also provides cache node performance graphs from CloudWatch, showing cache engine activity, memory and CPU utilization, as well as other metrics\. For more information, see specific topics in this *User Guide*\.
+The AWS Management Console is the easiest way to manage Amazon ElastiCache\. The console lets you create cache clusters, add and remove cache nodes, and perform other administrative tasks without having to write any code\. The console also provides cache node performance graphs from CloudWatch\. These show cache engine activity, memory and CPU utilization, and other metrics\. For more information, see specific topics in this *User Guide*\.
 
 ## Using the AWS CLI<a name="WhatIs.Managing.Means.CLI"></a>
 
@@ -16,7 +16,7 @@ If you want to access ElastiCache from an application, you can use one of the AW
 
 ## Using the ElastiCache API<a name="WhatIs.Managing.Means.API"></a>
 
-You can also write application code directly against the ElastiCache web service API\. When using the API, you must write the necessary code to construct and authenticate your HTTP requests, parse the results from ElastiCache, and handle any errors\. For more information about the API, see [Using the ElastiCache API](ProgrammingGuide.md)\.
+You can also write application code directly against the ElastiCache web service API\. When using the API, you must write the necessary code to construct and authenticate your HTTP requests\. You also write code to parse results from ElastiCache and handle any errors\. For more information about the API, see [Using the ElastiCache API](ProgrammingGuide.md)\.
 
 ## Additional Resources<a name="what-is-managing-see-also"></a>
 

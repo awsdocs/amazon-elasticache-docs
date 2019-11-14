@@ -5,12 +5,12 @@ You can create a Redis \(cluster mode disabled\) replication group from scratch 
 **Note**  
 The node/shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and include the instance type in the request\.
 
-**Creating a Redis \(cluster mode disabled\) Replication Group from Scratch**
+**Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch**
 + [Creating a Redis \(cluster mode disabled\) Cluster \(Console\)](Clusters.Create.CON.Redis.md) Specify at least one replica node in step 6\.i\.
-+ [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(AWS CLI\)](#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI)
++ [Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)](#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI)
 + [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](#Replication.CreatingReplGroup.NoExistingCluster.Classic.API)
 
-## Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI"></a>
+## Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI"></a>
 
 The following procedure creates a Redis \(cluster mode disabled\) replication group using the AWS CLI\.
 
@@ -18,12 +18,11 @@ When you create a Redis \(cluster mode disabled\) replication group from scratch
 
 **\-\-replication\-group\-id**  
 The name of the replication group you are creating\.  
-
-**Redis \(cluster mode disabled\) Replication Group naming constraints**
-+ Must contain from 1 to 20 alphanumeric characters or hyphens\.
+Redis \(cluster mode disabled\) replication group naming constraints are as follows:  
++ Must contain 1–40 alphanumeric characters or hyphens\.
 + Must begin with a letter\.
-+ Cannot contain two consecutive hyphens\.
-+ Cannot end with a hyphen\.
++ Can't contain two consecutive hyphens\.
++ Can't end with a hyphen\.
 
 **\-\-replication\-group\-description**  
 Description of the replication group\.
@@ -149,12 +148,11 @@ When you create a Redis \(cluster mode disabled\) replication group from scratch
 
 **ReplicationGroupId**  
 The name of the replication group you are creating\.  
-
-**Redis \(cluster mode enabled\) Replication Group naming constraints**
-+ Must contain from 1 to 20 alphanumeric characters or hyphens\.
+Redis \(cluster mode enabled\) replication group naming constraints are as follows:  
++ Must contain 1–40 alphanumeric characters or hyphens\.
 + Must begin with a letter\.
-+ Cannot contain two consecutive hyphens\.
-+ Cannot end with a hyphen\.
++ Can't contain two consecutive hyphens\.
++ Can't end with a hyphen\.
 
 **ReplicationGroupDescription**  
 Your description of the replication group\.

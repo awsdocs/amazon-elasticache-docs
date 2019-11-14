@@ -1,6 +1,6 @@
 # Redis Specific Parameters<a name="ParameterGroups.Redis"></a>
 
-If you do not specify a parameter group for your Redis cluster, then a default parameter group appropriate to your engine version will be used\. You cannot change the values of any parameters in the default parameter group; however, you can create a custom parameter group and assign it to your cluster at any time as long as the values of conditionally modifiable parameters are the same in both parameter groups\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
+If you do not specify a parameter group for your Redis cluster, then a default parameter group appropriate to your engine version will be used\. You can't change the values of any parameters in the default parameter group\. However, you can create a custom parameter group and assign it to your cluster at any time as long as the values of conditionally modifiable parameters are the same in both parameter groups\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
 
 **Topics**
 + [Redis 5\.0\.3 Parameter Changes](#ParameterGroups.Redis.5-0-3)
@@ -25,9 +25,9 @@ For more information, see the following topics:
 
 |  | AWS CLI | ElastiCache API | 
 | --- | --- | --- | 
-| **Create Cluster** | [Creating a Cluster \(AWS CLI\)](Clusters.Create.CLI.md) This action cannot be used to create a replication group with cluster mode enabled\. | [Creating a Cluster \(ElastiCache API\)](Clusters.Create.API.md)  This action cannot be used to create a replication group with cluster mode enabled\.  | 
-| **Modify Cluster** | [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)  This action cannot be used to create a replication group with cluster mode enabled\.  | [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)  This action cannot be used to create a replication group with cluster mode enabled\. | 
-| **Create Replication Group** | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
+| **Create Cluster** | [Creating a Cluster \(AWS CLI\)](Clusters.Create.CLI.md) You can't use this action to create a replication group with cluster mode enabled\. | [Creating a Cluster \(ElastiCache API\)](Clusters.Create.API.md)  You can't use this action to create a replication group with cluster mode enabled\.  | 
+| **Modify Cluster** | [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)  You can't use this action to create a replication group with cluster mode enabled\.  | [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)  You can't use this action to create a replication group with cluster mode enabled\. | 
+| **Create Replication Group** | [Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
 
 ## Redis 5\.0\.3 Parameter Changes<a name="ParameterGroups.Redis.5-0-3"></a>
@@ -102,7 +102,7 @@ Redis 4\.0\.x default parameter groups
 
 |  Name  |  Details |  Description  | 
 | --- | --- | --- | 
-| maxmemory\-policy |  Permitted values: `allkeys-lru`, `volatile-lru`, **allkeys\-lfu**, **volatile\-lfu**, `allkeys-random`, `volatile-random`, `volatile-ttl`, `noeviction` Default: volatile\-lru Type: string Modifiable: Yes Changes take place: immediately | maxmemory\-policy was added in version 2\.6\.13\. In version 4\.0\.10 two new permitted values are added: allkeys\-lfu and volatile\-lfu\. | 
+| maxmemory\-policy |  Permitted values: `allkeys-lru`, `volatile-lru`, **allkeys\-lfu**, **volatile\-lfu**, `allkeys-random`, `volatile-random`, `volatile-ttl`, `noeviction` Default: volatile\-lru Type: string Modifiable: Yes Changes take place: immediately | maxmemory\-policy was added in version 2\.6\.13\. In version 4\.0\.10 two new permitted values are added: allkeys\-lfu, which will evict any key using approximated LFU, and volatile\-lfu, which will evict using approximated LFU among the keys with an expire set\.  | 
 
 
 **Parameters Added in Redis 4\.0\.10**  
@@ -209,7 +209,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w18aac16c45c57c25b9"></a>
+### How close\-on\-slave\-write works<a name="w30aac18c44c57c25b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -223,11 +223,11 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### Why disable close\-on\-replica\-write?<a name="w18aac16c45c57c25c11"></a>
+### When You Might Disable close\-on\-replica\-write<a name="w30aac18c44c57c25c11"></a>
 
-If disabling `close-on-replica-write` results in writes to the failing cluster, why would you want to disable `close-on-replica-write`?
+If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 
-As previously mentioned, with `close-on-replica-write` enabled, any time a client attempts to write to a read\-replica the client connection to the cluster is closed\. Since establishing a new connection to the node takes time, disconnecting and reconnecting as a result of a write request to the replica would also impact the latency of read requests that were served through the same connection, until a new connection is established\. Therefore, if your application is especially read\-heavy or very latency\-sensitive, you my prefer to keep your clients connected so as to not degrade read performance\. 
+As previously mentioned, with `close-on-replica-write` enabled, any time a client attempts to write to a read\-replica the client connection to the cluster is closed\. Establishing a new connection to the node takes time\. Thus, disconnecting and reconnecting as a result of a write request to the replica also affects the latency of read requests that are served through the same connection\. This effect remains in place until a new connection is established\. If your application is especially read\-heavy or very latency\-sensitive, you might keep your clients connected to avoid degrading read performance\. 
 
 ## Redis 2\.8\.22 \(Enhanced\) Added Parameters<a name="ParameterGroups.Redis.2-8-22"></a>
 

@@ -3,12 +3,12 @@
 You can view detail information about one or more clusters using the ElastiCache console, AWS CLI, or ElastiCache API\.
 
 **Topics**
-+ [Viewing a Redis \(cluster mode disabled\) Cluster's Details \(Console\)](#Clusters.ViewDetails.CON.Redis)
-+ [Viewing a Redis \(cluster mode enabled\) Cluster's Details \(Console\)](#Clusters.ViewDetails.CON.RedisCluster)
++ [Viewing a Redis \(Cluster Mode Disabled\) Cluster's Details \(Console\)](#Clusters.ViewDetails.CON.Redis)
++ [Viewing Details for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](#Clusters.ViewDetails.CON.RedisCluster)
 + [Viewing a Cluster's Details \(AWS CLI\)](#Clusters.ViewDetails.CLI)
 + [Viewing a Cluster's Details \(ElastiCache API\)](#Clusters.ViewDetails.API)
 
-## Viewing a Redis \(cluster mode disabled\) Cluster's Details \(Console\)<a name="Clusters.ViewDetails.CON.Redis"></a>
+## Viewing a Redis \(Cluster Mode Disabled\) Cluster's Details \(Console\)<a name="Clusters.ViewDetails.CON.Redis"></a>
 
 You can view the details of a Redis \(cluster mode disabled\) cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API\.
 
@@ -33,7 +33,7 @@ The following procedure details how to view the details of a Redis \(cluster mod
 
       Metrics over the last hour for two Redis nodes
 
-## Viewing a Redis \(cluster mode enabled\) Cluster's Details \(Console\)<a name="Clusters.ViewDetails.CON.RedisCluster"></a>
+## Viewing Details for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Clusters.ViewDetails.CON.RedisCluster"></a>
 
 You can view the details of a Redis \(cluster mode enabled\) cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API\.
 

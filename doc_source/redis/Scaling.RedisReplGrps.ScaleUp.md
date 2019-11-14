@@ -10,7 +10,7 @@ When the scale\-up process is initiated, ElastiCache does the following:
 
 1. Syncs the new read replicas with the new primary node\.
 
-1. Updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. You will notice a brief interruption of reads and writes from the primary node while the DNS entry is updated\.
+1. Updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 5\.0\.4 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\. 
 
 1. Deletes the old nodes \(CLI/API: replication group\)\.
 
@@ -38,7 +38,7 @@ For more information, see [Managing Reserved Memory](redis-memory-management.md)
 
 The amount of time it takes to scale up to a larger node type varies, depending upon the node type and the amount of data in your current cluster\.
 
-The following process scales your cluster with replicas from its current node type to a new, larger node type using the ElastiCache console\. During this process, until the status changes from *modifying* to *available*, all reads and writes between your application and the primary cache cluster are blocked\.
+The following process scales your cluster with replicas from its current node type to a new, larger node type using the ElastiCache console\. During this process, there may be a brief interruption of reads and writes for other versions from the primary node while the DNS entry is updated\. you might see less than 1 second downtime for nodes running on 5\.0\.5 versions and a few seconds for older versions\. 
 
 **To scale up Redis cluster with replicas \(console\)**
 
@@ -54,15 +54,13 @@ The following process scales your cluster with replicas from its current node ty
 
    1. Choose the node type you want to scale to from the **Node type** list\.
 
-      The list identifies all the node types you can scale up to\.
-
    1. If you're using `reserved-memory` to manage your memory, from the **Parameter Group** list, choose the custom parameter group that reserves the correct amount of memory for your new node type\.
 
 1. If you want to perform the scale\-up process right away, choose the **Apply immediately** check box\. If the **Apply immediately** check box is left not chosen, the scale\-up process is performed during this cluster's next maintenance window\.
 
 1. Choose **Modify**\.
 
-1. When the cluster’s status changes from *modifying* to *available*, your cluster has scaled to the new node type and you can resume using it\. There is no need to update the endpoints in your application\.
+1. When the cluster’s status changes from *modifying* to *available*, your cluster has scaled to the new node type\. There is no need to update the endpoints in your application\.
 
 ## Scaling Up a Redis Replication Group \(AWS CLI\)<a name="Scaling.RedisReplGrps.ScaleUp.CLI"></a>
 
@@ -124,7 +122,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
    ```
    aws elasticache modify-replication-group \
    	    --replication-group-id my-repl-group \
-   	    --cache-node-type cache.m3.2xlarge \
+   	    --cache-node-type cache.m3.xlarge \
    	    --cache-parameter-group-name redis32-m3-2xl \
    	    --apply-immediately
    ```
@@ -134,7 +132,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
    ```
    aws elasticache modify-replication-group ^
    	    --replication-group-id my-repl-group ^
-   	    --cache-node-type cache.m3.2xlarge ^
+   	    --cache-node-type cache.m3.xlarge ^
    	    --cache-parameter-group-name redis32-m3-2xl \
    	    --apply-immediately
    ```
@@ -142,8 +140,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
    Output from this command looks something like this \(JSON format\)\.
 
    ```
-   {
-   	    "ReplicationGroup": {
+   {"ReplicationGroup": {
    	        "Status": "available", 
    	        "Description": "Some description", 
    	        "NodeGroups": [
@@ -194,7 +191,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
 
    For more information, see [modify\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group.html) in the *AWS CLI Reference*\.
 
-1. If you used the `--apply-immediately` parameter, monitor the status of the replication group using the AWS CLI `describe-replication-group` command with the following parameter\. When the status changes from *modifying* to *available*, you can begin writing to your new, scaled up replication group\.
+1. If you used the `--apply-immediately` parameter, monitor the status of the replication group using the AWS CLI `describe-replication-group` command with the following parameter\. While the status is still in *modifying*, you might see less than 1 second downtime for nodes running on 5\.0\.5 versions and a brief interruption of reads and writes for older versions from the primary node while the DNS entry is updated\.
    + `--replication-group-id` – the name of the replication group\. Use this parameter to describe a particular replication group rather than all replication groups\.
 
    For Linux, macOS, or Unix:

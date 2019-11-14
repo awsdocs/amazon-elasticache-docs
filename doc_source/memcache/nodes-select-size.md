@@ -12,9 +12,9 @@ The total memory capacity of your cluster is calculated by multiplying the numbe
 cluster_capacity = number_of_nodes * (node_capacity - system_overhead)
 ```
 
-The number of nodes in the cluster is a key factor in the availability of your cluster running Memcached\. The failure of a single node can have an impact on the availability of your application and the load on your back\-end database while ElastiCache provisions a replacement for the failed node and it gets repopulated\. You can reduce this potential availability impact by spreading your memory and compute capacity over a larger number of nodes, each with smaller capacity, rather than using a fewer number of high capacity nodes\.
+The number of nodes in the cluster is a key factor in the availability of your cluster running Memcached\. The failure of a single node can have an impact on the availability of your application and the load on your backend database\. In such a case, ElastiCache provisions a replacement for a failed node and it gets repopulated\. To reduce this availability impact, spread your memory and compute capacity over more nodes with smaller capacity, rather than using fewer high\-capacity nodes\.
 
-In a scenario where you want to have 35 GB of cache memory, you can set it up in any of the following configurations:
+In a scenario where you want to have 35 GB of cache memory, you can set up any of the following configurations:
 + 11 `cache.t2.medium` nodes with 3\.22 GB of memory and 2 threads each = 35\.42 GB and 22 threads\.
 + 6 `cache.m4.large` nodes with 6\.42 GB of memory and 2 threads each = 38\.52 GB and 12 threads\.
 + 3 `cache.r4.large` nodes with 12\.3 GB of memory and 2 threads each = 36\.90 GB and 6 threads\.
@@ -28,10 +28,10 @@ These options each provide similar memory capacity but different computational c
 
 For clusters running Memcached, some of the available memory on each node is used for connection overhead\. For more information, see [Memcached Connection Overhead](ParameterGroups.Memcached.md#ParameterGroups.Memcached.Overhead)
 
-Using multiple nodes will require spreading the keys across them\. Each node has its own endpoint\. For easy endpoint management, you can use the ElastiCache the Auto Discovery feature, which enables client programs to automatically identify all of the nodes in a cluster\. For more information, see [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\.
+Using multiple nodes requires spreading the keys across them\. Each node has its own endpoint\. For easy endpoint management, you can use the ElastiCache the Auto Discovery feature, which enables client programs to automatically identify all of the nodes in a cluster\. For more information, see [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\.
 
-If you're unsure about how much capacity you need, for testing we recommend starting with one `cache.m5.large` node and monitoring the memory usage, CPU utilization, and cache hit rate with the ElastiCache metrics that are published to CloudWatch\. For more information on CloudWatch metrics for ElastiCache, see [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)\. For production and larger workloads, the R5 nodes provide the best performance and RAM cost value\.
+In some cases, you might be unsure how much capacity you need\. If so, for testing we recommend starting with one `cache.m5.large` node\. Then monitor the memory usage, CPU utilization, and cache hit rate with the ElastiCache metrics that are published to Amazon CloudWatch\. For more information on CloudWatch metrics for ElastiCache, see [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)\. For production and larger workloads, the R5 nodes provide the best performance and RAM cost value\.
 
-If your cluster does not have the desired hit rate, you can easily add more nodes, thereby increasing the total available memory in your cluster\.
+If your cluster doesn't have the hit rate that you want, you can easily add more nodes to increase the total available memory in your cluster\.
 
-If your cluster turns out to be bound by CPU but it has sufficient hit rate, try setting up a new cluster with a node type that provides more compute power\.
+If your cluster is bound by CPU but has sufficient hit rate, set up a new cluster with a node type that provides more compute power\.

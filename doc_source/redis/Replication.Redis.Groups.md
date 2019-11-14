@@ -10,10 +10,10 @@ Each shard in a replication group has a single read/write primary node and up to
 The node or shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and select limit type "Nodes per cluster per instance type”\. 
 
 **Topics**
-+ [Redis \(cluster mode disabled\)](#Replication.Redis.Groups.Classic)
++ [Redis \(Cluster Mode Disabled\)](#Replication.Redis.Groups.Classic)
 + [Redis \(cluster mode enabled\)](#Replication.Redis.Groups.Cluster)
 
-## Redis \(cluster mode disabled\)<a name="Replication.Redis.Groups.Classic"></a>
+## Redis \(Cluster Mode Disabled\)<a name="Replication.Redis.Groups.Classic"></a>
 
 A Redis \(cluster mode disabled\) cluster has a single shard, inside of which is a collection of Redis nodes; one primary read/write node and up to five secondary, read\-only replica nodes\. Each read replica maintains a copy of the data from the cluster's primary node\. Asynchronous replication mechanisms are used to keep the read replicas synchronized with the primary\. Applications can read from any node in the cluster\. Applications can write only to the primary node\. Read replicas improve read throughput and guard against data loss in cases of a node failure\.
 

@@ -15,12 +15,12 @@ You should be aware of the following requirements when upgrading from an older v
 
 **Important**  
 You can upgrade to a newer engine version, but you can't downgrade to an older engine version\. If you want to use an older engine version, you must delete the existing cluster and create it anew with the older engine version\. 
-Although engine version management functionality is intended to give you as much control as possible over how patching occurs, ElastiCache reserves the right to patch your cluster on your behalf in the unlikely event of a critical security vulnerability in the system or cache software\.
-Because the Memcached engine does not support persistence, Memcached engine version upgrades are always a disruptive process which clears all cache data in the cluster\.
+Engine version management is designed so that you can have as much control as possible over how patching occurs\. However, ElastiCache reserves the right to patch your cluster on your behalf in the unlikely event of a critical security vulnerability in the system or cache software\.
+Because the Memcached engine does not support persistence, Memcached engine version upgrades are always a disruptive process that clears all cache data in the cluster\.
 
 ## How to Upgrade Engine Versions<a name="VersionManagement.HowTo"></a>
 
-You initiate version upgrades to your cluster by modifying it using the ElastiCache console, the AWS CLI, or the ElastiCache API and specifying a newer engine version\. For more information, see the following topics\.
-+ **Using the AWS Management Console** – [Using the AWS Management Console](Clusters.Modify.md#Clusters.Modify.CON)
-+ **Using the AWS CLI** – [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)
-+ **Using the ElastiCache API** – [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)
+To start version upgrades to your cluster, you modify it and specify a newer engine version\. You can do this by using the ElastiCache console, the AWS CLI, or the ElastiCache API:
++ To use the AWS Management Console, see – [Using the AWS Management Console](Clusters.Modify.md#Clusters.Modify.CON)\.
++ To use the AWS CLI, see [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)\.
++ To use the ElastiCache API, see [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)\.

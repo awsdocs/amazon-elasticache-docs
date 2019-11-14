@@ -3,12 +3,19 @@
 ElastiCache supports the following Memcached versions and upgrading to newer versions\. When upgrading to a newer version, pay careful attention to the conditions that if not met cause your upgrade to fail\.
 
 **Topics**
++ [Memcached Version 1\.5\.16](#memcached-version-1-5-16)
 + [Memcached Version 1\.5\.10](#memcached-version-1-5-10)
 + [Memcached Version 1\.4\.34](#memcached-version-1-4-34)
 + [Memcached Version 1\.4\.33](#memcached-version-1-4-33)
 + [Memcached Version 1\.4\.24](#memcached-version-1-4-24)
 + [Memcached Version 1\.4\.14](#memcached-version-1-4-14)
 + [Memcached Version 1\.4\.5](#memcached-version-1-4-5)
+
+## Memcached Version 1\.5\.16<a name="memcached-version-1-5-16"></a>
+
+ElastiCache for Memcached adds support for Memcached version 1\.5\.16\. It includes no new features, but does include bug fixes and cumulative updates from [Memcached 1\.5\.14](https://github.com/memcached/memcached/wiki/ReleaseNotes1514) and [Memcached 1\.5\.15](https://github.com/memcached/memcached/wiki/ReleaseNotes1515)\.
+
+For more information, see [Memcached 1\.5\.16 Release Notes](https://github.com/memcached/memcached/wiki/ReleaseNotes1516) at Memcached on GitHub\.
 
 ## Memcached Version 1\.5\.10<a name="memcached-version-1-5-10"></a>
 
@@ -21,7 +28,7 @@ ElastiCache for Memcached version 1\.5\.10 supports the following Memcached feat
 
 It also introduces the `no_modern` and `inline_ascii_resp` parameters\. For more information, see [Memcached 1\.5\.10 Parameter Changes](ParameterGroups.Memcached.md#ParameterGroups.Memcached.1-5-10)\.
 
-Memcached improvements added since ElastiCache for Memcached version 1\.4\.34 include the following: 
+Memcached improvements added since ElastiCache for Memcached version 1\.4\.34 include the following:
 + Cumulative fixes, such as ASCII multigets, CVE\-2017\-9951 and limit crawls for `metadumper`\. 
 + Better connection management by closing connections at the connection limit\. 
 + Improved item\-size management for item size above 1MB\. 

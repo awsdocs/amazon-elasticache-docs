@@ -6,7 +6,10 @@ This replacement results in some downtime for the cluster\. If you have Multi\-A
 
 ElastiCache also propagates the Domain Name Service \(DNS\) name of the promoted replica\. It does so because then if your application is writing to the primary endpoint, no endpoint change is required in your application\. If you are reading from individual endpoints, you need to change the read endpoint of the replica promoted to primary to the new replica's endpoint\.
 
-For ElastiCache for Redis Cluster configurations that are set up to use ElastiCache for Redis Cluster clients, the planned node replacements will now complete while the cluster serves incoming write requests\. For non\-ElastiCache for Redis Cluster configurations, you may notice a brief write interruption, of up to a few seconds, associated with DNS update\. This process is much faster than recreating and provisioning a new primary, which is the process if you don't enable Multi\-AZ with automatic failover\.
+In case of planned node replacements, initiated due to maintenance updates or self\-service updates:
++ For ElastiCache for Redis Cluster, the planned node replacements will now complete while the cluster serves incoming write requests\. 
++ For Redis Cluster mode disabled clusters with Multi\-AZ AutoFailover enabled and running on the 5\.0\.5 or above engine, the planned node replacements complete while the cluster serves incoming write requests\. 
++ For Redis Cluster mode disabled clusters with Multi\-AZ AutoFailover enabled and running on the 5\.0\.4 or below engine, you may notice a brief write interruption, of up to a few seconds, associated with DNS updates\. This process is much faster than re\-creating and provisioning a new primary, which is the process if you don't enable Multi\-AZ with automatic failover\. 
 
 You can enable Multi\-AZ with Automatic Failover using the ElastiCache Management Console, the AWS CLI, or the ElastiCache API\.
 
@@ -85,7 +88,7 @@ You need to make the following changes to your application after the new replica
 + **Read endpoint** – Replace the read endpoint of the failed primary with the read endpoint of the new replica\.
 
 For information about finding the endpoints of a cluster, see the following topics:
-+ [Finding a Redis \(cluster mode disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)
++ [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)
 + [Finding the Endpoints for Replication Groups \(AWS CLI\)](Endpoints.md#Endpoints.Find.CLI.ReplGroups)
 + [Finding Endpoints for Replication Groups \(ElastiCache API\)](Endpoints.md#Endpoints.Find.API.ReplGroups)
 
@@ -116,7 +119,7 @@ You need to make the following changes to your application after the new nodes a
 + **Read endpoint** – Replace the read endpoint of the failed primary and failed replicas with the node endpoints of the new replicas\.
 
 For information about finding the endpoints of a replication group, see the following topics:
-+ [Finding a Redis \(cluster mode disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)
++ [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)
 + [Finding the Endpoints for Replication Groups \(AWS CLI\)](Endpoints.md#Endpoints.Find.CLI.ReplGroups)
 + [Finding Endpoints for Replication Groups \(ElastiCache API\)](Endpoints.md#Endpoints.Find.API.ReplGroups)
 
@@ -145,7 +148,7 @@ What ElastiCache Multi\-AZ does when the entire cluster fails is the following:
 Because each of the replacement nodes will have the same endpoint as the node it is replacing, you don't need to make any endpoint changes in your application\.
 
 For information about finding the endpoints of a replication group, see the following topics:
-+ [Finding a Redis \(cluster mode disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)
++ [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)
 + [Finding the Endpoints for Replication Groups \(AWS CLI\)](Endpoints.md#Endpoints.Find.CLI.ReplGroups)
 + [Finding Endpoints for Replication Groups \(ElastiCache API\)](Endpoints.md#Endpoints.Find.API.ReplGroups)
 
@@ -155,7 +158,7 @@ We recommend that you create the primary node and read replicas in different Ava
 
 You can enable Multi\-AZ with Automatic Failover when you create or modify a cluster \(API or CLI, replication group\) using the ElastiCache console, AWS CLI, or the ElastiCache API\.
 
-You can enable Multi\-AZ with Automatic Failover only on Redis \(cluster mode disabled\) clusters that have at least one available read replica\. Multi\-AZ with Automatic Failover is required on all Redis \(cluster mode enabled\) clusters, whether or not they have read replicas\. Clusters without read replicas do not provide high availability or fault tolerance\. For information about creating a cluster with replication, see [Creating a Redis Replication Group](Replication.CreatingRepGroup.md)\. For information about adding a read replica to a cluster with replication, see [Adding a Read Replica, for Redis \(cluster mode disabled\) Replication Groups](Replication.AddReadReplica.md)\.
+You can enable Multi\-AZ with Automatic Failover only on Redis \(cluster mode disabled\) clusters that have at least one available read replica\. Multi\-AZ with Automatic Failover is required on all Redis \(cluster mode enabled\) clusters, whether or not they have read replicas\. Clusters without read replicas do not provide high availability or fault tolerance\. For information about creating a cluster with replication, see [Creating a Redis Replication Group](Replication.CreatingRepGroup.md)\. For information about adding a read replica to a cluster with replication, see [Adding a Read Replica, for Redis \(Cluster Mode Disabled\) Replication Groups](Replication.AddReadReplica.md)\.
 
 **Topics**
 + [Enabling Multi\-AZ with Automatic Failover \(Console\)](#AutoFailover.Enable.Console)

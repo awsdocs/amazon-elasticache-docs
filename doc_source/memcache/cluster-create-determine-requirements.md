@@ -41,7 +41,7 @@ The Memcached engine is multi\-threaded, so a node’s number of cores impacts t
 
 ## Memcached Cluster Configuration<a name="memcached-cluster-configuration"></a>
 
-ElastiCache for Memcached clusters are comprised of from 1 to 20 nodes\. The data in a Memcached cluster is partitioned across the nodes in the cluster\. Your application connects with a Memcached cluster using a network address called an Endpoint\. Each node in a Memcached cluster has its own endpoint which your application uses to read from or write to the specific node\. In addition to the node endpoints, the Memcached cluster itself has an endpoint called the *Configuration Endpoint* which your application can use to read from or write to the cluster, leaving the determination of which node to read from or write to up to [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\. 
+ElastiCache for Memcached clusters are comprised of from 1 to 20 nodes\. The data in a Memcached cluster is partitioned across the nodes in the cluster\. Your application connects with a Memcached cluster using a network address called an Endpoint\. Each node in a Memcached cluster has its own endpoint which your application uses to read from or write to the specific node\. In addition to the node endpoints, the Memcached cluster itself has an endpoint called the *configuration endpoint*\. Your application can use this endpoint to read from or write to the cluster, leaving the determination of which node to read from or write to up to [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\. 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ElastiCache-Cluster-Memcached.png)
 
@@ -65,6 +65,6 @@ If you launched your cluster into EC2\-VPC you need to grant network ingress to 
 
 Amazon ElastiCache supports all AWS regions\. By locating your ElastiCache clusters in a region close to your application you can reduce latency\. If your cluster has multiple nodes, locating your nodes in different Availability Zones can reduce the impact of failures on your cluster\.
 
-For more information, see:
+For more information, see the following:
 + [Choosing Regions and Availability Zones](RegionsAndAZs.md)
 + [Mitigating Failures](FaultTolerance.md)

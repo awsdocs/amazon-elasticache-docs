@@ -1,8 +1,8 @@
 # Connecting to Nodes<a name="nodes-connecting"></a>
 
-Before attempting to connect to the nodes in your Redis cluster, you must have the endpoints for the nodes\. To find the endpoints, see:
-+ [Finding a Redis \(cluster mode disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)
-+ [Finding a Redis \(cluster mode enabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.RedisCluster)
+Before attempting to connect to the nodes in your Redis cluster, you must have the endpoints for the nodes\. To find the endpoints, see the following:
++ [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)
++ [Finding Endpoints for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Endpoints.md#Endpoints.Find.RedisCluster)
 + [Finding Endpoints \(AWS CLI\)](Endpoints.md#Endpoints.Find.CLI)
 + [Finding Endpoints \(ElastiCache API\)](Endpoints.md#Endpoints.Find.API)
 
@@ -17,7 +17,7 @@ For more information about Redis and available Redis commands, see the [http://r
 **Note**  
 For instructions on how to connect to an Amazon EC2 instance, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/)\. 
 
-1. Before you can build *redis\-cli*, you will need to download and install the GNU Compiler Collection \(*gcc*\)\. At the command prompt of your EC2 instance, type the following command and type *y* at the confirmation prompt\.
+1. To build `redis-cli`, download and install the GNU Compiler Collection \(`gcc`\)\. At the command prompt of your EC2 instance, enter the following command and enter `y` at the confirmation prompt\.
 
    ```
    sudo yum install gcc
@@ -60,7 +60,7 @@ For Ubuntu systems, before running `make`, run `make distclean`\.
 
 1. At the command prompt of your EC2 instance, type the following command, substituting the endpoint of your cluster for the one shown in this example\.
 
-   **Repeat this step for each node in your cluster that you want to connect to\.**
+   Repeat this step for each node in your cluster that you want to connect to\.
 
    ```
    src/redis-cli -c -h mycachecluster.eaogs8.0001.usw2.cache.amazonaws.com -p 6379
@@ -91,3 +91,5 @@ For Ubuntu systems, before running `make`, run `make distclean`\.
    (nil)                  // key has expired, nothing returned
    quit                   // Exit from redis-cli
    ```
+
+For connecting to nodes or clusters which have Secure Sockets Layer \(SSL\) encryption \(in\-transit enabled\), see [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)\.

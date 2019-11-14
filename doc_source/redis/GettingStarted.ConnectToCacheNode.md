@@ -12,8 +12,8 @@ When your cluster is in the *available* state and you've authorized access to it
 
 To find your endpoints, see the relevant topic for the engine and cluster type you're running\. When you find the endpoint you need, copy it to your clipboard for use in Step 3\.2\.
 + [Finding Connection Endpoints](Endpoints.md)
-+ [Finding a Redis \(cluster mode disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)—You need the primary endpoint of a replication group or the node endpoint of a standalone node\.
-+ [Finding a Redis \(cluster mode enabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.RedisCluster)—You need the cluster's Configuration endpoint\.
++ [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)—You need the primary endpoint of a replication group or the node endpoint of a standalone node\.
++ [Finding Endpoints for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Endpoints.md#Endpoints.Find.RedisCluster)—You need the cluster's Configuration endpoint\.
 + [Finding Endpoints \(AWS CLI\)](Endpoints.md#Endpoints.Find.CLI)
 + [Finding Endpoints \(ElastiCache API\)](Endpoints.md#Endpoints.Find.API)
 

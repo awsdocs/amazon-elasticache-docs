@@ -33,7 +33,7 @@ For larger node types with 4vCPUs or more, you may want to use the `EngineCPUUti
 This is a host\-level metric reported in bytes\. For more information, see [Host\-Level Metrics](CacheMetrics.HostLevel.md)\.
 
 This metric should not exceed 50 MB\. If it does, see the following topics:
-+ [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)
++ [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)
 + [Managing Reserved Memory](redis-memory-management.md)
 
 ## Evictions<a name="metrics-evictions"></a>

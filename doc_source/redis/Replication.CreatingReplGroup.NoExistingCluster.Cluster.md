@@ -1,4 +1,4 @@
-# Creating a Redis \(cluster mode enabled\) Replication Group from Scratch<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster"></a>
+# Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster"></a>
 
 You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: *replication group*\) using the ElastiCache console, the AWS CLI, or the ElastiCache API\. A Redis \(cluster mode enabled\) replication group has from 1 to 90 shards \(API/CLI: node groups\), a primary node in each shard, and up to 5 read replicas in each shard\. You can create a cluster with higher number of shards and lower number of replicas totaling up to 90 nodes per cluster\. This cluster configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number of replicas allowed\.
 
@@ -7,14 +7,14 @@ The node or shard limit can be increased to a maximum of 250 per cluster\. To re
 
 **Topics**
 + [Using the ElastiCache Console](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON)
-+ [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(AWS CLI\)](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
-+ [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(ElastiCache API\)](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
++ [Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
++ [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
 
-## Creating a Redis \(cluster mode enabled\) Cluster \(Console\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON"></a>
+## Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON"></a>
 
-To create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(cluster mode enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\. Be sure to enable cluster mode, **Cluster Mode enabled \(Scale Out\)**, and specify at least two shards and one replica node in each\.
+To create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\. Be sure to enable cluster mode, **Cluster Mode enabled \(Scale Out\)**, and specify at least two shards and one replica node in each\.
 
-## Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI"></a>
+## Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI"></a>
 
 The following procedure creates a Redis \(cluster mode enabled\) replication group using the AWS CLI\.
 
@@ -22,12 +22,11 @@ When you create a Redis \(cluster mode enabled\) replication group from scratch,
 
 **\-\-replication\-group\-id**  
 The name of the replication group you are creating\.  
-
-**Redis \(cluster mode enabled\) Replication Group naming constraints**
-+ Must contain from 1 to 20 alphanumeric characters or hyphens\.
+Redis \(cluster mode enabled\) replication group naming constraints are as follows:  
++ Must contain 1–40 alphanumeric characters or hyphens\.
 + Must begin with a letter\.
-+ Cannot contain two consecutive hyphens\.
-+ Cannot end with a hyphen\.
++ Can't contain two consecutive hyphens\.
++ Can't end with a hyphen\.
 
 **\-\-replication\-group\-description**  
 Description of the replication group\.
@@ -232,7 +231,7 @@ The preceding operation generates the following output\.
 
 For additional information and parameters you might want to use, see the AWS CLI topic [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)\.
 
-## Creating a Redis \(cluster mode enabled\) Replication Group from Scratch \(ElastiCache API\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.API"></a>
+## Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.API"></a>
 
 The following procedure creates a Redis \(cluster mode enabled\) replication group using the ElastiCache API\.
 
@@ -240,12 +239,11 @@ When you create a Redis \(cluster mode enabled\) replication group from scratch,
 
 **ReplicationGroupId**  
 The name of the replication group you are creating\.  
-
-**Redis \(cluster mode enabled\) Replication Group naming constraints**
-+ Must contain from 1 to 20 alphanumeric characters or hyphens\.
+Redis \(cluster mode enabled\) replication group naming constraints are as follows:  
++ Must contain 1–40 alphanumeric characters or hyphens\.
 + Must begin with a letter\.
-+ Cannot contain two consecutive hyphens\.
-+ Cannot end with a hyphen\.
++ Can't contain two consecutive hyphens\.
++ Can't end with a hyphen\.
 
 **ReplicationGroupDescription**  
 Description of the replication group\.

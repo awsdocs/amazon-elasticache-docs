@@ -5,7 +5,7 @@ In this section, you can find the compliance requirements and controls offered w
 **Topics**
 + [Self\-Service Security Updates for Compliance](#elasticache-compliance-self-service)
 + [ElastiCache for Redis FedRAMP Compliance](#elasticache-compliance-fedramp)
-+ [HIPAA Compliance](#elasticache-compliance-hipaa)
++ [HIPAA Eligibility](#elasticache-compliance-hipaa)
 + [ElastiCache for Redis PCI DSS Compliance](#elasticache-compliance-pci)
 + [Create and Seed a New Compliant Cluster](#elasticache-compliance-create-cluster)
 + [More Information](#elasticache-compliance-see-also)
@@ -38,8 +38,8 @@ To enable FedRAMP support on your ElastiCache for Redis cluster, your cluster an
 + **Engine version requirements** – Your cluster must be running ElastiCache for Redis 3\.2\.6, 4\.0\.10 and later for both cluster mode enabled and disabled to qualify for FedRAMP compliance\.
   + Starting with ElastiCache for Redis versions 3\.2\.6, 4\.0\.10 and later for both cluster mode enabled and disabled, you can also enable additional data security features such as:
     + [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)
-    + [ElastiCache for Redis At\-Rest Encryption](at-rest-encryption.md)
-    + [Authenticating Users with Redis AUTH](auth.md)
+    + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
+    + [Authenticating Users with the Redis AUTH Command](auth.md)
 + **Node type requirements** – Your cluster must be running a current\-generation node type — M4, M5, T2, R4 or R5\. For more information, see the following: 
   + [Supported Node Types](CacheNodes.SupportedTypes.md)
   + [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)
@@ -47,16 +47,16 @@ To enable FedRAMP support on your ElastiCache for Redis cluster, your cluster an
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html)
 + **Security Updates Requirement** – You must regularly update your Redis cluster by the **Recommended Apply by Date**\. You can update the cluster in real\-time and on\-demand to ensure no impact to your business\. For more information, see [Self\-Service Updates in Amazon ElastiCache](Self-Service-Updates.md)\.
 
-## HIPAA Compliance<a name="elasticache-compliance-hipaa"></a>
+## HIPAA Eligibility<a name="elasticache-compliance-hipaa"></a>
 
-The AWS HIPAA Compliance program includes Amazon ElastiCache for Redis as a HIPAA Eligible Service\.
+The AWS HIPAA Compliance program includes Amazon ElastiCache for Redis as a HIPAA eligible service\.
 
 To use ElastiCache for Redis in compliance with HIPAA, you need to execute a Business Associate Agreement \(BAA\) with AWS\. In addition, your cluster and the nodes within your cluster must satisfy the requirements for engine version, node type, and data security listed following\.
 
 **Requirements**
 
 To enable HIPAA support on your ElastiCache for Redis cluster, your cluster and nodes within the cluster must satisfy the following requirements\.
-+ **Engine version requirements** – Your cluster must be running one of the following ElastiCache for Redis versions to qualify for HIPAA compliance\.
++ **Engine version requirements** – Your cluster must be running one of the following ElastiCache for Redis versions to qualify for HIPAA eligibility\.
   + [ElastiCache for Redis Version 5\.0\.0 \(Enhanced\)](supported-engine-versions.md#redis-version-5-0)
   + [ElastiCache for Redis Version 4\.0\.10 \(Enhanced\)](supported-engine-versions.md#redis-version-4-0-10)
   + [ElastiCache for Redis Version 3\.2\.6 \(Enhanced\)](supported-engine-versions.md#redis-version-3-2-6)
@@ -65,13 +65,13 @@ To enable HIPAA support on your ElastiCache for Redis cluster, your cluster and 
   + [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)
 + **Data security requirements** – Your cluster must enable in\-transit encryption, at\-rest encryption, and Redis AUTH\. For more information, see the following:
   + [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)
-  + [ElastiCache for Redis At\-Rest Encryption](at-rest-encryption.md)
-  + [Authenticating Users with Redis AUTH](auth.md)
+  + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
+  + [Authenticating Users with the Redis AUTH Command](auth.md)
 + **Security Updates Requirement ** – You must update your Redis cluster with the latest Service Updates of type **security** by the **Recommended Apply by Date**\. You can update the cluster in real\-time and on\-demand to ensure no impact to your business\. For more information, see [Self\-Service Updates in Amazon ElastiCache](Self-Service-Updates.md)
 
 By implementing these requirements, ElastiCache for Redis can be used to store, process, and access Protected Health Information \(PHI\) in compliance with HIPAA\. 
 
-For general information about AWS Cloud and HIPAA compliance, see the following:
+For general information about AWS Cloud and HIPAA eligibility, see the following:
 + [HIPAA Compliance](https://aws.amazon.com/compliance/hipaa-compliance/)
 + [Architecting for HIPAA Security and Compliance on Amazon Web Services](https://d0.awsstatic.com/whitepapers/compliance/AWS_HIPAA_Compliance_Whitepaper.pdf)
 + **Security Updates Requirement** – You must regularly update your Redis cluster by the **Recommended Apply by Date**\. You can update the cluster in real\-time and on\-demand to ensure no impact to your business\. For more information, see [Self\-Service Updates in Amazon ElastiCache](Self-Service-Updates.md)\.
@@ -93,8 +93,8 @@ ElastiCache for Redis also offers Data Security Controls to further secure the c
 
 **Data security options** – For more information, see the following:
 + [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)
-+ [ElastiCache for Redis At\-Rest Encryption](at-rest-encryption.md)
-+ [Authenticating Users with Redis AUTH](auth.md)
++ [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
++ [Authenticating Users with the Redis AUTH Command](auth.md)
 
 ## Create and Seed a New Compliant Cluster<a name="elasticache-compliance-create-cluster"></a>
 

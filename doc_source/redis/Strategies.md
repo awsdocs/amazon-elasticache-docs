@@ -1,41 +1,36 @@
 # Caching Strategies<a name="Strategies"></a>
 
-This topic covers strategies for populating and maintaining your cache\.
+In the following topic, you can find strategies for populating and maintaining your cache\.
 
-The strategy or strategies you want to implement for populating and maintaining your cache depend upon what data you are caching and the access patterns to that data\. For example, you likely would not want to use the same strategy for both a Top\-10 leaderboard on a gaming site, Facebook posts, and trending news stories\. In the remainder of this section we discuss common cache maintenance strategies, their advantages, and their disadvantages\.
+What strategies to implement for populating and maintaining your cache depend upon what data you cache and the access patterns to that data\. For example, you likely don't want to use the same strategy for both a top\-10 leaderboard on a gaming site and trending news stories\. In the rest of this section, we discuss common cache maintenance strategies and their advantages and disadvantages\.
 
 **Topics**
 + [Lazy Loading](#Strategies.LazyLoading)
-+ [Write Through](#Strategies.WriteThrough)
++ [Write\-Through](#Strategies.WriteThrough)
 + [Adding TTL](#Strategies.WithTTL)
 + [Related Topics](#Strategies.SeeAlso)
 
 ## Lazy Loading<a name="Strategies.LazyLoading"></a>
 
-As the name implies, lazy loading is a caching strategy that loads data into the cache only when necessary\. 
+As the name implies, *lazy loading* is a caching strategy that loads data into the cache only when necessary\. It works as described following\. 
 
-**How Lazy Loading Works**  
-Amazon ElastiCache is an in\-memory key/value store that sits between your application and the data store \(database\) that it accesses\. Whenever your application requests data, it first makes the request to the ElastiCache cache\. If the data exists in the cache and is current, ElastiCache returns the data to your application\. If the data does not exist in the cache, or the data in the cache has expired, your application requests the data from your data store which returns the data to your application\. Your application then writes the data received from the store to the cache so it can be more quickly retrieved next time it is requested\.
+Amazon ElastiCache is an in\-memory key\-value store that sits between your application and the data store \(database\) that it accesses\. Whenever your application requests data, it first makes the request to the ElastiCache cache\. If the data exists in the cache and is current, ElastiCache returns the data to your application\. If the data doesn't exist in the cache or has expired, your application requests the data from your data store\. Your data store then returns the data to your application\. Your application next writes the data received from the store to the cache\. This way, it can be more quickly retrieved the next time it's requested\.
 
-### Scenario 1: Cache Hit<a name="Strategies.LazyLoading.CacheHit"></a>
+A *cache hit* occurs when data is in the cache and isn't expired:
 
-**When data is in the cache and isn't expired**
+1. Your application requests data from the cache\.
 
-1. Application requests data from the cache\.
+1. The cache returns the data to the application\.
 
-1. Cache returns the data to the application\.
+A *cache miss* occurs when data isn't in the cache or is expired:
 
-### Scenario 2: Cache Miss<a name="Strategies.LazyLoading.CacheMiss"></a>
+1. Your application requests data from the cache\.
 
-**When data isn’t in the cache or is expired**
+1. The cache doesn't have the requested data, so returns a `null`\.
 
-1. Application requests data from the cache\.
+1. Your application requests and receives the data from the database\.
 
-1. Cache doesn't have the requested data, so returns a `null`\.
-
-1. Application requests and receives the data from the database\.
-
-1. Application updates the cache with the new data\.
+1. Your application updates the cache with the new data\.
 
 The following diagram illustrates both these processes\.
 
@@ -43,18 +38,16 @@ The following diagram illustrates both these processes\.
 
 ### Advantages and Disadvantages of Lazy Loading<a name="Strategies.LazyLoading.Evaluation"></a>
 
-**Advantages of Lazy Loading**
+The advantages of lazy loading are as follows:
 + Only requested data is cached\.
 
-  Since most data is never requested, lazy loading avoids filling up the cache with data that isn't requested\.
-+ Node failures are not fatal\.
+  Because most data is never requested, lazy loading avoids filling up the cache with data that isn't requested\.
++ Node failures aren't fatal for your application\.
 
-  When a node fails and is replaced by a new, empty node the application continues to function, though with increased latency\. As requests are made to the new node each cache miss results in a query of the database and adding the data copy to the cache so that subsequent requests are retrieved from the cache\.
+  When a node fails and is replaced by a new, empty node, your application continues to function, though with increased latency\. As requests are made to the new node, each cache miss results in a query of the database\. At the same time, the data copy is added to the cache so that subsequent requests are retrieved from the cache\.
 
-**Disadvantages of Lazy Loading**
-+ There is a cache miss penalty\.
-
-  Each cache miss results in 3 trips, 
+The disadvantages of lazy loading are as follows:
++ There is a cache miss penalty\. Each cache miss results in three trips: 
 
   1. Initial request for data from the cache
 
@@ -62,14 +55,14 @@ The following diagram illustrates both these processes\.
 
   1. Writing the data to the cache
 
-   which can cause a noticeable delay in data getting to the application\.
+   These misses can cause a noticeable delay in data getting to the application\.
 + Stale data\.
 
-  If data is only written to the cache when there is a cache miss, data in the cache can become stale since there are no updates to the cache when data is changed in the database\. This issue is addressed by the [Write Through](#Strategies.WriteThrough) and [Adding TTL](#Strategies.WithTTL) strategies\.
+  If data is written to the cache only when there is a cache miss, data in the cache can become stale\. This result occurs because there are no updates to the cache when data is changed in the database\. To address this issue, you can use the [Write\-Through](#Strategies.WriteThrough) and [Adding TTL](#Strategies.WithTTL) strategies\.
 
-### Lazy Loading Code<a name="Strategies.LazyLoading.CodeExample"></a>
+### Lazy Loading Pseudocode Example<a name="Strategies.LazyLoading.CodeExample"></a>
 
-The following code is a pseudo code example of lazy loading logic\.
+The following is a pseudocode example of lazy loading logic\.
 
 ```
 // *****************************************
@@ -92,23 +85,23 @@ get_customer(customer_id)
     return customer_record
 ```
 
-The application code that retrieves the data would be:
+For this example, the application code that gets the data is the following\.
 
 ```
 customer_record = get_customer(12345)
 ```
 
-## Write Through<a name="Strategies.WriteThrough"></a>
+## Write\-Through<a name="Strategies.WriteThrough"></a>
 
-The write through strategy adds data or updates data in the cache whenever data is written to the database\.
+The write\-through strategy adds data or updates data in the cache whenever data is written to the database\.
 
-### Advantages and Disadvantages of Write Through<a name="Strategies.WriteThrough.Evaluation"></a>
+### Advantages and Disadvantages of Write\-Through<a name="Strategies.WriteThrough.Evaluation"></a>
 
-**Advantages of Write Through**
+The advantages of write\-through are as follows:
 + Data in the cache is never stale\.
 
-  Since the data in the cache is updated every time it is written to the database, the data in the cache is always current\.
-+ Write penalty vs\. Read penalty\.
+  Because the data in the cache is updated every time it's written to the database, the data in the cache is always current\.
++ Write penalty vs\. read penalty\.
 
   Every write involves two trips: 
 
@@ -118,17 +111,17 @@ The write through strategy adds data or updates data in the cache whenever data 
 
    Which adds latency to the process\. That said, end users are generally more tolerant of latency when updating data than when retrieving data\. There is an inherent sense that updates are more work and thus take longer\.
 
-**Disadvantages of Write Through**
+The disadvantages of write\-through are as follows:
 + Missing data\.
 
-  In the case of spinning up a new node, whether due to a node failure or scaling out, there is missing data which continues to be missing until it is added or updated on the database\. This can be minimized by implementing [Lazy Loading](#Strategies.LazyLoading) in conjunction with Write Through\.
+  If you spin up a new node, whether due to a node failure or scaling out, there is missing data\. This data continues to be missing until it's added or updated on the database\. You can minimize this by implementing [lazy loading](#Strategies.LazyLoading) with write\-through\.
 + Cache churn\.
 
-  Since most data is never read, there can be a lot of data in the cluster that is never read\. This is a waste of resources\. By [Adding TTL](#Strategies.WithTTL) you can minimize wasted space\.
+  Most data is never read, which is a waste of resources\. By [adding a time to live \(TTL\) value](#Strategies.WithTTL), you can minimize wasted space\.
 
-### Write Through Code<a name="Strategies.WriteThrough.CodeExample"></a>
+### Write\-Through Pseudocode Example<a name="Strategies.WriteThrough.CodeExample"></a>
 
-The following code is a pseudo code example of write through logic\.
+The following is a pseudocode example of write\-through logic\.
 
 ```
 // *****************************************
@@ -141,7 +134,7 @@ save_customer(customer_id, values)
     return success
 ```
 
-The application code that updates the data would be:
+For this example, the application code that gets the data is the following\.
 
 ```
 save_customer(12345,{"address":"123 Main"})
@@ -149,16 +142,15 @@ save_customer(12345,{"address":"123 Main"})
 
 ## Adding TTL<a name="Strategies.WithTTL"></a>
 
-Lazy loading allows for stale data, but won't fail with empty nodes\. Write through ensures that data is always fresh, but may fail with empty nodes and may populate the cache with superfluous data\. By adding a time to live \(TTL\) value to each write, we are able to enjoy the advantages of each strategy and largely avoid cluttering up the cache with superfluous data\.
+Lazy loading allows for stale data but doesn't fail with empty nodes\. Write\-through ensures that data is always fresh, but can fail with empty nodes and can populate the cache with superfluous data\. By adding a time to live \(TTL\) value to each write, you can have the advantages of each strategy\. At the same time, you can and largely avoid cluttering up the cache with extra data\.
 
-**What is TTL?**  
-Time to live \(TTL\) is an integer value that specifies the number of seconds \(Redis can specify seconds or milliseconds\) until the key expires\. When an application attempts to read an expired key, it is treated as though the key is not found, meaning that the database is queried for the key and the cache is updated\. This does not guarantee that a value is not stale, but it keeps data from getting too stale and requires that values in the cache are occasionally refreshed from the database\.
+*Time to live \(TTL\)* is an integer value that specifies the number of seconds until the key expires\. Redis can specify seconds or milliseconds for this value\. When an application attempts to read an expired key, it is treated as though the key is not found\. The database is queried for the key and the cache is updated\. This approach doesn't guarantee that a value isn't stale\. However, it keeps data from getting too stale and requires that values in the cache are occasionally refreshed from the database\.
 
 For more information, see the [Redis `set` command](http://redis.io/commands/set) \.
 
-### Code Example<a name="Strategies.WithTTL.CodeExample"></a>
+### TTL Pseudocode Examples<a name="Strategies.WithTTL.CodeExample"></a>
 
-The following code is a pseudo code example of write through logic with TTL\.
+The following is a pseudocode example of write\-through logic with TTL\.
 
 ```
 // *****************************************
@@ -175,7 +167,7 @@ save_customer(customer_id, values)
     return success
 ```
 
-The following code is a pseudo code example of lazy loading logic with TTL\.
+The following is a pseudocode example of lazy loading logic with TTL\.
 
 ```
 // *****************************************
@@ -205,7 +197,7 @@ get_customer(customer_id)
     return customer_record                // return the newly retrieved record and exit function
 ```
 
-The application code would be:
+For this example, the application code that gets the data is the following\.
 
 ```
 save_customer(12345,{"address":"123 Main"})

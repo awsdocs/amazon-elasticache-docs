@@ -16,12 +16,12 @@ Your application connects to your cluster using endpoints\. An endpoint is a nod
 The following sections guide you through discovering the endpoints you'll need for the engine you're running\.
 
 **Topics**
-+ [Finding Redis \(cluster mode disabled\) Cluster Endpoints \(Console\)](#Endpoints.Find.Redis)
-+ [Finding Redis \(cluster mode enabled\) Cluster Endpoints \(Console\)](#Endpoints.Find.RedisCluster)
++ [Finding Redis \(Cluster Mode Disabled\) Cluster Endpoints \(Console\)](#Endpoints.Find.Redis)
++ [Finding Endpoints for a Redis \(Cluster Mode Enabled\) Endpoints \(Console\)](#Endpoints.Find.RedisCluster)
 + [Finding Endpoints \(AWS CLI\)](#Endpoints.Find.CLI)
 + [Finding Endpoints \(ElastiCache API\)](#Endpoints.Find.API)
 
-## Finding a Redis \(cluster mode disabled\) Cluster's Endpoints \(Console\)<a name="Endpoints.Find.Redis"></a>
+## Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)<a name="Endpoints.Find.Redis"></a>
 
 If a Redis \(cluster mode disabled\) cluster has only one node, the node's endpoint is used for both reads and writes\. If a Redis \(cluster mode disabled\) cluster has multiple nodes, there are three types of endpoints; the *primary endpoint*, the *reader endpoint* and the *node endpoints*\.
 
@@ -79,7 +79,7 @@ master.clusterName.xxxxxx.regionAndAz.cache.amazonaws.com:port
 master.ncit.ameaqx.use1.cache.amazonaws.com:6379
 ```
 
-## Finding a Redis \(cluster mode enabled\) Cluster's Endpoints \(Console\)<a name="Endpoints.Find.RedisCluster"></a>
+## Finding Endpoints for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Endpoints.Find.RedisCluster"></a>
 
 Use the *Configuration Endpoint* for both read and write operations\. Redis determines which of the cluster's node to access\.
 

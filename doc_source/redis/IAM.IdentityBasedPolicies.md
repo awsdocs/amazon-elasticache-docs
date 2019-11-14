@@ -3,12 +3,12 @@
 This topic provides examples of identity\-based policies in which an account administrator can attach permissions policies to IAM identities \(that is, users, groups, and roles\)\. 
 
 **Important**  
-We recommend that you first review the introductory topics that explain the basic concepts and options available for you to manage access to your Amazon ElastiCache resources\. For more information, see [Overview of Managing Access Permissions to Your ElastiCache Resources](IAM.Overview.md)\. 
+We recommend that you first read the topics that explain the basic concepts and options to manage access to Amazon ElastiCache resources\. For more information, see [Overview of Managing Access Permissions to Your ElastiCache Resources](IAM.Overview.md)\. 
 
 The sections in this topic cover the following:
 + [Permissions Required to Use the Amazon ElastiCache Console](#IAM.IdentityBasedPolicies.MinCONPolicies)
-+ [AWS Managed \(Predefined\) Policies for Amazon ElastiCache](#IAM.IdentityBasedPolicies.PredefinedPolicies)
-+ [Customer Managed Policy Examples](#IAM.IdentityBasedPolicies.CustomerManagedPolicies)
++ [AWS\-Managed \(Predefined\) Policies for Amazon ElastiCache](#IAM.IdentityBasedPolicies.PredefinedPolicies)
++ [Customer\-Managed Policy Examples](#IAM.IdentityBasedPolicies.CustomerManagedPolicies)
 
 The following shows an example of a permissions policy\.
 
@@ -42,7 +42,7 @@ For a table showing all of the Amazon ElastiCache API actions and the resources 
 
 The permissions reference table lists the Amazon ElastiCache API operations and shows the required permissions for each operation\. For more information about ElastiCache API operations, see [ElastiCache API Permissions: Actions, Resources, and Conditions Reference](IAM.APIReference.md)\. 
 
- To use the Amazon ElastiCache console, you need to grant permissions for additional actions as shown in the following permissions policy: 
+ To use the Amazon ElastiCache console, first grant permissions for additional actions as shown in the following permissions policy\. 
 
 ```
 {
@@ -74,7 +74,7 @@ The ElastiCache console needs these additional permissions for the following rea
 + The permissions for `cloudwatch` actions enable the console to retrieve Amazon CloudWatch metrics and alarms, and display them in the console\.
 + The permissions for `sns` actions enable the console to retrieve Amazon Simple Notification Service \(Amazon SNS\) topics and subscriptions, and display them in the console\.
 
-## AWS Managed \(Predefined\) Policies for Amazon ElastiCache<a name="IAM.IdentityBasedPolicies.PredefinedPolicies"></a>
+## AWS\-Managed \(Predefined\) Policies for Amazon ElastiCache<a name="IAM.IdentityBasedPolicies.PredefinedPolicies"></a>
 
 AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. Managed policies grant necessary permissions for common use cases so you can avoid having to investigate what permissions are needed\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\. 
 
@@ -87,9 +87,9 @@ You can review these permissions policies by signing in to the IAM console and s
 
 You can also create your own custom IAM policies to allow permissions for Amazon ElastiCache API actions\. You can attach these custom policies to the IAM users or groups that require those permissions\. 
 
-## Customer Managed Policy Examples<a name="IAM.IdentityBasedPolicies.CustomerManagedPolicies"></a>
+## Customer\-Managed Policy Examples<a name="IAM.IdentityBasedPolicies.CustomerManagedPolicies"></a>
 
-If you are not using default policy and choose to use a custom managed policy, ensure that you have either permissions to call `iam:createServiceLinkedRole` \(see [Example 5: Allow a User to Call IAM CreateServiceLinkedRole API](#create-service-linked-role-policy)\) or you have created the ElastiCache Service Linked Role\. 
+If you are not using a default policy and choose to use a custom\-managed policy, ensure one of two things\. Either you should have permissions to call `iam:createServiceLinkedRole` \(for more information, see [Example 5: Allow a User to Call IAM CreateServiceLinkedRole API](#create-service-linked-role-policy)\)\. Or you should have created an ElastiCache service\-linked role\. 
 
 When combined with the minimum permissions needed to use the Amazon ElastiCache console, the example policies in this section grant additional permissions\. The examples are also relevant to the AWS SDKs and the AWS CLI\. For more information about what permissions are needed to use the ElastiCache console, see [Permissions Required to Use the Amazon ElastiCache Console](#IAM.IdentityBasedPolicies.MinCONPolicies)\.
 

@@ -2,12 +2,12 @@
 
 The ElastiCache process for scaling your Redis cluster down is completely manual and makes no attempt at data retention other than what you do\.
 
-The following sections walk you through how to scale a single\-node Redis cluster down to a smaller node type\. Ensuring that the new, smaller node type is large enough to accommodate all the data and Redis overhead is important to the long\-term success of your new Redis cluster\. For more information, see [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
+The following sections walk you through how to scale a single\-node Redis cluster down to a smaller node type\. Ensuring that the new, smaller node type is large enough to accommodate all the data and Redis overhead is important to the long\-term success of your new Redis cluster\. For more information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
 
 **Topics**
 + [Scaling Down a Single\-Node Redis Cluster \(Console\)](#Scaling.RedisStandalone.ScaleDown.CON)
 + [Scaling Down a Single\-Node Redis Cache Cluster \(AWS CLI\)](#Scaling.RedisStandalone.ScaleDown.CLI)
-+ [Scaling Down a Single\-Node Redis \(cluster mode disabled\) Cache Cluster \(ElastiCache API\)](#Scaling.RedisStandalone.ScaleDown.API)
++ [Scaling Down a Single\-Node Cache Cluster for Redis \(Cluster Mode Disabled\) \(ElastiCache API\)](#Scaling.RedisStandalone.ScaleDown.API)
 
 ## Scaling Down a Single\-Node Redis Cluster \(Console\)<a name="Scaling.RedisStandalone.ScaleDown.CON"></a>
 
@@ -20,7 +20,7 @@ For more information, see [Managing Reserved Memory](redis-memory-management.md)
 
 **To scale down your single\-node Redis cluster \(console\)**
 
-1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
+1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
 
 1. If your parameter group uses `reserved-memory` to set aside memory for Redis overhead, ensure that you have a custom parameter group to set aside the correct amount of memory for your new node type\.
 
@@ -34,7 +34,7 @@ For more information, see [Managing Reserved Memory](redis-memory-management.md)
 
    Alternatively, you can launch a new cluster using the new node type and parameter group, and seeding it from the snapshot\. For more information, see [Seeding a New Cluster with an Externally Created Backup](backups-seeding-redis.md)\.
 
-1. In your application, update the endpoints to the new cluster's endpoints\. For more information, see [Finding a Redis \(cluster mode disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)\.
+1. In your application, update the endpoints to the new cluster's endpoints\. For more information, see [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)\.
 
 1. Delete the old cluster\. For more information, see [Using the AWS Management Console](Clusters.Delete.md#Clusters.Delete.CON)\.
 
@@ -49,7 +49,7 @@ The following procedure walks you through scaling your single\-node Redis cache 
 
 **To scale down a single\-node Redis cache cluster \(AWS CLI\)**
 
-1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
+1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
 
 1. If your parameter group uses `reserved-memory` to set aside memory for Redis overhead, ensure that you have a custom parameter group to set aside the correct amount of memory for your new node type\.
 
@@ -68,13 +68,13 @@ The following procedure walks you through scaling your single\-node Redis cache 
 **Tip**  
 If you don't mind your cache cluster being unavailable while it's being created or restored, you can eliminate the need to update the endpoints in your application\. To do so, delete the old cache cluster right after taking the snapshot and reuse the old cache cluster's name for the new cache cluster\.
 
-## Scaling Down a Single\-Node Redis \(cluster mode disabled\) Cache Cluster \(ElastiCache API\)<a name="Scaling.RedisStandalone.ScaleDown.API"></a>
+## Scaling Down a Single\-Node Cache Cluster for Redis \(Cluster Mode Disabled\) \(ElastiCache API\)<a name="Scaling.RedisStandalone.ScaleDown.API"></a>
 
 The following procedure walks you through scaling your single\-node Redis cache cluster down to a smaller node type using the ElastiCache API\.
 
 **To scale down a single\-node Redis cache cluster \(ElastiCache API\)**
 
-1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Ensuring You Have Sufficient Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
+1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
 
 1. If your parameter group uses `reserved-memory` to set aside memory for Redis overhead, ensure that you have a custom parameter group to set aside the correct amount of memory for your new node type\.
 

@@ -21,11 +21,11 @@ When you use the Memcached engine, Amazon ElastiCache supports horizontally part
 
    1. In **Name**, type in a name for your cluster\.
 
-**Cluster naming constraints**
-      + Must contain from 1 to 20 alphanumeric characters or hyphens\.
+      Cluster naming constraints are as follows:
+      + Must contain 1–40 alphanumeric characters or hyphens\.
       + Must begin with a letter\.
-      + Cannot contain two consecutive hyphens\.
-      + Cannot end with a hyphen\.
+      + Can't contain two consecutive hyphens\.
+      + Can't end with a hyphen\.
 
    1. For **Engine version compatibility**, choose the Memcached engine version you want this cluster to run\. Unless you have a specific reason to run an older version, we recommend that you choose the latest version\.
 **Important**  

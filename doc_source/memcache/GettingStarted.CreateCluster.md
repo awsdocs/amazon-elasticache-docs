@@ -21,11 +21,11 @@ Your cluster is launched in an Amazon VPC\. Before you start creating your clust
 
    1. In **Name**, type a name for your cluster\.
 
-**Cluster naming constraints**
-      + Must contain from 1 to 20 alphanumeric characters or hyphens\.
+      Cluster naming constraints are as follows:
+      + Must contain 1–40 alphanumeric characters or hyphens\.
       + Must begin with a letter\.
-      + Cannot contain two consecutive hyphens\.
-      + Cannot end with a hyphen\.
+      + Can't contain two consecutive hyphens\.
+      + Can't end with a hyphen\.
 
    1. From the **Engine version compatibility** list, choose the Memcached engine version you want to run on this cluster\. Unless you have a specific reason to run an older version, we recommend that you choose the latest version\.
 

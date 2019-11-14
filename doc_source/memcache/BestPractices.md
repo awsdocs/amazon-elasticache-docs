@@ -4,5 +4,4 @@ Following, you can find recommended best practices for Amazon ElastiCache\. Foll
 
 **Topics**
 + [Caching Strategies](Strategies.md)
-+ [Mitigating Failures](FaultTolerance.md)
 + [Configuring Your ElastiCache Client for Efficient Load Balancing](BestPractices.LoadBalancing.md)

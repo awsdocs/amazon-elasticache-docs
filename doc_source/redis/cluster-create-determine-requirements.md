@@ -41,7 +41,7 @@ The basic building block of Amazon ElastiCache is the node\. Nodes are configure
 
 ## Redis Cluster Configuration<a name="redis-cluster-configuration"></a>
 
-ElastiCache for Redis clusters are comprised of from 0 to 90 shards \(also called node groups\)\. The data in a Redis cluster is partitioned across the shards in the cluster\. Your application connects with a Redis cluster using a network address called an Endpoint\. The nodes in a Redis shard fulfill one of two roles: one read/write primary and all other nodes read\-only secondaries \(also called read replicas\)\. In addition to the node endpoints, the Redis cluster itself has an endpoint called the *Configuration Endpoint* which your application can use to read from or write to the cluster, leaving the determination of which node to read from or write to up to ElastiCache for Redis\. 
+ElastiCache for Redis clusters are comprised of from 0 to 90 shards \(also called node groups\)\. The data in a Redis cluster is partitioned across the shards in the cluster\. Your application connects with a Redis cluster using a network address called an Endpoint\. The nodes in a Redis shard fulfill one of two roles: one read/write primary and all other nodes read\-only secondaries \(also called read replicas\)\. In addition to the node endpoints, the Redis cluster itself has an endpoint called the *configuration endpoint*\. Your application can use this endpoint to read from or write to the cluster, leaving the determination of which node to read from or write to up to ElastiCache for Redis\. 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCacheClusters-Redis-ClustersRGs.png)
 
@@ -63,6 +63,6 @@ If you launched your cluster into EC2\-VPC you need to grant network ingress to 
 
 Amazon ElastiCache supports all AWS regions\. By locating your ElastiCache clusters in a region close to your application you can reduce latency\. If your cluster has multiple nodes, locating your nodes in different Availability Zones can reduce the impact of failures on your cluster\.
 
-For more information, see:
+For more information, see the following:
 + [Choosing Regions and Availability Zones](RegionsAndAZs.md)
 + [Mitigating Failures](FaultTolerance.md)

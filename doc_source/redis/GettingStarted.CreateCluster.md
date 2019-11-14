@@ -23,11 +23,11 @@ Your cluster is launched in an Amazon VPC\. Before you start creating your clust
 
    1. For **Name**, type a name for your cluster\.
 
-**Cluster naming constraints**
-      + Must contain from 1 to 20 alphanumeric characters or hyphens\.
+      Cluster naming constraints are as follows:
+      + Must contain 1–40 alphanumeric characters or hyphens\.
       + Must begin with a letter\.
-      + Cannot contain two consecutive hyphens\.
-      + Cannot end with a hyphen\.
+      + Can't contain two consecutive hyphens\.
+      + Can't end with a hyphen\.
 
    1. From the **Engine version compatibility** list, choose the Redis engine version you want to run on this cluster\. Unless you have a specific reason to run an older version, we recommend that you choose the latest version\.
 
@@ -47,7 +47,7 @@ Your cluster is launched in an Amazon VPC\. Before you start creating your clust
 
 1. Choose **Advanced Redis settings** and complete the section as follows: 
 **Note**  
-The **Advanced Redis settings** details are slightly different if you are creating a Redis \(cluster mode enabled\) replication group\. For a step\-by\-step walkthrough to create a Redis \(cluster mode enabled\) replication group, see [Creating a Redis \(cluster mode enabled\) Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md)\.
+The **Advanced Redis settings** details are slightly different if you are creating a Redis \(cluster mode enabled\) replication group\. For a step\-by\-step walkthrough to create a Redis \(cluster mode enabled\) replication group, see [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md)\.
 
    1. From the **Subnet group** list, choose the subnet you want to apply to this cluster\. For this exercise, choose *default*\.
 
@@ -71,7 +71,7 @@ The **Advanced Redis settings** details are slightly different if you are creati
 
    1. Because this is not a production cluster, clear the **Enable automatic backups** check box\.
 
-      For more information on Redis backup and restore, see [ElastiCache for Redis Backup and Restore](backups.md)\.
+      For more information on Redis backup and restore, see [Backup and Restore for ElastiCache for Redis ](backups.md)\.
 
    1. The **Maintenance window** is the time, generally an hour, each week where ElastiCache schedules system maintenance on your cluster\. You can allow ElastiCache to specify the day and time for your maintenance window \(*No preference*\), or you can specify the day and time yourself \(*Specify maintenance window*\. If you choose *Specify maintenance window*, specify the **Start day**, **Start time**, and **Duration** \(in hours\) for your maintenance window\. For this exercise, choose *No preference*\.
 

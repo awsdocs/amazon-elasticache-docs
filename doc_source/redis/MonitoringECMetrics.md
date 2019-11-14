@@ -1,6 +1,8 @@
 # Logging and Monitoring in Elasticache<a name="MonitoringECMetrics"></a>
 
-Knowing how your clusters are performing, the resources they're consuming, the events that are being generated, and the costs of your deployment are important factors in managing your enterprise caching solution\. CloudWatch provides metrics for monitoring your cache performance\. Cost allocation tags help you monitor and manage costs\.
+To manage your enterprise caching solution, it's important that you know how your clusters are performing and the resources they're consuming\. It's also important that you know the events that are being generated and the costs of your deployment\. 
+
+Amazon CloudWatch provides metrics for monitoring your cache performance\. In addition, cost allocation tags help you monitor and manage costs\.
 
 **Topics**
 + [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)

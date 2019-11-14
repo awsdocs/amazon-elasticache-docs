@@ -1,4 +1,4 @@
-# Scaling Up Single\-Node Redis \(cluster mode disabled\) Clusters<a name="Scaling.RedisStandalone.ScaleUp"></a>
+# Scaling Up Single\-Node Clusters for Redis \(Cluster Mode Disabled\)<a name="Scaling.RedisStandalone.ScaleUp"></a>
 
 When you scale up a single\-node Redis cluster, ElastiCache performs the following process, whether you use the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
@@ -28,7 +28,7 @@ If your parameter group uses `reserved-memory` to set aside memory for Redis ove
 If you're using `reserved-memory-percent`, doing this is not necessary\.   
 For more information, see [Managing Reserved Memory](redis-memory-management.md)\.
 
-## Scaling Up Single\-Node Redis \(cluster mode disabled\) Clusters \(Console\)<a name="Scaling.RedisStandalone.ScaleUp.CON"></a>
+## Scaling Up Single\-Node Clusters for Redis \(Cluster Mode Disabled\) \(Console\)<a name="Scaling.RedisStandalone.ScaleUp.CON"></a>
 
 The following procedure describes how to scale up a single\-node Redis cluster using the ElastiCache Management Console\.
 
@@ -46,8 +46,6 @@ The following procedure describes how to scale up a single\-node Redis cluster u
 
    1. Choose the node type you want to scale to from the **Node type** list\.
 
-      The list identifies all the node types you can scale up to\.
-
    1. If you're using `reserved-memory` to manage your memory, from the **Parameter Group** list, choose the custom parameter group that reserves the correct amount of memory for your new node type\.
 
 1. If you want to perform the scale up process right away, choose the **Apply immediately** box\. If the **Apply immediately** box is not chosen, the scale\-up process is performed during this cluster's next maintenance window\.
@@ -63,7 +61,7 @@ The following procedure describes how to scale up a single\-node Redis cache clu
 **To scale up a single\-node Redis cache cluster \(AWS CLI\)**
 
 1. Determine the node types you can scale up to by running the AWS CLI `list-allowed-node-type-modifications` command with the following parameter\.
-   + `--cache-cluster-id` – Name of the single\-node Redis cache cluster you want to scale up\.
+   + `--cache-cluster-id`
 
    For Linux, macOS, or Unix:
 
@@ -98,14 +96,21 @@ The following procedure describes how to scale up a single\-node Redis cache clu
    	        "cache.r3.large", 
    	        "cache.r3.xlarge"
    	    ]
+   	       "ScaleDownModifications": [
+   	        "cache.t2.micro", 
+   	        "cache.t2.small ", 
+   	        "cache.t2.medium ",
+               "cache.t1.small ",
+   	    ], 
+   
    	}
    ```
 
    For more information, see [list\-allowed\-node\-type\-modifications](https://docs.aws.amazon.com/cli/latest/reference/elasticache/list-allowed-node-type-modifications.html) in the *AWS CLI Reference*\.
 
 1. Modify your existing cache cluster specifying the cache cluster to scale up and the new, larger node type, using the AWS CLI `modify-cache-cluster` command and the following parameters\.
-   + `--cache-cluster-id` – The name of the cache cluster you are scaling up\. 
-   + `--cache-node-type` – The new node type you want to scale the cache cluster up to\. This value must be one of the node types returned by the `list-allowed-node-type-modifications` command in step 1\.
+   + `--cache-cluster-id` – The name of the cache cluster you are scaling up or down\. 
+   + `--cache-node-type` – The new node type you want to scale the cache cluster\. This value must be one of the node types returned by the `list-allowed-node-type-modifications` command in step 1\.
    + `--cache-parameter-group-name` – \[Optional\] Use this parameter if you are using `reserved-memory` to manage your cluster's reserved memory\. Specify a custom cache parameter group that reserves the correct amount of memory for your new node type\. If you are using `reserved-memory-percent` you can omit this parameter\.
    + `--apply-immediately` – Causes the scale\-up process to be applied immediately\. To postpone the scale\-up process to the cluster's next maintenance window, use the `--no-apply-immediately` parameter\.
 
@@ -114,7 +119,7 @@ The following procedure describes how to scale up a single\-node Redis cache clu
    ```
    aws elasticache modify-cache-cluster \
    	    --cache-cluster-id my-redis-cache-cluster \
-   	    --cache-node-type cache.m2.xlarge \
+   	    --cache-node-type cache.m3.xlarge \
    	    --cache-parameter-group-name redis32-m2-xl \
    	    --apply-immediately
    ```
@@ -124,7 +129,7 @@ The following procedure describes how to scale up a single\-node Redis cache clu
    ```
    aws elasticache modify-cache-cluster ^
    	    --cache-cluster-id my-redis-cache-cluster ^
-   	    --cache-node-type cache.m2.xlarge ^
+   	    --cache-node-type cache.m3.xlarge ^
    	    --cache-parameter-group-name redis32-m2-xl ^
    	    --apply-immediately
    ```
@@ -205,7 +210,7 @@ The following procedure describes how to scale up a single\-node Redis cache clu
    	   ?Action=ModifyCacheCluster
    	   &ApplyImmediately=true
    	   &CacheClusterId=MyRedisCacheCluster
-   	   &CacheNodeType=cache.m2.xlarge
+   	   &CacheNodeType=cache.m3.xlarge
    	   &CacheParameterGroupName redis32-m2-xl
    	   &Version=2015-02-02
    	   &SignatureVersion=4

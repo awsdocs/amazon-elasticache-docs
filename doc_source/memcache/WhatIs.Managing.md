@@ -22,5 +22,5 @@ You can also write application code directly against the ElastiCache web service
 
 For more detailed information on managing your Amazon ElastiCache for Memcached deployment, see the following:
 + [Managing Your ElastiCache for Memcached Implementation](managing-elasticache.md)
-+ [Securing Network Access](Security.md)
++ [Internetwork Traffic Privacy](Security.md)
 + [Monitoring Usage, Events, and Costs](MonitoringECMetrics.md)

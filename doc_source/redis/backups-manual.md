@@ -29,13 +29,13 @@ You can create a manual backup of a node using the AWS Management Console, the A
 
 1. Choose **Backup**\.
 
-1. In the **Create Backup** dialog, type in a name for your backup in the **Backup Name** box\. We recommend that the name indicate which cluster was backedup and the date and time the backup was made\.
+1. In the **Create Backup** dialog, type in a name for your backup in the **Backup Name** box\. We recommend that the name indicate which cluster was backed up and the date and time the backup was made\.
 
-**Cluster naming constraints**
-   + Must contain from 1 to 20 alphanumeric characters or hyphens\.
+   Cluster naming constraints are as follows:
+   + Must contain 1–40 alphanumeric characters or hyphens\.
    + Must begin with a letter\.
-   + Cannot contain two consecutive hyphens\.
-   + Cannot end with a hyphen\.
+   + Can't contain two consecutive hyphens\.
+   + Can't end with a hyphen\.
 
 1. Choose **Create Backup**\.
 
@@ -45,10 +45,10 @@ You can create a manual backup of a node using the AWS Management Console, the A
 
 To create a manual backup of a cluster using the AWS CLI, use the `create-snapshot` AWS CLI operation with the following parameters:
 + `--cache-cluster-id`
-  + If the cluster you're backing up has no replica nodes, *\-\-cache\-cluster\-id* is the name of the cluster you are backing up, e\.g\., *mycluster*\.
-  + If the cluster you're backing up has one or more replica nodes, *\-\-cache\-cluster\-id* is the name of the node in the cluster you want to use for the backup, e\.g\., *mycluster\-002*\.
+  + If the cluster you're backing up has no replica nodes, `--cache-cluster-id` is the name of the cluster you are backing up, for example *mycluster*\.
+  + If the cluster you're backing up has one or more replica nodes, `--cache-cluster-id` is the name of the node in the cluster that you want to use for the backup\. For example, the name might be *mycluster\-002*\.
 
-  Only use this parameter when backing up a Redis \(cluster mode disabled\) cluster\.
+  Use this parameter only when backing up a Redis \(cluster mode disabled\) cluster\.
 
    
 + `--replication-group-id` – Name of the Redis \(cluster mode enabled\) cluster \(CLI/API: a replication group\) to use as the source for the backup\. Use this parameter when backing up a Redis \(cluster mode enabled\) cluster\.
@@ -56,19 +56,13 @@ To create a manual backup of a cluster using the AWS CLI, use the `create-snapsh
    
 + `--snapshot-name` – Name of the snapshot to be created\.
 
-**Cluster naming constraints**
-  + Must contain from 1 to 20 alphanumeric characters or hyphens\.
+  Cluster naming constraints are as follows:
+  + Must contain 1–40 alphanumeric characters or hyphens\.
   + Must begin with a letter\.
-  + Cannot contain two consecutive hyphens\.
-  + Cannot end with a hyphen\.
+  + Can't contain two consecutive hyphens\.
+  + Can't end with a hyphen\.
 
-**Topics**
-+ [Redis \(cluster mode disabled\) with No Replica Nodes](#backups-manual-CLI-example1)
-+ [Redis \(cluster mode disabled\) with Replica Nodes](#backups-manual-CLI-example2)
-+ [Redis \(cluster mode enabled\)](#backups-manual-CLI-example3)
-+ [AWS CLI Related Topics](#backups-manual-CLI-see-also)
-
-### Example 1: Backing Up a Redis \(cluster mode disabled\) Cluster That Has No Replica Nodes<a name="backups-manual-CLI-example1"></a>
+### Example 1: Backing Up a Redis \(Cluster Mode Disabled\) Cluster That Has No Replica Nodes<a name="backups-manual-CLI-example1"></a>
 
 The following AWS CLI operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis` that has no read replicas\.
 
@@ -88,9 +82,9 @@ aws elasticache create-snapshot ^
     --snapshot-name bkup-20150515
 ```
 
-### Example 2: Backing Up a Redis \(cluster mode disabled\) Cluster with Replica Nodes<a name="backups-manual-CLI-example2"></a>
+### Example 2: Backing Up a Redis \(Cluster Mode Disabled\) Cluster with Replica Nodes<a name="backups-manual-CLI-example2"></a>
 
-The following AWS CLI operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis` which has one or more read replicas\.
+The following AWS CLI operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis`\. This backup has one or more read replicas\.
 
 For Linux, macOS, or Unix:
 
@@ -108,9 +102,9 @@ aws elasticache create-snapshot ^
     --snapshot-name bkup-20150515
 ```
 
-**Example Output: Backing Up a Redis \(cluster mode disabled\) Cluster with Replica Nodes**
+**Example Output: Backing Up a Redis \(Cluster Mode Disabled\) Cluster with Replica Nodes**
 
-Output from the operation will look something like the following\.
+Output from the operation looks something like the following\.
 
 ```
 {
@@ -144,7 +138,7 @@ Output from the operation will look something like the following\.
 }
 ```
 
-### Example 3: Backing Up a Redis \(cluster mode enabled\) Cluster<a name="backups-manual-CLI-example3"></a>
+### Example 3: Backing Up a Cluster for Redis \(Cluster Mode Enabled\)<a name="backups-manual-CLI-example3"></a>
 
 The following AWS CLI operation creates the backup `bkup-20150515` from the Redis \(cluster mode enabled\) cluster `myClusteredRedis`\. Note the use of `--replication-group-id` instead of `--cache-cluster-id` to identify the source\.
 
@@ -164,9 +158,9 @@ aws elasticache create-snapshot ^
     --snapshot-name bkup-20150515
 ```
 
-**Example Output: Backing Up a Redis \(cluster mode enabled\) Cluster**
+**Example Output: Backing Up a Redis \(Cluster Mode Enabled\) Cluster**
 
-Output from this operation will look something like the following\.
+Output from this operation looks something like the following\.
 
 ```
 {
@@ -203,7 +197,7 @@ Output from this operation will look something like the following\.
 }
 ```
 
-### AWS CLI Related Topics<a name="backups-manual-CLI-see-also"></a>
+### Related Topics<a name="backups-manual-CLI-see-also"></a>
 
 For more information, see [create\-snapshot](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-snapshot.html) in the *AWS CLI Command Reference*\.
 
@@ -211,8 +205,8 @@ For more information, see [create\-snapshot](https://docs.aws.amazon.com/cli/lat
 
 To create a manual backup of a cluster using the ElastiCache API, use the `CreateSnapshot` ElastiCache API operation with the following parameters:
 + `CacheClusterId`
-  + If the cluster you're backing up has no replica nodes, *CacheClusterId* is the name of the cluster you are backing up, e\.g\., *mycluster*\.
-  + If the cluster you're backing up has one or more replica nodes, *CacheClusterId* is the name of the node in the cluster you want to use for the backup, e\.g\., *mycluster\-002*\.
+  + If the cluster you're backing up has no replica nodes, *CacheClusterId* is the name of the cluster you are backing up, for example *mycluster*\.
+  + If the cluster you're backing up has one or more replica nodes, *CacheClusterId* is the name of the node in the cluster that you want to use for the backup, for example *mycluster\-002*\.
 
   Only use this parameter when backing up a Redis \(cluster mode disabled\) cluster\.
 
@@ -222,19 +216,19 @@ To create a manual backup of a cluster using the ElastiCache API, use the `Creat
    
 + `SnapshotName` – Name of the snapshot to be created\.
 
-**Cluster naming constraints**
-  + Must contain from 1 to 20 alphanumeric characters or hyphens\.
+  Cluster naming constraints are as follows:
+  + Must contain 1–40 alphanumeric characters or hyphens\.
   + Must begin with a letter\.
-  + Cannot contain two consecutive hyphens\.
-  + Cannot end with a hyphen\.
+  + Can't contain two consecutive hyphens\.
+  + Can't end with a hyphen\.
 
 **Topics**
-+ [Redis \(cluster mode disabled\) with No Replica Nodes](#backups-manual-API-example1)
-+ [Redis \(cluster mode disabled\) with Replica Nodes](#backups-manual-API-example2)
-+ [Redis \(cluster mode enabled\)](#backups-manual-API-example3)
-+ [ElastiCache API Related Topics](#backups-manual-api-see-also)
++ [Redis \(Cluster Mode Disabled\) with No Replica Nodes](#backups-manual-API-example1)
++ [Redis \(Cluster Mode Disabled\) with Replica Nodes](#backups-manual-API-example2)
++ [Redis \(Cluster Mode Enabled\)](#backups-manual-API-example3)
++ [Related Topics](#backups-manual-api-see-also)
 
-### Example 1: Backing Up a Redis \(cluster mode disabled\) Cluster That Has No Replica Nodes<a name="backups-manual-API-example1"></a>
+### Example 1: Backing Up a Redis \(Cluster Mode Disabled\) Cluster That Has No Replica Nodes<a name="backups-manual-API-example1"></a>
 
 The following ElastiCache API operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis` that has no read replicas\.
 
@@ -250,7 +244,7 @@ https://elasticache.us-west-2.amazonaws.com/
     &X-Amz-Credential=<credential>
 ```
 
-### Example 2: Backing Up a Redis \(cluster mode disabled\) Cluster with Replica Nodes<a name="backups-manual-API-example2"></a>
+### Example 2: Backing Up a Redis \(Cluster Mode Disabled\) Cluster with Replica Nodes<a name="backups-manual-API-example2"></a>
 
 The following ElastiCache API operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis` which has one or more read replicas\.
 
@@ -266,7 +260,7 @@ https://elasticache.us-west-2.amazonaws.com/
     &X-Amz-Credential=<credential>
 ```
 
-### Example 3: Backing Up a Redis \(cluster mode enabled\) Cluster<a name="backups-manual-API-example3"></a>
+### Example 3: Backing Up a Redis \(Cluster Mode Enabled\) Cluster<a name="backups-manual-API-example3"></a>
 
 The following ElastiCache API operation creates the backup `bkup-20150515` from the Redis \(cluster mode enabled\) cluster `myClusteredRedis`\. Note the use of `ReplicationGroupId` instead of `CacheClusterId` to identify the source\.
 
@@ -284,6 +278,6 @@ https://elasticache.us-west-2.amazonaws.com/
 
 For more information, see [CreateSnapshot](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html) in the *Amazon ElastiCache API Reference*\.
 
-### ElastiCache API Related Topics<a name="backups-manual-api-see-also"></a>
+### Related Topics<a name="backups-manual-api-see-also"></a>
 
 For more information, see [CreateSnapshot](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html) in the *Amazon ElastiCache API Reference*\.

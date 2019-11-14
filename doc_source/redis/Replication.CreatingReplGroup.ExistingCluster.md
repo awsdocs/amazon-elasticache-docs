@@ -1,6 +1,6 @@
-# Creating a Replication Group Using an Available Redis \(cluster mode disabled\) Cluster<a name="Replication.CreatingReplGroup.ExistingCluster"></a>
+# Creating a Replication Group Using an Available Redis \(Cluster Mode Disabled\) Cluster<a name="Replication.CreatingReplGroup.ExistingCluster"></a>
 
-An available cluster is an existing single\-node Redis cluster\. Currently, Redis \(cluster mode enabled\) does not support creating a cluster with replicas using an available single\-node cluster\. If you want to create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(cluster mode enabled\) Cluster \(Console\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON)\.
+An available cluster is an existing single\-node Redis cluster\. Currently, Redis \(cluster mode enabled\) does not support creating a cluster with replicas using an available single\-node cluster\. If you want to create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON)\.
 
 The following procedure can only be used if you have a Redis \(cluster mode disabled\) single\-node cluster\. This cluster's node becomes the primary node in the new cluster\. If you do not have a Redis \(cluster mode disabled\) cluster that you can use as the new cluster's primary, see [Creating a Redis Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.md)\.
 
@@ -16,12 +16,11 @@ When using the AWS CLI you create a replication group specifying the available s
 
 **\-\-replication\-group\-id**  
 The name of the replication group you are creating\. The value of this parameter is used as the basis for the names of the added nodes with a sequential 3\-digit number added to the end of the `--replication-group-id`\. For example, `sample-repl-group-001`\.  
-
-**Redis \(cluster mode disabled\) Replication Group naming constraints**
-+ Must contain from 1 to 20 alphanumeric characters or hyphens\.
+Redis \(cluster mode disabled\) replication group naming constraints are as follows:  
++ Must contain 1–40 alphanumeric characters or hyphens\.
 + Must begin with a letter\.
-+ Cannot contain two consecutive hyphens\.
-+ Cannot end with a hyphen\.
++ Can't contain two consecutive hyphens\.
++ Can't end with a hyphen\.
 
 **\-\-replication\-group\-description**  
 Description of the replication group\.
@@ -67,12 +66,11 @@ After the replication group is created, add one to five read replicas to it usin
 
 **\-\-cache\-cluster\-id**  
 The name of the cluster you are adding to the replication group\.  
-
-**Cluster naming constraints**
-+ Must contain from 1 to 20 alphanumeric characters or hyphens\.
+Cluster naming constraints are as follows:  
++ Must contain 1–40 alphanumeric characters or hyphens\.
 + Must begin with a letter\.
-+ Cannot contain two consecutive hyphens\.
-+ Cannot end with a hyphen\.
++ Can't contain two consecutive hyphens\.
++ Can't end with a hyphen\.
 
 **\-\-replication\-group\-id**  
 The name of the replication group to which you are adding this cache cluster\.
@@ -128,18 +126,17 @@ For additional information, see the AWS CLI topics:
 + [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 + [modify\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group.html)
 
-## Adding Replicas to a Standalone Redis \(cluster mode disabled\) Cluster \(ElastiCache API\)<a name="Replication.CreatingReplGroup.ExistingCluster.API"></a>
+## Adding Replicas to a Standalone Redis \(Cluster Mode Disabled\) Cluster \(ElastiCache API\)<a name="Replication.CreatingReplGroup.ExistingCluster.API"></a>
 
 When using the ElastiCache API, you create a replication group specifying the available standalone node as the cluster's primary node, `PrimaryClusterId` and the number of nodes you want in the cluster using the CLI command, `CreateReplicationGroup`\. Include the following parameters\.
 
 **ReplicationGroupId**  
 The name of the replication group you are creating\. The value of this parameter is used as the basis for the names of the added nodes with a sequential 3\-digit number added to the end of the `ReplicationGroupId`\. For example, `sample-repl-group-001`\.  
-
-**Redis \(cluster mode disabled\) Replication Group naming constraints**
-+ Must contain from 1 to 20 alphanumeric characters or hyphens\.
+Redis \(cluster mode disabled\) replication group naming constraints are as follows:  
++ Must contain 1–40 alphanumeric characters or hyphens\.
 + Must begin with a letter\.
-+ Cannot contain two consecutive hyphens\.
-+ Cannot end with a hyphen\.
++ Can't contain two consecutive hyphens\.
++ Can't end with a hyphen\.
 
 **ReplicationGroupDescription**  
 Description of the cluster with replicas\.
@@ -182,12 +179,11 @@ After the replication group is created, add one to five read replicas to it usin
 
 **CacheClusterId**  
 The name of the cluster you are adding to the replication group\.  
-
-**Cluster naming constraints**
-+ Must contain from 1 to 20 alphanumeric characters or hyphens\.
+Cluster naming constraints are as follows:  
++ Must contain 1–40 alphanumeric characters or hyphens\.
 + Must begin with a letter\.
-+ Cannot contain two consecutive hyphens\.
-+ Cannot end with a hyphen\.
++ Can't contain two consecutive hyphens\.
++ Can't end with a hyphen\.
 
 **ReplicationGroupId**  
 The name of the replication group to which you are adding this cache cluster\.

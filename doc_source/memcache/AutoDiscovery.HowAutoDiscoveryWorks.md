@@ -43,7 +43,7 @@ When the application has connected to all of the cache nodes, ElastiCache Cluste
 
 ## Other Operations<a name="AutoDiscovery.HowAutoDiscoveryWorks.OtherOps"></a>
 
-There may arise situations where there is a change in the cluster due to adding an additional node to accommodate additional demand, deleting a node to save money during periods of reduced demand, or replacing a node due to a node failure of one sort or another\.
+In some situations, you might make a change to a cluster's nodes\. For example, you might add an additional node to accommodate additional demand, or delete a node to save money during periods of reduced demand\. Or you might replace a node due to a node failure of one sort or another\.
 
 When there is a change in the cluster that requires a metadata update to the cluster's endpoints, that change is made to all nodes at the same time\. Thus the metadata in any given node is consistent with the metadata in all of the other nodes in the cluster\.
 

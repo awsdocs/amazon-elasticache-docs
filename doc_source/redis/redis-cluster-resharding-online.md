@@ -10,7 +10,6 @@ You can do the following:
 + **Rebalance** – Move the keyspaces among the shards in your ElastiCache for Redis \(cluster mode enabled\) cluster so they are as equally distributed among the shards as possible\.
 
 You can't do the following:
-+ **Scale up/down:** Change your node type\. To scale up cluster\-mode enabled Redis cluster, or scale\-down any Redis cluster, you must use the offline process\.
 + **Configure shards independently:**
   + You can't specify the number of nodes in each shard independently\. 
   + You can't specify the keyspace for shards independently\. To do this, you must use the offline process\.

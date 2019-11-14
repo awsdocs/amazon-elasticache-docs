@@ -1,4 +1,4 @@
-# Ensuring You Have Sufficient Memory to Create a Redis Snapshot<a name="BestPractices.BGSAVE"></a>
+# Ensuring That You Have Enough Memory to Create a Redis Snapshot<a name="BestPractices.BGSAVE"></a>
 
 **Redis snapshots and synchronizations in version 2\.8\.22 and later**  
 Redis 2\.8\.22 introduces a forkless save process that allows you to allocate more of your memory to your application's use without incurring increased swap usage during synchronizations and saves\. For more information, see [How Synchronization and Backup are Implemented](Replication.Redis.Versions.md)\.
