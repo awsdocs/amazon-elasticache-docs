@@ -96,7 +96,7 @@ aws elasticache modify-replication-group \
 --replication-group-id authtestgroup \ 
 --auth-token This-is-the-rotated-token \ 
 --auth-token-update-strategy ROTATE \ 
---apply-immediately n
+--apply-immediately
 ```
 
 For Windows:
