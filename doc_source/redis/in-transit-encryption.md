@@ -176,7 +176,7 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 1. Run the following command to create and edit file `'/etc/stunnel/redis-cli.conf'` simultaneously to add a ElastiCache for Redis cluster endpoint to one or more connection parameters, using provided output below as template:\.
 
    ```
-   cat /etc/stunnel/redis-cli.conf
+   cat >/etc/stunnel/redis-cli.conf <<EOL
    				
    fips = no
    setuid = root
@@ -194,6 +194,7 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
       client = yes
       accept = 127.0.0.1:6380
       connect = ssltest-02.ssltest.wif01h.use1.cache.amazonaws.com:6379
+   EOL
    ```
 
    In this example, the config file has two connections, the `redis-cli` and the `redis-cli-replica`\. The parameters are set as follows:
