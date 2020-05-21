@@ -32,7 +32,7 @@ The following constraints on Amazon ElastiCache in\-transit encryption should be
 + In\-transit encryption is only supported for replication groups running the following node types\.
   + R5, R4, R3
   + M5, M4, M3
-  + T2
+  + T3, T2
 
   For more information, see [Supported Node Types](CacheNodes.SupportedTypes.md)\.
 + In\-transit encryption is enabled by explicitly setting the parameter `TransitEncryptionEnabled` to `true`\.
