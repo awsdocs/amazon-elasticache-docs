@@ -55,4 +55,4 @@ For more information, see [Choosing Your Node Size](nodes-select-size.md#CacheNo
   + [Online Scaling Down](redis-cluster-vertical-scaling-scaling-down.md)
     + [Scaling Down Redis Cache Clusters \(Console\)](redis-cluster-vertical-scaling-scaling-down.md#redis-cluster-vertical-scaling-down-console)
     + [Scaling Down Redis Cache Clusters \(AWS CLI\)](redis-cluster-vertical-scaling-scaling-down.md#Scaling.RedisStandalone.ScaleDown.CLI)
-    + [Scaling Down \(ElastiCache API\)](redis-cluster-vertical-scaling-scaling-down.md#Scaling.Vertical.ScaleDown.API)
+    + [Scaling Down Redis Cache Clusters \(ElastiCache API\)](redis-cluster-vertical-scaling-scaling-down.md#Scaling.Vertical.ScaleDown.API)

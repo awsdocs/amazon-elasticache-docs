@@ -1,6 +1,6 @@
 # Stopping the Self\-Service Updates<a name="stopping-self-service-updates"></a>
 
-If you have an unexpected surge to your Redis clusters that are undergoing updates, or if updates are taking too long and interrupting your business flow peak time, you can stop them\.
+You can stop updates to Redis clusters if needed\. For example, you might want to stop updates if you have an unexpected surge to your Redis clusters that are undergoing updates\. Or you might want to stop updates if they're taking too long and interrupting your business flow at a peak time\.
 
 The [Stopping](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_BatchApplyStopAction.html) operation immediately interrupts all updates to those clusters and any nodes that are yet to be updated\. It continues to completion any nodes that have an **in progress** status\. However, it ceases updates to other nodes in the same cluster that have an **update available** status and reverts them to a **Stopping** status\.
 
@@ -20,7 +20,7 @@ You can interrupt a service update using the Redis console\. The following demon
 
 ## Stopping the Service Updates Using the AWS CLI<a name="stopping-updates-cli-redis"></a>
 
-You can interrupt a service update using the AWS CLI\. The following code example shows how to do this:
+You can interrupt a service update using the AWS CLI\. The following code example shows how to do this\.
 
 `aws elasticache batch-stop-update-action --service-update-name sample-service-update --replication-group-ids my-replication-group-1 my-replication-group-2`
 

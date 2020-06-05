@@ -28,7 +28,7 @@ The following procedure details how to view the details of a Redis \(cluster mod
 
    1. Choose the **Nodes** tab\. Doing this displays details about each node, including the node's endpoint which you need to use to read from the cluster\.
 
-   1. To view metrics on one or more nodes, select the box to the left of the node ID, then select the time range for the metrics from the **Time range** list\. If you select multiple nodes, you can see overlay graphs\.  
+   1. To view metrics on one or more nodes, select the box to the left of the node ID, then choose the time range for the metrics from the **Time range** list\. If you choose multiple nodes, you can see overlay graphs\.  
 ![\[Image: Metrics over the last hour for two Redis nodes\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-Redis-Metrics.png)
 
       Metrics over the last hour for two Redis nodes
@@ -59,9 +59,9 @@ The following procedure details how to view the details of a Redis \(cluster mod
 
    1. Choose the **Nodes** tab\.
 
-      This will display information about each node, including each node's endpoint that you need to use to read data from the cluster\.
+      Doing this displays information about each node, including each node's endpoint that you need to use to read data from the cluster\.
 
-   1. To view metrics on one or more nodes, choose the box to the left of the node's id, and then choose the time range for the metrics from the **Time range** list\. Selecting multiple nodes will generate overlay graphs\.  
+   1. To view metrics on one or more nodes, choose the box by the node's ID, and then choose a time range for the metrics for **Time range**\. Choosing multiple nodes generates overlay graphs\.  
 ![\[Image: Metrics over the last hour for two Redis nodes\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-RedisCluster-Metrics.png)
 
       *Metrics over the last hour for two Redis nodes*

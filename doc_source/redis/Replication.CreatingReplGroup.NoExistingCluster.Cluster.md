@@ -41,6 +41,8 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 
     **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
 
+    **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
+
     **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
   + Previous generation: \(not recommended\)
 
@@ -67,7 +69,7 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 **Additional node type info**  
 + All current generation instance types are created in Amazon VPC by default\.
 + Redis append\-only files \(AOF\) are not supported for T1 or T2 instances\.
-+ Redis Multi\-AZ with automatic failover is not supported on T1 instances\.
++ Redis Multi\-AZ is not supported on T1 instances\.
 + Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.
 
 **\-\-cache\-parameter\-group**  
@@ -277,6 +279,8 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 
     **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
 
+    **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
+
     **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
   + Previous generation: \(not recommended\)
 
@@ -303,7 +307,7 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 **Additional node type info**  
 + All current generation instance types are created in Amazon VPC by default\.
 + Redis append\-only files \(AOF\) are not supported for T1 or T2 instances\.
-+ Redis Multi\-AZ with automatic failover is not supported on T1 instances\.
++ Redis Multi\-AZ is not supported on T1 instances\.
 + Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.
 
 **CacheParameterGroup**  

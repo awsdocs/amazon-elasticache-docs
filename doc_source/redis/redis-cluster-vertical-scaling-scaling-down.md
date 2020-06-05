@@ -3,9 +3,11 @@
 **Topics**
 + [Scaling Down Redis Cache Clusters \(Console\)](#redis-cluster-vertical-scaling-down-console)
 + [Scaling Down Redis Cache Clusters \(AWS CLI\)](#Scaling.RedisStandalone.ScaleDown.CLI)
-+ [Scaling Down \(ElastiCache API\)](#Scaling.Vertical.ScaleDown.API)
++ [Scaling Down Redis Cache Clusters \(ElastiCache API\)](#Scaling.Vertical.ScaleDown.API)
 
 ## Scaling Down Redis Cache Clusters \(Console\)<a name="redis-cluster-vertical-scaling-down-console"></a>
+
+The following procedure describes how to scale down a Redis cluster using the ElastiCache Management Console\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
 **To scale Down a Redis cluster \(console\)**
 
@@ -19,7 +21,7 @@
 
 1. In the **Modify Cluster** wizard:
 
-   1. Choose the node type you want to scale to from the **Node type** list\. To scale down, select a node type smaller than your existing node\. 
+   1. Choose the node type you want to scale to from the **Node type** list\. To scale down, select a node type smaller than your existing node\. Note that not all node types are available to scale down to\.
 
 1. If you want to perform the scale down process right away, choose the **Apply immediately** box\. If the **Apply immediately** box is not chosen, the scale\-down process is performed during this cluster's next maintenance window\.
 
@@ -29,7 +31,7 @@
 
 ## Scaling Down Redis Cache Clusters \(AWS CLI\)<a name="Scaling.RedisStandalone.ScaleDown.CLI"></a>
 
-The following procedure describes how to scale down a Redis cache cluster using the AWS CLI\.
+The following procedure describes how to scale down a Redis cache cluster using the AWS CLI\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
 **To scale down a Redis cache cluster \(AWS CLI\)**
 
@@ -73,7 +75,7 @@ The following procedure describes how to scale down a Redis cache cluster using 
    	        "cache.t2.micro", 
    	        "cache.t2.small ", 
    	        "cache.t2.medium ",
-     	        "cache.t1.small"
+     	      "cache.t1.small"
    	    ]
    }
    ```
@@ -84,7 +86,7 @@ The following procedure describes how to scale down a Redis cache cluster using 
    + `--replication-group-id` – The name of the replication group you are scaling down to\. 
    + `--cache-node-type` – The new node type you want to scale the cache cluster\. This value must be one of the node types returned by the `list-allowed-node-type-modifications` command in step 1\.
    + `--cache-parameter-group-name` – \[Optional\] Use this parameter if you are using `reserved-memory` to manage your cluster's reserved memory\. Specify a custom cache parameter group that reserves the correct amount of memory for your new node type\. If you are using `reserved-memory-percent` you can omit this parameter\.
-   + `--apply-immediately` – Causes the scale\-up process to be applied immediately\. To postpone the scale\-up process to the cluster's next maintenance window, use the `--no-apply-immediately` parameter\.
+   + `--apply-immediately` – Causes the scale\-up process to be applied immediately\. To postpone the scale\-down process to the cluster's next maintenance window, use the `--no-apply-immediately` parameter\.
 
    For Linux, macOS, or Unix:
 
@@ -153,9 +155,9 @@ The following procedure describes how to scale down a Redis cache cluster using 
 
 1. If you used the `--apply-immediately`, check the status of the cache cluster using the AWS CLI `describe-cache-clusters` command with the following parameter\. When the status changes to *available*, you can begin using the new, smaller cache cluster node\.
 
-## Scaling Down \(ElastiCache API\)<a name="Scaling.Vertical.ScaleDown.API"></a>
+## Scaling Down Redis Cache Clusters \(ElastiCache API\)<a name="Scaling.Vertical.ScaleDown.API"></a>
 
-The following process scales your replication group from its current node type to a new, smaller node type using the ElastiCache API\. 
+The following process scales your replication group from its current node type to a new, smaller node type using the ElastiCache API\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
 The amount of time it takes to scale down to a smaller node type varies, depending upon your node type and the amount of data in your current cache cluster\.
 

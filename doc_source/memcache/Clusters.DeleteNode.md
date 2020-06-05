@@ -15,9 +15,9 @@ You can delete a node from a cluster using the AWS Management Console, the AWS C
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the list in the upper\-right corner, choose the AWS Region of the cluster you want to remove nodes from\.
+1. From the list in the upper\-right corner, choose the AWS Region of the cluster that you want to remove nodes from\.
 
-1. In the navigation pane, choose the engine running on the cluster you want to remove a node\.
+1. In the navigation pane, choose the engine running on the cluster that you want to remove a node\.
 
    A list of clusters running the chosen engine appears\.
 
@@ -25,11 +25,13 @@ You can delete a node from a cluster using the AWS Management Console, the AWS C
 
    A list of the cluster's nodes appears\.
 
-1. Choose the box to the left of the node ID for the node you want to remove\. Using the ElastiCache console, you can only delete one node at a time, so choosing multiple nodes will disable the **Delete node** button\.
+1. Choose the box to the left of the node ID for the node that you want to remove\. Using the ElastiCache console, you can only delete one node at a time, so choosing multiple nodes means that you can't use the **Delete node** button\.
 
-   The *Delete Node* dialog appears\.
+   The *Delete Node* page appears\.
 
-1. To delete the node, complete the **Delete Node** dialog box and choose **Delete Node**\. To not delete the node, choose the **Cancel**\.
+1. To delete the node, complete the **Delete Node** page and choose **Delete Node**\. To keep the node, choose **Cancel**\.
+**Important**  
+If deleting the node results in the cluster no longer being Multi\-AZ compliant, make sure to first clear the **Multi\-AZ** check box and then delete the node\. If you clear the **Multi\-AZ** check box, you can choose to enable **Auto failover**\.
 
 
 **Impact of New Add and Remove Requests on Pending Requests**  
@@ -47,16 +49,16 @@ To determine what operations are pending, choose the **Description** tab and che
 
 ## Using the AWS CLI<a name="Clusters.DeleteNode.CLI"></a>
 
-1. Identify the IDs of the nodes you want to remove\. For more information, see [Viewing a Cluster's Details](Clusters.ViewDetails.md)\.
+1. Identify the IDs of the nodes that you want to remove\. For more information, see [Viewing a Cluster's Details](Clusters.ViewDetails.md)\.
 
 1. Use the `modify-cache-cluster` CLI operation with a list of the nodes to remove, as in the following example\.
 
    To remove nodes from a cluster using the command\-line interface, use the command `modify-cache-cluster` with the following parameters:
-   + `--cache-cluster-id` The ID of the cache cluster you want to remove nodes from\.
-   + `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes you want in this cluster after the modification is applied\.
-   + `--cache-node-ids-to-remove` A list of node IDs you want removed from this cluster\.
+   + `--cache-cluster-id` The ID of the cache cluster that you want to remove nodes from\.
+   + `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\.
+   + `--cache-node-ids-to-remove` A list of node IDs that you want removed from this cluster\.
    + `--apply-immediately` or `--no-apply-immediately` Specifies whether to remove these nodes immediately or at the next maintenance window\.
-   + `--region` Specifies the region of the cluster you want to remove nodes from\.
+   + `--region` Specifies the AWS Region of the cluster that you want to remove nodes from\.
 
    The following example immediately removes node 0001 from the cluster my\-cluster\.
 
@@ -130,13 +132,13 @@ For more information, see the AWS CLI topics [https://docs.aws.amazon.com/cli/la
 ## Using the ElastiCache API<a name="Clusters.DeleteNode.API"></a>
 
 To remove nodes using the ElastiCache API, call the `ModifyCacheCluster` API operation with the cache cluster ID and a list of nodes to remove, as shown:
-+ `CacheClusterId` The ID of the cache cluster you want to remove nodes from\.
-+ `NumCacheNodes` The `NumCacheNodes` parameter specifies the number of nodes you want in this cluster after the modification is applied\.
++ `CacheClusterId` The ID of the cache cluster that you want to remove nodes from\.
++ `NumCacheNodes` The `NumCacheNodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\.
 + `CacheNodeIdsToRemove.member.n` The list of node IDs to remove from the cluster\.
   + `CacheNodeIdsToRemove.member.1=0004`
   + `CacheNodeIdsToRemove.member.1=0005`
 + `ApplyImmediately` Specifies whether to remove these nodes immediately or at the next maintenance window\.
-+ `Region` Specifies the region of the cluster you want to remove a node from\.
++ `Region` Specifies the AWS Region of the cluster that you want to remove a node from\.
 
 The following example immediately removes nodes 0004 and 0005 from the cluster my\-cluster\.
 

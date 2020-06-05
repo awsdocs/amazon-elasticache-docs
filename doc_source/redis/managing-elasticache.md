@@ -10,6 +10,7 @@ In this section, you can find details about how to manage the various components
 + [Managing Your ElastiCache Clusters](Clusters.md)
 + [Accessing Your Cluster or Replication Group](accessing-elasticache.md)
 + [Working with Shards](Shards.md)
++ [Replication Across AWS Regions Using Global Datastore](Redis-Global-Datastore.md)
 + [High Availability Using Replication Groups](Replication.md)
 + [Finding Connection Endpoints](Endpoints.md)
 + [Backup and Restore for ElastiCache for Redis](backups.md)

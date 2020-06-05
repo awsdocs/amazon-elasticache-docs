@@ -8,18 +8,18 @@
 + [Region and Availability Zone Requirements](#cluster-create-determine-requirements-region)
 
 **Preparation**  
-Knowing the answers to these questions before you begin will expedite creating your cluster\.
+Knowing the answers to the following questions helps make creating your cluster go faster:
 + Which node instance type do you need?
 
   For guidance on choosing an instance node type, see [Choosing Your Memcached Node Size](nodes-select-size.md#CacheNodes.SelectSize)\.
-+ Will you launch your cluster in a VPC or an Amazon VPC? 
++ Will you launch your cluster in a virtual private cloud \(VPC\) based on Amazon VPC? 
 **Important**  
-If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group in the same VPC before you start creating a cluster\. For more information, see [Subnets and Subnet Groups](SubnetGroups.md)\.  
+If you're going to launch your cluster in a VPC, make sure to create a subnet group in the same VPC before you start creating a cluster\. For more information, see [Subnets and Subnet Groups](SubnetGroups.md)\.  
 ElastiCache is designed to be accessed from within AWS using Amazon EC2\. However, if you launch in a VPC based on Amazon VPC and your cluster is in an VPC, you can provide access from outside AWS\. For more information, see [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)\.
 + Do you need to customize any parameter values?
 
-  If you do, you need to create a custom Parameter Group\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
-+ Do you need to create your own *Security Group* or *VPC Security Group*? 
+  If you do, create a custom parameter group\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
++ Do you need to create your own *security group* or *VPC security group*? 
 
   For more information, see [Security Groups: EC2\-Classic](SecurityGroups.md) and [Security in Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html)\.
 + How do you intend to implement fault tolerance?
@@ -49,7 +49,7 @@ For more information, see [Managing Your ElastiCache Clusters](Clusters.md)\.
 
 ## Scaling Requirements<a name="cluster-create-determine-requirements-scaling"></a>
 
-All clusters can be scaled up by creating a new cluster with the new, larger node type\. When scaling up a Memcached cluster the new cluster will start out empty\. 
+All clusters can be scaled up by creating a new cluster with the new, larger node type\. When you scale up a Memcached cluster\. the new cluster starts out empty\.
 
 Amazon ElastiCache for Memcached clusters can be scaled out or in\. To scale a Memcached cluster out or in you merely add or remove nodes from the cluster\. If you have enabled Automatic Discovery and your application is connecting to the cluster’s configuration endpoint, you do not need to make any changes in your application when you add or remove nodes\.
 
@@ -63,7 +63,7 @@ If you launched your cluster into EC2\-VPC you need to grant network ingress to 
 
 ## Region and Availability Zone Requirements<a name="cluster-create-determine-requirements-region"></a>
 
-Amazon ElastiCache supports all AWS regions\. By locating your ElastiCache clusters in a region close to your application you can reduce latency\. If your cluster has multiple nodes, locating your nodes in different Availability Zones can reduce the impact of failures on your cluster\.
+Amazon ElastiCache supports all AWS regions\. By locating your ElastiCache clusters in an AWS Region close to your application you can reduce latency\. If your cluster has multiple nodes, locating your nodes in different Availability Zones can reduce the impact of failures on your cluster\.
 
 For more information, see the following:
 + [Choosing Regions and Availability Zones](RegionsAndAZs.md)

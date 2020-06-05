@@ -3,7 +3,7 @@
 We recommend that you begin by reading the following sections, and refer to them as you need them:
 + **Service highlights and pricing** – The [product detail page](https://aws.amazon.com/elasticache/) provides a general product overview of ElastiCache, service highlights, and pricing\.
 + **ElastiCache videos** – The [ElastiCache Videos](Tutorials.md#tutorial-videos) section has videos that introduce you to Amazon ElastiCache\. The videos cover common use cases for ElastiCache and demo how to use ElastiCache to reduce latency and improve throughput for your applications\.
-+ **Getting started** – The [Getting Started with Amazon ElastiCache for Redis](GettingStarted.md) section includes an example that walks you through the process of creating a cache cluster\. The example includes how to authorize access to the cache cluster, connect to a cache node, and delete the cache cluster\.
++ **Getting started** – The [Getting Started with Amazon ElastiCache for Redis](GettingStarted.md) section includes information on creating a cache cluster\. It also includes how to authorize access to the cache cluster, connect to a cache node, and delete the cache cluster\.
 + **Performance at scale** – The [Performance at Scale with Amazon ElastiCache](https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf) whitepaper addresses caching strategies that help your application to perform well at scale\.
 
 After you complete the preceding sections, read these sections:

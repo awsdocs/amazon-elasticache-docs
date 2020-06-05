@@ -14,9 +14,9 @@ The 60\-minute maintenance window is chosen at random from an 8\-hour block of t
 | ap\-southeast\-1 | Asia Pacific \(Singapore\) Region | 14:00–22:00 UTC | 
 | ap\-southeast\-2 | Asia Pacific \(Sydney\) Region | 12:00–20:00 UTC | 
 | cn\-north\-1 | China \(Beijing\) region | 14:00–22:00 UTC | 
-| eu\-central\-1 | EU \(Frankfurt\) Region | 23:00–07:00 UTC | 
-| eu\-west\-1 | EU \(Ireland\) Region | 22:00–06:00 UTC | 
-| eu\-west\-2 | EU \(London\) Region | 23:00–07:00 UTC | 
+| eu\-central\-1 | Europe \(Frankfurt\) Region | 23:00–07:00 UTC | 
+| eu\-west\-1 | Europe \(Ireland\) Region | 22:00–06:00 UTC | 
+| eu\-west\-2 | Europe \(London\) Region | 23:00–07:00 UTC | 
 | sa\-east\-1 | South America \(São Paulo\) Region | 01:00–09:00 UTC | 
 | us\-east\-1 | US East \(N\. Virginia\) Region | 03:00–11:00 UTC | 
 | us\-east\-2 | US East \(Ohio\) Region | 04:00–12:00 UTC | 

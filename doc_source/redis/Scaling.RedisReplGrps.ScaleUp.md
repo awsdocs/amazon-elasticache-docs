@@ -52,7 +52,7 @@ The following process scales your cluster with replicas from its current node ty
 
 1. In the **Modify Cluster** wizard:
 
-   1. Choose the node type you want to scale to from the **Node type** list\.
+   1. Choose the node type you want to scale to from the **Node type** list\. Note that not all node types are available to scale down to\.
 
    1. If you're using `reserved-memory` to manage your memory, from the **Parameter Group** list, choose the custom parameter group that reserves the correct amount of memory for your new node type\.
 
@@ -64,7 +64,7 @@ The following process scales your cluster with replicas from its current node ty
 
 ## Scaling Up a Redis Replication Group \(AWS CLI\)<a name="Scaling.RedisReplGrps.ScaleUp.CLI"></a>
 
-The following process scales your replication group \(console: cluster with replicas\) from its current node type to a new, larger node type using the AWS CLI\. During this process, until the status changes from *modifying* to *available*, all reads and writes between your application and the primary cache cluster are blocked\.
+The following process scales your replication group from its current node type to a new, larger node type using the AWS CLI\. During this process, until the status changes from *modifying* to *available*, all reads and writes between your application and the primary cache cluster are blocked\.
 
 The amount of time it takes to scale up to a larger node type varies, depending upon your node type and the amount of data in your current cache cluster\.
 
@@ -140,53 +140,51 @@ The amount of time it takes to scale up to a larger node type varies, depending 
    Output from this command looks something like this \(JSON format\)\.
 
    ```
-   {"ReplicationGroup": {
-   	        "Status": "available", 
-   	        "Description": "Some description", 
-   	        "NodeGroups": [
-   	            {
-   	                "Status": "available", 
-   	                "NodeGroupMembers": [
-   	                    {
-   	                        "CurrentRole": "primary", 
-   	                        "PreferredAvailabilityZone": "us-west-2b", 
-   	                        "CacheNodeId": "0001", 
-   	                        "ReadEndpoint": {
-   	                            "Port": 6379, 
-   	                            "Address": "my-repl-group-001.8fdx4s.0001.usw2.cache.amazonaws.com"
-   	                        }, 
-   	                        "CacheClusterId": "my-repl-group-001"
-   	                    }, 
-   	                    {
-   	                        "CurrentRole": "replica", 
-   	                        "PreferredAvailabilityZone": "us-west-2c", 
-   	                        "CacheNodeId": "0001", 
-   	                        "ReadEndpoint": {
-   	                            "Port": 6379, 
-   	                            "Address": "my-repl-group-002.8fdx4s.0001.usw2.cache.amazonaws.com"
-   	                        }, 
-   	                        "CacheClusterId": "my-repl-group-002"
-   	                    }
-   	                ], 
-   	                "NodeGroupId": "0001", 
-   	                "PrimaryEndpoint": {
-   	                    "Port": 6379, 
-   	                    "Address": "my-repl-group.8fdx4s.ng.0001.usw2.cache.amazonaws.com"
-   	                }
-   	            }
-   	        ], 
-   	        "ReplicationGroupId": "my-repl-group", 
-   	        "SnapshotRetentionLimit": 1, 
-   	        "AutomaticFailover": "disabled", 
-   	        "SnapshotWindow": "12:00-13:00", 
-   	        "SnapshottingClusterId": "my-repl-group-002", 
-   	        "MemberClusters": [
-   	            "my-repl-group-001", 
-   	            "my-repl-group-002", 
-   	        ], 
-   	        "PendingModifiedValues": {}
-   	    }
+   {
+   	"ReplicationGroup": {
+   		"Status": "available",
+   		"Description": "Some description",
+   		"NodeGroups": [{
+   			"Status": "available",
+   			"NodeGroupMembers": [{
+   					"CurrentRole": "primary",
+   					"PreferredAvailabilityZone": "us-west-2b",
+   					"CacheNodeId": "0001",
+   					"ReadEndpoint": {
+   						"Port": 6379,
+   						"Address": "my-repl-group-001.8fdx4s.0001.usw2.cache.amazonaws.com"
+   					},
+   					"CacheClusterId": "my-repl-group-001"
+   				},
+   				{
+   					"CurrentRole": "replica",
+   					"PreferredAvailabilityZone": "us-west-2c",
+   					"CacheNodeId": "0001",
+   					"ReadEndpoint": {
+   						"Port": 6379,
+   						"Address": "my-repl-group-002.8fdx4s.0001.usw2.cache.amazonaws.com"
+   					},
+   					"CacheClusterId": "my-repl-group-002"
+   				}
+   			],
+   			"NodeGroupId": "0001",
+   			"PrimaryEndpoint": {
+   				"Port": 6379,
+   				"Address": "my-repl-group.8fdx4s.ng.0001.usw2.cache.amazonaws.com"
+   			}
+   		}],
+   		"ReplicationGroupId": "my-repl-group",
+   		"SnapshotRetentionLimit": 1,
+   		"AutomaticFailover": "disabled",
+   		"SnapshotWindow": "12:00-13:00",
+   		"SnapshottingClusterId": "my-repl-group-002",
+   		"MemberClusters": [
+   			"my-repl-group-001",
+   			"my-repl-group-002"
+   		],
+   		"PendingModifiedValues": {}
    	}
+   }
    ```
 
    For more information, see [modify\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group.html) in the *AWS CLI Reference*\.

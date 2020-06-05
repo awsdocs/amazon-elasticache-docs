@@ -29,7 +29,7 @@ Answering the following questions can help you determine the minimum node type y
 
    
 
-  Write heavy applications can require significantly more available memory, memory not used by data, when taking snapshots or failing over\. Whenever the `BGSAVE` process is performed, you must have sufficient memory that is unused by data to accommodate all the writes that transpire during the `BGSAVE` process\. Examples are when taking a snapshot, when syncing a primary cluster with a replica in a cluster, and when enabling the append\-only file \(AOF\) feature\. Another is when promoting a replica to primary \(if you have Multi\-AZ with auto failover enabled\)\. The worst case is when all of your data is rewritten during the process\. In this case, you need a node instance size with twice as much memory as needed for data alone\.
+  Write heavy applications can require significantly more available memory, memory not used by data, when taking snapshots or failing over\. Whenever the `BGSAVE` process is performed, you must have sufficient memory that is unused by data to accommodate all the writes that transpire during the `BGSAVE` process\. Examples are when taking a snapshot, when syncing a primary cluster with a replica in a cluster, and when enabling the append\-only file \(AOF\) feature\. Another is when promoting a replica to primary \(if you have Multi\-AZ enabled\)\. The worst case is when all of your data is rewritten during the process\. In this case, you need a node instance size with twice as much memory as needed for data alone\.
 
    
 

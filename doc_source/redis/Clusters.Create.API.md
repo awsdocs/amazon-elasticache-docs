@@ -13,13 +13,6 @@ As soon as your cluster becomes available, you're billed for each hour or partia
 
 The following code creates a Redis \(cluster mode disabled\) cache cluster \(ElastiCache API\)\.
 
-If you want to enable in\-transit or at\-rest encryption on this cluster, add these parameters:
-+ `TransitEncryptionEnabled=true`
-
-  If you enable in\-transit encryption, the cluster must be created in a VPC based on the Amazon VPC service\. You must also include the parameter `-cache-subnet-group`\.
-+ `AuthToken` with the customer specified string value for your AUTH token \(password\) needed to perform operations on this cluster\.
-+ `AtRestEncryptionEnabled=true`
-
 Line breaks are added for ease of reading\.
 
 ```

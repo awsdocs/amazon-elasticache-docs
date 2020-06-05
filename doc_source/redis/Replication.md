@@ -11,12 +11,12 @@ The node or shard limit can be increased to a maximum of 250 per cluster\. To re
 
 *Redis \(cluster mode disabled\) cluster has one shard and 0 to 5 replica nodes*
 
-If the cluster with replicas has Multi\-AZ with Automatic Failover enabled and the primary node fails, the primary fails over to a read replica\. Because the data is updated on the replica nodes asynchronously, there may be some data loss due to latency in updating the replica nodes\. For more information, see [Mitigating Failures when Running Redis](FaultTolerance.md#FaultTolerance.Redis)\.
+If the cluster with replicas has Multi\-AZ enabled and the primary node fails, the primary fails over to a read replica\. Because the data is updated on the replica nodes asynchronously, there may be some data loss due to latency in updating the replica nodes\. For more information, see [Mitigating Failures when Running Redis](FaultTolerance.md#FaultTolerance.Redis)\.
 
 **Topics**
 + [Understanding Redis Replication](Replication.Redis.Groups.md)
 + [Replication: Redis \(Cluster Mode Disabled\) vs\. Redis \(Cluster Mode Enabled\)](Replication.Redis-RedisCluster.md)
-+ [Minimizing Downtime: Multi\-AZ with Automatic Failover](AutoFailover.md)
++ [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)
 + [How Synchronization and Backup are Implemented](Replication.Redis.Versions.md)
 + [Creating a Redis Replication Group](Replication.CreatingRepGroup.md)
 + [Viewing a Replication Group's Details](Replication.ViewDetails.md)

@@ -16,25 +16,25 @@ You can reboot a cluster using the ElastiCache console\.
 
 1. From the list in the upper\-right corner, choose the AWS Region you are interested in\.
 
-1. In the navigation pane, choose the engine running on the cluster you want to reboot\.
+1. In the navigation pane, choose the engine running on the cluster that you want to reboot\.
 
-   A list of clusters running the chosen engine will appear\.
+   A list of clusters running the chosen engine appears\.
 
 1. Choose the cluster to reboot by choosing on the box to the left of the cluster's name\.
 
-   The **Reboot** button will become active\.
+   The **Reboot** button becomes active\.
 
-   If you choose more than one cluster, the **Reboot** button becomes disabled\.
+   If you choose more than one cluster, the **Reboot** button isn't active\.
 
 1. Choose **Reboot**\.
 
    The reboot cluster confirmation screen appears\.
 
-1. To reboot the cluster, choose **Reboot**\. The status of the cluster will change to *rebooting cluster nodes*\.
+1. To reboot the cluster, choose **Reboot**\. The status of the cluster changes to *rebooting cluster nodes*\.
 
    To not reboot the cluster, choose **Cancel**\.
 
-To reboot multiple clusters, repeat steps 2 through 5 for each cluster you want to reboot\. You do not need to wait for one cluster to finish rebooting to reboot another\.
+To reboot multiple clusters, repeat steps 2 through 5 for each cluster that you want to reboot\. You do not need to wait for one cluster to finish rebooting to reboot another\.
 
 ## Using the AWS CLI<a name="Clusters.Rebooting.CLI"></a>
 

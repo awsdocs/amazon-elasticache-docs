@@ -220,7 +220,7 @@ aws elasticache modify-replication-group-shard-configuration ^
     --apply-immediately
 ```
 
-For more information, see [modify\-replication\-group\-shard\-configuration](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group-shard-configuration.html) in the AWS CLI documentation\.
+For more information, see [ModifyReplicationGroupShardConfiguration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html) in the AWS CLI documentation\.
 
 ### Removing Shards \(ElastiCache API\)<a name="redis-cluster-resharding-online-remove-api"></a>
 

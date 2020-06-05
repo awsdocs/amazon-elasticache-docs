@@ -7,10 +7,10 @@ You can use AWS\-wide condition keys in your ElastiCache policies to express con
 **Note**  
 To specify an action, use the `elasticache:` prefix followed by the API operation name \(for example, `elasticache:DescribeCacheClusters`\)\. For all ElastiCache actions, specify the wildcard character \(\*\) as the resource\.
 
-If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, you can open the table in a new window\. To close the window, choose the close button \(**X**\) in the lower\-right corner\.
+Use the scroll bars to see the rest of the table\.
 
 
-**Amazon ElastiCache for Memcached API and Required Permissions for Actions**  
+**Amazon ElastiCache for API and Required Permissions for Actions**  
 
 | ElastiCache API Operations | Required Permissions \(API Actions\) | Resources | 
 | --- | --- | --- | 

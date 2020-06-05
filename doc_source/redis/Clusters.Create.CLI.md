@@ -13,12 +13,6 @@ As soon as your cluster becomes available, you're billed for each hour or partia
 
 **Example – A Redis \(cluster mode disabled\) Cluster with no read replicas**  
 The following CLI code creates a Redis \(cluster mode disabled\) cache cluster with no replicas\.  
-If you want to enable in\-transit or at\-rest encryption on this cluster, add these parameters:  
-+ `-transit-encryption-enabled`
-
-  If you enable in\-transit encryption, the cluster must be created in a VPC based on the Amazon VPC service\. You must also include the parameter `--cache-subnet-group`\.
-+ `--auth-token` with the customer specified string value for your AUTH token \(password\) needed to perform operations on this cluster\.
-+ `--at-rest-encryption-enabled`
 For Linux, macOS, or Unix:  
 
 ```

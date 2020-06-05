@@ -25,7 +25,7 @@ For Linux, macOS, or Unix:
 ```
 aws elasticache modify-replication-group \
    --replication-group-id myReplGroup \
-   --automatic-failover-enabled
+   --multi-az-enabled = true
 ```
 
 For Windows:
@@ -33,7 +33,7 @@ For Windows:
 ```
 aws elasticache modify-replication-group ^
    --replication-group-id myReplGroup ^
-   --automatic-failover-enabled
+   --multi-az-enabled
 ```
 
 For more information on the AWS CLI `modify-replication-group` command, see [modify\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group.html)\.
@@ -46,6 +46,7 @@ The following ElastiCache API operation enables Multi\-AZ on an existing Redis r
 https://elasticache.us-west-2.amazonaws.com/
    ?Action=ModifyReplicationGroup
    &AutomaticFailoverEnabled=true  
+   &Mutli-AZEnabled=true  
    &ReplicationGroupId=myReplGroup
    &SignatureVersion=4
    &SignatureMethod=HmacSHA256

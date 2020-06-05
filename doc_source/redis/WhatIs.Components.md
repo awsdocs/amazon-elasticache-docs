@@ -32,7 +32,7 @@ For more information on nodes, see [Managing Nodes](CacheNodes.md)\.
 
 A Redis *shard* \(called a *node group* in the API and CLI\) is a grouping of one to six related nodes\. A Redis \(cluster mode disabled\) cluster always has one shard\. A Redis \(cluster mode enabled\) cluster can have 1–90 shards\.
 
-A *multiple node shard* implements replication by have one read/write primary node and 1–5 replica nodes\. For more information, see [High Availability Using Replication Groups](Replication.md)\.
+A *multiple node shard* implements replication by having one read/write primary node and 1–5 replica nodes\. For more information, see [High Availability Using Replication Groups](Replication.md)\.
 
 For more information on shards, see [Working with Shards](Shards.md)\.
 
@@ -69,7 +69,7 @@ Following are typical cluster configurations\.
 
 A Redis \(cluster mode enabled\) cluster contains 1–90 shards \(in the API and CLI, called *node groups*\)\. Redis \(cluster mode disabled\) clusters always contain just one shard \(in the API and CLI, one node group\)\. A Redis shard contains one to six nodes\. If there is more than one node in a shard, the shard supports replication\. In this case, one node is the read/write primary node and the others are read\-only replica nodes\.
 
-For improved fault tolerance, we recommend having at least two nodes in a Redis cluster and enabling Multi\-AZ with automatic failover\. For more information, see [Mitigating Failures](FaultTolerance.md)\.
+For improved fault tolerance, we recommend having at least two nodes in a Redis cluster and enabling Multi\-AZ\. For more information, see [Mitigating Failures](FaultTolerance.md)\.
 
 As demand upon your Redis \(cluster mode disabled\) cluster changes, you can scale up or down\. To do this, you move your cluster to a different node instance type\. If your application is read intensive, we recommend adding read\-only replicas Redis \(cluster mode disabled\) cluster\. By doing this, you can spread the reads across a more appropriate number of nodes\.
 
@@ -97,11 +97,11 @@ In the following table, you can find a comparison of the features of Redis \(clu
 
 All of the shards \(in the API and CLI, node groups\) and nodes must reside in the same AWS Region\. However, you can provision the individual nodes in multiple Availability Zones within that AWS Region\. 
 
-Read replicas guard against potential data loss because your data is replicated over two or more nodes—the primary and one or more read replicas\. For greater reliability and faster recovery, we recommend that you create one or more read replicas in different Availability Zones\. In addition, enable Multi\-AZ with automatic failover instead of using AOF\. AOF is disabled when Multi\-AZ with automatic failover is enabled\. For more information, see [Minimizing Downtime: Multi\-AZ with Automatic Failover](AutoFailover.md)\.
+Read replicas guard against potential data loss because your data is replicated over two or more nodes—the primary and one or more read replicas\. For greater reliability and faster recovery, we recommend that you create one or more read replicas in different Availability Zones\. In addition, enable Multi\-AZ instead of using Redis Append Only File \(AOF\)\. AOF is disabled when Multi\-AZ is enabled\. For more information, see [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)\.
 
 **Replication: Limits and Exclusions**
 + AOF is not supported on node type `cache.t1.micro` and cache\.t2\. For nodes of these types, the `appendonly` parameter value is ignored\.
-+ Multi\-AZ with automatic failover is not supported on node types T1\.
++ Multi\-AZ is not supported on node types T1\.
 
 For more information on AOF and Multi\-AZ, see [Mitigating Failures](FaultTolerance.md)\.
 
@@ -147,7 +147,7 @@ For more detailed information on ElastiCache parameter groups, see [Configuring 
 
 ## ElastiCache for Redis Security<a name="WhatIs.Components.Security"></a>
 
-For enhanced security, ElastiCache for Redis node access is restricted to applications running on the Amazon EC2 instances that you allow\. You can control the Amazon EC2 instances that can access your cluster by using subnet groups or security groups\.
+For enhanced security, ElastiCache for Redis node access is restricted to applications running on the Amazon EC2 instances that you allow\. You can control the Amazon EC2 instances that can access your cluster security groups\.
 
 By default, all new ElastiCache for Redis clusters are launched in an Amazon Virtual Private Cloud \(Amazon VPC\) environment\. You can use *subnet groups* to grant cluster access from Amazon EC2 instances running on specific subnets\. If you choose to run your cluster outside of Amazon VPC, you can create *security groups*\. These enable you to authorize Amazon EC2 instances running within specific Amazon EC2 security groups\.
 
@@ -178,7 +178,7 @@ If you create a cluster in an Amazon VPC, then you must specify a cache subnet g
 
 For more information about cache subnet group usage in an Amazon VPC environment, see the following:
 + [Amazon VPCs and ElastiCache Security](VPCs.md)
-+ [Step 2: Authorize Access](GettingStarted.AuthorizeAccess.md)
++ [Authorize Access](GettingStarted.AuthorizeAccess.md)
 + [Subnets and Subnet Groups](SubnetGroups.md)
 
 ## ElastiCache for Redis Backups<a name="WhatIs.Components.Snapshots"></a>

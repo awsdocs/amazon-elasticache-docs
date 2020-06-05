@@ -7,7 +7,7 @@ You can apply only those service updates that have an **available** status, even
 
 For more information about reviewing your Memcached fleet and applying any service\-specific updates to applicable Memcached clusters, see [Applying the Service Updates Using the Console for Memcached](applying-updates-console.md#applying-updates-console-memcached-console)\.
 
-When a new service update is available for one or more Memcached clusters in your fleet, you can use the ElastiCache console, API, or AWS CLI to apply the update\. The following sections explain the options that you can use to apply updates\.
+When a new service update is available for one or more Memcached clusters, you can use the ElastiCache console, API, or AWS CLI to apply the update\. The following sections explain the options that you can use to apply updates\.
 
 **Topics**
 + [Applying the Service Updates Using the Console](applying-updates-console.md)

@@ -7,6 +7,8 @@
 
 ## Scaling Up Redis Cache Clusters \(Console\)<a name="redis-cluster-vertical-scaling-console"></a>
 
+The following procedure describes how to scale up a Redis cluster using the ElastiCache Management Console\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
+
 **To scale up a Redis cluster \(console\)**
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
@@ -29,7 +31,7 @@
 
 ## Scaling Up Redis Cache Clusters \(AWS CLI\)<a name="Scaling.RedisStandalone.ScaleUp.CLI"></a>
 
-The following procedure describes how to scale up a Redis cache cluster using the AWS CLI\.
+The following procedure describes how to scale up a Redis cache cluster using the AWS CLI\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
 **To scale up a Redis cache cluster \(AWS CLI\)**
 

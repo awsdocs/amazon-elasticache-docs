@@ -17,7 +17,7 @@ The following table summarizes important differences between Redis \(cluster mod
 | Data Partitioning | No | Yes | 
 | Shards | 1 | 1 to 90  | 
 | Read replicas | 0 to 5 If you have no replicas and the node fails, you experience total data loss\. | 0 to 5 per shard\. If you have no replicas and a node fails, you experience loss of all data in that shard\. | 
-| Multi\-AZ with Automatic Failover  | Yes, with at least 1 replica\. Optional\. On by default\. | Yes\. Required\. | 
+| Multi\-AZ  | Yes, with at least 1 replica\. Optional\. On by default\. | Yes\. Required\. | 
 | Snapshots \(Backups\) | Yes, creating a single \.rdb file\. | Yes, creating a unique \.rdb file for each shard\. | 
 | Restore | Yes, using a single \.rdb file from a Redis \(cluster mode disabled\) cluster\. | Yes, using \.rdb files from either a Redis \(cluster mode disabled\) or a Redis \(cluster mode enabled\) cluster\. | 
 | Supported by | All Redis versions | Redis 3\.2 and following | 

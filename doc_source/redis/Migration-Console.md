@@ -9,17 +9,17 @@ You can use the AWS Management Console to migrate your data from the EC2 instanc
 1. Either create a new Redis cluster or choose an existing cluster\. Make sure that the cluster meets the following requirements:
    + Your Redis engine version should be at least 5\.0\.5 \(or higher\)\.
    + Your Redis cluster should be in cluster\-mode disabled configuration\.
-   + You Redis instance should not have Redis AUTH enabled\.
+   + You Redis on EC2 instance should not have Redis AUTH enabled\.
    + Redis config `protected-mode` should be set to `no`\.
    + If you have `bind` configuration in your Redis config, then it should be updated to allow requests from ElastiCache nodes\.
-   + The number of databases should be the same between the ElastiCache node and your Redis instance\. This value is set using `databases` in the Redis config\.
+   + The number of databases should be the same between the ElastiCache node and your Redis on EC2 instance\. This value is set using `databases` in the Redis config\.
    + Redis commands that perform data modification should not be renamed to allow replication of the data to succeed\.
    + To replicate the data from your Redis cluster to ElastiCache, make sure that there is sufficient CPU and memory to handle this additional load\. This load comes from the RDB file created by your Redis cluster and transferred over the network to ElastiCache node\.
    + The cluster is in **available** status\.
 
 1. With your cluster selected, choose **Migrate Data from Endpoint** for **Actions**\. 
 
-1. In the **Migrate Data from Endpoint** dialog box, enter either the IP address or the name of the EC2 instance, and the port where your Redis instance is available\.
+1. In the **Migrate Data from Endpoint** dialog box, enter either the IP address or the name of the EC2 instance, and the port where your Redis on EC2 instance is available\.
 **Important**  
 The IP address must be exact\. If you enter the address incorrectly, the migration fails\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/Migrate-1.png)

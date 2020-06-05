@@ -15,11 +15,11 @@ The following procedure can be used to add nodes to a cluster\.
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. In the navigation pane, choose the engine running on the cluster you want to add nodes to\.
+1. In the navigation pane, choose the engine running on the cluster that you want to add nodes to\.
 
    A list of clusters running the chosen engine appears\.
 
-1. From the list of clusters, choose the name of the cluster, not the box to the left of the cluster's name, you want to add a node to\.
+1. From the list of clusters, for the cluster that you want to add a node to, choose its name\.
 
 1. Choose **Add node**\.
 
@@ -39,8 +39,8 @@ The following procedure can be used to add nodes to a cluster\.
 ## Using the AWS CLI<a name="Clusters.AddNode.CLI"></a>
 
 To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `modify-cache-cluster` with the following parameters:
-+ `--cache-cluster-id` The ID of the cache cluster you want to add nodes to\.
-+ `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes you want in this cluster after the modification is applied\. To add nodes to this cluster, `--num-cache-nodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `cache-node-ids-to-remove` and a list of nodes to remove from the cluster\. For more information, see [Using the AWS CLI](Clusters.DeleteNode.md#Clusters.DeleteNode.CLI)\.
++ `--cache-cluster-id` The ID of the cache cluster that you want to add nodes to\.
++ `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\. To add nodes to this cluster, `--num-cache-nodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `cache-node-ids-to-remove` and a list of nodes to remove from the cluster\. For more information, see [Using the AWS CLI](Clusters.DeleteNode.md#Clusters.DeleteNode.CLI)\.
 + `--apply-immediately` or `--no-apply-immediately` which specifies whether to add these nodes immediately or at the next maintenance window\.
 
 For Linux, macOS, or Unix:
@@ -107,10 +107,10 @@ For more information, see the AWS CLI topic [https://docs.aws.amazon.com/cli/lat
 
 **To add nodes to a cluster \(ElastiCache API\)**
 + Call the `ModifyCacheCluster` API operation with the following parameters:
-  + `CacheClusterId` The ID of the cluster you want to add nodes to\.
-  + `NumCacheNodes` The `NumCachNodes` parameter specifies the number of nodes you want in this cluster after the modification is applied\. To add nodes to this cluster, `NumCacheNodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `CacheNodeIdsToRemove` with a list of nodes to remove from the cluster \(see [Using the ElastiCache API](Clusters.DeleteNode.md#Clusters.DeleteNode.API)\)\.
+  + `CacheClusterId` The ID of the cluster that you want to add nodes to\.
+  + `NumCacheNodes` The `NumCachNodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\. To add nodes to this cluster, `NumCacheNodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `CacheNodeIdsToRemove` with a list of nodes to remove from the cluster \(see [Using the ElastiCache API](Clusters.DeleteNode.md#Clusters.DeleteNode.API)\)\.
   + `ApplyImmediately` Specifies whether to add these nodes immediately or at the next maintenance window\.
-  + `Region` Specifies the AWS region of the cluster you want to add nodes to\.
+  + `Region` Specifies the AWS Region of the cluster that you want to add nodes to\.
 
   The following example shows a call to add nodes to a cluster\.  
 **Example**  

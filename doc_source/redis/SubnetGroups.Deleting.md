@@ -1,6 +1,6 @@
 # Deleting a Subnet Group<a name="SubnetGroups.Deleting"></a>
 
-If you decide that you no longer need your subnet group, you can delete it\. You cannot delete a subnet group if it is currently in use by a cluster\.
+If you decide that you no longer need your subnet group, you can delete it\. You cannot delete a subnet group if it is currently in use by a cluster\. You also cannot delete a subnet group on a cluster with Multi\-AZ enabled if doing so leaves that cluster with fewer than two subnets\. You must first disable **Multi\-AZ** and then delete the subnet\.
 
 The following procedures show you how to delete a subnet group\.
 

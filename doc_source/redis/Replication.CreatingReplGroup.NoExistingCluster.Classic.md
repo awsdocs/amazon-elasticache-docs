@@ -1,14 +1,14 @@
-# Creating a Redis \(cluster mode disabled\) Replication Group from Scratch<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic"></a>
+# Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic"></a>
 
-You can create a Redis \(cluster mode disabled\) replication group from scratch using the ElastiCache console, the AWS CLI, or the ElastiCache API\. A Redis \(cluster mode disabled\) replication group always has one node group, a primary cluster, and up to 5 read replicas\. The configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number or replicas allowed\. Redis \(cluster mode disabled\) replication groups do not support partitioning your data\.
+You can create a Redis \(cluster mode disabled\) replication group from scratch using the ElastiCache console, the AWS CLI, or the ElastiCache API\. A Redis \(cluster mode disabled\) replication group always has one node group, a primary cluster, and up to five read replicas\. Redis \(cluster mode disabled\) replication groups don't support partitioning your data\.
 
 **Note**  
 The node/shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and include the instance type in the request\.
 
-**Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch**
-+ [Creating a Redis \(cluster mode disabled\) Cluster \(Console\)](Clusters.Create.CON.Redis.md) Specify at least one replica node in step 6\.i\.
-+ [Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)](#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI)
-+ [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](#Replication.CreatingReplGroup.NoExistingCluster.Classic.API)
+To create a Redis \(cluster mode disabled\) replication group from scratch, take one of the following approaches:
++ To do this using the console, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\.
++ To do this using the AWS CLI, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(AWS CLI\)](Clusters.Create.CLI.md#Clusters.Create.CLI.RedisCluster)\.
++ To do this using the ElastiCache API, see [Creating a Cache Cluster in Redis \(Cluster Mode Enabled\) \(ElastiCache API\)](Clusters.Create.API.md#Clusters.Create.API.RedisCluster)\.
 
 ## Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI"></a>
 
@@ -41,6 +41,8 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 
     **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
 
+    **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
+
     **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
   + Previous generation: \(not recommended\)
 
@@ -67,7 +69,7 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 **Additional node type info**  
 + All current generation instance types are created in Amazon VPC by default\.
 + Redis append\-only files \(AOF\) are not supported for T1 or T2 instances\.
-+ Redis Multi\-AZ with automatic failover is not supported on T1 instances\.
++ Redis Multi\-AZ is not supported on T1 instances\.
 + Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.
 
 **\-\-cache\-parameter\-group**  
@@ -171,6 +173,8 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 
     **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
 
+    **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
+
     **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
   + Previous generation: \(not recommended\)
 
@@ -197,7 +201,7 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 **Additional node type info**  
 + All current generation instance types are created in Amazon VPC by default\.
 + Redis append\-only files \(AOF\) are not supported for T1 or T2 instances\.
-+ Redis Multi\-AZ with automatic failover is not supported on T1 instances\.
++ Redis Multi\-AZ is not supported on T1 instances\.
 + Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.
 
 **CacheParameterGroup**  

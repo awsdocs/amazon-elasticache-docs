@@ -14,7 +14,7 @@ When you use Redis AUTH with your ElastiCache for Redis cluster, there are some 
 
 In particular, be aware of these AUTH token constraints when using AUTH with ElastiCache for Redis:
 + Tokens must be 16–128 printable characters\.
-+ All printable special characters are allowed except '/', '"', and '@', '%'\. 
++ Nonalphanumeric characters are restricted to \(\!, &, \#, $, ^, <, >, \-\)\. 
 + AUTH can only be enabled for encryption in\-transit enabled ElastiCache for Redis clusters\.
 
 To set up a strong token, we recommend that you follow a strict token policy, such as requiring the following:
@@ -82,6 +82,9 @@ Modifying the auth token supports two strategies: ROTATE and SET\. The ROTATE st
 ### Rotating the AUTH Token<a name="auth-modifyng-rotate"></a>
 
 To update a Redis server with a new AUTH token, call the `ModifyReplicationGroup` API with the `--auth-token` parameter as the new auth token and the `--auth-token-update-strategy` with the value ROTATE\. Once the modification is complete, the cluster will support the previous AUTH token in addition to the one specified in the `auth-token` parameter\. 
+
+**Note**  
+If you do not configure the AUTH token before, then once the modification is complete, the cluster will support no AUTH token in addition to the one specified in the auth\-token parameter\. 
 
 If this modification is performed on a server that already supports two AUTH tokens, the oldest AUTH token will also be removed during this operation, allowing a server to support up to two most recent AUTH tokens at a given time\.
 

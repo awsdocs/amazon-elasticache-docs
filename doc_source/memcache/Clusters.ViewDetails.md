@@ -19,7 +19,7 @@ The following procedure details how to view the details of a Memcached cluster u
 
 1. From the list in the upper\-right corner, choose the AWS Region you are interested in\.
 
-1. In the ElastiCache console dashboard, choose **Memcached**\. This will display a list of all your clusters that are running any version of Memcached\.
+1. In the ElastiCache console dashboard, choose **Memcached**\. Doing this displays a list of all your clusters that are running any version of Memcached\.
 
 1. To see details of a cluster, choose the box to the left of the cluster's name\.
 
@@ -29,7 +29,7 @@ The following procedure details how to view the details of a Memcached cluster u
 
    1. Choose the **Nodes** tab\.
 
-   1. To view metrics on one or more nodes, choose the box to the left of the Node ID, and then choose the time range for the metrics from the **Time range** list\. Selecting multiple nodes will generate overlay graphs\.  
+   1. To view metrics on one or more nodes, choose the box to the left of the Node ID, and then choose the time range for the metrics from the **Time range** list\. Choosing multiple nodes generates overlay graphs\.  
 ![\[Image: Metrics over the last hour for two Memcached nodes\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ElastiCache-Memcached-Metrics.png)
 
       *Metrics over the last hour for two Memcached nodes*

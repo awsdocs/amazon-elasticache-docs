@@ -45,7 +45,7 @@ Selecting more than 20 nodes disables viewing metrics on the console\.
   aws cloudwatch get-metric-statistics \
       --namespace AWS/ElastiCache \
       --metric-name CPUUtilization \
-      --dimensions=""Name=CacheClusterId=mycachecluster,Value=CacheNodeId=0002" \	
+      --dimensions="'[{"Name":"CacheClusterId","Value":"mycachecluster"},{"Name":"CacheNodeId","Value":"0002"}]' \	
       --statistics=Average \
       --start-time 2018-07-05T00:00:00 \
       --end-time 2018-07-06T00:00:00 \
@@ -58,7 +58,7 @@ Selecting more than 20 nodes disables viewing metrics on the console\.
   aws cloudwatch get-metric-statistics ^
       --namespace AWS/ElastiCache ^
       --metric-name CPUUtilization ^
-      --dimensions=""Name=CacheClusterId=mycachecluster,Value=CacheNodeId=0002" ^
+      --dimensions="'[{"Name":"CacheClusterId","Value":"mycachecluster"},{"Name":"CacheNodeId","Value":"0002"}]' ^
       --statistics=Average ^
       --start-time 2018-07-05T00:00:00 ^
       --end-time 2018-07-06T00:00:00 ^

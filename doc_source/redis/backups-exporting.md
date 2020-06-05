@@ -13,7 +13,7 @@ Before you can export a backup to an Amazon S3 bucket, you must have an Amazon S
 **Warning**  
 The following scenarios expose your data in ways that you might not want:  
 **When another person has access to the Amazon S3 bucket that you exported your backup to\.**  
-To control access to your backups, only allow access to the Amazon S3 bucket to those who you want to access your data\. For information about managing access to an Amazon S3 bucket, see [Managing Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) in the *Amazon S3 Developer Guide*\.
+To control access to your backups, only allow access to the Amazon S3 bucket to those whom you want to access your data\. For information about managing access to an Amazon S3 bucket, see [Managing Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) in the *Amazon S3 Developer Guide*\.
 **When another person has permissions to use the CopySnapshot API operation\.**  
 Users or groups that have permissions to use the `CopySnapshot` API operation can create their own Amazon S3 buckets and copy backups to them\. To control access to your backups, use an AWS Identity and Access Management \(IAM\) policy to control who has the ability to use the `CopySnapshot` API\. For more information about using IAM to control the use of ElastiCache API operations, see [Identity and Access Management in Amazon ElastiCache](IAM.md) in the *ElastiCache User Guide*\.
 
@@ -52,26 +52,34 @@ For more information about creating an Amazon S3 bucket, see [Creating a Bucket]
 
 ## Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket<a name="backups-exporting-grant-access"></a>
 
-In order for ElastiCache to copy a snapshot to an Amazon S3 bucket, it must have access to the bucket\. The following procedure grants ElastiCache access to the Amazon S3 bucket you created in the previous step\.
+For ElastiCache to be able to copy a snapshot to an Amazon S3 bucket, grant access to the bucket\. You grant ElastiCache access to your Amazon S3 bucket in a different way depending if your bucket is in a default AWS Region or an opt\-in AWS Region\.
+
+AWS Regions introduced before March 20, 2019, are enabled by default\. You can begin working in these AWS Regions immediately\. Regions introduced after March 20, 2019, such as Asia Pacific \(Hong Kong\) and Middle East \(Bahrain\), are disabled by default\. You must enable, or opt in, to these Regions before you can use them, as described in [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\.
+
+Choose your approach depending on your AWS Region:
++ For a default Region, use the procedure in [Grant ElastiCache Access to Your S3 Bucket in a Default Region](#backups-exporting-default-region)\.
++ For an opt\-in Region, use the procedure in [Grant ElastiCache Access to Your S3 Bucket in an Opt\-In Region](#backups-exporting-opt-in-region)\.
+
+### Grant ElastiCache Access to Your S3 Bucket in a Default Region<a name="backups-exporting-default-region"></a>
+
+AWS Regions introduced before March 20, 2019, are enabled by default\. You can begin working in these AWS Regions immediately\. Regions introduced after March 20, 2019, such as Asia Pacific \(Hong Kong\) and Middle East \(Bahrain\), are disabled by default\. You must enable, or opt in, to these Regions before you can use them, as described in [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\.
+
+To create the proper permissions on an Amazon S3 bucket in an AWS Region enabled by default, take the steps described following\.
 
 **Warning**  
-Even though backups copied to an Amazon S3 bucket are encrypted, your data may be accessed by anyone with access to your Amazon S3 bucket\. Therefore, we strongly recommend that you set up IAM policies to prevent unauthorized access to this Amazon S3 bucket\. For more information, see [Managing Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) in the *Amazon S3 Developer Guide*\.
+Even though backups copied to an Amazon S3 bucket are encrypted, your data can be accessed by anyone with access to your Amazon S3 bucket\. Therefore, we strongly recommend that you set up IAM policies to prevent unauthorized access to this Amazon S3 bucket\. For more information, see [Managing Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) in the *Amazon S3 Developer Guide*\.
 
-**To grant ElastiCache access to an Amazon S3 bucket**
+**To grant ElastiCache access to an S3 bucket in a default AWS Region**
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Choose the name of the Amazon S3 bucket that you want to copy the backup to\. This should be the S3 bucket you created in [Step 1: Create an Amazon S3 Bucket](#backups-exporting-create-s3-bucket)\.
+1. Choose the name of the Amazon S3 bucket that you want to copy the backup to\. This should be the S3 bucket that you created in [Step 1: Create an Amazon S3 Bucket](#backups-exporting-create-s3-bucket)\.
 
 1. Make sure that the bucket's AWS Region is the same as your ElastiCache backup's AWS Region\. If it isn't, return to [Step 1: Create an Amazon S3 Bucket](#backups-exporting-create-s3-bucket) and create a new bucket in the same AWS Region as the cluster that you back up\.
 
-1. Choose **Permissions**\.
+1. Choose the **Permissions** tab, choose **Access Control List**, and under **Access for other AWS accounts**, choose **Add account**\.
 
-1. Choose **Access Control List**\.
-
-1. Under *Access for other AWS accounts*, choose **\+ Add account**\.
-
-1. In the box, add the AWS Region's canonical id as shown in the following list:
+1. In the box, add the AWS Region's canonical ID as shown in the following list:
    + China \(Beijing\) and China \(Ningxia\) Regions: 
 
      ```
@@ -86,23 +94,74 @@ Even though backups copied to an Amazon S3 bucket are encrypted, your data may b
      ```
 **Important**  
 The backup must be exported to an S3 bucket in AWS GovCloud \(US\)\. 
-   + All other AWS Regions: 
+   + All other AWS Regions enabled by default: 
 
      ```
      540804c33a284a299d2547575ce1010f2312ef3da9b3a053c8bc45bf233e4353
      ```
 
-1. Set the permissions on the bucket by choosing **Yes** for:
-
-   1. **List objects**
-
-   1. **Write objects**
-
-   1. **Read bucket permissions**
+1. Set the permissions on the bucket by choosing **Yes** for the following options:
+   + **List objects**
+   + **Write objects**
+   + **Read bucket permissions**
 
 1. Choose **Save**\.
 
-Your Amazon S3 bucket is now ready for you to export an ElastiCache backup to using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
+Your Amazon S3 bucket is now ready for you to export an ElastiCache backup using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
+
+### Grant ElastiCache Access to Your S3 Bucket in an Opt\-In Region<a name="backups-exporting-opt-in-region"></a>
+
+AWS Regions introduced before March 20, 2019, are enabled by default\. You can begin working in these AWS Regions immediately\. Regions introduced after March 20, 2019, such as Asia Pacific \(Hong Kong\) and Middle East \(Bahrain\), are disabled by default\. You must enable, or opt in, to these Regions before you can use them, as described in [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\.
+
+To create the proper permissions on an Amazon S3 bucket in an opt\-in AWS Region, take the following steps\.
+
+**To grant ElastiCache access to an S3 bucket in an opt\-in AWS Region**
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
+
+1. Choose the name of the Amazon S3 bucket that you want to copy the backup to\. This should be the S3 bucket that you created in [Step 1: Create an Amazon S3 Bucket](#backups-exporting-create-s3-bucket)\.
+
+1. Choose the **Permissions** tab\. and under **Permissions**, choose **Bucket policy**\.
+
+1. Update the policy to grant ElastiCache required permissions to perform operations:
+   + Add `[ "Service" : "region-full-name.elasticache-snapshot.amazonaws.com" ]` to `Principal`\.
+   + Add the following permissions required for exporting a snapshot to the Amazon S3 bucket\. 
+     + `"s3:PutObject"`
+     + `"s3:GetObject"`
+     + `"s3:ListBucket"`
+     + `"s3:GetBucketAcl"`
+     + `"s3:ListMultipartUploadParts"`
+     + `"s3:ListBucketMultipartUploads"`
+
+   The following is an example of what the updated policy might look like\.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Id": "Policy15397346",
+       "Statement": [
+           {
+               "Sid": "Stmt15399483",
+               "Effect": "Allow",
+               "Principal": {
+                   "Service": "aws-opt-in-region.elasticache-snapshot.amazonaws.com"
+               },
+               "Action": [
+                   "s3:PutObject",
+                   "s3:GetObject",
+                   "s3:ListBucket",
+                   "s3:GetBucketAcl",
+                   "s3:ListMultipartUploadParts",
+                   "s3:ListBucketMultipartUploads"
+               ],
+               "Resource": [
+                   "arn:aws:s3:::example-bucket",
+                   "arn:aws:s3:::example-bucket/*"
+               ]
+           }
+       ]
+   }
+   ```
 
 ## Step 3: Export an ElastiCache Backup<a name="backups-exporting-procedures"></a>
 
@@ -126,11 +185,6 @@ Now you've created your S3 bucket and granted ElastiCache permissions to access 
     "Version": "2012-10-17"
 }
 ```
-
-**Topics**
-+ [Exporting an ElastiCache Backup \(Console\)](#backups-exporting-CON)
-+ [Exporting an ElastiCache Backup \(AWS CLI\)](#backups-exporting-CLI)
-+ [Exporting an ElastiCache Backup \(ElastiCache API\)](#backups-exporting-API)
 
 ### Exporting an ElastiCache Backup \(Console\)<a name="backups-exporting-CON"></a>
 

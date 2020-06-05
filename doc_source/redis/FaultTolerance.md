@@ -51,16 +51,16 @@ A Redis replication group is comprised of a single primary node which your appli
 
 1. ElastiCache launches and provisions a replacement node in the same AZ\.
 
-1. The new node synchronizes with the Primary node\.
+1. The new node synchronizes with the primary node\.
 
 During this time your application can continue reading and writing using the other nodes\.
 
-**Redis Multi\-AZ with Automatic Failover**  
-You can enable Multi\-AZ with automatic failover on your Redis replication groups\. Whether you enable Multi\-AZ with auto failover or not, a failed Primary will be detected and replaced automatically\. How this takes place varies whether or not Multi\-AZ is or is not enabled\.
+**Redis Multi\-AZ**  
+You can enable Multi\-AZ on your Redis replication groups\. Whether you enable Multi\-AZ or not, a failed primary will be detected and replaced automatically\. How this takes place varies whether or not Multi\-AZ is or is not enabled\.
 
-**When Multi\-AZ with Auto Failover is enabled**
+**When Multi\-AZ is enabled**
 
-1. ElastiCache detects the Primary node failure\.
+1. ElastiCache detects the primary node failure\.
 
 1. ElastiCache promotes the read replica node with the least replication lag to primary node\.
 
@@ -70,23 +70,23 @@ You can enable Multi\-AZ with automatic failover on your Redis replication group
 
 1. The new node syncs with the newly promoted primary\.
 
-Failing over to a replica node is generally faster than creating and provisioning a new Primary node\. This means your application can resume writing to your Primary node sooner than if Multi\-AZ were not enabled\.
+Failing over to a replica node is generally faster than creating and provisioning a new primary node\. This means your application can resume writing to your primary node sooner than if Multi\-AZ were not enabled\.
 
-For more information, see [Minimizing Downtime: Multi\-AZ with Automatic Failover](AutoFailover.md)\.
+For more information, see [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)\.
 
-**When Multi\-AZ with Auto Failover is disabled**
+**When Multi\-AZ is disabled**
 
-1. ElastiCache detects Primary failure\.
+1. ElastiCache detects primary failure\.
 
-1. ElastiCache takes the Primary offline\.
+1. ElastiCache takes the primary offline\.
 
-1. ElastiCache creates and provisions a new Primary node to replace the failed Primary\.
+1. ElastiCache creates and provisions a new primary node to replace the failed primary\.
 
-1. ElastiCache syncs the new Primary with one of the existing replicas\.
+1. ElastiCache syncs the new primary with one of the existing replicas\.
 
-1. When the sync is finished, the new node functions as the cluster's Primary node\.
+1. When the sync is finished, the new node functions as the cluster's primary node\.
 
-During this process, steps 1 through 4, your application can't write to the Primary node\. However, your application can continue reading from your replica nodes\.
+During steps 1 through 4 of this process, your application can't write to the primary node\. However, your application can continue reading from your replica nodes\.
 
 For added protection, we recommend that you launch the nodes in your replication group in different Availability Zones \(AZs\)\. If you do this, an AZ failure will only impact the nodes in that AZ and not the others\.
 

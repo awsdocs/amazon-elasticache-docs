@@ -1,4 +1,4 @@
-# Mitigating Out\-of\-Disk\-Space Issues When Using Redis AOF<a name="BestPractices.AOF"></a>
+# Mitigating Failure Issues When Using Redis AOF<a name="BestPractices.AOF"></a>
 
 When planning your Amazon ElastiCache implementation, you should plan so that failures have the least impact possible\.
 
@@ -14,4 +14,4 @@ If you are enabling AOF to protect against data loss, consider using a replicati
 For more information, see the following topics:
 + [Mitigating Failures](FaultTolerance.md)
 + [High Availability Using Replication Groups](Replication.md)
-+ [Minimizing Downtime: Multi\-AZ with Automatic Failover](AutoFailover.md)
++ [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)

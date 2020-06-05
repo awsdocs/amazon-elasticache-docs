@@ -16,6 +16,7 @@ You should be aware of the following requirements when upgrading from an older v
 **Important**  
 You can upgrade to a newer engine version, but you can't downgrade to an older engine version\. If you want to use an older engine version, you must delete the existing cluster and create it anew with the older engine version\. 
 Engine version management is designed so that you can have as much control as possible over how patching occurs\. However, ElastiCache reserves the right to patch your cluster on your behalf in the unlikely event of a critical security vulnerability in the system or cache software\.
+You can also upgrade your ElastiCache clusters with versions earlier than 5\.0\.5\. The process involved is the same but may incur longer failover time during DNS propagation \(30s\-1m\)\. 
 Because the Memcached engine does not support persistence, Memcached engine version upgrades are always a disruptive process that clears all cache data in the cluster\.
 
 ## How to Upgrade Engine Versions<a name="VersionManagement.HowTo"></a>

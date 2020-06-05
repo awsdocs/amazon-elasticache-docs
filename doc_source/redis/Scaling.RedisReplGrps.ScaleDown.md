@@ -9,7 +9,7 @@ For more information, see [Managing Reserved Memory](redis-memory-management.md)
 
 **Topics**
 + [Scaling Down a Redis Cluster with Replicas \(Console\)](#Scaling.RedisReplGrps.ScaleDown.CON)
-+ [Scaling Down a Redis Replication Group \(AWS CLI\)](#Scaling.RedisReplGrps.ScaleDown.CLI)
++ [Scaling Down a Redis Replication Group \(AWS CLI\)](#Scaling.RedisReplGrps.ScaleUp.CLI)
 + [Scaling Down a Redis Replication Group \(ElastiCache API\)](#Scaling.RedisReplGrps.ScaleDown.API)
 
 ## Scaling Down a Redis Cluster with Replicas \(Console\)<a name="Scaling.RedisReplGrps.ScaleDown.CON"></a>
@@ -18,7 +18,7 @@ The following process scales your Redis cluster with replica nodes to a smaller 
 
 **To scale down a Redis cluster with replica nodes \(console\)**
 
-1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
+1. Ensure that the smaller node type is adequate for your data and overhead needs\. 
 
 1. If your parameter group uses `reserved-memory` to set aside memory for Redis overhead, ensure that you have a custom parameter group to set aside the correct amount of memory for your new node type\.
 
@@ -26,67 +26,233 @@ The following process scales your Redis cluster with replica nodes to a smaller 
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. Take a snapshot of the cluster’s primary node\. For details on how to take a snapshot, see [Creating a Manual Backup \(Console\)](backups-manual.md#backups-manual-CON)\.
+1. From the list of clusters, choose the cluster you want to scale down\. This cluster must be running the Redis engine and not the Clustered Redis engine\.
 
-1. Restore from this snapshot specifying the new node type for the new cluster\. For more information, see [Restoring From a Backup \(Console\)](backups-restoring.md#backups-restoring-CON)\.
+1. Choose **Modify**\.
 
-   Alternatively, you can launch a new cluster using the new node type and seeding it from the snapshot\. For more information, see [Seeding a New Cluster with an Externally Created Backup](backups-seeding-redis.md)\.
+1. In the **Modify Cluster** wizard:
 
-1. In your application, update the endpoints to the new cluster's endpoints\. For more information, see [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)\.
+   1. Choose the node type you want to scale down to from the **Node type** list\.
 
-1. Delete the old cluster\. For more information, see [Deleting a Replication Group \(Console\)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CON)\.
+   1. If you're using `reserved-memory` to manage your memory, from the **Parameter Group** list, choose the custom parameter group that reserves the correct amount of memory for your new node type\.
 
-1. If you no longer need it, delete the snapshot\. For more information, see [Deleting a Backup \(Console\)](backups-deleting.md#backups-deleting-CON)\.
+1. If you want to perform the scale\-down process right away, choose the **Apply immediately** check box\. If the **Apply immediately** check box is left not chosen, the scale\-down process is performed during this cluster's next maintenance window\.
 
-**Tip**  
-If you don't mind being unable to use your replication group while it's being created or restored, you can eliminate the need to update the endpoints in your application\. To do so, delete the old cluster right after taking the snapshot and reuse the old cluster's name for the new cluster\.
+1. Choose **Modify**\.
 
-## Scaling Down a Redis Replication Group \(AWS CLI\)<a name="Scaling.RedisReplGrps.ScaleDown.CLI"></a>
+1. When the cluster’s status changes from *modifying* to *available*, your cluster has scaled to the new node type\. There is no need to update the endpoints in your application\.
 
-The following process scales your Redis replication group to a smaller node type using the AWS CLI\.
+## Scaling Down a Redis Replication Group \(AWS CLI\)<a name="Scaling.RedisReplGrps.ScaleUp.CLI"></a>
 
-**To scale down a Redis replication group \(AWS CLI\)**
+The following process scales your replication group from its current node type to a new, smaller node type using the AWS CLI\. During this process, until the status changes from *modifying* to *available*, all reads and writes between your application and the primary cache cluster are blocked\.
 
-1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)\.
+The amount of time it takes to scale down to a smaller node type varies, depending upon your node type and the amount of data in your current cache cluster\.
 
-1. If your parameter group uses `reserved-memory` to set aside memory for Redis overhead, ensure that you have a custom parameter group to set aside the correct amount of memory for your new node type\.
+**To scale down a Redis Replication Group \(AWS CLI\)**
 
-   Alternatively, you can modify your custom parameter group to use `reserved-memory-percent`\. For more information, see [Managing Reserved Memory](redis-memory-management.md)\.
+1. Determine which node types you can scale down to by running the AWS CLI `list-allowed-node-type-modifications` command with the following parameter\.
+   + `--replication-group-id` – the name of the replication group\. Use this parameter to describe a particular replication group rather than all replication groups\.
 
-1. Create a snapshot of your existing Redis node\. For instructions, see [Creating a Manual Backup \(AWS CLI\)](backups-manual.md#backups-manual-CLI)\.
+   For Linux, macOS, or Unix:
 
-1. Restore from the snapshot using the new, smaller node type as the new node type and, if needed, the new parameter group\. For more information, see [Restoring From a Backup \(AWS CLI\)](backups-restoring.md#backups-restoring-CLI)\.
+   ```
+   aws elasticache list-allowed-node-type-modifications \
+   	    --replication-group-id my-repl-group
+   ```
 
-1. In your application, update the endpoints to the new cache cluster's endpoints\. For more information, see [Finding the Endpoints for Replication Groups \(AWS CLI\)](Endpoints.md#Endpoints.Find.CLI.ReplGroups)\.
+   For Windows:
 
-1. Delete your old replication group\. For more information, see [Deleting a Replication Group \(AWS CLI\)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CLI)\.
+   ```
+   aws elasticache list-allowed-node-type-modifications ^
+   	    --replication-group-id my-repl-group
+   ```
 
-1. If you no longer need it, delete the snapshot\. For more information, see [Deleting a Backup \(AWS CLI\)](backups-deleting.md#backups-deleting-CLI)\.
+   Output from this operation looks something like this \(JSON format\)\.
 
-**Tip**  
-If you don't mind being unable to use your replication group while it's being created or restored, you can eliminate the need to update the endpoints in your application\. To do so, delete the old replication group right after taking the snapshot and reuse the old replication group's name for the new replication group\.
+   ```
+   {
+   	    "ScaleDownModifications": [
+   	        "cache.m3.2xlarge", 
+   	        "cache.m3.large", 
+   	        "cache.m3.xlarge", 
+   	        "cache.m4.10xlarge", 
+   	        "cache.m4.2xlarge", 
+   	        "cache.m4.4xlarge", 
+   	        "cache.m4.large", 
+   	        "cache.m4.xlarge", 
+   	        "cache.r3.2xlarge", 
+   	        "cache.r3.4xlarge", 
+   	        "cache.r3.8xlarge", 
+   	        "cache.r3.large", 
+   	        "cache.r3.xlarge"
+   	    ]
+   	}
+   ```
+
+   For more information, see [list\-allowed\-node\-type\-modifications](https://docs.aws.amazon.com/cli/latest/reference/elasticache/list-allowed-node-type-modifications.html) in the *AWS CLI Reference*\.
+
+1. Scale your current replication group up to the new node type using the AWS CLI `modify-replication-group` command with the following parameters\.
+   + `--replication-group-id` – the name of the replication group\.
+   + `--cache-node-type` – the new, larger node type of the cache clusters in this replication group\. This value must be one of the instance types returned by the `list-allowed-node-type-modifications` command in step 1\.
+   + `--cache-parameter-group-name` – \[Optional\] Use this parameter if you are using `reserved-memory` to manage your cluster's reserved memory\. Specify a custom cache parameter group that reserves the correct amount of memory for your new node type\. If you are using `reserved-memory-percent` you can omit this parameter\.
+   + `--apply-immediately` – Causes the scale\-up process to be applied immediately\. To postpone the scale\-up operation to the next maintenance window, use `--no-apply-immediately`\.
+
+   For Linux, macOS, or Unix:
+
+   ```
+   aws elasticache modify-replication-group \
+   	    --replication-group-id my-repl-group \
+   	    --cache-node-type cache.t2.small  \
+   	    --cache-parameter-group-name redis32-m3-2xl \
+   	    --apply-immediately
+   ```
+
+   For Windows:
+
+   ```
+   aws elasticache modify-replication-group ^
+   	    --replication-group-id my-repl-group ^
+   	    --cache-node-type cache.t2.small  ^
+   	    --cache-parameter-group-name redis32-m3-2xl \
+   	    --apply-immediately
+   ```
+
+   Output from this command looks something like this \(JSON format\)\.
+
+   ```
+   {"ReplicationGroup": {
+   	        "Status": "available", 
+   	        "Description": "Some description", 
+   	        "NodeGroups": [
+   	            {
+   	                "Status": "available", 
+   	                "NodeGroupMembers": [
+   	                    {
+   	                        "CurrentRole": "primary", 
+   	                        "PreferredAvailabilityZone": "us-west-2b", 
+   	                        "CacheNodeId": "0001", 
+   	                        "ReadEndpoint": {
+   	                            "Port": 6379, 
+   	                            "Address": "my-repl-group-001.8fdx4s.0001.usw2.cache.amazonaws.com"
+   	                        }, 
+   	                        "CacheClusterId": "my-repl-group-001"
+   	                    }, 
+   	                    {
+   	                        "CurrentRole": "replica", 
+   	                        "PreferredAvailabilityZone": "us-west-2c", 
+   	                        "CacheNodeId": "0001", 
+   	                        "ReadEndpoint": {
+   	                            "Port": 6379, 
+   	                            "Address": "my-repl-group-002.8fdx4s.0001.usw2.cache.amazonaws.com"
+   	                        }, 
+   	                        "CacheClusterId": "my-repl-group-002"
+   	                    }
+   	                ], 
+   	                "NodeGroupId": "0001", 
+   	                "PrimaryEndpoint": {
+   	                    "Port": 6379, 
+   	                    "Address": "my-repl-group.8fdx4s.ng.0001.usw2.cache.amazonaws.com"
+   	                }
+   	            }
+   	        ], 
+   	        "ReplicationGroupId": "my-repl-group", 
+   	        "SnapshotRetentionLimit": 1, 
+   	        "AutomaticFailover": "disabled", 
+   	        "SnapshotWindow": "12:00-13:00", 
+   	        "SnapshottingClusterId": "my-repl-group-002", 
+   	        "MemberClusters": [
+   	            "my-repl-group-001", 
+   	            "my-repl-group-002", 
+   	        ], 
+   	        "PendingModifiedValues": {}
+   	    }
+   	}
+   ```
+
+   For more information, see [modify\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group.html) in the *AWS CLI Reference*\.
+
+1. If you used the `--apply-immediately` parameter, monitor the status of the replication group using the AWS CLI `describe-replication-group` command with the following parameter\. When the status changes from *modifying* to *available*, you can begin writing to your new, scaled down replication group\.
+   + `--replication-group-id` – the name of the replication group\. Use this parameter to describe a particular replication group rather than all replication groups\.
+
+   For Linux, macOS, or Unix:
+
+   ```
+   aws elasticache describe-replication-group \
+   	    --replication-group-id my-replication-group
+   ```
+
+   For Windows:
+
+   ```
+   aws elasticache describe-replication-groups ^
+   	    --replication-group-id my-replication-group
+   ```
+
+   For more information, see [describe\-replication\-groups](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-replication-groups.html) in the *AWS CLI Reference*\.
 
 ## Scaling Down a Redis Replication Group \(ElastiCache API\)<a name="Scaling.RedisReplGrps.ScaleDown.API"></a>
 
-The following process scales your Redis replication group to a smaller node type using the ElastiCache API\.
+The following process scales your replication group from its current node type to a new, smaller node type using the ElastiCache API\. During this process, until the status changes from *modifying* to *available*, all reads and writes between your application and the primary cache cluster are blocked\. However, reads from the read replica cache clusters continue uninterrupted\.
 
-**To scale down a Redis replication group \(ElastiCache API\)**
+The amount of time it takes to scale down to a smaller node type varies, depending upon your node type and the amount of data in your current cache cluster\.
 
-1. Ensure that the smaller node type is adequate for your data and overhead needs\. For more information, see [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)\.
+**To scale down a Redis Replication Group \(ElastiCache API\)**
 
-1. If your parameter group uses `reserved-memory` to set aside memory for Redis overhead, ensure that you have a custom parameter group to set aside the correct amount of memory for your new node type\.
+1. Determine which node types you can scale down to using the ElastiCache API `ListAllowedNodeTypeModifications` action with the following parameter\.
+   + `ReplicationGroupId` – the name of the replication group\. Use this parameter to describe a specific replication group rather than all replication groups\.
 
-   Alternatively, you can modify your custom parameter group to use `reserved-memory-percent`\. For more information, see [Managing Reserved Memory](redis-memory-management.md)\.
+   ```
+   https://elasticache.us-west-2.amazonaws.com/
+   	   ?Action=ListAllowedNodeTypeModifications
+   	   &ReplicationGroupId=MyReplGroup
+   	   &Version=2015-02-02
+   	   &SignatureVersion=4
+   	   &SignatureMethod=HmacSHA256
+   	   &Timestamp=20150202T192317Z
+   	   &X-Amz-Credential=<credential>
+   ```
 
-1. Create a snapshot of your existing Redis cache cluster\. For instructions, see [Creating a Manual Backup \(ElastiCache API\)](backups-manual.md#backups-manual-API)\.
+   For more information, see [ListAllowedNodeTypeModifications](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListAllowedNodeTypeModifications.html) in the *Amazon ElastiCache API Reference*\.
 
-1. Restore from the snapshot using the new, smaller node type as the new node type and, if needed, the new parameter group\. For more information, see [Restoring From a Backup \(ElastiCache API\)](backups-restoring.md#backups-restoring-API)\.
+1. Scale your current replication group up to the new node type using the `ModifyRedplicationGroup` ElastiCache API action and with the following parameters\.
+   + `ReplicationGroupId` – the name of the replication group\.
+   + `CacheNodeType` – the new, larger node type of the cache clusters in this replication group\. This value must be one of the instance types returned by the `ListAllowedNodeTypeModifications` action in step 1\.
+   + `CacheParameterGroupName` – \[Optional\] Use this parameter if you are using `reserved-memory` to manage your cluster's reserved memory\. Specify a custom cache parameter group that reserves the correct amount of memory for your new node type\. If you are using `reserved-memory-percent` you can omit this parameter\.
+   + `ApplyImmediately` – Set to `true` to causes the scale\-up process to be applied immediately\. To postpone the scale\-down process to the next maintenance window, use `ApplyImmediately``=false`\.
 
-1. In your application, update the endpoints to the new cache cluster's endpoints\. For more information, see [Finding Endpoints \(ElastiCache API\)](Endpoints.md#Endpoints.Find.API)\.
+   ```
+   https://elasticache.us-west-2.amazonaws.com/
+   	   ?Action=ModifyReplicationGroup
+   	   &ApplyImmediately=true
+   	   &CacheNodeType=cache.m3.2xlarge
+   	   &CacheParameterGroupName=redis32-m3-2xl
+   	   &ReplicationGroupId=myReplGroup
+   	   &SignatureVersion=4
+   	   &SignatureMethod=HmacSHA256
+   	   &Timestamp=20141201T220302Z
+   	   &Version=2014-12-01
+   	   &X-Amz-Algorithm=AWS4-HMAC-SHA256
+   	   &X-Amz-Date=20141201T220302Z
+   	   &X-Amz-SignedHeaders=Host
+   	   &X-Amz-Expires=20141201T220302Z
+   	   &X-Amz-Credential=<credential>
+   	   &X-Amz-Signature=<signature>
+   ```
 
-1. Delete your old replication group\. For more information, see [Deleting a Replication Group \(ElastiCache API\)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.API)\.
+   For more information, see [ModifyReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html) in the *Amazon ElastiCache API Reference*\.
 
-1. If you no longer need it, delete the snapshot\. For more information, see [Deleting a Backup \(ElastiCache API\)](backups-deleting.md#backups-deleting-API)\.
+1. If you used `ApplyImmediately``=true`, monitor the status of the replication group using the ElastiCache API `DescribeReplicationGroups` action with the following parameters\. When the status changes from *modifying* to *available*, you can begin writing to your new, scaled down replication group\.
+   + `ReplicationGroupId` – the name of the replication group\. Use this parameter to describe a particular replication group rather than all replication groups\.
 
-**Tip**  
-If you don't mind being unable to use your replication group while it's being created or restored, you can eliminate the need to update the endpoints in your application\. To do so, delete the old replication group right after taking the snapshot and reuse the old replication group's name for the new replication group\.
+   ```
+   https://elasticache.us-west-2.amazonaws.com/
+   	   ?Action=DescribeReplicationGroups
+   	   &ReplicationGroupId=MyReplGroup
+   	   &Version=2015-02-02
+   	   &SignatureVersion=4
+   	   &SignatureMethod=HmacSHA256
+   	   &Timestamp=20150202T192317Z
+   	   &X-Amz-Credential=<credential>
+   ```
+
+   For more information, see [DescribeReplicationGroups](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html) in the *Amazon ElastiCache API Reference*\.

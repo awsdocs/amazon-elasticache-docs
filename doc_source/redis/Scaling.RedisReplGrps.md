@@ -6,14 +6,12 @@ To change the data capacity of your cluster you must scale it up to a larger nod
 
 To change the read capacity of your cluster, add more read replicas, up to a maximum of 5, or remove read replicas\.
 
-The ElastiCache scaling up process is designed to make a best effort to retain your existing data and requires successful Redis replication\. For Redis clusters with replicas, we recommend that sufficient memory be made available to Redis as described in the topic [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\. 
-
- The scaling down process is completely manual and makes no attempt at data retention other than what you do\.
+The ElastiCache scaling up process is designed to make a best effort to retain your existing data and requires successful Redis replication\. For Redis clusters with replicas, we recommend that sufficient memory be made available to Redis\. 
 
 **Related Topics**
 + [High Availability Using Replication Groups](Replication.md)
 + [Replication: Redis \(Cluster Mode Disabled\) vs\. Redis \(Cluster Mode Enabled\)](Replication.Redis-RedisCluster.md)
-+ [Minimizing Downtime: Multi\-AZ with Automatic Failover](AutoFailover.md)
++ [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)
 + [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)
 
 **Topics**

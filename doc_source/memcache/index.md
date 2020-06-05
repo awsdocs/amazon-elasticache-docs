@@ -1,7 +1,7 @@
-# Amazon ElastiCache ElastiCache for Memcached User Guide
+# Amazon ElastiCache User Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -90,11 +90,9 @@ Amazon's trademarks and trade dress may not be used in
       + [Memcached Specific Parameters](ParameterGroups.Memcached.md)
 + [Monitoring Usage, Events, and Costs](MonitoringECMetrics.md)
    + [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)
-      + [Dimensions for ElastiCache Metrics](CacheMetrics.DimensionsAndSets.md)
       + [Host-Level Metrics](CacheMetrics.HostLevel.md)
       + [Metrics for Memcached](CacheMetrics.Memcached.md)
       + [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md)
-      + [Choosing Metric Statistics and Periods](CacheMetrics.ChoosingStatisticsAndPeriods.md)
       + [Monitoring CloudWatch Cluster and Node Metrics](CloudWatchMetrics.md)
    + [Monitoring ElastiCache Events](ECEvents.md)
       + [Managing ElastiCache Amazon SNS Notifications](ECEvents.SNS.md)
@@ -115,8 +113,6 @@ Amazon's trademarks and trade dress may not be used in
          + [Understanding ElastiCache and Amazon VPCs](VPCs.EC.md)
          + [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
          + [Creating a Virtual Private Cloud (VPC)](VPCs.CreatingVPC.md)
-         + [Creating a Cache Subnet Group](VPCs.CreatingSubnetGroup.md)
-         + [Creating a Cache Cluster in an Amazon VPC](VPCs.CreatingCacheCluster.md)
          + [Connecting to a Cluster Running in an Amazon VPC](VPCs.Connecting.md)
       + [Subnets and Subnet Groups](SubnetGroups.md)
          + [Creating a Subnet Group](SubnetGroups.Creating.md)
@@ -154,4 +150,4 @@ Amazon's trademarks and trade dress may not be used in
    + [Amazon ElastiCache Error Messages](ErrorMessages.md)
    + [Notifications](elasticache-notifications.md)
 + [Documentation History](WhatsNew.md)
-+ [AWS Glossary](glossary.md)
++ [AWS glossary](glossary.md)

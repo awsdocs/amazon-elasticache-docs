@@ -6,7 +6,7 @@ The following tutorials address tasks of interest to the Amazon ElastiCache user
 
 ## ElastiCache Videos<a name="tutorial-videos"></a>
 
-Following, you can find videos to help you learn basic and advanced Amazon ElastiCache concepts\. For information about AWS Training, see [AWS Training & Certification](http://oak.ctx.ly/r/2b70j)\.
+Following, you can find videos to help you learn basic and advanced Amazon ElastiCache concepts\. For information about AWS Training, see [AWS Training & Certification](https://aws.amazon.com/training/)\.
 
 **Topics**
 + [Introductory Videos](#WhatIs.Videos.Beginning)

@@ -8,7 +8,6 @@ ElastiCache provides both host\-level metrics \(for example, CPU usage\) and met
 You should consider setting CloudWatch alarms on certain key metrics, so that you will be notified if your cache cluster's performance starts to degrade\. For more information, see [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md) in this guide\.
 
 **Topics**
-+ [Dimensions for ElastiCache Metrics](CacheMetrics.DimensionsAndSets.md)
 + [Host\-Level Metrics](CacheMetrics.HostLevel.md)
 + [Metrics for Redis](CacheMetrics.Redis.md)
 + [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md)

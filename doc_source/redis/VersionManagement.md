@@ -11,6 +11,8 @@ You initiate engine version upgrades to your cluster or replication group by mod
 **Important**  
 You can upgrade to a newer engine version, but you can't downgrade to an older engine version\. If you want to use an older engine version, you must delete the existing cluster and create it anew with the older engine version\. 
 Engine version management is designed so that you can have as much control as possible over how patching occurs\. However, ElastiCache reserves the right to patch your cluster on your behalf in the unlikely event of a critical security vulnerability in the system or cache software\.
+Starting with Redis engine version 5\.0\.5, you can upgrade your cluster version with minimal downtime\. The cluster is available for reads during the entire upgrade and is available for writes for most of the upgrade duration, except during the failover operation which lasts a few seconds\.
+You can also upgrade your ElastiCache clusters with versions earlier than 5\.0\.5\. The process involved is the same but may incur longer failover time during DNS propagation \(30s\-1m\)\. 
 ElastiCache for Redis doesn't support switching between Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\)\.
 The Amazon ElastiCache for Redis engine upgrade process is designed to make a best effort to retain your existing data and requires successful Redis replication\. 
 You can't upgrade directly from Redis \(cluster mode disabled\) to Redis \(cluster mode enabled\) when you upgrade your engine\. The following procedure shows you how to upgrade from Redis \(cluster mode disabled\) to Redis \(cluster mode enabled\)\.  
@@ -20,7 +22,7 @@ Delete the old Redis \(cluster mode disabled\) cluster or replication group\. Fo
 Scale the new Redis \(cluster mode enabled\) cluster or replication group to the number of shards \(node groups\) that you need\. For more information, see [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)
 For single Redis clusters and clusters with Multi\-AZ disabled, we recommend that sufficient memory be made available to Redis as described in [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\. In these cases, the primary is unavailable to service requests during the upgrade process\.
 For Redis clusters with Multi\-AZ enabled, we also recommend that you schedule engine upgrades during periods of low incoming write traffic\. When upgrading to Redis 5\.0\.5 or above, the primary cluster continues to be available to service requests during the upgrade process\. When upgrading to Redis 5\.0\.4 or below, you may notice a brief interruption of a few seconds associated with the DNS update\.  
-Clusters and replication groups with multiple shards are process and patched as follows:  
+Clusters and replication groups with multiple shards are processed and patched as follows:  
 All shards are processed in parallel\. Only one upgrade operation is performed on a shard at any time\.
 In each shard, all replicas are processed before the primary is processed\. If there are fewer replicas in a shard, the primary in that shard might be processed before the replicas in other shards are finished processing\.
 Across all the shards, primary nodes are processed in series\. Only one primary node is upgraded at a time\.

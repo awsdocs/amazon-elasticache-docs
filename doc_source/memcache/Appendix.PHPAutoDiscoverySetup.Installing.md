@@ -7,11 +7,11 @@
 ## Installing PHP 7\.x for New Users<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x"></a>
 
 **Topics**
-+ [To install PHP 7 on a Ubuntu Server 14\.04 LTS AMI \(64\-bit and 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu)
++ [To install PHP 7 on a Ubuntu Server 18\.10 LTS AMI \(64\-bit and 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu)
 + [To install PHP 7 on an Amazon Linux 201609 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux)
 + [To install PHP 7 on an SUSE Linux AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux)
 
-### To install PHP 7 on a Ubuntu Server 14\.04 LTS AMI \(64\-bit and 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu"></a>
+### To install PHP 7 on a Ubuntu Server 18\.10 LTS AMI \(64\-bit and 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu"></a>
 
 1. Launch a new instance from the AMI\.
 
@@ -25,7 +25,7 @@
 1. Install PHP 7\.
 
    ```
-   sudo yum install php70
+   sudo apt-get install php70
    ```
 
 1. Download the Amazon ElastiCache Cluster Client\.

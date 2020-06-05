@@ -1,7 +1,7 @@
-# Amazon ElastiCache for Redis ElastiCache for Redis User Guide
+# Amazon ElastiCache for Redis User Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -24,14 +24,14 @@ Amazon's trademarks and trade dress may not be used in
 + [Getting Started with Amazon ElastiCache for Redis](GettingStarted.md)
    + [Determine Requirements](getting-started-determine-requirements.md)
    + [Setting Up](set-up.md)
-   + [Step 1: Launch a Cluster](GettingStarted.CreateCluster.md)
-   + [Step 2: Authorize Access](GettingStarted.AuthorizeAccess.md)
-   + [Step 3: Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)
-   + [Step 4: Delete Your Cluster (Avoid Unnecessary Charges)](GettingStarted.DeleteCacheCluster.md)
+   + [Launch a Cluster](GettingStarted.CreateCluster.md)
+   + [Authorize Access](GettingStarted.AuthorizeAccess.md)
+   + [Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)
+   + [Delete Your Cluster (Avoid Unnecessary Charges)](GettingStarted.DeleteCacheCluster.md)
    + [Where Do I Go From Here?](GettingStarted.WhereGoFromHere.md)
 + [ElastiCache Tutorials and Videos](Tutorials.md)
 + [Online Migration to ElastiCache](OnlineMigration.md)
-   + [Preparing Your Source and Target Clusters for Migration](Migration-Prepare.md)
+   + [Preparing Your Source and Target Redis Nodes for Migration](Migration-Prepare.md)
    + [Starting Migration](Migration-Initiate.md)
    + [Verifying the Data Migration Progress](Migration-Verify.md)
    + [Completing the Data Migration](Migration-Complete.md)
@@ -66,15 +66,19 @@ Amazon's trademarks and trade dress may not be used in
    + [Accessing Your Cluster or Replication Group](accessing-elasticache.md)
    + [Working with Shards](Shards.md)
       + [Finding a Shard's ID](shard-find-id.md)
+   + [Replication Across AWS Regions Using Global Datastore](Redis-Global-Datastore.md)
+      + [Prerequisites and Limitations](Redis-Global-Clusters-Getting-Started.md)
+      + [Using Global Datastores (Console)](Redis-Global-Clusters-Console.md)
+      + [Using Global Datastores (CLI)](Redis-Global-Clusters-CLI.md)
    + [High Availability Using Replication Groups](Replication.md)
       + [Understanding Redis Replication](Replication.Redis.Groups.md)
       + [Replication: Redis (Cluster Mode Disabled) vs. Redis (Cluster Mode Enabled)](Replication.Redis-RedisCluster.md)
-      + [Minimizing Downtime: Multi-AZ with Automatic Failover](AutoFailover.md)
+      + [Minimizing Downtime in ElastiCache for Redis with Multi-AZ](AutoFailover.md)
       + [How Synchronization and Backup are Implemented](Replication.Redis.Versions.md)
       + [Creating a Redis Replication Group](Replication.CreatingRepGroup.md)
          + [Creating a Replication Group Using an Available Redis (Cluster Mode Disabled) Cluster](Replication.CreatingReplGroup.ExistingCluster.md)
          + [Creating a Redis Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.md)
-            + [Creating a Redis (cluster mode disabled) Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.Classic.md)
+            + [Creating a Redis (Cluster Mode Disabled) Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.Classic.md)
             + [Creating a Replication Group in Redis (Cluster Mode Enabled) from Scratch](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md)
       + [Viewing a Replication Group's Details](Replication.ViewDetails.md)
          + [Viewing Details for a Redis (Cluster Mode Disabled) with Replicas](Replication.ViewDetails.Redis.md)
@@ -139,8 +143,6 @@ Amazon's trademarks and trade dress may not be used in
          + [Understanding ElastiCache and Amazon VPCs](VPCs.EC.md)
          + [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
          + [Creating a Virtual Private Cloud (VPC)](VPCs.CreatingVPC.md)
-         + [Creating a Cache Subnet Group](VPCs.CreatingSubnetGroup.md)
-         + [Creating a Cache Cluster in an Amazon VPC](VPCs.CreatingCacheCluster.md)
          + [Creating a Replication Group in an Amazon VPC](VPCs.CreatingReplGroup.md)
          + [Connecting to a Cluster or Replication Group Running in an Amazon VPC](VPCs.Connecting.md)
       + [Subnets and Subnet Groups](SubnetGroups.md)
@@ -160,7 +162,6 @@ Amazon's trademarks and trade dress may not be used in
       + [ElastiCache API Permissions: Actions, Resources, and Conditions Reference](IAM.APIReference.md)
    + [Logging and Monitoring in Elasticache](MonitoringECMetrics.md)
       + [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)
-         + [Dimensions for ElastiCache Metrics](CacheMetrics.DimensionsAndSets.md)
          + [Host-Level Metrics](CacheMetrics.HostLevel.md)
          + [Metrics for Redis](CacheMetrics.Redis.md)
          + [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md)
@@ -188,7 +189,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Restricted Redis Commands](RestrictedCommands.md)
    + [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)
    + [Managing Reserved Memory](redis-memory-management.md)
-   + [Mitigating Out-of-Disk-Space Issues When Using Redis AOF](BestPractices.AOF.md)
+   + [Mitigating Failure Issues When Using Redis AOF](BestPractices.AOF.md)
    + [Best Practices: Online Cluster Resizing](best-practices-online-resharding.md)
    + [Best Practices: Minimizing Downtime During Maintenance](BestPractices.MinimizeDowntime.md)
 + [Self-Service Updates in Amazon ElastiCache](Self-Service-Updates.md)
@@ -204,4 +205,4 @@ Amazon's trademarks and trade dress may not be used in
    + [Amazon ElastiCache Error Messages](ErrorMessages.md)
    + [Notifications](elasticache-notifications.md)
 + [ElastiCache for Redis Documentation History](WhatsNew.md)
-+ [AWS Glossary](glossary.md)
++ [AWS glossary](glossary.md)

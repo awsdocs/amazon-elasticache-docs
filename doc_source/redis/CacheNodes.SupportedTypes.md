@@ -60,7 +60,7 @@ For more information on these metrics, see [CPU Credit Metrics](https://docs.aws
 In addition, be aware of these details:
 + All current generation node types are created in a virtual private cloud \(VPC\) based on Amazon VPC by default\.
 + Redis append\-only files \(AOF\) aren't supported for T1 or T2 instances\.
-+ Redis Multi\-AZ with automatic failover isn't supported on T1 instances\.
++ Redis Multi\-AZ isn't supported on T1 instances\.
 + Redis configuration variables `appendonly` and `appendfsync` aren't supported on Redis version 2\.8\.22 and later\.
 
 **Note**  
@@ -81,16 +81,16 @@ The following table lists supported node types for each AWS Region\.
 | Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Tokyo\) | ap\-northeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Seoul\) | ap\-northeast\-2 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Osaka\-Local\) \* | ap\-northeast\-3 | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Asia Pacific \(Osaka\-Local\) \* | ap\-northeast\-3 | Yes | Yes | Yes | Yes | Yes |  | 
 | Asia Pacific \(Singapore\) | ap\-southeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes  | 
 | Asia Pacific \(Sydney\) | ap\-southeast\-2 | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Hong Kong\) | ap\-east\-1 | Yes |  |  | Yes |  | Yes | 
-| EU \(Stockholm\) | eu\-north\-1 | Yes |  |  | Yes | No | Yes | 
-| EU \(Frankfurt\) | eu\-central\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| EU \(Ireland\) | eu\-west\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| EU \(London\) | eu\-west\-2 | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Europe \(Stockholm\) | eu\-north\-1 | Yes |  |  | Yes | No | Yes | 
+| Europe \(Frankfurt\) | eu\-central\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Europe \(Ireland\) | eu\-west\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Europe \(London\) | eu\-west\-2 | Yes | Yes | Yes | Yes | Yes | Yes | 
 | EU \(Paris\) | eu\-west\-3 | Yes | Yes |   | Yes | Yes | Yes | 
-| South America \(São Paulo\) | sa\-east\-1 | Yes | Yes | Yes | Yes | Yes |  | 
+| South America \(São Paulo\) | sa\-east\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
 | China \(Beijing\) | cn\-north\-1 | Yes | Yes | Yes |   | Yes | Yes | 
 | China \(Ningxia\) | cn\-northwest\-1 | Yes | Yes | Yes |   | Yes | Yes | 
 | Middle East \(Bahrain\) | me\-south\-1 | Yes  |   |   | Yes |   | Yes | 

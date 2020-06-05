@@ -25,6 +25,12 @@ The following shows an example of a permissions policy\.
           "elasticache:ModifyCacheCluster",
           "elasticache:RebootCacheCluster"],
        "Resource": "*"
+       },
+       {
+         "Sid": "AllowUserToPassRole",
+         "Effect": "Allow",
+         "Action": [ "iam:PassRole" ],
+       "Resource": "*"
        }
    ]
 }

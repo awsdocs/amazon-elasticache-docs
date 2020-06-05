@@ -44,13 +44,13 @@ The output of this command will look something like this, listing the name, fami
 }
 ```
 
-The following sample code lists up to 10 parameter groups\.
+**Example**  
+The following sample code lists up to 10 parameter groups\.  
 
 ```
 aws elasticache describe-cache-parameter-groups --max-records 20
 ```
-
-The JSON output of this command will look something like this, listing the name, family, and description for each parameter group\.
+The JSON output of this command will look something like this, listing the name, family, description and, in the case of redis5\.6 whether the parameter group is part of a Global Datastore \(isGlobal\), for each parameter group\.  
 
 ```
 {
@@ -84,7 +84,13 @@ The JSON output of this command will look something like this, listing the name,
             "CacheParameterGroupName": "default.redis3.2.cluster.on", 
             "CacheParameterGroupFamily": "redis3.2", 
             "Description": "Customized default parameter group for redis3.2 with cluster mode on"
-        }
+        },
+        {
+            "CacheParameterGroupName": "default.redis5.6.cluster.on", 
+            "CacheParameterGroupFamily": "redis5.0", 
+            "Description": "Customized default parameter group for redis5.6 with cluster mode on",
+            "isGlobal": "yes"
+        },
     ]
 }
 ```
@@ -140,7 +146,7 @@ https://elasticache.us-west-2.amazonaws.com/
    &Version=2015-02-02
    &X-Amz-Credential=<credential>
 ```
-The response from this action will look something like this, listing the name, family, and description for each parameter group\.  
+The response from this action will look something like this, listing the name, family, description and, in the case of redis5\.6 if the parameter group belongs to a Global Datastore \(isGlobal\), for each parameter group\.  
 
 ```
 <DescribeCacheParameterGroupsResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
@@ -155,6 +161,12 @@ The response from this action will look something like this, listing the name, f
         <CacheParameterGroupName>myMem14</CacheParameterGroupName>
         <CacheParameterGroupFamily>memcached1.4</CacheParameterGroupFamily>
         <Description>My custom Memcached 1.4 parameter group</Description>
+      </CacheParameterGroup>
+       <CacheParameterGroup>
+        <CacheParameterGroupName>myRedis56</CacheParameterGroupName>
+        <CacheParameterGroupFamily>redis5.0</CacheParameterGroupFamily>
+        <Description>My custom redis 5.6 parameter group</Description>
+        <isGlobal>yes</isGlobal>
       </CacheParameterGroup>
     </CacheParameterGroups>
   </DescribeCacheParameterGroupsResult>
@@ -177,7 +189,7 @@ https://elasticache.us-west-2.amazonaws.com/
    &Version=2015-02-02
    &X-Amz-Credential=<credential>
 ```
-The response from this action will look something like this, listing the name, family, and description for each parameter group\.  
+The response from this action will look something like this, listing the name, family, description and, in the case of `redis5.6`, whether the parameter group is part of a Global Datastore \(isGlobal\), for each parameter group\.  
 
 ```
 <DescribeCacheParameterGroupsResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
@@ -194,6 +206,12 @@ The response from this action will look something like this, listing the name, f
         <Description>My custom Memcached 1.4 parameter group</Description>
       </CacheParameterGroup>
     </CacheParameterGroups>
+     <CacheParameterGroup>
+        <CacheParameterGroupName>myRedis56</CacheParameterGroupName>
+        <CacheParameterGroupFamily>redis5.0</CacheParameterGroupFamily>
+        <Description>My custom Redis 5.6 parameter group</Description>
+        <isGlobal>yes</isGlobal>
+      </CacheParameterGroup>
   </DescribeCacheParameterGroupsResult>
   <ResponseMetadata>
     <RequestId>3540cc3d-af48-11e0-97f9-279771c4477e</RequestId>

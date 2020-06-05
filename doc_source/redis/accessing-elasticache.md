@@ -131,7 +131,7 @@ If you launched your cluster into an Amazon Virtual Private Cloud \(Amazon VPC\)
 
    1. In the **Source** box, choose **Anywhere** which has the port range \(0\.0\.0\.0/0\) so that any Amazon EC2 instance that you launch within your Amazon VPC can connect to your ElastiCache nodes\.
 **Important**  
-Opening up the ElastiCache cluster to 0\.0\.0\.0/0 \(Step 4\.e\.\) does not expose the cluster to the Internet because it has no public IP address and therefore cannot be accessed from outside the VPC\. However, the default security group may be applied to other Amazon EC2 instances in the customer’s account, and those instances may have a public IP address\. If they happen to be running something on port 6379, then that service could be exposed unintentionally\. Therefore, we recommend creating a VPC Security Group that will be used exclusively by ElastiCache\. For more information, see [Custom Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#creating-your-own-security-groups)\.
+Opening up the ElastiCache cluster to 0\.0\.0\.0/0 does not expose the cluster to the Internet because it has no public IP address and therefore cannot be accessed from outside the VPC\. However, the default security group may be applied to other Amazon EC2 instances in the customer’s account, and those instances may have a public IP address\. If they happen to be running something on the default port, then that service could be exposed unintentionally\. Therefore, we recommend creating a VPC Security Group that will be used exclusively by ElastiCache\. For more information, see [Custom Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#creating-your-own-security-groups)\.
 
    1. Choose **Save**\.
 
@@ -163,117 +163,179 @@ For more information on ElastiCache Security Groups, see [Security Groups: EC2\-
 
 ### Accessing ElastiCache Resources from Outside AWS<a name="access-from-outside-aws"></a>
 
-Amazon ElastiCache is an AWS service that provides cloud\-based in\-memory key\-value store\. The service is designed to be accessed exclusively from within AWS\. However, if the ElastiCache cluster is hosted inside a VPC, you can use a Network Address Translation \(NAT\) instance to provide outside access\.
+Elasticache is a service designed to be used internally to your VPC\. External access is discouraged due to the latency of Internet traffic and security concerns\. However, if external access to Elasticache is required for test or development purposes, it can be done through a VPN\.
 
-#### Requirements<a name="access-from-outside-aws-requirements"></a>
+Using the AWS Client VPN, you allow external access to your Elasticache nodes with the following benefits:
++ Restricted access to approved users or authentication keys;
++ Encrypted traffic between the VPN Client and the AWS VPN endpoint;
++ Limited access to specific subnets or nodes;
++ Easy revocation of access from users or authentication keys;
++ Audit connections;
 
-The following requirements must be met for you to access your ElastiCache resources from outside AWS:
-+ The cluster must reside within a VPC and be accessed through a Network Address Translation \(NAT\) instance\. There are no exceptions to this requirement\.
-+ The NAT instance must be launched in the same VPC as the cluster\.
-+ The NAT instance must be launched in a public subnet separate from the cluster\.
-+ An Elastic IP Address \(EIP\) must be associated with the NAT instance\. The port forwarding feature of iptables is used to forward a port on the NAT instance to the cache node port within the VPC\.
+The following procedures demonstrate how to:
 
-#### Considerations<a name="access-from-outside-aws-considerations"></a>
+**Topics**
++ [Create a Certificate Authority](#create-cert)
++ [Configuring AWS Client VPN Components](#configure-vpn-components)
++ [Configure the VPN Client](#configure-vpn-client)
 
-The following considerations should be kept in mind when accessing your ElastiCache resources from outside ElastiCache\.
-+ Clients connect to the EIP and cache port of the NAT instance\. Port forwarding on the NAT instance forwards traffic to the appropriate cache cluster node\.
-+ If a cluster node is added or replaced, the iptables rules need to be updated to reflect this change\.
+#### Create a Certificate Authority<a name="create-cert"></a>
 
-#### Limitations<a name="access-from-outside-aws-limitations"></a>
+It is possible to create a Certificate Authority \(CA\) using different techniques or tools\. We suggest the easy\-rsa utility, provided by the [OpenVPN](https://openvpn.net/community-resources/openvpn-project/) project\. Regardless of the option you choose, make sure to keep the keys secure\. The following procedure downloads the easy\-rsa scripts, creates the Certificate Authority and the keys to authenticate the first VPN client:
++ To create the initial certificates, open a terminal and do the following:
+  + `git clone` [https://github\.com/OpenVPN/easy\-rsa](https://github.com/OpenVPN/easy-rsa)
+  + `cd easy-rsa`
+  + `./easyrsa3/easyrsa init-pki`
+  + `./easyrsa3/easyrsa build-ca nopass`
+  + `./easyrsa3/easyrsa build-server-full server nopass`
+  + `./easyrsa3/easyrsa build-client-full client1.domain.tld nopass`
 
-This approach should be used for testing and development purposes only\. It is not recommended for production use due to the following limitations:
-+ The NAT instance is acting as a proxy between clients and multiple clusters\. The addition of a proxy impacts the performance of the cache cluster\. The impact increases with number of cache clusters you are accessing through the NAT instance\.
-+ The traffic from clients to the NAT instance is unencrypted\. Therefore, you should avoid sending sensitive data via the NAT instance\.
-+ The NAT instance adds the overhead of maintaining another instance\.
-+ The NAT instance serves as a single point of failure\. For information about how to set up high availability NAT on VPC, see [High Availability for Amazon VPC NAT Instances: An Example](https://aws.amazon.com/articles/2781451301784570)\.
+  A **pki** subdirectory containing the certificates will be created under **easy\-rsa**\.
++ Submit the server certificate to the AWS Certificate manager \(ACM\):
+  + On the ACM console, select **Certificate Manager**\.
+  + Select **Import Certificate**\.
+  + Enter the public key certificate available in the `easy-rsa/pki/issued/server.crt` file in the **Certificate body** field\.
+  + Paste the private key available in the `easy-rsa/pki/private/server.key` in the **Certificate private key** field\. Make sure to select all the lines between `BEGIN AND END PRIVATE KEY` \(including the `BEGIN` and `END` lines\)\.
+  + Paste the CA public key available on the `easy-rsa/pki/ca.crt` file in the **Certificate chain** field\.
+  + Select **Review and import**\.
+  + Select **Import**\.
 
-#### How to Access ElastiCache Resources from Outside AWS<a name="access-from-outside-aws-how-to"></a>
+  To submit the server's certificates to ACM using the AWS CLI, run the following command: `aws acm import-certificate --certificate file://easy-rsa/pki/issued/server.crt --private-key file://easy-rsa/pki/private/server.key --certificate-chain file://easy-rsa/pki/ca.crt --region region`
 
-The following procedure demonstrates how to connect to your ElastiCache resources using a NAT instance\.
+  Note the Certificate ARN for future use\.
 
-These steps assume the following:
-+ You are accessing a Redis cluster with:
-  + IP address – *10\.0\.1\.230*
-  + Default Redis port – *6379*
-  + Security group – *sg\-bd56b7da*
-+ Your trusted client has the IP address *198\.51\.100\.27*\.
-+ Your NAT instance has the Elastic IP Address *203\.0\.113\.73*\.
-+ Your NAT instance has security group *sg\-ce56b7a9*\.
+#### Configuring AWS Client VPN Components<a name="configure-vpn-components"></a>
 
-**To connect to your ElastiCache resources using a NAT instance**
+**Using the AWS Console**
 
-1. Create a NAT instance in the same VPC as your cache cluster but in a public subnet\.
+On the AWS console, select **Services** and then **VPC**\.
 
-   By default, the VPC wizard will launch a *cache\.m1\.small* node type\. You should select a node size based on your needs\. You must use EC2 NAT AMI to be able to access ElastiCache from outside AWS\.
+Under **Virtual Private Network**, select **Client VPN Endpoints** and do the following:
 
-   For information about creating a NAT instance, see [NAT Instances](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html) in the AWS VPC User Guide\.
+**Configuring AWS Client VPN components**
++ Select **Create Client VPN Endpoint**\.
++ Specify the following options:
+  + **Client IPv4 CIDR**: use a private network with a netmask of at least /22 range\. Make sure that the selected subnet does not conflict with the VPC networks' addresses\. Example: 10\.0\.0\.0/22\.
+  + In **Server certificate ARN**, select the ARN of the certificate previously imported\.
+  + Select **Use mutual authentication**\.
+  + In **Client certificate ARN**, select the ARN of the certificate previously imported\.
+  + Select **Create Client VPN Endpoint**\.
 
-1. Create security group rules for the cache cluster and NAT instance\.
+**Using the AWS CLI**
 
-   The NAT instance security group should have the following rules:
-   + Two inbound rules
-     + One to allow TCP connections from trusted clients to each cache port forwarded from the NAT instance \(6379 \- 6381\)\.
-     + A second to allow SSH access to trusted clients\.  
-**NAT Instance Security Group \- Inbound Rules**    
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/accessing-elasticache.html)
-   + An outbound rule to allow TCP connections to cache port \(6379\)\.  
-**NAT Instance Security Group \- Outbound Rule**    
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/accessing-elasticache.html)
-   + An inbound rule for the cluster's security group that allows TCP connections from the NAT instance to the cache port \(6379\)\.  
-**Cluster Instance Security Group \- Inbound Rule**    
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/accessing-elasticache.html)
+Run the following command:
 
-1. Validate the rules\.
-   + Confirm that the trusted client is able to SSH to the NAT instance\.
-   + Confirm that the trusted client is able to connect to the cluster from the NAT instance\.
+`aws ec2 create-client-vpn-endpoint --client-cidr-block "10.0.0.0/22" --server-certificate-arn arn:aws:acm:us-east-1:012345678912:certificate/0123abcd-ab12-01a0-123a-123456abcdef --authentication-options Type=certificate-authentication,,MutualAuthentication={ClientRootCertificateChainArn=arn:aws:acm:us-east-1:012345678912:certificate/123abcd-ab12-01a0-123a-123456abcdef} --connection-log-options Enabled=false `
 
-1. Add an iptables rule to the NAT instance\.
+Example output:
 
-   An iptables rule must be added to the NAT table for each node in the cluster to forward the cache port from the NAT instance to the cluster node\. An example might look like the following:
+`"ClientVpnEndpointId": "cvpn-endpoint-0123456789abcdefg", "Status": { "Code": "pending-associate" }, "DnsName": "cvpn-endpoint-0123456789abcdefg.prod.clientvpn.us-east-1.amazonaws.com" } `
 
-   ```
-   iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6379 -j DNAT --to 10.0.1.230:6379
-   ```
+**Associate the target networks to the VPN endpoint**
++ Select the new VPN endpoint, and then select the **Associations** tab\.
++ Select **Associate** and specify the following options\.
+  + **VPC**: Select the Elasticache Cluster's VPC\.
+  + Select one of the Elasticache cluster's networks\. If in doubt, review the networks in the **Subnet Groups** on the Elasticache dashboard\.
+  + Select **Associate**\. If necessary, repeat the steps for the remaining networks\.
 
-   The port number must be unique for each node in the cluster\. For example, if working with a three node Redis cluster using ports 6379 \- 6381, the rules would look like the following:
+**Using the AWS CLI**
 
-   ```
-   iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6379 -j DNAT --to 10.0.1.230:6379
-   iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6380 -j DNAT --to 10.0.1.231:6379
-   iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 6381 -j DNAT --to 10.0.1.232:6379
-   ```
+Run the following command:
 
-1. Confirm that the trusted client is able to connect to the cluster\.
+`aws ec2 associate-client-vpn-target-network --client-vpn-endpoint-id cvpn-endpoint-0123456789abcdefg --subnet-id subnet-0123456789abdcdef`
 
-   The trusted client should connect to the EIP associated with the NAT instance and the cluster port corresponding to the appropriate cluster node\. For example, the connection string for PHP might look like the following:
+Example output:
 
-   ```
-   redis->connect( '203.0.113.73', 6379 );
-   redis->connect( '203.0.113.73', 6380 );
-   redis->connect( '203.0.113.73', 6381 );
-   ```
+`"Status": { "Code": "associating" }, "AssociationId": "cvpn-assoc-0123456789abdcdef" } `
 
-   A telnet client can also be used to verify the connection\. For example:
+**Review the VPN security group**
 
-   ```
-   telnet 203.0.113.73 6379
-   telnet 203.0.113.73 6380
-   telnet 203.0.113.73 6381
-   ```
+The VPN Enpoint will automatically adopt the VPC's default security group\. Check the inbound and outbound rules and confirm if the security group allows the traffic from the VPN network \(defined on the VPN Endpoint settings\) to the Elasticache networks on the service ports \(by default, 6379 for Redis and 11211 for Memcached\)\.
 
-1. Save the iptables configuration\.
+If you need to change the security group assigned to the VPN Endpoint, proceed as follows:
++ Select the current security group\.
++ Select **Apply Security Group**\.
++ Select the new Security Group\.
 
-   Save the rules after you test and verify them\. If you are using a Redhat\-based Linux distribution \(like Amazon Linux\), run the following command:
+**Using the AWS CLI**
 
-   ```
-   service iptables save
-   ```
+Run the following command:
 
-#### Related topics<a name="access-from-outside-aws-see-also"></a>
+`aws ec2 apply-security-groups-to-client-vpn-target-network --client-vpn-endpoint-id cvpn-endpoint-0123456789abcdefga  --vpc-id vpc-0123456789abdcdef --security-group-ids sg-0123456789abdcdef`
 
-The following topics may be of additional interest\.
-+ [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
-+ [Accessing an ElastiCache Cluster from an Application Running in a Customer's Data Center](elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center)
-+ [NAT Instances](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html)
-+ [Configuring ElastiCache Clients](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ClientConfig.html)
-+ [High Availability for Amazon VPC NAT Instances: An Example](https://aws.amazon.com/articles/2781451301784570)
+Example output:
+
+`"SecurityGroupIds": [ "sg-0123456789abdcdef" ] } `
+
+**Note**  
+The ElastiCache security group also needs to allow traffic coming from the VPN clients\. The clients' addresses will be masked with the VPN Endpoint address, according to the VPC Network\. Therefore, consider the VPC network \(not the VPN Clients' network\) when creating the inbound rule on the Elasticache security group\.
+
+**Authorize the VPN access to the destination networks**
+
+On the **Authorization** tab, select **Authorize Ingress** and specify the following:
++ Destination network to enable access: Either use 0\.0\.0\.0/0 to allow access to any network \(including the Internet\) or restrict the the Elasticache networks/hosts\.
++ Under **Grant access to:**, select **Allow access to all users**\.
++ Select **Add Authorization Rules**\.
+
+**Using the AWS CLI**
+
+Run the following command:
+
+`aws ec2 authorize-client-vpn-ingress --client-vpn-endpoint-id cvpn-endpoint-0123456789abcdefg --target-network-cidr 0.0.0.0/0 --authorize-all-groups`
+
+Example output: 
+
+`{ "Status": { "Code": "authorizing" } }`
+
+**Allowing access to the Internet from the VPN clients**
+
+If you need to browse the Internet through the VPN, you need to create an additional route\. Select the **Route Table** tab and then select **Create Route**:
++ Route destination: 0\.0\.0\.0/0
++ **Target VPC Subnet ID**: Select one of the associated subnets with access to the Internet\.
++ Select **Create Route**\.
+
+**Using the AWS CLI**
+
+Run the following command:
+
+`aws ec2 create-client-vpn-route --client-vpn-endpoint-id cvpn-endpoint-0123456789abcdefg --destination-cidr-block 0.0.0.0/0 --target-vpc-subnet-id subnet-0123456789abdcdef`
+
+Example output:
+
+`{ "Status": { "Code": "creating" } } `
+
+#### Configure the VPN Client<a name="configure-vpn-client"></a>
+
+On the AWS Client VPN Dashboard, select the VPN endpoint recently created and select **Download Client Configuration**\. Copy the configuration file, and the files `easy-rsa/pki/issued/client1.domain.tld.crt` and `easy-rsa/pki/private/client1.domain.tld.key`\. Edit the configuration file and change or add the following parameters:
++ cert: add a new line with the parameter cert pointing to the `client1.domain.tld.crt` file\. Use the full path to the file\. Example: `cert /home/user/.cert/client1.domain.tld.crt`
++ cert: key: add a new line with the parameter key pointing to the `client1.domain.tld.key` file\. Use the full path to the file\. Example: `key /home/user/.cert/client1.domain.tld.key`
+
+Establish the VPN connection with the command: `sudo openvpn --config downloaded-client-config.ovpn`
+
+**Revoking access**
+
+If you need to invalidate the access from a particular client key, the key needs to be revoked in the CA\. Then submit the revocation list to AWS Client VPN\.
+
+Revoking the key with easy\-rsa: 
++ `cd easy-rsa`
++ `./easyrsa3/easyrsa revoke client1.domain.tld`
++ Enter "yes" to continue, or any other input to abort\.
+
+  `Continue with revocation: `yes` ... * `./easyrsa3/easyrsa gen-crl`
++ An updated CRL has been created\. CRL file: `/home/user/easy-rsa/pki/crl.pem` 
+
+Importing the revocation list to the AWS Client VPN:
++ On the AWS Management Console, select **Services** and then **VPC**\.
++ Select **Client VPN Endpoints**\.
++ Select the Client VPN Endpoint and then select **Actions** \-> **Import Client Certificate CRL**\.
++ Paste the contents of the `crl.pem` file\. 
+
+**Using the AWS CLI**
+
+Run the following command:
+
+`aws ec2 import-client-vpn-client-certificate-revocation-list --certificate-revocation-list file://./easy-rsa/pki/crl.pem --client-vpn-endpoint-id cvpn-endpoint-0123456789abcdefg `
+
+Example output:
+
+`Example output: { "Return": true } `

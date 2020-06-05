@@ -12,19 +12,19 @@ When you change a cluster's parameters, the change is applied to the cluster eit
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the list in the upper\-right corner, choose the AWS Region where the cluster you want to modify is located\.
+1. From the list in the upper\-right corner, choose the AWS Region where the cluster that you want to modify is located\.
 
-1. In the navigation pane, choose the engine running on the cluster you want to modify\.
+1. In the navigation pane, choose the engine running on the cluster that you want to modify\.
 
    A list of the chosen engine's clusters appears\.
 
-1. In the list of clusters, choose the name of the cluster, not the box to the left of the cluster's name, you want to modify\.
+1. In the list of clusters, for the cluster that you want to modify, choose its name\. 
 
 1. Choose **Modify**\. 
 
    The **Modify Cluster** window appears\.
 
-1. In the **Modify Cluster** window, make the modification\(s\) you want\.
+1. In the **Modify Cluster** window, make the modifications that you want\.
 **Important**  
 You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
@@ -33,7 +33,7 @@ You can upgrade to newer engine versions\. For more information on doing so, see
    For more information, see the following topics:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Modify.html)
 
-   The **Apply Immediately** box applies only to node type and engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, node type and engine version modifications will be applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
+   The **Apply Immediately** box applies only to node type and engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, node type and engine version modifications are applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
 
 1. Choose **Modify**\.
 

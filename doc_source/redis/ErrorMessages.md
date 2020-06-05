@@ -30,5 +30,4 @@ For more information, see [Amazon ElastiCache Limits](https://docs.aws.amazon.co
 + Submit a new request with a reduced number of nodes or shards \(node groups\)\. For example, if you're making a single request to launch 15 nodes, try making 3 requests of 5 nodes, or 15 requests for 1 node instead\.
 + If you're launching a cluster, submit a new request without specifying an Availability Zone\.
 + If you're launching a cluster, submit a new request using a different node type \(which you can scale up at a later stage\)\. For more information, see [Scaling ElastiCache for Redis Clusters](Scaling.md)\.
-+ Try purchasing Reserved Nodes, which are a long\-term capacity reservation\. For more information, see [ElastiCache Reserved Nodes](CacheNodes.Reserved.md)\.
  

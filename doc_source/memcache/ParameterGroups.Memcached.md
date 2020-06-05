@@ -138,7 +138,10 @@ Although most parameters have a single value, some parameters have different val
 | cache\.t2\.micro | 555 | 1 | 
 | cache\.t2\.small | 1588 | 1 | 
 | cache\.t2\.medium | 3301 | 2 | 
-| cache\.m1\.small | 3301 | 1 | 
+| cache\.t3\.micro | 512 | 2 | 
+| cache\.t3\.small | 1402 | 2 | 
+| cache\.t3\.medium | 3364 | 2 | 
+| cache\.m1\.small | 1301 | 1 | 
 | cache\.m1\.medium | 3350 | 1 | 
 | cache\.m1\.large | 7100 | 2 | 
 | cache\.m1\.xlarge | 14600  | 4 | 

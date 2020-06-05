@@ -16,14 +16,14 @@ For complete documentation of the Redis info command, see [ http://redis\.io/com
 | BytesUsedForCache | The total number of bytes allocated by Redis for all purposes, including the dataset, buffers, etc\. This is derived from used\_memory statistic at [Redis INFO](http://redis.io/commands/info)\. | Bytes | 
 | CacheHits | The number of successful read\-only key lookups in the main dictionary\. This is derived from keyspace\_hits statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
 | CacheMisses | The number of unsuccessful read\-only key lookups in the main dictionary\. This is derived from keyspace\_misses at [Redis INFO](http://redis.io/commands/info)\.  | Count | 
-| CurrConnections | The number of client connections, excluding connections from read replicas\. ElastiCache uses two to three of the connections to monitor the cluster in each case\. This is derived from the connected\_clients statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
+| CurrConnections | The number of client connections, excluding connections from read replicas\. ElastiCache uses two to four of the connections to monitor the cluster in each case\. This is derived from the connected\_clients statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
 | EngineCPUUtilization | Provides CPU utilization of the Redis engine thread\. Since Redis is single\-threaded, you can use this metric to analyze the load of the Redis process itself\. The `EngineCPUUtilization` metric provides a more precise visibility of the Redis process and can be used in conjunction with `CPUUtilization` metric, which exposes CPU utilization for the server instance as a whole, including other operating system and management processes\. For larger node types with 4vCPUs or more, use the `EngineCPUUtilization` metric to monitor and set thresholds for scaling\. For smaller node types with 2vCPUs or less, use the `CPUUtilization` metric\.   | Percent | 
 | Evictions | The number of keys that have been evicted due to the maxmemory limit\. This is derived from the evicted\_keys statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
 | MasterLinkHealthStatus | This status has two values: 0 or 1\. The value 0 indicates that data in the Elasticache primary node is not in sync with Redis on EC2\. The value of 1 indicates that the data is in sync\. To complete the migration, use the [CompleteMigration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CompleteMigration.html) API\. | Boolean | 
 | NewConnections | The total number of connections that have been accepted by the server during this period\. This is derived from the total\_connections\_received statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
 | Reclaimed | The total number of key expiration events\. This is derived from the expired\_keys statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
 | ReplicationBytes | For nodes in a replicated configuration, ReplicationBytes reports the number of bytes that the primary is sending to all of its replicas\. This metric is representative of the write load on the replication group\. This is derived from the master\_repl\_offset statistic at [Redis INFO](http://redis.io/commands/info)\.  | Bytes | 
-| ReplicationLag | This metric is only applicable for a node running as a read replica\. It represents how far behind, in seconds, the replica is in applying changes from the primary node\. | Seconds | 
+| ReplicationLag | This metric is only applicable for a node running as a read replica\. It represents how far behind, in seconds, the replica is in applying changes from the primary node\. | For Redis engine version 5\.0\.6, milliseconds\. For all other supported engine versions, seconds | 
 | SaveInProgress | This binary metric returns 1 whenever a background save \(forked or forkless\) is in progress, and 0 otherwise\. A background save process is typically used during snapshots and syncs\. These operations can cause degraded performance\. Using the  SaveInProgress metric, you can diagnose whether or not degraded performance was caused by a background save process\. This is derived from the rdb\_bgsave\_in\_progress statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
 
 **EngineCPUUtilization availability**  
@@ -45,9 +45,9 @@ Nodes in a region created or replaced after the date and time specified in the f
 | ca\-central\-1 | Canada \(Central\) | Available on all nodes\. | 
 | cn\-north\-1 | China \(Beijing\) | February 16, 2017 | 22:39 \(UTC\) | 
 | cn\-northwest\-2 | China \(Ningxia\) | Available on all nodes\. | 
-| eu\-central\-1 | EU \(Frankfurt\) | February 15, 2017 | 00:46 \(UTC\) | 
-| eu\-west\-1 | EU \(Ireland\) | February 7, 2017 | 21:30 \(UTC\) | 
-| eu\-west\-2 | EU \(London\) | February 16, 2017 | 18:58 \(UTC\) | 
+| eu\-central\-1 | Europe \(Frankfurt\) | February 15, 2017 | 00:46 \(UTC\) | 
+| eu\-west\-1 | Europe \(Ireland\) | February 7, 2017 | 21:30 \(UTC\) | 
+| eu\-west\-2 | Europe \(London\) | February 16, 2017 | 18:58 \(UTC\) | 
 | eu\-west\-3 | EU \(Paris\) | Available on all nodes\. | 
 | sa\-east\-1 | South America \(São Paulo\) | February 7, 2017 | 04:35 \(UTC\) | 
 | us\-gov\-west\-1 | AWS GovCloud \(US\-West\) | February 16, 2017 | 20:11 \(UTC\) | 

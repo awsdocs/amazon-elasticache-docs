@@ -9,8 +9,6 @@ We have deprecated the use of Amazon EC2\-Classic for launching ElastiCache clus
 + [Understanding ElastiCache and Amazon VPCs](VPCs.EC.md)
 + [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
 + [Creating a Virtual Private Cloud \(VPC\)](VPCs.CreatingVPC.md)
-+ [Creating a Cache Subnet Group](VPCs.CreatingSubnetGroup.md)
-+ [Creating a Cache Cluster in an Amazon VPC](VPCs.CreatingCacheCluster.md)
 + [Creating a Replication Group in an Amazon VPC](VPCs.CreatingReplGroup.md)
 + [Connecting to a Cluster or Replication Group Running in an Amazon VPC](VPCs.Connecting.md)
 
@@ -22,7 +20,5 @@ This section explains how to manually configure an ElastiCache cluster in an Ama
 + [Understanding ElastiCache and Amazon VPCs](VPCs.EC.md)
 + [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
 + [Creating a Virtual Private Cloud \(VPC\)](VPCs.CreatingVPC.md)
-+ [Creating a Cache Subnet Group](VPCs.CreatingSubnetGroup.md)
-+ [Creating a Cache Cluster in an Amazon VPC](VPCs.CreatingCacheCluster.md)
 + [Creating a Replication Group in an Amazon VPC](VPCs.CreatingReplGroup.md)
 + [Connecting to a Cluster or Replication Group Running in an Amazon VPC](VPCs.Connecting.md)

@@ -27,7 +27,7 @@ For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-cache-cluster \
-      --cache-cluster-id my-read replica \
+      --cache-cluster-id my-read-replica \
       --replication-group-id my-replication-group
 ```
 
@@ -35,7 +35,7 @@ For Windows:
 
 ```
 aws elasticache create-cache-cluster ^
-      --cache-cluster-id my-read replica ^
+      --cache-cluster-id my-read-replica ^
       --replication-group-id my-replication-group
 ```
 

@@ -1,6 +1,6 @@
 # Applying the Service Updates Using the Console<a name="applying-updates-console"></a>
 
-You can apply the service updates using one of the following console options\. ElastiCache provides you two different perspectives to help you decide how and when to apply the updates:
+You can apply the service updates using one of the following console options\. 
 
 **Topics**
 + [Applying the Service Updates Using the Console for Memcached](#applying-updates-console-memcached-console)
@@ -8,53 +8,63 @@ You can apply the service updates using one of the following console options\. E
 
 ## Applying the Service Updates Using the Console for Memcached<a name="applying-updates-console-memcached-console"></a>
 
-Choose this to review the **Update Status** of individual Memcached clusters, and then choose **Apply**, **View**, or **Stop** for the service updates\. If a service update is available, the console displays a banner at the top of the **Memcached** page, as shown following:
+Choose this to view **Update Status** for individual Memcached clusters, and then choose **Apply**, **View**, or **Stop** for the service updates\. If a service update is available, the console displays a banner at the top of the **Memcached** page, as shown following\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/mem-update-available.png)
-+ If you choose **Apply Now**, you can choose to apply the service update to all or a subset of the applicable clusters in this workflow, as shown following: 
+
+If you choose **Apply Now**, you can choose to apply the service update to all or a subset of the applicable clusters in this workflow, as shown following\. 
+
 **Note**  
-If you choose **Dismiss**, the console stops displaying the banner for that console session\. However, the banner reappears the next time that you refresh your session\.   
+If you choose **Dismiss**, the console stops displaying the banner for that console session\. However, the banner reappears the next time that you refresh your session\. 
+
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/mem-self-service.png)
 
-  Be aware of the following about the **Apply Updates Now** page:
-  + **Auto\-Update after Due Date**: If you choose not to apply the self\-service update before it expires, any clusters or individual nodes that aren't updated remain out of compliance until the next cumulative update is available\. ElastiCache doesn't automatically apply the service update on your behalf\.
-  + The ratio of **Nodes Updated** on your Memcached cluster and the **Estimated Update Time** allow you to plan your maintenance schedule\. If service updates exceed the estimated time constraints for your business flows, you have the option to stop them and re\-apply them at a later date\. For more information, see [Stopping the Self\-Service Updates](stopping-self-service-updates.md)\.
-  + If you choose to apply the service updates to any or all available Memcached clusters, choose **Confirm**\. If you choose this, you can then view the **Service Updates** page, where you can monitor the status of your service update\.
-  + If you choose **Cancel**, you can explore further options, as explained following:
+On the **Apply Updates Now** page, you can use these options:
++ **Auto\-Update after Due Date**: If this attribute is **yes**, after the **Recommended apply by Date** has passed, ElastiCache schedules clusters yet to be updated in the appropriate maintenance window\. Updates are applied along with other applicable updates\. You can continue to apply the updates until the update expiration date\. 
 
-You can inspect your Memcached clusters on an individual basis to determine their **Update Status**\. The following lets you know the compliance status of your clusters with regard to available service updates\.
+  If this attribute is **no** and you don't apply the self\-service update before it expires, ElastiCache doesn't automatically apply the service update for you\. Those clusters must wait until the next cumulative update becomes available\.
++ The **Nodes Updated** ratio value for your Memcached cluster and the **Estimated Update Time** value help you plan your maintenance schedule\. If service updates exceed the estimated time constraints for your business flows, you can stop updates and reapply them at a later date\. For more information, see [Stopping the Self\-Service Updates](stopping-self-service-updates.md)\.
++ If you choose to apply the service updates to any or all available Memcached clusters, choose **Confirm**\. If you choose this, you then view the **Service Updates** page, where you can monitor the status of your service update\.
++ If you choose **Cancel**, you can explore further options, as explained following\.
+
+On the ElastiCache dashboard, you can check **Update Status** for each of your Redis clusters, as shown following\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/mem-update-status.png)
 
 **Update Status** displays one of the following:
 + **update available**: An update is available to apply to this cluster\.
-+ **in\-progress**: The update is being applied to this cluster, rendering it unavailable for business flows\.
++ **not\-applied**: An update is available but not yet applied\.
++ **scheduling**: The update date is being scheduled\.
++ **scheduled**: The update date has been scheduled\.
++ **waiting\-to\-start**: The update process will soon begin\.
++ **in\-progress**: The update is being applied to this cluster, rendering it unavailable for the duration of the **Estimated Update Time**\.
 + **stopping**: An in\-progress update has been interrupted before completion\.
 + **stopped**: The update has been terminated\.
-**Note**  
-If you stop an in\-progress update on a Memcacheed cluster, some nodes might be updated while others are not\. The **stopping** process doesn't roll back any changes to already updated nodes\. You can re\-apply the update to those nodes that still have an **available** status at your convenience, as long as the update doesn't have an **Expired** status\.
-+ **up to date**: The update has been applied and your cluster is up to date\. 
+
+  If you stop an in\-progress update on a Memcached cluster, some nodes might be updated while others are not\. The **stopping** process doesn't roll back any changes to already updated nodes\. You can reapply the update to those nodes that still have an **available** status at your convenience if the update doesn't have an **Expired** status\.
++ **complete**: The update has been successfully applied\.
++ **up to date**: The cluster doesn't have any outstanding active service updates\.
 
 ## Applying the Service Updates Using the Service Updates List<a name="applying-updates-elasticache-update-console-memcached"></a>
 
-To review the list of individual service updates and their status, along with other relevant information, choose the **Service Updates List** tab\. 
+To view the list of individual service updates and their status, along with other information, choose the **Service Updates List** tab\. 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/mem-update-available-list.png)
 
-When viewing the **Service Updates List**, note the following:
+In **Service Updates List**, you can view the following:
 + **Service Update Name** A unique identifier for the service update\.
-+ **Status**: The status of the update, which will be one of the following:
++ **Status**: The status of the update, which is one of the following:
   + **available:** The update is available for requisite Memcached clusters\.
   + **complete:** The update has been applied and all Memcached clusters are up to date\. 
-  + **cancelled:** The update has been cancelled and is no longer necessary\.
+  + **cancelled:** The update has been canceled and is no longer necessary\.
   + **expired:** The update is no longer available to apply\.
 + **Severity**: The priority of applying the update:
-  + **critical:** Recommended to apply immediately \(within 14 days or less\)\.
-  + **important:** Recommended to apply as soon as your business flow allows \(within 30 days or less\)\.
-  + **medium:** Recommended to apply as soon as possible as your business flow allows \(within 60 days or less\)\.
-  + **low:** Recommended to apply as soon as possible as your business flow allows \(within 90 days or less\)\.
+  + **critical:** We recommend that you apply this update immediately \(within 14 days or less\)\.
+  + **important:** We recommend that you apply this update as soon as you can \(within 30 days or less\)\.
+  + **medium:** We recommend that you apply this update as soon as you can \(within 60 days or less\)\.
+  + **low:** We recommend that you apply this update as soon as you can \(within 90 days or less\)\.
 + ** Update Type**: For this version, only security updates are supported\.
-+ ** Release Date**: When the update is released and available to apply on your Redis fleet\.
++ ** Release Date**: When the update is released and available to apply on your Memcached fleet\.
 + ** Recommended Apply By Date**: ElastiCache guidance date to apply the updates by\.
 
 Choosing an individual update provides additional details, including the following:
@@ -65,17 +75,17 @@ To review the list of individual service updates in relation to the applicable M
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/mem-update-available-list-applied.png)
 
-When viewing the **Service Updates Status** list, note the following:
-+ **Service Update Name**: Provides detailed information about the service update\.
+In the **Service Updates Status** list, you can view the following:
++ **Service Update Name**: Detailed information about the service update\.
 + **Cluster Name**: The list of your Memcached clusters that are eligible for the update\.
 + **Nodes Updated:** The ratio of individual nodes within a specific cluster that were updated or remain available for the specific service update\.
 + **Update Severity**: The priority of applying the update:
-  + **critical:** Recommended to apply immediately \(within 14 days or less\)\.
-  + **important:** Recommended to apply as soon as your business flow allows \(within 30 days or less\)\.
-  + **medium:** Recommended to apply as soon as possible as your business flow allows \(within 60 days or less\)\.
-  + **low:** Recommended to apply as soon as possible as your business flow allows \(within 90 days or less\)\.
+  + **critical:** We recommend that you apply this update immediately \(within 14 days or less\)\.
+  + **important:** We recommend that you apply this update as soon as you can \(within 30 days or less\)\.
+  + **medium:** We recommend that you apply this update as soon as you can \(within 60 days or less\)\.
+  + **low:** We recommend that you apply this update as soon as you can \(within 90 days or less\)\.
 + ** Update Type**: For this version, only security updates are supported\.
-+ **Service Update Status**: The status of the update, which will be one of the following:
++ **Service Update Status**: The status of the update, which is one of the following:
   + **available:** The update is available for requisite Memcached clusters\.
   + **complete:** The update has been applied and all Memcached clusters are updated\.
   + **canceled:** The update has been canceled and is no longer necessary\.

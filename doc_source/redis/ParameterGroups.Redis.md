@@ -182,7 +182,7 @@ For Redis 3\.2\.4 the following parameters were changed\.
 |  Name  |  Details |  Change  | 
 | --- | --- | --- | 
 | activerehashing | Modifiable: Yes | Modifiable was No\. | 
-| databases | Modifiable: Yes | Modifiable was No\. | 
+| databases | Modifiable: Yes if the parameter group is not associated with any cache clusters\. Otherwise, no\. | Modifiable was No\. | 
 | appendonly | Default: off Modifiable: No | If you want to upgrade from an earlier Redis version, you must first turn `appendonly` off\. | 
 | appendfsync | Default: off Modifiable: No | If you want to upgrade from an earlier Redis version, you must first turn `appendfsync` off\. | 
 | repl\-timeout | Default: 60 Modifiable: No | Is now unmodifiable with a default of 60\. | 
@@ -209,7 +209,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w30aac18c44c57c25b9"></a>
+### How close\-on\-slave\-write works<a name="w38aac18c46c57c25b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -223,7 +223,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### When You Might Disable close\-on\-replica\-write<a name="w30aac18c44c57c25c11"></a>
+### When You Might Disable close\-on\-replica\-write<a name="w38aac18c46c57c25c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 
@@ -287,7 +287,7 @@ Redis 2\.6\.13 was the first version of Redis supported by ElastiCache\. The fol
 | --- | --- | --- | 
 | activerehashing | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes take place: At Creation | Determines whether to enable Redis' active rehashing feature\. The main hash table is rehashed ten times per second; each rehash operation consumes 1 millisecond of CPU time\. This value is set when you create the parameter group\. When assigning a new parameter group to a cluster, this value must be the same in both the old and new parameter groups\. | 
 | appendonly | Default: no Type: string Modifiable: Yes Changes Take Effect: Immediately | Enables or disables Redis' append only file feature \(AOF\)\. AOF captures any Redis commands that change data in the cache, and is used to recover from certain node failures\.  The default value is *no*, meaning AOF is turned off\. Set this parameter to *yes* to enable AOF\. For more information, see [Mitigating Failures](FaultTolerance.md)\. Append Only Files \(AOF\) is not supported for cache\.t1\.micro and cache\.t2\.\* nodes\. For nodes of this type, the `appendonly` parameter value is ignored\.   For Multi\-AZ replication groups, AOF is not allowed\. | 
-| appendfsync | Default: everysec Type: string Modifiable: Yes Changes Take Effect: Immediately | Controls how often the AOF output buffer is written to disk: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html) Some aspects value of this parameter changed in Redis version 3\.2\.4\. See [Parameters Changed in Redis 3\.2\.4 \(Enhanced\)](#ParameterGroups.Redis.3-2-4.Changed)\. | 
+| appendfsync | Default: everysec Type: string Modifiable: Yes Changes Take Effect: Immediately | When appendonly is set to yes, controls how often the AOF output buffer is written to disk: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html)  | 
 | client\-output\-buffer\-limit\-normal\-hard\-limit | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | If a client's output buffer reaches the specified number of bytes, the client will be disconnected\. The default is zero \(no hard limit\)\. | 
 | client\-output\-buffer\-limit\-normal\-soft\-limit | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | If a client's output buffer reaches the specified number of bytes, the client will be disconnected, but only if this condition persists for client\-output\-buffer\-limit\-normal\-soft\-seconds\. The default is zero \(no soft limit\)\. | 
 | client\-output\-buffer\-limit\-normal\-soft\-seconds | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | If a client's output buffer remains at client\-output\-buffer\-limit\-normal\-soft\-limit bytes for longer than this number of seconds, the client will be disconnected\. The default is zero \(no time limit\)\. | 
@@ -333,6 +333,9 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.t2\.micro | 581959680 | 58195968 | 58195968 | 
 | cache\.t2\.small | 1665138688 | 166513868 | 166513868 | 
 | cache\.t2\.medium | 3461349376 | 346134937 | 346134937 | 
+| cache\.t3\.micro | 536870912 | 53687091 | 53687091 | 
+| cache\.t3\.small | 1471026299 | 147102629 | 147102629 | 
+| cache\.t3\.medium | 3317862236 | 331786223 | 331786223 | 
 | cache\.m1\.small | 943718400 | 94371840 | 94371840 | 
 | cache\.m1\.medium | 3093299200 | 309329920 | 309329920 | 
 | cache\.m1\.large | 7025459200 | 702545920 | 702545920 | 
@@ -367,7 +370,7 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.r4\.4xlarge | 108858546586 | 10885854658 | 10885854658 | 
 | cache\.r4\.8xlarge | 218255432090 | 21825543209 | 21825543209 | 
 | cache\.r4\.16xlarge | 437021573120 | 43702157312 | 43702157312 | 
-| cache\.r5\.large | 14037181030 | 1403718103 | 1403718103 | 
+| cache\.r5\.large | 10527885773 | 10527885773 | 10527885773 | 
 | cache\.r5\.xlarge | 28261849702 | 2826184970 | 2826184970 | 
 | cache\.r5\.2xlarge | 56711183565 | 5671118356 | 5671118356 | 
 | cache\.r5\.4xlarge | 113609865216 | 11360986522 | 11360986522 | 
@@ -376,6 +379,6 @@ The `maxmemory` parameter cannot be modified\.
 
 **Note**  
 All current generation instance types are created in an Amazon Virtual Private Cloud VPC by default\.  
-T1 instances do not support Multi\-AZ with automatic failover\.  
+T1 instances do not support Multi\-AZ\.  
 T1 and T2 instances do not support Redis AOF\.  
 Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.

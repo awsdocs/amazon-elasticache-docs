@@ -30,7 +30,7 @@ For more information, see [Managing Reserved Memory](redis-memory-management.md)
 
 ## Scaling Up Single\-Node Clusters for Redis \(Cluster Mode Disabled\) \(Console\)<a name="Scaling.RedisStandalone.ScaleUp.CON"></a>
 
-The following procedure describes how to scale up a single\-node Redis cluster using the ElastiCache Management Console\.
+The following procedure describes how to scale up a single\-node Redis cluster using the ElastiCache Management Console\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
 **To scale up a single\-node Redis cluster \(console\)**
 
@@ -56,7 +56,7 @@ The following procedure describes how to scale up a single\-node Redis cluster u
 
 ## Scaling Up Single\-Node Redis Cache Clusters \(AWS CLI\)<a name="Scaling.RedisStandalone.ScaleUp.CLI"></a>
 
-The following procedure describes how to scale up a single\-node Redis cache cluster using the AWS CLI\.
+The following procedure describes how to scale up a single\-node Redis cache cluster using the AWS CLI\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
 **To scale up a single\-node Redis cache cluster \(AWS CLI\)**
 
@@ -179,7 +179,7 @@ The following procedure describes how to scale up a single\-node Redis cache clu
 
 ## Scaling Up Single\-Node Redis Cache Clusters \(ElastiCache API\)<a name="Scaling.RedisStandalone.ScaleUp.API"></a>
 
-The following procedure describes how to scale up a single\-node Redis cache cluster using the ElastiCache API\.
+The following procedure describes how to scale up a single\-node Redis cache cluster using the ElastiCache API\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
 **To scale up a single\-node Redis cache cluster \(ElastiCache API\)**
 

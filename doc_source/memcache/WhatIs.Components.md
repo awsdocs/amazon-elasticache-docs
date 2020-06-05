@@ -93,7 +93,7 @@ For more detailed information on ElastiCache parameter groups, see [Configuring 
 
 ## ElastiCache Security<a name="WhatIs.Components.Security"></a>
 
-For enhanced security, ElastiCache node access is restricted to applications running on whitelisted Amazon EC2 instances\. You can control the Amazon EC2 instances that can access your cluster by using subnet groups or security groups\.
+For enhanced security, ElastiCache node access is restricted to applications running on whitelisted Amazon EC2 instances\. You can control the Amazon EC2 instances that can access your cluster by using security groups\.
 
 By default, all new ElastiCache clusters are launched in an Amazon Virtual Private Cloud \(Amazon VPC\) environment\. You can use *subnet groups* to grant cluster access from Amazon EC2 instances running on specific subnets\. If you choose to run your cluster outside of Amazon VPC, you can create *security groups* to authorize Amazon EC2 instances running within specific Amazon EC2 security groups\.
 

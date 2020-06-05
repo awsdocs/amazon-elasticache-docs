@@ -32,7 +32,7 @@ The following procedure adds replication to a single\-node Redis that does not h
 
 1. Choose **Add replication**\.
 
-1. In **Add Replication**, type a description for this replication\-enabled cluster\.
+1. In **Add Replication**, enter a description for this replication\-enabled cluster\.
 
 1. Choose **Add**\.
 
@@ -44,11 +44,11 @@ The following procedure can be used to add nodes to a cluster\.
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. In the navigation pane, choose the engine running on the cluster you want to add nodes to\.
+1. In the navigation pane, choose the engine running on the cluster that you want to add nodes to\.
 
    A list of clusters running the chosen engine appears\.
 
-1. From the list of clusters, choose the name of the cluster, not the box to the left of the cluster's name, you want to add a node to\.
+1. From the list of clusters, for the cluster that you want to add a node to, choose its name\.
 
    If your cluster is a Redis \(cluster mode enabled\) cluster, see [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\.
 
@@ -74,8 +74,8 @@ The following procedure can be used to add nodes to a cluster\.
 If you want to add nodes to an existing Redis \(cluster mode disabled\) cluster that does not have replication enabled, you must first create the replication group specifying the existing cluster as the primary\. For more information, see [Creating a Replication Group Using an Available Redis Cache Cluster \(AWS CLI\)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.CLI)\. After the replication group is *available*, you can continue with the following process\.
 
 To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `modify-cache-cluster` with the following parameters:
-+ `--cache-cluster-id` The ID of the cache cluster you want to add nodes to\.
-+ `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes you want in this cluster after the modification is applied\. To add nodes to this cluster, `--num-cache-nodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `cache-node-ids-to-remove` and a list of nodes to remove from the cluster\. For more information, see [Using the AWS CLI](Clusters.DeleteNode.md#Clusters.DeleteNode.CLI)\.
++ `--cache-cluster-id` The ID of the cache cluster that you want to add nodes to\.
++ `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\. To add nodes to this cluster, `--num-cache-nodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `cache-node-ids-to-remove` and a list of nodes to remove from the cluster\. For more information, see [Using the AWS CLI](Clusters.DeleteNode.md#Clusters.DeleteNode.CLI)\.
 + `--apply-immediately` or `--no-apply-immediately` which specifies whether to add these nodes immediately or at the next maintenance window\.
 
 For Linux, macOS, or Unix:
@@ -144,10 +144,10 @@ If you want to add nodes to an existing Redis \(cluster mode disabled\) cluster 
 
 **To add nodes to a cluster \(ElastiCache API\)**
 + Call the `ModifyCacheCluster` API operation with the following parameters:
-  + `CacheClusterId` The ID of the cluster you want to add nodes to\.
-  + `NumCacheNodes` The `NumCachNodes` parameter specifies the number of nodes you want in this cluster after the modification is applied\. To add nodes to this cluster, `NumCacheNodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `CacheNodeIdsToRemove` with a list of nodes to remove from the cluster \(see [Using the ElastiCache API](Clusters.DeleteNode.md#Clusters.DeleteNode.API)\)\.
+  + `CacheClusterId` The ID of the cluster that you want to add nodes to\.
+  + `NumCacheNodes` The `NumCachNodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\. To add nodes to this cluster, `NumCacheNodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `CacheNodeIdsToRemove` with a list of nodes to remove from the cluster \(see [Using the ElastiCache API](Clusters.DeleteNode.md#Clusters.DeleteNode.API)\)\.
   + `ApplyImmediately` Specifies whether to add these nodes immediately or at the next maintenance window\.
-  + `Region` Specifies the AWS region of the cluster you want to add nodes to\.
+  + `Region` Specifies the AWS Region of the cluster that you want to add nodes to\.
 
   The following example shows a call to add nodes to a cluster\.  
 **Example**  

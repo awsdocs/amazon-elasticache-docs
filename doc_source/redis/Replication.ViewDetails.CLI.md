@@ -1,6 +1,6 @@
 # Viewing a Replication Group's Details \(AWS CLI\)<a name="Replication.ViewDetails.CLI"></a>
 
-You can view the details for a replication using the AWS CLI `describe-replication-groups` command\. Use the following optional parameters to refine the listing\. Omitting the parameters returns the details for up to 100 replication groups\.
+You can view the details for a replication group using the AWS CLI `describe-replication-groups` command\. Use the following optional parameters to refine the listing\. Omitting the parameters returns the details for up to 100 replication groups\.
 
 **Optional Parameters**
 + `--replication-group-id` – Use this parameter to list the details of a specific replication group\. If the specified replication group has more than one node group, results are returned grouped by node group\.

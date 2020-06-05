@@ -18,5 +18,5 @@ For more information on mitigating failures, see [Mitigating Failures when Runni
 
 For more information, see the following:
 + [Redis Specific Parameters](ParameterGroups.Redis.md)
-+ [Minimizing Downtime: Multi\-AZ with Automatic Failover](AutoFailover.md)
++ [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)
 + [Mitigating Failures](FaultTolerance.md)

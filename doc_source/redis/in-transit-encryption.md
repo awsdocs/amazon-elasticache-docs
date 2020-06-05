@@ -32,7 +32,7 @@ The following constraints on Amazon ElastiCache in\-transit encryption should be
 + In\-transit encryption is only supported for replication groups running the following node types\.
   + R5, R4, R3
   + M5, M4, M3
-  + T2
+  + T3, T2
 
   For more information, see [Supported Node Types](CacheNodes.SupportedTypes.md)\.
 + In\-transit encryption is enabled by explicitly setting the parameter `TransitEncryptionEnabled` to `true`\.
@@ -176,7 +176,7 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 1. Run the following command to create and edit file `'/etc/stunnel/redis-cli.conf'` simultaneously to add a ElastiCache for Redis cluster endpoint to one or more connection parameters, using provided output below as template:\.
 
    ```
-   cat /etc/stunnel/redis-cli.conf
+   vi /etc/stunnel/redis-cli.conf
    				
    fips = no
    setuid = root

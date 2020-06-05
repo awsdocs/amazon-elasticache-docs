@@ -9,6 +9,7 @@ You can use Amazon ElastiCache for Redis to build HIPAA\-compliant applications\
 + [Authenticating Users with the Redis AUTH Command](auth.md)
 
 **Topics**
++ [Redis 5\.0\.6 \(Enhanced\)](#redis-version-5-0.6)
 + [Redis 5\.0\.5 \(Enhanced\)](#redis-version-5-0.5)
 + [Redis 5\.0\.4 \(Enhanced\)](#redis-version-5-0.4)
 + [Redis 5\.0\.3 \(Enhanced\)](#redis-version-5-0.3)
@@ -36,6 +37,12 @@ For more information, see the following topics:
 | **Modify Cluster** | [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)  You can't use this action to create a replication group with cluster mode enabled\.  | [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)  You can't use this action to create a replication group with cluster mode enabled\. | 
 | **Create Replication Group** | [Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
+
+## ElastiCache for Redis Version 5\.0\.6 \(Enhanced\)<a name="redis-version-5-0.6"></a>
+
+Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache, which includes bug fixes\. 
+
+For more information, see [Redis 5\.0\.6 Release Notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES) at Redis on GitHub\.
 
 ## ElastiCache for Redis Version 5\.0\.5 \(Enhanced\)<a name="redis-version-5-0.5"></a>
 
@@ -236,4 +243,4 @@ Redis improvements added since version 2\.6\.13 include the following:
 
 ## ElastiCache for Redis Version 2\.6\.13<a name="redis-version-2-6-13"></a>
 
-Redis version 2\.6\.13 was the initial version of Redis supported by Amazon ElastiCache for Redis\. Multi\-AZ with automatic failover is not supported on Redis 2\.6\.13\.
+Redis version 2\.6\.13 was the initial version of Redis supported by Amazon ElastiCache for Redis\. Multi\-AZ is not supported on Redis 2\.6\.13\.

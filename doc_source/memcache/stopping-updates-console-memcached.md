@@ -5,4 +5,4 @@ You can interrupt a service update using the console\. The following demonstrate
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ssp-view-stop.png)
 + To interrupt the update, choose **Stop Update**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ssp-stop-1.png)
-+ When you stop the update, choose the Memcached cluster and examine the status\. It will revert to a **Stopping** status and eventually a **Stopped** status\.
++ When you stop the update, choose the Memcached cluster and examine the status\. It reverts to a **Stopping** status and eventually a **Stopped** status\.

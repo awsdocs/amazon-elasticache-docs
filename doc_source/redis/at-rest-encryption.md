@@ -6,7 +6,7 @@ ElastiCache for Redis at\-rest encryption is an optional feature to increase dat
 + Disk during sync, backup and swap operations 
 + Backups stored in Amazon S3 
 
- ElastiCache for Redis offers default \(service managed\) encryption at rest, as well as ability to use your own customer managed customer master keys in [AWS Key Management Service \(KMS\)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)\. 
+ ElastiCache for Redis offers default \(service managed\) encryption at rest, as well as ability to use your own symetric customer managed customer master keys in [AWS Key Management Service \(KMS\)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)\. 
 
 At\-rest encryption can be enabled on a replication group only when it is created\. Because there is some processing needed to encrypt and decrypt the data, enabling at\-rest encryption can have a performance impact during these operations\. You should benchmark your data with and without at\-rest encryption to determine the performance impact for your use cases\. 
 
@@ -26,18 +26,18 @@ The following constraints on ElastiCache at\-rest encryption should be kept in m
 + At\-rest encryption is only supported for replication groups running the following node types\.
   + R5, R4, R3
   + M5, M4, M3
-  + T2
+  + T3, T2
 
   For more information, see [Supported Node Types](CacheNodes.SupportedTypes.md)
 + At\-rest encryption is enabled by explicitly setting the parameter `AtRestEncryptionEnabled` to `true`\.
 + You can enable at\-rest encryption on a replication group only when creating the replication group\. You cannot toggle at\-rest encryption on and off by modifying a replication group\. For information on implementing at\-rest encryption on an existing replication group, see [Enabling At\-Rest Encryption](#at-rest-encryption-enable)\.
-+ Encryption of data at rest is not available in the cn\-north\-1 \(Beijing\) and cn\-northwest\-1 \(Ningxia\),ap\-northeast\-3 \(Asia Pacific \(Osaka\-Local\) regions\. Additionally, the option to use customer managed CMK for encryption at rest is not available in AWS GovCloud \(us\-gov\-east\-1 and us\-gov\-west\-1\) regions\. 
++ Encryption of data at rest is not available in the cn\-north\-1 \(Beijing\) and cn\-northwest\-1 \(Ningxia\), ap\-northeast\-3 \(Asia Pacific Osaka\-Local\) regions\. Additionally, the option to use customer managed CMK for encryption at rest is not available in AWS GovCloud \(us\-gov\-east\-1 and us\-gov\-west\-1\) regions\. 
 
 Implementing at\-rest encryption can reduce performance during backup and node sync operations\. Benchmark at\-rest encryption compared to no encryption on your own data to determine its impact on performance for your implementation\.
 
 ## Using Customer Managed CMKs from AWS KMS<a name="using-customer-managed-keys-for-elasticache-security"></a>
 
-ElastiCache for Redis supports customer managed customer master keys \(CMK\) for encryption at rest\. Customer\-managed CMKs are encryption keys that you create, own and manage in your AWS account\. For more information, see [Customer Master Keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) in the *AWS Key Management Service Developer Guide*\. The keys must be created in AWS KMS before they can be used with Elasticache\.
+ElastiCache for Redis supports symmetric customer managed customer master keys \(CMK\) for encryption at rest\. Customer\-managed CMKs are encryption keys that you create, own and manage in your AWS account\. For more information, see [Customer Master Keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) in the *AWS Key Management Service Developer Guide*\. The keys must be created in AWS KMS before they can be used with Elasticache\.
 
 To learn how to create AWS KMS master keys, see [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\. 
 
@@ -45,7 +45,7 @@ ElastiCache for Redis allows you to integrate with AWS KMS\. For more informatio
 
 Note that Amazon ElastiCache currently does not support [kms:ViaService](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-via-service)\. Providing/denying access to Amazon ElastiCache using ViaService will have no effect on key permissions\. 
 
-You can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) to track the requests that Amazon ElastiCache sends to AWS Key Management Service on your behalf\. All API calls to AWS Key Management Service related to customer managed CMKs have corresponding [CloudTrail logs](CloudTrail logs)\. You can also see the grants that ElastiCache creates by calling the [ListGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html) KMS API call\. 
+You can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) to track the requests that Amazon ElastiCache sends to AWS Key Management Service on your behalf\. All API calls to AWS Key Management Service related to customer managed CMKs have corresponding CloudTrail logs\. You can also see the grants that ElastiCache creates by calling the [ListGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html) KMS API call\. 
 
 Once a replication group is encrypted using customer managed CMK, all backups for the replication group are encrypted as follows:
 + Automatic daily backups are encrypted using the customer managed CMK associated with the cluster\.

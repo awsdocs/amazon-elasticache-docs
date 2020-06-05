@@ -30,7 +30,7 @@ There are two packages you need to pull from GitHub and compile; [aws\-elasticac
 1. Pull the repository and compile the code\.
 
    ```
-   git clone https://github.com/awslabs/aws-elasticache-cluster-client-libmemcached.git
+   Download and expand [https://github.com/awslabs/aws-elasticache-cluster-client-libmemcached/archive/v1.0.18.tar.gz](https://github.com/awslabs/aws-elasticache-cluster-client-libmemcached/archive/v1.0.18.tar.gz)
    cd aws-elasticache-cluster-client-libmemcached
    mkdir BUILD
    cd BUILD
@@ -52,7 +52,7 @@ The following sections describe how to compile the ElastiCache Memcached Auto Di
 Run the following set of commands under the code directory\.
 
 ```
-git clone https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php.git
+git clone  https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php/tree/php7.git
 cd aws-elasticache-cluster-client-memcached-for-php 
 git checkout php7
 sudo yum install php70-devel
@@ -74,7 +74,7 @@ sed -i "s#-lmemcached#<libmemcached-install-directory>/lib/libmemcached.a -lcryp
 Compile the `aws-elasticache-cluster-client-memcached-for-php` by running the following commands under the `aws-elasticache-cluster-client-memcached-for-php/` folder\.
 
 ```
-git clone https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php.git
+git clone  https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php/tree/php7
 cd aws-elasticache-cluster-client-memcached-for-php 
 sudo yum install zlib-devel
 phpize

@@ -1,7 +1,7 @@
 # Decreasing the Number of Replicas in a Shard<a name="decrease-replica-count"></a>
 
 You can decrease the number of replicas in a shard for Redis \(cluster mode enabled\), or in a replication group for Redis \(cluster mode disabled\):
-+ For Redis \(cluster mode disabled\), you can decrease the number of replicas to one if Multi\-AZ with Automatic Failover is enabled, and to zero if it isn't enabled\.
++ For Redis \(cluster mode disabled\), you can decrease the number of replicas to one if Multi\-AZ is enabled, and to zero if it isn't enabled\.
 + For Redis \(cluster mode enabled\), you can decrease the number of replicas to zero\. However, you can't fail over to a replica if your primary node fails\.
 
 You can use the AWS Management Console, the AWS CLI or the ElastiCache API to decrease the number of replicas in a node group \(shard\) or replication group\.
@@ -32,8 +32,8 @@ The following procedure uses the console to decrease the number of replicas in a
    1. Choose **Delete** to delete the replicas or **Cancel** to cancel the operation\.
 
 **Important**  
-If you don’t specify the replica nodes to be deleted, ElastiCache for Redis auto\-selects replica nodes for deletion\. While doing so, ElastiCache for Redis attempts to retain the Multi\-AZ architecture for your replication group followed by retaining replicas with minimum replication lag with the master\.
-The primary or master nodes in the replication group cannot be deleted\. If you specify primary node for deletion, the operation will fail with an error event indicating that the primary node was selected for deletion\. 
+If you don’t specify the replica nodes to be deleted, ElastiCache for Redis automatically selects replica nodes for deletion\. While doing so, ElastiCache for Redis attempts to retain the Multi\-AZ architecture for your replication group followed by retaining replicas with minimum replication lag with the master\.
+You can't delete the primary or master nodes in a replication group\. If you specify a primary node for deletion, the operation fails with an error event indicating that the primary node was selected for deletion\. 
 
 ## Using the AWS CLI<a name="decrease-replica-count-cli"></a>
 
@@ -122,7 +122,7 @@ To decrease the number of replicas in a Redis shard, use the `DecreaseReplicaCou
 
   `ReplicaConfiguraion` has three optional members:
   + `NodeGroupId` – The four\-digit ID for the node group you are configuring\. For Redis \(cluster mode disabled\) replication groups, the node group ID is always `0001`\. To find a Redis \(cluster mode enabled\) node group's \(shard's\) ID, see [Finding a Shard's ID](shard-find-id.md)\.
-  + `NewReplicaCount` – The number of replicas that you want in this node group at the end of this operation\. The value must be less than the current number of replicas down to a minimum of 1 if Multi\-AZ with Automatic Failover is enabled or 0 if Multi\-AZ with Automatic Failover isn't enabled\. If this value is not less than the current number of replicas in the node group, the call fails with an exception\.
+  + `NewReplicaCount` – The number of replicas that you want in this node group at the end of this operation\. The value must be less than the current number of replicas down to a minimum of 1 if Multi\-AZ is enabled or 0 if Multi\-AZ with Automatic Failover isn't enabled\. If this value is not less than the current number of replicas in the node group, the call fails with an exception\.
   + `PreferredAvailabilityZones` – A list of `PreferredAvailabilityZone` strings that specify which Availability Zones the replication group's nodes are in\. The number of `PreferredAvailabilityZone` values must equal the value of `NewReplicaCount` plus 1 to account for the primary node\. If this member of `ReplicaConfiguration` is omitted, ElastiCache for Redis chooses the Availability Zone for each of the new replicas\.
 
 **Important**  

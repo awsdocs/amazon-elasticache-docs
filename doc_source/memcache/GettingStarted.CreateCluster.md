@@ -11,7 +11,7 @@ Your cluster is launched in an Amazon VPC\. Before you start creating your clust
 
 1. Choose **Get Started Now**\.
 
-   If you already have an available cluster, choose **Launch Cluster**\.
+   If you already have an available cluster, choose **Create**\.
 
 1. From the list in the upper\-right corner, choose the AWS Region you want to launch this cluster in\.
 

@@ -10,7 +10,3 @@ For data protection purposes, we recommend that you protect AWS account credenti
 + Use advanced managed security services such as Amazon Macie, which assists in discovering and securing personal data that is stored in Amazon S3\.
 
 We strongly recommend that you never put sensitive identifying information, such as your customers' account numbers, into free\-form fields such as a **Name** field\. This includes when you work with Amazon ElastiCache or other AWS services using the console, API, AWS CLI, or AWS SDKs\. Any data that you enter into Amazon ElastiCache or other services might get picked up for inclusion in diagnostic logs\. When you provide a URL to an external server, don't include credentials information in the URL to validate your request to that server\.
-
-For more information about data protection, see the [AWS Shared Responsibility Model and GDPR](https://AWS.amazon.com/blogs/security/the-AWS-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*\.
-
-**Topics**

@@ -8,4 +8,4 @@ For information about using Amazon EC2, see the [Amazon EC2 Getting Started Guid
 **Important**  
 To avoid incurring additional charges on your AWS account, be sure to delete any AWS resources you no longer want after trying these examples\.
 
-For information on connecting to your cluster, see [Step 3: Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md) in the ElastiCache User Guide\.
+For information on connecting to your cluster, see [Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md) in the ElastiCache User Guide\.

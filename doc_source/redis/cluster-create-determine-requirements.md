@@ -8,20 +8,20 @@
 + [Region and Availability Zone Requirements](#cluster-create-determine-requirements-region)
 
 **Preparation**  
-Knowing the answers to these questions before you begin will expedite creating your cluster\.
+Knowing the answers to the following questions helps make creating your cluster go faster:
 + Which node instance type do you need?
 
   For guidance on choosing an instance node type, see [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)\.
-+ Will you launch your cluster in a VPC or an Amazon VPC? 
++ Will you launch your cluster in a virtual private cloud \(VPC\) based on Amazon VPC? 
 **Important**  
-If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group in the same VPC before you start creating a cluster\. For more information, see [Subnets and Subnet Groups](SubnetGroups.md)\.  
+If you're going to launch your cluster in a VPC, make sure to create a subnet group in the same VPC before you start creating a cluster\. For more information, see [Subnets and Subnet Groups](SubnetGroups.md)\.  
 ElastiCache is designed to be accessed from within AWS using Amazon EC2\. However, if you launch in a VPC based on Amazon VPC and your cluster is in an VPC, you can provide access from outside AWS\. For more information, see [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)\.
 + Do you need to customize any parameter values?
 
-  If you do, you need to create a custom Parameter Group\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
+  If you do, create a custom parameter group\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
 
-   If you're running Redis you may want to consider at least setting `reserved-memory` or `reserved-memory-percent`\. For more information, see [Managing Reserved Memory](redis-memory-management.md)\.
-+ Do you need to create your own *Security Group* or *VPC Security Group*? 
+   If you're running Redis, consider setting `reserved-memory` or `reserved-memory-percent`\. For more information, see [Managing Reserved Memory](redis-memory-management.md)\.
++ Do you need to create your own *security group* or *VPC security group*? 
 
   For more information, see [Security Groups: EC2\-Classic](SecurityGroups.md) and [Security in Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html)\.
 + How do you intend to implement fault tolerance?
@@ -49,7 +49,7 @@ For more information, see [Managing Your ElastiCache Clusters](Clusters.md)\.
 
 ## Scaling Requirements<a name="cluster-create-determine-requirements-scaling"></a>
 
-All clusters can be scaled up by creating a new cluster with the new, larger node type\. When scaling a Redis cluster you can seed it from a backup and avoid having the new cluster start out empty\.
+All clusters can be scaled up by creating a new cluster with the new, larger node type\. When you scale up a Redis cluster, you can seed it from a backup and avoid having the new cluster start out empty\.
 
 For more information, see [Scaling ElastiCache for Redis Clusters](Scaling.md) in this guide\.
 
@@ -57,11 +57,11 @@ For more information, see [Scaling ElastiCache for Redis Clusters](Scaling.md) i
 
 By design, Amazon ElastiCache clusters are accessed from Amazon EC2 instances\. Network access to an ElastiCache cluster is limited to the user account that created the cluster\. Therefore, before you can access a cluster from an Amazon EC2 instance, you must authorize the Amazon EC2 instance to access the cluster\. The steps to do this vary, depending upon whether you launched into EC2\-VPC or EC2\-Classic\.
 
-If you launched your cluster into EC2\-VPC you need to grant network ingress to the cluster\. If you launched your cluster into EC2\-Classic you need to grant the Amazon Elastic Compute Cloud security group associated with the instance access to your ElastiCache security group\. For detailed instructions, see [Step 2: Authorize Access](GettingStarted.AuthorizeAccess.md) in this guide\.
+If you launched your cluster into EC2\-VPC you need to grant network ingress to the cluster\. If you launched your cluster into EC2\-Classic you need to grant the Amazon Elastic Compute Cloud security group associated with the instance access to your ElastiCache security group\. For detailed instructions, see [Authorize Access](GettingStarted.AuthorizeAccess.md) in this guide\.
 
 ## Region and Availability Zone Requirements<a name="cluster-create-determine-requirements-region"></a>
 
-Amazon ElastiCache supports all AWS regions\. By locating your ElastiCache clusters in a region close to your application you can reduce latency\. If your cluster has multiple nodes, locating your nodes in different Availability Zones can reduce the impact of failures on your cluster\.
+Amazon ElastiCache supports all AWS regions\. By locating your ElastiCache clusters in an AWS Region close to your application you can reduce latency\. If your cluster has multiple nodes, locating your nodes in different Availability Zones can reduce the impact of failures on your cluster\.
 
 For more information, see the following:
 + [Choosing Regions and Availability Zones](RegionsAndAZs.md)

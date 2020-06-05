@@ -10,7 +10,7 @@ You can promote a Redis \(cluster mode disabled\) read replica to primary using 
 
 1. Modify the replication group to re\-enable Multi\-AZ\.
 
-Multi\-AZ with Automatic Failover is not available on replication groups running Redis 2\.6\.13 or earlier\.
+Multi\-AZ is not available on replication groups running Redis 2\.6\.13 or earlier\.
 
 ## Using the AWS Management Console<a name="Replication.PromoteReplica.CON"></a>
 

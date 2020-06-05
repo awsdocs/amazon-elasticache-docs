@@ -27,7 +27,7 @@ All of the nodes in a Redis \(cluster mode disabled\) cluster must reside in the
 
 When you add a read replica to a cluster, all of the data from the primary is copied to the new node\. From that point on, whenever data is written to the primary, the changes are asynchronously propagated to all the read replicas\.
 
-To improve fault tolerance and reduce write downtime, enable Multi\-AZ with Automatic Failover for your Redis \(cluster mode disabled\) cluster with replicas\. For more information, see [Minimizing Downtime: Multi\-AZ with Automatic Failover](AutoFailover.md)\.
+To improve fault tolerance and reduce write downtime, enable Multi\-AZ with Automatic Failover for your Redis \(cluster mode disabled\) cluster with replicas\. For more information, see [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)\.
 
 You can change the roles of the nodes within the Redis \(cluster mode disabled\) cluster, with the primary and one of the replicas exchanging roles\. You might decide to do this for performance tuning reasons\. For example, with a web application that has heavy write activity, you can choose the node that has the lowest network latency\. For more information, see [Promoting a Read Replica to Primary, for Redis \(cluster mode disabled\) Replication Groups](Replication.PromoteReplica.md)\.
 
@@ -46,9 +46,9 @@ Applications use the Redis \(cluster mode enabled\) cluster's *configuration end
 
 All of the nodes in a Redis \(cluster mode enabled\) cluster must reside in the same region\. To improve fault tolerance, you can provision both primaries and read replicas in multiple Availability Zones within that region\.
 
-Multi\-AZ with Automatic Failover is required for all Redis \(cluster mode enabled\) clusters\. For more information, see [Minimizing Downtime: Multi\-AZ with Automatic Failover](AutoFailover.md)\.
+Multi\-AZ is required for all Redis \(cluster mode enabled\) clusters\. For more information, see [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)\.
 
 Currently, in Redis \(cluster mode enabled\), there are some limitations\.
 + You cannot manually promote any of the replica nodes to primary\.
-+ Multi\-AZ with Automatic Failover is required\.
++ Multi\-AZ is required\.
 + You can only change the structure of a cluster, the node type, and the number of nodes by restoring from a backup\. For more information, see [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\. The number of shards in a Redis \(cluster mode enabled\) cluster can be changed dynamically, while the cluster continues to serve read and write requests\. For more information, see [Online Resharding and Shard Rebalancing for Redis \(cluster mode enabled\)](redis-cluster-resharding-online.md)\.

@@ -4,19 +4,11 @@ You can restore the data from a Redis \.rdb backup file to a new cluster at any 
 
 The Amazon ElastiCache for Redis restore process supports the following:
 + Upgrading from a Redis \(cluster mode disabled\) cluster to a Redis \(cluster mode enabled\) cluster running Redis version 3\.2\.4\.
-
-   
 + Migrating from one or more \.rdb backup files you created from your self\-managed Redis clusters to a single ElastiCache for Redis \(cluster mode enabled\) cluster\.
 
   The \.rdb files must be put in S3 to perform the restore\.
-
-   
 + Specifying a number of shards \(API/CLI: node groups\) in the new cluster that is different from the number of shards in the cluster that was used to create the backup file\.
-
-   
 + Specifying a different node type for the new cluster—larger or smaller\. If scaling to a smaller node type, be sure that the new node type has sufficient memory for your data and Redis overhead\. For more information, see [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)\.
-
-   
 + Configuring the slots of the new Redis \(cluster mode enabled\) cluster differently than in the cluster that was used to create the backup file\.
 
 **Important**  
@@ -104,7 +96,7 @@ You can restore a Redis backup in two ways\. You can restore to a single\-node R
 
    1. **Parameter Group** – Choose a parameter group that reserves sufficient memory for Redis overhead for the node type you selected\.
 
-1. When the settings are as you want them, choose **Launch Cluster**\.
+1. When the settings are as you want them, choose **Create**\.
 
 ## Restoring From a Backup \(AWS CLI\)<a name="backups-restoring-CLI"></a>
 

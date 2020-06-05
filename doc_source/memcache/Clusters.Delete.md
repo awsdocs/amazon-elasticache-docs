@@ -3,27 +3,27 @@
 As long as a cluster is in the *available* state, you are being charged for it, whether or not you are actively using it\. To stop incurring charges, delete the cluster\.
 
 **Warning**  
-When you delete an ElastiCache for Redis cluster, your manual snapshots are retained\. You will also have an option to create a final snapshot before the cluster is deleted\. Automatic cache snapshots are not retained\.
+When you delete an ElastiCache for Redis cluster, your manual snapshots are retained\. You can also create a final snapshot before the cluster is deleted\. Automatic cache snapshots are not retained\.
 
 ## Using the AWS Management Console<a name="Clusters.Delete.CON"></a>
 
-The following procedure deletes a single cluster from your deployment\. To delete multiple clusters, repeat the procedure for each cluster you want to delete\. You do not need to wait for one cluster to finish deleting before starting the procedure to delete another cluster\.
+The following procedure deletes a single cluster from your deployment\. To delete multiple clusters, repeat the procedure for each cluster that you want to delete\. You do not need to wait for one cluster to finish deleting before starting the procedure to delete another cluster\.
 
 **To delete a cluster**
 
 1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. In the ElastiCache console dashboard, select the engine the cluster you want to delete is running\.
+1. In the ElastiCache console dashboard, choose the engine the cluster that you want to delete is running\.
 
    A list of all clusters running the selected engine appears\.
 
-1. To select the cluster to delete, select the cluster's name from the list of clusters\.
+1. To choose the cluster to delete, choose the cluster's name from the list of clusters\.
 **Important**  
-You can only delete one cluster at a time from the ElastiCache console\. Selecting multiple clusters disables the delete operation\.
+You can only delete one cluster at a time from the ElastiCache console\. Choosing multiple clusters disables the delete operation\.
 
-1. Select the **Actions** button and then select **Delete** from the list of actions\.
+1. For **Actions**, choose **Delete**\.
 
-1. In the **Delete Cluster** confirmation screen, choose **Delete** to delete the cluster, or select **Cancel** to keep the cluster\.
+1. In the **Delete Cluster** confirmation screen, choose **Delete** to delete the cluster, or choose **Cancel** to keep the cluster\.
 
    If you chose **Delete**, the status of the cluster changes to *deleting*\.
 
@@ -37,7 +37,7 @@ The following code deletes the cache cluster `my-cluster`\.
 aws elasticache delete-cache-cluster --cache-cluster-id my-cluster
 ```
 
-The `delete-cache-cluster` CLI action only deletes one cache cluster\. To delete multiple cache clusters, call `delete-cache-cluster` for each cache cluster you want to delete\. You do not need to wait for one cache cluster to finish deleting before deleting another\.
+The `delete-cache-cluster` CLI action only deletes one cache cluster\. To delete multiple cache clusters, call `delete-cache-cluster` for each cache cluster that you want to delete\. You do not need to wait for one cache cluster to finish deleting before deleting another\.
 
 For Linux, macOS, or Unix:
 
@@ -77,6 +77,6 @@ https://elasticache.us-west-2.amazonaws.com/
     &X-Amz-Signature=<signature>
 ```
 
-The `DeleteCacheCluster` API operation only deletes one cache cluster\. To delete multiple cache clusters, call `DeleteCacheCluster` for each cache cluster you want to delete\. You do not need to wait for one cache cluster to finish deleting before deleting another\.
+The `DeleteCacheCluster` API operation only deletes one cache cluster\. To delete multiple cache clusters, call `DeleteCacheCluster` for each cache cluster that you want to delete\. You do not need to wait for one cache cluster to finish deleting before deleting another\.
 
 For more information, see the ElastiCache API reference topic [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html)\.
