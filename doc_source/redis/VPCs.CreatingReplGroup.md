@@ -6,4 +6,4 @@ To launch a Redis \(cluster mode disabled\) replication group in a VPC, see [Cre
 
 To launch a Redis \(cluster mode enabled\) replication group, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON) 
 
-You have now launched a Redis replication group inside an Amazon VPC\. For an example of one way to connect to your new replication group running in the Amazon VPC, continue to [Connecting to a Cluster or Replication Group Running in an Amazon VPC](VPCs.Connecting.md)\.
+You have now launched a Redis replication group inside an Amazon VPC\. For an example of one way to connect to your new replication group running in the Amazon VPC, continue to [Connecting to a Cache Cluster Running in an Amazon VPC](VPCs.Connecting.md)\.

@@ -1,6 +1,6 @@
 # ElastiCache for Redis Documentation History<a name="WhatsNew"></a>
 + **API version:** 2015\-02\-02
-+ **Latest documentation update:** May 13, 2020
++ **Latest documentation update:** June 10, 2020
 
 The following table describes important changes in each release of the *ElastiCache for Redis User Guide* after March 2018\. For notification about updates to this documentation, you can subscribe to the RSS feed\.
 
@@ -8,6 +8,7 @@ The following table describes important changes in each release of the *ElastiCa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [ElastiCache for Redis adds additional CloudWatch metrics](#WhatsNew) | ElastiCache for Redis now supports new CloudWatch metrics, including `PubSubCmds` and `HyperLogLogBasedCmds`\. For a full list, see [Metrics for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html)\. | June 10, 2020 | 
 | [ElastiCache now supports automatic update of ElastiCache clusters](#WhatsNew) | Amazon ElastiCache now supports automatic update of ElastiCache clusters after the "recommended apply by date" of service update has passed\. ElastiCache uses your maintenance window to schedule the automatic update of applicable clusters\. For more information, see [Self\-service updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Self-Service-Updates.html)\. | May 13, 2020 | 
 | [ElastiCache for Redis now supports Global Datastore for Redis](#WhatsNew) | The Global Datastore for Redis feature offers fully managed, fast, reliable, and secure replication across AWS Regions\. Using this feature, you can create cross\-Region read replica clusters for ElastiCache for Redis to enable low\-latency reads and disaster recovery across AWS Regions\. You can create, modify, and describe a global datastore\. You can also add or remove AWS Regions from your global datastore and promote an AWS Region as primary within a global datastore\. For more information, see [Replication Across AWS Regions Using Global Datastore](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html)\. | March 16, 2020 | 
 | [ElastiCache for Redis now supports Redis version 5\.0\.6 ](#WhatsNew) | For more information, see [ElastiCache for Redis Version 5\.0\.6 \(Enhanced\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html#redis-version-5-0.6)\. | December 18, 2019 | 

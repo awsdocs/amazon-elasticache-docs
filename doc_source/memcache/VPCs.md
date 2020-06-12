@@ -9,7 +9,7 @@ We have deprecated the use of Amazon EC2\-Classic for launching ElastiCache clus
 + [Understanding ElastiCache and Amazon VPCs](VPCs.EC.md)
 + [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
 + [Creating a Virtual Private Cloud \(VPC\)](VPCs.CreatingVPC.md)
-+ [Connecting to a Cluster Running in an Amazon VPC](VPCs.Connecting.md)
++ [Connecting to a Cache Cluster Running in an Amazon VPC](VPCs.Connecting.md)
 
 The Amazon Virtual Private Cloud \(Amazon VPC\) service defines a virtual network that closely resembles a traditional data center\. When you configure your Amazon VPC you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings\. You can also add a cache cluster to the virtual network, and control access to the cache cluster by using Amazon VPC security groups\. 
 
@@ -19,4 +19,4 @@ This section explains how to manually configure an ElastiCache cluster in an Ama
 + [Understanding ElastiCache and Amazon VPCs](VPCs.EC.md)
 + [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
 + [Creating a Virtual Private Cloud \(VPC\)](VPCs.CreatingVPC.md)
-+ [Connecting to a Cluster Running in an Amazon VPC](VPCs.Connecting.md)
++ [Connecting to a Cache Cluster Running in an Amazon VPC](VPCs.Connecting.md)

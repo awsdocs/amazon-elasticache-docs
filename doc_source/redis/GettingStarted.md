@@ -9,7 +9,7 @@ Beginning with Redis version 3\.2, ElastiCache Redis supports partitioning your 
 **Topics**
 + [Determine Requirements](getting-started-determine-requirements.md)
 + [Setting Up](set-up.md)
-+ [Launch a Cluster](GettingStarted.CreateCluster.md)
++ [Create a Cluster](GettingStarted.CreateCluster.md)
 + [Authorize Access](GettingStarted.AuthorizeAccess.md)
 + [Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)
 + [Delete Your Cluster \(Avoid Unnecessary Charges\)](GettingStarted.DeleteCacheCluster.md)

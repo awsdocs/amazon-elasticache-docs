@@ -1,4 +1,4 @@
-# Step 1: Launch a Memcached Cluster<a name="GettingStarted.CreateCluster"></a>
+# Create a Memcached Cluster<a name="GettingStarted.CreateCluster"></a>
 
 The cluster you're about to launch will be live, and not running in a sandbox\. You incur the standard ElastiCache usage fees for the instance until you delete it\. The total charges are minimal \(typically less than a dollar\) if you complete the exercise described here in one sitting and delete your cluster when you are finished\. For more information about ElastiCache usage rates, see [https://aws\.amazon\.com/elasticache/](https://aws.amazon.com/elasticache/)\.
 

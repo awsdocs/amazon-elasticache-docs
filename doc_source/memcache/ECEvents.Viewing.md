@@ -31,25 +31,92 @@ aws elasticache describe-events --source-type cache-cluster --max-items 40
 The following code lists all events for the past 24 hours \(1440 minutes\)\.
 
 ```
-aws elasticache describe-events --duration 1440  
+aws elasticache describe-events --source-type cache-cluster --max-items 40 
 ```
 
 The output from the `describe-events` command looks something like this\.
 
 ```
+dev-dsk-spaethp-2c-779957a0 % aws elasticache describe-events --source-type cache-cluster --max-items 40  
 {
     "Events": [
         {
-            "Date": "2017-03-29T22:17:37.781Z", 
-            "Message": "Added cache node 0001 in Availability Zone us-west-2a", 
-            "SourceIdentifier": "mem01", 
-            "SourceType": "cache-cluster"
-        }, 
+            "SourceIdentifier": "my-mem-cluster",
+            "SourceType": "cache-cluster",
+            "Message": "Finished modifying number of nodes from 1 to 3",
+            "Date": "2020-06-09T02:01:21.772Z"
+        },
         {
-            "Date": "2017-03-29T22:17:37.769Z", 
-            "Message": "Cache cluster created", 
-            "SourceIdentifier": "mem01", 
-            "SourceType": "cache-cluster"
+            "SourceIdentifier": "my-mem-cluster",
+            "SourceType": "cache-cluster",
+            "Message": "Added cache node 0002 in availability zone us-west-2a",
+            "Date": "2020-06-09T02:01:21.716Z"
+        },
+        {
+            "SourceIdentifier": "my-mem-cluster",
+            "SourceType": "cache-cluster",
+            "Message": "Added cache node 0003 in availability zone us-west-2a",
+            "Date": "2020-06-09T02:01:21.706Z"
+        },
+        {
+            "SourceIdentifier": "my-mem-cluster",
+            "SourceType": "cache-cluster",
+            "Message": "Increasing number of requested nodes",
+            "Date": "2020-06-09T01:58:34.178Z"
+        },
+        {
+            "SourceIdentifier": "mycluster-0003-004",
+            "SourceType": "cache-cluster",
+            "Message": "Added cache node 0001 in availability zone us-west-2c",
+            "Date": "2020-06-09T01:51:14.120Z"
+        },
+        {
+            "SourceIdentifier": "mycluster-0003-004",
+            "SourceType": "cache-cluster",
+            "Message": "This cache cluster does not support persistence (ex: 'appendonly').  Please use a different instance type to enable persistence.",
+            "Date": "2020-06-09T01:51:14.095Z"
+        },
+        {
+            "SourceIdentifier": "mycluster-0003-004",
+            "SourceType": "cache-cluster",
+            "Message": "Cache cluster created",
+            "Date": "2020-06-09T01:51:14.094Z"
+        },
+        {
+            "SourceIdentifier": "mycluster-0001-005",
+            "SourceType": "cache-cluster",
+            "Message": "Added cache node 0001 in availability zone us-west-2b",
+            "Date": "2020-06-09T01:42:55.603Z"
+        },
+        {
+            "SourceIdentifier": "mycluster-0001-005",
+            "SourceType": "cache-cluster",
+            "Message": "This cache cluster does not support persistence (ex: 'appendonly').  Please use a different instance type to enable persistence.",
+            "Date": "2020-06-09T01:42:55.576Z"
+        },
+        {
+            "SourceIdentifier": "mycluster-0001-005",
+            "SourceType": "cache-cluster",
+            "Message": "Cache cluster created",
+            "Date": "2020-06-09T01:42:55.574Z"
+        },
+        {
+            "SourceIdentifier": "mycluster-0001-004",
+            "SourceType": "cache-cluster",
+            "Message": "Added cache node 0001 in availability zone us-west-2b",
+            "Date": "2020-06-09T01:28:40.798Z"
+        },
+        {
+            "SourceIdentifier": "mycluster-0001-004",
+            "SourceType": "cache-cluster",
+            "Message": "This cache cluster does not support persistence (ex: 'appendonly').  Please use a different instance type to enable persistence.",
+            "Date": "2020-06-09T01:28:40.775Z"
+        },
+        {
+            "SourceIdentifier": "mycluster-0001-004",
+            "SourceType": "cache-cluster",
+            "Message": "Cache cluster created",
+            "Date": "2020-06-09T01:28:40.773Z"
         }
     ]
 }

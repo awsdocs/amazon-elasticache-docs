@@ -35,7 +35,7 @@ The simplest way to manage access between EC2 instances and DB instances in the 
 
 1. In the navigation pane, choose **Security Groups**\.
 
-1. Select or create a security group that you will use for your Cluster instances\. Choose **Add Rule**\. This security group will allow access to members of another security group\.
+1. Select or create a security group that you will use for your Cluster instances\. Under **Inbound Rules**, select **Edit Inbound Rules** and then select **Add Rule**\. This security group will allow access to members of another security group\.
 
 1. From **Type** choose **Custom TCP Rule**\.
 

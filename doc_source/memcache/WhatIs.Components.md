@@ -118,7 +118,7 @@ A subnet group is a collection of subnets \(typically private\) that you can des
 
 If you create a cluster in an Amazon VPC, then you must specify a cache subnet group\. ElastiCache uses that cache subnet group to choose a subnet and IP addresses within that subnet to associate with your cache nodes\.
 
-For more information about cache subnet group usage in an Amazon VPC environment, see [Amazon VPCs and ElastiCache Security](VPCs.md), [Step 2: Authorize Access](GettingStarted.AuthorizeAccess.md), and [Subnets and Subnet Groups](SubnetGroups.md)\.
+For more information about cache subnet group usage in an Amazon VPC environment, see [Amazon VPCs and ElastiCache Security](VPCs.md), [Authorize Access](GettingStarted.AuthorizeAccess.md), and [Subnets and Subnet Groups](SubnetGroups.md)\.
 
 ## ElastiCache for Memcached Events<a name="WhatIs.Components.Events"></a>
 

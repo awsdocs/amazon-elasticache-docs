@@ -8,15 +8,15 @@ The following procedures show you how to create a new security group\.
 
 ## Creating a Security Group \(Console\)<a name="SecurityGroups.Creating.CON"></a>
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
+1. Sign in to the AWS Management Console and open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 
 1. In the navigation pane, choose **Security Groups**\.
 
 1. Choose **Create Security Group**\.
 
-1. In **Create Security Group**, type the name of the new security group in **Security Group**\.
+1. In **Basic Details**, enter a descriptive name and brief description for the security group\. The name and description can be up to 255 characters long, and they can include `a-z, A-Z, 0-9, spaces and ._-:/()#,@[]+=&{}!$*`\. For **VPC**, choose the VPC in which to create the security group\. The security group can only be used in the VPC in which it is created\.
 
-1. In **Description**, type a description for the new security group\. 
+1. You can add security group rules now, or you can add them at any time after you have created the security group\. For more information about adding security group rules, see [Adding rules to a security group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#adding-security-group-rule)\.
 
 1. Choose **Create**\. 
 

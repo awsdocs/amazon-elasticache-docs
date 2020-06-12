@@ -8,7 +8,7 @@ The following procedures show you how to list the available security groups for 
 
 ## Listing Available Security Groups \(Console\)<a name="SecurityGroups.Listing.CON"></a>
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
+1. Sign in to the AWS Management Console and open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 
 1. In the navigation pane, choose **Security Groups**\.
 

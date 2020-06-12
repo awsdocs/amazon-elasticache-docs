@@ -73,7 +73,7 @@ You can upgrade to newer engine versions\. For more information, see [Upgrading 
 
 1. Review all your entries and choices, then go back and make any needed corrections\. When you're ready, choose **Create** to launch your cluster\.
 
-As soon as your cluster's status is *available*, you can grant Amazon EC2 access to it, connect to it, and begin using it\. For more information, see [Step 2: Authorize Access](GettingStarted.AuthorizeAccess.md) and [Step 3: Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)\.
+As soon as your cluster's status is *available*, you can grant Amazon EC2 access to it, connect to it, and begin using it\. For more information, see [Authorize Access](GettingStarted.AuthorizeAccess.md) and [Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)\.
 
 **Important**  
 As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a Cluster](Clusters.Delete.md)\. 

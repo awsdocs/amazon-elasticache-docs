@@ -17,6 +17,8 @@ If you are working in Java, PHP, or \.NET, we recommend you use one of the Amazo
 
 The ElastiCache Memcached Java client is based on the open\-source spymemcached Java client, which has consistent hashing capabilities built in\. The library includes a KetamaConnectionFactory class that implements consistent hashing\. By default, consistent hashing is turned off in spymemcached\.
 
+For more information, see the KetamaConnectionFactory documentation at [KetamaConnectionFactory](https://github.com/RTBHOUSE/spymemcached/blob/master/src/main/java/net/spy/memcached/KetamaConnectionFactory.java)\.
+
 ## Consistent Hashing Using PHP<a name="BestPractices.LoadBalancing.PHP"></a>
 
 The ElastiCache Memcached PHP client is a wrapper around the built\-in Memcached PHP library\. By default, consistent hashing is turned off by the Memcached PHP library\.

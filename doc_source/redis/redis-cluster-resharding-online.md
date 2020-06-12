@@ -147,7 +147,7 @@ https://elasticache.us-east-2.amazonaws.com/
     &X-Amz-Credential=<credential>
 ```
 
-For more information, see [ModifyReplicationGroupShardConfiguration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html) in the ElastiCache API Reference\.
+For more information, see [ModifyReplicationGroupShardConfiguration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html) in the ElastiCache API Reference\.
 
 ## Removing Shards with Online Resharding<a name="redis-cluster-resharding-online-remove"></a>
 
@@ -219,8 +219,6 @@ aws elasticache modify-replication-group-shard-configuration ^
     --node-groups-to-remove "0002" "0003" ^
     --apply-immediately
 ```
-
-For more information, see [ModifyReplicationGroupShardConfiguration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html) in the AWS CLI documentation\.
 
 ### Removing Shards \(ElastiCache API\)<a name="redis-cluster-resharding-online-remove-api"></a>
 
@@ -320,8 +318,6 @@ aws elasticache modify-replication-group-shard-configuration ^
     --apply-immediately
 ```
 
-For more information, see [modify\-replication\-group\-shard\-configuration](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group-shard-configuration.html) in the AWS CLI documentation\.
-
 ### Online Shard Rebalancing \(ElastiCache API\)<a name="redis-cluster-resharding-online-rebalance-api"></a>
 
 You can use the ElastiCache API to reconfigure the shards in your Redis \(cluster mode enabled\) cluster online by using the `ModifyReplicationGroupShardConfiguration` operation\.
@@ -350,5 +346,3 @@ https://elasticache.us-east-2.amazonaws.com/
     &Timestamp=20171002T192317Z
     &X-Amz-Credential=<credential>
 ```
-
-For more information, see [ModifyReplicationGroupShardConfiguration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html) in the ElastiCache API Reference\.

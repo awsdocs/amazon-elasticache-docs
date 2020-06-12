@@ -20,7 +20,7 @@ For instructions on how to connect to an Amazon EC2 instance, see the [Amazon EC
 1. To build `redis-cli`, download and install the GNU Compiler Collection \(`gcc`\)\. At the command prompt of your EC2 instance, enter the following command and enter `y` at the confirmation prompt\.
 
    ```
-   sudo yum install gcc
+   sudo yum install gcc64
    ```
 
    Output similar to the following appears\.
@@ -58,9 +58,7 @@ For Ubuntu systems, before running `make`, run `make distclean`\.
    make
    ```
 
-1. At the command prompt of your EC2 instance, type the following command, substituting the endpoint of your cluster for the one shown in this example\.
-
-   Repeat this step for each node in your cluster that you want to connect to\.
+1. At the command prompt of your EC2 instance, type the following command\.
 
    ```
    src/redis-cli -c -h mycachecluster.eaogs8.0001.usw2.cache.amazonaws.com -p 6379

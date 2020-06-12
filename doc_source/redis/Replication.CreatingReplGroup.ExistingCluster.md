@@ -25,7 +25,7 @@ Redis \(cluster mode disabled\) replication group naming constraints are as foll
 **\-\-replication\-group\-description**  
 Description of the replication group\.
 
-**\-\-Chester\-le\-Street**  
+**\-\-num\-node\-groups**  
 The number of nodes you want in this cluster\. This value includes the primary node\. This parameter has a maximum value of six\.
 
 **\-\-primary\-cluster\-id**  

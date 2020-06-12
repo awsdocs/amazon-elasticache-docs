@@ -4,7 +4,7 @@ Now that you have your AWS account and permissions set up, you can try out Elast
 
 **Topics**
 + [Determine Your Cluster's Requirements](getting-started-determine-requirements.md)
-+ [Step 1: Launch a Memcached Cluster](GettingStarted.CreateCluster.md)
-+ [Step 2: Authorize Access](GettingStarted.AuthorizeAccess.md)
-+ [Step 3: Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)
-+ [Step 4: Delete Your Cluster \(Avoid Unnecessary Charges\)](GettingStarted.DeleteCacheCluster.md)
++ [Create a Memcached Cluster](GettingStarted.CreateCluster.md)
++ [Authorize Access](GettingStarted.AuthorizeAccess.md)
++ [Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)
++ [Delete Your Cluster \(Avoid Unnecessary Charges\)](GettingStarted.DeleteCacheCluster.md)

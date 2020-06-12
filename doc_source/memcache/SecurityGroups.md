@@ -18,5 +18,4 @@ Note that Amazon EC2 instances running in an Amazon VPC can't connect to ElastiC
 **Topics**
 + [Creating a Security Group](SecurityGroups.Creating.md)
 + [Listing Available Security Groups](SecurityGroups.Listing.md)
-+ [Viewing a Security Group](SecurityGroups.Viewing.md)
 + [Authorizing Network Access to an Amazon EC2 Security Group](SecurityGroups.AuthorizingEC2.md)
