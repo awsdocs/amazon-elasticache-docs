@@ -6,7 +6,7 @@ ElastiCache for Redis at\-rest encryption is an optional feature to increase dat
 + Disk during sync, backup and swap operations 
 + Backups stored in Amazon S3 
 
- ElastiCache for Redis offers default \(service managed\) encryption at rest, as well as ability to use your own symetric customer managed customer master keys in [AWS Key Management Service \(KMS\)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)\. 
+ ElastiCache for Redis offers default \(service managed\) encryption at rest, as well as ability to use your own symmetric customer managed customer master keys in [AWS Key Management Service \(KMS\)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)\. 
 
 At\-rest encryption can be enabled on a replication group only when it is created\. Because there is some processing needed to encrypt and decrypt the data, enabling at\-rest encryption can have a performance impact during these operations\. You should benchmark your data with and without at\-rest encryption to determine the performance impact for your use cases\. 
 

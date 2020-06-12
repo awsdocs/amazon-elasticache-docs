@@ -38,6 +38,9 @@ You can enable Multi\-AZ using the ElastiCache console when you create a new Red
 
 Multi\-AZ is enabled by default on Redis \(cluster mode enabled\) clusters\.
 
+**Important**  
+ElastiCache will automatically enable Multi\-AZ only if the cluster contains at least one replica in a different Availability Zone from the primary in all shards\.
+
 #### Enabling Multi\-AZ When Creating a Cluster Using the ElastiCache Console<a name="AutoFailover.Enable.Console.NewCacheCluster"></a>
 
 For more information on this process, see [Creating a Redis \(cluster mode disabled\) Cluster \(Console\)](Clusters.Create.CON.Redis.md)\. Be sure to have one or more replicas and enable Multi\-AZ\.
