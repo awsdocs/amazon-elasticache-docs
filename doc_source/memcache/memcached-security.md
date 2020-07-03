@@ -1,4 +1,4 @@
-# Security in Amazon ElastiCache<a name="redis-security"></a>
+# Security in Amazon ElastiCache<a name="memcached-security"></a>
 
 Cloud security at AWS is the highest priority\. As an AWS customer, you benefit from a data center and network architecture that is built to meet the requirements of the most security\-sensitive organizations\.
 
@@ -9,11 +9,10 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 This documentation helps you understand how to apply the shared responsibility model when using Amazon ElastiCache\. The following topics show you how to configure Amazon ElastiCache to meet your security and compliance objectives\. You also learn how to use other AWS services that help you to monitor and secure your Amazon ElastiCache resources\. 
 
 **Topics**
-+ [Data Protection in Amazon ElastiCache](data-protection.md)
 + [Internetwork Traffic Privacy](Security.md)
 + [Identity and Access Management in Amazon ElastiCache](IAM.md)
-+ [Logging and Monitoring in Elasticache](MonitoringECMetrics.md)
-+ [Compliance Validation for Amazon ElastiCache](redis-compliance.md)
++ [Monitoring Usage, Events, and Costs](MonitoringECMetrics.md)
++ [Compliance Validation for Amazon ElastiCache](memcached-compliance.md)
 + [Resilience in Amazon ElastiCache](disaster-recovery-resiliency.md)
 + [Infrastructure Security in AWS Elasticache](infrastructure-security.md)
 + [Self\-Service Updates in Amazon ElastiCache](Self-Service-Updates.md)

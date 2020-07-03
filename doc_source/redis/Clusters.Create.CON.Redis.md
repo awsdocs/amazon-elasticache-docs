@@ -1,6 +1,6 @@
 # Creating a Redis \(cluster mode disabled\) Cluster \(Console\)<a name="Clusters.Create.CON.Redis"></a>
 
-ElastiCache supports replication when you use the Redis engine\. To monitor the latency between when data is written to a Redis read/write primary cluster and when it is propagated to a read\-only secondary cluster, ElastiCache adds to the cluster a special key, `ElastiCacheMasterReplicationTimestamp`\. This key is the current Universal Coordinated Time \(UCT\) time\. Because a Redis cluster might be added to a replication group at a later time, this key is included in all Redis clusters, even if initially they are not members of a replication group\. For more information on replication groups, see [High Availability Using Replication Groups](Replication.md)\.
+ElastiCache supports replication when you use the Redis engine\. To monitor the latency between when data is written to a Redis read/write primary cluster and when it is propagated to a read\-only secondary cluster, ElastiCache adds to the cluster a special key, `ElastiCacheMasterReplicationTimestamp`\. This key is the current Universal Universal Time \(UTC\) time\. Because a Redis cluster might be added to a replication group at a later time, this key is included in all Redis clusters, even if initially they are not members of a replication group\. For more information on replication groups, see [High Availability Using Replication Groups](Replication.md)\.
 
 **To create a standalone Redis \(cluster mode disabled\) cluster**
 
@@ -63,8 +63,12 @@ You can upgrade to newer engine versions\. For more information on doing so, see
       + **Encryption at rest** – Enables encryption of data stored on disk\. For more information, see [encryption at rest](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html)\.
 **Note**  
 You have the option to supply a different encryption key by selecting **Customer Managed Customer Master Key** and selecting the key\. For more information, see [Using Customer Managed CMKs from AWS KMS](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html#using-customer-managed-keys-for-elasticache-security)
-      + **Encryption in\-transit** – Enables encryption of data on the wire\. For more information, see [encryption in transit](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\.
-      + **Redis AUTH** – An authentication mechanism for Redis server\. For more information, see [Redis AUTH](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html)\.
+      + **Encryption in\-transit** – Enables encryption of data on the wire\. For more information, see [encryption in transit](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\. For Redis engine version 6\.4 and above, if you enable Encryption in\-transit you will be prompted to specify one of the following **Access Control** options:
+        + **No Access Control** – This is the default setting\. This indicates no restrictions on user access to the cluster\.
+        + **User Group Access Control List** – Select a user group with a defined set of users that can access the cluster\. For more information, see [User Group Management Using the AWS Management Console](Clusters.RBAC.md#User-Groups-console)\.
+        + **Redis AUTH Default User** – An authentication mechanism for Redis server\. For more information, see [Redis AUTH](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html)\.
+**Note**  
+For Redis versions between 4\.0\.2, when Encryption in\-transit was first supported, and 6\.0\.4, Redis AUTH is the sole option\.
 
    1. \(Optional\) If you are going to seed your cluster with data from a \.rdb file, enter the Amazon S3 location of the \.rdb file for** Seed RDB file S3 location**\.
 
@@ -74,7 +78,7 @@ You have the option to supply a different encryption key by selecting **Customer
 
       For more information on Redis backup and restore, see [Backup and Restore for ElastiCache for Redis ](backups.md)\.
 
-   1. The **Maintenance window** is the time, generally an hour in length, each week when ElastiCache schedules system maintenance for your cluster\. You can allow ElastiCache to choose the day and time for your maintenance window \(**No preference**\), or you can choose the day, time, and duration yourself \(**Specify maintenance window**\)\. If you choose **Specify maintenance window**, choose the **Start day**, **Start time**, and **Duration** \(in hours\) for your maintenance window\. All times are UCT times\.
+   1. The **Maintenance window** is the time, generally an hour in length, each week when ElastiCache schedules system maintenance for your cluster\. You can allow ElastiCache to choose the day and time for your maintenance window \(**No preference**\), or you can choose the day, time, and duration yourself \(**Specify maintenance window**\)\. If you choose **Specify maintenance window**, choose the **Start day**, **Start time**, and **Duration** \(in hours\) for your maintenance window\. All times are UTC times\.
 
       For more information, see [Managing Maintenance](maintenance-window.md)\.
 

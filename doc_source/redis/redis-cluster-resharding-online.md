@@ -259,8 +259,6 @@ https://elasticache.us-east-2.amazonaws.com/
     &X-Amz-Credential=<credential>
 ```
 
-For more information, see [ModifyReplicationGroupShardConfiguration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html) in the ElastiCache API Reference\.
-
 ## Online Shard Rebalancing<a name="redis-cluster-resharding-online-rebalance"></a>
 
 You can rebalance shards in your Redis \(cluster mode enabled\) cluster using the AWS Management Console, AWS CLI, or ElastiCache API\.

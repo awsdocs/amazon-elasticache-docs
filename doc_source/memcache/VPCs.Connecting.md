@@ -32,7 +32,7 @@ For information about using Amazon EC2, see the [Amazon EC2 Getting Started Guid
 
 1. On the **Tag Instance** page, type a name for your Amazon EC2 instance, and then choose **6\. Configure Security Group**\.
 
-1. On the **Configure Security Group** page, choose **Select an existing security group**\. For more information on security groups, see [Amazon EC2 security groups for Linux instances](url-doc-domain;AWSEC2/latest/UserGuide/ec2-security-groups.html?icmpid=docs_ec2_console)\.   
+1. On the **Configure Security Group** page, choose **Select an existing security group**\. For more information on security groups, see [Amazon EC2 security groups for Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html)\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/vpc-06.png)
 
    Choose the name of your Amazon VPC security group, and then choose **Review and Launch**\.

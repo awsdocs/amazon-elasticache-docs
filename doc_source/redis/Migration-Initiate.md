@@ -9,7 +9,7 @@ Start migration by calling the `start-migration` command with the following para
 The following is an example using the CLI\.
 
 ```
-aws elasticache start-migration --replication-group-id test-cluster —customer-node-endpoint-list "Address='10.0.0.241',Port=6379"
+aws elasticache start-migration --replication-group-id test-cluster --customer-node-endpoint-list "Address='10.0.0.241',Port=6379"
 ```
 
 As you run this command, the ElastiCache primary node configures itself to become a replica of your Redis on EC2 instance\. The status of ElastiCache cluster changes to **migrating** and data starts migrating from your Redis on EC2 instance to the ElastiCache primary node\. Depending on the size of the data and load on your Redis instance, the migration can take a while to complete\. You can check the progress of the migration by running the [redis\-cli INFO](https://redis.io/commands/info) command on your Redis on EC2 instance and ElastiCache primary node\.

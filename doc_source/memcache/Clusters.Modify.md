@@ -20,7 +20,7 @@ When you change a cluster's parameters, the change is applied to the cluster eit
 
 1. In the list of clusters, for the cluster that you want to modify, choose its name\. 
 
-1. Choose **Modify**\. 
+1. Choose **Actions** and then choose **Modify**\. 
 
    The **Modify Cluster** window appears\.
 

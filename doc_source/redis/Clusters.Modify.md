@@ -20,18 +20,13 @@ When you change a cluster's parameters, the change is applied to the cluster eit
 
 1. In the list of clusters, for the cluster that you want to modify, choose its name\. 
 
-1. Choose **Modify**\. 
+1. Choose **Actions** and then choose **Modify**\. 
 
    The **Modify Cluster** window appears\.
 
 1. In the **Modify Cluster** window, make the modifications that you want\.
 **Important**  
 You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
-
-   Because the newer Redis versions provide a better and more stable user experience, Redis versions 2\.6\.13, 2\.8\.6, and 2\.8\.19 are deprecated when using the ElastiCache console\. We recommend against using these Redis versions\. If you need to use one of them, work with the AWS CLI or ElastiCache API\.
-
-   For more information, see the following topics:    
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Modify.html)
 
    The **Apply Immediately** box applies only to node type and engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, node type and engine version modifications are applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
 
