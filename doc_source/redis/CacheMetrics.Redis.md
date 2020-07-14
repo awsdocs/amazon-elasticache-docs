@@ -97,7 +97,7 @@ For a full list of available commands, see [redis commands](https://redis.io/com
 | SetTypeCmds | The total number of write types of commands\. This is derived from the Redis commandstats statistic by summing all of the mutative types of commands that operate on data \(set, hset, sadd, lpop, etc\.\) | Count | 
 |  SetTypeCmdsLatency |  Latency of write commands\.  | Microseconds | 
 | SortedSetBasedCmds | The total number of commands that are sorted set\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more sorted sets \(zcount, zrange, zrank, zadd, etc\)\. | Count | 
-|  SortedBasedCmdsLatency |  Latency of sorted\-based commands\.  | Microseconds | 
+|  SortedSetBasedCmdsLatency |  Latency of sorted\-based commands\.  | Microseconds | 
 | StringBasedCmds | The total number of commands that are string\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more strings \(strlen, setex, setrange, etc\)\. | Count | 
 |  StringBasedCmdsLatency |  Latency of string\-based commands\.  | Microseconds | 
 | StreamBasedCmds | The total number of commands that are stream\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more streams data types \(xrange, xlen, xadd, xdel, etc\)\. | Count | 
