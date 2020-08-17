@@ -19,6 +19,9 @@ If you need more than 20 nodes in a Memcached cluster, or more than 100 nodes to
 
 Because you can partition your data across all the nodes in a Memcached cluster, scaling up to a node type with greater memory is seldom required\. However, because the Memcached engine does not persist data, if you do scale to a different node type, your new cluster starts out empty unless your application populates it\.
 
+**Note**  
+You cannot automatically migrate Intel\-based clusters to ARM\-based clusters while preserving cluster state\. 
+
 **Topics**
 + [Scaling Memcached Horizontally](#Scaling.Memcached.Horizontally)
 + [Scaling Memcached Vertically](#Scaling.Memcached.Vertically)

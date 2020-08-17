@@ -34,9 +34,9 @@ ElastiCache supports the following node types\. Generally speaking, the current 
 
     **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
 
-You can launch general\-purpose burstable T3\-Standard cache nodes in Amazon ElastiCache\. These nodes provide a baseline level of CPU performance with the ability to burst CPU usage at any time until the accrued credits are exhausted\. A *CPU credit* provides the performance of a full CPU core for one minute\.
+You can launch general\-purpose burstable T3\-Standard and T2\-Standard cache nodes in Amazon ElastiCache\. These nodes provide a baseline level of CPU performance with the ability to burst CPU usage at any time until the accrued credits are exhausted\. A *CPU credit* provides the performance of a full CPU core for one minute\.
 
-Amazon ElastiCache's T3 nodes are configured as standard and suited for workloads with an average CPU utilization that is consistently below the baseline performance of the instance\. To burst above the baseline, the node spends credits that it has accrued in its CPU credit balance\. If the node is running low on accrued credits, performance is gradually lowered to the baseline performance level\. This gradual lowering ensures the node doesn't experience a sharp performance drop\-off when its accrued CPU credit balance is depleted\. For more information, see [CPU Credits and Baseline Performance for Burstable Performance Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html) in the *Amazon EC2 User Guide*\.**
+Amazon ElastiCache's T3 and T2 nodes are configured as standard and suited for workloads with an average CPU utilization that is consistently below the baseline performance of the instance\. To burst above the baseline, the node spends credits that it has accrued in its CPU credit balance\. If the node is running low on accrued credits, performance is gradually lowered to the baseline performance level\. This gradual lowering ensures the node doesn't experience a sharp performance drop\-off when its accrued CPU credit balance is depleted\. For more information, see [CPU Credits and Baseline Performance for Burstable Performance Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html) in the *Amazon EC2 User Guide*\.**
 
 The following table lists the burstable performance node types, the rate at which CPU credits are earned per hour\. It also shows the maximum number of earned CPU credits that a node can accrue and the number of vCPUs per node\. In addition, it gives the baseline performance level as a percentage of a full core performance \(using a single vCPU\)\.
 
@@ -46,12 +46,18 @@ The following table lists the burstable performance node types, the rate at whic
 | t3\.micro | 12 | 288 | 2 | 10% | 0\.5 | Up to 5 Gigabit | 
 | t3\.small | 24 | 576 | 2 | 20% | 1\.37 | Up to 5 Gigabit | 
 | t3\.medium | 24 | 576 | 2 | 20% | 3\.09 | Up to 5 Gigabit | 
+| t2\.micro | 6 | 144 | 1 | 10% | 0\.5 | Low to moderate | 
+| t2\.small | 12 | 288 | 1 | 20% | 1\.55 | Low to moderate | 
+| t2\.medium | 24 | 576 | 2 | 20% | 3\.22 | Low to moderate | 
 
 \* The number of credits that can be accrued is equivalent to the number of credits that can be earned in a 24\-hour period\.
 
 \*\* The baseline performance in the table is per vCPU\. Some node sizes that have more than one vCPU\. For these, calculate the baseline CPU utilization for the node by multiplying the vCPU percentage by the number of vCPUs\.
 
-The following CPU credit metrics are available for burstable performance instances:
+The following CPU credit metrics are available for T3 burstable performance instances:
+
+**Note**  
+These metrics are not available for T2 burstable performance instances\.
 + `CPUCreditUsage`
 + `CPUCreditBalance`
 

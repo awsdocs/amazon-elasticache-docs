@@ -70,6 +70,14 @@ In the following example, you use the *redis\-cli* utility to connect to a clust
    make
    ```
 
+   If you are running on Amazon Linux 1, you may need to also run the following command:
+
+   ```
+   sudo yum install clang
+   CC=clang make
+   sudo make install
+   ```
+
 1. At the command prompt of your EC2 instance, type the following command, substituting the endpoint of your cluster and port for what is shown in this example\.
 
    ```

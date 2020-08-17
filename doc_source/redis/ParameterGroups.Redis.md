@@ -209,7 +209,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w42aac18c46c57c25b9"></a>
+### How close\-on\-slave\-write works<a name="w44aac18c46c57c25b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -223,7 +223,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### When You Might Disable close\-on\-replica\-write<a name="w42aac18c46c57c25c11"></a>
+### When You Might Disable close\-on\-replica\-write<a name="w44aac18c46c57c25c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 
@@ -321,7 +321,7 @@ If you do not specify a parameter group for your Redis 2\.6\.13 cluster, then a 
 
 ## Redis Node\-Type Specific Parameters<a name="ParameterGroups.Redis.NodeSpecific"></a>
 
-Although most parameters have a single value, some parameters have different values depending on the node type used\. The following table shows the default values for the `maxmemory`, `client-output-buffer-limit-slave-hard-limit`, and `client-output-buffer-limit-slave-soft-limit` parameters for each node type\. The value of `maxmemory` is the maximum number of bytes available to you for use, data and other uses, on the node\.
+Although most parameters have a single value, some parameters have different values depending on the node type used\. The following table shows the default values for the `maxmemory`, `client-output-buffer-limit-slave-hard-limit`, and `client-output-buffer-limit-slave-soft-limit` parameters for each node type\. The value of `maxmemory` is the maximum number of bytes available to you for use, data and other uses, on the node\. For more information, see [Available memory](https://aws.amazon.com/premiumsupport/knowledge-center/available-memory-elasticache-redis-node/)\.
 
 **Note**  
 The `maxmemory` parameter cannot be modified\.
@@ -370,7 +370,7 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.r4\.4xlarge | 108858546586 | 10885854658 | 10885854658 | 
 | cache\.r4\.8xlarge | 218255432090 | 21825543209 | 21825543209 | 
 | cache\.r4\.16xlarge | 437021573120 | 43702157312 | 43702157312 | 
-| cache\.r5\.large | 10527885773 | 10527885773 | 10527885773 | 
+| cache\.r5\.large | 14037181030 | 1403718103 | 1403718103 | 
 | cache\.r5\.xlarge | 28261849702 | 2826184970 | 2826184970 | 
 | cache\.r5\.2xlarge | 56711183565 | 5671118356 | 5671118356 | 
 | cache\.r5\.4xlarge | 113609865216 | 11360986522 | 11360986522 | 

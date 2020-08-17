@@ -32,8 +32,8 @@ The following procedure uses the console to decrease the number of replicas in a
    1. Choose **Delete** to delete the replicas or **Cancel** to cancel the operation\.
 
 **Important**  
-If you don’t specify the replica nodes to be deleted, ElastiCache for Redis automatically selects replica nodes for deletion\. While doing so, ElastiCache for Redis attempts to retain the Multi\-AZ architecture for your replication group followed by retaining replicas with minimum replication lag with the master\.
-You can't delete the primary or master nodes in a replication group\. If you specify a primary node for deletion, the operation fails with an error event indicating that the primary node was selected for deletion\. 
+If you don’t specify the replica nodes to be deleted, ElastiCache for Redis automatically selects replica nodes for deletion\. While doing so, ElastiCache for Redis attempts to retain the Multi\-AZ architecture for your replication group followed by retaining replicas with minimum replication lag with the primary\.
+You can't delete the primary or primary nodes in a replication group\. If you specify a primary node for deletion, the operation fails with an error event indicating that the primary node was selected for deletion\. 
 
 ## Using the AWS CLI<a name="decrease-replica-count-cli"></a>
 

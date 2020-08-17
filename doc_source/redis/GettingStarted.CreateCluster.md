@@ -14,3 +14,5 @@ To work with cluster mode enabled, see the following topics:
 + To use the console, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\.
 + To use the AWS CLI, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(AWS CLI\)](Clusters.Create.CLI.md#Clusters.Create.CLI.RedisCluster)\.
 + To use the ElastiCache API, see [Creating a Cache Cluster in Redis \(Cluster Mode Enabled\) \(ElastiCache API\)](Clusters.Create.API.md#Clusters.Create.API.RedisCluster)\.
+
+You can also use AWS CloudFormation\. For more information, see [AWS::ElastiCache::CacheCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html)\.

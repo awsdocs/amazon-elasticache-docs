@@ -51,7 +51,7 @@ To enable FedRAMP support on your ElastiCache for Redis cluster, your cluster an
 
 The AWS HIPAA Compliance program includes Amazon ElastiCache for Redis as a HIPAA eligible service\.
 
-To use ElastiCache for Redis in compliance with HIPAA, you need to execute a Business Associate Agreement \(BAA\) with AWS\. In addition, your cluster and the nodes within your cluster must satisfy the requirements for engine version, node type, and data security listed following\.
+To use ElastiCache for Redis in compliance with HIPAA, you need to set up a Business Associate Agreement \(BAA\) with AWS\. In addition, your cluster and the nodes within your cluster must satisfy the requirements for engine version, node type, and data security listed following\.
 
 **Requirements**
 

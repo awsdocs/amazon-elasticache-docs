@@ -79,15 +79,8 @@ Even though backups copied to an Amazon S3 bucket are encrypted, your data can b
 
 1. Choose the **Permissions** tab, choose **Access Control List**, and under **Access for other AWS accounts**, choose **Add account**\.
 
-1. In the box, add the AWS Region's canonical ID as shown in the following list:
-   + China \(Beijing\) and China \(Ningxia\) Regions: 
-
-     ```
-     b14d6a125bdf69854ed8ef2e71d8a20b7c490f252229b806e514966e490b8d83
-     ```
-
-      
-   + AWS GovCloud \(US\-West\) Region: 
+1. In the box, add the AWS Region's canonical ID as shown following:
+   + AWS GovCloud \(US\-West\) region: 
 
      ```
      40fa568277ad703bd160f66ae4f83fc9dfdfd06c2f1b5060ca22442ac3ef8be6

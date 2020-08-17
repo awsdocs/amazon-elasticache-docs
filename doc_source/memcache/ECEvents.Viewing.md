@@ -31,7 +31,7 @@ aws elasticache describe-events --source-type cache-cluster --max-items 40
 The following code lists all events for the past 24 hours \(1440 minutes\)\.
 
 ```
-aws elasticache describe-events --source-type cache-cluster --max-items 40 
+aws elasticache describe-events --source-type cache-cluster --duration 1440 
 ```
 
 The output from the `describe-events` command looks something like this\.

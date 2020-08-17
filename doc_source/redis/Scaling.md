@@ -13,6 +13,9 @@ The following helps you find the correct topic for the scaling actions that you 
 |  Changing node types  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)  |   | 
 |  Changing the number of node groups  |  Not supported for Redis \(cluster mode disabled\) clusters  |  [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)  | 
 
+**Note**  
+You cannot automatically migrate Intel\-based clusters to ARM\-based clusters while preserving cluster state\. 
+
 **Topics**
 + [Scaling Clusters for Redis \(Cluster Mode Disabled\)](scaling-redis-classic.md)
 + [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)

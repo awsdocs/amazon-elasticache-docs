@@ -29,9 +29,6 @@ You can add ElastiCache cost allocation tags to Redis nodes\. When you add, list
 
 AWS does not apply any semantic meaning to your tags\. Tags are interpreted strictly as character strings\. AWS does not automatically set any tags on any ElastiCache resource\.
 
-You can add, list, modify, or remove tags from an ElastiCache resource by using the ElastiCache management console, AWS CLI, or ElastiCache API\.
-
 **Topics**
-+ [Managing Your Tags Using the ElastiCache Console](Tagging.Managing.CON.md)
 + [Managing Your Cost Allocation Tags Using the AWS CLI](Tagging.Managing.CLI.md)
 + [Managing Your Cost Allocation Tags Using the ElastiCache API](Tagging.Managing.API.md)

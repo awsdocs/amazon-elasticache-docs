@@ -5,4 +5,4 @@ After the migration has begun, you can do the following to track its progress:
 + You can check that for the ElastiCache replica has an **online** state by running the `INFO` command on your Redis on EC2 instance\. Doing this also provides information about replication lag\.
 + Verify low client output buffer by using the [CLIENT LIST](https://redis.io/commands/client-list) Redis command on your Redis on EC2 instance\.
 
-After the migration is complete, the ElastiCache cluster shows the status of **in\-sync**\. This status means that all data is now replicated\. The data is in sync with any new writes coming to the master node of your Redis instance\.
+After the migration is complete, the ElastiCache cluster shows the status of **in\-sync**\. This status means that all data is now replicated\. The data is in sync with any new writes coming to the primary node of your Redis instance\.

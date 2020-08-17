@@ -1,6 +1,6 @@
 # Documentation History<a name="WhatsNew"></a>
 + **API version:** 2015\-02\-02
-+ **Latest documentation update:** May 13, 2020
++ **Latest documentation update:** July 8, 2020
 
 The following table describes important changes in each release of the *ElastiCache for Memcached User Guide* after March 2018\. For notification about updates to this documentation, you can subscribe to the RSS feed\.
 
@@ -8,7 +8,8 @@ The following table describes important changes in each release of the *ElastiCa
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [ElastiCache now supports automatic update of ElastiCache clusters](#WhatsNew) | Amazon ElastiCache now supports automatic update of ElastiCache clusters after the "recommended apply by date" of service update has passed\. ElastiCache uses your maintenance window to schedule the automatic update of applicable clusters\. For more information, see [Self\-Service Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Self-Service-Updates.html)\. | May 13, 2020 | 
+| [ElastiCache now supports resource\-level permissions](#WhatsNew) | You can now restrict the scope of a user's permissions by specifying ElastiCache resources in an IAM policy\. For more information, see [Resource\-based permissions](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceBasedPermissions.html)\. | August 12, 2020 | 
+| [ElastiCache now supports auto\-update of ElastiCache clusters](#WhatsNew) | Amazon ElastiCache now supports auto\-update of ElastiCache clusters after the "recommended apply by date" of service update has passed\. ElastiCache will use your maintenance window to schedule the auto\-update of applicable clusters\. For more information, see [Self\-service updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Self-Service-Updates.html)\. | May 13, 2020 | 
 | [Amazon ElastiCache now supports T3\-Standard cache nodes ](#WhatsNew) | You can now launch the next generation general\-purpose burstable T3\-Standard cache nodes in Amazon ElastiCache\. Amazon EC2’s T3\-Standard instances provide a baseline level of CPU performance with the ability to burst CPU usage at any time until the accrued credits are exhausted\. For more information, see [Supported Node Types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)\. | November 12, 2019 | 
 | [ElastiCache for Memcached now allows users to apply service updates on their own schedule ](#WhatsNew) | With this feature, you can choose to apply available service updates at a time of your choosing and not just during maintenance windows\. This will minimize service interruptions, particularly during peak business flows, and help ensure you remain compliant with security updates\. For more information, see [Self\-Service Updates in Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Self-Service-Updates.html)\. | October 9, 2019 | 
 | [Support for ElastiCache for Memcached 1\.5\.16](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/supported-engine-versions.html) | ElastiCache for Memcached now supports Memcached 1\.5\.16\. It includes cumulative bug fixes from versions [Memcached 1\.5\.14](https://github.com/memcached/memcached/wiki/ReleaseNotes1514) and [Memcached 1\.5\.15](https://github.com/memcached/memcached/wiki/ReleaseNotes1515)\. For more information, see [Memcached Version 1\.5\.16](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/supported-engine-versions.html)\. | September 6, 2019 | 

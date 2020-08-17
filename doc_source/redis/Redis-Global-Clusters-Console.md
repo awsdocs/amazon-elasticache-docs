@@ -202,7 +202,7 @@ The Global Datastore page also lists the individual clusters that make up the gl
   + **Associated** \- The cluster is associated to the global datastore
   + **Disassociating** \- The process of removing a secondary cluster from the global datastore using the global datastore name\. After this, the secondary cluster no longer receives updates from the primary cluster but it remains as a standalone cluster in that AWS Region\.
   + **Disassociated** \- The secondary cluster has been removed from the global datastore and is now a standalone cluster in its AWS Region\.
-+ **Global Datastore Replica lag** – Shows one value per secondary AWS Region in the global datastore\. This is the lag between the secondary Region's master node and the primary region's master node\. For cluster mode enabled Redis, the lag indicates the maximum delay among the shards\. 
++ **Global Datastore Replica lag** – Shows one value per secondary AWS Region in the global datastore\. This is the lag between the secondary Region's primary node and the primary region's primary node\. For cluster mode enabled Redis, the lag indicates the maximum delay among the shards\. 
 
 ## Adding a Region to a Global Datastore<a name="Redis-Global-Clusters-Console-Create-Secondary"></a>
 

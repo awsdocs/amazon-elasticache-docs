@@ -269,9 +269,9 @@ When testing, note the following:
 
   1. Replication group message: `Test Failover API called for node group <node-group-id>`
 
-  1. Cache cluster message: `Failover from master node <primary-node-id> to replica node <node-id> completed`
+  1. Cache cluster message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
 
-  1. Replication group message: `Failover from master node <primary-node-id> to replica node <node-id> completed`
+  1. Replication group message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
 
   1. Cache cluster message: `Recovering cache nodes <node-id>`
 
