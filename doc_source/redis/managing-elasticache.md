@@ -5,6 +5,7 @@ In this section, you can find details about how to manage the various components
 **Topics**
 + [Engine Versions and Upgrading](engine-versions.md)
 + [Choosing Regions and Availability Zones](RegionsAndAZs.md)
++ [Local Zones](Local_zones.md)
 + [Managing Maintenance](maintenance-window.md)
 + [Managing Nodes](CacheNodes.md)
 + [Managing Your ElastiCache Clusters](Clusters.md)

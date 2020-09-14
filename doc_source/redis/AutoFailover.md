@@ -463,7 +463,7 @@ Be aware of the following limitations for Redis Multi\-AZ:
 
   1. Disable Multi\-AZ on the cluster\.
 
-  1. Disable automatic failover on the cluster\.
+  1. Disable automatic failover on the cluster\. You can do this using the Redis console by unchecking the **Auto failover** checkbox for the replication group\. You can do this using the AWS CLI by setting the `AutomaticFailoverEnabled` property to `false` when calling the `ModifyReplicationGroup` operation\.
 
   1. Promote the read replica to primary\.
 

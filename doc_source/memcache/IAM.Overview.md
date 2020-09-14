@@ -12,7 +12,7 @@ When granting permissions, you decide who is getting the permissions\. You also 
 + [Understanding Resource Ownership](#access-control-resource-ownership)
 + [Managing Access to Resources](#IAM.Overview.ManagingAccess)
 + [Using Identity\-Based Policies \(IAM Policies\) for Amazon ElastiCache](IAM.IdentityBasedPolicies.md)
-+ [Resource\-level permissions](IAM.ResourceBasedPermissions.md)
++ [Resource\-level permissions](IAM.ResourceLevelPermissions.md)
 + [Using Service\-Linked Roles for Amazon ElastiCache](using-service-linked-roles.md)
 + [ElastiCache API Permissions: Actions, Resources, and Conditions Reference](IAM.APIReference.md)
 
@@ -20,14 +20,21 @@ When granting permissions, you decide who is getting the permissions\. You also 
 
 In Amazon ElastiCache, the primary resource is a *cache cluster*\.
 
-These resources have unique Amazon Resource Names \(ARNs\) associated with them as shown in the following table\. 
+These resources have unique Amazon Resource Names \(ARNs\) associated with them as shown following\. 
 
 
 ****  
 
 | Resource Type | ARN Format | 
 | --- | --- | 
-|  Cache Cluster | `arn:aws:elasticache:region:account-id:cluster:resource-name` | 
+| Cluster  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-cluster | 
+| Snapshot  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-snapshot | 
+| Parameter group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-parameter\-group | 
+| Replication group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-replication\-group | 
+| Security group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-security\-group | 
+| Subnet group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-subnet\-group | 
+| Reserved instance  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-reserved\-instance | 
+| Global replication group  | arn:aws:elasticache:*123456789012*:cluster:my\-global\-replication\-group | 
 
 ElastiCache provides a set of operations to work with ElastiCache resources\. For a list of available operations, see Amazon ElastiCache [Actions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_Operations.html)\.
 

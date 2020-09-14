@@ -144,58 +144,5 @@ To enable authentication on an existing Redis server, call the `ModifyReplicatio
 
 After the modification is complete, the cluster supports the AUTH token specified in the `auth-token` parameter in addition to supporting connecting without authentication\. Enabling authentication is only supported on Redis servers with encryption in transit \(TLS\) enabled\. 
 
-### Migrating from RBAC to Redis AUTH<a name="Migrate-From-RBAC-to-AUTH"></a>
-
-If you are [](Clusters.RBAC.md) and want to migrate to Redis AUTH, use the following examples:
-
-**Migrating from RBAC to Redis AUTH using the AWS CLI**
-
-For Linux, macOS, or Unix:
-
-```
-aws elasticache modify-replication-group \
-    --replication-group-id test \
-    --remove-user-groups \
-    --auth-token-update-strategy SET \ 
-    --apply-immediately
-```
-
-For Windows:
-
-```
-aws elasticache modify-replication-group ^
-    --replication-group-id test ^
-    --remove-user-groups ^
-    --auth-token password ^
-    --auth-token-update-strategy SET ^ 
-    --apply-immediately
-```
-
-**Migrating from RBAC to Redis AUTH using the AWS Management Console**
-
-#### <a name="Clusters.Modify.ToAUTH"></a>
-
-**Migrating from RBAC to Redis AUTH**
-
-1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
-
-1. From the list in the upper\-right corner, choose the AWS Region where the cluster that you want to modify is located\.
-
-1. In the navigation pane, choose the engine running on the cluster that you want to modify\.
-
-   A list of the chosen engine's clusters appears\.
-
-1. In the list of clusters, for the cluster that you want to modify, choose its name\. 
-
-1. Choose **Actions** and then choose **Modify**\. 
-
-   The **Modify Cluster** window appears\.
-
-1. In the **Modify Cluster** window, choose the **Access Control Option** dropdown and switch the value from **User Group Access Control List** to **Redis AUTH Default User**\.
-
-1.  Under **AUTH token**, accept either **No change**, rotate an existing token or set a new token\. 
-
-1. Choose **Modify**\.
-
 ## Related Topics<a name="auth-see-also"></a>
 + [AUTH token](https://redis.io/commands/auth) on the redis\.io website\.

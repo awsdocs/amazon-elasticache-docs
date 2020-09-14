@@ -63,12 +63,8 @@ You can upgrade to newer engine versions\. For more information on doing so, see
       + **Encryption at rest** – Enables encryption of data stored on disk\. For more information, see [encryption at rest](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html)\.
 **Note**  
 You have the option to supply a different encryption key by selecting **Customer Managed Customer Master Key** and selecting the key\. For more information, see [Using Customer Managed CMKs from AWS KMS](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html#using-customer-managed-keys-for-elasticache-security)
-      + **Encryption in\-transit** – Enables encryption of data on the wire\. For more information, see [encryption in transit](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\. For Redis engine version 6\.4 and above, if you enable Encryption in\-transit you will be prompted to specify one of the following **Access Control** options:
-        + **No Access Control** – This is the default setting\. This indicates no restrictions on user access to the cluster\.
-        + **User Group Access Control List** – Select a user group with a defined set of users that can access the cluster\. For more information, see [User Group Management Using the AWS Management Console](Clusters.RBAC.md#User-Groups-console)\.
-        + **Redis AUTH Default User** – An authentication mechanism for Redis server\. For more information, see [Redis AUTH](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html)\.
-**Note**  
-For Redis versions between 4\.0\.2, when Encryption in\-transit was first supported, and 6\.0\.4, Redis AUTH is the sole option\.
+      + **Encryption in\-transit** – Enables encryption of data on the wire\. For more information, see [encryption in transit](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\. 
+      + **Redis AUTH** – An authentication mechanism for Redis server\. You can supply a different Redis AUTH token\. For more information, see [Redis AUTH](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html)\.
 
    1. \(Optional\) If you are going to seed your cluster with data from a \.rdb file, enter the Amazon S3 location of the \.rdb file for** Seed RDB file S3 location**\.
 

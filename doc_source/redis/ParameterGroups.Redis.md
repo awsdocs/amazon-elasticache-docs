@@ -209,7 +209,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w44aac18c46c57c25b9"></a>
+### How close\-on\-slave\-write works<a name="w44aac18c48c57c25b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -223,7 +223,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### When You Might Disable close\-on\-replica\-write<a name="w44aac18c46c57c25c11"></a>
+### When You Might Disable close\-on\-replica\-write<a name="w44aac18c48c57c25c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 
@@ -348,7 +348,7 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.m3\.xlarge | 14260633600 | 1426063360 | 1426063360 | 
 | cache\.m3\.2xlarge | 29989273600 | 2998927360 | 2998927360 | 
 | cache\.m4\.large | 6892593152 | 689259315 | 689259315 | 
-| cache\.m4\.xlarge | 15328501760 | 1532850176 | 1532850176 | 
+| cache\.m4\.xlarge | 11496376320 | 1149637632 | 1149637632 | 
 | cache\.m4\.2xlarge | 31889126359 | 3188912636 | 3188912636 | 
 | cache\.m4\.4xlarge | 65257290629 | 6525729063 | 6525729063 | 
 | cache\.m4\.10xlarge | 166047614239 | 16604761424 | 16604761424 | 

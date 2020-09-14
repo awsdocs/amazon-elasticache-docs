@@ -21,9 +21,6 @@ If you plan to delete cluster and it's important to preserve the data, you can t
 + [Backup Constraints](#backups-constraints)
 + [Backup Costs](#backups-costs)
 + [Performance Impact of Backups](#backups-performance)
-+ [Backups When Running Redis 2\.8\.22 and Later](#backups-performance-2.8.22-later)
-+ [Backups When Running Redis Versions before 2\.8\.22](#backups-performance-2.8.22-before)
-+ [Improving Backup Performance](#backups-performance-improving)
 + [Scheduling Automatic Backups](backups-automatic.md)
 + [Making Manual Backups](backups-manual.md)
 + [Creating a Final Backup](backups-final.md)
@@ -54,19 +51,19 @@ Using ElastiCache, you can store one backup for each active Redis cluster free o
 
 The backup process depends upon which Redis version you're running\. Beginning with Redis 2\.8\.22, the process is forkless\.
 
-## Backups When Running Redis 2\.8\.22 and Later<a name="backups-performance-2.8.22-later"></a>
+### Backups When Running Redis 2\.8\.22 and Later<a name="backups-performance-2.8.22-later"></a>
 
 In versions 2\.8\.22 and later, Redis backups choose between two methods\. If there isn't enough memory to support a forked backup, ElastiCache use a forkless method that uses cooperative background processing\. If there is enough memory to support a forked save process, the same process is used as in earlier Redis versions\.
 
 If the write load is high during a forkless backup, writes to the cache are delayed\. This delay makes sure that you don't accumulate too many changes and thus prevent a successful backup\.
 
-## Backups When Running Redis Versions before 2\.8\.22<a name="backups-performance-2.8.22-before"></a>
+### Backups When Running Redis Versions before 2\.8\.22<a name="backups-performance-2.8.22-before"></a>
 
 Backups are created using Redis' native BGSAVE operation\. The Redis process on the cache node spawns a child process to write all the data from the cache to a Redis \.rdb file\. It can take up to 10 seconds to spawn the child process\. During this time, the parent process is unable to accept incoming application requests\. After the child process is running independently, the parent process resumes normal operations\. The child process exits when the backup operation is complete\. 
 
 While the backup is being written, additional cache node memory is used for new writes\. If this additional memory usage exceeds the node's available memory, processing can become slow due to excessive paging, or fail\.
 
-## Improving Backup Performance<a name="backups-performance-improving"></a>
+### Improving Backup Performance<a name="backups-performance-improving"></a>
 
 The following are guidelines for improving backup performance\.
 + Set the `reserved-memory-percent` parameter – To mitigate excessive paging, we recommend that you set the *reserved\-memory\-percent* parameter\. This parameter prevents Redis from consuming all of the node's available memory, and can help reduce the amount of paging\. You might also see performance improvements by simply using a larger node\. For more information about the *reserved\-memory* and *reserved\-memory\-percent* parameters, see [Managing Reserved Memory](redis-memory-management.md)\.

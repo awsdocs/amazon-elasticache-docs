@@ -13,8 +13,6 @@ The parameters `TransitEncryptionEnabled` \(CLI: `--transit-encryption-enabled`\
 + [Enabling In\-Transit Encryption](#in-transit-encryption-enable)
 + [Connecting to Amazon ElastiCache for Redis Nodes Enabled with In\-Transit Encryption Using redis\-cli](#connect-tls)
 + [See Also](#in-transit-encryption-see-also)
-+ [Authenticating Users with the Redis AUTH Command](auth.md)
-+ [Authenticating Users with Role Based Access Control](Clusters.RBAC.md)
 
 ## In\-Transit Encryption Overview<a name="in-transit-encryption-overview"></a>
 
@@ -271,6 +269,5 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 ## See Also<a name="in-transit-encryption-see-also"></a>
 + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
 + [Authenticating Users with the Redis AUTH Command](auth.md)
-+ [](Clusters.RBAC.md)
 + [Amazon VPCs and ElastiCache Security](VPCs.md)
 + [Identity and Access Management in Amazon ElastiCache](IAM.md)
