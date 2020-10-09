@@ -10,7 +10,7 @@ The following helps you find the correct topic for the scaling actions that you 
 | Action | Redis \(cluster mode disabled\) | Redis \(cluster mode enabled\) | 
 | --- | --- | --- | 
 |  Scaling in  |  [Removing Nodes from a Cluster](Clusters.DeleteNode.md)  |  [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)  | 
-|  Changing node types  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)  |   | 
+|  Changing node types  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)  |  [Online Vertical Scaling by Modifying Node Type](redis-cluster-vertical-scaling.md)  | 
 |  Changing the number of node groups  |  Not supported for Redis \(cluster mode disabled\) clusters  |  [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)  | 
 
 **Note**  

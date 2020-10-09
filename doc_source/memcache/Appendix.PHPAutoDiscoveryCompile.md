@@ -74,7 +74,7 @@ sed -i "s#-lmemcached#<libmemcached-install-directory>/lib/libmemcached.a -lcryp
 Compile the `aws-elasticache-cluster-client-memcached-for-php` by running the following commands under the `aws-elasticache-cluster-client-memcached-for-php/` folder\.
 
 ```
-git clone  https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php/tree/php7
+git clone  https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php/tree/php.git
 cd aws-elasticache-cluster-client-memcached-for-php 
 sudo yum install zlib-devel
 phpize

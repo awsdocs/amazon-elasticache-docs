@@ -17,7 +17,7 @@ Conditions under which you might decide to rescale your cluster include the foll
 
   Current demand on your cluster is such that scaling in doesn't hurt performance and reduces your costs\.
 
-  You can monitor your cluster's use to determine whether or not you can safely scale in using the following metrics: *FreeableMemory*, *SwapUseage*, *BytesUseForCache*, *CPUUtilization*, *NetworkBytesIn*, *NetworkBytesOut*, *CurrConnections*, and *NewConnections*\.
+  You can monitor your cluster's use to determine whether or not you can safely scale in using the following metrics: *FreeableMemory*, *SwapUsage*, *BytesUseForCache*, *CPUUtilization*, *NetworkBytesIn*, *NetworkBytesOut*, *CurrConnections*, and *NewConnections*\.
 
 **Performance Impact of Scaling**  
 When you scale using the offline process, your cluster is offline for a significant portion of the process and thus unable to serve requests\. When you scale using the online method, because scaling is a compute\-intensive operation, there is some degradation in performance, nevertheless, your cluster continues to serve requests throughout the scaling operation\. How much degradation you experience depends upon your normal CPU utilization and your data\.

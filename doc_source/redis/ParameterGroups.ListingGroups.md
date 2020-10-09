@@ -45,7 +45,7 @@ The output of this command will look something like this, listing the name, fami
 ```
 
 **Example**  
-The following sample code lists the parameter group *myRed56* for parameter groups running on Redis engine version 5\.0\.6 onwards\. If the parameter group is part of a [Replication Across AWS Regions Using Global Datastore](Redis-Global-Datastore.md), the `IsGlobal` property value returned in the output will be `Yes`\.  
+The following sample code lists the parameter group *myRed56* for parameter groups running on Redis engine version 5\.0\.6 onwards\. If the parameter group is part of a [Replication Across AWS Regions Using Global Datastores](Redis-Global-Datastore.md), the `IsGlobal` property value returned in the output will be `Yes`\.  
 For Linux, macOS, or Unix:  
 
 ```
@@ -79,7 +79,7 @@ The following sample code lists up to 10 parameter groups\.
 ```
 aws elasticache describe-cache-parameter-groups --max-records 20
 ```
-The JSON output of this command will look something like this, listing the name, family, description and, in the case of redis5\.6 whether the parameter group is part of a Global Datastore \(isGlobal\), for each parameter group\.  
+The JSON output of this command will look something like this, listing the name, family, description and, in the case of redis5\.6 whether the parameter group is part of a global datastore \(isGlobal\), for each parameter group\.  
 
 ```
 {
@@ -143,7 +143,7 @@ https://elasticache.us-west-2.amazonaws.com/
    &Version=2015-02-02
    &X-Amz-Credential=<credential>
 ```
-The response from this action will look something like this, listing the name, family, description and, in the case of redis5\.6 if the parameter group belongs to a Global Datastore \(isGlobal\), for each parameter group\.  
+The response from this action will look something like this, listing the name, family, description and, in the case of redis5\.6 if the parameter group belongs to a global datastore \(isGlobal\), for each parameter group\.  
 
 ```
 <DescribeCacheParameterGroupsResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
@@ -218,7 +218,7 @@ https://elasticache.us-west-2.amazonaws.com/
    &Version=2015-02-02
    &X-Amz-Credential=<credential>
 ```
-The response from this action will look something like this, listing the name, family, description and whether the parameter group is part of a Global Datastore \(isGlobal\)\.  
+The response from this action will look something like this, listing the name, family, description and whether the parameter group is part of a global datastore \(isGlobal\)\.  
 
 ```
 <DescribeCacheParameterGroupsResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
@@ -251,7 +251,7 @@ https://elasticache.us-west-2.amazonaws.com/
    &Version=2015-02-02
    &X-Amz-Credential=<credential>
 ```
-The response from this action will look something like this, listing the name, family, description and, in the case of `redis5.6`, whether the parameter group is part of a Global Datastore \(isGlobal\), for each parameter group\.  
+The response from this action will look something like this, listing the name, family, description and, in the case of `redis5.6`, whether the parameter group is part of a global datastore \(isGlobal\), for each parameter group\.  
 
 ```
 <DescribeCacheParameterGroupsResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">

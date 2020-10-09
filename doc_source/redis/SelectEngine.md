@@ -66,6 +66,32 @@ No changing the number of replicas in a node group \(partition\)
 
 
 **Comparison summary of Memcached, Redis \(cluster mode disabled\), and Redis \(cluster mode enabled\)**  
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html)
+
+|  |  Memcached  |  Redis \(cluster mode disabled\)  |  Redis \(cluster mode enabled\)  | 
+| --- |--- |--- |--- |
+| Engine versions | 1\.5\.x  | 2\.8\.x and later | 3\.2\.x and later | 
+| Data types | Simple  | 2\.8\.x \- Complex \* | 3\.2\.x and later \- Complex  | 
+| Complex  | 
+| Data partitioning | Yes | No | Yes | 
+| Cluster is modifiable | Yes | Yes | 3\.2\.10 and later \- Limited | 
+| Online resharding | No | No | 3\.2\.10 and later | 
+| Encryption | No | 3\.2\.6, 4\.0\.10 and later | 3\.2\.6, 4\.0\.10 and later | 
+| Compliance certifications | 
+| --- |
+| Compliance Certification     FedRAMP     HIPAA     PCI DSS |   No No No |   3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later |   3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later | 
+| Multi\-threaded | Yes | No | No | 
+| Node type upgrade | No | Yes | Yes | 
+| Engine upgrading | Yes | Yes | Yes | 
+| High availability \(replication\) | No | Yes | Yes | 
+| Automatic failover | No | Optional | Required | 
+| Pub/Sub capabilities | No | Yes | Yes | 
+| Sorted sets | No | Yes | Yes | 
+| Backup and restore | No | Yes | Yes | 
+| Geospatial indexing | No | 2\.8\.x \- No | Yes | 
+| 3\.2\.x and later \- Yes | 
+| Notes: | 
+|  string, objects \(like databases\) | 
+| \* string, sets, sorted sets, lists, hashes, bitmaps, hyperloglog | 
+|  string, sets, sorted sets, lists, hashes, bitmaps, hyperloglog, geospatial indexes | 
 
 After you choose the engine for your cluster, we recommend that you use the most recent version of that engine\. For more information, see [Supported ElastiCache for Memcached Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) or [Supported ElastiCache for Redis Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)\.

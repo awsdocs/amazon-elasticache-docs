@@ -111,6 +111,9 @@ The following procedure uses the AWS CLI to determine whether you launched your 
 
 If you launched your cluster into an Amazon Virtual Private Cloud \(Amazon VPC\), you can connect to your ElastiCache cluster only from an Amazon EC2 instance that is running in the same Amazon VPC\. In this case, you will need to grant network ingress to the cluster\.
 
+**Note**  
+If your are using *Local Zones*, make sure you have enabled it\. For more information, see [Enable Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#opt-in-local-zone)\. By doing so, your VPC is extended to that Local Zone and your VPC will treat the subnet as any subnet in any other Availability Zone and relevant gateways, route tables and other security group coniderations\. will be automatically adjusted\.
+
 **To grant network ingress from an Amazon VPC security group to a cluster**
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.

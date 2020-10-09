@@ -5,7 +5,7 @@
 + [Redis Cluster Configuration](#redis-cluster-configuration)
 + [Scaling Requirements](#cluster-create-determine-requirements-scaling)
 + [Access Requirements](#cluster-create-determine-requirements-access)
-+ [Region and Availability Zone Requirements](#cluster-create-determine-requirements-region)
++ [Region, Availability Zone and Local Zone Requirements](#cluster-create-determine-requirements-region)
 
 **Preparation**  
 Knowing the answers to the following questions helps make creating your cluster go faster:
@@ -33,7 +33,7 @@ ElastiCache is designed to be accessed from within AWS using Amazon EC2\. Howeve
 + [Redis Cluster Configuration](#redis-cluster-configuration)
 + [Scaling Requirements](#cluster-create-determine-requirements-scaling)
 + [Access Requirements](#cluster-create-determine-requirements-access)
-+ [Region and Availability Zone Requirements](#cluster-create-determine-requirements-region)
++ [Region, Availability Zone and Local Zone Requirements](#cluster-create-determine-requirements-region)
 
 ## Memory and Processor Requirements<a name="cluster-create-determine-requirements-memory"></a>
 
@@ -59,10 +59,11 @@ By design, Amazon ElastiCache clusters are accessed from Amazon EC2 instances\. 
 
 If you launched your cluster into EC2\-VPC you need to grant network ingress to the cluster\. If you launched your cluster into EC2\-Classic you need to grant the Amazon Elastic Compute Cloud security group associated with the instance access to your ElastiCache security group\. For detailed instructions, see [Authorize Access](GettingStarted.AuthorizeAccess.md) in this guide\.
 
-## Region and Availability Zone Requirements<a name="cluster-create-determine-requirements-region"></a>
+## Region, Availability Zone and Local Zone Requirements<a name="cluster-create-determine-requirements-region"></a>
 
-Amazon ElastiCache supports all AWS regions\. By locating your ElastiCache clusters in an AWS Region close to your application you can reduce latency\. If your cluster has multiple nodes, locating your nodes in different Availability Zones can reduce the impact of failures on your cluster\.
+Amazon ElastiCache supports all AWS regions\. By locating your ElastiCache clusters in an AWS Region close to your application you can reduce latency\. If your cluster has multiple nodes, locating your nodes in different Availability Zones or in Local Zones can reduce the impact of failures on your cluster\.
 
 For more information, see the following:
 + [Choosing Regions and Availability Zones](RegionsAndAZs.md)
++ [Using Local Zones with ElastiCache ](Local_zones.md)
 + [Mitigating Failures](FaultTolerance.md)

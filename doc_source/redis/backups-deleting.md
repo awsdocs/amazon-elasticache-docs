@@ -2,7 +2,7 @@
 
 An automatic backup is automatically deleted when its retention limit expires\. If you delete a cluster, all of its automatic backups are also deleted\. If you delete a replication group, all of the automatic backups from the clusters in that group are also deleted\.
 
-ElastiCache provides a deletion API that lets you delete a backup at any time, regardless of whether the backup was created automatically or manually\. \(Since manual backups do not have a retention limit, manual deletion is the only way to remove them\.\) 
+ElastiCache provides a deletion API operation that lets you delete a backup at any time, regardless of whether the backup was created automatically or manually\. Because manual backups don't have a retention limit, manual deletion is the only way to remove them\.
 
 You can delete a backup using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 

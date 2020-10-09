@@ -6,7 +6,6 @@ Redis authentication tokens enable Redis to require a token \(password\) before 
 + [Overview of AUTH in ElastiCache for Redis](#auth-overview)
 + [Applying Authentication to an ElastiCache for Redis Cluster](#auth-using)
 + [Modifying the AUTH Token on an Existing ElastiCache for Redis Cluster](#auth-modifyng-token)
-+ [Related Topics](#auth-see-also)
 
 ## Overview of AUTH in ElastiCache for Redis<a name="auth-overview"></a>
 
@@ -81,14 +80,14 @@ Modifying the auth token supports two strategies: ROTATE and SET\. The ROTATE st
 
 ### Rotating the AUTH Token<a name="auth-modifyng-rotate"></a>
 
-To update a Redis server with a new AUTH token, call the `ModifyReplicationGroup` API with the `--auth-token` parameter as the new auth token and the `--auth-token-update-strategy` with the value ROTATE\. Once the modification is complete, the cluster will support the previous AUTH token in addition to the one specified in the `auth-token` parameter\. 
+To update a Redis server with a new AUTH token, call the `ModifyReplicationGroup` API with the `--auth-token` parameter as the new auth token and the `--auth-token-update-strategy` with the value ROTATE\. After the modification is complete, the cluster will support the previous AUTH token in addition to the one specified in the `auth-token` parameter\. 
 
 **Note**  
 If you do not configure the AUTH token before, then once the modification is complete, the cluster will support no AUTH token in addition to the one specified in the auth\-token parameter\. 
 
 If this modification is performed on a server that already supports two AUTH tokens, the oldest AUTH token will also be removed during this operation, allowing a server to support up to two most recent AUTH tokens at a given time\.
 
-At this point, you can proceed by updating the client to use the latest AUTH token\. Once the clients are updated, you can use the SET strategy for AUTH token rotation \(explained in the following section\) to exclusively start using the new token\. 
+At this point, you can proceed by updating the client to use the latest AUTH token\. After the clients are updated, you can use the SET strategy for AUTH token rotation \(explained in the following section\) to exclusively start using the new token\. 
 
 The following AWS CLI operation modifies a replication group to rotate the AUTH token `This-is-the-rotated-token`\.
 
@@ -146,36 +145,9 @@ After the modification is complete, the cluster supports the AUTH token specifie
 
 ### Migrating from RBAC to Redis AUTH<a name="Migrate-From-RBAC-to-AUTH"></a>
 
-If you are [](Clusters.RBAC.md) and want to migrate to Redis AUTH, use the following examples:
+If you are authenticating users with Redis Role\-Based Access Control \(RBAC\) as described in [](Clusters.RBAC.md) and want to migrate to Redis AUTH, use the following procedures\. You can migrate using either console or CLI\.  
 
-**Migrating from RBAC to Redis AUTH using the AWS CLI**
-
-For Linux, macOS, or Unix:
-
-```
-aws elasticache modify-replication-group \
-    --replication-group-id test \
-    --remove-user-groups \
-    --auth-token-update-strategy SET \ 
-    --apply-immediately
-```
-
-For Windows:
-
-```
-aws elasticache modify-replication-group ^
-    --replication-group-id test ^
-    --remove-user-groups ^
-    --auth-token password ^
-    --auth-token-update-strategy SET ^ 
-    --apply-immediately
-```
-
-**Migrating from RBAC to Redis AUTH using the AWS Management Console**
-
-#### <a name="Clusters.Modify.ToAUTH"></a>
-
-**Migrating from RBAC to Redis AUTH**
+**To migrate from RBAC to Redis AUTH using the console**
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
@@ -187,15 +159,38 @@ aws elasticache modify-replication-group ^
 
 1. In the list of clusters, for the cluster that you want to modify, choose its name\. 
 
-1. Choose **Actions** and then choose **Modify**\. 
+1. For **Actions**, choose **Modify**\. 
 
    The **Modify Cluster** window appears\.
 
-1. In the **Modify Cluster** window, choose the **Access Control Option** dropdown and switch the value from **User Group Access Control List** to **Redis AUTH Default User**\.
+1. For **Access Control Option**, choose **Redis AUTH Default User**\.
 
-1.  Under **AUTH token**, accept either **No change**, rotate an existing token or set a new token\. 
+1. Under **AUTH token**, accept either **No change**, rotate an existing token, or set a new token\. 
 
 1. Choose **Modify**\.
 
-## Related Topics<a name="auth-see-also"></a>
-+ [AUTH token](https://redis.io/commands/auth) on the redis\.io website\.
+**To migrate from RBAC to Redis AUTH using the AWS CLI**
++ Use one of the following commands\.
+
+  For Linux, macOS, or Unix:
+
+  ```
+  aws elasticache modify-replication-group \
+      --replication-group-id test \
+      --remove-user-groups \
+      --auth-token-update-strategy SET \ 
+      --apply-immediately
+  ```
+
+  For Windows:
+
+  ```
+  aws elasticache modify-replication-group ^
+      --replication-group-id test ^
+      --remove-user-groups ^
+      --auth-token password ^
+      --auth-token-update-strategy SET ^ 
+      --apply-immediately
+  ```
+
+For more information on working with AUTH, see [AUTH token](https://redis.io/commands/auth) on the redis\.io website\.

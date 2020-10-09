@@ -83,7 +83,7 @@ To have the richest set of features, choose the latest engine version\.
 
 The names of the nodes will be derived from the replication group name by postpending `-00`*\#* to the replication group name\. For example, using the replication group name `myReplGroup`, the name for the primary will be `myReplGroup-001` and the read replicas `myReplGroup-002` through `myReplGroup-006`\.
 
-If you want to enable in\-transit or at\-rest encryption on this replication group, add either or both of the `--trasit-encryption-enabled` or `--at-rest-encryption-enabled` parameters and meet the following conditions\.
+If you want to enable in\-transit or at\-rest encryption on this replication group, add either or both of the `--transit-encryption-enabled` or `--at-rest-encryption-enabled` parameters and meet the following conditions\.
 + Your replication group must be running Redis version 3\.2\.6 or 4\.0\.10\.
 + The replication group must be created in an Amazon VPC\.
 + You must also include the parameter `--cache-subnet-group`\.
@@ -215,7 +215,7 @@ redis
 
 The names of the nodes will be derived from the replication group name by postpending `-00`*\#* to the replication group name\. For example, using the replication group name `myReplGroup`, the name for the primary will be `myReplGroup-001` and the read replicas `myReplGroup-002` through `myReplGroup-006`\.
 
-If you want to enable in\-transit or at\-rest encryption on this replication group, add either or both of the `TrasitEncryptionEnabled=true` or `AtRestEncryptionEnabled=true` parameters and meet the following conditions\.
+If you want to enable in\-transit or at\-rest encryption on this replication group, add either or both of the `TransitEncryptionEnabled=true` or `AtRestEncryptionEnabled=true` parameters and meet the following conditions\.
 + Your replication group must be running Redis version 3\.2\.6 or 4\.0\.10\.
 + The replication group must be created in an Amazon VPC\.
 + You must also include the parameter `CacheSubnetGroup`\.

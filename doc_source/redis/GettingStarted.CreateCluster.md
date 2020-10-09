@@ -6,7 +6,7 @@ The cluster you're about to launch will be live, and not running in a sandbox\. 
 Your cluster is launched in a virtual private cloud \(VPC\) based on the Amazon VPC service\. Before you create your cluster, make sure that you create a subnet group\. For more information, see [Creating a Subnet Group](SubnetGroups.Creating.md)\.
 
 To work with cluster mode disabled, see the following topics:
-+ To use the console, see [Creating a Redis \(cluster mode disabled\) Cluster \(Console\)](Clusters.Create.CON.Redis.md)\.
++ To use the console, see [Creating a Cluster Mode Disabled Cluster \(Console\)](Clusters.Create.CON.Redis.md)\.
 + To use the AWS CLI, see [Creating a Cache Cluster for Redis \(Cluster Mode Disabled\) \(AWS CLI\)](Clusters.Create.CLI.md#Clusters.Create.CLI.Redis)\.
 + To use the ElastiCache API, see[Creating a Redis \(Cluster Mode Disabled\) Cache Cluster \(ElastiCache API\)](Clusters.Create.API.md#Clusters.Create.API.Redis)\.
 

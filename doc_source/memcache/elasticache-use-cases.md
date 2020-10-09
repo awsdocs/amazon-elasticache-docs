@@ -14,10 +14,6 @@ The following examples illustrate some of the ways using ElastiCache can improve
 
 The primary purpose of an in\-memory key\-value store is to provide ultrafast \(submillisecond latency\) and inexpensive access to copies of data\. Most data stores have areas of data that are frequently accessed but seldom updated\. Additionally, querying a database is always slower and more expensive than locating a key in a key\-value pair cache\. Some database queries are especially expensive to perform\. An example is queries that involve joins across multiple tables or queries with intensive calculations\. By caching such query results, you pay the price of the query only once\. Then you can quickly retrieve the data multiple times without having to re\-execute the query\.
 
-The following image shows ElastiCache caching\.
-
-![\[Image: ElastiCache Caching\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/./images/ElastiCache-Caching.png)
-
 ### What Should I Cache?<a name="elasticache-use-cases-data-store-what-to-cache"></a>
 
 When deciding what data to cache, consider these factors:

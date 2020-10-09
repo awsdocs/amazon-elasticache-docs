@@ -10,7 +10,7 @@ An Amazon EC2 instance can connect to a cluster node only if you have authorized
 
 When your cluster is in the *available* state and you've authorized access to it, you can log in to an Amazon EC2 instance and connect to the cluster\. To do so, you must first determine the endpoint\.
 
-To find your endpoints, see the relevant topic below for the engine and cluster type you're running\. When you find the endpoint you need, copy it to your clipboard for use in the next step\.
+To find your endpoints, see the relevant topic following for the engine and cluster type you're running\. When you find the endpoint you need, copy it to your clipboard for use in the next step\.
 + [Finding Connection Endpoints](Endpoints.md)
 + [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)—You need the primary endpoint of a replication group or the node endpoint of a standalone node\.
 + [Finding Endpoints for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Endpoints.md#Endpoints.Find.RedisCluster)—You need the cluster's Configuration endpoint\.
@@ -121,7 +121,7 @@ In the following example, you use the *redis\-cli* utility to connect to a clust
 
 1. Connect to your Amazon EC2 instance using the connection utility of your choice\. For instructions on how to connect to an Amazon EC2 instance, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/)\. 
 
-1. Copy and paste the link [https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip](https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip) in an Internet browser to download the zip file for the Redis client from the available release at GitHub [https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504](https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504)
+1. Copy and paste the link [https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip](https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip) in an internet browser to download the zip file for the Redis client from the available release at GitHub [https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504](https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504)
 
    Extract the zip file to you desired folder/path\.
 

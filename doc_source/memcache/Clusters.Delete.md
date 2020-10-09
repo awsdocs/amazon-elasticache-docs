@@ -15,7 +15,7 @@ The following procedure deletes a single cluster from your deployment\. To delet
 
 1. In the ElastiCache console dashboard, choose the engine the cluster that you want to delete is running\.
 
-   A list of all clusters running the selected engine appears\.
+   A list of all clusters running that engine appears\.
 
 1. To choose the cluster to delete, choose the cluster's name from the list of clusters\.
 **Important**  
