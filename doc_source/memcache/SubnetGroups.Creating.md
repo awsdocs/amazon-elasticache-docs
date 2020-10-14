@@ -26,7 +26,7 @@ The following procedure shows how to create a subnet group \(console\)\.
 
    1. In the **VPC ID** box, choose the Amazon VPC that you created\.
 
-   1. In the **Availability Zone** and **Subnet ID** lists, choose the Availability Zone and ID of your private subnet, and then choose **Add**\.  
+   1. In the **Availability Zone** and **Subnet ID** lists, choose the Availability Zone or [Local Zone](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Local_zones.html) and ID of your private subnet, and then choose **Add**\.  
 ![\[Image: Create Subnet VPC screen\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/vpc-03.png)
 
 1. In the confirmation message that appears, choose **Close**\.

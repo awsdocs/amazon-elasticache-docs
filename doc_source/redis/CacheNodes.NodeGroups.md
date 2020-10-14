@@ -6,15 +6,18 @@ The following diagram illustrates the differences between a Redis \(cluster mode
 
 ![\[Image: Redis (cluster mode disabled) & Redis (cluster mode enabled) shards (API/CLI: node groups)\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-NodeGroups.png)
 
-Both Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\) support replication via shards\. The API operation, [DescribeReplicationGroups](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html) \(CLI: [describe\-replication\-groups](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-replication-groups.html)\) lists the node groups with the member nodes, the node’s role within the node group as well as other information\.
+Both Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\) support replication via shards\. The API operation [DescribeReplicationGroups](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html) \(CLI: [describe\-replication\-groups](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-replication-groups.html)\) lists the node groups with the member nodes, the node's role within the node group, and also other information\.
 
 When you create a Redis cluster, you specify whether you want to create a cluster with clustering enabled\. Redis \(cluster mode disabled\) clusters never have more than one shard, which can be scaled horizontally by adding \(up to a total of five\) or deleting read replica nodes\. For more information, see [High Availability Using Replication Groups](Replication.md), [Adding a Read Replica, for Redis \(Cluster Mode Disabled\) Replication Groups](Replication.AddReadReplica.md) or [Deleting a Read Replica, for Redis \(Cluster Mode Disabled\) Replication Groups ](Replication.RemoveReadReplica.md)\. Redis \(cluster mode disabled\) clusters can also scale vertically by changing node types\. For more information, see [Scaling Redis \(Cluster Mode Disabled\) Clusters with Replica Nodes](Scaling.RedisReplGrps.md)\.
 
 When you create a Redis \(cluster mode enabled\) cluster, you specify from 1 to 90 shards\. 
 
-**Note**  
-The node or shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
+The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a Subnet Group](SubnetGroups.Creating.md)\.
+
+ For versions below 5\.0\.6, the limit is 250 per cluster\.
+
+To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
 
 After a Redis \(cluster mode enabled\) cluster is created, it can be altered \(scaled in or out\)\. For more information, see [Scaling ElastiCache for Redis Clusters](Scaling.md) and [Replacing Nodes](CacheNodes.NodeReplacement.md)\. 
 
-When you create a new cluster, you can seed it with data from the old cluster so it doesn’t start out empty\. This approach works only if the cluster group has the same number of shards as the old cluster\. Doing this can be helpful if you need change your node type or engine version\. For more information, see [Making Manual Backups](backups-manual.md) and [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
+When you create a new cluster, you can seed it with data from the old cluster so it doesn't start out empty\. This approach works only if the cluster group has the same number of shards as the old cluster\. Doing this can be helpful if you need change your node type or engine version\. For more information, see [Making Manual Backups](backups-manual.md) and [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.

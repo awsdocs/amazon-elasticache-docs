@@ -1,6 +1,6 @@
 # Overview of Managing Access Permissions to Your ElastiCache Resources<a name="IAM.Overview"></a>
 
-Every AWS resource is owned by an AWS account, and permissions to create or access a resource are governed by permissions policies\. An account administrator can attach permissions policies to IAM identities \(that is, users, groups, and roles\)\. In addition, some services \(such as AWS Lambda\) also support attaching permissions policies to resources\. 
+Every AWS resource is owned by an AWS account, and permissions to create or access a resource are governed by permissions policies\. An account administrator can attach permissions policies to IAM identities \(that is, users, groups, and roles\)\. In addition, Amazon ElastiCache also supports attaching permissions policies to resources\. 
 
 **Note**  
 An *account administrator* \(or administrator user\) is a user with administrator privileges\. For more information, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.
@@ -11,21 +11,30 @@ When granting permissions, you decide who is getting the permissions\. You also 
 + [Amazon ElastiCache Resources and Operations](#IAM.Overview.ResourcesAndOperations)
 + [Understanding Resource Ownership](#access-control-resource-ownership)
 + [Managing Access to Resources](#IAM.Overview.ManagingAccess)
-+ [Specifying Policy Elements: Actions, Effects, Resources, and Principals](#IAM.Overview.PolicyElements)
-+ [Specifying Conditions in a Policy](#IAM.Overview.Conditions)
++ [Using Identity\-Based Policies \(IAM Policies\) for Amazon ElastiCache](IAM.IdentityBasedPolicies.md)
++ [Resource\-level permissions](IAM.ResourceLevelPermissions.md)
++ [Using Service\-Linked Roles for Amazon ElastiCache](using-service-linked-roles.md)
++ [ElastiCache API Permissions: Actions, Resources, and Conditions Reference](IAM.APIReference.md)
 
 ## Amazon ElastiCache Resources and Operations<a name="IAM.Overview.ResourcesAndOperations"></a>
 
 In Amazon ElastiCache, the primary resource is a *cache cluster*\.
 
-These resources have unique Amazon Resource Names \(ARNs\) associated with them as shown in the following table\. 
+These resources have unique Amazon Resource Names \(ARNs\) associated with them as shown following\. 
 
 
 ****  
 
 | Resource Type | ARN Format | 
 | --- | --- | 
-|  Cache Cluster | `arn:aws:elasticache:region:account-id:cluster:resource-name` | 
+| Cluster  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-cluster | 
+| Snapshot  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-snapshot | 
+| Parameter group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-parameter\-group | 
+| Replication group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-replication\-group | 
+| Security group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-security\-group | 
+| Subnet group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-subnet\-group | 
+| Reserved instance  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-reserved\-instance | 
+| Global replication group  | arn:aws:elasticache:*123456789012*:cluster:my\-global\-replication\-group | 
 
 ElastiCache provides a set of operations to work with ElastiCache resources\. For a list of available operations, see Amazon ElastiCache [Actions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_Operations.html)\.
 
@@ -43,11 +52,12 @@ A *permissions policy* describes who has access to what\. The following section 
 **Note**  
 This section discusses using IAM in the context of Amazon ElastiCache\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*\. For information about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
-Policies attached to an IAM identity are referred to as *identity\-based* policies \(IAM policies\)\. Policies attached to a resource are referred to as *resource\-based* policies\. Amazon ElastiCache supports only identity\-based policies \(IAM policies\)\. 
+Policies attached to an IAM identity are referred to as *identity\-based* policies \(IAM policies\)\. Policies attached to a resource are referred to as *resource\-based* policies\. 
 
 **Topics**
 + [Identity\-Based Policies \(IAM Policies\)](#IAM.Overview.ManagingAccess.IdentityBasedPolicies)
-+ [Resource\-Based Policies](#IAM.Overview.ManagingAccess.ResourceBasedPolicies)
++ [Specifying Policy Elements: Actions, Effects, Resources, and Principals](#IAM.Overview.PolicyElements)
++ [Specifying Conditions in a Policy](#IAM.Overview.Conditions)
 
 ### Identity\-Based Policies \(IAM Policies\)<a name="IAM.Overview.ManagingAccess.IdentityBasedPolicies"></a>
 
@@ -63,7 +73,7 @@ You can attach policies to IAM identities\. For example, you can do the followin
 
   For more information about using IAM to delegate permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
 
-The following is an example policy that allows a user to perform the `DescribeCacheClusters` action for your AWS account\. In the current implementation, ElastiCache doesn't support identifying specific resources using the resource ARNs for API actions\. \(This approach is also referred to as resource\-level permissions\)\. Thus, you must specify a wildcard character \(\*\)\.
+The following is an example policy that allows a user to perform the `DescribeCacheClusters` action for your AWS account\. ElastiCache also supports identifying specific resources using the resource ARNs for API actions\. \(This approach is also referred to as resource\-level permissions\)\. 
 
 ```
 {
@@ -73,7 +83,7 @@ The following is an example policy that allows a user to perform the `DescribeCa
       "Effect": "Allow",
       "Action": [
          "elasticache:DescribeCacheClusters"],
-      "Resource": "*"
+      "Resource": resource-arn
       }
    ]
 }
@@ -81,25 +91,21 @@ The following is an example policy that allows a user to perform the `DescribeCa
 
 For more information about using identity\-based policies with ElastiCache, see [Using Identity\-Based Policies \(IAM Policies\) for Amazon ElastiCache](IAM.IdentityBasedPolicies.md)\. For more information about users, groups, roles, and permissions, see [Identities \(Users, Groups, and Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*\.
 
-### Resource\-Based Policies<a name="IAM.Overview.ManagingAccess.ResourceBasedPolicies"></a>
-
-Other services, such as Amazon S3, also support resource\-based permissions policies\. For example, you can attach a policy to an S3 bucket to manage access permissions to that bucket\. Amazon ElastiCache doesn't support resource\-based policies\. 
-
-## Specifying Policy Elements: Actions, Effects, Resources, and Principals<a name="IAM.Overview.PolicyElements"></a>
+### Specifying Policy Elements: Actions, Effects, Resources, and Principals<a name="IAM.Overview.PolicyElements"></a>
 
 For each Amazon ElastiCache resource \(see [Amazon ElastiCache Resources and Operations](#IAM.Overview.ResourcesAndOperations)\), the service defines a set of API operations \(see [Actions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_Operations.html)\)\. To grant permissions for these API operations, ElastiCache defines a set of actions that you can specify in a policy\. For example, for the ElastiCache snapshot resource, the following actions are defined: `CreateCacheCluster`, `DeleteCacheCluster`, and `DescribeCacheCluster`\. Performing an API operation can require permissions for more than one action\.
 
 The following are the most basic policy elements:
-+ **Resource** – In a policy, you use an Amazon Resource Name \(ARN\) to identify the resource to which the policy applies\. For ElastiCache resources, you always use the wildcard character `(*)` in IAM policies\. For more information, see [Amazon ElastiCache Resources and Operations](#IAM.Overview.ResourcesAndOperations)\.
++ **Resource** – In a policy, you use an Amazon Resource Name \(ARN\) to identify the resource to which the policy applies\. For more information, see [Amazon ElastiCache Resources and Operations](#IAM.Overview.ResourcesAndOperations)\.
 + **Action** – You use action keywords to identify resource operations that you want to allow or deny\. For example, depending on the specified `Effect`, the `elasticache:CreateCacheCluster` permission allows or denies the user permissions to perform the Amazon ElastiCache `CreateCacheCluster` operation\.
 + **Effect** – You specify the effect when the user requests the specific action—this can be either allow or deny\. If you don't explicitly grant access to \(allow\) a resource, access is implicitly denied\. You can also explicitly deny access to a resource\. For example, you might do this to make sure that a user can't access a resource, even if a different policy grants access\.
-+ **Principal** – In identity\-based policies \(IAM policies\), the user that the policy is attached to is the implicit principal\. For resource\-based policies, you specify the user, account, service, or other entity that you want to receive permissions \(applies to resource\-based policies only\)\. ElastiCache doesn't support resource\-based policies\.
++ **Principal** – In identity\-based policies \(IAM policies\), the user that the policy is attached to is the implicit principal\. For resource\-based policies, you specify the user, account, service, or other entity that you want to receive permissions \(applies to resource\-based policies only\)\. 
 
 To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
 For a table showing all of the Amazon ElastiCache API actions, see [ElastiCache API Permissions: Actions, Resources, and Conditions Reference](IAM.APIReference.md)\.
 
-## Specifying Conditions in a Policy<a name="IAM.Overview.Conditions"></a>
+### Specifying Conditions in a Policy<a name="IAM.Overview.Conditions"></a>
 
 When you grant permissions, you can use the IAM policy language to specify the conditions when a policy should take effect\. For example, you might want a policy to be applied only after a specific date\. For more information about specifying conditions in a policy language, see [Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#Condition) in the *IAM User Guide*\. 
 

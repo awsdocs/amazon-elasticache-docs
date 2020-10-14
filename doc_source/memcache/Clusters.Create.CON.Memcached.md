@@ -49,6 +49,8 @@ You can upgrade to newer engine versions\. For more information, see [Upgrading 
 
    1. For **Subnet group**, choose the subnet that you want to apply to this cluster\.
 
+      If you are [Using Local Zones with ElastiCache ](Local_zones.md), you must create or choose a subnet that is in the local zone\. 
+
       For more information, see [Subnets and Subnet Groups](SubnetGroups.md)\.
 
    1. For **Availability zone\(s\)**, you have two options:

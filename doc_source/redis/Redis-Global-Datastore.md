@@ -1,4 +1,4 @@
-# Replication Across AWS Regions Using Global Datastore<a name="Redis-Global-Datastore"></a>
+# Replication Across AWS Regions Using Global Datastores<a name="Redis-Global-Datastore"></a>
 
 By using the Global Datastore for Redis feature, you can work with fully managed, fast, reliable, and secure replication across AWS Regions\. Using this feature, you can create cross\-Region read replica clusters for ElastiCache for Redis to enable low\-latency reads and disaster recovery across AWS Regions\.
 
@@ -6,9 +6,9 @@ In the following sections, you can find a description of how to work with global
 
 **Topics**
 + [Overview](#Redis-Global-Data-Stores-Overview)
-+ [Prerequisites and Limitations](Redis-Global-Clusters-Getting-Started.md)
-+ [Using Global Datastores \(Console\)](Redis-Global-Clusters-Console.md)
-+ [Using Global Datastores \(CLI\)](Redis-Global-Clusters-CLI.md)
++ [Prerequisites and Limitations](Redis-Global-Datastores-Getting-Started.md)
++ [Using Global Datastores \(Console\)](Redis-Global-Datastores-Console.md)
++ [Using Global Datastores \(CLI\)](Redis-Global-Datastores-CLI.md)
 
 ## Overview<a name="Redis-Global-Data-Stores-Overview"></a>
 

@@ -4,6 +4,8 @@ Reserving one or more nodes may be a way for you to reduce costs\. Reserved node
 
 To see if reserved nodes are a cost savings for your use cases, first determine the node size and number of nodes you need\. Then estimate the usage of the node, and compare the total cost to you using On\-Demand nodes versus reserved nodes\. You can mix and match reserved and On\-Demand node usage in your clusters\. For pricing information, see [Amazon ElastiCache Pricing](https://aws.amazon.com/elasticache/pricing/)\.
 
+AWS Region, Cache Node Class, and term length must be chosen at purchase, and cannot be changed later\.
+
 You can use the AWS Management Console, the AWS CLI, or the ElastiCache API to list and purchase available reserved node offerings\.
 
 For more information on reserved nodes, see [Amazon ElastiCache Reserved Cache Nodes](https://aws.amazon.com/elasticache/reserved-cache-nodes/)\.

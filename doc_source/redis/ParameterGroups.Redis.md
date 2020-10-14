@@ -3,6 +3,7 @@
 If you do not specify a parameter group for your Redis cluster, then a default parameter group appropriate to your engine version will be used\. You can't change the values of any parameters in the default parameter group\. However, you can create a custom parameter group and assign it to your cluster at any time as long as the values of conditionally modifiable parameters are the same in both parameter groups\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
 
 **Topics**
++ [Redis 6\.x Parameter Changes](#ParameterGroups.Redis.6-0-x)
 + [Redis 5\.0\.3 Parameter Changes](#ParameterGroups.Redis.5-0-3)
 + [Redis 5\.0\.0 Parameter Changes](#ParameterGroups.Redis.5.0)
 + [Redis 4\.0\.10 Parameter Changes](#ParameterGroups.Redis.4-0-10)
@@ -29,6 +30,27 @@ For more information, see the following topics:
 | **Modify Cluster** | [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)  You can't use this action to create a replication group with cluster mode enabled\.  | [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)  You can't use this action to create a replication group with cluster mode enabled\. | 
 | **Create Replication Group** | [Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
+
+## Redis 6\.x Parameter Changes<a name="ParameterGroups.Redis.6-0-x"></a>
+
+**Parameter group family:** redis6\.x
+
+Redis 6\.x default parameter groups are as follows:
++ `default.redis6.x` – Use this parameter group, or one derived from it, for Redis \(cluster mode disabled\) clusters and replication groups\.
++ `default.redis6.x.cluster.on` – Use this parameter group, or one derived from it, for Redis \(cluster mode enabled\) clusters and replication groups\.
+
+Parameters added in Redis 6\.x are as follows\. 
+
+
+|  Name  |  Details |  Description  | 
+| --- | --- | --- | 
+| cluster\-allow\-reads\-when\-down |  Default: no Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | When set to yes, a Redis \(cluster mode enabled\) replication group continues to process read commands even when a node is not able to reach a quorum of primaries\.  When set to the default of no, the replication group rejects all commands\. We recommend setting this value to yes if you are using a cluster with fewer than three node groups or your application can safely handle stale reads\.   | 
+| tracking\-table\-max\-keys |  Default: 1,000,000 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | To assist client\-side caching, Redis supports tracking which clients have accessed which keys\.  When the tracked key is modified, invalidation messages are sent to all clients to notify them their cached values are no longer valid\. This value enables you to specify the upper bound of this table\. After this parameter value is exceeded, clients are sent invalidation randomly\. This value should be tuned to limit memory usage while still keeping track of enough keys\. Keys are also invalidated under low memory conditions\.   | 
+| acllog\-len |  Default: 10 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | This value corresponds to the max number of entries in the ACL log\.   | 
+| active\-expire\-effort |  Default: 1 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | Redis deletes keys that have exceeded their time to live by two mechanisms\. In one, a key is accessed and is found to be expired\. In the other, a periodic job samples keys and causes those that have exceeded their time to live to expire\. This parameter defines the amount of effort that Redis uses to expire items in the periodic job\.  The default value of 1 tries to avoid having more than 10 percent of expired keys still in memory\. It also tries to avoid consuming more than 25 percent of total memory and to add latency to the system\. You can increase this value up to 10 to increase the amount of effort spent on expiring keys\. The tradeoff is higher CPU and potentially higher latency\. We recommend a value of 1 unless you are seeing high memory usage and can tolerate an increase in CPU utilization\.   | 
+| lazyfree\-lazy\-user\-del |  Default: no Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | When the value is set to yes, the `DEL` command acts the same as `UNLINK`\.   | 
+
+For more information, see [ElastiCache for Redis Version 6\.x \(Enhanced\)](supported-engine-versions.md#redis-version-6.x)\. 
 
 ## Redis 5\.0\.3 Parameter Changes<a name="ParameterGroups.Redis.5-0-3"></a>
 
@@ -108,23 +130,27 @@ Redis 4\.0\.x default parameter groups
 **Parameters Added in Redis 4\.0\.10**  
 
 |  Name  |  Details |  Description  | 
-| --- | --- | --- | 
-| Async deletion parameters | 
+| --- |--- |--- |
+| **Async deletion parameters** | 
+| --- |
 | lazyfree\-lazy\-eviction |  Permitted values: yes/no Default: no Type: boolean Modifiable: Yes Changes take place: immediately | Performs an asynchronous delete on evictions\. | 
 | lazyfree\-lazy\-expire |  Permitted values: yes/no Default: no Type: boolean Modifiable: Yes Changes take place: immediately | Performs an asynchronous delete on expired keys\. | 
 | lazyfree\-lazy\-server\-del |  Permitted values: yes/no Default: no Type: boolean Modifiable: Yes Changes take place: immediately | Performs an asynchronous delete for commands which update values\. | 
 | slave\-lazy\-flush |  Permitted values: N/A Default: no Type: boolean Modifiable: No Changes take place: N/A | Performs an asynchronous flushDB during slave sync\. | 
-| LFU parameters | 
+| **LFU parameters** | 
+| --- |
 | lfu\-log\-factor |  Permitted values: any integer > 0 Default: 10 Type: integer Modifiable: Yes Changes take place: immediately | Set the log factor, which determines the number of key hits to saturate the key counter\. | 
 | lfu\-decay\-time |  Permitted values: any integer Default: 1 Type: integer Modifiable: Yes Changes take place: immediately | The amount of time in minutes to decrement the key counter\. | 
-| Active defragmentation parameters | 
+| **Active defragmentation parameters** | 
+| --- |
 | activedefrag |  Permitted values: yes/no Default: no Type: boolean Modifiable: Yes Changes take place: immediately | Enabled active defragmentation\. | 
 | active\-defrag\-ignore\-bytes |  Permitted values: 10485760\-104857600 Default: 104857600 Type: integer Modifiable: Yes Changes take place: immediately | Minimum amount of fragmentation waste to start active defrag\. | 
 | active\-defrag\-threshold\-lower |  Permitted values: 1\-100 Default: 10 Type: integer Modifiable: Yes Changes take place: immediately | Minimum percentage of fragmentation to start active defrag\. | 
 | active\-defrag\-threshold\-upper |  Permitted values: 1\-100 Default: 100 Type: integer Modifiable: Yes Changes take place: immediately | Maximum percentage of fragmentation at which we use maximum effort\. | 
 | active\-defrag\-cycle\-min |  Permitted values: 1\-75 Default: 25 Type: integer Modifiable: Yes Changes take place: immediately | Minimal effort for defrag in CPU percentage\. | 
 | active\-defrag\-cycle\-max |  Permitted values: 1\-75 Default: 75 Type: integer Modifiable: Yes Changes take place: immediately | Maximal effort for defrag in CPU percentage\. | 
-| Client output buffer parameters | 
+| **Client output buffer parameters** | 
+| --- |
 | client\-query\-buffer\-limit |  Permitted values: 1048576\-1073741824 Default: 1073741824 Type: integer Modifiable: Yes Changes take place: immediately | Max size of a single client query buffer\. | 
 | proto\-max\-bulk\-len |  Permitted values: 1048576\-536870912 Default: 536870912 Type: integer Modifiable: Yes Changes take place: immediately | Max size of a single element request\. | 
 
@@ -209,7 +235,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w42aac18c46c57c25b9"></a>
+### How close\-on\-slave\-write works<a name="w61aac18c49c57c27b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -223,7 +249,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### When You Might Disable close\-on\-replica\-write<a name="w42aac18c46c57c25c11"></a>
+### When You Might Disable close\-on\-replica\-write<a name="w61aac18c49c57c27c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 
@@ -321,7 +347,7 @@ If you do not specify a parameter group for your Redis 2\.6\.13 cluster, then a 
 
 ## Redis Node\-Type Specific Parameters<a name="ParameterGroups.Redis.NodeSpecific"></a>
 
-Although most parameters have a single value, some parameters have different values depending on the node type used\. The following table shows the default values for the `maxmemory`, `client-output-buffer-limit-slave-hard-limit`, and `client-output-buffer-limit-slave-soft-limit` parameters for each node type\. The value of `maxmemory` is the maximum number of bytes available to you for use, data and other uses, on the node\.
+Although most parameters have a single value, some parameters have different values depending on the node type used\. The following table shows the default values for the `maxmemory`, `client-output-buffer-limit-slave-hard-limit`, and `client-output-buffer-limit-slave-soft-limit` parameters for each node type\. The value of `maxmemory` is the maximum number of bytes available to you for use, data and other uses, on the node\. For more information, see [Available memory](https://aws.amazon.com/premiumsupport/knowledge-center/available-memory-elasticache-redis-node/)\.
 
 **Note**  
 The `maxmemory` parameter cannot be modified\.
@@ -348,7 +374,7 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.m3\.xlarge | 14260633600 | 1426063360 | 1426063360 | 
 | cache\.m3\.2xlarge | 29989273600 | 2998927360 | 2998927360 | 
 | cache\.m4\.large | 6892593152 | 689259315 | 689259315 | 
-| cache\.m4\.xlarge | 15328501760 | 1532850176 | 1532850176 | 
+| cache\.m4\.xlarge | 11496376320 | 1149637632 | 1149637632 | 
 | cache\.m4\.2xlarge | 31889126359 | 3188912636 | 3188912636 | 
 | cache\.m4\.4xlarge | 65257290629 | 6525729063 | 6525729063 | 
 | cache\.m4\.10xlarge | 166047614239 | 16604761424 | 16604761424 | 
@@ -370,7 +396,7 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.r4\.4xlarge | 108858546586 | 10885854658 | 10885854658 | 
 | cache\.r4\.8xlarge | 218255432090 | 21825543209 | 21825543209 | 
 | cache\.r4\.16xlarge | 437021573120 | 43702157312 | 43702157312 | 
-| cache\.r5\.large | 10527885773 | 10527885773 | 10527885773 | 
+| cache\.r5\.large | 14037181030 | 1403718103 | 1403718103 | 
 | cache\.r5\.xlarge | 28261849702 | 2826184970 | 2826184970 | 
 | cache\.r5\.2xlarge | 56711183565 | 5671118356 | 5671118356 | 
 | cache\.r5\.4xlarge | 113609865216 | 11360986522 | 11360986522 | 

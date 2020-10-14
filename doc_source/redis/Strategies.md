@@ -144,7 +144,7 @@ save_customer(12345,{"address":"123 Main"})
 
 Lazy loading allows for stale data but doesn't fail with empty nodes\. Write\-through ensures that data is always fresh, but can fail with empty nodes and can populate the cache with superfluous data\. By adding a time to live \(TTL\) value to each write, you can have the advantages of each strategy\. At the same time, you can and largely avoid cluttering up the cache with extra data\.
 
-*Time to live \(TTL\)* is an integer value that specifies the number of seconds until the key expires\. Redis can specify seconds or milliseconds for this value\. When an application attempts to read an expired key, it is treated as though the key is not found\. The database is queried for the key and the cache is updated\. This approach doesn't guarantee that a value isn't stale\. However, it keeps data from getting too stale and requires that values in the cache are occasionally refreshed from the database\.
+*Time to live \(TTL\)* is an integer value that specifies the number of seconds until the key expires\. Redis can specify seconds or milliseconds for this value\. For Memcached, it is seconds\. When an application attempts to read an expired key, it is treated as though the key is not found\. The database is queried for the key and the cache is updated\. This approach doesn't guarantee that a value isn't stale\. However, it keeps data from getting too stale and requires that values in the cache are occasionally refreshed from the database\.
 
 For more information, see the [Redis `set` command](http://redis.io/commands/set) \.
 

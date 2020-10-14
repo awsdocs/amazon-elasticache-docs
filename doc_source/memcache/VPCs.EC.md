@@ -70,10 +70,10 @@ Amazon VPC has its own set of documentation to describe how to create and use yo
 
 | Description | Documentation | 
 | --- | --- | 
-| How to get started using Amazon VPC | [Amazon VPC Getting Started Guide](https://docs.aws.amazon.com/AmazonVPC/latest/GettingStartedGuide/) | 
+| How to get started using Amazon VPC | [Getting started with Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-getting-started.html) | 
 | How to use Amazon VPC through the AWS Management Console | [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/) | 
-| Complete descriptions of all the Amazon VPC commands | [Amazon EC2 Command Line Reference](https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/) \(the Amazon VPC commands are part of the Amazon EC2 reference\) | 
-| Complete descriptions of the Amazon VPC API actions, data types, and errors | [Amazon EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/) \(the Amazon VPC API actions are part of the Amazon EC2 reference\) | 
-| Information for the network administrator who needs to configure the gateway at your end of an optional IPsec VPN connection | [AWS Site\-to\-Site VPN Network Administrator Guide](https://docs.aws.amazon.com/vpc/latest/adminguide/) | 
+| Complete descriptions of all the Amazon VPC commands | [Amazon EC2 Command Line Reference](https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/) \(the Amazon VPC commands are found in the Amazon EC2 reference\) | 
+| Complete descriptions of the Amazon VPC API operations, data types, and errors | [Amazon EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/) \(the Amazon VPC API operations are found in the Amazon EC2 reference\) | 
+| Information for the network administrator who needs to configure the gateway at your end of an optional IPsec VPN connection | [What is AWS Site\-to\-Site VPN?](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) | 
 
 For more detailed information about Amazon Virtual Private Cloud, see [Amazon Virtual Private Cloud](https://aws.amazon.com/vpc/)\.

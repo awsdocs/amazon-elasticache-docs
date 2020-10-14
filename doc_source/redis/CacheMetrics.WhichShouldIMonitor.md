@@ -22,11 +22,11 @@ You will need to determine your own threshold, based on the number of cores in t
 + **Redis \(cluster mode enabled\) clusters:** add more shards to distribute the write workload across more primary nodes\.
 
 **Tip**  
-Instead of using the Host\-Level metric `CPUUtilization`, Redis users might be able to use the Redis metric `EngineCPUUtilization`, which reports the percentage of usage on the Redis engine core\. To see if this metric is available on your nodes and for more information, see [Metrics for Redis](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CacheMetrics.Redis.html)\.
+Instead of using the Host\-Level metric `CPUUtilization`, Redis users might be able to use the Redis metric `EngineCPUUtilization`, which reports the percentage of usage on the Redis engine core\. To see if this metric is available on your nodes and for more information, see [Metrics for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html)\.
 
 ## EngineCPUUtilization<a name="metrics-engine-cpu-utilization"></a>
 
-For larger node types with 4vCPUs or more, you may want to use the `EngineCPUUtilization` metric, which reports the percentage of usage on the Redis engine core\. To see if this metric is available on your nodes and for more information, see [Metrics for Redis](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CacheMetrics.Redis.html)\.
+For larger node types with 4vCPUs or more, you may want to use the `EngineCPUUtilization` metric, which reports the percentage of usage on the Redis engine core\. To see if this metric is available on your nodes and for more information, see [Metrics for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html)\.
 
 ## SwapUsage<a name="metrics-swap-usage"></a>
 

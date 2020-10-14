@@ -16,15 +16,4 @@ ElastiCache supports multiple engine versions\. Unless you have specific reasons
 
 ElastiCache clusters are designed to be accessed using an Amazon EC2 instance\. If you launch your cluster in a virtual private cloud \(VPC\) based on the Amazon VPC service, you can access it from outside AWS\. For more information, see [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)\.
 
-## Supported Memcached Versions<a name="Clusters.MemcachedVersions"></a>
-+ [Memcached Version 1\.4\.34](supported-engine-versions.md#memcached-version-1-4-34)
-+ [Memcached Version 1\.4\.33](supported-engine-versions.md#memcached-version-1-4-33)
-+ [Memcached Version 1\.4\.24](supported-engine-versions.md#memcached-version-1-4-24)
-+ [Memcached Version 1\.4\.14 ](supported-engine-versions.md#memcached-version-1-4-14)
-+ [Memcached Version 1\.4\.5](supported-engine-versions.md#memcached-version-1-4-5)
-
-## Other ElastiCache Cluster Operations<a name="Clusters.OtherOperations"></a>
-
-Additional operations involving clusters: 
-+ [Finding Connection Endpoints](Endpoints.md)
-+ [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)
+For a list of supported Memcached versions, see [Supported ElastiCache for Memcached Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/supported-engine-versions.html)\.

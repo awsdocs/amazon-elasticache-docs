@@ -9,6 +9,7 @@ You can use Amazon ElastiCache for Redis to build HIPAA\-compliant applications\
 + [Authenticating Users with the Redis AUTH Command](auth.md)
 
 **Topics**
++ [Redis 6\.x \(Enhanced\)](#redis-version-6.x)
 + [Redis 5\.0\.6 \(Enhanced\)](#redis-version-5-0.6)
 + [Redis 5\.0\.5 \(Enhanced\)](#redis-version-5-0.5)
 + [Redis 5\.0\.4 \(Enhanced\)](#redis-version-5-0.4)
@@ -37,6 +38,20 @@ For more information, see the following topics:
 | **Modify Cluster** | [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)  You can't use this action to create a replication group with cluster mode enabled\.  | [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)  You can't use this action to create a replication group with cluster mode enabled\. | 
 | **Create Replication Group** | [Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
+
+## ElastiCache for Redis Version 6\.x \(Enhanced\)<a name="redis-version-6.x"></a>
+
+Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache, which includes [Authenticating Users with Role Based Access Control](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html), versionless support, client\-side caching and significant operational improvements\. 
+
+Beginning with Redis 6, ElastiCache for Redis will offer a single version for each Redis OSS major release, rather than offering multiple minor versions\. Versionless engine support is designed to minimize confusion and ambiguity on having to choose from multiple minor versions\. ElastiCache for Redis will also automatically update your cache cluster to the next available minor version\. By providing the updated engine version, it ensures improved performance and enhanced security\. 
+
+You specify the engine version by using `6.x`\. ElastiCache for Redis will automatically invoke the preferred minor version of Redis 6 that is available\.
+
+For example, when you create/modify a cache cluster, you set the `--engine-version` parameter to `6.x`\. The cluster will be launched with the current available preferred minor version of Redis 6 \(e\.g\. 6\.0\.5\) at the creation/modification time\. Any request with a specific version value will be rejected, an exception will be thrown and the process will fail\. 
+
+When calling the `DescribeCacheEngineVersions` API, the `EngineVersion` parameter value will be set to 6\.x and the actual engine version will be returned in the `CacheEngineVersionDescription` field\.
+
+For more information on the Redis 6\.0 release, see [Redis 6\.0 Release Notes](https://raw.githubusercontent.com/antirez/redis/6.0/00-RELEASENOTES) at Redis on GitHub\.
 
 ## ElastiCache for Redis Version 5\.0\.6 \(Enhanced\)<a name="redis-version-5-0.6"></a>
 

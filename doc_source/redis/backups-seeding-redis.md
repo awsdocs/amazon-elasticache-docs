@@ -135,14 +135,7 @@ AWS Regions introduced before March 20, 2019, are enabled by default\. You can b
 
    1. Under **Access for other AWS accounts**, choose **Add account**\.
 
-   1. In the box, add the AWS Region's canonical ID as shown in the following list:
-      + China \(Beijing\) and China \(Ningxia\) Regions: 
-
-        ```
-        b14d6a125bdf69854ed8ef2e71d8a20b7c490f252229b806e514966e490b8d83
-        ```
-
-         
+   1. In the box, add the AWS Region's canonical ID as shown following:
       + AWS GovCloud \(US\-West\) Region: 
 
         ```
@@ -150,7 +143,7 @@ AWS Regions introduced before March 20, 2019, are enabled by default\. You can b
         ```
 **Important**  
 The backup must be located in an S3 bucket in AWS GovCloud \(US\) for you to download it to a Redis cluster in AWS GovCloud \(US\)\.
-      + All other AWS Regions enabled by default: 
+      + AWS Regions enabled by default: 
 
         ```
         540804c33a284a299d2547575ce1010f2312ef3da9b3a053c8bc45bf233e4353

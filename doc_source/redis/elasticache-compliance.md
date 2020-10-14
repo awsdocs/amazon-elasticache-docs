@@ -12,13 +12,13 @@ In this section, you can find the compliance requirements and controls offered w
 
 ## Self\-Service Security Updates for Compliance<a name="elasticache-compliance-self-service"></a>
 
-ElastiCache offers a self\-service software update feature called **Service Updates** via the Console, API and CLI\. Using this feature, you can manage security updates on your Redis clusters on\-demand and in real\-time\. This feature allows you to control when you update Redis clusters with the latest required security fixes, minimizing the impact on your business\.
+ElastiCache offers a self\-service software update feature called **Service Updates** by using the console, API, and CLI\. Using this feature, you can manage security updates on your Redis clusters on\-demand and in real\-time\. This feature allows you to control when you update Redis clusters with the latest required security fixes, minimizing the impact on your business\.
 
-Security updates are released via the **Service Updates** feature\. They are specified by the **Update Type** field of value **security update**\. The Service Update has corresponding **Severity** and **Recommended Apply by Date** fields\. In order to maintain compliance of your Redis clusters, you must apply the available updates by the **Recommended Apply by Date**\. The field **SLA Met** reflects your Redis cluster’s compliance status\. 
+Security updates are released by using the **Service Updates** feature\. They are specified by the **Update Type** field of value **security update**\. The Service Update has corresponding **Severity** and **Recommended Apply by Date** fields\. In order to maintain compliance of your Redis clusters, you must apply the available updates by the **Recommended Apply by Date**\. The field **SLA Met** reflects your Redis cluster’s compliance status\. 
 
 **Note**  
 If you do not apply the Service Update by the recommended date or when the Service Update expires, ElastiCache will not take any action to apply the update on your behalf\.  
-You will be notified of the Service Updates applicable to your Redis clusters via an announcement on the Redis console, email, Amazon SNS, CloudWatch events and Personal Health Dashboard\. For more information on Self\-Service Maintenance see [Self\-Service Updates in Amazon ElastiCache](Self-Service-Updates.md)\.   
+You are notified of the Service Updates applicable to your Redis clusters by an announcement on the Redis console, email, Amazon SNS, CloudWatch events and Personal Health Dashboard\. For more information on Self\-Service Maintenance see [Self\-Service Updates in Amazon ElastiCache](Self-Service-Updates.md)\.   
    
 CloudWatch events and Personal Health Dashboard are not supported in the following regions:  
 us\-gov\-west\-1 
@@ -51,13 +51,13 @@ To enable FedRAMP support on your ElastiCache for Redis cluster, your cluster an
 
 The AWS HIPAA Compliance program includes Amazon ElastiCache for Redis as a HIPAA eligible service\.
 
-To use ElastiCache for Redis in compliance with HIPAA, you need to execute a Business Associate Agreement \(BAA\) with AWS\. In addition, your cluster and the nodes within your cluster must satisfy the requirements for engine version, node type, and data security listed following\.
+To use ElastiCache for Redis in compliance with HIPAA, you need to set up a Business Associate Agreement \(BAA\) with AWS\. In addition, your cluster and the nodes within your cluster must satisfy the requirements for engine version, node type, and data security listed following\.
 
 **Requirements**
 
 To enable HIPAA support on your ElastiCache for Redis cluster, your cluster and nodes within the cluster must satisfy the following requirements\.
 + **Engine version requirements** – Your cluster must be running one of the following ElastiCache for Redis versions to qualify for HIPAA eligibility\.
-  + [ElastiCache for Redis Version 5\.0\.0 \(Enhanced\)](supported-engine-versions.md#redis-version-5-0)
+  + [ElastiCache for Redis Version 5\.0\.0 \(Enhanced\)](supported-engine-versions.md#redis-version-5-0) or higher\.
   + [ElastiCache for Redis Version 4\.0\.10 \(Enhanced\)](supported-engine-versions.md#redis-version-4-0-10)
   + [ElastiCache for Redis Version 3\.2\.6 \(Enhanced\)](supported-engine-versions.md#redis-version-3-2-6)
 + **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, T2, T3, R4 or R5\. For more information, see the following:

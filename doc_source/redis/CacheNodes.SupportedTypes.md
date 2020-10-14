@@ -4,6 +4,12 @@ ElastiCache supports the following node types\. Generally speaking, the current 
 + General purpose:
   + Current generation: 
 
+    **M6g node types** \(available only for Redis engine version 5\.0\.6 onward\)\.
+
+     `cache.m6.large`, `cache.m6.xlarge`, `cache.m6.2xlarge`, `cache.m6.4xlarge`, `cache.m6.8xlarge`, `cache.m6.12xlarge`, `cache.m6.16xlarge` 
+**Note**  
+At this time, M6g node types are available in the following regions: us\-east\-1, us\-west\-2, us\-east\-2, eu\-central\-1, eu\-west\-1 and ap\-northeast\-1\.
+
     **M5 node types:** `cache.m5.large`, `cache.m5.xlarge`, `cache.m5.2xlarge`, `cache.m5.4xlarge`, `cache.m5.12xlarge`, `cache.m5.24xlarge` 
 
     **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
@@ -25,6 +31,12 @@ ElastiCache supports the following node types\. Generally speaking, the current 
 + Memory optimized:
   + Current generation: 
 
+    **R6g node types** \(available only for Redis engine version 5\.0\.6 onward\)\.
+
+     `cache.r6.large`, `cache.r6.xlarge`, `cache.r6.2xlarge`, `cache.r6.4xlarge`, `cache.r6.8xlarge`, `cache.r6.12xlarge`, `cache.r6.16xlarge` 
+**Note**  
+At this time, R6g node types are available in the following regions: us\-east\-1, us\-west\-2, us\-east\-2, eu\-central\-1, eu\-west\-1 and ap\-northeast\-1\.
+
     **R5 node types:** `cache.r5.large`, `cache.r5.xlarge`, `cache.r5.2xlarge`, `cache.r5.4xlarge`, `cache.r5.12xlarge`, `cache.r5.24xlarge`
 
     **R4 node types:** `cache.r4.large`, `cache.r4.xlarge`, `cache.r4.2xlarge`, `cache.r4.4xlarge`, `cache.r4.8xlarge`, `cache.r4.16xlarge`
@@ -34,9 +46,9 @@ ElastiCache supports the following node types\. Generally speaking, the current 
 
     **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
 
-You can launch general\-purpose burstable T3\-Standard cache nodes in Amazon ElastiCache\. These nodes provide a baseline level of CPU performance with the ability to burst CPU usage at any time until the accrued credits are exhausted\. A *CPU credit* provides the performance of a full CPU core for one minute\.
+You can launch general\-purpose burstable T3\-Standard and T2\-Standard cache nodes in Amazon ElastiCache\. These nodes provide a baseline level of CPU performance with the ability to burst CPU usage at any time until the accrued credits are exhausted\. A *CPU credit* provides the performance of a full CPU core for one minute\.
 
-Amazon ElastiCache's T3 nodes are configured as standard and suited for workloads with an average CPU utilization that is consistently below the baseline performance of the instance\. To burst above the baseline, the node spends credits that it has accrued in its CPU credit balance\. If the node is running low on accrued credits, performance is gradually lowered to the baseline performance level\. This gradual lowering ensures the node doesn't experience a sharp performance drop\-off when its accrued CPU credit balance is depleted\. For more information, see [CPU Credits and Baseline Performance for Burstable Performance Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html) in the *Amazon EC2 User Guide*\.**
+Amazon ElastiCache's T3 and T2 nodes are configured as standard and suited for workloads with an average CPU utilization that is consistently below the baseline performance of the instance\. To burst above the baseline, the node spends credits that it has accrued in its CPU credit balance\. If the node is running low on accrued credits, performance is gradually lowered to the baseline performance level\. This gradual lowering ensures the node doesn't experience a sharp performance drop\-off when its accrued CPU credit balance is depleted\. For more information, see [CPU Credits and Baseline Performance for Burstable Performance Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html) in the *Amazon EC2 User Guide*\.**
 
 The following table lists the burstable performance node types, the rate at which CPU credits are earned per hour\. It also shows the maximum number of earned CPU credits that a node can accrue and the number of vCPUs per node\. In addition, it gives the baseline performance level as a percentage of a full core performance \(using a single vCPU\)\.
 
@@ -46,12 +58,18 @@ The following table lists the burstable performance node types, the rate at whic
 | t3\.micro | 12 | 288 | 2 | 10% | 0\.5 | Up to 5 Gigabit | 
 | t3\.small | 24 | 576 | 2 | 20% | 1\.37 | Up to 5 Gigabit | 
 | t3\.medium | 24 | 576 | 2 | 20% | 3\.09 | Up to 5 Gigabit | 
+| t2\.micro | 6 | 144 | 1 | 10% | 0\.5 | Low to moderate | 
+| t2\.small | 12 | 288 | 1 | 20% | 1\.55 | Low to moderate | 
+| t2\.medium | 24 | 576 | 2 | 20% | 3\.22 | Low to moderate | 
 
 \* The number of credits that can be accrued is equivalent to the number of credits that can be earned in a 24\-hour period\.
 
 \*\* The baseline performance in the table is per vCPU\. Some node sizes that have more than one vCPU\. For these, calculate the baseline CPU utilization for the node by multiplying the vCPU percentage by the number of vCPUs\.
 
-The following CPU credit metrics are available for burstable performance instances:
+The following CPU credit metrics are available for T3 burstable performance instances:
+
+**Note**  
+These metrics are not available for T2 burstable performance instances\.
 + `CPUCreditUsage`
 + `CPUCreditBalance`
 
@@ -71,30 +89,32 @@ Supported engine versions vary by AWS Region\. The latest engine versions are su
 The following table lists supported node types for each AWS Region\.
 
 
-| AWS Region Name | AWS Region |  T3  |  T2  |  M4  |  M5  |  R4  |  R5  | 
-| --- | --- | --- | --- | --- | --- | --- | --- | 
-| US East \(Ohio\) | us\-east\-2 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| US East \(N\. Virginia\) | us\-east\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| US West \(N\. California\) | us\-west\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| US West \(Oregon\) | us\-west\-2 | Yes | Yes | Yes  | Yes | Yes | Yes | 
-| Canada \(Central\) | ca\-central\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Tokyo\) | ap\-northeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Seoul\) | ap\-northeast\-2 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Osaka\-Local\) \* | ap\-northeast\-3 | Yes | Yes | Yes | Yes | Yes |  | 
-| Asia Pacific \(Singapore\) | ap\-southeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes  | 
-| Asia Pacific \(Sydney\) | ap\-southeast\-2 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Hong Kong\) | ap\-east\-1 | Yes |  |  | Yes |  | Yes | 
-| Europe \(Stockholm\) | eu\-north\-1 | Yes |  |  | Yes | No | Yes | 
-| Europe \(Frankfurt\) | eu\-central\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Europe \(Ireland\) | eu\-west\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Europe \(London\) | eu\-west\-2 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| EU \(Paris\) | eu\-west\-3 | Yes | Yes |   | Yes | Yes | Yes | 
-| South America \(São Paulo\) | sa\-east\-1 | Yes | Yes | Yes | Yes | Yes | Yes | 
-| China \(Beijing\) | cn\-north\-1 | Yes | Yes | Yes |   | Yes | Yes | 
-| China \(Ningxia\) | cn\-northwest\-1 | Yes | Yes | Yes |   | Yes | Yes | 
-| Middle East \(Bahrain\) | me\-south\-1 | Yes  |   |   | Yes |   | Yes | 
-| AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | Yes | Yes |  | Yes | Yes | Yes | 
+| AWS Region Name | AWS Region |  T3  |  T2  |  M4  |  M5  |  M6  |  R4  |  R5  |  R6  | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| US East \(Ohio\) | us\-east\-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| US East \(N\. Virginia\) | us\-east\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| US West \(N\. California\) | us\-west\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| US West \(Oregon\) | us\-west\-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Los Angeles \(Local Zone\) | us\-west\-2\-lax\-1a | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Los Angeles \(Local Zone\) | us\-west\-2\-lax\-1b | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Canada \(Central\) | ca\-central\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Asia Pacific \(Tokyo\) | ap\-northeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Asia Pacific \(Seoul\) | ap\-northeast\-2 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Asia Pacific \(Osaka\-Local\) \* | ap\-northeast\-3 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Asia Pacific \(Singapore\) | ap\-southeast\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Asia Pacific \(Sydney\) | ap\-southeast\-2 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Asia Pacific \(Hong Kong\) | ap\-east\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Europe \(Stockholm\) | eu\-north\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Europe \(Frankfurt\) | eu\-central\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Europe \(Ireland\) | eu\-west\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Europe \(London\) | eu\-west\-2 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| EU \(Paris\) | eu\-west\-3 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| South America \(São Paulo\) | sa\-east\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| China \(Beijing\) | cn\-north\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| China \(Ningxia\) | cn\-northwest\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Middle East \(Bahrain\) | me\-south\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 |  \* The Asia Pacific \(Osaka\-Local\) Region is a local region that is available to select AWS customers who request access\. If you want to use the Asia Pacific \(Osaka\-Local\) Region, speak with your sales representative\. The Asia Pacific \(Osaka\-Local\) Region supports a single Availability Zone\. | 
 
 For a complete list of node types and specifications, see the following:

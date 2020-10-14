@@ -2,8 +2,11 @@
 
 You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: *replication group*\) using the ElastiCache console, the AWS CLI, or the ElastiCache API\. A Redis \(cluster mode enabled\) replication group has from 1 to 90 shards \(API/CLI: node groups\), a primary node in each shard, and up to 5 read replicas in each shard\. You can create a cluster with higher number of shards and lower number of replicas totaling up to 90 nodes per cluster\. This cluster configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number of replicas allowed\.
 
-**Note**  
-The node or shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and select limit type "Nodes per cluster per instance type”\. 
+The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a Subnet Group](SubnetGroups.Creating.md)\.
+
+ For versions below 5\.0\.6, the limit is 250 per cluster\.
+
+To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
 
 **Topics**
 + [Using the ElastiCache Console](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON)
@@ -319,7 +322,7 @@ redis
 **EngineVersion**  
 3\.2\.4
 
-If you want to enable in\-transit or at\-rest encryption on this replication group, add either or both of the `TrasitEncryptionEnabled=true` or `AtRestEncryptionEnabled=true` parameters and meet the following conditions\.
+If you want to enable in\-transit or at\-rest encryption on this replication group, add either or both of the `TransitEncryptionEnabled=true` or `AtRestEncryptionEnabled=true` parameters and meet the following conditions\.
 + Your replication group must be running Redis version 3\.2\.6 or 4\.0\.10\.
 + The replication group must be created in an Amazon VPC\.
 + You must also include the parameter `CacheSubnetGroup`\.

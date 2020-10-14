@@ -13,6 +13,7 @@ The parameters `TransitEncryptionEnabled` \(CLI: `--transit-encryption-enabled`\
 + [Enabling In\-Transit Encryption](#in-transit-encryption-enable)
 + [Connecting to Amazon ElastiCache for Redis Nodes Enabled with In\-Transit Encryption Using redis\-cli](#connect-tls)
 + [See Also](#in-transit-encryption-see-also)
++ [Authenticating Users with the Redis AUTH Command](auth.md)
 
 ## In\-Transit Encryption Overview<a name="in-transit-encryption-overview"></a>
 
@@ -76,7 +77,7 @@ To enable in\-transit encryption when creating a replication group using the AWS
 + Choose **Yes** from the **Encryption in\-transit** list\.
 
 For the step\-by\-step process, see the following:
-+ [Creating a Redis \(cluster mode disabled\) Cluster \(Console\)](Clusters.Create.CON.Redis.md)
++ [Creating a Cluster Mode Disabled Cluster \(Console\)](Clusters.Create.CON.Redis.md)
 + [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
 
  
@@ -150,7 +151,7 @@ Use the ElastiCache API operation `CreateReplicationGroup` and the following par
 
   When `TransitEncryptionEnabled` is set to `true`, you must also provide a value for `CacheSubnetGroup`\.
 + Use one of the following parameter sets to specify the configuration of the replication group's node groups:
-  + **NumNodeGroups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 90 but can be increased to a maximum of 250 via service limit increase request\. For more information, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html?id=docs_gateway)\.
+  + **NumNodeGroups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 90 but can be increased to a maximum of 250 by a service limit increase request\. For more information, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html?id=docs_gateway)\.
 
     **ReplicasPerNodeGroup**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **NodeGroupConfiguration**—Specifies the configuration of each shard independently\.
@@ -177,6 +178,7 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 
    ```
    vi /etc/stunnel/redis-cli.conf
+   
    				
    fips = no
    setuid = root
@@ -268,5 +270,6 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 ## See Also<a name="in-transit-encryption-see-also"></a>
 + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
 + [Authenticating Users with the Redis AUTH Command](auth.md)
++ [](Clusters.RBAC.md)
 + [Amazon VPCs and ElastiCache Security](VPCs.md)
 + [Identity and Access Management in Amazon ElastiCache](IAM.md)

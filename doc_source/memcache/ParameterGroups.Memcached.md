@@ -153,7 +153,7 @@ Although most parameters have a single value, some parameters have different val
 | cache\.m3\.xlarge | 13600 | 4 | 
 | cache\.m3\.2xlarge | 28600 | 8 | 
 | cache\.m4\.large | 6573 | 2 | 
-| cache\.m4\.xlarge | 14618  | 4 | 
+| cache\.m4\.xlarge | 11496  | 4 | 
 | cache\.m4\.2xlarge | 30412 | 8 | 
 | cache\.m4\.4xlarge | 62234 | 16 | 
 | cache\.m4\.10xlarge | 158355 | 40 | 

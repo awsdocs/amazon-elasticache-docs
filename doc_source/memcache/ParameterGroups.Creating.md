@@ -14,7 +14,7 @@ The following procedure shows how to create a parameter group using the ElastiCa
 
 1. To create a parameter group, choose **Create Parameter Group**\.
 
-   The **Create Parameter Group** screen will appear\.
+   The **Create Parameter Group** screen appears\.
 
 1. From the **Family** list, choose the parameter group family that will be the template for your parameter group\.
 

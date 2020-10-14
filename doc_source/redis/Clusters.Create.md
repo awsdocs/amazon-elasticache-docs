@@ -9,7 +9,7 @@ Whenever you create a cluster or replication group, it is a good idea to do some
 **Topics**
 + [Determine Your Requirements](cluster-create-determine-requirements.md)
 + [Choosing Your Node Size](nodes-select-size.md)
-+ [Creating a Redis \(cluster mode disabled\) Cluster \(Console\)](Clusters.Create.CON.Redis.md)
++ [Creating a Cluster Mode Disabled Cluster \(Console\)](Clusters.Create.CON.Redis.md)
 + [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
 + [Creating a Cluster \(AWS CLI\)](Clusters.Create.CLI.md)
 + [Creating a Cluster \(ElastiCache API\)](Clusters.Create.API.md)

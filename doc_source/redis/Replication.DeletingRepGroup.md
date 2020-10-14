@@ -2,7 +2,7 @@
 
 If you no longer need one of your clusters with replicas \(called *replication groups* in the API/CLI\), you can delete it\. When you delete a replication group, ElastiCache deletes all of the nodes in that group\.
 
-Once you have begun this operation, it cannot be interrupted or canceled\.
+After you have begun this operation, it cannot be interrupted or canceled\.
 
 **Warning**  
 When you delete an ElastiCache for Redis cluster, your manual snapshots are retained\. You will also have an option to create a final snapshot before the cluster is deleted\. Automatic cache snapshots are not retained\.

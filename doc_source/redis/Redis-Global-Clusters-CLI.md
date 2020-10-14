@@ -23,6 +23,12 @@ Use the following CLI operations to work with global datastores:
      --primary-replication-group-id sample-repl-group \
      --global-replication-group-description an optional description of the global datastore
   ```
+
+  Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created\. Each AWS Region has its own prefix\. For instance, a Global Datastore ID created in the US\-West\-1 region will begin with "dsdfu" along with the suffix name you provide\. The suffix, combined with the auto\-generated prefix, guarantees uniqueness of the Global Datastore name across multiple regions\. 
+
+  The following table lists the AWS Region and its respective Global Datastore ID prefix:  
+****    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters-CLI.html)
 +  [create\-replication\-group](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) – Use this operation to create secondary clusters for a Global Datastore by supplying the name of the Global Datastore to the `--global-replication-group-id` parameter\.
 
   ```

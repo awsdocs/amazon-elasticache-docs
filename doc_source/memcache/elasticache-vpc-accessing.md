@@ -19,7 +19,7 @@ The following diagram illustrates this scenario
 
 ![\[\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ElastiCache-inVPC-AccessedByEC2-SameVPC.png)
 
-The simplest way to manage access between EC2 instances and DB instances in the same VPC is to do the following:
+The simplest way to manage access between EC2 instances and clusters in the same VPC is to do the following:
 
 1. Create a VPC security group for your cluster\. This security group can be used to restrict access to the cluster instances\. For example, you can create a custom rule for this security group that allows TCP access using the port you assigned to the cluster when you created it and an IP address you will use to access the cluster\. 
 
@@ -27,7 +27,10 @@ The simplest way to manage access between EC2 instances and DB instances in the 
 
 1. Create a VPC security group for your EC2 instances \(web and application servers\)\. This security group can, if needed, allow access to the EC2 instance from the Internet via the VPC's routing table\. For example, you can set rules on this security group to allow TCP access to the EC2 instance over port 22\.
 
-1. Create custom rules in the security group for your Cluster that allow connections from the security group you created for your EC2 instances\. This would allow any member of the security group to access the DB instances\.
+1. Create custom rules in the security group for your Cluster that allow connections from the security group you created for your EC2 instances\. This would allow any member of the security group to access the clusters\.
+
+**Note**  
+If you are planning to use [Local Zones](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Local_zones.html), ensure that you have enabled them\. When you create a subnet group in that local zone, your VPC is extended to that Local Zone and your VPC will treat the subnet as any subnet in any other Availability Zone\. All relevant gateways and route tables will be automatically adjusted\.
 
 **To create a rule in a VPC security group that allows connections from another security group**
 
@@ -50,7 +53,7 @@ The simplest way to manage access between EC2 instances and DB instances in the 
 
 ## Accessing an ElastiCache Cluster when it and the Amazon EC2 Instance are in Different Amazon VPCs<a name="elasticache-vpc-accessing-different-vpc"></a>
 
-When your Cluster is in a different VPC from the EC2 instance you are using to access it, there are several ways to access the DB instance\. If the Cluster and EC2 instance are in different VPCs but in the same region, you can use VPC peering\. If the Cluster and the EC2 instance are in different regions, you can create VPN connectivity between regions\.
+When your Cluster is in a different VPC from the EC2 instance you are using to access it, there are several ways to access the cluster\. If the Cluster and EC2 instance are in different VPCs but in the same region, you can use VPC peering\. If the Cluster and the EC2 instance are in different regions, you can create VPN connectivity between regions\.
 
 **Topics**
 + [In Different Amazon VPCs in the Same Region](#elasticache-vpc-accessing-different-vpc-same-region)

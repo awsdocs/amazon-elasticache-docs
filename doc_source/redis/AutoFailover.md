@@ -43,7 +43,7 @@ ElastiCache will automatically enable Multi\-AZ only if the cluster contains at 
 
 #### Enabling Multi\-AZ When Creating a Cluster Using the ElastiCache Console<a name="AutoFailover.Enable.Console.NewCacheCluster"></a>
 
-For more information on this process, see [Creating a Redis \(cluster mode disabled\) Cluster \(Console\)](Clusters.Create.CON.Redis.md)\. Be sure to have one or more replicas and enable Multi\-AZ\.
+For more information on this process, see [Creating a Cluster Mode Disabled Cluster \(Console\)](Clusters.Create.CON.Redis.md)\. Be sure to have one or more replicas and enable Multi\-AZ\.
 
 #### Enabling Multi\-AZ on an Existing Cluster \(Console\)<a name="AutoFailover.Enable.Console.ReplGrp"></a>
 
@@ -269,9 +269,9 @@ When testing, note the following:
 
   1. Replication group message: `Test Failover API called for node group <node-group-id>`
 
-  1. Cache cluster message: `Failover from master node <primary-node-id> to replica node <node-id> completed`
+  1. Cache cluster message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
 
-  1. Replication group message: `Failover from master node <primary-node-id> to replica node <node-id> completed`
+  1. Replication group message: `Failover from primary node <primary-node-id> to replica node <node-id> completed`
 
   1. Cache cluster message: `Recovering cache nodes <node-id>`
 
@@ -459,11 +459,11 @@ Be aware of the following limitations for Redis Multi\-AZ:
 + Redis replication is asynchronous\. Therefore, when a primary node fails over to a replica, a small amount of data might be lost due to replication lag\.
 
   When choosing the replica to promote to primary, ElastiCache for Redis chooses the replica with the least replication lag\. In other words, it chooses the replica that is most current\. Doing so helps minimize the amount of lost data\. The replica with the least replication lag can be in the same or different Availability Zone from the failed primary node\.
-+ When you manually promote read replicas to primary, you can do so only when Multi\-AZ and automatic failover are disabled\. To promote a read replica to primary, take the following steps:
++ When you manually promote read replicas to primary on Redis \(cluster mode disabled\), you can do so only when Multi\-AZ and automatic failover are disabled\. To promote a read replica to primary, take the following steps:
 
   1. Disable Multi\-AZ on the cluster\.
 
-  1. Disable automatic failover on the cluster\.
+  1. Disable automatic failover on the cluster\. You can do this using the Redis console by clearing the **Auto failover** check box for the replication group\. You can do this using the AWS CLI by setting the `AutomaticFailoverEnabled` property to `false` when calling the `ModifyReplicationGroup` operation\.
 
   1. Promote the read replica to primary\.
 

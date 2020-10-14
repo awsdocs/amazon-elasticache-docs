@@ -3,7 +3,7 @@
 Before getting started with global datastores, be aware of the following:
 + Global datastores are supported in the following AWS Regions: ap\-northeast\-2;, ap\-southeast\-1, ap\-southeast\-2, ap\-northeast\-1, eu\-central\-1, eu\-west\-2, eu\-west\-1, us\-east\-1, us\-east\-2, us\-west\-1, us\-west\-2\. 
 + To use global datastores, use Redis engine version 5\.0\.6 or higher and R5 or M5 node types\.
-+  All clusters—primary and secondary—in your global datastore should have the same number of master nodes, node type, engine version, and number of shards \(in case of cluster\-mode enabled\)\. Each cluster in your global datastore can have a different number of read replicas to accommodate the read traffic local to that cluster\. 
++  All clusters—primary and secondary—in your global datastore should have the same number of primary nodes, node type, engine version, and number of shards \(in case of cluster\-mode enabled\)\. Each cluster in your global datastore can have a different number of read replicas to accommodate the read traffic local to that cluster\. 
 
   Replication must be enabled if you plan to use an existing single\-node cluster\.
 + You can set up replication for a primary cluster from one AWS Region to a secondary cluster in up to two other AWS Regions\. 
@@ -18,7 +18,7 @@ Before getting started with global datastores, be aware of the following:
 
 **Note**  
 Global datastores support [pub/sub messaging](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-use-cases.html#elasticache-for-redis-use-cases-messaging) with the following stipulations:  
-For cluster\-mode disabled, pub/sub is fully supported\. Events published on the master of the primary AWS Region are propagated to secondary AWS Regions\.
+For cluster\-mode disabled, pub/sub is fully supported\. Events published on the primary cluster of the primary AWS Region are propagated to secondary AWS Regions\.
 For cluster mode enabled, the following applies:  
 For published events that aren't in a keyspace, only subscribers in the same AWS Region receive the events\.
 For published keyspace events, subscribers in all AWS Regions receive the events\.

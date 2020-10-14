@@ -107,7 +107,7 @@ To enable at\-rest encryption when creating a replication group using the AWS Ma
 + Choose **Yes** from the **Encryption at\-rest** list\.
 
 For the step\-by\-step procedure, see the following:
-+ [Creating a Redis \(cluster mode disabled\) Cluster \(Console\)](Clusters.Create.CON.Redis.md)
++ [Creating a Cluster Mode Disabled Cluster \(Console\)](Clusters.Create.CON.Redis.md)
 + [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
 
 ### Enabling At\-Rest Encryption Using the AWS CLI<a name="at-rest-encryption-enable-cli"></a>

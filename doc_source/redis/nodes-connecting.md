@@ -54,7 +54,7 @@ For Ubuntu systems, before running `make`, run `make distclean`\.
    wget http://download.redis.io/redis-stable.tar.gz
    tar xvzf redis-stable.tar.gz
    cd redis-stable
-   make distclean      // ubuntu systems only
+   make distclean      # ubuntu systems only
    make
    ```
 

@@ -16,20 +16,4 @@ ElastiCache supports multiple engine versions\. Unless you have specific reasons
 
 ElastiCache clusters are designed to be accessed using an Amazon EC2 instance\. If you launch your cluster in a virtual private cloud \(VPC\) based on the Amazon VPC service, you can access it from outside AWS\. For more information, see [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)\.
 
-## Supported Redis Versions<a name="Clusters.RedisVersions"></a>
-+ [ElastiCache for Redis Version 5\.0\.0 \(Enhanced\)](supported-engine-versions.md#redis-version-5-0)
-+ [ElastiCache for Redis Version 4\.0\.10 \(Enhanced\)](supported-engine-versions.md#redis-version-4-0-10)
-+ [ElastiCache for Redis Version 3\.2\.10 \(Enhanced\)](supported-engine-versions.md#redis-version-3-2-10)
-+ [ElastiCache for Redis Version 3\.2\.6 \(Enhanced\)](supported-engine-versions.md#redis-version-3-2-6)
-+ [ElastiCache for Redis Version 3\.2\.4 \(Enhanced\)](supported-engine-versions.md#redis-version-3-2-4)
-+ [ElastiCache for Redis Version 2\.8\.23 \(Enhanced\)](supported-engine-versions.md#redis-version-2-8-23)
-+ [ElastiCache for Redis Version 2\.8\.22 \(Enhanced\)](supported-engine-versions.md#redis-version-2-8-22)
-+ [ElastiCache for Redis Version 2\.8\.19](supported-engine-versions.md#redis-version-2-8-19)
-+ [ElastiCache for Redis Version 2\.8\.6](supported-engine-versions.md#redis-version-2-8-6)
-+ [ElastiCache for Redis Version 2\.6\.13](supported-engine-versions.md#redis-version-2-6-13)
-
-## Other ElastiCache Cluster Operations<a name="Clusters.OtherOperations"></a>
-
-Additional operations involving clusters: 
-+ [Finding Connection Endpoints](Endpoints.md)
-+ [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)
+For a list of supported Redis versions, see [Supported ElastiCache for Redis Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html)\.
