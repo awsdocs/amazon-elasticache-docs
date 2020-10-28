@@ -40,6 +40,6 @@ The `maxmemory` value indicates the memory available to you for data and operati
 
 You can also use `reserved-memory` parameter to reduce the amount of memory Redis uses on the box\.
 
-For more information on Redis\-specific parameters in ElastiCache, see [Redis Specific Parameters](ParameterGroups.Redis.md)\.
+For more information on Redis\-specific parameters in ElastiCache, see [Redis\-specific parameters](ParameterGroups.Redis.md)\.
 
 For information on creating and modifying parameter groups, see [Creating a Parameter Group](ParameterGroups.Creating.md) and [Modifying a Parameter Group](ParameterGroups.Modifying.md)\.

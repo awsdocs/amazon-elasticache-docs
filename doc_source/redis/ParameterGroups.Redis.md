@@ -1,4 +1,4 @@
-# Redis Specific Parameters<a name="ParameterGroups.Redis"></a>
+# Redis\-specific parameters<a name="ParameterGroups.Redis"></a>
 
 If you do not specify a parameter group for your Redis cluster, then a default parameter group appropriate to your engine version will be used\. You can't change the values of any parameters in the default parameter group\. However, you can create a custom parameter group and assign it to your cluster at any time as long as the values of conditionally modifiable parameters are the same in both parameter groups\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
 
@@ -20,7 +20,7 @@ If you do not specify a parameter group for your Redis cluster, then a default p
 + [Redis Node\-Type Specific Parameters](#ParameterGroups.Redis.NodeSpecific)
 
 **Note**  
-Because the newer Redis versions provide a better and more stable user experience, Redis versions 2\.6\.13, 2\.8\.6, and 2\.8\.19 are deprecated when using the ElastiCache console\. We recommend against using these Redis versions\. If you need to use one of them, work with the AWS CLI or ElastiCache API\.  
+Because the newer Redis versions provide a better and more stable user experience, Redis versions 5\.0\.0, 5\.0\.3, 5\.0\.4 and 5\.0\.5 as well as 2\.6\.13, 2\.8\.6, and 2\.8\.19 are deprecated when using the ElastiCache console\. We recommend against using these Redis versions\. If you need to use one of them, work with the AWS CLI or ElastiCache API\.  
 For more information, see the following topics:  
 
 
@@ -207,7 +207,7 @@ For Redis 3\.2\.4 the following parameters were changed\.
 
 |  Name  |  Details |  Change  | 
 | --- | --- | --- | 
-| activerehashing | Modifiable: Yes | Modifiable was No\. | 
+| activerehashing | Modifiable: Yes if the parameter group is not associated with any cache clusters\. Otherwise, no\. | Modifiable was No\. | 
 | databases | Modifiable: Yes if the parameter group is not associated with any cache clusters\. Otherwise, no\. | Modifiable was No\. | 
 | appendonly | Default: off Modifiable: No | If you want to upgrade from an earlier Redis version, you must first turn `appendonly` off\. | 
 | appendfsync | Default: off Modifiable: No | If you want to upgrade from an earlier Redis version, you must first turn `appendfsync` off\. | 
@@ -235,7 +235,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w61aac18c49c57c27b9"></a>
+### How close\-on\-slave\-write works<a name="w62aac18c49c57c27b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -249,7 +249,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### When You Might Disable close\-on\-replica\-write<a name="w61aac18c49c57c27c11"></a>
+### When You Might Disable close\-on\-replica\-write<a name="w62aac18c49c57c27c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 

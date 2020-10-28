@@ -26,7 +26,7 @@ You can upgrade to newer engine versions\. For more information on doing so, see
 
    1. In **Port**, use the default port, 6379\. If you have a reason to use a different port, enter the port number\.
 
-   1. For **Parameter group**, choose a parameter group or create a new one\. Parameter groups control the runtime parameters of your cluster\. For more information on parameter groups, see [Redis Specific Parameters](ParameterGroups.Redis.md) and [Creating a Parameter Group](ParameterGroups.Creating.md)\.
+   1. For **Parameter group**, choose a parameter group or create a new one\. Parameter groups control the runtime parameters of your cluster\. For more information on parameter groups, see [Redis\-specific parameters](ParameterGroups.Redis.md) and [Creating a Parameter Group](ParameterGroups.Creating.md)\.
 
    1. For **Node type**, click the down arrow \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-DnArrow.png)\)\. In the **Change node type** dialog box, choose the **Instance family** of the node type that you want, choose the node type that you want to use for this cluster, and then choose **Save**\.
 
@@ -90,7 +90,7 @@ For Redis versions between 4\.0\.2, when encryption in transit was first support
 
 1. Review all your entries and choices, then go back and make any needed corrections\. When you're ready, choose **Create** to launch your cluster\.
 
-As soon as your cluster's status is *available*, you can grant Amazon EC2 access to it, connect to it, and begin using it\. For more information, see [Authorize Access](GettingStarted.AuthorizeAccess.md) and [Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)\.
+As soon as your cluster's status is *available*, you can grant Amazon EC2 access to it, connect to it, and begin using it\. For more information, see [Access Authorization](GettingStarted.AuthorizeAccess.md) and [Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)\.
 
 **Important**  
 As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a Cluster](Clusters.Delete.md)\. 

@@ -40,7 +40,7 @@ To enable FedRAMP support on your ElastiCache for Redis cluster, your cluster an
     + [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)
     + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
     + [Authenticating Users with the Redis AUTH Command](auth.md)
-+ **Node type requirements** – Your cluster must be running a current\-generation node type — M4, M5, T2, T3, R4 or R5\. For more information, see the following: 
++ **Node type requirements** – Your cluster must be running a current\-generation node type — M4, M5, M6, T2, T3, R4, R5 or R6\. For more information, see the following: 
   + [Supported Node Types](CacheNodes.SupportedTypes.md)
   + [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)
 + **FIPS Endpoints requirements** – Your ElastiCache for Redis can be created using the FIPS endpoints available in the following regions:\.    
@@ -60,7 +60,7 @@ To enable HIPAA support on your ElastiCache for Redis cluster, your cluster and 
   + [ElastiCache for Redis Version 5\.0\.0 \(Enhanced\)](supported-engine-versions.md#redis-version-5-0) or higher\.
   + [ElastiCache for Redis Version 4\.0\.10 \(Enhanced\)](supported-engine-versions.md#redis-version-4-0-10)
   + [ElastiCache for Redis Version 3\.2\.6 \(Enhanced\)](supported-engine-versions.md#redis-version-3-2-6)
-+ **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, T2, T3, R4 or R5\. For more information, see the following:
++ **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, M6, T2, T3, R4, R5 or R6\. For more information, see the following:
   + [Supported Node Types](CacheNodes.SupportedTypes.md)
   + [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)
 + **Data security requirements** – Your cluster must enable in\-transit encryption, at\-rest encryption, and Redis AUTH\. For more information, see the following:

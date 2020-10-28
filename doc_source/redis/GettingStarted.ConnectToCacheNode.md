@@ -1,10 +1,10 @@
 # Connect to a Cluster's Node<a name="GettingStarted.ConnectToCacheNode"></a>
 
-Before you continue, complete [Authorize Access](GettingStarted.AuthorizeAccess.md)\.
+Before you continue, complete [Access Authorization](GettingStarted.AuthorizeAccess.md)\.
 
 This section assumes that you've created an Amazon EC2 instance and can connect to it\. For instructions on how to do this, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/)\. 
 
-An Amazon EC2 instance can connect to a cluster node only if you have authorized it to do so\. For more information, see [Authorize Access](GettingStarted.AuthorizeAccess.md)\.
+An Amazon EC2 instance can connect to a cluster node only if you have authorized it to do so\. For more information, see [Access Authorization](GettingStarted.AuthorizeAccess.md)\.
 
 ## Find your Node Endpoints<a name="GettingStarted.FindEndpoints"></a>
 

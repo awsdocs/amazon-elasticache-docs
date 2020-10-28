@@ -4,7 +4,7 @@ In addition to adding or removing nodes from a cluster, there can be times where
 
 We recommend that you have your maintenance window fall at the time of lowest usage\. Thus it might need modification from time to time\.
 
-When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Redis Specific Parameters](ParameterGroups.Redis.md)\. For information on rebooting a cluster, see [Rebooting a Cluster](Clusters.Rebooting.md)\.
+When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Redis\-specific parameters](ParameterGroups.Redis.md)\. For information on rebooting a cluster, see [Rebooting a Cluster](Clusters.Rebooting.md)\.
 
 ## Using the AWS Management Console<a name="Clusters.Modify.CON"></a>
 
@@ -54,8 +54,6 @@ aws elasticache modify-cache-cluster ^
     --cache-cluster-id my-cluster ^
     --preferred-maintenance-window sun:23:00-mon:02:00
 ```
-
-The `--apply-immediately` parameter applies only to modifications in node type, engine version, and changing the number of nodes in a cluster\. If you want to apply any of these changes immediately, use the `--apply-immediately` parameter\. If you prefer postponing these changes to your next maintenance window, use the `--no-apply-immediately` parameter\. Other modifications, such as changing the maintenance window, are applied immediately\.
 
 For more information, see the AWS CLI for ElastiCache topic [https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html)\.
 

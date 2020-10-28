@@ -1,12 +1,14 @@
 # Supported Node Types<a name="CacheNodes.SupportedTypes"></a>
 
+For information on which node size to use, see [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)\. 
+
 ElastiCache supports the following node types\. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts\.
 + General purpose:
   + Current generation: 
 
     **M6g node types** \(available only for Redis engine version 5\.0\.6 onward\)\.
 
-     `cache.m6.large`, `cache.m6.xlarge`, `cache.m6.2xlarge`, `cache.m6.4xlarge`, `cache.m6.8xlarge`, `cache.m6.12xlarge`, `cache.m6.16xlarge` 
+     `cache.m6g.large`, `cache.m6g.xlarge`, `cache.m6g.2xlarge`, `cache.m6g.4xlarge`, `cache.m6g.8xlarge`, `cache.m6g.12xlarge`, `cache.m6g.16xlarge` 
 **Note**  
 At this time, M6g node types are available in the following regions: us\-east\-1, us\-west\-2, us\-east\-2, eu\-central\-1, eu\-west\-1 and ap\-northeast\-1\.
 
@@ -33,7 +35,7 @@ At this time, M6g node types are available in the following regions: us\-east\-1
 
     **R6g node types** \(available only for Redis engine version 5\.0\.6 onward\)\.
 
-     `cache.r6.large`, `cache.r6.xlarge`, `cache.r6.2xlarge`, `cache.r6.4xlarge`, `cache.r6.8xlarge`, `cache.r6.12xlarge`, `cache.r6.16xlarge` 
+     `cache.r6g.large`, `cache.r6g.xlarge`, `cache.r6g.2xlarge`, `cache.r6g.4xlarge`, `cache.r6g.8xlarge`, `cache.r6g.12xlarge`, `cache.r6g.16xlarge` 
 **Note**  
 At this time, R6g node types are available in the following regions: us\-east\-1, us\-west\-2, us\-east\-2, eu\-central\-1, eu\-west\-1 and ap\-northeast\-1\.
 
@@ -119,4 +121,4 @@ The following table lists supported node types for each AWS Region\.
 
 For a complete list of node types and specifications, see the following:
 + [Amazon ElastiCache Product Features and Details](https://aws.amazon.com/elasticache/details)
-+ [Redis Specific Parameters](ParameterGroups.Redis.md)
++ [Redis\-specific parameters](ParameterGroups.Redis.md)

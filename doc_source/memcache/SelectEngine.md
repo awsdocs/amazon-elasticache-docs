@@ -11,9 +11,14 @@ On the surface, the engines look similar\. Each of them is an in\-memory key\-va
 + You need the simplest model possible\.
 + You need to run large nodes with multiple cores or threads\.
 + You need the ability to scale out and in, adding and removing nodes as demand on your system increases and decreases\.
-+ You need to cache objects, such as a database\.
++ You need to cache objects\.
 
 **Choose Redis with a version of ElastiCache for Redis if the following apply for you:**
++ **ElastiCache for Redis version 6\.x \(Enhanced\)**
+
+  You want to authenticate users with role\-based access control\.
+
+  For more information, see [Redis Version 6\.x \(Enhanced\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html#redis-version-6.x)\.
 + **ElastiCache for Redis version 5\.0\.0 \(Enhanced\)**
 
   You want to use [ Redis streams](https://redis.io/topics/streams-intro), a log data structure that allows producers to append new items in real time and also allows consumers to consume messages either in a blocking or non\-blocking fashion\.

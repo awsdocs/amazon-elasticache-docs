@@ -39,7 +39,7 @@ For information about using Amazon EC2, see the [Amazon EC2 Getting Started Guid
 
 1. On the **Review Instance and Launch** page, choose **Launch**\.
 
-1. In the **Selct an existing key pair or create a new key pair** window, specify a key pair that you want to use with this instance\.
+1. In the **Select an existing key pair or create a new key pair** window, specify a key pair that you want to use with this instance\.
 **Note**  
 For information about managing key pairs, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/)\.
 

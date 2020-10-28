@@ -41,8 +41,6 @@ There are two types of failures you need to plan for, individual node failures a
 
 ### Minimizing the Impact of Failures<a name="FaultTolerance.Recommendations.NodeFailure"></a>
 
-To minimize the impact of a node failure, we recommend that your implementation use multiple nodes in each shard and distribute the nodes across multiple Availability Zones\.
-
 When running Memcached and partitioning your data across nodes, the more nodes you use the smaller the data loss if any one node fails\.
 
 ### Minimizing the Impact of Availability Zone Failures<a name="FaultTolerance.Recommendations.AZFailure"></a>

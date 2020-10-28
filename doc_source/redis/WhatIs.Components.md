@@ -178,7 +178,7 @@ If you create a cluster in an Amazon VPC, then you must specify a cache subnet g
 
 For more information about cache subnet group usage in an Amazon VPC environment, see the following:
 + [Amazon VPCs and ElastiCache Security](VPCs.md)
-+ [Authorize Access](GettingStarted.AuthorizeAccess.md)
++ [Access Authorization](GettingStarted.AuthorizeAccess.md)
 + [Subnets and Subnet Groups](SubnetGroups.md)
 
 ## ElastiCache for Redis Backups<a name="WhatIs.Components.Snapshots"></a>

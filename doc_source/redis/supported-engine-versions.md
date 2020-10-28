@@ -28,7 +28,7 @@ You can use Amazon ElastiCache for Redis to build HIPAA\-compliant applications\
 + [Redis 2\.6\.13](#redis-version-2-6-13)
 
 **Note**  
-Because the newer Redis versions provide a better and more stable user experience, Redis versions 2\.6\.13, 2\.8\.6, and 2\.8\.19 are deprecated when using the ElastiCache console\. We recommend against using these Redis versions\. If you need to use one of them, work with the AWS CLI or ElastiCache API\.  
+Because the newer Redis versions provide a better and more stable user experience, Redis versions 5\.0\.0, 5\.0\.3, 5\.0\.4 and 5\.0\.5 as well as 2\.6\.13, 2\.8\.6, and 2\.8\.19 are deprecated when using the ElastiCache console\. We recommend against using these Redis versions\. If you need to use one of them, work with the AWS CLI or ElastiCache API\.  
 For more information, see the following topics:  
 
 
@@ -43,11 +43,11 @@ For more information, see the following topics:
 
 Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache, which includes [Authenticating Users with Role Based Access Control](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html), versionless support, client\-side caching and significant operational improvements\. 
 
-Beginning with Redis 6, ElastiCache for Redis will offer a single version for each Redis OSS major release, rather than offering multiple minor versions\. Versionless engine support is designed to minimize confusion and ambiguity on having to choose from multiple minor versions\. ElastiCache for Redis will also automatically update your cache cluster to the next available minor version\. By providing the updated engine version, it ensures improved performance and enhanced security\. 
+Beginning with Redis 6, ElastiCache for Redis will offer a single version for each Redis OSS major release, rather than offering multiple minor versions\. Versionless engine support is designed to minimize confusion and ambiguity on having to choose from multiple minor versions\. ElastiCache for Redis will also automatically manage the minor version of your running cache clusters, ensuring improved performance and enhanced security\.
 
 You specify the engine version by using `6.x`\. ElastiCache for Redis will automatically invoke the preferred minor version of Redis 6 that is available\.
 
-For example, when you create/modify a cache cluster, you set the `--engine-version` parameter to `6.x`\. The cluster will be launched with the current available preferred minor version of Redis 6 \(e\.g\. 6\.0\.5\) at the creation/modification time\. Any request with a specific version value will be rejected, an exception will be thrown and the process will fail\. 
+For example, when you create/modify a cache cluster, you set the `--engine-version` parameter to `6.x`\. The cluster will be launched with the current available preferred minor version of Redis 6 at the creation/modification time\. Any request with a specific version value will be rejected, an exception will be thrown and the process will fail\. 
 
 When calling the `DescribeCacheEngineVersions` API, the `EngineVersion` parameter value will be set to 6\.x and the actual engine version will be returned in the `CacheEngineVersionDescription` field\.
 

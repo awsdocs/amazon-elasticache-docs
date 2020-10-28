@@ -14,8 +14,38 @@ To create or work with a cluster in a specific region, use the corresponding reg
 *Regions and Availability Zones*
 
 **Topics**
++ [Availability Zone Considerations](#CacheNode.Memcached.AvailabilityZones)
 + [Supported Regions & Endpoints](#SupportedRegions)
 + [Locating Your Nodes](#RegionsAndAZs.AZMode)
+
+## Availability Zone Considerations<a name="CacheNode.Memcached.AvailabilityZones"></a>
+
+Distributing your Memcached nodes over multiple Availability Zones within a region helps protect you from the impact of a catastrophic failure, such as a power loss within an Availability Zone\.
+
+A Memcached cluster can have up to 100 nodes\. When you create or add nodes to your Memcached cluster, you can specify a single Availability Zone for all your nodes, allow ElastiCache to choose a single Availability Zone for all your nodes, specify the Availability Zones for each node, or allow ElastiCache to choose an Availability Zone for each node\. New nodes can be created in different Availability Zones as you add them to an existing Memcached cluster\. Once a cache node is created, its Availability Zone cannot be modified\. 
+
+If you want a cluster in a single Availability Zone cluster to have its nodes distributed across multiple Availability Zones, ElastiCache can create new nodes in the various Availability Zones\. You can then delete some or all of the original cache nodes\. We recommend this approach\.
+
+**To migrate Memcached nodes from a single Availability Zone to multiple Availability Zones**
+
+1. Modify your cluster by creating new cache nodes in the Availability Zones where you want them\. In your request, do the following:
+   + Set `AZMode` \(CLI: `--az-mode`\) to `cross-az`\.
+   + Set `NumCacheNodes` \(CLI: `--num-cache-nodes`\) to the number of currently active cache nodes plus the number of new cache nodes you want to create\.
+   + Set `NewAvailabilityZones` \(CLI: `--new-availability-zones`\) to a list of the zones you want the new cache nodes created in\. To let ElastiCache determine the Availability Zone for each new node, don't specify a list\.
+   +  Set `ApplyImmediately` \(CLI: `--apply-immediately`\) to true\. 
+**Note**  
+If you are not using auto discovery, be sure to update your client application with the new cache node endpoints\.
+
+   Before moving on to the next step, be sure the Memcached nodes are fully created and available\.
+
+1. Modify your cluster by removing the nodes you no longer want in the original Availability Zone\. In your request, do the following:
+   + Set `NumCacheNodes` \(CLI: `--num-cache-nodes`\) to the number of active cache nodes you want after this modification is applied\.
+   + Set `CacheNodeIdsToRemove` \(CLI: `--nodes-to-remove`\) to a list of the cache nodes you want to remove from the cluster\.
+
+     The number of cache node IDs listed must equal the number of currently active nodes minus the value in `NumCacheNodes`\.
+   + \(Optional\) Set `ApplyImmediately` \(CLI: `--apply-immediately`\) to true\.
+
+     If you don't set `ApplyImmediately` \(CLI: `--apply-immediately`\) to true, the node deletions will take place at your next maintenance window\.
 
 ## Supported Regions & Endpoints<a name="SupportedRegions"></a>
 

@@ -3,7 +3,7 @@
 **Important**  
 You cannot modify any default parameter group\.
 
-You can modify some parameter values in a parameter group\. These parameter values are applied to clusters associated with the parameter group\. For more information on when a parameter value change is applied to a parameter group, see [Redis Specific Parameters](ParameterGroups.Redis.md)\.
+You can modify some parameter values in a parameter group\. These parameter values are applied to clusters associated with the parameter group\. For more information on when a parameter value change is applied to a parameter group, see [Redis\-specific parameters](ParameterGroups.Redis.md)\.
 
 ## Modifying a Parameter Group \(Console\)<a name="ParameterGroups.Modifying.CON"></a>
 
@@ -25,14 +25,14 @@ The following procedure shows how to change the `binding_protocol` parameter's v
 
 1. Choose **Save Changes**\.
 
-1. To find the name of the parameter you changed, see [Redis Specific Parameters](ParameterGroups.Redis.md)\. If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a Cluster](Clusters.Rebooting.md)\.
+1. To find the name of the parameter you changed, see [Redis\-specific parameters](ParameterGroups.Redis.md)\. If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a Cluster](Clusters.Rebooting.md)\.
 
 ## Modifying a Parameter Group \(AWS CLI\)<a name="ParameterGroups.Modifying.CLI"></a>
 
 To change a parameter's value using the AWS CLI, use the command `modify-cache-parameter-group`\.
 
 **Example**  
-To find the name and permitted values of the parameter you want to change, see [Redis Specific Parameters](ParameterGroups.Redis.md)  
+To find the name and permitted values of the parameter you want to change, see [Redis\-specific parameters](ParameterGroups.Redis.md)  
 The following sample code sets the value of two parameters, *reserved\-memory\-percent* and *cluster\-enabled* on the parameter group `myredis32-on-30`\. We set *reserved\-memory\-percent* to `30` \(30 percent\) and *cluster\-enabled* to `yes` so that the parameter group can be used with Redis \(cluster mode enabled\) clusters \(replication groups\)\.  
 For Linux, macOS, or Unix:  
 
@@ -69,7 +69,7 @@ If changes to the parameter take place *After restart*, reboot every cluster tha
 To change a parameter group's parameter values using the ElastiCache API, use the `ModifyCacheParameterGroup` action\.
 
 **Example**  
-To find the name and permitted values of the parameter you want to change, see [Redis Specific Parameters](ParameterGroups.Redis.md)  
+To find the name and permitted values of the parameter you want to change, see [Redis\-specific parameters](ParameterGroups.Redis.md)  
 The following sample code sets the value of two parameters, *reserved\-memory\-percent* and *cluster\-enabled* on the parameter group `myredis32-on-30`\. We set *reserved\-memory\-percent* to `30` \(30 percent\) and *cluster\-enabled* to `yes` so that the parameter group can be used with Redis \(cluster mode enabled\) clusters \(replication groups\)\.  
 
 ```

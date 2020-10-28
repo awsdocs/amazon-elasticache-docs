@@ -1,6 +1,6 @@
 # Authenticating Users with the Redis AUTH Command<a name="auth"></a>
 
-Redis authentication tokens enable Redis to require a token \(password\) before allowing clients to run commands, thereby improving data security\.
+Redis authentication tokens, or passwords, enable Redis to require a password before allowing clients to run commands, thereby improving data security\.
 
 **Topics**
 + [Overview of AUTH in ElastiCache for Redis](#auth-overview)
@@ -11,23 +11,23 @@ Redis authentication tokens enable Redis to require a token \(password\) before 
 
 When you use Redis AUTH with your ElastiCache for Redis cluster, there are some refinements\. 
 
-In particular, be aware of these AUTH token constraints when using AUTH with ElastiCache for Redis:
-+ Tokens must be 16–128 printable characters\.
+In particular, be aware of these AUTH token, or password, constraints when using AUTH with ElastiCache for Redis:
++ Tokens, or passwords, must be 16–128 printable characters\.
 + Nonalphanumeric characters are restricted to \(\!, &, \#, $, ^, <, >, \-\)\. 
 + AUTH can only be enabled for encryption in\-transit enabled ElastiCache for Redis clusters\.
 
-To set up a strong token, we recommend that you follow a strict token policy, such as requiring the following:
-+ Tokens must include at least three of the following character types:
+To set up a strong token, we recommend that you follow a strict password policy, such as requiring the following:
++ Tokens, or passwords, must include at least three of the following character types:
   + Uppercase characters
   + Lowercase characters
   + Digits 
   + Nonalphanumeric characters \(`!`, `&`, `#`, `$`, `^`, `<`, `>`, `-`\)
-+ Tokens must not contain a dictionary word or a slightly modified dictionary word\.
-+ Tokens must not be the same as or similar to a recently used token\.
++ Tokens, or passwords, must not contain a dictionary word or a slightly modified dictionary word\.
++ Tokens, or passwods, must not be the same as or similar to a recently used token\.
 
 ## Applying Authentication to an ElastiCache for Redis Cluster<a name="auth-using"></a>
 
-You can require that users enter a token on a token\-protected Redis server\. To do this, include the parameter `--auth-token` \(API: `AuthToken`\) with the correct token when you create your replication group or cluster\. Also include it in all subsequent commands to the replication group or cluster\.
+You can require that users enter a token \(password\) on a token\-protected Redis server\. To do this, include the parameter `--auth-token` \(API: `AuthToken`\) with the correct token when you create your replication group or cluster\. Also include it in all subsequent commands to the replication group or cluster\.
 
 The following AWS CLI operation creates a replication group with encryption in transit \(TLS\) enabled and the AUTH token `This-is-a-sample-token`\. Replace the subnet group `sng-test` with a subnet group that exists\.
 

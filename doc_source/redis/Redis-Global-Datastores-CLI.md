@@ -15,7 +15,7 @@ The AWS CLI runs on Windows, macOS, or Linux\. Use the following procedure to do
 ## Using the AWS CLI with Global Datastores<a name="Redis-Global-Datastores-Using-CLI"></a>
 
 Use the following CLI operations to work with global datastores: 
-+ [create\-global\-replication\-group](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateGlobalReplicationGroup.html)
++ [create\-global\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-global-replication-group.html)
 
   ```
   aws elasticache create-global-replication-group \
@@ -29,7 +29,7 @@ Use the following CLI operations to work with global datastores:
   The following table lists each AWS Region and its global datastore ID prefix\.  
 ****    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html)
-+  [create\-replication\-group](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) – Use this operation to create secondary clusters for a global datastore by supplying the name of the global datastore to the `--global-replication-group-id` parameter\.
++  [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html) – Use this operation to create secondary clusters for a global datastore by supplying the name of the global datastore to the `--global-replication-group-id` parameter\.
 
   ```
   aws elasticache create-replication-group \
@@ -37,14 +37,40 @@ Use the following CLI operations to work with global datastores:
     --replication-group-description “Replication group description" \
     --global-replication-group-id global datastore name \
   ```
-+ [describe\-global\-replication\-groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeGlobalReplicationGroups.html)
+
+  When calling this operation and passing in a `--global-replication-group-id` value, ElastiCache for Redis ElastiCache will infer the values from the primary replication group of the global replication group for the following paramaeters\. Do not pass in values for these parameters:
+
+  `"PrimaryClusterId",`
+
+  `"AutomaticFailoverEnabled",`
+
+  ` "NumNodeGroups",`
+
+  ` "CacheParameterGroupName",`
+
+  ` "CacheNodeType",`
+
+  ` "Engine",`
+
+  ` "EngineVersion",`
+
+  ` "CacheSecurityGroupNames",`
+
+  ` "EnableTransitEncryption",`
+
+  ` "AtRestEncryptionEnabled",`
+
+  ` "SnapshotArns",`
+
+  ` "SnapshotName"`
++ [describe\-global\-replication\-groups](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-global-replication-groups.html)
 
   ```
   aws elasticache describe-global-replication-groups \
      --global-replication-group-id my global datastore \
      --show-member-info an optional parameter that returns a list of the primary and secondary clusters that make up the global datastore
   ```
-+ [modify\-global\-replication\-group](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyGlobalReplicationGroup.html)
++ [modify\-global\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-global-replication-group.html)
 
   ```
   aws elasticache modify-global-replication-group \
@@ -55,14 +81,14 @@ Use the following CLI operations to work with global datastores:
      -—apply-immediately
      --global-replication-group-description description
   ```
-+ [delete\-global\-replication\-group](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteGlobalReplicationGroup.html)
++ [delete\-global\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/delete-global-replication-group.html)
 
   ```
   aws elasticache delete-global-replication-group \
      --global-replication-group-id my global datastore \
      --retain-primary-replication-group defaults to true
   ```
-+ [disassociate\-global\-replication\-group](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DisassociateGlobalReplicationGroup.html)
++ [disassociate\-global\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/disassociate-global-replication-group.html)
 
   ```
   aws elasticache disassociate-global-replication-group \
@@ -70,7 +96,7 @@ Use the following CLI operations to work with global datastores:
      --replication-group-id my secondary cluster \  
      --replication-group-region the AWS Region in which the secondary cluster resides
   ```
-+ [failover\-global\-replication\-group](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_FailoverGlobalReplicationGroup.html)
++ [failover\-global\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/failover-global-replication-group.html)
 
   ```
   aws elasticache failover-replication-group \
@@ -78,7 +104,7 @@ Use the following CLI operations to work with global datastores:
      --primary-region The AWS Region of the primary cluster \  
      --primary-replication-group-id  The name of the global datastore, including the suffix.
   ```
-+ [increase\-node\-groups\-in\-global\-replication\-group](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_IncreaseNodeGroupsInGlobalReplicationGroup.html)
++ [increase\-node\-groups\-in\-global\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/increase-node-groups-in-global-replication-group.html)
 
   ```
   aws elasticache increase-node-groups-in-global-replication-group \
@@ -86,7 +112,7 @@ Use the following CLI operations to work with global datastores:
      --global-replication-group-id global-replication-group-name \
      --node-group-count  3
   ```
-+ [decrease\-node\-groups\-in\-global\-replication\-group](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DecreaseNodeGroupsInGlobalReplicationGroup.html)
++ [decrease\-node\-groups\-in\-global\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/decrease-node-groups-in-global-replication-group.html)
 
   ```
   aws elasticache decrease-node-groups-in-global-replication-group \
@@ -94,7 +120,7 @@ Use the following CLI operations to work with global datastores:
      --global-replication-group-id global-replication-group-name \
      --node-group-count  3
   ```
-+ [rebalance\-shards\-in\-global\-replication\-group](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebalanceSlotsInGlobalReplicationGroup.html)
++ [rebalance\-shards\-in\-global\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/rebalance-slots-in-global-replication-group.html)
 
   ```
   aws elasticache rebalance-shards-in-global-replication-group \

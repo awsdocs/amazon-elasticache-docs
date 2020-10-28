@@ -1,4 +1,4 @@
-# Authorize Access<a name="GettingStarted.AuthorizeAccess"></a>
+# Access Authorization<a name="GettingStarted.AuthorizeAccess"></a>
 
  This section assumes that you are familiar with launching and connecting to Amazon EC2 instances\. For more information, see the *[Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/)*\. 
 

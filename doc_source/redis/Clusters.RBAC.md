@@ -9,10 +9,9 @@ With RBAC, you create users and assign them specific permissions by using an acc
 RBAC is designed to support the introduction of [Redis ACL](https://redis.io/topics/acl) in Redis 6\. When you use RBAC with your ElastiCache for Redis cluster, there are some limitations: 
 + You can't specify passwords in an access string\. You set passwords with [CreateUser](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateUser.html) or [ModifyUser](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyUser.html) calls\.
 + For user rights, you pass `on` and `off` as a part of the access string\. If neither is specified in the access string, the user is assigned `off` and doesn't have access rights to the replication group\.
-+ You can't use forbidden and renamed commands\. If you specify a forbidden or a renamed command, an exception will be thrown\. If you want to use access control lists \(ACLs\) for a renamed command, specify the original name of the commend, in other words the name of the command before it was renamed\.
++ You can't use forbidden and renamed commands\. If you specify a forbidden or a renamed command, an exception will be thrown\. If you want to use access control lists \(ACLs\) for a renamed command, specify the original name of the command, in other words the name of the command before it was renamed\.
 + You can't use the `reset` command as a part of an access string\. You specify passwords with API parameters, and ElastiCache for Redis manages passwords\. Thus, you can't use `reset` because it would remove all passwords for a user\.
-+ You can use redundant commands for the access string\. For example, if an access string contains `+get -get +get`, this is reduced to `+get`\. 
-+ Redis 6 introduces the [ACL LIST](https://redis.io/commands/acl-list) command\. This command returns a list of users along with the ACL rules applied to each user\. With ElastiCache for Redis, you can use the [describe\-users](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-users.html) operation to get similar information, including the rules contained within the access string\. However, [describe\-users](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-users.html) doesn't retrieve a user password\. 
++ Redis 6 introduces the [ACL LIST](https://redis.io/commands/acl-list) command\. This command returns a list of users along with the ACL rules applied to each user\. ElastiCache for Redis supports the `ACL LIST` command, but does not include support for password hashes as Redis does\. With ElastiCache for Redis, you can use the [describe\-users](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-users.html) operation to get similar information, including the rules contained within the access string\. However, [describe\-users](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-users.html) doesn't retrieve a user password\. 
 
   Other read\-only commands supported by ElastiCache for Redis include [ACL WHOAMI](https://redis.io/commands/acl-whoami), [ACL USERS](https://redis.io/commands/acl-users), and [ACL CAT](https://redis.io/commands/acl-cat)\. ElastiCache for Redis doesn't support any other write\-based ACL commands\.
 
@@ -28,6 +27,10 @@ Using RBAC with ElastiCache for Redis is described in more detail following\.
 
 To specify permissions to an ElastiCache for Redis replication group, you create an access string and assign it to a user, using either the AWS CLI or AWS Management Console\. 
 
+Access strings are defined as a list of space\-delimited rules which are applied on the user\. They define which commands a user can execute and which keys a user can operate on\. In order to execute a command, a user must have access to the command being executed and all keys being accessed by the command\. Rules are applied from left to right cumulatively, and a simpler string may be used instead of the one provided if there is redundancies in the string provided\.
+
+For information about the syntax of the ACL rules, see [ACL](https://redis.io/topics/acl)\. 
+
 In the following example, the access string represents an active user with access to all available keys and commands\.
 
  `on ~* +@all`
@@ -39,14 +42,9 @@ The access string syntax is broken down as follows:
 
 The preceding settings are the least restrictive\. You can modify these settings to make them more secure\.
 
-In the following example, the access string represents an inactive user with read\-only access to all available keys and access to no commands\.
+In the following example, the access string represents a user with access restricted to read access on keys that start with “app::” keyspace
 
-The access string syntax is broken down as follows:
-
-`off +@read ~* -@all`
-+ `off` – The user is inactive\. This means the user can't be authenticated\. Any existing connections are maintained\.
-+ `+@read ~*` – Read\-only access is given to all available keys\.
-+ `-@all` – Access is given to no commands\.
+`on ~app::* -@all +@read`
 
 You can refine these permissions further by listing commands the user has access to:
 
@@ -56,7 +54,7 @@ You can refine these permissions further by listing commands the user has access
 
 For information on assigning an access string to a user, see [Creating Users and User Groups with the Console and CLI](#Users-management)\.
 
-For more information on Redis permissions, see [ACL](https://redis.io/topics/acl) in the Redis documentation\.
+If you are migrating an existing workload to ElastiCache, you can retrieve the access string by calling `ACL LIST`, excluding the user and any password hashes\.
 
 ## Applying RBAC to a Replication Group for ElastiCache for Redis<a name="rbac-using"></a>
 
@@ -451,19 +449,17 @@ aws elasticache describe-user-groups \
 ```
 
 ```
-  {
-  	 "UserGroups": [
-  	     {
-  			    "UserGroupId": "test-group",
-  			    "Status": "creating",
-  			    "Engine": "redis",
-  			    "UserIds": [
-  			    "defaut", "test-user-1"
-  			],
-  		"ReplicationGroups": []
-  	}
-  ]
-  }
+{
+	"UserGroups": [{
+		"UserGroupId": "test-group",
+		"Status": "creating",
+		"Engine": "redis",
+		"UserIds": [
+			"defaut", "test-user-1"
+		],
+		"ReplicationGroups": []
+	}]
+}
 ```
 
 ### Assigning User Groups to Replication Groups<a name="Users-groups-to-RGs"></a>
@@ -483,9 +479,9 @@ To add a user group to a replication using the AWS Management Console, do the fo
 **Key Parameters**
 + **\-\-engine** – Must be `redis`\.
 + **\-\-engine\-version** – Must be 6\.x or later\.
-+ **\-\-transit\-encryption\-enabled** – Required for authentication and HIPAA eligibility\.
++ **\-\-transit\-encryption\-enabled** – Required for authentication and for associating a user group\.
 + **\-\-user\-group\-ids** – This value provides user groups comprised of users with specified access permissions for the cluster\.
-+ **\-\-cache\-subnet\-group** – Required for HIPAA eligibility\.
++ **\-\-cache\-subnet\-group** – Required for associating a user group\.
 
 For Linux, macOS, or Unix:
 

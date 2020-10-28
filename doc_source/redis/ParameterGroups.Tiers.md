@@ -31,4 +31,4 @@ The Customer Owned cache parameter group:
 + Can be assigned to any of the customer's compatible clusters\.
 + Can be modified by the customer to create a custom cache parameter group\. 
 
-   Not all parameter values can be modified\. For more information, see [Redis Specific Parameters](ParameterGroups.Redis.md)\.
+   Not all parameter values can be modified\. For more information, see [Redis\-specific parameters](ParameterGroups.Redis.md)\.

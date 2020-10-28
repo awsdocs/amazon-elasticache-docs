@@ -1,6 +1,6 @@
 # Online Vertical Scaling by Modifying Node Type<a name="redis-cluster-vertical-scaling"></a>
 
-By using online vertical scaling with Amazon ElastiCache for Redis version 3\.2\.10 or newer, you can scale your Redis clusters dynamically with no downtime\. This allows your Redis cluster to serve requests even while scaling\.
+By using online vertical scaling with Amazon ElastiCache for Redis version 3\.2\.10 or newer, you can scale your Redis clusters dynamically with minimal downtime\. This allows your Redis cluster to serve requests even while scaling\.
 
 You can do the following:
 + **Scale up** – Increase read and write capacity by adjusting the node type of your Redis cluster to use a larger node type\.

@@ -17,6 +17,6 @@ For greater reliability and faster recovery, we recommend that you create one or
 For more information on mitigating failures, see [Mitigating Failures when Running Redis](FaultTolerance.md#FaultTolerance.Redis)\.
 
 For more information, see the following:
-+ [Redis Specific Parameters](ParameterGroups.Redis.md)
++ [Redis\-specific parameters](ParameterGroups.Redis.md)
 + [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)
 + [Mitigating Failures](FaultTolerance.md)

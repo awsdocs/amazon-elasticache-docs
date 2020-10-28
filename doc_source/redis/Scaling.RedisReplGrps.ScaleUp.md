@@ -38,7 +38,7 @@ For more information, see [Managing Reserved Memory](redis-memory-management.md)
 
 The amount of time it takes to scale up to a larger node type varies, depending upon the node type and the amount of data in your current cluster\.
 
-The following process scales your cluster with replicas from its current node type to a new, larger node type using the ElastiCache console\. During this process, there may be a brief interruption of reads and writes for other versions from the primary node while the DNS entry is updated\. you might see less than 1 second downtime for nodes running on 5\.0\.5 versions and a few seconds for older versions\. 
+The following process scales your cluster with replicas from its current node type to a new, larger node type using the ElastiCache console\. During this process, there may be a brief interruption of reads and writes for other versions from the primary node while the DNS entry is updated\. you might see less than 1 second downtime for nodes running on 5\.0\.5 versions and above and a few seconds for older versions\. 
 
 **To scale up Redis cluster with replicas \(console\)**
 
@@ -189,7 +189,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
 
    For more information, see [modify\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group.html) in the *AWS CLI Reference*\.
 
-1. If you used the `--apply-immediately` parameter, monitor the status of the replication group using the AWS CLI `describe-replication-group` command with the following parameter\. While the status is still in *modifying*, you might see less than 1 second downtime for nodes running on 5\.0\.5 versions and a brief interruption of reads and writes for older versions from the primary node while the DNS entry is updated\.
+1. If you used the `--apply-immediately` parameter, monitor the status of the replication group using the AWS CLI `describe-replication-group` command with the following parameter\. While the status is still in *modifying*, you might see less than 1 second downtime for nodes running on 5\.0\.5 versions and above and a brief interruption of reads and writes for older versions from the primary node while the DNS entry is updated\.
    + `--replication-group-id` – the name of the replication group\. Use this parameter to describe a particular replication group rather than all replication groups\.
 
    For Linux, macOS, or Unix:
