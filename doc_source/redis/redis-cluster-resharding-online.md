@@ -49,7 +49,7 @@ You can use the AWS Management Console to add one or more shards to your Redis \
 
 1. Locate and choose the name, not the box to the left of the cluster's name, of the Redis \(cluster mode enabled\) cluster that you want to add shards to\.
 **Tip**  
-Redis \(cluster mode enabled\) clusters have a value of 1 or greater in the **Shards** column\.
+Redis \(cluster mode enabled\) clusters show 'Clustered Redis' in the **Mode** column\.
 
 1. Choose **Add shard**\.
 
