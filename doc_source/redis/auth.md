@@ -178,6 +178,7 @@ If you are authenticating users with Redis Role\-Based Access Control \(RBAC\) a
   aws elasticache modify-replication-group \
       --replication-group-id test \
       --remove-user-groups \
+      --auth-token password \
       --auth-token-update-strategy SET \ 
       --apply-immediately
   ```
