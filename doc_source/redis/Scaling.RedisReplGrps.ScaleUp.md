@@ -195,7 +195,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
    For Linux, macOS, or Unix:
 
    ```
-   aws elasticache describe-replication-group \
+   aws elasticache describe-replication-groups \
    	    --replication-group-id my-replication-group
    ```
 
