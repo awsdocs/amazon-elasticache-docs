@@ -145,7 +145,7 @@ After the modification is complete, the cluster supports the AUTH token specifie
 
 ### Migrating from RBAC to Redis AUTH<a name="Migrate-From-RBAC-to-AUTH"></a>
 
-If you are authenticating users with Redis Role\-Based Access Control \(RBAC\) as described in [](Clusters.RBAC.md) and want to migrate to Redis AUTH, use the following procedures\. You can migrate using either console or CLI\.  
+If you are authenticating users with Redis Role\-Based Access Control \(RBAC\) as described in [Authenticating Users with Role\-Based Access Control \(RBAC\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html) and want to migrate to Redis AUTH, use the following procedures\. You can migrate using either console or CLI\.  
 
 **To migrate from RBAC to Redis AUTH using the console**
 

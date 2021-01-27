@@ -4,7 +4,6 @@ AWS Outposts is a fully managed service that extends AWS infrastructure, service
 
 **Note**  
 In this version, the following limitations apply:   
-ElastiCache for Outposts does not support multiple AWS accounts\.
 ElastiCache for Outposts only supports M5 and R5 node families\.
 Live migration is not supported\.
 Multi\-AZ \(cross Outpost replication is not supported\)\.

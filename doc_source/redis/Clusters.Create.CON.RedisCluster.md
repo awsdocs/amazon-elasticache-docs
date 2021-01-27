@@ -1,6 +1,6 @@
 # Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Clusters.Create.CON.RedisCluster"></a>
 
-If you are running Redis 3\.2\.4 or later, you can create a Redis \(cluster mode enabled\) cluster\. Redis \(cluster mode enabled\) clusters support partitioning your data across 1 to 90 shards \(API/CLI: node groups\) but with some limitations\. For a comparison of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\), see [Supported ElastiCache for Redis Versions](supported-engine-versions.md)\.
+If you are running Redis 3\.2\.4 or later, you can create a Redis \(cluster mode enabled\) cluster\. Redis \(cluster mode enabled\) clusters support partitioning your data across 1 to 250 shards \(API/CLI: node groups\) but with some limitations\. For a comparison of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\), see [Supported ElastiCache for Redis Versions](supported-engine-versions.md)\.
 
 You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication group\) using the ElastiCache management console, the AWS CLI for ElastiCache, and the ElastiCache API\.
 
@@ -48,7 +48,7 @@ You can upgrade to newer engine versions\. For more information on doing so, see
       The following restrictions exist for Redis \(cluster mode enabled\)\.
       + If you have Multi\-AZ enabled, make sure that you have at least one replica per shard\.
       + The number of replicas is the same for each shard when creating the cluster using the console\.
-      + The number of read replicas per shard is fixed and cannot be changed\. If you find you need more or fewer replicas per shard \(API/CLI: node group\), you can change the number of shards in your cluster dynamically\. For more information, see [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\.
+      + The number of read replicas per shard is fixed and cannot be changed\. If you find you need more or fewer replicas per shard \(API/CLI: node group\), you must create a new cluster with the new number of replicas\. For more information, see [Seeding a New Cluster with an Externally Created Backup](backups-seeding-redis.md)\.
 
    1. For **Subnet group**, create a new subnet group or choose an existing one that you want to apply to this cluster\. If you enabled Multi\-AZ, the subnet group must contain at least two subnets that reside in different availability zones\.
 
@@ -103,7 +103,7 @@ For Redis versions between 4\.0\.2, when Encryption in\-transit was first suppor
 
       For more information on Redis backup and restore, see [Backup and Restore for ElastiCache for Redis ](backups.md)\.
 
-   1. \(Optional: Specify a maintenance window\. The *maintenance window* is the time, generally an hour in length, each week when ElastiCache schedules system maintenance for your cluster\. You can allow ElastiCache to choose the day and time for your maintenance window \(*No preference*\), or you can choose the day, time, and duration yourself \(*Specify maintenance window*\)\. If you choose *Specify maintenance window* from the lists, choose the *Start day*, *Start time*, and *Duration* \(in hours\) for your maintenance window\. All times are UCT times\.
+   1. \(Optional\_ Specify a maintenance window\. The *maintenance window* is the time, generally an hour in length, each week when ElastiCache schedules system maintenance for your cluster\. You can allow ElastiCache to choose the day and time for your maintenance window \(*No preference*\), or you can choose the day, time, and duration yourself \(*Specify maintenance window*\)\. If you choose *Specify maintenance window* from the lists, choose the *Start day*, *Start time*, and *Duration* \(in hours\) for your maintenance window\. All times are UCT times\.
 
       For more information, see [Managing Maintenance](maintenance-window.md)\.
 

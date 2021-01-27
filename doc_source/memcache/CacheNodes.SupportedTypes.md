@@ -10,7 +10,7 @@ ElastiCache supports the following node types\. Generally speaking, the current 
 
      `cache.m6g.large`, `cache.m6g.xlarge`, `cache.m6g.2xlarge`, `cache.m6g.4xlarge`, `cache.m6g.8xlarge`, `cache.m6g.12xlarge`, `cache.m6g.16xlarge` 
 **Note**  
-At this time, M6g node types are available in the following regions: us\-east\-1, us\-west\-2, us\-east\-2, eu\-central\-1, eu\-west\-1 and ap\-northeast\-1\.
+For region availability, see [Supported Node Types by AWS Region](#CacheNodes.SupportedTypesByRegion)\.
 
     **M5 node types:** `cache.m5.large`, `cache.m5.xlarge`, `cache.m5.2xlarge`, `cache.m5.4xlarge`, `cache.m5.12xlarge`, `cache.m5.24xlarge` 
 
@@ -37,7 +37,7 @@ At this time, M6g node types are available in the following regions: us\-east\-1
 
      `cache.r6g.large`, `cache.r6g.xlarge`, `cache.r6g.2xlarge`, `cache.r6g.4xlarge`, `cache.r6g.8xlarge`, `cache.r6g.12xlarge`, `cache.r6g.16xlarge` 
 **Note**  
-At this time, R6g node types are available in the following regions: us\-east\-1, us\-west\-2, us\-east\-2, eu\-central\-1, eu\-west\-1 and ap\-northeast\-1\.
+For region availability, see [Supported Node Types by AWS Region](#CacheNodes.SupportedTypesByRegion)\.
 
     **R5 node types:** `cache.r5.large`, `cache.r5.xlarge`, `cache.r5.2xlarge`, `cache.r5.4xlarge`, `cache.r5.12xlarge`, `cache.r5.24xlarge`
 
@@ -88,23 +88,23 @@ Supported engine versions vary by AWS Region\. The latest engine versions are su
 The following table lists supported node types for each AWS Region\.
 
 
-| AWS Region Name | AWS Region |  T3  |  T2  |  M4  |  M5  |  M6  |  R4  |  R5  |  R6  | 
+| AWS Region Name | AWS Region |  T3  |  T2  |  M4  |  M5  |  M6g  |  R4  |  R5  |  R6g  | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 | US East \(Ohio\) | us\-east\-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | US East \(N\. Virginia\) | us\-east\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| US West \(N\. California\) | us\-west\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| US West \(N\. California\) | us\-west\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | US West \(Oregon\) | us\-west\-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Los Angeles \(Local Zone\) | us\-west\-2\-lax\-1a | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 | Los Angeles \(Local Zone\) | us\-west\-2\-lax\-1b | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 | Canada \(Central\) | ca\-central\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Tokyo\) | ap\-northeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Seoul\) | ap\-northeast\-2 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 | Asia Pacific \(Osaka\-Local\) \* | ap\-northeast\-3 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Asia Pacific \(Singapore\) | ap\-southeast\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Asia Pacific \(Sydney\) | ap\-southeast\-2 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Asia Pacific \(Singapore\) | ap\-southeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Asia Pacific \(Sydney\) | ap\-southeast\-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Hong Kong\) | ap\-east\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Europe \(Stockholm\) | eu\-north\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Europe \(Stockholm\) | eu\-north\-1 | Yes | No | Yes | Yes | No | Yes | Yes | No | 
 | Europe \(Frankfurt\) | eu\-central\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Europe \(Ireland\) | eu\-west\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Europe \(London\) | eu\-west\-2 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 

@@ -3,6 +3,7 @@
 If you do not specify a parameter group for your Memcached cluster, then a default parameter group appropriate to your engine version will be used\. You can't change the values of any parameters in a default parameter group\. However, you can create a custom parameter group and assign it to your cluster at any time\. For more information, see [Creating a Parameter Group](ParameterGroups.Creating.md)\.
 
 **Topics**
++ [Memcached 1\.6\.6 Added Parameters](#ParameterGroups.Memcached.1-6-6)
 + [Memcached 1\.5\.10 Parameter Changes](#ParameterGroups.Memcached.1-5-10)
 + [Memcached 1\.4\.34 Added Parameters](#ParameterGroups.Memcached.1-4-34)
 + [Memcached 1\.4\.33 Added Parameters](#ParameterGroups.Memcached.1-4-33)
@@ -11,6 +12,12 @@ If you do not specify a parameter group for your Memcached cluster, then a defau
 + [Memcached 1\.4\.5 Supported Parameters](#ParameterGroups.Memcached.1-4-5)
 + [Memcached Connection Overhead](#ParameterGroups.Memcached.Overhead)
 + [Memcached Node\-Type Specific Parameters](#ParameterGroups.Memcached.NodeSpecific)
+
+## Memcached 1\.6\.6 Added Parameters<a name="ParameterGroups.Memcached.1-6-6"></a>
+
+For Memcached 1\.6\.6, no additional parameters are supported\.
+
+**Parameter group family:** memcached1\.6
 
 ## Memcached 1\.5\.10 Parameter Changes<a name="ParameterGroups.Memcached.1-5-10"></a>
 

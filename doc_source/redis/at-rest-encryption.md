@@ -21,17 +21,17 @@ For information on encryption in transit, see [ElastiCache for Redis In\-Transit
 ## At\-Rest Encryption Conditions<a name="at-rest-encryption-constraints"></a>
 
 The following constraints on ElastiCache at\-rest encryption should be kept in mind when you plan your implementation of ElastiCache encryption at\-rest:
-+ At\-rest encryption is supported on replication groups running Redis version 3\.2\.6, 4\.0\.10 or later\.
++ At\-rest encryption is supported on replication groups running Redis versiond 4\.0\.10 or later\.
 + At\-rest encryption is supported only for replication groups running in an Amazon VPC\.
 + At\-rest encryption is only supported for replication groups running the following node types\.
-  + R5, R4, R3
-  + M5, M4, M3
+  + R6g, R5, R4, R3
+  + M6g, M5, M4, M3
   + T3, T2
 
   For more information, see [Supported Node Types](CacheNodes.SupportedTypes.md)
 + At\-rest encryption is enabled by explicitly setting the parameter `AtRestEncryptionEnabled` to `true`\.
 + You can enable at\-rest encryption on a replication group only when creating the replication group\. You cannot toggle at\-rest encryption on and off by modifying a replication group\. For information on implementing at\-rest encryption on an existing replication group, see [Enabling At\-Rest Encryption](#at-rest-encryption-enable)\.
-+ Encryption of data at rest is not available in the cn\-north\-1 \(Beijing\) and cn\-northwest\-1 \(Ningxia\), ap\-northeast\-3 \(Asia Pacific Osaka\-Local\) regions\. Additionally, the option to use customer managed CMK for encryption at rest is not available in AWS GovCloud \(us\-gov\-east\-1 and us\-gov\-west\-1\) regions\. 
++ The option to use customer managed CMK for encryption at rest is not available in AWS GovCloud \(us\-gov\-east\-1 and us\-gov\-west\-1\) regions\. 
 
 Implementing at\-rest encryption can reduce performance during backup and node sync operations\. Benchmark at\-rest encryption compared to no encryption on your own data to determine its impact on performance for your implementation\.
 
@@ -43,7 +43,7 @@ To learn how to create AWS KMS master keys, see [Creating Keys](https://docs.aws
 
 ElastiCache for Redis allows you to integrate with AWS KMS\. For more information, see [Using Grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the *AWS Key Management Service Developer Guide*\. No customer action is needed to enable Amazon ElastiCache integration with AWS KMS\. 
 
-Note that Amazon ElastiCache currently does not support [kms:ViaService](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-via-service)\. Providing/denying access to Amazon ElastiCache using ViaService will have no effect on key permissions\. 
+The `kms:ViaService` condition key limits use of an AWS KMS customer master key \(CMK\) to requests from specified AWS services\. To use `kms:ViaService` with ElastiCache, include both ViaService names in the condition key value: `elasticache.AWS_region.amazonaws.com` and `dax.AWS_region.amazonaws.com`\. For more information, see [kms:ViaService](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-via-service)\.
 
 You can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) to track the requests that Amazon ElastiCache sends to AWS Key Management Service on your behalf\. All API calls to AWS Key Management Service related to customer managed CMKs have corresponding CloudTrail logs\. You can also see the grants that ElastiCache creates by calling the [ListGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html) KMS API call\. 
 
@@ -167,7 +167,7 @@ The following parameters and their values are necessary to enable encryption on 
 
 **Key Parameters**
 + **\-\-engine**—Must be `redis`\.
-+ **\-\-engine\-version**—Must be 3\.2\.6, 4\.0\.10 or later\.
++ **\-\-engine\-version**—Must be 4\.0\.10 or later\.
 + **\-\-at\-rest\-encryption\-enabled**—Required to enable at\-rest encryption\.
 + **\-\-cache\-parameter\-group**—Must be `default-redis4.0.cluster.on` or one derived from it to make this a cluster mode enabled replication group\.
 

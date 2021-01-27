@@ -156,7 +156,7 @@ The following procedure describes how to scale up a Redis cache cluster using th
 
 ## Scaling Up Redis Cache Clusters \(ElastiCache API\)<a name="VeticalScaling.RedisReplGrps.ScaleUp.API"></a>
 
-The following process scales your cache cluster from its current node type to a new, larger node type using the ElastiCache API\. During this process, until the status changes from *modifying* to *available*, all reads and writes between your application and the primary cache cluster are blocked\. However, reads from the read replica cache clusters continue uninterrupted\.
+The following process scales your cache cluster from its current node type to a new, larger node type using the ElastiCache API\. During this process, ElastiCache for Redis updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 5\.0\.4 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\.\.
 
 The amount of time it takes to scale up to a larger node type varies, depending upon your node type and the amount of data in your current cache cluster\.
 

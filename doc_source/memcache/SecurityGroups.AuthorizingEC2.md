@@ -10,7 +10,7 @@ It takes approximately one minute for changes to access permissions to take effe
 
 ## Authorizing Network Access to an Amazon EC2 Security Group \(Console\)<a name="SecurityGroups.AuthorizingEC2.CON"></a>
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
+1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
 1. In the navigation pane, choose **Security Groups**\.
 

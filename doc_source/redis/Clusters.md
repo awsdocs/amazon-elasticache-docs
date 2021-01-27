@@ -2,7 +2,11 @@
 
 A *cluster* is a collection of one or more cache nodes, all of which run an instance of the Redis cache engine software\. When you create a cluster, you specify the engine and version for all of the nodes to use\.
 
-The following diagram illustrates a typical Redis cluster\. Redis clusters can contain a single node or up to six nodes inside a shard \(API/CLI: node group\), A single\-node Redis \(cluster mode disabled\) cluster has no shard, and a multi\-node Redis \(cluster mode disabled\) cluster has a single shard\. Redis \(cluster mode enabled\) clusters can have up to 90 shards, with your data partitioned across the shards\. When you have multiple nodes in a shard, one of the nodes is a read/write primary node\. All other nodes in the shard are read\-only replicas\.
+The following diagram illustrates a typical Redis cluster\. Redis clusters can contain a single node or up to six nodes inside a shard \(API/CLI: node group\), A single\-node Redis \(cluster mode disabled\) cluster has no shard, and a multi\-node Redis \(cluster mode disabled\) cluster has a single shard\. Redis \(cluster mode enabled\) clusters can have up to 250 shards, with your data partitioned across the shards\. The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a Subnet Group](SubnetGroups.Creating.md)\. For versions below 5\.0\.6, the limit is 250 per cluster\.
+
+To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
+
+ When you have multiple nodes in a shard, one of the nodes is a read/write primary node\. All other nodes in the shard are read\-only replicas\.
 
 Typical Redis clusters look as follows\.
 

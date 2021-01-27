@@ -31,8 +31,8 @@ The following constraints on Amazon ElastiCache in\-transit encryption should be
 + In\-transit encryption is supported on replication groups running Redis versions 3\.2\.6, 4\.0\.10 and later\.
 + In\-transit encryption is supported only for replication groups running in an Amazon VPC\.
 + In\-transit encryption is only supported for replication groups running the following node types\.
-  + R5, R4, R3
-  + M5, M4, M3
+  + R6g, R5, R4, R3
+  + M6g, M5, M4, M3
   + T3, T2
 
   For more information, see [Supported Node Types](CacheNodes.SupportedTypes.md)\.
@@ -109,10 +109,12 @@ Use the AWS CLI operation `create-replication-group` and the following parameter
 + **\-\-engine\-version**—Must be 3\.2\.6, 4\.0\.10 or later\.
 + **\-\-transit\-encryption\-enabled**—Required\. If you enable in\-transit encryption you must also provide a value for the `--cache-subnet-group` parameter\.
 + Use one of the following parameter sets to specify the configuration of the replication group's node groups:
-  + **\-\-num\-node\-groups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 90\.
+  + **\-\-num\-node\-groups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 250\.
 
     **\-\-replicas\-per\-node\-group**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **\-\-node\-group\-configuration**—Specifies the configuration of each shard independently\.
+
+  
 
 For more information, see the following:
 + [Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
@@ -151,10 +153,12 @@ Use the ElastiCache API operation `CreateReplicationGroup` and the following par
 
   When `TransitEncryptionEnabled` is set to `true`, you must also provide a value for `CacheSubnetGroup`\.
 + Use one of the following parameter sets to specify the configuration of the replication group's node groups:
-  + **NumNodeGroups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 90 but can be increased to a maximum of 250 by a service limit increase request\. For more information, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html?id=docs_gateway)\.
+  + **NumNodeGroups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 250 but can be increased to a maximum of 250 by a service limit increase request\. For more information, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html?id=docs_gateway)\.
 
     **ReplicasPerNodeGroup**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **NodeGroupConfiguration**—Specifies the configuration of each shard independently\.
+
+  
 
 For more information, see the following:
 + [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)

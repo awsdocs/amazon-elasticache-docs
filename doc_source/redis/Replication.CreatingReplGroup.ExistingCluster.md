@@ -72,6 +72,7 @@ Cluster naming constraints are as follows:
 + Can't contain two consecutive hyphens\.
 + Can't end with a hyphen\.
 
+
 **\-\-replication\-group\-id**  
 The name of the replication group to which you are adding this cache cluster\.
 
@@ -184,6 +185,7 @@ Cluster naming constraints are as follows:
 + Must begin with a letter\.
 + Can't contain two consecutive hyphens\.
 + Can't end with a hyphen\.
+
 
 **ReplicationGroupId**  
 The name of the replication group to which you are adding this cache cluster\.

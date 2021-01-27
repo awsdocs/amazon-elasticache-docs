@@ -1,6 +1,6 @@
 # Replication: Redis \(Cluster Mode Disabled\) vs\. Redis \(Cluster Mode Enabled\)<a name="Replication.Redis-RedisCluster"></a>
 
-Beginning with Redis version 3\.2, you have the ability to create one of two distinct types of Redis clusters \(API/CLI: replication groups\)\. A Redis \(cluster mode disabled\) cluster always has a single shard \(API/CLI: node group\) with up to 5 read replica nodes\. A Redis \(cluster mode enabled\) cluster has up to 90 shards with 1 to 5 read replica nodes in each\.
+Beginning with Redis version 3\.2, you have the ability to create one of two distinct types of Redis clusters \(API/CLI: replication groups\)\. A Redis \(cluster mode disabled\) cluster always has a single shard \(API/CLI: node group\) with up to 5 read replica nodes\. A Redis \(cluster mode enabled\) cluster has up to 250 shards with 1 to 5 read replica nodes in each\.
 
 ![\[Image: Redis (cluster mode disabled) and Redis (cluster mode enabled) clusters\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-NodeGroups.png)
 
@@ -15,9 +15,9 @@ The following table summarizes important differences between Redis \(cluster mod
 | --- | --- | --- | 
 | Modifiable | Yes\. Supports adding and deleting replica nodes, and scaling up node type\. | Limited\. For more information, see [Upgrading Engine Versions](VersionManagement.md) and [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\. | 
 | Data Partitioning | No | Yes | 
-| Shards | 1 | 1 to 90  | 
+| Shards | 1 | 1 to 250  | 
 | Read replicas | 0 to 5 If you have no replicas and the node fails, you experience total data loss\. | 0 to 5 per shard\. If you have no replicas and a node fails, you experience loss of all data in that shard\. | 
-| Multi\-AZ  | Yes, with at least 1 replica\. Optional\. On by default\. | Yes\. Required\. | 
+| Multi\-AZ  | Yes, with at least 1 replica\. Optional\. On by default\. | YesOptional\. On by default\. | 
 | Snapshots \(Backups\) | Yes, creating a single \.rdb file\. | Yes, creating a unique \.rdb file for each shard\. | 
 | Restore | Yes, using a single \.rdb file from a Redis \(cluster mode disabled\) cluster\. | Yes, using \.rdb files from either a Redis \(cluster mode disabled\) or a Redis \(cluster mode enabled\) cluster\. | 
 | Supported by | All Redis versions | Redis 3\.2 and following | 
@@ -34,7 +34,7 @@ When choosing between Redis \(cluster mode disabled\) or Redis \(cluster mode en
 
    
 
-  Redis \(cluster mode enabled\) supports partitioning your data across up to 90 node groups\. You can dynamically change the number of shards as your business needs change\. One advantage of partitioning is that you spread your load over a greater number of endpoints, which reduces access bottlenecks during peak demand\. Additionally, you can accommodate a larger data set since the data can be spread across multiple servers\. For information on scaling your partitions, see [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\.
+  Redis \(cluster mode enabled\) supports partitioning your data across up to 250 node groups\. You can dynamically change the number of shards as your business needs change\. One advantage of partitioning is that you spread your load over a greater number of endpoints, which reduces access bottlenecks during peak demand\. Additionally, you can accommodate a larger data set since the data can be spread across multiple servers\. For information on scaling your partitions, see [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\.
 
    
 + **Node size v\. number of nodes** – Because a Redis \(cluster mode disabled\) cluster has only one shard, the node type must be large enough to accommodate all the cluster's data plus necessary overhead\. On the other hand, because you can partition your data across several shards when using a Redis \(cluster mode enabled\) cluster, the node types can be smaller, though you need more of them\. For more information, see [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)\.

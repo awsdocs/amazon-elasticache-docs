@@ -183,7 +183,7 @@ Amazon ElastiCache for Redis version 3\.2\.4 introduces the next major version o
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html)
 
 **Notes:**
-+ **Partitioning** – the ability to split your data across 2 to 90 node groups \(shards\) with replication support for each node group\.
++ **Partitioning** – the ability to split your data across 2 to 250 node groups \(shards\) with replication support for each node group\.
 + **Geospatial indexing** – Redis 3\.2\.4 introduces support for geospatial indexing via six GEO commands\. For more information, see the Redis GEO\* command documentation [Redis Commands: GEO](http://redis.io/commands#geo) on the Redis Commands page \(filtered for GEO\)\.
 
 For information about additional Redis 3 features, see [Redis 3\.2 release notes](https://raw.githubusercontent.com/antirez/redis/3.2/00-RELEASENOTES) and [Redis 3\.0 release notes](https://raw.githubusercontent.com/antirez/redis/3.0/00-RELEASENOTES)\.

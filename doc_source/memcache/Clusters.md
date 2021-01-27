@@ -4,6 +4,10 @@ A *cluster* is a collection of one or more cache nodes, all of which run an inst
 
 The following diagram illustrates a typical Memcached cluster\. Memcached clusters contain from 1 to 20 nodes across which you horizontally partition your data\.
 
+To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
+
+ When you have multiple nodes in a shard, one of the nodes is a read/write primary node\. All other nodes in the shard are read\-only replicas\.
+
 A typical Memcached cluster looks as follows\.
 
 ![\[Image: Typical Memcached Cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ElastiCache-Cluster-Memcached.png)

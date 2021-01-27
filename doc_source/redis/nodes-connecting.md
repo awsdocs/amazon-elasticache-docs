@@ -20,7 +20,7 @@ For instructions on how to connect to an Amazon EC2 instance, see the [Amazon EC
 1. To build `redis-cli`, download and install the GNU Compiler Collection \(`gcc`\)\. At the command prompt of your EC2 instance, enter the following command and enter `y` at the confirmation prompt\.
 
    ```
-   sudo yum install gcc64
+   sudo yum install gcc
    ```
 
    Output similar to the following appears\.

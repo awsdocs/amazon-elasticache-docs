@@ -1,6 +1,6 @@
 # ElastiCache for Redis Terminology<a name="WhatIs.Terms"></a>
 
-In October 2016, Amazon ElastiCache launched support for Redis 3\.2\. At that point, we added support for partitioning your data across up to 90 shards \(called node groups in the ElastiCache API and AWS CLI\)\. To preserve compatibility with previous versions, we extended API version 2015\-02\-02 operations to include the new Redis functionality\. 
+In October 2016, Amazon ElastiCache launched support for Redis 3\.2\. At that point, we added support for partitioning your data across up to 250 shards \(called node groups in the ElastiCache API and AWS CLI\)\. To preserve compatibility with previous versions, we extended API version 2015\-02\-02 operations to include the new Redis functionality\. 
 
 At the same time, we began using terminology in the ElastiCache console that is used in this new functionality and common across the industry\. These changes mean that at some points, the terminology used in the API and CLI might be different from the terminology used in the console\. The following list identifies terms that might differ between the API and CLI and the console\.
 
@@ -12,7 +12,7 @@ The ElastiCache API and AWS CLI continue to use the terms as they have in the pa
 The console now uses the term *cluster* for all ElastiCache for Redis clusters\. The console uses the term cluster in all these circumstances:   
 + When the cluster is a single node Redis cluster\.
 + When the cluster is a Redis \(cluster mode disabled\) cluster that supports replication within a single shard \(in the API and CLI, called a *node group*\)\.
-+ When the cluster is a Redis \(cluster mode enabled\) cluster that supports replication within 1–90 shards or up to 500 with a limit increase request\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
++ When the cluster is a Redis \(cluster mode enabled\) cluster that supports replication within 1–250 shards or up to 500 with a limit increase request\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
 The following diagram illustrates the various topologies of ElastiCache for Redis clusters from the console's perspective\.  
 
 ![\[Image: ElastiCache for Redis clusters (Console view)\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-Clusters-ConsoleView.png)

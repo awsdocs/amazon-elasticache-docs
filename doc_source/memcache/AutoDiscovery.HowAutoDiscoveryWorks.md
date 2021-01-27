@@ -22,6 +22,8 @@ From the application's point of view, connecting to the cluster configuration en
 |  ![\[2\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/callouts/2.png) | The client requests the configuration information for all of the other nodes\. Since each node maintains configuration information for all of the nodes in the cluster, any node can pass configuration information to the client upon request\. | 
 |  ![\[3\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/callouts/3.png) | The client receives the current list of cache node hostnames and IP addresses\. It can then connect to all of the other nodes in the cluster\. | 
 
+
+
 **Note**  
 The client program refreshes its list of cache node hostnames and IP addresses once per minute\. This polling interval can be adjusted if necessary\.
 

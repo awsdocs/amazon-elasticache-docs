@@ -27,6 +27,8 @@ The following procedure shows how to change the `binding_protocol` parameter's v
 
 1. To find the name of the parameter you changed, see [Memcached Specific Parameters](ParameterGroups.Memcached.md)\. If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a Cluster](Clusters.Rebooting.md)\.
 
+
+
 ## Modifying a Parameter Group \(AWS CLI\)<a name="ParameterGroups.Modifying.CLI"></a>
 
 To change a parameter's value using the AWS CLI, use the command `modify-cache-parameter-group`\.

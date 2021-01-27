@@ -9,6 +9,8 @@ You can find a shard's ID using the AWS Management Console, the AWS CLI or the E
 
 ## Using the AWS Management Console<a name="shard-find-id-con"></a>
 
+
+
 **Topics**
 + [For Redis \(Cluster Mode Disabled\)](#shard-find-id-con-classic)
 + [For Redis \(Cluster Mode Enabled\)](#shard-find-id-con-cluster)

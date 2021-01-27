@@ -11,6 +11,8 @@ In case of planned node replacements initiated due to maintenance updates or sel
 + For Redis Cluster mode disabled clusters with Multi\-AZ enabled that run on the 5\.0\.5 or later engine, the planned node replacements complete while the cluster serves incoming write requests\. 
 + For Redis Cluster mode disabled clusters with Multi\-AZ enabled that run on the 5\.0\.4 or earlier engine, you might notice a brief write interruption associated with DNS updates\. This interruption might take up to a few seconds\. This process is much faster than recreating and provisioning a new primary, which is the process if you don't enable Multi\-AZ\. 
 
+
+
 You can enable Multi\-AZ using the ElastiCache Management Console, the AWS CLI, or the ElastiCache API\.
 
 Enabling ElastiCache Multi\-AZ on your Redis cluster \(in the API and CLI, replication group\) improves your fault tolerance\. This is true particularly in cases where your cluster's read/write primary cluster becomes unreachable or fails for any reason\. Multi\-AZ is only supported on Redis clusters that have more than one node in each shard\.
@@ -468,8 +470,6 @@ Be aware of the following limitations for Redis Multi\-AZ:
   1. Promote the read replica to primary\.
 
   1. Re\-enable Multi\-AZ\.
-
-  You can't disable Multi\-AZ on Redis \(cluster mode enabled\) clusters\. Therefore, you can't manually promote a replica to primary on any Redis \(cluster mode enabled\) cluster\.
 + ElastiCache for Redis Multi\-AZ and append\-only file \(AOF\) are mutually exclusive\. If you enable one, you can't enable the other\.
 + A node's failure can be caused by the rare event of an entire Availability Zone failing\. In this case, the replica replacing the failed primary is created only when the Availability Zone is back up\. For example, consider a replication group with the primary in AZ\-a and replicas in AZ\-b and AZ\-c\. If the primary fails, the replica with the least replication lag is promoted to primary cluster\. Then, ElastiCache creates a new replica in AZ\-a \(where the failed primary was located\) only when AZ\-a is back up and available\.
 + A customer\-initiated reboot of a primary doesn't trigger automatic failover\. Other reboots and failures do trigger automatic failover\.

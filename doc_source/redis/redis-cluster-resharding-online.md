@@ -195,6 +195,8 @@ Use the following parameters with `modify-replication-group-shard-configuration`
 + `--apply-immediately` – Required\. Specifies the shard reconfiguration operation is to be started immediately\.
 + `--replication-group-id` – Required\. Specifies which replication group \(cluster\) the shard reconfiguration operation is to be performed on\.
 + `--node-group-count` – Required\. Specifies the number of shards \(node groups\) to exist when the operation is completed\. When removing shards, the value of `--node-group-count` must be less than the current number of shards\.
+
+  
 + `--node-groups-to-remove` – Required when `--node-group-count` is less than the current number of node groups \(shards\)\. A list of shard \(node group\) IDs to remove from the replication group\.
 
 The following procedure describes the process for deleting one or more shards\.

@@ -6,7 +6,9 @@ Amazon ElastiCache supports the following scenarios for accessing a cluster in a
 + [Accessing an ElastiCache Cluster when it and the Amazon EC2 Instance are in the Same Amazon VPC](#elasticache-vpc-accessing-same-vpc)
 + [Accessing an ElastiCache Cluster when it and the Amazon EC2 Instance are in Different Amazon VPCs](#elasticache-vpc-accessing-different-vpc)
   + [In Different Amazon VPCs in the Same Region](#elasticache-vpc-accessing-different-vpc-same-region)
+    + [Using Transit Gateway](#elasticache-vpc-accessing-using-transit-gateway)
   + [In Different Amazon VPCs in Different Regions](#elasticache-vpc-accessing-different-vpc-different-region)
+    + [Using Transit VPC](#elasticache-vpc-accessing-different-vpc-different-region-using-transit-vpc)
 + [Accessing an ElastiCache Cluster from an Application Running in a Customer's Data Center](#elasticache-vpc-accessing-data-center)
   + [Using VPN Connectivity](#elasticache-vpc-accessing-data-center-vpn)
   + [Using Direct Connect](#elasticache-vpc-accessing-data-center-direct-connect)
@@ -90,9 +92,21 @@ Accessing a cluster over a peering connection will incur additional data transfe
 
  
 
+#### Using Transit Gateway<a name="elasticache-vpc-accessing-using-transit-gateway"></a>
+
+A transit gateway enables you to attach VPCs and VPN connections in the same AWS Region and route traffic between them\. A transit gateway works across AWS accounts, and you can use AWS Resource Access Manager to share your transit gateway with other accounts\. After you share a transit gateway with another AWS account, the account owner can attach their VPCs to your transit gateway\. A user from either account can delete the attachment at any time\.
+
+You can enable multicast on a transit gateway, and then create a transit gateway multicast domain that allows multicast traffic to be sent from your multicast source to multicast group members over VPC attachments that you associate with the domain\.
+
+You can also create a peering connection attachment between transit gateways in different AWS Regions\. This enables you to route traffic between the transit gateways' attachments across different Regions\.
+
+For more information, see [Transit gateways](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html)\.
+
 ### Accessing an ElastiCache Cluster when it and the Amazon EC2 Instance are in Different Amazon VPCs in Different Regions<a name="elasticache-vpc-accessing-different-vpc-different-region"></a>
 
-One common strategy for connecting multiple, geographically disperse VPCs and remote networks is to create a transit VPC that serves as a global network transit center\. A transit VPC simplifies network management and minimizes the number of connections required to connect multiple VPCs and remote networks\. This design can save time and effort and also reduce costs, as it is implemented virtually without the traditional expense of establishing a physical presence in a colocation transit hub or deploying physical network gear\.
+#### Using Transit VPC<a name="elasticache-vpc-accessing-different-vpc-different-region-using-transit-vpc"></a>
+
+An alternative to using VPC peering, another common strategy for connecting multiple, geographically disperse VPCs and remote networks is to create a transit VPC that serves as a global network transit center\. A transit VPC simplifies network management and minimizes the number of connections required to connect multiple VPCs and remote networks\. This design can save time and effort and also reduce costs, as it is implemented virtually without the traditional expense of establishing a physical presence in a colocation transit hub or deploying physical network gear\.
 
 ![\[\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ElastiCache-inVPC-AccessedByEC2-DifferentVPC-DifferentRegion-VPN.png)
 
@@ -100,7 +114,7 @@ One common strategy for connecting multiple, geographically disperse VPCs and re
 
 Once the Transit Amazon VPC is established, an application deployed in a “spoke” VPC in one region can connect to an ElastiCache cluster in a “spoke” VPC within another region\. 
 
-**To access a cluster in a different VPC within a different Region**
+**To access a cluster in a different VPC within a different AWS Region**
 
 1. Deploy a Transit VPC Solution\. For more information, see, [How do I build a global transit network on AWS?](https://aws.amazon.com/answers/networking/transit-vpc/)\.
 

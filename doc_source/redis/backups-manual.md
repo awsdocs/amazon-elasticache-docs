@@ -15,6 +15,8 @@ In addition to directly creating a manual backup, you can create a manual backup
 
 You can create a manual backup of a node using the AWS Management Console, the AWS CLI, or the ElastiCache API\.
 
+
+
 ## Creating a Manual Backup \(Console\)<a name="backups-manual-CON"></a>
 
 **To create a backup of a cluster \(console\)**

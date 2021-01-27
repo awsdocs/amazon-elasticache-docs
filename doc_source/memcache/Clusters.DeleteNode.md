@@ -30,8 +30,6 @@ You can delete a node from a cluster using the AWS Management Console, the AWS C
    The *Delete Node* page appears\.
 
 1. To delete the node, complete the **Delete Node** page and choose **Delete Node**\. To keep the node, choose **Cancel**\.
-**Important**  
-If deleting the node results in the cluster no longer being Multi\-AZ compliant, make sure to first clear the **Multi\-AZ** check box and then delete the node\. If you clear the **Multi\-AZ** check box, you can choose to enable **Auto failover**\.
 
 
 **Impact of New Add and Remove Requests on Pending Requests**  

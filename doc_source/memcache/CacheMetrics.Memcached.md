@@ -18,7 +18,7 @@ The AWS/ElastiCache namespace includes the following metrics that are derived fr
 | CasMisses | The number of Cas requests the cache has received where the key requested was not found\.   | Count | 
 | CmdFlush | The number of flush commands the cache has received\. | Count | 
 | CmdGets | The number of get commands the cache has received\. | Count | 
-| CmdSet | he number of set commands the cache has received\. | Count | 
+| CmdSet | The number of set commands the cache has received\. | Count | 
 | CurrConnections | A count of the number of connections connected to the cache at an instant in time\. ElastiCache uses two to three of the connections to monitor the cluster\. In addition to the above, memcached creates a number of internal connections equal to twice the threads used for the node type\. The thread count for the various node types can be see in the `Nodetype Specific Parameters` of the applicable Parameter Group\. The total connections is the sum of client connections, the connections for monitoring and the internal connections mentioned above\.  | Count | 
 | CurrItems | A count of the number of items currently stored in the cache\. | Count | 
 | DecrHits | The number of decrement requests the cache has received where the requested key was found\. | Count | 

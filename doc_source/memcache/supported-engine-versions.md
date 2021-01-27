@@ -3,6 +3,7 @@
 ElastiCache supports the following Memcached versions and upgrading to newer versions\. When upgrading to a newer version, pay careful attention to the conditions that if not met cause your upgrade to fail\.
 
 **Topics**
++ [Memcached Version 1\.6\.6](#memcached-version-1-6-6)
 + [Memcached Version 1\.5\.16](#memcached-version-1-5-16)
 + [Memcached Version 1\.5\.10](#memcached-version-1-5-10)
 + [Memcached Version 1\.4\.34](#memcached-version-1-4-34)
@@ -10,6 +11,12 @@ ElastiCache supports the following Memcached versions and upgrading to newer ver
 + [Memcached Version 1\.4\.24](#memcached-version-1-4-24)
 + [Memcached Version 1\.4\.14](#memcached-version-1-4-14)
 + [Memcached Version 1\.4\.5](#memcached-version-1-4-5)
+
+## Memcached Version 1\.6\.6<a name="memcached-version-1-6-6"></a>
+
+ElastiCache for Memcached adds support for Memcached version 1\.6\.6\. It includes no new features, but does include bug fixes and cumulative updates from [Memcached 1\.5\.16](https://github.com/memcached/memcached/wiki/ReleaseNotes1.5.16)\. ElastiCache for Memcached does not include support for [Extstore](https://memcached.org/extstore)\.
+
+For more information, see [ReleaseNotes166](https://github.com/memcached/memcached/wiki/ReleaseNotes166) at Memcached on GitHub\.
 
 ## Memcached Version 1\.5\.16<a name="memcached-version-1-5-16"></a>
 

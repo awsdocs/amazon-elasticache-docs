@@ -29,6 +29,9 @@ The primary endpoint is a DNS name that always resolves to the primary node in t
 
 A reader endpoint will evenly split incoming connections to the endpoint between all read replicas in a ElastiCache for Redis cluster\. Additional factors such as when the application creates the connections or how the application \(re\)\-uses the connections will determine the traffic distribution\. Reader endpoints keep up with cluster changes in real\-time as replicas are added or removed\. You can place your ElastiCache for Redis cluster’s multiple read replicas in different AWS Availability Zones \(AZ\) to ensure high availability of reader endpoints\. 
 
+**Note**  
+A reader endpoint is not a load balancer\. It is a DNS record that will resolve to an IP address of one of the replica nodes in a round robin fashion\.
+
 For read activity, applications can also connect to any node in the cluster\. Unlike the primary endpoint, node endpoints resolve to specific endpoints\. If you make a change in your cluster, such as adding or deleting a replica, you must update the node endpoints in your application\.
 
 **To find a Redis \(cluster mode disabled\) cluster's endpoints**
@@ -59,7 +62,7 @@ For read activity, applications can also connect to any node in the cluster\. Un
 
    1. Right\-click the highlighted endpoint, then choose **Copy** from the context menu\.
 
-   The highlighted endpoint is now copied to your clipboard\.
+   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to Nodes](nodes-connecting.md)\.
 
 A Redis \(cluster mode disabled\) primary endpoint looks something like the following\. There is a difference depending upon whether or not In\-Transit encryption is enabled\.
 
@@ -131,7 +134,7 @@ The following procedure demonstrates how to find and copy Redis \(cluster mode e
 
 1. Right\-click the highlighted endpoint and choose **Copy** from the context menu\.
 
-   The highlighted endpoint is now copied to your clipboard\.
+   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to Nodes](nodes-connecting.md)\.
 
 A Redis \(cluster mode enabled\) configuration endpoint looks something like the following\.
 

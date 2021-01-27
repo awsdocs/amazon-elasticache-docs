@@ -41,16 +41,20 @@ Currently ElastiCache for Redis 3\.2\.10 doesn't support encryption\.
     + [Best Practices: Online Resharding](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/best-practices-online-resharding.html)
     + [Online Resharding and Shard Rebalancing for Redis \(Cluster Mode Enabled\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/redis-cluster-resharding-online.html)
   + For more information on scaling Redis clusters, see [Scaling](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)\.
+
+    
 + **ElastiCache for Redis version 3\.2\.6 \(Enhanced\)**
 
   If you need the functionality of earlier Redis versions plus the following features, choose ElastiCache for Redis 3\.2\.6:
   + In\-transit encryption\. For more information, see [Amazon ElastiCache for Redis In\-Transit Encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\.
   + At\-rest encryption\. For more information, see [Amazon ElastiCache for Redis At\-Rest Encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html)\.
   + HIPAA eligibility certification\. For more information, see [HIPAA Eligibility for Amazon ElastiCache for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance-hipaa.html)\.
+
+    
 + **ElastiCache for Redis \(Cluster mode enabled\) version 3\.2\.4**
 
   If you need the functionality of Redis 2\.8\.x plus the following features, choose Redis 3\.2\.4 \(clustered mode\):
-  + You need to partition your data across two to 90 node groups \(clustered mode only\)\.
+  + You need to partition your data across two to 250 node groups \(clustered mode only\)\.
   + You need geospatial indexing \(clustered mode or non\-clustered mode\)\.
   + You don't need to support multiple databases\.
 **Important**  
