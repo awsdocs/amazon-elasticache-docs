@@ -22,7 +22,7 @@ ElastiCache supports replication when you use the Redis engine\. To monitor the 
 
    1. For **Engine version compatibility**, choose the ElastiCache for Redis engine version that you want to run on this cluster\. Unless you have a specific reason to run an older version, we recommend that you choose the latest version\.
 **Important**  
-You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
+You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is comptabile with the new engine version\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
    1. In **Port**, use the default port, 6379\. If you have a reason to use a different port, enter the port number\.
 

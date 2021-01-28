@@ -26,7 +26,7 @@ When you change a cluster's parameters, the change is applied to the cluster eit
 
 1. In the **Modify Cluster** window, make the modifications that you want\.
 **Important**  
-You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
+You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
    The **Apply Immediately** box applies only to node type and engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, node type and engine version modifications are applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
 
@@ -37,7 +37,7 @@ You can upgrade to newer engine versions\. For more information on doing so, see
 You can modify an existing cluster using the AWS CLI `modify-cache-cluster` operation\. To modify a cluster's configuration value, specify the cluster's ID, the parameter to change and the parameter's new value\. The following example changes the maintenance window for a cluster named `my-cluster` and applies the change immediately\.
 
 **Important**  
-You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster or replication group and creating it again\.
+You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
 For Linux, macOS, or Unix:
 
@@ -64,7 +64,7 @@ For more information, see the AWS CLI for ElastiCache topic [https://docs.aws.am
 You can modify an existing cluster using the ElastiCache API `ModifyCacheCluster` operation\. To modify a cluster's configuration value, specify the cluster's ID, the parameter to change and the parameter's new value\. The following example changes the maintenance window for a cluster named `my-cluster` and applies the change immediately\.
 
 **Important**  
-You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster or replication group and creating it again\.
+You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
 Line breaks are added for ease of reading\.
 

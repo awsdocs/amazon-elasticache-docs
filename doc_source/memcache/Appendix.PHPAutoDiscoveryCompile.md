@@ -52,7 +52,7 @@ The following sections describe how to compile the ElastiCache Memcached Auto Di
 Run the following set of commands under the code directory\.
 
 ```
-git clone  https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php/tree/php7.git
+git clone  https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php.git
 cd aws-elasticache-cluster-client-memcached-for-php 
 git checkout php7
 sudo yum install php70-devel

@@ -26,7 +26,7 @@ When you change a cluster's parameters, the change is applied to the cluster eit
 
 1. In the **Modify Cluster** window, make the modifications that you want\.
 **Important**  
-You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
+You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
    The **Apply Immediately** box applies only to engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, engine version modifications are applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
 

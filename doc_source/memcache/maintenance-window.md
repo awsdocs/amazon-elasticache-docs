@@ -21,7 +21,7 @@ The 60\-minute maintenance window is chosen at random from an 8\-hour block of t
 | eu\-central\-1 | Europe \(Frankfurt\) Region | 23:00–07:00 UTC | 
 | eu\-west\-1 | Europe \(Ireland\) Region | 22:00–06:00 UTC | 
 | eu\-west\-2 | Europe \(London\) Region | 23:00–07:00 UTC | 
-| me\-south\-1 | Middle East \(Bahrain\) Region | 13:00–21:00 UTC UTC | 
+| me\-south\-1 | Middle East \(Bahrain\) Region | 13:00–21:00 UTC | 
 | eu\-south\-1 | Europe \(Milan\) Region | 21:00–05:00 UTC | 
 | sa\-east\-1 | South America \(São Paulo\) Region | 01:00–09:00 UTC | 
 | us\-east\-1 | US East \(N\. Virginia\) Region | 03:00–11:00 UTC | 

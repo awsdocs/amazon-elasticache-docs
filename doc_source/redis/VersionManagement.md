@@ -20,13 +20,14 @@ Make a backup of your Redis \(cluster mode disabled\) cluster or replication gro
 Use the backup to create and seed a Redis \(cluster mode enabled\) cluster with one shard \(node group\)\. Specify the new engine version and enable cluster mode when creating the cluster or replication group\. For more information, see [Seeding a New Cluster with an Externally Created Backup](backups-seeding-redis.md)\.
 Delete the old Redis \(cluster mode disabled\) cluster or replication group\. For more information, see [Deleting a Cluster](Clusters.Delete.md) or [Deleting a Replication Group](Replication.DeletingRepGroup.md)\.
 Scale the new Redis \(cluster mode enabled\) cluster or replication group to the number of shards \(node groups\) that you need\. For more information, see [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)
+When upgrading major engine versions, for example from 5\.x to 6\.x, you need to also choose a new parameter group that is compatible with the new engine version\.
 For single Redis clusters and clusters with Multi\-AZ disabled, we recommend that sufficient memory be made available to Redis as described in [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\. In these cases, the primary is unavailable to service requests during the upgrade process\.
 For Redis clusters with Multi\-AZ enabled, we also recommend that you schedule engine upgrades during periods of low incoming write traffic\. When upgrading to Redis 5\.0\.6 or above, the primary cluster continues to be available to service requests during the upgrade process\. When upgrading to Redis 5\.0\.4 or below, you may notice a brief interruption of a few seconds associated with the DNS update\.  
 Clusters and replication groups with multiple shards are processed and patched as follows:  
 All shards are processed in parallel\. Only one upgrade operation is performed on a shard at any time\.
 In each shard, all replicas are processed before the primary is processed\. If there are fewer replicas in a shard, the primary in that shard might be processed before the replicas in other shards are finished processing\.
 Across all the shards, primary nodes are processed in series\. Only one primary node is upgraded at a time\.
-If encryptions is enabled on your current cluster or replication group, you cannot upgrade to an engine version that does not support encryption, such as from 3\.2\.6 to 3\.2\.10\.
+If encryption is enabled on your current cluster or replication group, you cannot upgrade to an engine version that does not support encryption, such as from 3\.2\.6 to 3\.2\.10\.
 
 ## How to Upgrade Engine Versions<a name="VersionManagement.HowTo"></a>
 
