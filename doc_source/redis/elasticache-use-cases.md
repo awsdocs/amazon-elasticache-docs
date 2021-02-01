@@ -159,7 +159,7 @@ To send a message to all subscribers to a channel, use the `PUBLISH` command, sp
 PUBLISH news.sports.golf "It's Saturday and sunny. I'm headed to the links."
 ```
 
-A client can"t publish to a channel that it's subscribed to\.
+A client can't publish to a channel that it's subscribed to\.
 
 For more information, see [Pub/Sub](http://redis.io/topics/pubsub) in the Redis documentation\.
 
