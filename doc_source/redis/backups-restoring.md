@@ -114,7 +114,7 @@ For more information, see the following:
 
 ## Restoring From a Backup \(ElastiCache API\)<a name="backups-restoring-API"></a>
 
-You can restore a Redis backup to either a single\-node Redis \(cluster mode disabled\) cluster using the ElastiCache API operation `CreateCacheCluster` or to a Redis cluster with read replicas \(replication group\)— either Redis \(cluster mode disabled\) or Redis \(cluster mode enabled\) using the ElastiCache API operation `CreateReplicationGrooup` and seeding it with a Redis \.rdb file\.
+You can restore a Redis backup to either a single\-node Redis \(cluster mode disabled\) cluster using the ElastiCache API operation `CreateCacheCluster` or to a Redis cluster with read replicas \(replication group\)— either Redis \(cluster mode disabled\) or Redis \(cluster mode enabled\) using the ElastiCache API operation `CreateReplicationGroup` and seeding it with a Redis \.rdb file\.
 
 When using either the `CreateCacheCluster` or `CreateReplicationGroup` operation, be sure to include the parameter `SnapshotName` or `SnapshotArns` to seed the new cluster or replication group with the data from the backup\.
 
