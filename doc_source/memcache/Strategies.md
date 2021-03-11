@@ -156,7 +156,7 @@ The following is a pseudocode example of write\-through logic with TTL\.
 // *****************************************
 // function that saves a customer's record.
 // The TTL value of 300 means that the record expires
-//    300 seconds (5 minutes) after the set command 
+//    300 seconds (5 minutes) after the `set` command 
 //    and future reads will have to query the database.
 // *****************************************
 save_customer(customer_id, values)
@@ -179,7 +179,7 @@ The following is a pseudocode example of lazy loading logic with TTL\.
 //    added to the cache, and 
 //    returned to the application.
 // The TTL value of 300 means that the record expires
-//    300 seconds (5 minutes) after the set command 
+//    300 seconds (5 minutes) after the `set` command 
 //    and subsequent reads will have to query the database.
 // *****************************************
 get_customer(customer_id)

@@ -2,7 +2,7 @@
 
 The `AWS/ElastiCache` namespace includes the following Memcached metrics\.
 
-The AWS/ElastiCache namespace includes the following metrics that are derived from the Memcached stats command\. Each metric is calculated at the cache node level\.
+The AWS/ElastiCache namespace includes the following metrics that are derived from the Memcached [`stats`](https://github.com/memcached/memcached/wiki/Commands#stats) command\. Each metric is calculated at the cache node level\.
 
 **See Also**
 + [Host\-Level Metrics](CacheMetrics.HostLevel.md)
@@ -13,12 +13,12 @@ The AWS/ElastiCache namespace includes the following metrics that are derived fr
 | BytesReadIntoMemcached | The number of bytes that have been read from the network by the cache node\. | Bytes | 
 | BytesUsedForCacheItems | The number of bytes used to store cache items\. | Bytes | 
 | BytesWrittenOutFromMemcached | The number of bytes that have been written to the network by the cache node\. | Bytes | 
-| CasBadval | The number of CAS \(check and set\) requests the cache has received where the Cas value did not match the Cas value stored\.  | Count | 
-| CasHits | The number of Cas requests the cache has received where the requested key was found and the Cas value matched\. | Count | 
-| CasMisses | The number of Cas requests the cache has received where the key requested was not found\.   | Count | 
-| CmdFlush | The number of flush commands the cache has received\. | Count | 
-| CmdGets | The number of get commands the cache has received\. | Count | 
-| CmdSet | The number of set commands the cache has received\. | Count | 
+| CasBadval | The number of CAS \([check and set](https://github.com/memcached/memcached/wiki/Commands#cas)\) requests the cache has received where the CAS value did not match the CAS value stored\.  | Count | 
+| CasHits | The number of CAS requests the cache has received where the requested key was found and the CAS value matched\. | Count | 
+| CasMisses | The number of CAS requests the cache has received where the key requested was not found\.   | Count | 
+| CmdFlush | The number of `flush` commands the cache has received\. | Count | 
+| CmdGets | The number of `get` commands the cache has received\. | Count | 
+| CmdSet | The number of `set` commands the cache has received\. | Count | 
 | CurrConnections | A count of the number of connections connected to the cache at an instant in time\. ElastiCache uses two to three of the connections to monitor the cluster\. In addition to the above, memcached creates a number of internal connections equal to twice the threads used for the node type\. The thread count for the various node types can be see in the `Nodetype Specific Parameters` of the applicable Parameter Group\. The total connections is the sum of client connections, the connections for monitoring and the internal connections mentioned above\.  | Count | 
 | CurrItems | A count of the number of items currently stored in the cache\. | Count | 
 | DecrHits | The number of decrement requests the cache has received where the requested key was found\. | Count | 
