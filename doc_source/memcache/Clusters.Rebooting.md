@@ -1,4 +1,4 @@
-# Rebooting a Cluster<a name="Clusters.Rebooting"></a>
+# Rebooting a cluster<a name="Clusters.Rebooting"></a>
 
 Some changes require that the cluster be rebooted for the changes to be applied\. For example, for some parameters, changing the parameter value in a parameter group is only applied after a reboot\.
 

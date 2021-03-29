@@ -14,7 +14,7 @@ Notifications are published to a specified Amazon SNS *topic*\. The following ar
 
 ## ElastiCache Events<a name="ElastiCacheSNS.Events"></a>
 
-The following ElastiCache events trigger Amazon SNS notifications\. For information on event details, see [Viewing ElastiCache Events](ECEvents.Viewing.md)\.
+The following ElastiCache events trigger Amazon SNS notifications\. For information on event details, see [Viewing ElastiCache events](ECEvents.Viewing.md)\.
 
 
 | Event Name | Message | Description | 
@@ -37,8 +37,8 @@ The following ElastiCache events trigger Amazon SNS notifications\. For informat
 |  ElastiCache:ReplicationGroupIncreaseReplicaCountFinished  |  ElastiCache:ReplicationGroupIncreaseReplicaCountFinished : cluster\-name\-0001\-005  |  The number of replicas in the cluster has been increased\.   | 
 |  ElastiCache:ReplicationGroupIncreaseReplicaCountStarted  |  ElastiCache:ReplicationGroupIncreaseReplicaCountStarted : cluster\-name\-0003\-004  |  The process of adding replicas to your cluster has begun\.   | 
 |  ElastiCache:NodeReplacementCanceled  |  ElastiCache:NodeReplacementCanceled : cluster\-name  |  A node in your cluster that was scheduled for replacement is no longer scheduled for replacement\.   | 
-|  ElastiCache:NodeReplacementRescheduled  |  ElastiCache:NodeReplacementRescheduled : cluster\-name  |  A node in your cluster previously scheduled for replacement has been rescheduled for replacement during the new window described in the notification\.  For information on what actions you can take, see [Replacing Nodes](CacheNodes.NodeReplacement.md)\.  | 
-|  ElastiCache:NodeReplacementScheduled  |  ElastiCache:NodeReplacementScheduled : cluster\-name  |  A node in your cluster is scheduled for replacement during the window described in the notification\.  For information on what actions you can take, see [Replacing Nodes](CacheNodes.NodeReplacement.md)\.  | 
+|  ElastiCache:NodeReplacementRescheduled  |  ElastiCache:NodeReplacementRescheduled : cluster\-name  |  A node in your cluster previously scheduled for replacement has been rescheduled for replacement during the new window described in the notification\.  For information on what actions you can take, see [Replacing nodes](CacheNodes.NodeReplacement.md)\.  | 
+|  ElastiCache:NodeReplacementScheduled  |  ElastiCache:NodeReplacementScheduled : cluster\-name  |  A node in your cluster is scheduled for replacement during the window described in the notification\.  For information on what actions you can take, see [Replacing nodes](CacheNodes.NodeReplacement.md)\.  | 
 |  ElastiCache:RemoveCacheNodeComplete  |  ElastiCache:RemoveCacheNodeComplete : cluster\-name  |  A cache node has been removed from the cache cluster\.  | 
 | ElastiCache:ReplicationGroupScalingComplete | `ElastiCache:ReplicationGroupScalingComplete : cluster-name` | Scale\-up operation on replication group completed successfully\.  | 
 | ElastiCache:ReplicationGroupScalingFailed | `"Failed applying modification to cache node type to %s."` | Scale\-up operation on replication group failed\.  | 
@@ -46,4 +46,4 @@ The following ElastiCache events trigger Amazon SNS notifications\. For informat
 |  ElastiCache:SnapshotFailed \(Redis only\)  |  SnapshotFailed : cluster\-name  |  A cache snapshot has failed\. See the cluster’s cache events for more a detailed cause\. If you describe the snapshot, see [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html), the status will be `failed`\.  | 
 
 ## Related topics<a name="ElastiCacheSNS.SeeAlso"></a>
-+ [Viewing ElastiCache Events](ECEvents.Viewing.md)
++ [Viewing ElastiCache events](ECEvents.Viewing.md)

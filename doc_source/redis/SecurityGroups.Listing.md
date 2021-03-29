@@ -1,12 +1,12 @@
-# Listing Available Security Groups<a name="SecurityGroups.Listing"></a>
+# Listing available security groups<a name="SecurityGroups.Listing"></a>
 
-This topic is relevant to you only if you are not running in an Amazon VPC\. If you are running in an Amazon VPC, see [Amazon VPCs and ElastiCache Security](VPCs.md)\.
+This topic is relevant to you only if you are not running in an Amazon VPC\. If you are running in an Amazon VPC, see [Amazon VPCs and ElastiCache security](VPCs.md)\.
 
 You can list which security groups have been created for your AWS account\.
 
 The following procedures show you how to list the available security groups for your AWS account\.
 
-## Listing Available Security Groups \(Console\)<a name="SecurityGroups.Listing.CON"></a>
+## Listing available security groups \(Console\)<a name="SecurityGroups.Listing.CON"></a>
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 
@@ -14,7 +14,7 @@ The following procedures show you how to list the available security groups for 
 
    The available security groups appear in the **Security Groups** list\.
 
-## Listing Available Security Groups \(AWS CLI\)<a name="SecurityGroups.Listing.CLI"></a>
+## Listing available security groups \(AWS CLI\)<a name="SecurityGroups.Listing.CLI"></a>
 
 At a command prompt, use the `describe-cache-security-groups` command to list all available security groups for your AWS account\.
 
@@ -46,7 +46,7 @@ JSON output from this command will look something like this\.
 
 For more information, see [describe\-cache\-security\-groups](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-security-groups.html)\.
 
-## Listing Available Security Groups \(ElastiCache API\)<a name="SecurityGroups.Listing.API"></a>
+## Listing available security groups \(ElastiCache API\)<a name="SecurityGroups.Listing.API"></a>
 
 Using the ElastiCache API, call `DescribeCacheSecurityGroups`\.
 

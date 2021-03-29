@@ -24,6 +24,8 @@ For complete documentation of the Redis info command, see [ http://redis\.io/com
 | DB0AverageTTL |  Exposes avg\_ttl of DBO from the keyspace statistic of [Redis INFO](http://redis.io/commands/info) command\.  | Milliseconds | 
 | EngineCPUUtilization | Provides CPU utilization of the Redis engine thread\. Because Redis is single\-threaded, you can use this metric to analyze the load of the Redis process itself\. The `EngineCPUUtilization` metric provides a more precise visibility of the Redis process\. You can use it in conjunction with the `CPUUtilization` metric\. `CPUUtilization` exposes CPU utilization for the server instance as a whole, including other operating system and management processes\. For larger node types with four vCPUs or more, use the `EngineCPUUtilization` metric to monitor and set thresholds for scaling\.  On an ElastiCache host, background processes monitor the host to provide a managed database experience\. These background processes can take up a significant portion of the CPU workload\. This is not significant on larger hosts with more than two vCPUs\. But it can affect smaller hosts with 2vCPUs or fewer\. If you only monitor the `EngineCPUUtilization` metric, you will be unaware of situations where the host is overloaded with both high CPU usage from Redis and high CPU usage from the background monitoring processes\. Therefore, we recommend monitoring the `CPUUtilization` metric for hosts with two vCPUs or less\.   | Percent | 
 | Evictions | The number of keys that have been evicted due to the maxmemory limit\. This is derived from the evicted\_keys statistic at [Redis INFO](http://redis.io/commands/info)\. | Count | 
+| GlobalDatastoreReplicationLag | This is the lag between the secondary Region's primary node and the primary Region's primary node\. For cluster mode enabled Redis, the lag indicates the maximum delay among the shards\.  | Seconds | 
+| IsMaster | Indicates whether the node is master node of current shard/cluster\. The metric can be either 0 \(not master\) or 1 \(master\)\.  | Count | 
 | KeyAuthorizationFailures | The total number of failed attempts by users to access keys they don’t have permission to access\. You can find more information about individual authentication failures using the [ACL LOG](https://redis.io/commands/acl-log) command\. We suggest setting an alarm on this to detect unauthorized access attempts\.  | Count | 
 |  KeysTracked |  The number of keys being tracked by Redis key tracking as a percentage of tracking\-table\-max\-keys\. Key tracking is used to aid client\-side caching and notifies clients when keys are modified\.  | Count | 
 | MasterLinkHealthStatus | This status has two values: 0 or 1\. The value 0 indicates that data in the ElastiCache primary node is not in sync with Redis on EC2\. The value of 1 indicates that the data is in sync\. To complete the migration, use the [CompleteMigration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CompleteMigration.html) API operation\. | Boolean | 
@@ -46,7 +48,7 @@ AWS Regions listed following are available on all supported node types\.
 | us\-west\-2 | US West \(Oregon\) | 
 | ap\-northeast\-1 | Asia Pacific \(Tokyo\) | 
 | ap\-northeast\-2 | Asia Pacific \(Seoul\) | 
-| ap\-northeast\-3 | Asia Pacific \(Osaka\-Local\) | 
+| ap\-northeast\-3 | Asia Pacific \(Osaka\) | 
 | ap\-east\-1 | Asia Pacific \(Hong Kong\) | 
 | ap\-south\-1 | Asia Pacific \(Mumbai\) | 
 | ap\-southeast\-1 | Asia Pacific \(Singapore\) | 

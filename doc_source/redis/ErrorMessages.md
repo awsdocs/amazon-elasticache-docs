@@ -1,4 +1,4 @@
-# Amazon ElastiCache Error Messages<a name="ErrorMessages"></a>
+# Amazon ElastiCache error messages<a name="ErrorMessages"></a>
 
 The following error messages are returned by Amazon ElastiCache\. You may receive other error messages that are returned by ElastiCache, other AWS services, or by Redis\. For descriptions of error messages from sources other than ElastiCache, see the documentation from the source that is generating the error message\.
 + [Cluster node quota exceeded](#ErrorMessages.ClusterNodeQuota)
@@ -29,5 +29,5 @@ For more information, see [Amazon ElastiCache Limits](https://docs.aws.amazon.co
 + Wait a few minutes and then submit your request again; capacity can shift frequently\.
 + Submit a new request with a reduced number of nodes or shards \(node groups\)\. For example, if you're making a single request to launch 15 nodes, try making 3 requests of 5 nodes, or 15 requests for 1 node instead\.
 + If you're launching a cluster, submit a new request without specifying an Availability Zone\.
-+ If you're launching a cluster, submit a new request using a different node type \(which you can scale up at a later stage\)\. For more information, see [Scaling ElastiCache for Redis Clusters](Scaling.md)\.
++ If you're launching a cluster, submit a new request using a different node type \(which you can scale up at a later stage\)\. For more information, see [Scaling ElastiCache for Redis clusters](Scaling.md)\.
  

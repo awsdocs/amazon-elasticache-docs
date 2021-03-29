@@ -1,18 +1,18 @@
-# Using Global Datastores \(CLI\)<a name="Redis-Global-Datastores-CLI"></a>
+# Using global datastores \(CLI\)<a name="Redis-Global-Datastores-CLI"></a>
 
 You can use the AWS Command Line Interface \(AWS CLI\) to control multiple AWS services from the command line and automate them through scripts\. You can use the AWS CLI for ad hoc \(one\-time\) operations\. 
 
-## Downloading and Configuring the AWS CLI<a name="Redis-Global-Datastores-Downloading-CLI"></a>
+## Downloading and configuring the AWS CLI<a name="Redis-Global-Datastores-Downloading-CLI"></a>
 
 The AWS CLI runs on Windows, macOS, or Linux\. Use the following procedure to download and configure it\.
 
 **To download, install, and configure the CLI**
 
-1. Download the AWS CLI on the [AWS Command Line Interface](http://aws.amazon.com/cli) webpage\.
+1. Download the AWS CLI on the [AWS command line interface](http://aws.amazon.com/cli) webpage\.
 
 1. Follow the instructions for Installing the AWS CLI and Configuring the AWS CLI in the *AWS Command Line Interface User Guide*\.
 
-## Using the AWS CLI with Global Datastores<a name="Redis-Global-Datastores-Using-CLI"></a>
+## Using the AWS CLI with global datastores<a name="Redis-Global-Datastores-Using-CLI"></a>
 
 Use the following CLI operations to work with global datastores: 
 + [create\-global\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-global-replication-group.html)
@@ -78,7 +78,8 @@ Use the following CLI operations to work with global datastores:
   aws elasticache modify-global-replication-group \
      --global-replication-group-id my global datastore  \
      --automatic-failover-enabled yes/no  \
-     --cache-node-type node type \              
+     --cache-node-type node type \
+     --cache-parameter-group-name parameter group name \ 
      --engine-version engine version \
      -—apply-immediately \
      --global-replication-group-description description

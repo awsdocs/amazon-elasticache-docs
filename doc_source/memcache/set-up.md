@@ -1,12 +1,12 @@
-# Setting Up<a name="set-up"></a>
+# Setting up<a name="set-up"></a>
 
 Following, you can find topics that describe the one\-time actions you must take to start using ElastiCache\.
 
 **Topics**
-+ [Create Your AWS Account](#elasticache-create-aws-account)
-+ [Set Up Your Permissions \(New ElastiCache Users Only\)](#elasticache-set-up-permissions)
++ [Create your AWS account](#elasticache-create-aws-account)
++ [Set up your permissions \(new ElastiCache users only\)](#elasticache-set-up-permissions)
 
-## Create Your AWS Account<a name="elasticache-create-aws-account"></a>
+## Create your AWS account<a name="elasticache-create-aws-account"></a>
 
 To use Amazon ElastiCache, you must have an active AWS account and permissions to access ElastiCache and other AWS resources\.
 
@@ -20,7 +20,7 @@ If you don't already have an AWS account, create one now\. AWS accounts are free
 
    Part of the sign\-up procedure involves receiving a phone call and entering a verification code on the phone keypad\.
 
-## Set Up Your Permissions \(New ElastiCache Users Only\)<a name="elasticache-set-up-permissions"></a>
+## Set up your permissions \(new ElastiCache users only\)<a name="elasticache-set-up-permissions"></a>
 
 Amazon ElastiCache creates and uses service\-linked roles to provision resources and access other AWS resources and services on your behalf\. For ElastiCache to create a service\-linked role for you, use the AWS\-managed policy named `AmazonElastiCacheFullAccess`\. This role comes preprovisioned with permission that the service requires to create a service\-linked role on your behalf\.
 
@@ -28,5 +28,5 @@ You might decide not to use the default policy and instead to use a custom\-mana
 
 For more information, see the following:
 + [Creating a New Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) \(IAM\)
-+ [AWS\-Managed \(Predefined\) Policies for Amazon ElastiCache](IAM.IdentityBasedPolicies.md#IAM.IdentityBasedPolicies.PredefinedPolicies)
++ [AWS\-managed \(predefined\) policies for Amazon ElastiCache](IAM.IdentityBasedPolicies.md#IAM.IdentityBasedPolicies.PredefinedPolicies)
 + [Using Service\-Linked Roles for Amazon ElastiCache](using-service-linked-roles.md)

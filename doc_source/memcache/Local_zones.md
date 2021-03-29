@@ -1,4 +1,4 @@
-# Using Local Zones with ElastiCache<a name="Local_zones"></a>
+# Using local zones with ElastiCache<a name="Local_zones"></a>
 
 A *Local Zone* is an extension of an AWS Region that is geographically close to your users\. You can extend any virtual private cloud \(VPC\) from a parent AWS Region into a Local Zones by creating a new subnet and assigning it to the Local Zone\. When you create a subnet in a Local Zone, your VPC is extended to that Local Zone\. The subnet in the Local Zone operates the same as other subnets in your VPC\.
 
@@ -11,7 +11,6 @@ A Local Zone is represented by an AWS Region code followed by an identifier that
 At this time, the available Local Zones are `us-west-2-lax-1a` and `us-west-2-lax-1b`\.
 
 The following limitations apply to ElastiCache for Local Zones:
-+  A Local Zone can't be included in a Multi\-AZ deployment\.
 + Global datastores aren't supported\.
 + Online migration isn't supported\.
 + The following node types are supported by Local Zones at this time: 
@@ -23,7 +22,7 @@ The following limitations apply to ElastiCache for Local Zones:
 
     **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
 
-## Enabling a Local Zone<a name="Local_zones-using"></a>
+## Enabling a local zone<a name="Local_zones-using"></a>
 
 1. Enable the Local Zone in the Amazon EC2 console\.
 
@@ -41,4 +40,4 @@ The following limitations apply to ElastiCache for Local Zones:
 
 1. Create an ElastiCache for Memcached cluster that uses the ElastiCache subnet in the Local Zone\.
 
-    For more information, see [Creating a Memcached Cluster \(Console\)](Clusters.Create.CON.Memcached.md)\.
+    For more information, see [Creating a Memcached cluster \(Console\)](Clusters.Create.CON.Memcached.md)\.

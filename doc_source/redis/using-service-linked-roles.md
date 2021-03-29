@@ -240,7 +240,7 @@ Before you can use IAM to delete a service\-linked role, first confirm that the 
 + To delete a replication group, see the following:
   + [Deleting a Replication Group \(Console\)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CON)
   + [Deleting a Replication Group \(AWS CLI\)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CLI)
-  + [Deleting a Replication Group \(ElastiCache API\)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.API)
+  + [Deleting a replication group \(ElastiCache API\)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.API)
 
 ### Deleting a Service\-Linked Role \(IAM Console\)<a name="delete-service-linked-role-iam-console"></a>
 

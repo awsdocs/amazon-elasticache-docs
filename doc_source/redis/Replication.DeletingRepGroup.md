@@ -1,4 +1,4 @@
-# Deleting a Replication Group<a name="Replication.DeletingRepGroup"></a>
+# Deleting a replication group<a name="Replication.DeletingRepGroup"></a>
 
 If you no longer need one of your clusters with replicas \(called *replication groups* in the API/CLI\), you can delete it\. When you delete a replication group, ElastiCache deletes all of the nodes in that group\.
 
@@ -9,7 +9,7 @@ When you delete an ElastiCache for Redis cluster, your manual snapshots are reta
 
 ## Deleting a Replication Group \(Console\)<a name="Replication.DeletingRepGroup.CON"></a>
 
-To delete a cluster that has replicas, see [Deleting a Cluster](Clusters.Delete.md)\.
+To delete a cluster that has replicas, see [Deleting a cluster](Clusters.Delete.md)\.
 
 ## Deleting a Replication Group \(AWS CLI\)<a name="Replication.DeletingRepGroup.CLI"></a>
 
@@ -29,7 +29,7 @@ A prompt asks you to confirm your decision\. Enter *y* \(yes\) to start the oper
 REPLICATIONGROUP  my-repgroup  My replication group  deleting
 ```
 
-## Deleting a Replication Group \(ElastiCache API\)<a name="Replication.DeletingRepGroup.API"></a>
+## Deleting a replication group \(ElastiCache API\)<a name="Replication.DeletingRepGroup.API"></a>
 
 Call [DeleteReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html) with the `ReplicationGroup` parameter\. 
 

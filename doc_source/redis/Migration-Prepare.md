@@ -1,4 +1,4 @@
-# Preparing Your Source and Target Redis Nodes for Migration<a name="Migration-Prepare"></a>
+# Preparing your source and target Redis nodes for migration<a name="Migration-Prepare"></a>
 
 You must ensure that all four of the prerequisites mentioned following are satisfied before you start the migration from ElastiCache console, API or AWS CLI\.
 

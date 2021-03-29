@@ -1,4 +1,4 @@
-# Online Vertical Scaling by Modifying Node Type<a name="redis-cluster-vertical-scaling"></a>
+# Online vertical scaling by modifying node type<a name="redis-cluster-vertical-scaling"></a>
 
 By using online vertical scaling with Amazon ElastiCache for Redis version 3\.2\.10 or newer, you can scale your Redis clusters dynamically with minimal downtime\. This allows your Redis cluster to serve requests even while scaling\.
 
@@ -16,11 +16,11 @@ While the vertical scaling process is designed to remain fully online, it does r
 Test your application behavior during scaling in a staging environment, if possible\. 
 
 **Contents**
-+ [Online Scaling Up](redis-cluster-vertical-scaling-scaling-up.md)
-  + [Scaling Up Redis Cache Clusters \(Console\)](redis-cluster-vertical-scaling-scaling-up.md#redis-cluster-vertical-scaling-console)
-  + [Scaling Up Redis Cache Clusters \(AWS CLI\)](redis-cluster-vertical-scaling-scaling-up.md#Scaling.RedisStandalone.ScaleUp.CLI)
-  + [Scaling Up Redis Cache Clusters \(ElastiCache API\)](redis-cluster-vertical-scaling-scaling-up.md#VeticalScaling.RedisReplGrps.ScaleUp.API)
-+ [Online Scaling Down](redis-cluster-vertical-scaling-scaling-down.md)
-  + [Scaling Down Redis Cache Clusters \(Console\)](redis-cluster-vertical-scaling-scaling-down.md#redis-cluster-vertical-scaling-down-console)
-  + [Scaling Down Redis Cache Clusters \(AWS CLI\)](redis-cluster-vertical-scaling-scaling-down.md#Scaling.RedisStandalone.ScaleDown.CLI)
-  + [Scaling Down Redis Cache Clusters \(ElastiCache API\)](redis-cluster-vertical-scaling-scaling-down.md#Scaling.Vertical.ScaleDown.API)
++ [Online scaling up](redis-cluster-vertical-scaling-scaling-up.md)
+  + [Scaling up Redis cache clusters \(Console\)](redis-cluster-vertical-scaling-scaling-up.md#redis-cluster-vertical-scaling-console)
+  + [Scaling up Redis cache clusters \(AWS CLI\)](redis-cluster-vertical-scaling-scaling-up.md#Scaling.RedisStandalone.ScaleUp.CLI)
+  + [Scaling up Redis cache clusters \(ElastiCache API\)](redis-cluster-vertical-scaling-scaling-up.md#VeticalScaling.RedisReplGrps.ScaleUp.API)
++ [Online scaling down](redis-cluster-vertical-scaling-scaling-down.md)
+  + [Scaling down Redis cache clusters \(Console\)](redis-cluster-vertical-scaling-scaling-down.md#redis-cluster-vertical-scaling-down-console)
+  + [Scaling down Redis cache clusters \(AWS CLI\)](redis-cluster-vertical-scaling-scaling-down.md#Scaling.RedisStandalone.ScaleDown.CLI)
+  + [Scaling down Redis cache clusters \(ElastiCache API\)](redis-cluster-vertical-scaling-scaling-down.md#Scaling.Vertical.ScaleDown.API)

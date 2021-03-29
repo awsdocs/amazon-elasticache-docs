@@ -1,6 +1,6 @@
-# Authorizing Network Access to an Amazon EC2 Security Group<a name="SecurityGroups.AuthorizingEC2"></a>
+# Authorizing network access to an amazon EC2 security group<a name="SecurityGroups.AuthorizingEC2"></a>
 
-This topic is relevant to you only if you are not running in an Amazon VPC\. If you are running in an Amazon VPC, see [Amazon VPCs and ElastiCache Security](VPCs.md)\.
+This topic is relevant to you only if you are not running in an Amazon VPC\. If you are running in an Amazon VPC, see [Amazon VPCs and ElastiCache security](VPCs.md)\.
 
 If you want to access your cluster from an Amazon EC2 instance, you must grant access to the Amazon EC2 security group that the EC2 instance belongs to\. The following procedures show you how to grant access to an Amazon EC2 Security Group\. 
 
@@ -8,7 +8,7 @@ If you want to access your cluster from an Amazon EC2 instance, you must grant a
 Authorizing an Amazon EC2 security group only grants access to your clusters from all EC2 instances belonging to the Amazon EC2 security group\. 
 It takes approximately one minute for changes to access permissions to take effect\. 
 
-## Authorizing Network Access to an Amazon EC2 Security Group \(Console\)<a name="SecurityGroups.AuthorizingEC2.CON"></a>
+## Authorizing network access to an amazon EC2 security group \(Console\)<a name="SecurityGroups.AuthorizingEC2.CON"></a>
 
 1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
@@ -20,7 +20,7 @@ It takes approximately one minute for changes to access permissions to take effe
 
 1. Choose **Add**\. 
 
-## Authorizing Network Access to an Amazon EC2 Security Group \(AWS CLI\)<a name="SecurityGroups.AuthorizingEC2.CLI"></a>
+## Authorizing network access to an amazon EC2 security group \(AWS CLI\)<a name="SecurityGroups.AuthorizingEC2.CLI"></a>
 
 At a command prompt, use the `authorize-cache-security-group-ingress` command to grant access to an Amazon EC2 security group with the following parameters\.
 + `--cache-security-group-name` – the name of the security group you are granting Amazon EC2 access to\.
@@ -65,7 +65,7 @@ The command should produce output similar to the following:
 
 For more information, see [authorize\-cache\-security\-group\-ingress](https://docs.aws.amazon.com/cli/latest/reference/elasticache/authorize-cache-security-group-ingress.html)\.
 
-## Authorizing Network Access to an Amazon EC2 Security Group \(ElastiCache API\)<a name="SecurityGroups.AuthorizingEC2.API"></a>
+## Authorizing network access to an amazon EC2 security group \(ElastiCache API\)<a name="SecurityGroups.AuthorizingEC2.API"></a>
 
 Using the ElastiCache API, call `AuthorizeCacheSecurityGroupIngress` with the following parameters:
 + `CacheSecurityGroupName` – the name of the security group you are granting Amazon EC2 access to\.

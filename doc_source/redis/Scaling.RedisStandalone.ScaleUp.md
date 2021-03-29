@@ -1,4 +1,4 @@
-# Scaling Up Single\-Node Clusters for Redis \(Cluster Mode Disabled\)<a name="Scaling.RedisStandalone.ScaleUp"></a>
+# Scaling up single\-node clusters for Redis \(Cluster Mode Disabled\)<a name="Scaling.RedisStandalone.ScaleUp"></a>
 
 When you scale up a single\-node Redis cluster, ElastiCache performs the following process, whether you use the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
@@ -10,7 +10,7 @@ When you scale up a single\-node Redis cluster, ElastiCache performs the followi
 
 1. ElastiCache deletes the old cache cluster\.
 
-As shown in the following table, your Redis scale\-up operation is blocked if you have an engine upgrade scheduled for the next maintenance window\. For more information on Maintenance Windows, see [Managing Maintenance](maintenance-window.md)\.
+As shown in the following table, your Redis scale\-up operation is blocked if you have an engine upgrade scheduled for the next maintenance window\. For more information on Maintenance Windows, see [Managing maintenance](maintenance-window.md)\.
 
 
 **Blocked Redis operations**  
@@ -28,7 +28,7 @@ If your parameter group uses `reserved-memory` to set aside memory for Redis ove
 If you're using `reserved-memory-percent`, doing this is not necessary\.   
 For more information, see [Managing Reserved Memory](redis-memory-management.md)\.
 
-## Scaling Up Single\-Node Clusters for Redis \(Cluster Mode Disabled\) \(Console\)<a name="Scaling.RedisStandalone.ScaleUp.CON"></a>
+## Scaling up single\-node clusters for Redis \(Cluster Mode Disabled\) \(Console\)<a name="Scaling.RedisStandalone.ScaleUp.CON"></a>
 
 The following procedure describes how to scale up a single\-node Redis cluster using the ElastiCache Management Console\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
@@ -54,7 +54,7 @@ The following procedure describes how to scale up a single\-node Redis cluster u
 
    If you chose **Apply immediately** in the previous step, the cluster's status changes to *modifying*\. When the status changes to *available*, the modification is complete and you can begin using the new cluster\.
 
-## Scaling Up Single\-Node Redis Cache Clusters \(AWS CLI\)<a name="Scaling.RedisStandalone.ScaleUp.CLI"></a>
+## Scaling up single\-node Redis cache clusters \(AWS CLI\)<a name="Scaling.RedisStandalone.ScaleUp.CLI"></a>
 
 The following procedure describes how to scale up a single\-node Redis cache cluster using the AWS CLI\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
@@ -177,7 +177,7 @@ The following procedure describes how to scale up a single\-node Redis cache clu
 
    For more information, see [describe\-cache\-clusters](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-clusters.html) in the *AWS CLI Reference*\.
 
-## Scaling Up Single\-Node Redis Cache Clusters \(ElastiCache API\)<a name="Scaling.RedisStandalone.ScaleUp.API"></a>
+## Scaling up single\-node Redis cache clusters \(ElastiCache API\)<a name="Scaling.RedisStandalone.ScaleUp.API"></a>
 
 The following procedure describes how to scale up a single\-node Redis cache cluster using the ElastiCache API\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 

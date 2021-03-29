@@ -1,9 +1,9 @@
-# Delete Your Cluster \(Avoid Unnecessary Charges\)<a name="GettingStarted.DeleteCacheCluster"></a>
+# Delete your cluster \(avoid unnecessary charges\)<a name="GettingStarted.DeleteCacheCluster"></a>
 
 **Important**  
 It is almost always a good idea to delete clusters that you are not actively using\. Until a cluster's status is *deleted*, you continue to incur charges for it\.
 
-Before you continue, be sure you have completed at least as far as [Create a Memcached Cluster](GettingStarted.CreateCluster.md)\.
+Before you continue, be sure you have completed at least as far as [Create a Memcached cluster](GettingStarted.CreateCluster.md)\.
 
 **To delete a Memcached cluster**
 

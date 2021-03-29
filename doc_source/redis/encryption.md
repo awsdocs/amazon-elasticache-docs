@@ -1,4 +1,4 @@
-# Data Security in Amazon ElastiCache<a name="encryption"></a>
+# Data security in Amazon ElastiCache<a name="encryption"></a>
 
 To help keep your data secure, Amazon ElastiCache and Amazon EC2 provide mechanisms to guard against unauthorized access of your data on the server\.
 
@@ -16,6 +16,6 @@ If you want to enable in\-transit or at\-rest encryption, you must meet the foll
 *ElastiCache for Redis Security Diagram*
 
 **Topics**
-+ [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)
++ [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md)
 + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
-+ [Authenticating Users with Role\-Based Access Control \(RBAC\)](Clusters.RBAC.md)
++ [Authenticating users with Role\-Based Access Control \(RBAC\)](Clusters.RBAC.md)

@@ -15,4 +15,4 @@ All of the cache nodes in the cluster maintain a list of metadata about all of t
 + [Using Auto Discovery](AutoDiscovery.Using.md)
 + [Connecting to Cache Nodes Manually](AutoDiscovery.Manual.md)
 + [Adding Auto Discovery To Your Client Library](AutoDiscovery.AddingToYourClientLibrary.md)
-+ [ElastiCache Clients with Auto Discovery](Clients.md)
++ [ElastiCache clients with auto discovery](Clients.md)

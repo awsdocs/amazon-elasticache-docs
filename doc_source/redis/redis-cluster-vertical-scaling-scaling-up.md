@@ -1,11 +1,11 @@
-# Online Scaling Up<a name="redis-cluster-vertical-scaling-scaling-up"></a>
+# Online scaling up<a name="redis-cluster-vertical-scaling-scaling-up"></a>
 
 **Topics**
-+ [Scaling Up Redis Cache Clusters \(Console\)](#redis-cluster-vertical-scaling-console)
-+ [Scaling Up Redis Cache Clusters \(AWS CLI\)](#Scaling.RedisStandalone.ScaleUp.CLI)
-+ [Scaling Up Redis Cache Clusters \(ElastiCache API\)](#VeticalScaling.RedisReplGrps.ScaleUp.API)
++ [Scaling up Redis cache clusters \(Console\)](#redis-cluster-vertical-scaling-console)
++ [Scaling up Redis cache clusters \(AWS CLI\)](#Scaling.RedisStandalone.ScaleUp.CLI)
++ [Scaling up Redis cache clusters \(ElastiCache API\)](#VeticalScaling.RedisReplGrps.ScaleUp.API)
 
-## Scaling Up Redis Cache Clusters \(Console\)<a name="redis-cluster-vertical-scaling-console"></a>
+## Scaling up Redis cache clusters \(Console\)<a name="redis-cluster-vertical-scaling-console"></a>
 
 The following procedure describes how to scale up a Redis cluster using the ElastiCache Management Console\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
@@ -29,7 +29,7 @@ The following procedure describes how to scale up a Redis cluster using the Elas
 
    If you chose **Apply immediately** in the previous step, the cluster's status changes to *modifying*\. When the status changes to *available*, the modification is complete and you can begin using the new cluster\.
 
-## Scaling Up Redis Cache Clusters \(AWS CLI\)<a name="Scaling.RedisStandalone.ScaleUp.CLI"></a>
+## Scaling up Redis cache clusters \(AWS CLI\)<a name="Scaling.RedisStandalone.ScaleUp.CLI"></a>
 
 The following procedure describes how to scale up a Redis cache cluster using the AWS CLI\. During this process, your Redis cluster will continue to serve requests with minimal downtime\.
 
@@ -154,7 +154,7 @@ The following procedure describes how to scale up a Redis cache cluster using th
 
 1. If you used the `--apply-immediately`, check the status of the cache cluster using the AWS CLI `describe-cache-clusters` command with the following parameter\. When the status changes to *available*, you can begin using the new, larger cache cluster node\.
 
-## Scaling Up Redis Cache Clusters \(ElastiCache API\)<a name="VeticalScaling.RedisReplGrps.ScaleUp.API"></a>
+## Scaling up Redis cache clusters \(ElastiCache API\)<a name="VeticalScaling.RedisReplGrps.ScaleUp.API"></a>
 
 The following process scales your cache cluster from its current node type to a new, larger node type using the ElastiCache API\. During this process, ElastiCache for Redis updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 5\.0\.4 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\.\.
 

@@ -1,4 +1,4 @@
-# Connecting to Nodes<a name="nodes-connecting"></a>
+# Connecting to nodes<a name="nodes-connecting"></a>
 
 Before attempting to connect to your Memcached cluster, you must have the endpoints for the nodes\. To find the endpoints, see the following:
 + [Finding a Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Memcached)

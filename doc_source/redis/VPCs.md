@@ -1,4 +1,4 @@
-# Amazon VPCs and ElastiCache Security<a name="VPCs"></a>
+# Amazon VPCs and ElastiCache security<a name="VPCs"></a>
 
 Because data security is important, ElastiCache provides means for you to control who has access to your data\. How you control access to your data is dependent upon whether or not you launched your clusters in an Amazon Virtual Private Cloud \(Amazon VPC\) or Amazon EC2\-Classic\.
 
@@ -13,5 +13,5 @@ This section explains how to manually configure an ElastiCache cluster in an Ama
 + [Understanding ElastiCache and Amazon VPCs](VPCs.EC.md)
 + [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
 + [Creating a Virtual Private Cloud \(VPC\)](VPCs.CreatingVPC.md)
-+ [Creating a Replication Group in an Amazon VPC](VPCs.CreatingReplGroup.md)
-+ [Connecting to a Cache Cluster Running in an Amazon VPC](VPCs.Connecting.md)
++ [Creating a replication group in an Amazon VPC](VPCs.CreatingReplGroup.md)
++ [Connecting to a cache cluster running in an Amazon VPC](VPCs.Connecting.md)

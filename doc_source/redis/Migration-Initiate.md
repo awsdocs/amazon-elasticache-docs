@@ -1,4 +1,4 @@
-# Starting Migration<a name="Migration-Initiate"></a>
+# Starting migration<a name="Migration-Initiate"></a>
 
 After all prerequisites are complete, you can begin data migration using the AWS Management Console, ElastiCache API, or AWS CLI\. The following example shows using the CLI\.
 
@@ -18,7 +18,7 @@ After successful replication, all writes to your Redis on EC2 instance propagate
 
 If the ElastiCache primary node can't become a replica of your Redis on EC2 instance, it retries several times before eventually promoting itself back to primary\. The status of ElastiCache cluster then changes to **available**, and a replication group event about the failure to initiate the migration is sent\. To troubleshoot such a failure, check the following:
 + Look at the replication group event\. Use any specific information from the event to fix the migration failure\.
-+ If the event doesn’t provide any specific information, make sure that you have followed the guidelines in [Preparing Your Source and Target Redis Nodes for Migration](Migration-Prepare.md)\.
++ If the event doesn’t provide any specific information, make sure that you have followed the guidelines in [Preparing your source and target Redis nodes for migration](Migration-Prepare.md)\.
 + Ensure that the routing configuration for your VPC and subnets allows traffic between ElastiCache nodes and your Redis on EC2 instance\.
 + Ensure the security group attached to your Redis on EC2 instance allows input bound traffic from ElastiCache nodes\.
 + Check Redis logs for your Redis on EC2 instance for more information about failures specific to replication\.

@@ -1,4 +1,4 @@
-# DNS Names and Underlying IP<a name="ClientConfig.DNS"></a>
+# DNS names and underlying IP<a name="ClientConfig.DNS"></a>
 
 Clients maintain a server list containing the addresses and ports of the servers holding the cache data\. When using ElastiCache, the DescribeCacheClusters API \(or the describe\-cache\-clusters command line utility\) returns a fully qualified DNS entry and port number that can be used for the server list\.
 

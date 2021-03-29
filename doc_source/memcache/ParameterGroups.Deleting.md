@@ -1,10 +1,10 @@
-# Deleting a Parameter Group<a name="ParameterGroups.Deleting"></a>
+# Deleting a parameter group<a name="ParameterGroups.Deleting"></a>
 
 You can delete a custom parameter group using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
 You cannot delete a parameter group if it is associated with any clusters\. Nor can you delete any of the default parameter groups\.
 
-## Deleting a Parameter Group \(Console\)<a name="ParameterGroups.Deleting.CON"></a>
+## Deleting a parameter group \(Console\)<a name="ParameterGroups.Deleting.CON"></a>
 
 The following procedure shows how to delete a parameter group using the ElastiCache console\.
 
@@ -26,7 +26,7 @@ The following procedure shows how to delete a parameter group using the ElastiCa
 
    To keep the parameter groups, choose **Cancel**\.
 
-## Deleting a Parameter Group \(AWS CLI\)<a name="ParameterGroups.Deleting.CLI"></a>
+## Deleting a parameter group \(AWS CLI\)<a name="ParameterGroups.Deleting.CLI"></a>
 
 To delete a parameter group using the AWS CLI, use the command `delete-cache-parameter-group`\. For the parameter group to delete, the parameter group specified by `--cache-parameter-group-name` cannot have any clusters associated with it, nor can it be a default parameter group\.
 
@@ -48,7 +48,7 @@ aws elasticache delete-cache-parameter-group ^
 
 For more information, see [https://docs.aws.amazon.com/cli/latest/reference/elasticache/delete-cache-parameter-group.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/delete-cache-parameter-group.html)\.
 
-## Deleting a Parameter Group \(ElastiCache API\)<a name="ParameterGroups.Deleting.API"></a>
+## Deleting a parameter group \(ElastiCache API\)<a name="ParameterGroups.Deleting.API"></a>
 
 To delete a parameter group using the ElastiCache API, use the `DeleteCacheParameterGroup` action\. For the parameter group to delete, the parameter group specified by `CacheParameterGroupName` cannot have any clusters associated with it, nor can it be a default parameter group\.
 

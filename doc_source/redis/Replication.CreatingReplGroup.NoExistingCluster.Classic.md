@@ -1,4 +1,4 @@
-# Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic"></a>
+# Creating a Redis \(Cluster Mode Disabled\) replication group from scratch<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic"></a>
 
 You can create a Redis \(cluster mode disabled\) replication group from scratch using the ElastiCache console, the AWS CLI, or the ElastiCache API\. A Redis \(cluster mode disabled\) replication group always has one node group, a primary cluster, and up to five read replicas\. Redis \(cluster mode disabled\) replication groups don't support partitioning your data\.
 
@@ -6,11 +6,11 @@ You can create a Redis \(cluster mode disabled\) replication group from scratch 
 The node/shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and include the instance type in the request\.
 
 To create a Redis \(cluster mode disabled\) replication group from scratch, take one of the following approaches:
-+ To do this using the console, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\.
-+ To do this using the AWS CLI, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(AWS CLI\)](Clusters.Create.CLI.md#Clusters.Create.CLI.RedisCluster)\.
-+ To do this using the ElastiCache API, see [Creating a Cache Cluster in Redis \(Cluster Mode Enabled\) \(ElastiCache API\)](Clusters.Create.API.md#Clusters.Create.API.RedisCluster)\.
++ To do this using the console, see [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\.
++ To do this using the AWS CLI, see [Creating a Redis \(Cluster Mode Enabled\) cluster \(AWS CLI\)](Clusters.Create.CLI.md#Clusters.Create.CLI.RedisCluster)\.
++ To do this using the ElastiCache API, see [Creating a cache cluster in Redis \(Cluster Mode Enabled\) \(ElastiCache API\)](Clusters.Create.API.md#Clusters.Create.API.RedisCluster)\.
 
-## Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI"></a>
+## Creating a Redis \(Cluster Mode Disabled\) replication group from scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI"></a>
 
 The following procedure creates a Redis \(cluster mode disabled\) replication group using the AWS CLI\.
 
@@ -146,7 +146,7 @@ Output from the this command is something like this\.
 
 For additional information and parameters you might want to use, see the AWS CLI topic [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)\.
 
-## Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic.API"></a>
+## Creating a Redis \(cluster mode disabled\) replication group from scratch \(ElastiCache API\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic.API"></a>
 
 The following procedure creates a Redis \(cluster mode disabled\) replication group using the ElastiCache API\.
 

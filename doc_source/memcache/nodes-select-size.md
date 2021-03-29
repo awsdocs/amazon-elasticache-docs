@@ -1,8 +1,8 @@
-# Choosing Your Node Size<a name="nodes-select-size"></a>
+# Choosing your node size<a name="nodes-select-size"></a>
 
 The node size you select for your cluster impacts costs, performance, and fault tolerance\. 
 
-## Choosing Your Memcached Node Size<a name="CacheNodes.SelectSize"></a>
+## Choosing your Memcached node size<a name="CacheNodes.SelectSize"></a>
 
 Memcached clusters contain one or more nodes with the cluster's data partitioned across the nodes\. Because of this, the memory needs of the cluster and the memory of a node are related, but not the same\. You can attain your needed cluster memory capacity by having a few large nodes or several smaller nodes\. Further, as your needs change, you can add nodes to or remove nodes from the cluster and thus pay only for what you need\.
 
@@ -26,11 +26,11 @@ In a scenario where you want to have 35 GB of cache memory, you can set up any o
 
 These options each provide similar memory capacity but different computational capacity and cost\. To compare the costs of your specific options, see [Amazon ElastiCache Pricing](https://aws.amazon.com/elasticache/pricing/)\.
 
-For clusters running Memcached, some of the available memory on each node is used for connection overhead\. For more information, see [Memcached Connection Overhead](ParameterGroups.Memcached.md#ParameterGroups.Memcached.Overhead)
+For clusters running Memcached, some of the available memory on each node is used for connection overhead\. For more information, see [Memcached connection overhead](ParameterGroups.Memcached.md#ParameterGroups.Memcached.Overhead)
 
 Using multiple nodes requires spreading the keys across them\. Each node has its own endpoint\. For easy endpoint management, you can use the ElastiCache the Auto Discovery feature, which enables client programs to automatically identify all of the nodes in a cluster\. For more information, see [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\.
 
-In some cases, you might be unsure how much capacity you need\. If so, for testing we recommend starting with one `cache.m5.large` node\. Then monitor the memory usage, CPU utilization, and cache hit rate with the ElastiCache metrics that are published to Amazon CloudWatch\. For more information on CloudWatch metrics for ElastiCache, see [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)\. For production and larger workloads, the R5 nodes provide the best performance and RAM cost value\.
+In some cases, you might be unsure how much capacity you need\. If so, for testing we recommend starting with one `cache.m5.large` node\. Then monitor the memory usage, CPU utilization, and cache hit rate with the ElastiCache metrics that are published to Amazon CloudWatch\. For more information on CloudWatch metrics for ElastiCache, see [Monitoring use with CloudWatch metrics](CacheMetrics.md)\. For production and larger workloads, the R5 nodes provide the best performance and RAM cost value\.
 
 If your cluster doesn't have the hit rate that you want, you can easily add more nodes to increase the total available memory in your cluster\.
 

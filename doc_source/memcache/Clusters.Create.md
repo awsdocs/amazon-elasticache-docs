@@ -1,4 +1,4 @@
-# Creating a Cluster<a name="Clusters.Create"></a>
+# Creating a cluster<a name="Clusters.Create"></a>
 
 Following, you can find instructions on creating a cluster using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
@@ -7,9 +7,9 @@ You can also create an ElastiCache cluster using [AWS CloudFormation](https://do
 Whenever you create a cluster , it is a good idea to do some preparatory work so you won't need to upgrade or make changes right away\.
 
 **Topics**
-+ [Determine Your Requirements](cluster-create-determine-requirements.md)
++ [Determine your requirements](cluster-create-determine-requirements.md)
 + [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)
-+ [Choosing Your Node Size](nodes-select-size.md)
-+ [Creating a Memcached Cluster \(Console\)](Clusters.Create.CON.Memcached.md)
-+ [Creating a Cluster \(AWS CLI\)](Clusters.Create.CLI.md)
-+ [Creating a Cluster \(ElastiCache API\)](Clusters.Create.API.md)
++ [Choosing your node size](nodes-select-size.md)
++ [Creating a Memcached cluster \(Console\)](Clusters.Create.CON.Memcached.md)
++ [Creating a cluster \(AWS CLI\)](Clusters.Create.CLI.md)
++ [Creating a cluster \(ElastiCache API\)](Clusters.Create.API.md)

@@ -4,10 +4,10 @@ The topics in this section cover working with the Amazon ElastiCache API and the
 + [Using the ElastiCache API](ProgrammingGuide.md)
 + [ElastiCache API Reference](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html)
 + [ElastiCache section of the AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/elasticache/index.html)
-+ [Amazon ElastiCache Error Messages](ErrorMessages.md)
++ [Amazon ElastiCache error messages](ErrorMessages.md)
 + [Notifications](elasticache-notifications.md)
 
-## Setting Up the ElastiCache Command Line Interface<a name="StartCLI"></a>
+## Setting up the ElastiCache command line interface<a name="StartCLI"></a>
 
 This section describes the prerequisites for running the command line tools, where to get the command line tools, how to set up the tools and their environment, and includes a series of common examples of tool usage\.
 
@@ -18,10 +18,10 @@ The Amazon ElastiCache Command Line Interface \(CLI\) does not support any Elast
 
 **Topics**
 + [Prerequisites](#prerequisites)
-+ [Getting the Command Line Tools](#Overview.SetupTools.Getting)
-+ [Setting Up the Tools](#Overview.SetupTools.WhereTheyAre)
-+ [Providing Credentials for the Tools](#Overview.SetupTools.WhoYouAre)
-+ [Environmental Variables](#Overview.SetupTools.EnvironmentalVariables)
++ [Getting the command line tools](#Overview.SetupTools.Getting)
++ [Setting up the tools](#Overview.SetupTools.WhereTheyAre)
++ [Providing credentials for the tools](#Overview.SetupTools.WhoYouAre)
++ [Environmental variables](#Overview.SetupTools.EnvironmentalVariables)
 
 ### Prerequisites<a name="prerequisites"></a>
 
@@ -29,11 +29,11 @@ The Amazon ElastiCache Command Line Interface \(CLI\) does not support any Elast
 
  As a convention, all command line text is prefixed with a generic **PROMPT> **command line prompt\. The actual command line prompt on your machine is likely to be different\. We also use **$ ** to indicate a Linux/UNIX specific command and **C:\\> ** for a Windows specific command\. The example output resulting from the command is shown immediately thereafter without any prefix\. 
 
-#### The Java Runtime Environment<a name="java-runtime"></a>
+#### The Java runtime environment<a name="java-runtime"></a>
 
  The command line tools used in this guide require Java version 5 or later to run\. Either a JRE or JDK installation is acceptable\. To view and download JREs for a range of platforms, including Linux/UNIX and Windows, see [Java SE Downloads](http://www.oracle.com/technetwork/java/javase/downloads/index.html)\. 
 
-##### Setting the Java Home Variable<a name="java-home"></a>
+##### Setting the Java home variable<a name="java-home"></a>
 
  The command line tools depend on an environment variable \(`JAVA_HOME`\) to locate the Java Runtime\. This environment variable should be set to the full path of the directory that contains a subdirectory named `bin` which in turn contains the executable `java` \(on Linux and UNIX\) or `java.exe` \(on Windows\) executable\. 
 
@@ -69,11 +69,11 @@ The Amazon ElastiCache Command Line Interface \(CLI\) does not support any Elast
      Java HotSpot(TM) Client VM (build 19.0-b09, mixed mode, sharing)
      ```
 
-### Getting the Command Line Tools<a name="Overview.SetupTools.Getting"></a>
+### Getting the command line tools<a name="Overview.SetupTools.Getting"></a>
 
 The command line tools are available as a ZIP file on the [ElastiCache Developer Tools web site](https://aws.amazon.com/developertools/Amazon-ElastiCache)\. These tools are written in Java, and include shell scripts for Windows 2000/XP/Vista/Windows 7, Linux/UNIX, and Mac OSX\. The ZIP file is self\-contained and no installation is required; simply download the zip file and unzip it to a directory on your local machine\.
 
-### Setting Up the Tools<a name="Overview.SetupTools.WhereTheyAre"></a>
+### Setting up the tools<a name="Overview.SetupTools.WhereTheyAre"></a>
 
 The command line tools depend on an environment variable \(AWS\_ELASTICACHE\_HOME\) to locate supporting libraries\. You need to set this environment variable before you can use the tools\. Set it to the path of the directory you unzipped the command line tools into\. This directory is named ElastiCacheCli\-A\.B\.nnnn \(A, B and n are version/release numbers\), and contains subdirectories named bin and lib\.
 
@@ -112,7 +112,7 @@ The Windows environment variables are reset when you close the command window\. 
 Paths that contain a space must be wrapped in double quotes, for example:  
 "C:\\Program Files\\Java"
 
-### Providing Credentials for the Tools<a name="Overview.SetupTools.WhoYouAre"></a>
+### Providing credentials for the tools<a name="Overview.SetupTools.WhoYouAre"></a>
 
  The command line tools need the AWS Access Key and Secret Access Key provided with your AWS account\. You can get them using the command line or from a credential file located on your local system\. 
 
@@ -154,7 +154,7 @@ With the credentials file setup, you'll need to set the AWS\_CREDENTIAL\_FILE en
 
    You should see the usage page for all ElastiCache commands\.
 
-### Environmental Variables<a name="Overview.SetupTools.EnvironmentalVariables"></a>
+### Environmental variables<a name="Overview.SetupTools.EnvironmentalVariables"></a>
 
 Environment variables can be useful for scripting, configuring defaults or temporarily overriding them\. 
 

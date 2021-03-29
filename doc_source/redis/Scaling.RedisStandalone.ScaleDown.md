@@ -1,13 +1,13 @@
-# Scaling Down Single\-Node Redis Clusters<a name="Scaling.RedisStandalone.ScaleDown"></a>
+# Scaling down single\-node Redis clusters<a name="Scaling.RedisStandalone.ScaleDown"></a>
 
-The following sections walk you through how to scale a single\-node Redis cluster down to a smaller node type\. Ensuring that the new, smaller node type is large enough to accommodate all the data and Redis overhead is important to the long\-term success of your new Redis cluster\. For more information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
+The following sections walk you through how to scale a single\-node Redis cluster down to a smaller node type\. Ensuring that the new, smaller node type is large enough to accommodate all the data and Redis overhead is important to the long\-term success of your new Redis cluster\. For more information, see [Ensuring that you have enough memory to create a Redis snapshot](BestPractices.BGSAVE.md)\.
 
 **Topics**
-+ [Scaling Down a Single\-Node Redis Cluster \(Console\)](#Scaling.RedisStandalone.ScaleDown.CON)
-+ [Scaling Down Single\-Node Redis Cache Clusters \(AWS CLI\)](#Scaling.RedisStandalone.ScaleUpDown-Modify.CLI)
-+ [Scaling Down Single\-Node Redis Cache Clusters \(ElastiCache API\)](#Scaling.RedisStandalone.ScaleDown.API)
++ [Scaling down a single\-node Redis cluster \(Console\)](#Scaling.RedisStandalone.ScaleDown.CON)
++ [Scaling down single\-node Redis cache clusters \(AWS CLI\)](#Scaling.RedisStandalone.ScaleUpDown-Modify.CLI)
++ [Scaling down single\-node Redis cache clusters \(ElastiCache API\)](#Scaling.RedisStandalone.ScaleDown.API)
 
-## Scaling Down a Single\-Node Redis Cluster \(Console\)<a name="Scaling.RedisStandalone.ScaleDown.CON"></a>
+## Scaling down a single\-node Redis cluster \(Console\)<a name="Scaling.RedisStandalone.ScaleDown.CON"></a>
 
 The following procedure walks you through scaling your single\-node Redis cluster down to a smaller node type using the ElastiCache console\.
 
@@ -42,7 +42,7 @@ For more information, see [Managing Reserved Memory](redis-memory-management.md)
 
 1. When the cluster’s status changes from *modifying* to *available*, your cluster has scaled to the new node type\. There is no need to update the endpoints in your application\.
 
-## Scaling Down Single\-Node Redis Cache Clusters \(AWS CLI\)<a name="Scaling.RedisStandalone.ScaleUpDown-Modify.CLI"></a>
+## Scaling down single\-node Redis cache clusters \(AWS CLI\)<a name="Scaling.RedisStandalone.ScaleUpDown-Modify.CLI"></a>
 
 The following procedure describes how to scale down a single\-node Redis cache cluster using the AWS CLI\. 
 
@@ -165,7 +165,7 @@ The following procedure describes how to scale down a single\-node Redis cache c
 
    For more information, see [describe\-cache\-clusters](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-clusters.html) in the *AWS CLI Reference*\.
 
-## Scaling Down Single\-Node Redis Cache Clusters \(ElastiCache API\)<a name="Scaling.RedisStandalone.ScaleDown.API"></a>
+## Scaling down single\-node Redis cache clusters \(ElastiCache API\)<a name="Scaling.RedisStandalone.ScaleDown.API"></a>
 
 The following procedure describes how to scale updown a single\-node Redis cache cluster using the ElastiCache API\. 
 

@@ -1,4 +1,4 @@
-# Logging and Monitoring in Elasticache<a name="MonitoringECMetrics"></a>
+# Logging and monitoring in Elasticache<a name="MonitoringECMetrics"></a>
 
 To manage your enterprise caching solution, it's important that you know how your clusters are performing and the resources they're consuming\. It's also important that you know the events that are being generated and the costs of your deployment\. 
 
@@ -6,6 +6,6 @@ Amazon CloudWatch provides metrics for monitoring your cache performance\. In ad
 
 **Topics**
 + [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)
-+ [Monitoring ElastiCache Events](ECEvents.md)
-+ [Monitoring Costs with Cost Allocation Tags](Tagging.md)
-+ [Managing Costs with Reserved Nodes](reserved-nodes.md)
++ [Monitoring ElastiCache events](ECEvents.md)
++ [Monitoring costs with cost allocation tags](Tagging.md)
++ [Managing costs with reserved nodes](reserved-nodes.md)

@@ -1,4 +1,4 @@
-# Connecting to Nodes<a name="nodes-connecting"></a>
+# Connecting to nodes<a name="nodes-connecting"></a>
 
 Before attempting to connect to the nodes in your Redis cluster, you must have the endpoints for the nodes\. To find the endpoints, see the following:
 + [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)
@@ -90,4 +90,4 @@ For Ubuntu systems, before running `make`, run `make distclean`\.
    quit                   // Exit from redis-cli
    ```
 
-For connecting to nodes or clusters which have Secure Sockets Layer \(SSL\) encryption \(in\-transit enabled\), see [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md)\.
+For connecting to nodes or clusters which have Secure Sockets Layer \(SSL\) encryption \(in\-transit enabled\), see [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md)\.

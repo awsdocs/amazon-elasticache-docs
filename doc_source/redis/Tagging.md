@@ -1,4 +1,4 @@
-# Monitoring Costs with Cost Allocation Tags<a name="Tagging"></a>
+# Monitoring costs with cost allocation tags<a name="Tagging"></a>
 
 When you add cost allocation tags to your resources in Amazon ElastiCache, you can track costs by grouping expenses on your invoices by resource tag values\.
 
@@ -30,5 +30,5 @@ You can add ElastiCache cost allocation tags to Redis nodes\. When you add, list
 AWS does not apply any semantic meaning to your tags\. Tags are interpreted strictly as character strings\. AWS does not automatically set any tags on any ElastiCache resource\.
 
 **Topics**
-+ [Managing Your Cost Allocation Tags Using the AWS CLI](Tagging.Managing.CLI.md)
-+ [Managing Your Cost Allocation Tags Using the ElastiCache API](Tagging.Managing.API.md)
++ [Managing your cost allocation tags using the AWS CLI](Tagging.Managing.CLI.md)
++ [Managing your cost allocation tags using the ElastiCache API](Tagging.Managing.API.md)

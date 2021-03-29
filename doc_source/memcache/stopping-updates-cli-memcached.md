@@ -1,4 +1,4 @@
-# Stopping the Service Updates Using the AWS CLI<a name="stopping-updates-cli-memcached"></a>
+# Stopping the service updates using the AWS CLI<a name="stopping-updates-cli-memcached"></a>
 
 You can interrupt a service update using the AWS CLI\. The following code example shows how to do this\.
 

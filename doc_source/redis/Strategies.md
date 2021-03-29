@@ -1,16 +1,16 @@
-# Caching Strategies<a name="Strategies"></a>
+# Caching strategies<a name="Strategies"></a>
 
 In the following topic, you can find strategies for populating and maintaining your cache\.
 
 What strategies to implement for populating and maintaining your cache depend upon what data you cache and the access patterns to that data\. For example, you likely don't want to use the same strategy for both a top\-10 leaderboard on a gaming site and trending news stories\. In the rest of this section, we discuss common cache maintenance strategies and their advantages and disadvantages\.
 
 **Topics**
-+ [Lazy Loading](#Strategies.LazyLoading)
-+ [Write\-Through](#Strategies.WriteThrough)
++ [Lazy loading](#Strategies.LazyLoading)
++ [Write\-through](#Strategies.WriteThrough)
 + [Adding TTL](#Strategies.WithTTL)
-+ [Related Topics](#Strategies.SeeAlso)
++ [Related topics](#Strategies.SeeAlso)
 
-## Lazy Loading<a name="Strategies.LazyLoading"></a>
+## Lazy loading<a name="Strategies.LazyLoading"></a>
 
 As the name implies, *lazy loading* is a caching strategy that loads data into the cache only when necessary\. It works as described following\. 
 
@@ -36,7 +36,7 @@ The following diagram illustrates both these processes\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-HowECWorks.png)
 
-### Advantages and Disadvantages of Lazy Loading<a name="Strategies.LazyLoading.Evaluation"></a>
+### Advantages and disadvantages of lazy loading<a name="Strategies.LazyLoading.Evaluation"></a>
 
 The advantages of lazy loading are as follows:
 + Only requested data is cached\.
@@ -58,9 +58,9 @@ The disadvantages of lazy loading are as follows:
    These misses can cause a noticeable delay in data getting to the application\.
 + Stale data\.
 
-  If data is written to the cache only when there is a cache miss, data in the cache can become stale\. This result occurs because there are no updates to the cache when data is changed in the database\. To address this issue, you can use the [Write\-Through](#Strategies.WriteThrough) and [Adding TTL](#Strategies.WithTTL) strategies\.
+  If data is written to the cache only when there is a cache miss, data in the cache can become stale\. This result occurs because there are no updates to the cache when data is changed in the database\. To address this issue, you can use the [Write\-through](#Strategies.WriteThrough) and [Adding TTL](#Strategies.WithTTL) strategies\.
 
-### Lazy Loading Pseudocode Example<a name="Strategies.LazyLoading.CodeExample"></a>
+### Lazy loading pseudocode example<a name="Strategies.LazyLoading.CodeExample"></a>
 
 The following is a pseudocode example of lazy loading logic\.
 
@@ -91,11 +91,11 @@ For this example, the application code that gets the data is the following\.
 customer_record = get_customer(12345)
 ```
 
-## Write\-Through<a name="Strategies.WriteThrough"></a>
+## Write\-through<a name="Strategies.WriteThrough"></a>
 
 The write\-through strategy adds data or updates data in the cache whenever data is written to the database\.
 
-### Advantages and Disadvantages of Write\-Through<a name="Strategies.WriteThrough.Evaluation"></a>
+### Advantages and disadvantages of write\-through<a name="Strategies.WriteThrough.Evaluation"></a>
 
 The advantages of write\-through are as follows:
 + Data in the cache is never stale\.
@@ -119,7 +119,7 @@ The disadvantages of write\-through are as follows:
 
   Most data is never read, which is a waste of resources\. By [adding a time to live \(TTL\) value](#Strategies.WithTTL), you can minimize wasted space\.
 
-### Write\-Through Pseudocode Example<a name="Strategies.WriteThrough.CodeExample"></a>
+### Write\-through pseudocode example<a name="Strategies.WriteThrough.CodeExample"></a>
 
 The following is a pseudocode example of write\-through logic\.
 
@@ -144,11 +144,12 @@ save_customer(12345,{"address":"123 Main"})
 
 Lazy loading allows for stale data but doesn't fail with empty nodes\. Write\-through ensures that data is always fresh, but can fail with empty nodes and can populate the cache with superfluous data\. By adding a time to live \(TTL\) value to each write, you can have the advantages of each strategy\. At the same time, you can and largely avoid cluttering up the cache with extra data\.
 
-*Time to live \(TTL\)* is an integer value that specifies the number of seconds until the key expires\. Redis can specify seconds or milliseconds for this value\. For Memcached, it is seconds\. When an application attempts to read an expired key, it is treated as though the key is not found\. The database is queried for the key and the cache is updated\. This approach doesn't guarantee that a value isn't stale\. However, it keeps data from getting too stale and requires that values in the cache are occasionally refreshed from the database\.
+*Time to live \(TTL\)* is an integer value that specifies the number of seconds until the key expires\. Redis can specify seconds or milliseconds for this value\. When an application attempts to read an expired key, it is treated as though the key is not found\. The database is queried for the key and the cache is updated\. This approach doesn't guarantee that a value isn't stale\. However, it keeps data from getting too stale and requires that values in the cache are occasionally refreshed from the database\.
+
 
 For more information, see the [Redis `set` command](http://redis.io/commands/set) \.
 
-### TTL Pseudocode Examples<a name="Strategies.WithTTL.CodeExample"></a>
+### TTL pseudocode examples<a name="Strategies.WithTTL.CodeExample"></a>
 
 The following is a pseudocode example of write\-through logic with TTL\.
 
@@ -207,7 +208,7 @@ save_customer(12345,{"address":"123 Main"})
 customer_record = get_customer(12345)
 ```
 
-## Related Topics<a name="Strategies.SeeAlso"></a>
+## Related topics<a name="Strategies.SeeAlso"></a>
 + [In\-Memory Data Store](elasticache-use-cases.md#elasticache-use-cases-data-store)
 + [Choosing an Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html)
-+ [Scaling ElastiCache for Redis Clusters](Scaling.md)
++ [Scaling ElastiCache for Redis clusters](Scaling.md)

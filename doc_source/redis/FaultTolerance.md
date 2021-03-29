@@ -37,7 +37,7 @@ Some of the shortcomings of using Redis AOF to mitigate cluster failures are the
 
   For example, if a node fails due to a hardware fault in an underlying physical server, ElastiCache will provision a new node on a different server\. In this case, the AOF is not available and can't be used to recover the data\.
 
-For more information, see [Append Only Files \(AOF\) in ElastiCache for Redis](RedisAOF.md)\.
+For more information, see [Append only files \(AOF\) in ElastiCache for Redis](RedisAOF.md)\.
 
 #### Mitigating Failures: Redis Replication Groups<a name="FaultTolerance.Redis.Cluster.Replication"></a>
 
@@ -72,7 +72,7 @@ You can enable Multi\-AZ on your Redis replication groups\. Whether you enable M
 
 Failing over to a replica node is generally faster than creating and provisioning a new primary node\. This means your application can resume writing to your primary node sooner than if Multi\-AZ were not enabled\.
 
-For more information, see [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)\.
+For more information, see [Minimizing downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)\.
 
 **When Multi\-AZ is disabled**
 
@@ -90,7 +90,7 @@ During steps 1 through 4 of this process, your application can't write to the pr
 
 For added protection, we recommend that you launch the nodes in your replication group in different Availability Zones \(AZs\)\. If you do this, an AZ failure will only impact the nodes in that AZ and not the others\.
 
-For more information, see [High Availability Using Replication Groups](Replication.md)\.
+For more information, see [High availability using replication groups](Replication.md)\.
 
 ### Mitigating Availability Zone Failures<a name="FaultTolerance.Redis.AZ"></a>
 
@@ -100,9 +100,9 @@ No matter how many nodes you have, if they are all located in the same Availabil
 
 Any time you lose a node you can experience a performance degradation since read operations are now shared by fewer nodes\. This performance degradation will continue until the nodes are replaced\. Because your data is not partitioned across Redis nodes, you risk some data loss only when the primary node is lost\.
 
-For information on specifying the Availability Zones for Redis nodes, see [Creating a Cluster Mode Disabled Cluster \(Console\)](Clusters.Create.CON.Redis.md)\.
+For information on specifying the Availability Zones for Redis nodes, see [Creating a cluster\-mode disabled cluster \(Console\)](Clusters.Create.CON.Redis.md)\.
 
-For more information on regions and Availability Zones, see [Choosing Regions and Availability Zones](RegionsAndAZs.md)\.
+For more information on regions and Availability Zones, see [Choosing regions and availability zones](RegionsAndAZs.md)\.
 
 ## Recommendations<a name="FaultTolerance.Recommendations"></a>
 
@@ -120,4 +120,4 @@ To minimize the impact of an Availability Zone failure, we recommend launching y
 
 ### Other precautions<a name="FaultTolerance.Recommendations.Other"></a>
 
-If you're running Redis, then in addition to the above, we recommend that you schedule regular backups of your cluster\. Backups \(snapshots\) create a \.rdb file you can use to restore your cluster in case of failure or corruption\. For more information, see [Backup and Restore for ElastiCache for Redis ](backups.md)\.
+If you're running Redis, then in addition to the above, we recommend that you schedule regular backups of your cluster\. Backups \(snapshots\) create a \.rdb file you can use to restore your cluster in case of failure or corruption\. For more information, see [Backup and restore for ElastiCache for Redis ](backups.md)\.

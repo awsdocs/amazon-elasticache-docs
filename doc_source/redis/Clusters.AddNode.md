@@ -1,6 +1,6 @@
-# Adding Nodes to a Cluster<a name="Clusters.AddNode"></a>
+# Adding nodes to a cluster<a name="Clusters.AddNode"></a>
 
-To reconfigure your Redis \(cluster mode enabled\) cluster, see [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)
+To reconfigure your Redis \(cluster mode enabled\) cluster, see [Scaling clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)
 
 You can use the ElastiCache Management Console, the AWS CLI or ElastiCache API to add nodes to your cluster\.
 
@@ -50,7 +50,7 @@ The following procedure can be used to add nodes to a cluster\.
 
 1. From the list of clusters, for the cluster that you want to add a node to, choose its name\.
 
-   If your cluster is a Redis \(cluster mode enabled\) cluster, see [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\.
+   If your cluster is a Redis \(cluster mode enabled\) cluster, see [Scaling clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\.
 
    If your cluster is a Redis \(cluster mode disabled\) cluster with zero shards, first complete the steps at [To add replication to a Redis cluster with no shards](#AddReplication.CON)\.
 
@@ -71,7 +71,7 @@ The following procedure can be used to add nodes to a cluster\.
 
 ## Using the AWS CLI<a name="Clusters.AddNode.CLI"></a>
 
-If you want to add nodes to an existing Redis \(cluster mode disabled\) cluster that does not have replication enabled, you must first create the replication group specifying the existing cluster as the primary\. For more information, see [Creating a Replication Group Using an Available Redis Cache Cluster \(AWS CLI\)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.CLI)\. After the replication group is *available*, you can continue with the following process\.
+If you want to add nodes to an existing Redis \(cluster mode disabled\) cluster that does not have replication enabled, you must first create the replication group specifying the existing cluster as the primary\. For more information, see [Creating a replication group using an available Redis cache cluster \(AWS CLI\)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.CLI)\. After the replication group is *available*, you can continue with the following process\.
 
 To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `modify-cache-cluster` with the following parameters:
 + `--cache-cluster-id` The ID of the cache cluster that you want to add nodes to\.
@@ -140,7 +140,7 @@ For more information, see the AWS CLI topic [https://docs.aws.amazon.com/cli/lat
 
 ## Using the ElastiCache API<a name="Clusters.AddNode.API"></a>
 
-If you want to add nodes to an existing Redis \(cluster mode disabled\) cluster that does not have replication enabled, you must first create the replication group specifying the existing cluster as the Primary\. For more information, see [Adding Replicas to a Standalone Redis \(Cluster Mode Disabled\) Cluster \(ElastiCache API\)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.API)\. After the replication group is *available*, you can continue with the following process\.
+If you want to add nodes to an existing Redis \(cluster mode disabled\) cluster that does not have replication enabled, you must first create the replication group specifying the existing cluster as the Primary\. For more information, see [Adding replicas to a standalone Redis \(Cluster Mode Disabled\) cluster \(ElastiCache API\)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.API)\. After the replication group is *available*, you can continue with the following process\.
 
 **To add nodes to a cluster \(ElastiCache API\)**
 + Call the `ModifyCacheCluster` API operation with the following parameters:

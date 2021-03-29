@@ -1,4 +1,4 @@
-# Accessing Your Cluster or Replication Group<a name="accessing-elasticache"></a>
+# Accessing your cluster or replication group<a name="accessing-elasticache"></a>
 
 Your Amazon ElastiCache instances are designed to be accessed through an Amazon EC2 instance\.
 
@@ -7,16 +7,16 @@ If you launched your ElastiCache instance in an Amazon Virtual Private Cloud \(A
 If you launched your ElastiCache instance in EC2 Classic, you allow the EC2 instance to access your cluster by granting the Amazon EC2 security group associated with the instance access to your cache security group\. By default, access to a cluster is restricted to the account that launched the cluster\.
 
 **Topics**
-+ [Determine the Cluster's Platform](#authorize-access-vpc-or-classic)
-+ [Grant Access to Your Cluster or Replication Group](#grant-access)
++ [Determine the cluster's platform](#authorize-access-vpc-or-classic)
++ [Grant access to your cluster or replication group](#grant-access)
 
-## Determine the Cluster's Platform<a name="authorize-access-vpc-or-classic"></a>
+## Determine the cluster's platform<a name="authorize-access-vpc-or-classic"></a>
 
 Before you continue, determine whether you launched your cluster into EC2\-VPC or EC2\-Classic\.
 
 For more information, see [Detecting Your Supported Platforms and Whether You Have a Default VPC](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#detecting-platform)\.
 
-### Determining Your Clusters Platform using the ElastiCache Console<a name="authorize-access-vpc-or-classic-console"></a>
+### Determining Your Cluster's Platform using the ElastiCache Console<a name="authorize-access-vpc-or-classic-console"></a>
 
 The following procedure uses the ElastiCache console to determine whether you launched your cluster into EC2\-VPC or EC2\-Classic\.
 
@@ -30,8 +30,8 @@ The following procedure uses the ElastiCache console to determine whether you la
 
 1. Locate **Subnet group:**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-SubnetGroup.png)
-   + If the **Subnet group** has a name, as shown here, you launched your cluster in EC2\-VPC and should continue at [You Launched Your Cluster into EC2\-VPC](#authorize-access-vpc)\.
-   + If there is a dash \(\-\) instead of a **Subnet group** name, you launched your cluster in EC2\-Classic and should continue at [You Launched Your Cluster Running in EC2\-Classic](#authorize-access-ec2-classic)\.
+   + If the **Subnet group** has a name, as shown here, you launched your cluster in EC2\-VPC and should continue at [You launched your cluster into EC2\-VPC](#authorize-access-vpc)\.
+   + If there is a dash \(\-\) instead of a **Subnet group** name, you launched your cluster in EC2\-Classic and should continue at [You launched your cluster running in EC2\-Classic](#authorize-access-ec2-classic)\.
 
 For more information, see [Detecting Your Supported Platforms and Whether You Have a Default VPC](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#detecting-platform)\.
 
@@ -102,12 +102,12 @@ The following procedure uses the AWS CLI to determine whether you launched your 
    ]
    }
    ```
-   + If there is a value for `CacheSubnetGroupName`, you launched your cluster in EC2\-VPC and should continue at [You Launched Your Cluster into EC2\-VPC](#authorize-access-vpc)\.
-   + If there is no value for `CacheSubnetGroupName`, you launched your cluster in EC2\-Classic and should continue at [You Launched Your Cluster Running in EC2\-Classic](#authorize-access-ec2-classic)\.
+   + If there is a value for `CacheSubnetGroupName`, you launched your cluster in EC2\-VPC and should continue at [You launched your cluster into EC2\-VPC](#authorize-access-vpc)\.
+   + If there is no value for `CacheSubnetGroupName`, you launched your cluster in EC2\-Classic and should continue at [You launched your cluster running in EC2\-Classic](#authorize-access-ec2-classic)\.
 
-## Grant Access to Your Cluster or Replication Group<a name="grant-access"></a>
+## Grant access to your cluster or replication group<a name="grant-access"></a>
 
-### You Launched Your Cluster into EC2\-VPC<a name="authorize-access-vpc"></a>
+### You launched your cluster into EC2\-VPC<a name="authorize-access-vpc"></a>
 
 If you launched your cluster into an Amazon Virtual Private Cloud \(Amazon VPC\), you can connect to your ElastiCache cluster only from an Amazon EC2 instance that is running in the same Amazon VPC\. In this case, you will need to grant network ingress to the cluster\.
 
@@ -140,7 +140,7 @@ Opening up the ElastiCache cluster to 0\.0\.0\.0/0 does not expose the cluster t
 
 When you launch an Amazon EC2 instance into your Amazon VPC, that instance will be able to connect to your ElastiCache cluster\.
 
-### You Launched Your Cluster Running in EC2\-Classic<a name="authorize-access-ec2-classic"></a>
+### You launched your cluster running in EC2\-Classic<a name="authorize-access-ec2-classic"></a>
 
 If you launched your cluster into EC2\-Classic, to allow an Amazon EC2 instance to access your cluster you will need to grant the Amazon EC2 security group associated with the instance access to your cache security group\.
 
@@ -150,7 +150,7 @@ If you launched your cluster into EC2\-Classic, to allow an Amazon EC2 instance 
 
 1. To see a list of security groups, from the left navigation pane, choose **Security Groups**\.
 **Important**  
-If **Security Groups** is not listed in the navigation pane, you launched your cluster in EC2\-VPC rather than EC2\-Classic and should follow the instructions at [You Launched Your Cluster into EC2\-VPC](#authorize-access-vpc)\.
+If **Security Groups** is not listed in the navigation pane, you launched your cluster in EC2\-VPC rather than EC2\-Classic and should follow the instructions at [You launched your cluster into EC2\-VPC](#authorize-access-vpc)\.
 
 1. Choose the box to the left of **default** security group\.
 
@@ -162,9 +162,9 @@ If **Security Groups** is not listed in the navigation pane, you launched your c
 
 To revoke a security group's access, locate the security group in the list of authorized security groups, and then choose **Remove**\.
 
-For more information on ElastiCache Security Groups, see [Security Groups: EC2\-Classic](SecurityGroups.md)\.
+For more information on ElastiCache Security Groups, see [Security groups: EC2\-Classic](SecurityGroups.md)\.
 
-### Accessing ElastiCache Resources from Outside AWS<a name="access-from-outside-aws"></a>
+### Accessing ElastiCache resources from outside AWS<a name="access-from-outside-aws"></a>
 
 Elasticache is a service designed to be used internally to your VPC\. External access is discouraged due to the latency of Internet traffic and security concerns\. However, if external access to Elasticache is required for test or development purposes, it can be done through a VPN\.
 
@@ -178,11 +178,11 @@ Using the AWS Client VPN, you allow external access to your Elasticache nodes wi
 The following procedures demonstrate how to:
 
 **Topics**
-+ [Create a Certificate Authority](#create-cert)
-+ [Configuring AWS Client VPN Components](#configure-vpn-components)
-+ [Configure the VPN Client](#configure-vpn-client)
++ [Create a certificate authority](#create-cert)
++ [Configuring AWS client VPN components](#configure-vpn-components)
++ [Configure the VPN client](#configure-vpn-client)
 
-#### Create a Certificate Authority<a name="create-cert"></a>
+#### Create a certificate authority<a name="create-cert"></a>
 
 It is possible to create a Certificate Authority \(CA\) using different techniques or tools\. We suggest the easy\-rsa utility, provided by the [OpenVPN](https://openvpn.net/community-resources/openvpn-project/) project\. Regardless of the option you choose, make sure to keep the keys secure\. The following procedure downloads the easy\-rsa scripts, creates the Certificate Authority and the keys to authenticate the first VPN client:
 + To create the initial certificates, open a terminal and do the following:
@@ -207,7 +207,7 @@ It is possible to create a Certificate Authority \(CA\) using different techniqu
 
   Note the Certificate ARN for future use\.
 
-#### Configuring AWS Client VPN Components<a name="configure-vpn-components"></a>
+#### Configuring AWS client VPN components<a name="configure-vpn-components"></a>
 
 **Using the AWS Console**
 
@@ -307,7 +307,7 @@ Example output:
 
 `{ "Status": { "Code": "creating" } } `
 
-#### Configure the VPN Client<a name="configure-vpn-client"></a>
+#### Configure the VPN client<a name="configure-vpn-client"></a>
 
 On the AWS Client VPN Dashboard, select the VPN endpoint recently created and select **Download Client Configuration**\. Copy the configuration file, and the files `easy-rsa/pki/issued/client1.domain.tld.crt` and `easy-rsa/pki/private/client1.domain.tld.key`\. Edit the configuration file and change or add the following parameters:
 + cert: add a new line with the parameter cert pointing to the `client1.domain.tld.crt` file\. Use the full path to the file\. Example: `cert /home/user/.cert/client1.domain.tld.crt`

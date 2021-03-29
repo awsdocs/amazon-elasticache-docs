@@ -1,8 +1,8 @@
-# Connecting to a Cache Cluster Running in an Amazon VPC<a name="VPCs.Connecting"></a>
+# Connecting to a cache cluster running in an Amazon VPC<a name="VPCs.Connecting"></a>
 
 This example shows how to launch an Amazon EC2 instance in your Amazon VPC\. You can then log in to this instance and access the ElastiCache cluster that is running in the Amazon VPC\.
 
-## Connecting to a Cache Cluster Running in an Amazon VPC \(Console\)<a name="VPCs.Connecting.CON"></a>
+## Connecting to a cache cluster running in an Amazon VPC \(Console\)<a name="VPCs.Connecting.CON"></a>
 
 In this example, you create an Amazon EC2 instance in your Amazon VPC\. You can use this Amazon EC2 instance to connect to cache nodes running in the Amazon VPC\.
 
@@ -47,7 +47,7 @@ For information about managing key pairs, see the [Amazon EC2 Getting Started Gu
 
 You can now assign an Elastic IP address to the Amazon EC2 instance that you just created\. You need to use this IP address to connect to the Amazon EC2 instance\.
 
-**To assign an Elastic IP address \(Console\)**
+**To assign an elastic IP address \(Console\)**
 
 1. Open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
@@ -100,7 +100,7 @@ You are now ready to interact with your ElastiCache cluster\. Before you can do 
    Complete!
    ```
 
-1. Go to the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/) and obtain the endpoint for one of the nodes in your cache cluster\. For more information, see [Finding Connection Endpoints](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Endpoints.html) for Redis or [Finding Connection Endpoints](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Endpoints.html) for Memcached\.
+1. Go to the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/) and obtain the endpoint for one of the nodes in your cache cluster\. For more information, see [Finding connection endpoints](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Endpoints.html) for Redis or [Finding connection endpoints](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Endpoints.html) for Memcached\.
 
 1. Use *telnet* to connect to your cache node endpoint over port 11211\. Replace the hostname shown below with the hostname of your cache node\.
 

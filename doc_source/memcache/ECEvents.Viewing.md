@@ -1,10 +1,10 @@
-# Viewing ElastiCache Events<a name="ECEvents.Viewing"></a>
+# Viewing ElastiCache events<a name="ECEvents.Viewing"></a>
 
 ElastiCache logs events that relate to your cluster instances, security groups, and parameter groups\. This information includes the date and time of the event, the source name and source type of the event, and a description of the event\. You can easily retrieve events from the log using the ElastiCache console, the AWS CLI `describe-events` command, or the ElastiCache API action `DescribeEvents`\. 
 
 The following procedures show you how to view all ElastiCache events for the past 24 hours \(1440 minutes\)\.
 
-## Viewing ElastiCache Events \(Console\)<a name="ECEvents.Viewing.CON"></a>
+## Viewing ElastiCache events \(Console\)<a name="ECEvents.Viewing.CON"></a>
 
 The following procedure displays events using the ElastiCache console\.
 
@@ -18,7 +18,7 @@ The following procedure displays events using the ElastiCache console\.
 
    Using the **Filter** you can specify whether you want to see all events, or just events of a specific type in the event list\.
 
-## Viewing ElastiCache Events \(AWS CLI\)<a name="ECEvents.Viewing.CLI"></a>
+## Viewing ElastiCache events \(AWS CLI\)<a name="ECEvents.Viewing.CLI"></a>
 
 To generate a list of ElastiCache events using the AWS CLI, use the command `describe-events`\. You can use optional parameters to control the type of events listed, the time frame of the events listed, the maximum number of events to list, and more\.
 
@@ -124,7 +124,7 @@ dev-dsk-spaethp-2c-779957a0 % aws elasticache describe-events --source-type cach
 
 For more information, such as available parameters and permitted parameter values, see [https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-events.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-events.html)\.
 
-## Viewing ElastiCache Events \(ElastiCache API\)<a name="ECEvents.Viewing.API"></a>
+## Viewing ElastiCache events \(ElastiCache API\)<a name="ECEvents.Viewing.API"></a>
 
 To generate a list of ElastiCache events using the ElastiCache API, use the `DescribeEvents` action\. You can use optional parameters to control the type of events listed, the time frame of the events listed, the maximum number of events to list, and more\.
 

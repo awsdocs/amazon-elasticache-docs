@@ -1,4 +1,4 @@
-# Creating a Subnet Group<a name="SubnetGroups.Creating"></a>
+# Creating a subnet group<a name="SubnetGroups.Creating"></a>
 
 A *cache subnet group* is a collection of subnets that you may want to designate for your cache clusters in a VPC\. When launching a cache cluster in a VPC, you need to select a cache subnet group\. Then ElastiCache uses that cache subnet group to assign IP addresses within that subnet to each cache node in the cluster\.
 
@@ -6,7 +6,7 @@ When you create a new subnet group, note the number of available IP addresses\. 
 
 The following procedures show you how to create a subnet group called `mysubnetgroup` \(console\), the AWS CLI, and the ElastiCache API\.
 
-## Creating a Subnet Group \(Console\)<a name="SubnetGroups.Creating.CON"></a>
+## Creating a subnet group \(Console\)<a name="SubnetGroups.Creating.CON"></a>
 
 The following procedure shows how to create a subnet group \(console\)\.
 
@@ -33,7 +33,7 @@ The following procedure shows how to create a subnet group \(console\)\.
 
 Your new subnet group appears in the **Subnet Groups** list of the ElastiCache console\. At the bottom of the window you can choose the subnet group to see details, such as all of the subnets associated with this group\.
 
-## Creating a Subnet Group \(AWS CLI\)<a name="SubnetGroups.Creating.CLI"></a>
+## Creating a subnet group \(AWS CLI\)<a name="SubnetGroups.Creating.CLI"></a>
 
 At a command prompt, use the command `create-cache-subnet-group` to create a subnet group\.
 
@@ -77,7 +77,7 @@ This command should produce output similar to the following:
 
 For more information, see the AWS CLI topic [create\-cache\-subnet\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-cache-subnet-group.html)\.
 
-## Creating a Subnet Group \(ElastiCache API\)<a name="SubnetGroups.Creating.API"></a>
+## Creating a subnet group \(ElastiCache API\)<a name="SubnetGroups.Creating.API"></a>
 
 Using the ElastiCache API, call `CreateCacheSubnetGroup` with the following parameters: 
 + `CacheSubnetGroupName=``mysubnetgroup`

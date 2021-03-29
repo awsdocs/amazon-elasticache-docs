@@ -1,4 +1,4 @@
-# Managing Maintenance<a name="maintenance-window"></a>
+# Managing maintenance<a name="maintenance-window"></a>
 
 Every cluster and replication group has a weekly maintenance window during which any system changes are applied\. If you don't specify a preferred maintenance window when you create or modify a cluster or replication group, ElastiCache assigns a 60\-minute maintenance window within your region's maintenance window on a randomly chosen day of the week\.
 
@@ -9,7 +9,7 @@ The 60\-minute maintenance window is chosen at random from an 8\-hour block of t
 | --- | --- | --- | 
 | ap\-northeast\-1 | Asia Pacific \(Tokyo\) Region | 13:00–21:00 UTC | 
 | ap\-northeast\-2 | Asia Pacific \(Seoul\) Region | 12:00–20:00 UTC | 
-| ap\-northeast\-3 | Asia Pacific \(Osaka\-Local\) Region | 12:00–20:00 UTC | 
+| ap\-northeast\-3 | Asia Pacific \(Osaka\) Region | 12:00–20:00 UTC | 
 | ap\-south\-1 | Asia Pacific \(Mumbai\) Region | 17:30–1:30 UTC | 
 | ap\-southeast\-1 | Asia Pacific \(Singapore\) Region | 14:00–22:00 UTC | 
 | cn\-north\-1 | China \(Beijing\) Region | 14:00–22:00 UTC | 
@@ -36,6 +36,6 @@ The maintenance window should fall at the time of lowest usage and thus might ne
 **More information**  
 For information on your maintenance window and node replacement, see the following:
 + [ElastiCache Maintenance](https://aws.amazon.com/elasticache/elasticache-maintenance/)—FAQ on maintenance and node replacement
-+ [Replacing Nodes](CacheNodes.NodeReplacement.md)—Managing node replacement
-+ [Modifying an ElastiCache Cluster](Clusters.Modify.md)—Changing a cluster's maintenance window
-+ [Modifying a Replication Group](Replication.Modify.md)—Changing a replication group's maintenance window
++ [Replacing nodes](CacheNodes.NodeReplacement.md)—Managing node replacement
++ [Modifying an ElastiCache cluster](Clusters.Modify.md)—Changing a cluster's maintenance window
++ [Modifying a replication group](Replication.Modify.md)—Changing a replication group's maintenance window

@@ -4,8 +4,8 @@ The `AWS/ElastiCache` namespace includes the following Memcached metrics\.
 
 The AWS/ElastiCache namespace includes the following metrics that are derived from the Memcached stats command\. Each metric is calculated at the cache node level\.
 
-**See Also**
-+ [Host\-Level Metrics](CacheMetrics.HostLevel.md)
+**See also**
++ [Host\-level metrics](CacheMetrics.HostLevel.md)
 
 
 | Metric  | Description  | Unit  | 

@@ -1,6 +1,6 @@
-# Removing Nodes from a Cluster<a name="Clusters.DeleteNode"></a>
+# Removing nodes from a cluster<a name="Clusters.DeleteNode"></a>
 
-Each time you change the number of nodes in a Memcached cluster, you must re\-map at least some of your keyspace so it maps to the correct node\. For more detailed information on load balancing a Memcached cluster, see [Configuring Your ElastiCache Client for Efficient Load Balancing](BestPractices.LoadBalancing.md)\.
+Each time you change the number of nodes in a Memcached cluster, you must re\-map at least some of your keyspace so it maps to the correct node\. For more detailed information on load balancing a Memcached cluster, see [Configuring your ElastiCache client for efficient load balancing](BestPractices.LoadBalancing.md)\.
 
 You can delete a node from a cluster using the AWS Management Console, the AWS CLI, or the ElastiCache API\.
 
@@ -47,7 +47,7 @@ To determine what operations are pending, choose the **Description** tab and che
 
 ## Using the AWS CLI<a name="Clusters.DeleteNode.CLI"></a>
 
-1. Identify the IDs of the nodes that you want to remove\. For more information, see [Viewing a Cluster's Details](Clusters.ViewDetails.md)\.
+1. Identify the IDs of the nodes that you want to remove\. For more information, see [Viewing a cluster's details](Clusters.ViewDetails.md)\.
 
 1. Use the `modify-cache-cluster` CLI operation with a list of the nodes to remove, as in the following example\.
 

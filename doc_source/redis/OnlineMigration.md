@@ -1,4 +1,4 @@
-# Online Migration to ElastiCache<a name="OnlineMigration"></a>
+# Online migration to ElastiCache<a name="OnlineMigration"></a>
 
  By using Online Migration, you can migrate your data from self\-hosted Redis on Amazon EC2 to Amazon ElastiCache\.
 
@@ -15,10 +15,10 @@ The migration begins when you call the `StartMigration` API operation or AWS CLI
 
 After the client\-side changes are ready, call the `CompleteMigration` API operation\. This API operation promotes your ElastiCache deployment to your primary Redis deployment with primary and replica nodes \(as applicable\)\. Now you can redirect your client application to start writing data to ElastiCache\. Throughout the migration, you can check the status of replication by running the [redis\-cli INFO](https://redis.io/commands/info) command on your Redis on EC2 nodes and on the ElastiCache primary node\. 
 
-## Migration Steps<a name="Migration-Steps"></a>
+## Migration steps<a name="Migration-Steps"></a>
 
 The following topics outline the process for migrating your data:
-+ [Preparing Your Source and Target Redis Nodes for Migration](Migration-Prepare.md)
-+ [Starting Migration](Migration-Initiate.md)
-+ [Verifying the Data Migration Progress](Migration-Verify.md)
-+ [Completing the Data Migration](Migration-Complete.md)
++ [Preparing your source and target Redis nodes for migration](Migration-Prepare.md)
++ [Starting migration](Migration-Initiate.md)
++ [Verifying the data migration progress](Migration-Verify.md)
++ [Completing the data migration](Migration-Complete.md)

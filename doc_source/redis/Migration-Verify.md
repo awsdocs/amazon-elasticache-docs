@@ -1,4 +1,4 @@
-# Verifying the Data Migration Progress<a name="Migration-Verify"></a>
+# Verifying the data migration progress<a name="Migration-Verify"></a>
 
 After the migration has begun, you can do the following to track its progress:
 + Verify that Redis `master_link_status` is `up` in the `INFO` command on ElastiCache primary node\. You can also find this information in the ElastiCache console\. Select the cluster and under **CloudWatch metrics**, observe **Master Link Health Status**\. After the value reaches 1, the data is in sync\. 

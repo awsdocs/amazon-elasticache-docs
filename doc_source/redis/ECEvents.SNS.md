@@ -1,15 +1,15 @@
-# Managing ElastiCache Amazon SNS Notifications<a name="ECEvents.SNS"></a>
+# Managing ElastiCache Amazon SNS notifications<a name="ECEvents.SNS"></a>
 
 You can configure ElastiCache to send notifications for important cluster events using Amazon Simple Notification Service \(Amazon SNS\)\. In these examples, you will configure a cluster with the Amazon Resource Name \(ARN\) of an Amazon SNS topic to receive notifications\. 
 
 **Note**  
 This topic assumes that you've signed up for Amazon SNS and have set up and subscribed to an Amazon SNS topic\. For information on how to do this, see the [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/)\. 
 
-## Adding an Amazon SNS Topic<a name="ECEvents.SNS.Adding"></a>
+## Adding an Amazon SNS topic<a name="ECEvents.SNS.Adding"></a>
 
 The following sections show you how to add an Amazon SNS topic using the AWS Console, the AWS CLI, or the ElastiCache API\.
 
-### Adding an Amazon SNS Topic \(Console\)<a name="ECEvents.SNS.Adding.Console"></a>
+### Adding an Amazon SNS topic \(Console\)<a name="ECEvents.SNS.Adding.Console"></a>
 
  The following procedure shows you how to add an Amazon SNS topic for a cluster\. To add an Amazon SNS topic for a replication group, in step 2, instead of choosing a cluster, choose a replication group then follow the same remaining steps\.
 
@@ -28,7 +28,7 @@ The following sections show you how to add an Amazon SNS topic using the AWS Con
 
 1. Choose **Modify**\.
 
-### Adding an Amazon SNS Topic \(AWS CLI\)<a name="ECEvents.SNS.Adding.CLI"></a>
+### Adding an Amazon SNS topic \(AWS CLI\)<a name="ECEvents.SNS.Adding.CLI"></a>
 
 To add or modify an Amazon SNS topic for a cluster, use the AWS CLI command `modify-cache-cluster`\.
 
@@ -52,7 +52,7 @@ aws elasticache modify-cache-cluster ^
 
 For more information, see [modify\-cache\-cluster](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html)\.
 
-### Adding an Amazon SNS Topic \(ElastiCache API\)<a name="ECEvents.SNS.Adding.API"></a>
+### Adding an Amazon SNS topic \(ElastiCache API\)<a name="ECEvents.SNS.Adding.API"></a>
 
 To add or modify an Amazon SNS topic for a cluster, call the `ModifyCacheCluster` action with the following parameters:
 + `CacheClusterId``=my-cluster`
@@ -80,11 +80,11 @@ To add or modify an Amazon SNS topic for a cluster, call the `ModifyCacheCluster
 
 For more information, see [ModifyCacheCluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)\.
 
-## Enabling and Disabling Amazon SNS Notifications<a name="ECEvents.SNS.Disabling"></a>
+## Enabling and disabling Amazon SNS notifications<a name="ECEvents.SNS.Disabling"></a>
 
  You can turn notifications on or off for a cluster\. The following procedures show you how to disable Amazon SNS notifications\. 
 
-### Enabling and Disabling Amazon SNS Notifications \(Console\)<a name="ECEvents.SNS.Disabling.Console"></a>
+### Enabling and disabling Amazon SNS notifications \(Console\)<a name="ECEvents.SNS.Disabling.Console"></a>
 
 **To disable Amazon SNS notifications using the AWS Management Console**
 
@@ -100,7 +100,7 @@ For more information, see [ModifyCacheCluster](https://docs.aws.amazon.com/Amazo
 
 1. Choose **Modify**\.
 
-### Enabling and Disabling Amazon SNS Notifications \(AWS CLI\)<a name="ECEvents.SNS.Disabling.CLI"></a>
+### Enabling and disabling Amazon SNS notifications \(AWS CLI\)<a name="ECEvents.SNS.Disabling.CLI"></a>
 
 To disable Amazon SNS notifications, use the command `modify-cache-cluster` with the following parameters:
 
@@ -120,7 +120,7 @@ aws elasticache modify-cache-cluster ^
     --notification-topic-status inactive
 ```
 
-### Enabling and Disabling Amazon SNS Notifications \(ElastiCache API\)<a name="ECEvents.SNS.Disabling.API"></a>
+### Enabling and disabling Amazon SNS notifications \(ElastiCache API\)<a name="ECEvents.SNS.Disabling.API"></a>
 
 To disable Amazon SNS notifications, call the `ModifyCacheCluster` action with the following parameters:
 + `CacheClusterId``=my-cluster`

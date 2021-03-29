@@ -1,15 +1,15 @@
-# Creating a Cluster \(AWS CLI\)<a name="Clusters.Create.CLI"></a>
+# Creating a cluster \(AWS CLI\)<a name="Clusters.Create.CLI"></a>
 
 To create a cluster using the AWS CLI, use the `create-cache-cluster` command\.
 
 **Important**  
-As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a Cluster](Clusters.Delete.md)\. 
+As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a cluster](Clusters.Delete.md)\. 
 
 **Topics**
-+ [Creating a Cache Cluster for Redis \(Cluster Mode Disabled\) \(AWS CLI\)](#Clusters.Create.CLI.Redis)
-+ [Creating a Redis \(Cluster Mode Enabled\) Cluster \(AWS CLI\)](#Clusters.Create.CLI.RedisCluster)
++ [Creating a cache cluster for Redis \(Cluster Mode Disabled\) \(AWS CLI\)](#Clusters.Create.CLI.Redis)
++ [Creating a Redis \(Cluster Mode Enabled\) cluster \(AWS CLI\)](#Clusters.Create.CLI.RedisCluster)
 
-## Creating a Cache Cluster for Redis \(Cluster Mode Disabled\) \(AWS CLI\)<a name="Clusters.Create.CLI.Redis"></a>
+## Creating a cache cluster for Redis \(Cluster Mode Disabled\) \(AWS CLI\)<a name="Clusters.Create.CLI.Redis"></a>
 
 **Example – A Redis \(cluster mode disabled\) Cluster with no read replicas**  
 The following CLI code creates a Redis \(cluster mode disabled\) cache cluster with no replicas\.  
@@ -38,8 +38,8 @@ aws elasticache create-cache-cluster ^
 --snapshot-arns arn:aws:s3:myS3Bucket/snap.rdb
 ```
 
-## Creating a Redis \(Cluster Mode Enabled\) Cluster \(AWS CLI\)<a name="Clusters.Create.CLI.RedisCluster"></a>
+## Creating a Redis \(Cluster Mode Enabled\) cluster \(AWS CLI\)<a name="Clusters.Create.CLI.RedisCluster"></a>
 
-Redis \(cluster mode enabled\) clusters \(API/CLI: replication groups\) cannot be created using the `create-cache-cluster` operation\. To create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication group\), see [Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)\.
+Redis \(cluster mode enabled\) clusters \(API/CLI: replication groups\) cannot be created using the `create-cache-cluster` operation\. To create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication group\), see [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)\.
 
 For more information, see the AWS CLI for ElastiCache reference topic [https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)\.

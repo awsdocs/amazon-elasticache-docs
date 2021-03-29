@@ -1,3 +1,3 @@
-# Determine Requirements<a name="getting-started-determine-requirements"></a>
+# Determine requirements<a name="getting-started-determine-requirements"></a>
 
-Before you create a Redis cluster or replication group, determine the requirements for the cluster or replication group\. This way, when you create it, it meets your business needs\. Because in this exercise we largely accept default values for the cluster, we dispense with determining requirements\. For more information, see [Determine Your Requirements](cluster-create-determine-requirements.md)\.
+Before you create a Redis cluster or replication group, determine the requirements for the cluster or replication group\. This way, when you create it, it meets your business needs\. Because in this exercise we largely accept default values for the cluster, we dispense with determining requirements\. For more information, see [Determine your requirements](cluster-create-determine-requirements.md)\.

@@ -1,4 +1,4 @@
-# What Is Amazon ElastiCache for Memcached?<a name="WhatIs"></a>
+# What is Amazon ElastiCache for Memcached?<a name="WhatIs"></a>
 
 Welcome to the *Amazon ElastiCache for Memcached User Guide*\. Amazon ElastiCache is a web service that makes it easy to set up, manage, and scale a distributed in\-memory data store or cache environment in the cloud\. It provides a high\-performance, scalable, and cost\-effective caching solution\. At the same time, it helps remove the complexity associated with deploying and managing a distributed cache environment\.
 
@@ -15,6 +15,6 @@ ElastiCache for Memcached has multiple features to enhance reliability for criti
 
 **Topics**
 + [Common ElastiCache Use Cases and How ElastiCache Can Help](elasticache-use-cases.md)
-+ [ElastiCache for Memcached Resources](WhatIs.FirstTimeUser.md)
-+ [ElastiCache for Memcached Components and Features](WhatIs.Components.md)
-+ [Tools for Managing Your Implementation](WhatIs.Managing.md)
++ [ElastiCache for Memcached resources](WhatIs.FirstTimeUser.md)
++ [ElastiCache for Memcached components and features](WhatIs.Components.md)
++ [Tools for managing your implementation](WhatIs.Managing.md)

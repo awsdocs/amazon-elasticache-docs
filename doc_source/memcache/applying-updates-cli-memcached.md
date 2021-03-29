@@ -1,4 +1,4 @@
-# Applying the Service Updates Using the AWS CLI<a name="applying-updates-cli-memcached"></a>
+# Applying the service updates using the AWS CLI<a name="applying-updates-cli-memcached"></a>
 
 After you receive notification that service updates are available, you can inspect and apply them using the AWS CLI:
 + To retrieve a description of the service updates that are available, run the following command:

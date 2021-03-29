@@ -1,4 +1,4 @@
-# Finding Connection Endpoints<a name="Endpoints"></a>
+# Finding connection endpoints<a name="Endpoints"></a>
 
 Your application connects to your cluster using endpoints\. An endpoint is a node or cluster's unique address\.
 
@@ -47,7 +47,7 @@ The following procedure demonstrates how to find and copy a cluster's configurat
 
    1. Right–click the highlighted endpoint, and then choose **Copy** from the context menu\.
 
-   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to Nodes](nodes-connecting.md)\.
+   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to nodes](nodes-connecting.md)\.
 
 Configuration and node endpoints look very similar\. The differences are highlighted with **bold** following\.
 

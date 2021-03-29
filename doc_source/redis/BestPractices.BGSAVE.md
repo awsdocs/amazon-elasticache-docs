@@ -1,7 +1,7 @@
-# Ensuring That You Have Enough Memory to Create a Redis Snapshot<a name="BestPractices.BGSAVE"></a>
+# Ensuring that you have enough memory to create a Redis snapshot<a name="BestPractices.BGSAVE"></a>
 
 **Redis snapshots and synchronizations in version 2\.8\.22 and later**  
-Redis 2\.8\.22 introduces a forkless save process that allows you to allocate more of your memory to your application's use without incurring increased swap usage during synchronizations and saves\. For more information, see [How Synchronization and Backup are Implemented](Replication.Redis.Versions.md)\.
+Redis 2\.8\.22 introduces a forkless save process that allows you to allocate more of your memory to your application's use without incurring increased swap usage during synchronizations and saves\. For more information, see [How synchronization and backup are implemented](Replication.Redis.Versions.md)\.
 
 **Redis snapshots and synchronizations before version 2\.8\.22**
 
@@ -26,20 +26,20 @@ The following diagram illustrates memory use when executing a background write p
 
 ![\[Image: Diagram of memory use during a background write.\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-bgsaveMemoryUseage.png)
 
-For information on the impact of doing a backup on performance, see [Performance Impact of Backups](backups.md#backups-performance)\.
+For information on the impact of doing a backup on performance, see [Performance impact of backups](backups.md#backups-performance)\.
 
 For more information on how Redis performs snapshots, see [http://redis\.io](http://redis.io)\.
 
-For more information on regions and Availability Zones, see [Choosing Regions and Availability Zones](RegionsAndAZs.md)\.
+For more information on regions and Availability Zones, see [Choosing regions and availability zones](RegionsAndAZs.md)\.
 
-## Avoiding Running Out of Memory When Executing a Background Write<a name="BestPractices.BGSAVE.memoryFix"></a>
+## Avoiding running out of memory when executing a background write<a name="BestPractices.BGSAVE.memoryFix"></a>
 
 Whenever a background write process such as BGSAVE or BGREWRITEAOF is called, to keep the process from failing, you must have more memory available than will be consumed by write operations during the process\. The worst\-case scenario is that during the background write operation every Redis record is updated and some new records are added to the cache\. Because of this, we recommend that you set `reserved-memory-percent` to 50 \(50 percent\) for Redis versions before 2\.8\.22 or 25 \(25 percent\) for Redis versions 2\.8\.22 and later\. 
 
-The `maxmemory` value indicates the memory available to you for data and operational overhead\. Because you cannot modify the `reserved-memory` parameter in the default parameter group, you must create a custom parameter group for the cluster\. The default value for `reserved-memory` is 0, which allows Redis to consume all of *maxmemory* with data, potentially leaving too little memory for other uses, such as a background write process\. For `maxmemory` values by node instance type, see [Redis Node\-Type Specific Parameters](ParameterGroups.Redis.md#ParameterGroups.Redis.NodeSpecific)\.
+The `maxmemory` value indicates the memory available to you for data and operational overhead\. Because you cannot modify the `reserved-memory` parameter in the default parameter group, you must create a custom parameter group for the cluster\. The default value for `reserved-memory` is 0, which allows Redis to consume all of *maxmemory* with data, potentially leaving too little memory for other uses, such as a background write process\. For `maxmemory` values by node instance type, see [Redis node\-type specific parameters](ParameterGroups.Redis.md#ParameterGroups.Redis.NodeSpecific)\.
 
 You can also use `reserved-memory` parameter to reduce the amount of memory Redis uses on the box\.
 
 For more information on Redis\-specific parameters in ElastiCache, see [Redis\-specific parameters](ParameterGroups.Redis.md)\.
 
-For information on creating and modifying parameter groups, see [Creating a Parameter Group](ParameterGroups.Creating.md) and [Modifying a Parameter Group](ParameterGroups.Modifying.md)\.
+For information on creating and modifying parameter groups, see [Creating a parameter group](ParameterGroups.Creating.md) and [Modifying a parameter group](ParameterGroups.Modifying.md)\.

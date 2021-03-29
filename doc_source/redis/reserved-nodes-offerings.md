@@ -1,4 +1,4 @@
-# Getting Info About Reserved Node Offerings<a name="reserved-nodes-offerings"></a>
+# Getting info about reserved node offerings<a name="reserved-nodes-offerings"></a>
 
 Before you purchase reserved nodes, you can get information about available reserved node offerings\. 
 
@@ -9,7 +9,7 @@ The following examples show how to get pricing and information about available r
 + [Using the AWS CLI](#reserved-nodes-offerings-cli)
 + [Using the ElastiCache API](#reserved-nodes-offerings-api)
 
-## Getting Info About Reserved Node Offerings \(Console\)<a name="reserved-nodes-offerings-console"></a>
+## Getting info about reserved node offerings \(Console\)<a name="reserved-nodes-offerings-console"></a>
 
 To get pricing and other information about available reserved cluster offerings using the AWS Management Console, use the following procedure\.
 
@@ -32,7 +32,7 @@ To get pricing and other information about available reserved cluster offerings 
 
 1. Choose **Cancel** to avoid purchasing these nodes and incurring charges\. 
 
-## Getting Info About Reserved Node Offerings \(AWS CLI\)<a name="reserved-nodes-offerings-cli"></a>
+## Getting info about reserved node offerings \(AWS CLI\)<a name="reserved-nodes-offerings-cli"></a>
 
 To get pricing and other information about available reserved node offerings, type the following command at a command prompt:
 
@@ -84,7 +84,7 @@ This operation produces output similar to the following \(JSON format\):
 
 For more information, see [describe\-reserved\-cache\-nodes\-offerings](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-reserved-cache-nodes-offerings.html) in the AWS CLI Reference\.
 
-## Getting Info About Reserved Node Offerings \(ElastiCache API\)<a name="reserved-nodes-offerings-api"></a>
+## Getting info about reserved node offerings \(ElastiCache API\)<a name="reserved-nodes-offerings-api"></a>
 
 To get pricing and information about available reserved node offerings, call the `DescribeReservedCacheNodesOfferings` action\.
 

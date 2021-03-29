@@ -1,10 +1,10 @@
-# Modifying a Subnet Group<a name="SubnetGroups.Modifying"></a>
+# Modifying a subnet group<a name="SubnetGroups.Modifying"></a>
 
 You can modify a subnet group's description, or modify the list of subnet IDs associated with the subnet group\. You cannot delete a subnet ID from a subnet group if a cluster is currently using that subnet\.
 
 The following procedures show you how to modify a subnet group\.
 
-## Modifying Subnet Groups \(Console\)<a name="SubnetGroups.Modifying.CON"></a>
+## Modifying subnet groups \(Console\)<a name="SubnetGroups.Modifying.CON"></a>
 
 **To modify a subnet group**
 
@@ -16,7 +16,7 @@ The following procedures show you how to modify a subnet group\.
 
 1. In the lower portion of the ElastiCache console, make any changes to the description or the list of subnet IDs for the subnet group\. To save your changes, choose **Save**\.
 
-## Modifying Subnet Groups \(AWS CLI\)<a name="SubnetGroups.Modifying.CLI"></a>
+## Modifying subnet groups \(AWS CLI\)<a name="SubnetGroups.Modifying.CLI"></a>
 
 At a command prompt, use the command `modify-cache-subnet-group` to modify a subnet group\.
 
@@ -66,7 +66,7 @@ This command should produce output similar to the following:
 
 For more information, see the AWS CLI topic [modify\-cache\-subnet\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-subnet-group.html)\.
 
-## Modifying Subnet Groups \(ElastiCache API\)<a name="SubnetGroups.Modifying.API"></a>
+## Modifying subnet groups \(ElastiCache API\)<a name="SubnetGroups.Modifying.API"></a>
 
 Using the ElastiCache API, call `ModifyCacheSubnetGroup` with the following parameters:
 + `CacheSubnetGroupName=``mysubnetgroup`

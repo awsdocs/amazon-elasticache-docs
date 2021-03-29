@@ -1,11 +1,11 @@
-# Modifying a Parameter Group<a name="ParameterGroups.Modifying"></a>
+# Modifying a parameter group<a name="ParameterGroups.Modifying"></a>
 
 **Important**  
 You cannot modify any default parameter group\.
 
 You can modify some parameter values in a parameter group\. These parameter values are applied to clusters associated with the parameter group\. For more information on when a parameter value change is applied to a parameter group, see [Redis\-specific parameters](ParameterGroups.Redis.md)\.
 
-## Modifying a Parameter Group \(Console\)<a name="ParameterGroups.Modifying.CON"></a>
+## Modifying a parameter group \(Console\)<a name="ParameterGroups.Modifying.CON"></a>
 
 The following procedure shows how to change the `binding_protocol` parameter's value using the ElastiCache console\. You would use the same procedure to change the value of any parameter\.
 
@@ -25,11 +25,11 @@ The following procedure shows how to change the `binding_protocol` parameter's v
 
 1. Choose **Save Changes**\.
 
-1. To find the name of the parameter you changed, see [Redis\-specific parameters](ParameterGroups.Redis.md)\. If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a Cluster](Clusters.Rebooting.md)\.
+1. To find the name of the parameter you changed, see [Redis\-specific parameters](ParameterGroups.Redis.md)\. If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a cluster](Clusters.Rebooting.md)\.
 
 
 
-## Modifying a Parameter Group \(AWS CLI\)<a name="ParameterGroups.Modifying.CLI"></a>
+## Modifying a parameter group \(AWS CLI\)<a name="ParameterGroups.Modifying.CLI"></a>
 
 To change a parameter's value using the AWS CLI, use the command `modify-cache-parameter-group`\.
 
@@ -64,9 +64,9 @@ Output from this command will look something like this\.
 
 For more information, see [https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-parameter-group.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-parameter-group.html)\.
 
-If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a Cluster](Clusters.Rebooting.md)\.
+If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a cluster](Clusters.Rebooting.md)\.
 
-## Modifying a Parameter Group \(ElastiCache API\)<a name="ParameterGroups.Modifying.API"></a>
+## Modifying a parameter group \(ElastiCache API\)<a name="ParameterGroups.Modifying.API"></a>
 
 To change a parameter group's parameter values using the ElastiCache API, use the `ModifyCacheParameterGroup` action\.
 
@@ -91,4 +91,4 @@ https://elasticache.us-west-2.amazonaws.com/
 
 For more information, see [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html)\.
 
-After updating and saving the parameter, if the change to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a Cluster](Clusters.Rebooting.md)\.
+After updating and saving the parameter, if the change to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a cluster](Clusters.Rebooting.md)\.

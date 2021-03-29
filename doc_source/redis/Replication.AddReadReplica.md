@@ -1,4 +1,4 @@
-# Adding a Read Replica, for Redis \(Cluster Mode Disabled\) Replication Groups<a name="Replication.AddReadReplica"></a>
+# Adding a read replica, for Redis \(Cluster Mode Disabled\) replication groups<a name="Replication.AddReadReplica"></a>
 
 Information in the following topic applies to Redis \(cluster mode disabled\) replication groups only\.
 
@@ -7,17 +7,17 @@ As your read traffic increases, you might want to spread those reads across more
 A Redis \(cluster mode disabled\) replication group can have a maximum of five read replicas\. If you attempt to add a read replica to a replication group that already has five read replicas, the operation fails\.
 
 For information about adding replicas to a Redis \(cluster mode enabled\) replication group, see the following:
-+ [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)
-+ [Increasing the Number of Replicas in a Shard](increase-replica-count.md)
++ [Scaling clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)
++ [Increasing the number of replicas in a shard](increase-replica-count.md)
 
 You can add a read replica to a Redis \(cluster mode disabled\) cluster using the ElastiCache Console, the AWS CLI, or the ElastiCache API\.
 
 **Related topics**
-+ [Adding Nodes to a Cluster](Clusters.AddNode.md)
-+ [Adding a Read Replica to a Replication Group \(AWS CLI\)](#Replication.AddReadReplica.CLI)
-+ [Adding a Read Replica to a Replication Group Using the API ](#Replication.AddReadReplica.API)
++ [Adding nodes to a cluster](Clusters.AddNode.md)
++ [Adding a read replica to a replication group \(AWS CLI\)](#Replication.AddReadReplica.CLI)
++ [Adding a read replica to a replication group using the API ](#Replication.AddReadReplica.API)
 
-## Adding a Read Replica to a Replication Group \(AWS CLI\)<a name="Replication.AddReadReplica.CLI"></a>
+## Adding a read replica to a replication group \(AWS CLI\)<a name="Replication.AddReadReplica.CLI"></a>
 
 To add a read replica to a Redis \(cluster mode disabled\) replication group, use the AWS CLI `create-cache-cluster` command, with the parameter `--replication-group-id` to specify which replication group to add the cluster \(node\) to\.
 
@@ -41,7 +41,7 @@ aws elasticache create-cache-cluster ^
 
 For more information on adding a read replica using the CLI, see [create\-cache\-cluster](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-cache-cluster.html) in the *Amazon ElastiCache Command Line Reference\.*
 
-## Adding a Read Replica to a Replication Group Using the API<a name="Replication.AddReadReplica.API"></a>
+## Adding a read replica to a replication group using the API<a name="Replication.AddReadReplica.API"></a>
 
 To add a read replica to a Redis \(cluster mode disabled\) replication group, use the ElastiCache `CreateCacheCluster` operation, with the parameter `ReplicationGroupId` to specify which replication group to add the cluster \(node\) to\.
 

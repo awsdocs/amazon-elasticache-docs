@@ -1,4 +1,4 @@
-# Rebooting a Cluster<a name="Clusters.Rebooting"></a>
+# Rebooting a cluster<a name="Clusters.Rebooting"></a>
 
 Some changes require that the cluster be rebooted for the changes to be applied\. For example, for some parameters, changing the parameter value in a parameter group is only applied after a reboot\.
 
@@ -8,9 +8,9 @@ You are able to reboot a cluster using the ElastiCache console, the AWS CLI, or 
 
 **Redis \(Cluster Mode Enabled\) and Reboots**  
 If you make changes to parameters that require a Redis \(cluster mode enabled\) cluster reboot for the changes to be applied, follow these steps\.  
-Create a manual backup of your cluster\. See [Making Manual Backups](backups-manual.md)\.
-Delete the Redis \(cluster mode enabled\) cluster\. See [Deleting a Cluster](Clusters.Delete.md)\.
-Restore the cluster using the altered parameter group and backup to seed the new cluster\. See [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
+Create a manual backup of your cluster\. See [Making manual backups](backups-manual.md)\.
+Delete the Redis \(cluster mode enabled\) cluster\. See [Deleting a cluster](Clusters.Delete.md)\.
+Restore the cluster using the altered parameter group and backup to seed the new cluster\. See [Restoring from a backup with optional cluster resizing](backups-restoring.md)\.
 
 ## Using the AWS Management Console<a name="Clusters.Rebooting.CON"></a>
 

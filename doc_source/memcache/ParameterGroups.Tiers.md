@@ -1,4 +1,4 @@
-# Cache Parameter Group Tiers<a name="ParameterGroups.Tiers"></a>
+# Cache parameter group tiers<a name="ParameterGroups.Tiers"></a>
 
 Amazon ElastiCache has three tiers of cache parameter groups as shown following\.
 
@@ -31,4 +31,4 @@ The Customer Owned cache parameter group:
 + Can be assigned to any of the customer's compatible clusters\.
 + Can be modified by the customer to create a custom cache parameter group\. 
 
-   Not all parameter values can be modified\. For more information, see [Memcached Specific Parameters](ParameterGroups.Memcached.md)\.
+   Not all parameter values can be modified\. For more information, see [Memcached specific parameters](ParameterGroups.Memcached.md)\.

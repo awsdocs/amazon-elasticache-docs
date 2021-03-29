@@ -1,23 +1,23 @@
-# Connect to a Cluster's Node<a name="GettingStarted.ConnectToCacheNode"></a>
+# Connect to a cluster's node<a name="GettingStarted.ConnectToCacheNode"></a>
 
-Before you continue, complete [Access Authorization](GettingStarted.AuthorizeAccess.md)\.
+Before you continue, complete [Access authorization](GettingStarted.AuthorizeAccess.md)\.
 
 This section assumes that you've created an Amazon EC2 instance and can connect to it\. For instructions on how to do this, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/)\. 
 
-An Amazon EC2 instance can connect to a cluster node only if you have authorized it to do so\. For more information, see [Access Authorization](GettingStarted.AuthorizeAccess.md)\.
+An Amazon EC2 instance can connect to a cluster node only if you have authorized it to do so\. For more information, see [Access authorization](GettingStarted.AuthorizeAccess.md)\.
 
-## Find your Node Endpoints<a name="GettingStarted.FindEndpoints"></a>
+## Find your node endpoints<a name="GettingStarted.FindEndpoints"></a>
 
 When your cluster is in the *available* state and you've authorized access to it, you can log in to an Amazon EC2 instance and connect to the cluster\. To do so, you must first determine the endpoint\.
 
 To find your endpoints, see the relevant topic following for the engine and cluster type you're running\. When you find the endpoint you need, copy it to your clipboard for use in the next step\.
-+ [Finding Connection Endpoints](Endpoints.md)
++ [Finding connection endpoints](Endpoints.md)
 + [Finding a Redis \(Cluster Mode Disabled\) Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Redis)—You need the primary endpoint of a replication group or the node endpoint of a standalone node\.
 + [Finding Endpoints for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Endpoints.md#Endpoints.Find.RedisCluster)—You need the cluster's Configuration endpoint\.
 + [Finding Endpoints \(AWS CLI\)](Endpoints.md#Endpoints.Find.CLI)
 + [Finding Endpoints \(ElastiCache API\)](Endpoints.md#Endpoints.Find.API)
 
-## Connect to a Redis Cluster or Replication Group \(Linux\)<a name="GettingStarted.ConnectToCacheNode.Redis.Linux"></a>
+## Connect to a Redis cluster or replication group \(Linux\)<a name="GettingStarted.ConnectToCacheNode.Redis.Linux"></a>
 
 Now that you have the endpoint you need, you can log in to an EC2 instance and connect to the cluster or replication group\.
 
@@ -111,7 +111,7 @@ In the following example, you use the *redis\-cli* utility to connect to a clust
    quit                   // Exit from redis-cli
    ```
 
-## Connect to a Redis Cluster or Replication Group \(Windows\)<a name="GettingStarted.ConnectToCacheNode.Redis.Windows"></a>
+## Connect to a Redis cluster or replication group \(Windows\)<a name="GettingStarted.ConnectToCacheNode.Redis.Windows"></a>
 
 In order to connect to the Redis Cluster from an EC2 Windows instance using the Redis CLI, you must download the *redis\-cli* package and use *redis\-cli\.exe* to connect to the Redis Cluster from an EC2 Windows instance\.
 

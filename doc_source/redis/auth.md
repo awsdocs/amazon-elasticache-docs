@@ -1,11 +1,11 @@
-# Authenticating Users with the Redis AUTH Command<a name="auth"></a>
+# Authenticating users with the Redis AUTH command<a name="auth"></a>
 
 Redis authentication tokens, or passwords, enable Redis to require a password before allowing clients to run commands, thereby improving data security\.
 
 **Topics**
 + [Overview of AUTH in ElastiCache for Redis](#auth-overview)
-+ [Applying Authentication to an ElastiCache for Redis Cluster](#auth-using)
-+ [Modifying the AUTH Token on an Existing ElastiCache for Redis Cluster](#auth-modifyng-token)
++ [Applying authentication to an ElastiCache for Redis cluster](#auth-using)
++ [Modifying the AUTH token on an existing ElastiCache for Redis cluster](#auth-modifyng-token)
 
 ## Overview of AUTH in ElastiCache for Redis<a name="auth-overview"></a>
 
@@ -25,13 +25,13 @@ To set up a strong token, we recommend that you follow a strict password policy,
 + Tokens, or passwords, must not contain a dictionary word or a slightly modified dictionary word\.
 + Tokens, or passwods, must not be the same as or similar to a recently used token\.
 
-## Applying Authentication to an ElastiCache for Redis Cluster<a name="auth-using"></a>
+## Applying authentication to an ElastiCache for Redis cluster<a name="auth-using"></a>
 
 You can require that users enter a token \(password\) on a token\-protected Redis server\. To do this, include the parameter `--auth-token` \(API: `AuthToken`\) with the correct token when you create your replication group or cluster\. Also include it in all subsequent commands to the replication group or cluster\.
 
 The following AWS CLI operation creates a replication group with encryption in transit \(TLS\) enabled and the AUTH token `This-is-a-sample-token`\. Replace the subnet group `sng-test` with a subnet group that exists\.
 
-**Key Parameters**
+**Key parameters**
 + **\-\-engine** – Must be `redis`\.
 + **\-\-engine\-version** – Must be 3\.2\.6, 4\.0\.10, or later\.
 + **\-\-transit\-encryption\-enabled** – Required for authentication and HIPAA eligibility\.
@@ -72,13 +72,13 @@ aws elasticache create-replication-group ^
     --cache-subnet-group sng-test
 ```
 
-## Modifying the AUTH Token on an Existing ElastiCache for Redis Cluster<a name="auth-modifyng-token"></a>
+## Modifying the AUTH token on an existing ElastiCache for Redis cluster<a name="auth-modifyng-token"></a>
 
 To make it easier to update your authentication, you can modify the AUTH token used on an ElastiCache for Redis cluster\. You can make this modification if the engine version is 5\.0\.5 or higher and if ElastiCache for Redis has encryption in transit enabled\. 
 
 Modifying the auth token supports two strategies: ROTATE and SET\. The ROTATE strategy adds an additional AUTH token to the server while retaining the previous token\. The SET strategy updates the server to support just a single AUTH token\. Make these modification calls with the `--apply-immediately` parameter to apply changes immediately\.
 
-### Rotating the AUTH Token<a name="auth-modifyng-rotate"></a>
+### Rotating the AUTH token<a name="auth-modifyng-rotate"></a>
 
 To update a Redis server with a new AUTH token, call the `ModifyReplicationGroup` API with the `--auth-token` parameter as the new auth token and the `--auth-token-update-strategy` with the value ROTATE\. After the modification is complete, the cluster will support the previous AUTH token in addition to the one specified in the `auth-token` parameter\. 
 
@@ -111,7 +111,7 @@ aws elasticache modify-replication-group ^
 --apply-immediately
 ```
 
-### Setting the AUTH Token<a name="auth-modifying-set"></a>
+### Setting the AUTH token<a name="auth-modifying-set"></a>
 
 To update a Redis server with two AUTH tokens to support a single AUTH token, call the `ModifyReplicationGroup` API operation\. Call `ModifyReplicationGroup` with the `--auth-token` parameter as the new AUTH token and the `--auth-token-update-strategy` parameter with the value SET\. The `auth-token` parameter must be the same value as the last AUTH token rotated\. After the modification is complete, the Redis server supports only the AUTH token specified in the `auth-token` parameter\. 
 
@@ -137,7 +137,7 @@ aws elasticache modify-replication-group ^
 --apply-immediately
 ```
 
-### Enabling Authentication on an Existing ElastiCache for Redis Cluster<a name="auth-enabling"></a>
+### Enabling authentication on an existing ElastiCache for Redis cluster<a name="auth-enabling"></a>
 
 To enable authentication on an existing Redis server, call the `ModifyReplicationGroup` API operation\. Call `ModifyReplicationGroup` with the `--auth-token` parameter as the new token and the `--auth-token-update-strategy` with the value ROTATE\. 
 
@@ -145,7 +145,7 @@ After the modification is complete, the cluster supports the AUTH token specifie
 
 ### Migrating from RBAC to Redis AUTH<a name="Migrate-From-RBAC-to-AUTH"></a>
 
-If you are authenticating users with Redis Role\-Based Access Control \(RBAC\) as described in [Authenticating Users with Role\-Based Access Control \(RBAC\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html) and want to migrate to Redis AUTH, use the following procedures\. You can migrate using either console or CLI\.  
+If you are authenticating users with Redis Role\-Based Access Control \(RBAC\) as described in [Authenticating users with role\-based access control \(RBAC\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html) and want to migrate to Redis AUTH, use the following procedures\. You can migrate using either console or CLI\.  
 
 **To migrate from RBAC to Redis AUTH using the console**
 

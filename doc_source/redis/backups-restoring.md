@@ -1,4 +1,4 @@
-# Restoring From a Backup with Optional Cluster Resizing<a name="backups-restoring"></a>
+# Restoring from a backup with optional cluster resizing<a name="backups-restoring"></a>
 
 You can restore the data from a Redis \.rdb backup file to a new cluster at any time\.
 
@@ -8,7 +8,7 @@ The Amazon ElastiCache for Redis restore process supports the following:
 
   The \.rdb files must be put in S3 to perform the restore\.
 + Specifying a number of shards \(API/CLI: node groups\) in the new cluster that is different from the number of shards in the cluster that was used to create the backup file\.
-+ Specifying a different node type for the new cluster—larger or smaller\. If scaling to a smaller node type, be sure that the new node type has sufficient memory for your data and Redis overhead\. For more information, see [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)\.
++ Specifying a different node type for the new cluster—larger or smaller\. If scaling to a smaller node type, be sure that the new node type has sufficient memory for your data and Redis overhead\. For more information, see [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)\.
 + Configuring the slots of the new Redis \(cluster mode enabled\) cluster differently than in the cluster that was used to create the backup file\.
 
 **Important**  
@@ -20,17 +20,17 @@ Whether you make any changes when restoring a cluster from a backup is governed 
 During the restore operation, ElastiCache creates the new cluster, and then populates it with data from the backup file\. When this process is complete, the Redis cluster is warmed up and ready to accept requests\.
 
 **Important**  
-Before you proceed, be sure you have created a backup of the cluster you want to restore from\. For more information, see [Making Manual Backups](backups-manual.md)\.   
-If you want to restore from an externally created backup, see [Seeding a New Cluster with an Externally Created Backup](backups-seeding-redis.md)\.
+Before you proceed, be sure you have created a backup of the cluster you want to restore from\. For more information, see [Making manual backups](backups-manual.md)\.   
+If you want to restore from an externally created backup, see [Seeding a new cluster with an externally created backup](backups-seeding-redis.md)\.
 
 The following procedures show you how to restore a backup to a new cluster using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
 **Topics**
-+ [Restoring From a Backup \(Console\)](#backups-restoring-CON)
-+ [Restoring From a Backup \(AWS CLI\)](#backups-restoring-CLI)
-+ [Restoring From a Backup \(ElastiCache API\)](#backups-restoring-API)
++ [Restoring from a backup \(Console\)](#backups-restoring-CON)
++ [Restoring from a backup \(AWS CLI\)](#backups-restoring-CLI)
++ [Restoring from a backup \(ElastiCache API\)](#backups-restoring-API)
 
-## Restoring From a Backup \(Console\)<a name="backups-restoring-CON"></a>
+## Restoring from a backup \(Console\)<a name="backups-restoring-CON"></a>
 
 You can restore a Redis backup in two ways\. You can restore to a single\-node Redis \(cluster mode disabled\) cluster\. Or you can restore to a Redis cluster with read replicas \(a replication group\), either Redis \(cluster mode disabled\) or Redis \(cluster mode enabled\)\.
 
@@ -98,32 +98,32 @@ You can restore a Redis backup in two ways\. You can restore to a single\-node R
 
 1. When the settings are as you want them, choose **Create**\.
 
-## Restoring From a Backup \(AWS CLI\)<a name="backups-restoring-CLI"></a>
+## Restoring from a backup \(AWS CLI\)<a name="backups-restoring-CLI"></a>
 
 You can restore a Redis \(cluster mode disabled\) backup in two ways\. You can restore to a single\-node Redis \(cluster mode disabled\) cluster using the AWS CLI operation `create-cache-cluster`\. Or you can restore to a Redis cluster with read replicas \(a replication group\)\. To do the latter, you can use either Redis \(cluster mode disabled\) or Redis \(cluster mode enabled\) with the AWS CLI operation `create-replication-group`\. In this case, you seed the restore with a Redis \.rdb file\.
 
 When using either the `create-cache-cluster` or `create-replication-group` operation, be sure to include the parameter `--snapshot-name` or `--snapshot-arns` to seed the new cluster or replication group with the data from the backup\.
 
 For more information, see the following:
-+ [Creating a Cluster \(AWS CLI\)](Clusters.Create.CLI.md) in the *ElastiCache User Guide*\.
++ [Creating a cluster \(AWS CLI\)](Clusters.Create.CLI.md) in the *ElastiCache User Guide*\.
 + [create\-cache\-cluster](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-cache-cluster.html) in the *AWS CLI Command Reference*\.
 
    
-+ [Creating a Redis Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.md) in the *ElastiCache User Guide*\.
++ [Creating a Redis replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.md) in the *ElastiCache User Guide*\.
 + [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html) in the *AWS CLI Command Reference*\.
 
-## Restoring From a Backup \(ElastiCache API\)<a name="backups-restoring-API"></a>
+## Restoring from a backup \(ElastiCache API\)<a name="backups-restoring-API"></a>
 
 You can restore a Redis backup to either a single\-node Redis \(cluster mode disabled\) cluster using the ElastiCache API operation `CreateCacheCluster` or to a Redis cluster with read replicas \(replication group\)— either Redis \(cluster mode disabled\) or Redis \(cluster mode enabled\) using the ElastiCache API operation `CreateReplicationGrooup` and seeding it with a Redis \.rdb file\.
 
 When using either the `CreateCacheCluster` or `CreateReplicationGroup` operation, be sure to include the parameter `SnapshotName` or `SnapshotArns` to seed the new cluster or replication group with the data from the backup\.
 
 For more information, see the following:
-+ [Creating a Cluster \(ElastiCache API\)](Clusters.Create.API.md) in the *ElastiCache User Guide*\.
++ [Creating a cluster \(ElastiCache API\)](Clusters.Create.API.md) in the *ElastiCache User Guide*\.
 + [CreateCacheCluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html) in the *ElastiCache API Reference*\.
 
    
-+ [Creating a Redis Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.md) in the *ElastiCache User Guide*\.
++ [Creating a Redis replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.md) in the *ElastiCache User Guide*\.
 + [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) in the *ElastiCache API Reference*\.
 
  

@@ -1,23 +1,23 @@
-# Making Manual Backups<a name="backups-manual"></a>
+# Making manual backups<a name="backups-manual"></a>
 
 In addition to automatic backups, you can create a *manual* backup at any time\. Unlike automatic backups, which are automatically deleted after a specified retention period, manual backups do not have a retention period after which they are automatically deleted\. You must manually delete any manual backup\. Even if you delete a cluster or node, any manual backups from that cluster or node are retained\. If you no longer want to keep a manual backup, you must explicitly delete it yourself\.
 
 Manual backups are useful for testing and archiving\. For example, suppose that you've developed a set of baseline data for testing purposes\. You can create a manual backup of the data and restore it whenever you want\. After you test an application that modifies the data, you can reset the data by creating a new cluster and restoring from your baseline backup\. When the cluster is ready, you can test your applications against the baseline data again—and repeat this process as often as needed\.
 
 In addition to directly creating a manual backup, you can create a manual backup in one of the following ways:
-+ [Copying a Backup](backups-copying.md) It does not matter whether the source backup was created automatically or manually\.
-+ [Creating a Final Backup](backups-final.md) Create a backup immediately before deleting a cluster or node\.
++ [Copying a backup](backups-copying.md) It does not matter whether the source backup was created automatically or manually\.
++ [Creating a final backup](backups-final.md) Create a backup immediately before deleting a cluster or node\.
 
 **Other topics of import**
-+ [Backup Constraints](backups.md#backups-constraints)
-+ [Backup Costs](backups.md#backups-costs)
-+ [Performance Impact of Backups](backups.md#backups-performance)
++ [Backup constraints](backups.md#backups-constraints)
++ [Backup costs](backups.md#backups-costs)
++ [Performance impact of backups](backups.md#backups-performance)
 
 You can create a manual backup of a node using the AWS Management Console, the AWS CLI, or the ElastiCache API\.
 
 
 
-## Creating a Manual Backup \(Console\)<a name="backups-manual-CON"></a>
+## Creating a manual backup \(Console\)<a name="backups-manual-CON"></a>
 
 **To create a backup of a cluster \(console\)**
 
@@ -43,7 +43,7 @@ You can create a manual backup of a node using the AWS Management Console, the A
 
    The status of the cluster changes to *snapshotting*\. When the status returns to *available* the backup is complete\.
 
-## Creating a Manual Backup \(AWS CLI\)<a name="backups-manual-CLI"></a>
+## Creating a manual backup \(AWS CLI\)<a name="backups-manual-CLI"></a>
 
 To create a manual backup of a cluster using the AWS CLI, use the `create-snapshot` AWS CLI operation with the following parameters:
 + `--cache-cluster-id`
@@ -64,7 +64,7 @@ To create a manual backup of a cluster using the AWS CLI, use the `create-snapsh
   + Can't contain two consecutive hyphens\.
   + Can't end with a hyphen\.
 
-### Example 1: Backing Up a Redis \(Cluster Mode Disabled\) Cluster That Has No Replica Nodes<a name="backups-manual-CLI-example1"></a>
+### Example 1: Backing up a Redis \(Cluster Mode Disabled\) cluster that has no replica nodes<a name="backups-manual-CLI-example1"></a>
 
 The following AWS CLI operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis` that has no read replicas\.
 
@@ -84,7 +84,7 @@ aws elasticache create-snapshot ^
     --snapshot-name bkup-20150515
 ```
 
-### Example 2: Backing Up a Redis \(Cluster Mode Disabled\) Cluster with Replica Nodes<a name="backups-manual-CLI-example2"></a>
+### Example 2: Backing up a Redis \(Cluster Mode Disabled\) cluster with replica nodes<a name="backups-manual-CLI-example2"></a>
 
 The following AWS CLI operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis`\. This backup has one or more read replicas\.
 
@@ -140,7 +140,7 @@ Output from the operation looks something like the following\.
 }
 ```
 
-### Example 3: Backing Up a Cluster for Redis \(Cluster Mode Enabled\)<a name="backups-manual-CLI-example3"></a>
+### Example 3: Backing up a cluster for Redis \(Cluster Mode Enabled\)<a name="backups-manual-CLI-example3"></a>
 
 The following AWS CLI operation creates the backup `bkup-20150515` from the Redis \(cluster mode enabled\) cluster `myClusteredRedis`\. Note the use of `--replication-group-id` instead of `--cache-cluster-id` to identify the source\.
 
@@ -199,11 +199,11 @@ Output from this operation looks something like the following\.
 }
 ```
 
-### Related Topics<a name="backups-manual-CLI-see-also"></a>
+### Related topics<a name="backups-manual-CLI-see-also"></a>
 
 For more information, see [create\-snapshot](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-snapshot.html) in the *AWS CLI Command Reference*\.
 
-## Creating a Manual Backup \(ElastiCache API\)<a name="backups-manual-API"></a>
+## Creating a manual backup \(ElastiCache API\)<a name="backups-manual-API"></a>
 
 To create a manual backup of a cluster using the ElastiCache API, use the `CreateSnapshot` ElastiCache API operation with the following parameters:
 + `CacheClusterId`
@@ -225,12 +225,12 @@ To create a manual backup of a cluster using the ElastiCache API, use the `Creat
   + Can't end with a hyphen\.
 
 **Topics**
-+ [Redis \(Cluster Mode Disabled\) with No Replica Nodes](#backups-manual-API-example1)
-+ [Redis \(Cluster Mode Disabled\) with Replica Nodes](#backups-manual-API-example2)
++ [Redis \(Cluster Mode Disabled\) with no replica nodes](#backups-manual-API-example1)
++ [Redis \(Cluster Mode Disabled\) with replica nodes](#backups-manual-API-example2)
 + [Redis \(Cluster Mode Enabled\)](#backups-manual-API-example3)
-+ [Related Topics](#backups-manual-api-see-also)
++ [Related topics](#backups-manual-api-see-also)
 
-### Example 1: Backing Up a Redis \(Cluster Mode Disabled\) Cluster That Has No Replica Nodes<a name="backups-manual-API-example1"></a>
+### Example 1: Backing up a Redis \(Cluster Mode Disabled\) cluster that has no replica nodes<a name="backups-manual-API-example1"></a>
 
 The following ElastiCache API operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis` that has no read replicas\.
 
@@ -246,7 +246,7 @@ https://elasticache.us-west-2.amazonaws.com/
     &X-Amz-Credential=<credential>
 ```
 
-### Example 2: Backing Up a Redis \(Cluster Mode Disabled\) Cluster with Replica Nodes<a name="backups-manual-API-example2"></a>
+### Example 2: Backing up a Redis \(Cluster Mode Disabled\) cluster with replica nodes<a name="backups-manual-API-example2"></a>
 
 The following ElastiCache API operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis` which has one or more read replicas\.
 
@@ -262,7 +262,7 @@ https://elasticache.us-west-2.amazonaws.com/
     &X-Amz-Credential=<credential>
 ```
 
-### Example 3: Backing Up a Redis \(Cluster Mode Enabled\) Cluster<a name="backups-manual-API-example3"></a>
+### Example 3: Backing up a Redis \(Cluster Mode Enabled\) cluster<a name="backups-manual-API-example3"></a>
 
 The following ElastiCache API operation creates the backup `bkup-20150515` from the Redis \(cluster mode enabled\) cluster `myClusteredRedis`\. Note the use of `ReplicationGroupId` instead of `CacheClusterId` to identify the source\.
 
@@ -280,6 +280,6 @@ https://elasticache.us-west-2.amazonaws.com/
 
 For more information, see [CreateSnapshot](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html) in the *Amazon ElastiCache API Reference*\.
 
-### Related Topics<a name="backups-manual-api-see-also"></a>
+### Related topics<a name="backups-manual-api-see-also"></a>
 
 For more information, see [CreateSnapshot](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html) in the *Amazon ElastiCache API Reference*\.

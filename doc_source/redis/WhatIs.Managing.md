@@ -1,4 +1,4 @@
-# Tools for Managing Your Implementation<a name="WhatIs.Managing"></a>
+# Tools for managing your implementation<a name="WhatIs.Managing"></a>
 
 When you have granted your Amazon EC2 instance access to your ElastiCache cluster, you have four means by which you can manage your ElastiCache cluster: the AWS Management Console, the AWS CLI for ElastiCache, the AWS SDK for ElastiCache, and the ElastiCache API\.
 
@@ -18,9 +18,9 @@ If you want to access ElastiCache from an application, you can use one of the AW
 
 You can also write application code directly against the ElastiCache web service API\. When using the API, you must write the necessary code to construct and authenticate your HTTP requests\. You also write code to parse results from ElastiCache and handle any errors\. For more information about the API, see [Using the ElastiCache API](ProgrammingGuide.md)\.
 
-## Additional Resources<a name="what-is-managing-see-also"></a>
+## Additional resources<a name="what-is-managing-see-also"></a>
 
 For more detailed information on managing your Amazon ElastiCache for Redis deployment, see the following:
-+ [Managing Your ElastiCache for Redis Implementation](managing-elasticache.md)
-+ [Internetwork Traffic Privacy](Security.md)
-+ [Logging and Monitoring in Elasticache](MonitoringECMetrics.md)
++ [Managing your ElastiCache for Redis implementation](managing-elasticache.md)
++ [Internetwork traffic privacy](Security.md)
++ [Logging and monitoring in Elasticache](MonitoringECMetrics.md)

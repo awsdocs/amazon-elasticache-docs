@@ -1,14 +1,14 @@
-# Viewing a Cluster's Details<a name="Clusters.ViewDetails"></a>
+# Viewing a cluster's details<a name="Clusters.ViewDetails"></a>
 
 You can view detail information about one or more clusters using the ElastiCache console, AWS CLI, or ElastiCache API\.
 
 **Topics**
-+ [Viewing a Redis \(Cluster Mode Disabled\) Cluster's Details \(Console\)](#Clusters.ViewDetails.CON.Redis)
-+ [Viewing Details for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](#Clusters.ViewDetails.CON.RedisCluster)
-+ [Viewing a Cluster's Details \(AWS CLI\)](#Clusters.ViewDetails.CLI)
-+ [Viewing a Cluster's Details \(ElastiCache API\)](#Clusters.ViewDetails.API)
++ [Viewing a Redis \(Cluster Mode Disabled\) cluster's details \(Console\)](#Clusters.ViewDetails.CON.Redis)
++ [Viewing details for a Redis \(Cluster Mode Enabled\) cluster \(Console\)](#Clusters.ViewDetails.CON.RedisCluster)
++ [Viewing a cluster's details \(AWS CLI\)](#Clusters.ViewDetails.CLI)
++ [Viewing a cluster's details \(ElastiCache API\)](#Clusters.ViewDetails.API)
 
-## Viewing a Redis \(Cluster Mode Disabled\) Cluster's Details \(Console\)<a name="Clusters.ViewDetails.CON.Redis"></a>
+## Viewing a Redis \(Cluster Mode Disabled\) cluster's details \(Console\)<a name="Clusters.ViewDetails.CON.Redis"></a>
 
 You can view the details of a Redis \(cluster mode disabled\) cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API\.
 
@@ -33,7 +33,7 @@ The following procedure details how to view the details of a Redis \(cluster mod
 
       Metrics over the last hour for two Redis nodes
 
-## Viewing Details for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Clusters.ViewDetails.CON.RedisCluster"></a>
+## Viewing details for a Redis \(Cluster Mode Enabled\) cluster \(Console\)<a name="Clusters.ViewDetails.CON.RedisCluster"></a>
 
 You can view the details of a Redis \(cluster mode enabled\) cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API\.
 
@@ -66,7 +66,7 @@ The following procedure details how to view the details of a Redis \(cluster mod
 
       *Metrics over the last hour for two Redis nodes*
 
-## Viewing a Cluster's Details \(AWS CLI\)<a name="Clusters.ViewDetails.CLI"></a>
+## Viewing a cluster's details \(AWS CLI\)<a name="Clusters.ViewDetails.CLI"></a>
 
 You can view the details for a cluster using the AWS CLI `describe-cache-clusters` command\. If the `--cache-cluster-id` parameter is omitted, details for multiple clusters, up to `--max-items`, are returned\. If the `--cache-cluster-id` parameter is included, details for the specified cluster are returned\. You can limit the number of records returned with the `--max-items` parameter\.
 
@@ -451,7 +451,7 @@ The following JSON output is for three different Redis clusters:
 
 For more information, see the AWS CLI for ElastiCache topic [https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-clusters.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-clusters.html)\.
 
-## Viewing a Cluster's Details \(ElastiCache API\)<a name="Clusters.ViewDetails.API"></a>
+## Viewing a cluster's details \(ElastiCache API\)<a name="Clusters.ViewDetails.API"></a>
 
 You can view the details for a cluster using the ElastiCache API `DescribeCacheClusters` action\. If the `CacheClusterId` parameter is included, details for the specified cluster are returned\. If the `CacheClusterId` parameter is omitted, details for up to `MaxRecords` \(default 100\) clusters are returned\. The value for `MaxRecords` cannot be less than 20 or greater than 100\.
 

@@ -1,6 +1,6 @@
-# Creating a Cluster Mode Disabled Cluster \(Console\)<a name="Clusters.Create.CON.Redis"></a>
+# Creating a cluster\-mode disabled cluster \(Console\)<a name="Clusters.Create.CON.Redis"></a>
 
-ElastiCache supports replication when you use the Redis engine\. To monitor the latency between when data is written to a Redis read/write primary cluster and when it is propagated to a read\-only secondary cluster, ElastiCache adds to the cluster a special key, `ElastiCacheMasterReplicationTimestamp`\. This key is the current Universal Universal Time \(UTC\) time\. Because a Redis cluster might be added to a replication group at a later time, this key is included in all Redis clusters, even if initially they are not members of a replication group\. For more information on replication groups, see [High Availability Using Replication Groups](Replication.md)\.
+ElastiCache supports replication when you use the Redis engine\. To monitor the latency between when data is written to a Redis read/write primary cluster and when it is propagated to a read\-only secondary cluster, ElastiCache adds to the cluster a special key, `ElastiCacheMasterReplicationTimestamp`\. This key is the current Universal Universal Time \(UTC\) time\. Because a Redis cluster might be added to a replication group at a later time, this key is included in all Redis clusters, even if initially they are not members of a replication group\. For more information on replication groups, see [High availability using replication groups](Replication.md)\.
 
 **To create a standalone Redis \(cluster mode disabled\) cluster**
 
@@ -22,15 +22,15 @@ ElastiCache supports replication when you use the Redis engine\. To monitor the 
 
    1. For **Engine version compatibility**, choose the ElastiCache for Redis engine version that you want to run on this cluster\. Unless you have a specific reason to run an older version, we recommend that you choose the latest version\.
 **Important**  
-You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is comptabile with the new engine version\. For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
+You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is comptabile with the new engine version\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
    1. In **Port**, use the default port, 6379\. If you have a reason to use a different port, enter the port number\.
 
-   1. For **Parameter group**, choose a parameter group or create a new one\. Parameter groups control the runtime parameters of your cluster\. For more information on parameter groups, see [Redis\-specific parameters](ParameterGroups.Redis.md) and [Creating a Parameter Group](ParameterGroups.Creating.md)\.
+   1. For **Parameter group**, choose a parameter group or create a new one\. Parameter groups control the runtime parameters of your cluster\. For more information on parameter groups, see [Redis\-specific parameters](ParameterGroups.Redis.md) and [Creating a parameter group](ParameterGroups.Creating.md)\.
 
    1. For **Node type**, click the down arrow \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-DnArrow.png)\)\. In the **Change node type** dialog box, choose the **Instance family** of the node type that you want, choose the node type that you want to use for this cluster, and then choose **Save**\.
 
-      For more information, see [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)\.
+      For more information, see [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)\.
 
    1. For **Number of replicas**, choose the number of read replicas that you want for this cluster\.
 
@@ -46,16 +46,16 @@ You can upgrade to newer engine versions\. If you upgrade major engine versions,
 
    1. For **Subnet group**, create a new subnet group or choose an existing one that you want to apply to this cluster\. If you enabled Multi\-AZ, the subnet group must contain at least two subnets that reside in different availability zones\.
 
-      If you are using [Using Local Zones with ElastiCache ](Local_zones.md), you must create or choose a subnet that is in the local zone\. Multi\-AZ is automatically disabled\. Local Zones don't support global datastores at this time\.
+      If you are using [Using local zones with ElastiCache ](Local_zones.md), you must create or choose a subnet that is in the local zone\. Multi\-AZ is automatically disabled\. Local Zones don't support global datastores at this time\.
 
-      For more information, see [Subnets and Subnet Groups](SubnetGroups.md)\.
+      For more information, see [Subnets and subnet groups](SubnetGroups.md)\.
 
    1. For **Availability zone\(s\)**, you have two options:
       + **No preference** – ElastiCache chooses the Availability Zones for your cluster's nodes\.
       + **Specify availability zones** – Under **Under availability zones placement**, a list of your nodes appears allowing you to specify the Availability Zone for each node in your cluster\. You can choose a different Availability Zone from the list to the right of each node name\.
       + If you have Multi\-AZ enabled, you must place at least two nodes in different Availability Zones\.
 
-      For more information, see [Choosing Regions and Availability Zones](RegionsAndAZs.md)\.
+      For more information, see [Choosing regions and availability zones](RegionsAndAZs.md)\.
 
    1. For **Security groups**, choose the security groups that you want for this cluster\. A security group acts as a firewall to control network access to your cluster\. You can choose use the [Default security group for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroupdefault security group) or create a new one\.
 
@@ -74,23 +74,23 @@ For Redis versions between 4\.0\.2, when encryption in transit was first support
 
    1. \(Optional\) If you are going to seed your cluster with data from a \.rdb file, enter the Amazon S3 location of the \.rdb file for** Seed RDB file S3 location**\.
 
-      For more information, see [Seeding a New Cluster with an Externally Created Backup](backups-seeding-redis.md)\.
+      For more information, see [Seeding a new cluster with an externally created backup](backups-seeding-redis.md)\.
 
    1. \(Optional\) For regularly scheduled automatic backups, choose **Enable automatic backups**, and then enter the number of days that you want an automatic backup retained before it is automatically deleted\. If you don't want regularly scheduled automatic backups, clear the **Enable automatic backups** check box\. In either case, you always have the option to create manual backups, which must be deleted manually\.
 
-      For more information on Redis backup and restore, see [Backup and Restore for ElastiCache for Redis ](backups.md)\.
+      For more information on Redis backup and restore, see [Backup and restore for ElastiCache for Redis ](backups.md)\.
 
    1. For **Maintenance window**, choose a maintenance window\. The *maintenance window* is the time, generally an hour in length, each week when ElastiCache schedules system maintenance for your cluster\. 
 
       You can enable ElastiCache to choose the day and time for your maintenance window \(**No preference**\)\. Or you can choose the day, time, and duration yourself \(**Specify maintenance window**\)\. If you choose **Specify maintenance window**, choose the **Start day**, **Start time**, and **Duration** \(in hours\) for your maintenance window\. All times are UTC times\.
 
-      For more information, see [Managing Maintenance](maintenance-window.md)\.
+      For more information, see [Managing maintenance](maintenance-window.md)\.
 
    1. For **Notifications**, choose an existing Amazon Simple Notification Service \(Amazon SNS\) topic, or choose manual ARN input and enter the topic Amazon Resource Name \(ARN\)\. If you use Amazon SNS, you can push notifications to internet\-connected smart devices\. The default is to disable notifications\. For more information, see [https://aws\.amazon\.com/sns/](https://aws.amazon.com/sns/)\.
 
 1. Review all your entries and choices, then go back and make any needed corrections\. When you're ready, choose **Create** to launch your cluster\.
 
-As soon as your cluster's status is *available*, you can grant Amazon EC2 access to it, connect to it, and begin using it\. For more information, see [Access Authorization](GettingStarted.AuthorizeAccess.md) and [Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)\.
+As soon as your cluster's status is *available*, you can grant Amazon EC2 access to it, connect to it, and begin using it\. For more information, see [Access authorization](GettingStarted.AuthorizeAccess.md) and [Connect to a cluster's node](GettingStarted.ConnectToCacheNode.md)\.
 
 **Important**  
-As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a Cluster](Clusters.Delete.md)\. 
+As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a cluster](Clusters.Delete.md)\. 

@@ -1,4 +1,4 @@
-# Which Metrics Should I Monitor?<a name="CacheMetrics.WhichShouldIMonitor"></a>
+# Which metrics should I monitor?<a name="CacheMetrics.WhichShouldIMonitor"></a>
 
 The following CloudWatch metrics offer good insight into ElastiCache performance\. In most cases, we recommend that you set CloudWatch alarms for these metrics so that you can take corrective action before performance issues occur\.
 
@@ -10,13 +10,13 @@ The following CloudWatch metrics offer good insight into ElastiCache performance
 
 ## CPUUtilization<a name="metrics-cpu-utilization"></a>
 
-This is a host\-level metric reported as a percent\. For more information, see [Host\-Level Metrics](CacheMetrics.HostLevel.md)\.
+This is a host\-level metric reported as a percent\. For more information, see [Host\-level metrics](CacheMetrics.HostLevel.md)\.
 
 Because Memcached is multi\-threaded, this metric can be as high as 90%\. If you exceed this threshold, scale your cache cluster up by using a larger cache node type, or scale out by adding more cache nodes\.
 
 ## SwapUsage<a name="metrics-swap-usage"></a>
 
-This is a host\-level metric reported in bytes\. For more information, see [Host\-Level Metrics](CacheMetrics.HostLevel.md)\.
+This is a host\-level metric reported in bytes\. For more information, see [Host\-level metrics](CacheMetrics.HostLevel.md)\.
 
 This metric should not exceed 50 MB\. If it does, we recommend that you increase the *ConnectionOverhead parameter value*\.
 

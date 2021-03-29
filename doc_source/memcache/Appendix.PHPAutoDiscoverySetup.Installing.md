@@ -1,17 +1,19 @@
-# Installation Steps for New Users<a name="Appendix.PHPAutoDiscoverySetup.Installing"></a>
+# Installation steps for new users<a name="Appendix.PHPAutoDiscoverySetup.Installing"></a>
 
 **Topics**
-+ [Installing PHP 7\.x for New Users](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x)
-+ [Installing PHP 5\.x for New Users](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x)
++ [Installing PHP 7\.x for new users](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x)
++ [Installing PHP 5\.x for new users](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x)
 
-## Installing PHP 7\.x for New Users<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x"></a>
+## Installing PHP 7\.x for new users<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x"></a>
 
 **Topics**
-+ [To install PHP 7 on a Ubuntu Server 18\.10 LTS AMI \(64\-bit and 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu)
++ [To install PHP 7 on a Ubuntu server 18\.10 LTS AMI \(64\-bit and 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu)
 + [To install PHP 7 on an Amazon Linux 201609 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux)
 + [To install PHP 7 on an SUSE Linux AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux)
 
-### To install PHP 7 on a Ubuntu Server 18\.10 LTS AMI \(64\-bit and 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu"></a>
+### To install PHP 7 on a Ubuntu server 18\.10 LTS AMI \(64\-bit and 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu"></a>
+
+Replace *PHP\-7\.x* with the version you are using\.
 
 1. Launch a new instance from the AMI\.
 
@@ -22,16 +24,16 @@
    sudo apt-get install gcc g++
    ```
 
-1. Install PHP 7\.
+1. Install PHP 7
 
    ```
-   sudo apt-get install php70
+   sudo apt-get install php7.x
    ```
 
 1. Download the Amazon ElastiCache Cluster Client\.
 
    ```
-   wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.0/latest-64bit
+   wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.x/latest-64bit
    ```
 
 1. Extract `latest-64bit`\.
@@ -46,7 +48,7 @@
    sudo mv artifact/amazon-elasticache-cluster-client.so /usr/lib/php/20151012
    ```
 
-1. Insert the line `extension=amazon-elasticache-cluster-client.so` into the file `/etc/php/7.0/cli/php.ini`\.
+1. Insert the line `extension=amazon-elasticache-cluster-client.so` into the file `/etc/php/7.x/cli/php.ini`\.
 
    ```
    echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php/7.0/cli/php.ini
@@ -62,6 +64,8 @@
 
 ### To install PHP 7 on an Amazon Linux 201609 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux"></a>
 
+Replace *php7\.x* with the version you are using\.
+
 1. Launch a new instance from the AMI\.
 
 1. Run the following command:
@@ -70,16 +74,16 @@
    sudo yum install gcc-c++
    ```
 
-1. Install PHP 7\.
+1. Install PHP 7
 
    ```
-   sudo yum install php70
+   sudo yum install php7.x
    ```
 
 1. Download the Amazon ElastiCache Cluster Client\.
 
    ```
-   wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.0/latest-64bit
+   wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.x/latest-64bit
    ```
 
 1. Extract `latest-64bit`\.
@@ -91,13 +95,13 @@
 1. With root permission, copy the extracted artifact file `amazon-elasticache-cluster-client.so` into `/usr/lib64/php/7.0/modules/`\.
 
    ```
-   sudo mv artifact/amazon-elasticache-cluster-client.so /usr/lib64/php/7.0/modules/
+   sudo mv artifact/amazon-elasticache-cluster-client.so /usr/lib64/php/7.x/modules/
    ```
 
 1. Create the `50-memcached.ini` file\.
 
    ```
-   echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php-7.0.d/50-memcached.ini
+   echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php-7.x.d/50-memcached.ini
    ```
 
 1. Start or restart your Apache server\.
@@ -110,6 +114,8 @@
 
 ### To install PHP 7 on an SUSE Linux AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux"></a>
 
+Replace *php7\.x* with the version you are using\.
+
 1. Launch a new instance from the AMI\.
 
 1. Run the following command:
@@ -121,13 +127,13 @@
 1. Install PHP 7\.
 
    ```
-   sudo yum install php70
+   sudo yum install php7.x
    ```
 
 1. Download the Amazon ElastiCache Cluster Client\.
 
    ```
-   wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.0/latest-64bit
+   wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.x/latest-64bit
    ```
 
 1. Extract `latest-64bit`\.
@@ -156,13 +162,13 @@
 
  
 
-## Installing PHP 5\.x for New Users<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP5x"></a>
+## Installing PHP 5\.x for new users<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP5x"></a>
 
 **Topics**
 + [To install PHP 5 on an Amazon Linux AMI 2014\.03 \(64\-bit and 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.AmznLinux)
 + [To install PHP 5 on a Red Hat Enterprise Linux 7\.0 AMI \(64\-bit and 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.RHEL)
-+ [To install PHP 5 on a Ubuntu Server 14\.04 LTS AMI \(64\-bit and 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.Ubuntu)
-+ [To install PHP 5 for SUSE Linux Enterprise Server 11 AMI \(64\-bit or 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.SuseLinux)
++ [To install PHP 5 on a Ubuntu server 14\.04 LTS AMI \(64\-bit and 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.Ubuntu)
++ [To install PHP 5 for SUSE Linux enterprise server 11 AMI \(64\-bit or 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.SuseLinux)
 + [Other Linux distributions](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.Other)
 
 ### To install PHP 5 on an Amazon Linux AMI 2014\.03 \(64\-bit and 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.AmznLinux"></a>
@@ -175,7 +181,7 @@
    $ sudo yum install gcc-c++ php php-pear
    ```
 
-1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the Installation Package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\.
+1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\.
 
 1. Install `php-memcached`\. The URI should be the download path for the installation package:
 
@@ -215,7 +221,7 @@ Be sure to use the latest version of the install artifact\.
    sudo yum install gcc-c++ php php-pear
    ```
 
-1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the Installation Package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\.
+1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\.
 
 1. Install `php-memcached`\. The URI should be the download path for the installation package:
 
@@ -237,7 +243,7 @@ Be sure to use the latest version of the install artifact\.
 
  
 
-### To install PHP 5 on a Ubuntu Server 14\.04 LTS AMI \(64\-bit and 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.Ubuntu"></a>
+### To install PHP 5 on a Ubuntu server 14\.04 LTS AMI \(64\-bit and 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.Ubuntu"></a>
 
 1. Launch an Ubuntu Linux instance \(either 64\-bit or 32\-bit\) and log into it\.
 
@@ -248,7 +254,7 @@ Be sure to use the latest version of the install artifact\.
    sudo apt-get install gcc g++ php5 php-pear
    ```
 
-1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the Installation Package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\. 
+1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\. 
 
 1. Install `php-memcached`\. The URI should be the download path for the installation package\. 
 
@@ -279,7 +285,7 @@ This installation step installs the build artifact `amazon-elasticache-cluster-c
 
  
 
-### To install PHP 5 for SUSE Linux Enterprise Server 11 AMI \(64\-bit or 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.SuseLinux"></a>
+### To install PHP 5 for SUSE Linux enterprise server 11 AMI \(64\-bit or 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.SuseLinux"></a>
 
 1. Launch a SUSE Linux instance \(either 64\-bit or 32\-bit\) and log into it\. 
 
@@ -289,7 +295,7 @@ This installation step installs the build artifact `amazon-elasticache-cluster-c
    $ sudo zypper install gcc php53-devel
    ```
 
-1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the Installation Package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\. 
+1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\. 
 
 1. Install `php-memcached`\. The URI should be the download path for the installation package\. 
 

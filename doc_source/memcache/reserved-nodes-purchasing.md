@@ -1,4 +1,4 @@
-# Purchasing a Reserved Node<a name="reserved-nodes-purchasing"></a>
+# Purchasing a reserved node<a name="reserved-nodes-purchasing"></a>
 
 The following examples show how to purchase a reserved node offering using the AWS Management Console, the AWS CLI, and the ElastiCache API\. 
 
@@ -10,7 +10,7 @@ The following examples show how to purchase a reserved node offering using the A
 + [Using the AWS CLI](#reserved-nodes-purchasing-cli)
 + [Using the ElastiCache API](#reserved-nodes-purchasing-api)
 
-## Purchasing a Reserved Node \(Console\)<a name="reserved-nodes-purchasing-console"></a>
+## Purchasing a reserved node \(Console\)<a name="reserved-nodes-purchasing-console"></a>
 
  This example shows purchasing a specific reserved node offering, *649fd0c8\-cf6d\-47a0\-bfa6\-060f8e75e95f*, with a reserved node ID of *myreservationID*\. 
 
@@ -44,7 +44,7 @@ The Reserved Cache Node ID is a unique customer\-specified identifier to track t
 **Important**  
 When you choose **Yes, Purchase** you incur the charges for the reserved nodes you selected\. To avoid incurring these charges, choose **Cancel**\.
 
-## Purchasing a Reserved Node \(AWS CLI\)<a name="reserved-nodes-purchasing-cli"></a>
+## Purchasing a reserved node \(AWS CLI\)<a name="reserved-nodes-purchasing-cli"></a>
 
  The following example shows purchasing the specific reserved cluster offering, *649fd0c8\-cf6d\-47a0\-bfa6\-060f8e75e95f*, with a reserved node ID of *myreservationID*\. 
 
@@ -75,7 +75,7 @@ For Windows:
 
 For more information, see [purchase\-reserved\-cache\-nodes\-offering](https://docs.aws.amazon.com/cli/latest/reference/elasticache/purchase-reserved-cache-nodes-offering.html) in the AWS CLI Reference\.
 
-## Purchasing a Reserved Node \(ElastiCache API\)<a name="reserved-nodes-purchasing-api"></a>
+## Purchasing a reserved node \(ElastiCache API\)<a name="reserved-nodes-purchasing-api"></a>
 
 The following example shows purchasing the specific reserved node offering, *649fd0c8\-cf6d\-47a0\-bfa6\-060f8e75e95f*, with a reserved cluster ID of *myreservationID*\. 
 

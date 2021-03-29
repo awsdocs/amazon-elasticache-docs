@@ -1,4 +1,4 @@
-# Compliance Validation for Amazon ElastiCache<a name="redis-compliance"></a>
+# Compliance validation for Amazon ElastiCache<a name="redis-compliance"></a>
 
 Third\-party auditors assess the security and compliance of Amazon ElastiCache as part of multiple AWS compliance programs\. These include SOC, PCI, FedRAMP, HIPAA, and others\.
 
@@ -14,4 +14,4 @@ Your compliance responsibility when using Amazon ElastiCache is determined by th
 + [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) – This AWS service provides a comprehensive view of your security state within AWS that helps you check your compliance with security industry standards and best practices\.
 
 **Topics**
-+ [ElastiCache for Redis Compliance](elasticache-compliance.md)
++ [ElastiCache for Redis compliance](elasticache-compliance.md)

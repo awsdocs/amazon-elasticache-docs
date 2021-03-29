@@ -1,6 +1,6 @@
-# Supported Node Types<a name="CacheNodes.SupportedTypes"></a>
+# Supported node types<a name="CacheNodes.SupportedTypes"></a>
 
-For information on which node size to use, see [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)\. 
+For information on which node size to use, see [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)\. 
 
 ElastiCache supports the following node types\. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts\.
 + General purpose:
@@ -10,7 +10,7 @@ ElastiCache supports the following node types\. Generally speaking, the current 
 
      `cache.m6g.large`, `cache.m6g.xlarge`, `cache.m6g.2xlarge`, `cache.m6g.4xlarge`, `cache.m6g.8xlarge`, `cache.m6g.12xlarge`, `cache.m6g.16xlarge` 
 **Note**  
-For region availability, see [Supported Node Types by AWS Region](#CacheNodes.SupportedTypesByRegion)\.
+For region availability, see [Supported node types by AWS Region](#CacheNodes.SupportedTypesByRegion)\.
 
     **M5 node types:** `cache.m5.large`, `cache.m5.xlarge`, `cache.m5.2xlarge`, `cache.m5.4xlarge`, `cache.m5.12xlarge`, `cache.m5.24xlarge` 
 
@@ -37,7 +37,7 @@ For region availability, see [Supported Node Types by AWS Region](#CacheNodes.Su
 
      `cache.r6g.large`, `cache.r6g.xlarge`, `cache.r6g.2xlarge`, `cache.r6g.4xlarge`, `cache.r6g.8xlarge`, `cache.r6g.12xlarge`, `cache.r6g.16xlarge` 
 **Note**  
-For region availability, see [Supported Node Types by AWS Region](#CacheNodes.SupportedTypesByRegion)\.
+For region availability, see [Supported node types by AWS Region](#CacheNodes.SupportedTypesByRegion)\.
 
     **R5 node types:** `cache.r5.large`, `cache.r5.xlarge`, `cache.r5.2xlarge`, `cache.r5.4xlarge`, `cache.r5.12xlarge`, `cache.r5.24xlarge`
 
@@ -55,7 +55,7 @@ Amazon ElastiCache's T3 and T2 nodes are configured as standard and suited for w
 The following table lists the burstable performance node types, the rate at which CPU credits are earned per hour\. It also shows the maximum number of earned CPU credits that a node can accrue and the number of vCPUs per node\. In addition, it gives the baseline performance level as a percentage of a full core performance \(using a single vCPU\)\.
 
 
-| Node Type | CPU Credits Earned Per Hour |  Maximum Earned Credits That Can Be Accrued\* |  vCPUs  |  Baseline Performance Per vCPU  |  Memory \(GiB\)  |  Network Performance  | 
+| Node type | CPU credits earned per hour |  Maximum earned credits that can be accrued\* |  vCPUs  |  Baseline performance per vCPU  |  Memory \(GiB\)  |  Network performance  | 
 | --- | --- | --- | --- | --- | --- | --- | 
 | t3\.micro | 12 | 288 | 2 | 10% | 0\.5 | Up to 5 Gigabit | 
 | t3\.small | 24 | 576 | 2 | 20% | 1\.37 | Up to 5 Gigabit | 
@@ -84,14 +84,14 @@ In addition, be aware of these details:
 + Redis configuration variables `appendonly` and `appendfsync` aren't supported on Redis version 2\.8\.22 and later\.
 
 **Note**  
-Supported engine versions vary by AWS Region\. The latest engine versions are supported in all AWS Regions\. To find the available engine versions in your AWS Region, see [Supported ElastiCache for Redis Versions](supported-engine-versions.md)\.
+Supported engine versions vary by AWS Region\. The latest engine versions are supported in all AWS Regions\. To find the available engine versions in your AWS Region, see [Supported ElastiCache for Redis versions](supported-engine-versions.md)\.
 
-## Supported Node Types by AWS Region<a name="CacheNodes.SupportedTypesByRegion"></a>
+## Supported node types by AWS Region<a name="CacheNodes.SupportedTypesByRegion"></a>
 
 The following table lists supported node types for each AWS Region\.
 
 
-| AWS Region Name | AWS Region |  T3  |  T2  |  M4  |  M5  |  M6g  |  R4  |  R5  |  R6g  | 
+| AWS Region name | AWS Region |  T3  |  T2  |  M4  |  M5  |  M6g  |  R4  |  R5  |  R6g  | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 | US East \(Ohio\) | us\-east\-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | US East \(N\. Virginia\) | us\-east\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
@@ -103,7 +103,7 @@ The following table lists supported node types for each AWS Region\.
 | Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Tokyo\) | ap\-northeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Seoul\) | ap\-northeast\-2 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Asia Pacific \(Osaka\-Local\) \* | ap\-northeast\-3 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| Asia Pacific \(Osaka\) | ap\-northeast\-3 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 | Asia Pacific \(Singapore\) | ap\-southeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Sydney\) | ap\-southeast\-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 | Asia Pacific \(Hong Kong\) | ap\-east\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
@@ -117,7 +117,6 @@ The following table lists supported node types for each AWS Region\.
 | China \(Ningxia\) | cn\-northwest\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 | Middle East \(Bahrain\) | me\-south\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 | AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-|  \* The Asia Pacific \(Osaka\-Local\) Region is a local region that is available to select AWS customers who request access\. If you want to use the Asia Pacific \(Osaka\-Local\) Region, speak with your sales representative\. The Asia Pacific \(Osaka\-Local\) Region supports a single Availability Zone\. | 
 
 For a complete list of node types and specifications, see the following:
 + [Amazon ElastiCache Product Features and Details](https://aws.amazon.com/elasticache/details)

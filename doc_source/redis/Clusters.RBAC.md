@@ -1,6 +1,6 @@
-# Authenticating Users with Role\-Based Access Control \(RBAC\)<a name="Clusters.RBAC"></a>
+# Authenticating users with Role\-Based Access Control \(RBAC\)<a name="Clusters.RBAC"></a>
 
-Instead of authenticating users with the Redis AUTH command as described in [Authenticating Users with the Redis AUTH Command](auth.md), in Amazon ElastiCache for Redis 6\.x you can use a feature called Role\-Based Access Control \(RBAC\)\. 
+Instead of authenticating users with the Redis AUTH command as described in [Authenticating users with the Redis AUTH command](auth.md), in Amazon ElastiCache for Redis 6\.x you can use a feature called Role\-Based Access Control \(RBAC\)\. 
 
 Unlike Redis AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups\. These user groups are designed as a way to organize access to replication groups\. 
 
@@ -469,8 +469,8 @@ After you have created a user group and added users, the final step in implement
 #### Assigning User Groups to Replication Groups Using the Console<a name="Users-groups-to-RGs-CON"></a>
 
 To add a user group to a replication using the AWS Management Console, do the following:
-+ For cluster mode disabled, see [Creating a Cluster Mode Disabled Cluster \(Console\)](Clusters.Create.CON.Redis.md)
-+ For cluster mode enabled, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
++ For cluster mode disabled, see [Creating a cluster\-mode disabled cluster \(Console\)](Clusters.Create.CON.Redis.md)
++ For cluster mode enabled, see [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
 
 #### Assigning User Groups to Replication Groups Using the AWS CLI<a name="Users-groups-to-RGs-CLI"></a>
 
@@ -593,11 +593,11 @@ aws elasticache modify-replication-group --replication-group-id replication-grou
 }
 ```
 
-Note the `PendingChanges` in the response\. Any modifications made to a replication group are updated asynchronously\. You can monitor this progress by viewing the events\. For more information, see [Viewing ElastiCache Events](ECEvents.Viewing.md)\.
+Note the `PendingChanges` in the response\. Any modifications made to a replication group are updated asynchronously\. You can monitor this progress by viewing the events\. For more information, see [Viewing ElastiCache events](ECEvents.Viewing.md)\.
 
 ## Migrating from Redis AUTH to RBAC<a name="Migrate-From-RBAC-to-Auth"></a>
 
-If you are using Redis AUTH as described in [Authenticating Users with the Redis AUTH Command](auth.md) and want to migrate to using RBAC, use the following procedures\.
+If you are using Redis AUTH as described in [Authenticating users with the Redis AUTH command](auth.md) and want to migrate to using RBAC, use the following procedures\.
 
 Use the following procedure to migrate from Redis AUTH to RBAC using the console\.
 

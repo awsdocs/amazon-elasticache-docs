@@ -1,4 +1,4 @@
-# Configuring Your ElastiCache Client for Efficient Load Balancing<a name="BestPractices.LoadBalancing"></a>
+# Configuring your ElastiCache client for efficient load balancing<a name="BestPractices.LoadBalancing"></a>
 
 **Note**  
 This section applies to multi\-node Memcached clusters\.
@@ -19,7 +19,7 @@ The ElastiCache Memcached Java client is based on the open\-source spymemcached 
 
 For more information, see the KetamaConnectionFactory documentation at [KetamaConnectionFactory](https://github.com/RTBHOUSE/spymemcached/blob/master/src/main/java/net/spy/memcached/KetamaConnectionFactory.java)\.
 
-## Consistent Hashing Using PHP<a name="BestPractices.LoadBalancing.PHP"></a>
+## Consistent hashing using PHP<a name="BestPractices.LoadBalancing.PHP"></a>
 
 The ElastiCache Memcached PHP client is a wrapper around the built\-in Memcached PHP library\. By default, consistent hashing is turned off by the Memcached PHP library\.
 
@@ -34,7 +34,7 @@ In addition to the preceding code, we recommend that you also turn `memcached.se
 
  For more information, see the run\-time configuration documentation for Memcached PHP at [http://php\.net/manual/en/memcached\.configuration\.php](http://php.net/manual/en/memcached.configuration.php)\. Note specifically the `memcached.sess_consistent_hash` parameter\.
 
-## Consistent Hashing Using \.NET<a name="BestPractices.LoadBalancing.dotNET"></a>
+## Consistent hashing using \.NET<a name="BestPractices.LoadBalancing.dotNET"></a>
 
 The ElastiCache Memcached \.NET client is a wrapper around Enyim Memcached\. By default, consistent hashing is turned on by the Enyim Memcached client\.
 

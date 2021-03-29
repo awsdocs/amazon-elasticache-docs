@@ -1,14 +1,14 @@
 # Creating a Replication Group Using an Available Redis \(Cluster Mode Disabled\) Cluster<a name="Replication.CreatingReplGroup.ExistingCluster"></a>
 
-An available cluster is an existing single\-node Redis cluster\. Currently, Redis \(cluster mode enabled\) does not support creating a cluster with replicas using an available single\-node cluster\. If you want to create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON)\.
+An available cluster is an existing single\-node Redis cluster\. Currently, Redis \(cluster mode enabled\) does not support creating a cluster with replicas using an available single\-node cluster\. If you want to create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON)\.
 
-The following procedure can only be used if you have a Redis \(cluster mode disabled\) single\-node cluster\. This cluster's node becomes the primary node in the new cluster\. If you do not have a Redis \(cluster mode disabled\) cluster that you can use as the new cluster's primary, see [Creating a Redis Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.md)\.
+The following procedure can only be used if you have a Redis \(cluster mode disabled\) single\-node cluster\. This cluster's node becomes the primary node in the new cluster\. If you do not have a Redis \(cluster mode disabled\) cluster that you can use as the new cluster's primary, see [Creating a Redis replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.md)\.
 
 ## Creating a Replication Group Using an Available Redis Cluster \(Console\)<a name="Replication.CreatingReplGroup.ExistingCluster.CON"></a>
 
 See the topic [Using the AWS Management Console](Clusters.AddNode.md#Clusters.AddNode.CON)\.
 
-## Creating a Replication Group Using an Available Redis Cache Cluster \(AWS CLI\)<a name="Replication.CreatingReplGroup.ExistingCluster.CLI"></a>
+## Creating a replication group using an available Redis cache cluster \(AWS CLI\)<a name="Replication.CreatingReplGroup.ExistingCluster.CLI"></a>
 
 There are two steps to creating a replication group with read replicas when using an available Redis Cache Cluster for the primary when using the AWS CLI\.
 
@@ -127,7 +127,7 @@ For additional information, see the AWS CLI topics:
 + [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 + [modify\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group.html)
 
-## Adding Replicas to a Standalone Redis \(Cluster Mode Disabled\) Cluster \(ElastiCache API\)<a name="Replication.CreatingReplGroup.ExistingCluster.API"></a>
+## Adding replicas to a standalone Redis \(Cluster Mode Disabled\) cluster \(ElastiCache API\)<a name="Replication.CreatingReplGroup.ExistingCluster.API"></a>
 
 When using the ElastiCache API, you create a replication group specifying the available standalone node as the cluster's primary node, `PrimaryClusterId` and the number of nodes you want in the cluster using the CLI command, `CreateReplicationGroup`\. Include the following parameters\.
 

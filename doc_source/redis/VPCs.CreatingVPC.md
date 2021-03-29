@@ -53,5 +53,5 @@ Make a note of your two subnet identifiers, and which is public and private\. Yo
    1. Choose **Apply Rule Changes**\.
 
 Now you are ready to create a cache subnet group and launch a cache cluster in your Amazon VPC\. 
-+ [Creating a Subnet Group](SubnetGroups.Creating.md)
-+ [Creating a Cluster Mode Disabled Cluster \(Console\)](Clusters.Create.CON.Redis.md)\. 
++ [Creating a subnet group](SubnetGroups.Creating.md)
++ [Creating a cluster\-mode disabled cluster \(Console\)](Clusters.Create.CON.Redis.md)\. 

@@ -1,4 +1,4 @@
-# Downloading the Installation Package<a name="Appendix.PHPAutoDiscoverySetup.Downloading"></a>
+# Downloading the installation package<a name="Appendix.PHPAutoDiscoverySetup.Downloading"></a>
 
 To ensure that you use the correct version of the ElastiCache Cluster Client for PHP, you will need to know what version of PHP is installed on your Amazon EC2 instance\. You will also need to know whether your Amazon EC2 instance is running a 64\-bit or 32\-bit version of Linux\.
 
@@ -26,7 +26,7 @@ If your PHP and Memcached versions are incompatible, you will get an error messa
   These options need to match
   in Unknown on line 0
   ```
-If this happens, you need to compile the module from the source code\. For more information, see [Compiling the Source Code for the ElastiCache Cluster Client for PHP](Appendix.PHPAutoDiscoveryCompile.md)\.
+If this happens, you need to compile the module from the source code\. For more information, see [Compiling the source code for the ElastiCache cluster client for PHP](Appendix.PHPAutoDiscoveryCompile.md)\.
 
 **To determine your Amazon EC2 AMI architecture \(64\-bit or 32\-bit\)**
 
@@ -38,7 +38,7 @@ If this happens, you need to compile the module from the source code\. For more 
 
 You are now ready to download the ElastiCache Cluster Client\.
 
-**To download the ElastiCache Cluster Client for PHP**
+**To download the ElastiCache cluster client for PHP**
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 

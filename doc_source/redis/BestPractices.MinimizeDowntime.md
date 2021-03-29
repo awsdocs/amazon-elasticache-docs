@@ -1,4 +1,4 @@
-# Best Practices: Minimizing Downtime During Maintenance<a name="BestPractices.MinimizeDowntime"></a>
+# Best practices: Minimizing downtime during maintenance<a name="BestPractices.MinimizeDowntime"></a>
 
 Cluster mode configuration has the best availability during managed or unmanaged operations\. We recommend that you use a cluster mode supported client that connects to the cluster discovery endpoint\. For cluster mode disabled, we recommend that you use the primary endpoint for all write operations\. 
 

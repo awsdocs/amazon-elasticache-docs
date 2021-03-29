@@ -1,4 +1,4 @@
-# Installing the ElastiCache Cluster Client for \.NET<a name="Appendix.DotNETAutoDiscoverySetup"></a>
+# Installing the ElastiCache cluster client for \.NET<a name="Appendix.DotNETAutoDiscoverySetup"></a>
 
 You can find the ElastiCache \.NET Cluster Client code as open source at [https://github\.com/awslabs/elasticache\-cluster\-config\-net](https://github.com/awslabs/elasticache-cluster-config-net)\.
 
@@ -6,14 +6,14 @@ This section describes how to install, update, and remove the \.NET components f
 
 **Topics**
 + [Installing \.NET](#Appendix.DotNETAutoDiscoverySetup.DotNET)
-+ [Download the ElastiCache \.NET Cluster Client for ElastiCache](#Appendix.DotNETAutoDiscoverySetup.Downloading)
-+ [Install AWS Assemblies with NuGet](#Appendix.DotNETAutoDiscoverySetup.Installing)
++ [Download the ElastiCache \.NET cluster client for ElastiCache](#Appendix.DotNETAutoDiscoverySetup.Downloading)
++ [Install AWS assemblies with NuGet](#Appendix.DotNETAutoDiscoverySetup.Installing)
 
 ## Installing \.NET<a name="Appendix.DotNETAutoDiscoverySetup.DotNET"></a>
 
 You must have \.NET 3\.5 or later installed to use the AWS \.NET SDK for ElastiCache\. If you don't have \.NET 3\.5 or later, you can download and install the latest version from [http://www\.microsoft\.com/net](http://www.microsoft.com/net)\.
 
-## Download the ElastiCache \.NET Cluster Client for ElastiCache<a name="Appendix.DotNETAutoDiscoverySetup.Downloading"></a>
+## Download the ElastiCache \.NET cluster client for ElastiCache<a name="Appendix.DotNETAutoDiscoverySetup.Downloading"></a>
 
 **To download the ElastiCache \.NET cluster client**
 
@@ -23,7 +23,7 @@ You must have \.NET 3\.5 or later installed to use the AWS \.NET SDK for ElastiC
 
 1. In the **Download ElastiCache Memcached Cluster Client** list, select **\.NET**, and then click **Download\.**
 
-## Install AWS Assemblies with NuGet<a name="Appendix.DotNETAutoDiscoverySetup.Installing"></a>
+## Install AWS assemblies with NuGet<a name="Appendix.DotNETAutoDiscoverySetup.Installing"></a>
 
 NuGet is a package management system for the \.NET platform\. NuGet is aware of assembly dependencies and installs all required files automatically\. NuGet installed assemblies are stored with your solution, rather than in a central location such as `Program Files`, so you can install versions specific to an application without creating compatibility issues\.
 

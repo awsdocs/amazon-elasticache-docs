@@ -1,4 +1,4 @@
-# Canceling Pending Add or Delete Node Operations<a name="Clusters.CancelPending"></a>
+# Canceling pending add or delete node operations<a name="Clusters.CancelPending"></a>
 
 If you elected to not apply a change immediately, the operation has **pending** status until it is performed at your next maintenance window\. You can cancel any pending operation\.
 

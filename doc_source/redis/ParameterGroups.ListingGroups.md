@@ -1,8 +1,8 @@
-# Listing Parameter Groups by Name<a name="ParameterGroups.ListingGroups"></a>
+# Listing parameter groups by name<a name="ParameterGroups.ListingGroups"></a>
 
 You can list the parameter groups using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
-## Listing Parameter Groups by Name \(Console\)<a name="ParameterGroups.ListingGroups.CON"></a>
+## Listing parameter groups by name \(Console\)<a name="ParameterGroups.ListingGroups.CON"></a>
 
 The following procedure shows how to view a list of the parameter groups using the ElastiCache console\.
 
@@ -12,7 +12,7 @@ The following procedure shows how to view a list of the parameter groups using t
 
 1. To see a list of all available parameter groups, in the left hand navigation pane choose **Parameter Groups**\.
 
-## Listing Parameter Groups by Name \(AWS CLI\)<a name="ParameterGroups.ListingGroups.CLI"></a>
+## Listing parameter groups by name \(AWS CLI\)<a name="ParameterGroups.ListingGroups.CLI"></a>
 
 To generate a list of parameter groups using the AWS CLI, use the command `describe-cache-parameter-groups`\. If you provide a parameter group's name, only that parameter group will be listed\. If you do not provide a parameter group's name, up to `--max-records` parameter groups will be listed\. In either case, the parameter group's name, family, and description are listed\.
 
@@ -45,7 +45,7 @@ The output of this command will look something like this, listing the name, fami
 ```
 
 **Example**  
-The following sample code lists the parameter group *myRed56* for parameter groups running on Redis engine version 5\.0\.6 onwards\. If the parameter group is part of a [Replication Across AWS Regions Using Global Datastores](Redis-Global-Datastore.md), the `IsGlobal` property value returned in the output will be `Yes`\.  
+The following sample code lists the parameter group *myRed56* for parameter groups running on Redis engine version 5\.0\.6 onwards\. If the parameter group is part of a [Replication across AWS Regions using global datastores](Redis-Global-Datastore.md), the `IsGlobal` property value returned in the output will be `Yes`\.  
 For Linux, macOS, or Unix:  
 
 ```
@@ -126,7 +126,7 @@ The JSON output of this command will look something like this, listing the name,
 
 For more information, see [https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-parameter-groups.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-parameter-groups.html)\.
 
-## Listing Parameter Groups by Name \(ElastiCache API\)<a name="ParameterGroups.ListingGroups.API"></a>
+## Listing parameter groups by name \(ElastiCache API\)<a name="ParameterGroups.ListingGroups.API"></a>
 
 To generate a list of parameter groups using the ElastiCache API, use the `DescribeCacheParameterGroups` action\. If you provide a parameter group's name, only that parameter group will be listed\. If you do not provide a parameter group's name, up to `MaxRecords` parameter groups will be listed\. In either case, the parameter group's name, family, and description are listed\.
 

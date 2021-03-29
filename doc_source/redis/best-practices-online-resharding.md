@@ -1,4 +1,4 @@
-# Best Practices: Online Cluster Resizing<a name="best-practices-online-resharding"></a>
+# Best practices: Online cluster resizing<a name="best-practices-online-resharding"></a>
 
 *Resharding * involves adding and removing shards or nodes to your cluster and redistributing key spaces\. As a result, multiple things have an impact on the resharding operation, such as the load on the cluster, memory utilization, and overall size of data\. For the best experience, we recommend that you follow overall cluster best practices for uniform workload pattern distribution\. In addition, we recommend taking the following steps\.
 

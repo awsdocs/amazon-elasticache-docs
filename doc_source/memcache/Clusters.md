@@ -1,4 +1,4 @@
-# Managing Your ElastiCache Clusters<a name="Clusters"></a>
+# Managing your ElastiCache clusters<a name="Clusters"></a>
 
 A *cluster* is a collection of one or more cache nodes, all of which run an instance of the Memcached cache engine software\. When you create a cluster, you specify the engine and version for all of the nodes to use\.
 
@@ -18,6 +18,6 @@ Every cluster must have a cluster identifier\. The cluster identifier is a custo
 
 ElastiCache supports multiple engine versions\. Unless you have specific reasons, we recommend using the latest version\.
 
-ElastiCache clusters are designed to be accessed using an Amazon EC2 instance\. If you launch your cluster in a virtual private cloud \(VPC\) based on the Amazon VPC service, you can access it from outside AWS\. For more information, see [Accessing ElastiCache Resources from Outside AWS](accessing-elasticache.md#access-from-outside-aws)\.
+ElastiCache clusters are designed to be accessed using an Amazon EC2 instance\. If you launch your cluster in a virtual private cloud \(VPC\) based on the Amazon VPC service, you can access it from outside AWS\. For more information, see [Accessing ElastiCache resources from outside AWS](accessing-elasticache.md#access-from-outside-aws)\.
 
 For a list of supported Memcached versions, see [Supported ElastiCache for Memcached Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/supported-engine-versions.html)\.

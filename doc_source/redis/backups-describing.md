@@ -1,8 +1,8 @@
-# Describing Backups<a name="backups-describing"></a>
+# Describing backups<a name="backups-describing"></a>
 
 The following procedures show you how to display a list of your backups\. If you desire, you can also view the details of a particular backup\.
 
-## Describing Backups \(Console\)<a name="backups-describing-CON"></a>
+## Describing backups \(Console\)<a name="backups-describing-CON"></a>
 
 **To display backups using the AWS Management Console**
 
@@ -14,7 +14,7 @@ The following procedures show you how to display a list of your backups\. If you
 
 1. To see the details of a particular backup, choose the box to the left of the backup's name\.
 
-## Describing Backups \(AWS CLI\)<a name="backups-describing-CLI"></a>
+## Describing backups \(AWS CLI\)<a name="backups-describing-CLI"></a>
 
 To display a list of backups and optionally details about a specific backup, use the `describe-snapshots` CLI operation\. 
 
@@ -40,7 +40,7 @@ aws elasticache describe-snapshots --snapshot-name my-backup
 
 For more information, see [describe\-snapshots](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-snapshots.html) in the AWS CLI Command Reference\.
 
-## Describing Backups \(ElastiCache API\)<a name="backups-describing-API"></a>
+## Describing backups \(ElastiCache API\)<a name="backups-describing-API"></a>
 
 To display a list of backups, use the `DescribeSnapshots` operation\.
 

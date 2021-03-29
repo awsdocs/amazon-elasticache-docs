@@ -1,4 +1,4 @@
-# Finding Connection Endpoints<a name="Endpoints"></a>
+# Finding connection endpoints<a name="Endpoints"></a>
 
 Your application connects to your cluster using endpoints\. An endpoint is a node or cluster's unique address\.
 
@@ -62,7 +62,7 @@ For read activity, applications can also connect to any node in the cluster\. Un
 
    1. Right\-click the highlighted endpoint, then choose **Copy** from the context menu\.
 
-   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to Nodes](nodes-connecting.md)\.
+   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to nodes](nodes-connecting.md)\.
 
 A Redis \(cluster mode disabled\) primary endpoint looks something like the following\. There is a difference depending upon whether or not In\-Transit encryption is enabled\.
 
@@ -134,7 +134,7 @@ The following procedure demonstrates how to find and copy Redis \(cluster mode e
 
 1. Right\-click the highlighted endpoint and choose **Copy** from the context menu\.
 
-   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to Nodes](nodes-connecting.md)\.
+   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to nodes](nodes-connecting.md)\.
 
 A Redis \(cluster mode enabled\) configuration endpoint looks something like the following\.
 

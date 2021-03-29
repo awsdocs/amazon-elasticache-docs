@@ -1,4 +1,4 @@
-# Performing Online Data Migration Using the Console<a name="Migration-Console"></a>
+# Performing online data migration using the Console<a name="Migration-Console"></a>
 
 You can use the AWS Management Console to migrate your data from the EC2 instance to your Redis cluster\. 
 

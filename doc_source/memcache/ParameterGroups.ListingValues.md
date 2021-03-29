@@ -1,8 +1,8 @@
-# Listing a Parameter Group's Values<a name="ParameterGroups.ListingValues"></a>
+# Listing a parameter group's values<a name="ParameterGroups.ListingValues"></a>
 
 You can list the parameters and their values for a parameter group using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
-## Listing a Parameter Group's Values \(Console\)<a name="ParameterGroups.ListingValues.CON"></a>
+## Listing a parameter group's values \(Console\)<a name="ParameterGroups.ListingValues.CON"></a>
 
 The following procedure shows how to list the parameters and their values for a parameter group using the ElastiCache console\.
 
@@ -16,7 +16,7 @@ The following procedure shows how to list the parameters and their values for a 
 
    The parameters and their values will be listed at the bottom of the screen\. Due to the number of parameters, you may have to scroll up and down to find the parameter you're interested in\.
 
-## Listing a Parameter Group's Values \(AWS CLI\)<a name="ParameterGroups.ListingValues.CLI"></a>
+## Listing a parameter group's values \(AWS CLI\)<a name="ParameterGroups.ListingValues.CLI"></a>
 
 To list a parameter group's parameters and their values using the AWS CLI, use the command `describe-cache-parameters`\.
 
@@ -37,7 +37,7 @@ aws elasticache describe-cache-parameters ^
 
 For more information, see [https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-parameters.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-parameters.html)\.
 
-## Listing a Parameter Group's Values \(ElastiCache API\)<a name="ParameterGroups.ListingValues.API"></a>
+## Listing a parameter group's values \(ElastiCache API\)<a name="ParameterGroups.ListingValues.API"></a>
 
 To list a parameter group's parameters and their values using the ElastiCache API, use the `DescribeCacheParameters` action\.
 

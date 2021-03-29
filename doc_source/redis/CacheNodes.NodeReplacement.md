@@ -1,4 +1,4 @@
-# Replacing Nodes<a name="CacheNodes.NodeReplacement"></a>
+# Replacing nodes<a name="CacheNodes.NodeReplacement"></a>
 
 Amazon ElastiCache for Redis frequently upgrades its fleet with patches and upgrades being applied to instances seamlessly\. However, from time to time we need to relaunch your ElastiCache for Redis nodes to apply mandatory OS updates to the underlying host\. These replacements are required to apply upgrades that strengthen security, reliability, and operational performance\.
 
@@ -42,8 +42,8 @@ The following list identifies actions you can take when ElastiCache schedules on
 
    
 + **Change your maintenance window** – For scheduled maintenance events, you receive an email or a notification event from ElastiCache\. In these cases, if you change your maintenance window before the scheduled replacement time, your node now is replaced at the new time\. For more information, see the following:
-  + [Modifying an ElastiCache Cluster](Clusters.Modify.md)
-  + [Modifying a Replication Group](Replication.Modify.md)
+  + [Modifying an ElastiCache cluster](Clusters.Modify.md)
+  + [Modifying a replication group](Replication.Modify.md)
 **Note**  
 The ability to change your replacement window by moving your maintenance window is only available when the ElastiCache notification includes a maintenance window\. If the notification does not include a maintenance window, you cannot change your replacement window\.
 
@@ -52,18 +52,18 @@ The ability to change your replacement window by moving your maintenance window 
   + You change your maintenance window to Saturday at 16:00, after the current date and time and after the next scheduled maintenance window\. The node is replaced on Saturday, November 11, at 16:00\.
   + You change your maintenance window to Wednesday at 16:00, earlier in the week than the current date and time\)\. The node is replaced next Wednesday, November 15, at 16:00\.
 
-  For instructions, see [Managing Maintenance](maintenance-window.md)\.
+  For instructions, see [Managing maintenance](maintenance-window.md)\.
 
    
 + **Replace the only node in any Redis cluster** – If the cluster does not have any read replicas, you can use the following procedure to replace the node\.
 
 **To replace the only node using backup and restore**
 
-  1. Create a snapshot of the node's cluster\. For instructions, see [Making Manual Backups](backups-manual.md)\.
+  1. Create a snapshot of the node's cluster\. For instructions, see [Making manual backups](backups-manual.md)\.
 
-  1. Create a new cluster seeding it from the snapshot\. For instructions, see [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
+  1. Create a new cluster seeding it from the snapshot\. For instructions, see [Restoring from a backup with optional cluster resizing](backups-restoring.md)\.
 
-  1. Delete the cluster with the node scheduled for replacement\. For instructions, see [Deleting a Cluster](Clusters.Delete.md)\.
+  1. Delete the cluster with the node scheduled for replacement\. For instructions, see [Deleting a cluster](Clusters.Delete.md)\.
 
   1. In your application, replace the old node's endpoint with the new node's endpoint\.
 
@@ -74,9 +74,9 @@ If your shard or replication group already has five replicas, reverse steps 1 an
 
 **To replace a replica in any Redis cluster**
 
-  1. Increase the replica count by adding a replica to the shard or replication group\. For more information, see [Increasing the Number of Replicas in a Shard](increase-replica-count.md)\.
+  1. Increase the replica count by adding a replica to the shard or replication group\. For more information, see [Increasing the number of replicas in a shard](increase-replica-count.md)\.
 
-  1. Delete the replica you want to replace\. For more information, see [Decreasing the Number of Replicas in a Shard](decrease-replica-count.md)\.
+  1. Delete the replica you want to replace\. For more information, see [Decreasing the number of replicas in a shard](decrease-replica-count.md)\.
 
   1. Update the endpoints in your application\.
 
@@ -85,9 +85,9 @@ If your shard or replication group already has five replicas, reverse steps 1 an
 
 **To replace any node in a Redis \(cluster mode enabled\) cluster**
 
-  1. Scale out: Add an additional shard with the same configuration as the existing shard with the node to be replaced\. For more information, see [Adding Shards with Online Resharding](redis-cluster-resharding-online.md#redis-cluster-resharding-online-add)\. 
+  1. Scale out: Add an additional shard with the same configuration as the existing shard with the node to be replaced\. For more information, see [Adding shards with online resharding](redis-cluster-resharding-online.md#redis-cluster-resharding-online-add)\. 
 
-  1. Scale in: Delete the shard with the node to be replaced\. For more information, see [Removing Shards with Online Resharding](redis-cluster-resharding-online.md#redis-cluster-resharding-online-remove)\.
+  1. Scale in: Delete the shard with the node to be replaced\. For more information, see [Removing shards with online resharding](redis-cluster-resharding-online.md#redis-cluster-resharding-online-remove)\.
 
   1. Update the endpoints in your application\.
 
@@ -100,26 +100,26 @@ If your shard or replication group already has five replicas, reverse steps 1 an
 
   1. Add a read\-replica to the cluster\. For instructions, see [To add nodes to a cluster \(console\)](Clusters.AddNode.md#AddNode.CON)\.
 
-  1. Promote the newly created read\-replica to primary\. For instructions, see [Promoting a Read Replica to Primary, for Redis \(cluster mode disabled\) Replication Groups](Replication.PromoteReplica.md)\.
+  1. Promote the newly created read\-replica to primary\. For instructions, see [Promoting a read replica to primary, for Redis \(cluster mode disabled\) replication groups](Replication.PromoteReplica.md)\.
 
-  1. Delete the node scheduled for replacement\. For instructions, see [Removing Nodes from a Cluster](Clusters.DeleteNode.md)\.
+  1. Delete the node scheduled for replacement\. For instructions, see [Removing nodes from a cluster](Clusters.DeleteNode.md)\.
 
   1. In your application, replace the old node's endpoint with the new node's endpoint\.
 
    
 + **Replace a Redis \(cluster mode disabled\) read\-replica** – If the node is a read\-replica, replace the node\.
 
-  If your cluster has only one replica node and Multi\-AZ is enabled, you must disable Multi\-AZ before you can delete the replica\. For instructions, see [Modifying a Replication Group](Replication.Modify.md)\.
+  If your cluster has only one replica node and Multi\-AZ is enabled, you must disable Multi\-AZ before you can delete the replica\. For instructions, see [Modifying a replication group](Replication.Modify.md)\.
 
 **To replace a Redis \(cluster mode disabled\) read replica**
 
   1. Delete the replica that is scheduled for replacement\. For instructions, see the following:
-     + [Decreasing the Number of Replicas in a Shard](decrease-replica-count.md)
-     + [Removing Nodes from a Cluster](Clusters.DeleteNode.md)
+     + [Decreasing the number of replicas in a shard](decrease-replica-count.md)
+     + [Removing nodes from a cluster](Clusters.DeleteNode.md)
 
   1. Add a new replica to replace the one that is scheduled for replacement\. If you use the same name as the replica you just deleted, you can skip step 3\. For instructions, see the following:
-     + [Increasing the Number of Replicas in a Shard](increase-replica-count.md)
-     + [Adding a Read Replica, for Redis \(Cluster Mode Disabled\) Replication Groups](Replication.AddReadReplica.md)
+     + [Increasing the number of replicas in a shard](increase-replica-count.md)
+     + [Adding a read replica, for Redis \(Cluster Mode Disabled\) replication groups](Replication.AddReadReplica.md)
 
   1. In your application, replace the old replica's endpoint with the new replica's endpoint\.
 
@@ -128,17 +128,17 @@ If your shard or replication group already has five replicas, reverse steps 1 an
    
 + **Replace a Redis \(cluster mode disabled\) primary node** – If the node is the primary node, first promote a read\-replica to primary\. Then delete the replica that used to be the primary node\.
 
-  If your cluster has only one replica and Multi\-AZ is enabled, you must disable Multi\-AZ before you can delete the replica in step 2\. For instructions, see [Modifying a Replication Group](Replication.Modify.md)\.
+  If your cluster has only one replica and Multi\-AZ is enabled, you must disable Multi\-AZ before you can delete the replica in step 2\. For instructions, see [Modifying a replication group](Replication.Modify.md)\.
 
 **To replace a Redis \(cluster mode disabled\) primary node**
 
-  1. Promote a read\-replica to primary\. For instructions, see [Promoting a Read Replica to Primary, for Redis \(cluster mode disabled\) Replication Groups](Replication.PromoteReplica.md)\.
+  1. Promote a read\-replica to primary\. For instructions, see [Promoting a read replica to primary, for Redis \(cluster mode disabled\) replication groups](Replication.PromoteReplica.md)\.
 
-  1. Delete the node that is scheduled for replacement \(the old primary\)\. For instructions, see [Removing Nodes from a Cluster](Clusters.DeleteNode.md)\.
+  1. Delete the node that is scheduled for replacement \(the old primary\)\. For instructions, see [Removing nodes from a cluster](Clusters.DeleteNode.md)\.
 
   1. Add a new replica to replace the one scheduled for replacement\. If you use the same name as the node you just deleted, you can skip changing endpoints in your application\.
 
-     For instructions, see [Adding a Read Replica, for Redis \(Cluster Mode Disabled\) Replication Groups](Replication.AddReadReplica.md)\.
+     For instructions, see [Adding a read replica, for Redis \(Cluster Mode Disabled\) replication groups](Replication.AddReadReplica.md)\.
 
   1. In your application, replace the old node's endpoint with the new node's endpoint\.
 

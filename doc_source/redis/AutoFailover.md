@@ -1,4 +1,4 @@
-# Minimizing Downtime in ElastiCache for Redis with Multi\-AZ<a name="AutoFailover"></a>
+# Minimizing downtime in ElastiCache for Redis with Multi\-AZ<a name="AutoFailover"></a>
 
 There are a number of instances where ElastiCache for Redis may need to replace a primary node; these include certain types of planned maintenance and the unlikely event of a primary node or Availability Zone failure\. 
 
@@ -19,15 +19,15 @@ Enabling ElastiCache Multi\-AZ on your Redis cluster \(in the API and CLI, repli
 
 **Topics**
 + [Enabling Multi\-AZ](#AutoFailover.Enable)
-+ [Failure Scenarios with Multi\-AZ Responses](#AutoFailover.Scenarios)
-+ [Testing Automatic Failover](#auto-failover-test)
++ [Failure scenarios with Multi\-AZ responses](#AutoFailover.Scenarios)
++ [Testing automatic failover](#auto-failover-test)
 + [Limitations on Redis Multi\-AZ](#AutoFailover.Notes)
 
 ## Enabling Multi\-AZ<a name="AutoFailover.Enable"></a>
 
 You can enable Multi\-AZ when you create or modify a cluster \(API or CLI, replication group\) using the ElastiCache console, AWS CLI, or the ElastiCache API\.
 
-You can enable Multi\-AZ only on Redis \(cluster mode disabled\) clusters that have at least one available read replica\. Clusters without read replicas do not provide high availability or fault tolerance\. For information about creating a cluster with replication, see [Creating a Redis Replication Group](Replication.CreatingRepGroup.md)\. For information about adding a read replica to a cluster with replication, see [Adding a Read Replica, for Redis \(Cluster Mode Disabled\) Replication Groups](Replication.AddReadReplica.md)\.
+You can enable Multi\-AZ only on Redis \(cluster mode disabled\) clusters that have at least one available read replica\. Clusters without read replicas do not provide high availability or fault tolerance\. For information about creating a cluster with replication, see [Creating a Redis replication group](Replication.CreatingRepGroup.md)\. For information about adding a read replica to a cluster with replication, see [Adding a read replica, for Redis \(Cluster Mode Disabled\) replication groups](Replication.AddReadReplica.md)\.
 
 **Topics**
 + [Enabling Multi\-AZ \(Console\)](#AutoFailover.Enable.Console)
@@ -43,11 +43,11 @@ Multi\-AZ is enabled by default on Redis \(cluster mode enabled\) clusters\.
 **Important**  
 ElastiCache will automatically enable Multi\-AZ only if the cluster contains at least one replica in a different Availability Zone from the primary in all shards\.
 
-#### Enabling Multi\-AZ When Creating a Cluster Using the ElastiCache Console<a name="AutoFailover.Enable.Console.NewCacheCluster"></a>
+#### Enabling Multi\-AZ when creating a cluster using the ElastiCache console<a name="AutoFailover.Enable.Console.NewCacheCluster"></a>
 
-For more information on this process, see [Creating a Cluster Mode Disabled Cluster \(Console\)](Clusters.Create.CON.Redis.md)\. Be sure to have one or more replicas and enable Multi\-AZ\.
+For more information on this process, see [Creating a cluster\-mode disabled cluster \(Console\)](Clusters.Create.CON.Redis.md)\. Be sure to have one or more replicas and enable Multi\-AZ\.
 
-#### Enabling Multi\-AZ on an Existing Cluster \(Console\)<a name="AutoFailover.Enable.Console.ReplGrp"></a>
+#### Enabling Multi\-AZ on an existing cluster \(Console\)<a name="AutoFailover.Enable.Console.ReplGrp"></a>
 
 For more information on this process, see Modifying a Cluster [Using the AWS Management Console](Clusters.Modify.md#Clusters.Modify.CON)\.
 
@@ -163,18 +163,18 @@ For more information, see these topics in the *ElastiCache API Reference*:
 + [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 + [ModifyReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html)
 
-## Failure Scenarios with Multi\-AZ Responses<a name="AutoFailover.Scenarios"></a>
+## Failure scenarios with Multi\-AZ responses<a name="AutoFailover.Scenarios"></a>
 
 Before the introduction of Multi\-AZ, ElastiCache detected and replaced a cluster's failed nodes by recreating and reprovisioning the failed node\. If you enable Multi\-AZ, a failed primary node fails over to the replica with the least replication lag\. The selected replica is automatically promoted to primary, which is much faster than creating and reprovisioning a new primary node\. This process usually takes just a few seconds until you can write to the cluster again\.
 
 When Multi\-AZ is enabled, ElastiCache continually monitors the state of the primary node\. If the primary node fails, one of the following actions is performed depending on the type of failure\.
 
 **Topics**
-+ [Failure Scenarios When Only the Primary Node Fails](#AutoFailover.Scenarios.PrimaryOnly)
-+ [Failure Scenarios When the Primary Node and Some Read Replicas Fail](#AutoFailover.Scenarios.PrimaryAndReplicas)
-+ [Failure Scenarios When the Entire Cluster Fails](#AutoFailover.Scenarios.AllFail)
++ [Failure scenarios when only the primary node fails](#AutoFailover.Scenarios.PrimaryOnly)
++ [Failure scenarios when the primary node and some read replicas fail](#AutoFailover.Scenarios.PrimaryAndReplicas)
++ [Failure scenarios when the entire cluster fails](#AutoFailover.Scenarios.AllFail)
 
-### Failure Scenarios When Only the Primary Node Fails<a name="AutoFailover.Scenarios.PrimaryOnly"></a>
+### Failure scenarios when only the primary node fails<a name="AutoFailover.Scenarios.PrimaryOnly"></a>
 
 If only the primary node fails, the read replica with the least replication lag is promoted to primary\. A replacement read replica is then created and provisioned in the same Availability Zone as the failed primary\.
 
@@ -203,7 +203,7 @@ For information about finding the endpoints of a cluster, see the following topi
 
  
 
-### Failure Scenarios When the Primary Node and Some Read Replicas Fail<a name="AutoFailover.Scenarios.PrimaryAndReplicas"></a>
+### Failure scenarios when the primary node and some read replicas fail<a name="AutoFailover.Scenarios.PrimaryAndReplicas"></a>
 
 If the primary and at least one read replica fails, the available replica with the least replication lag is promoted to primary cluster\. New read replicas are also created and provisioned in the same Availability Zones as the failed nodes and replica that was promoted to primary\.
 
@@ -232,7 +232,7 @@ For information about finding the endpoints of a replication group, see the foll
 
  
 
-### Failure Scenarios When the Entire Cluster Fails<a name="AutoFailover.Scenarios.AllFail"></a>
+### Failure scenarios when the entire cluster fails<a name="AutoFailover.Scenarios.AllFail"></a>
 
 If everything fails, all the nodes are recreated and provisioned in the same Availability Zones as the original nodes\. 
 
@@ -259,7 +259,7 @@ For information about finding the endpoints of a replication group, see the foll
 
 We recommend that you create the primary node and read replicas in different Availability Zones to raise your fault tolerance level\.
 
-## Testing Automatic Failover<a name="auto-failover-test"></a>
+## Testing automatic failover<a name="auto-failover-test"></a>
 
 After you enable automatic failover, you can test it using the ElastiCache console, the AWS CLI, and the ElastiCache API\.
 
@@ -280,16 +280,16 @@ When testing, note the following:
   1. Cache cluster message: `Finished recovery for cache nodes <node-id>`
 
   For more information, see the following:
-  + [Viewing ElastiCache Events](ECEvents.Viewing.md) in the *ElastiCache User Guide*
+  + [Viewing ElastiCache events](ECEvents.Viewing.md) in the *ElastiCache User Guide*
   + [DescribeEvents](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html) in the *ElastiCache API Reference*
   + [describe\-events](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-events.html) in the *AWS CLI Command Reference\.*
 
 **Topics**
-+ [Testing Automatic Failover Using the AWS Management Console](#auto-failover-test-con)
-+ [Testing Automatic Failover Using the AWS CLI](#auto-failover-test-cli)
-+ [Testing Automatic Failover Using the ElastiCache API](#auto-failover-test-api)
++ [Testing automatic failover using the AWS Management Console](#auto-failover-test-con)
++ [Testing automatic failover using the AWS CLI](#auto-failover-test-cli)
++ [Testing automatic failover using the ElastiCache API](#auto-failover-test-api)
 
-### Testing Automatic Failover Using the AWS Management Console<a name="auto-failover-test-con"></a>
+### Testing automatic failover using the AWS Management Console<a name="auto-failover-test-con"></a>
 
 Use the following procedure to test automatic failover with the console\.
 
@@ -320,7 +320,7 @@ Use the following procedure to test automatic failover with the console\.
 
  
 
-### Testing Automatic Failover Using the AWS CLI<a name="auto-failover-test-cli"></a>
+### Testing automatic failover using the AWS CLI<a name="auto-failover-test-cli"></a>
 
 You can test automatic failover on any Multi\-AZ enabled cluster using the AWS CLI operation `test-failover`\.
 
@@ -330,7 +330,7 @@ You can test automatic failover on any Multi\-AZ enabled cluster using the AWS C
 
 The following example uses the AWS CLI to test automatic failover on the node group `redis00-0003` in the Redis \(cluster mode enabled\) cluster `redis00`\.
 
-**Example Test Automatic Failover**  
+**Example Test automatic failover**  
 For Linux, macOS, or Unix:  
 
 ```
@@ -421,7 +421,7 @@ For more information, see the following:
 
  
 
-### Testing Automatic Failover Using the ElastiCache API<a name="auto-failover-test-api"></a>
+### Testing automatic failover using the ElastiCache API<a name="auto-failover-test-api"></a>
 
 You can test automatic failover on any cluster enabled with Multi\-AZ using the ElastiCache API operation `TestFailover`\.
 
@@ -431,7 +431,7 @@ You can test automatic failover on any cluster enabled with Multi\-AZ using the 
 
 The following example tests automatic failover on the node group `redis00-0003` in the replication group \(on the console, cluster\) `redis00`\.
 
-**Example Testing Automatic Failover**  
+**Example Testing automatic failover**  
 
 ```
 https://elasticache.us-west-2.amazonaws.com/

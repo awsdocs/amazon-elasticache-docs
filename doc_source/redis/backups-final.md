@@ -1,26 +1,26 @@
-# Creating a Final Backup<a name="backups-final"></a>
+# Creating a final backup<a name="backups-final"></a>
 
 You can create a final backup using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
-## Creating a Final Backup \(Console\)<a name="backups-final-CON"></a>
+## Creating a final backup \(Console\)<a name="backups-final-CON"></a>
 
 You can create a final backup when you delete either a Redis cluster \(for the API or CLI, a replication group\) using the ElastiCache console\.
 
 To create a final backup when deleting a Redis cluster, on the delete dialog box \(step 5\), choose **Yes** and give the backup a name\.
 
-**Related Topics**
+**Related topics**
 + [Using the AWS Management Console](Clusters.Delete.md#Clusters.Delete.CON)
 + [Deleting a Replication Group \(Console\)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CON)
 
-## Creating a Final Backup \(AWS CLI\)<a name="backups-final-CLI"></a>
+## Creating a final backup \(AWS CLI\)<a name="backups-final-CLI"></a>
 
 You can create a final backup when deleting a Redis cluster \(for the API or CLI, a replication group\) using the AWS CLI\.
 
 **Topics**
-+ [When Deleting a Redis Cluster With No Read Replicas](#w64aac18c42c47b9b7)
-+ [When Deleting a Redis Cluster With Read Replicas](#w64aac18c42c47b9b9)
++ [When deleting a Redis cluster with no read replicas](#w75aac18c42c47b9b7)
++ [When deleting a Redis cluster with read replicas](#w75aac18c42c47b9b9)
 
-### When Deleting a Redis Cluster With No Read Replicas<a name="w64aac18c42c47b9b7"></a>
+### When deleting a Redis cluster with no read replicas<a name="w75aac18c42c47b9b7"></a>
 
 To create a final backup, use the `delete-cache-cluster` AWS CLI operation with the following parameters\.
 + `--cache-cluster-id` – Name of the cluster being deleted\.
@@ -46,7 +46,7 @@ aws elasticache delete-cache-cluster ^
 
 For more information, see [delete\-cache\-cluster](https://docs.aws.amazon.com/cli/latest/reference/elasticache/delete-cache-cluster.html) in the *AWS CLI Command Reference*\.
 
-### When Deleting a Redis Cluster With Read Replicas<a name="w64aac18c42c47b9b9"></a>
+### When deleting a Redis cluster with read replicas<a name="w75aac18c42c47b9b9"></a>
 
 To create a final backup when deleting a replication group, use the `delete-replication-group` AWS CLI operation, with the following parameters:
 + `--replication-group-id` – Name of the replication group being deleted\.
@@ -72,15 +72,15 @@ aws elasticache delete-replication-group ^
 
 For more information, see [delete\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/delete-replication-group.html) in the *AWS CLI Command Reference*\.
 
-## Creating a Final Backup \(ElastiCache API\)<a name="backups-final-API"></a>
+## Creating a final backup \(ElastiCache API\)<a name="backups-final-API"></a>
 
 You can create a final backup when deleting a Redis cluster or replication group using the ElastiCache API\.
 
 **Topics**
-+ [When Deleting a Redis Cluster](#backups-final-API-Redis-cluster)
-+ [When Deleting a Redis Replication Group](#backups-final-API-Redis-rg)
++ [When deleting a Redis cluster](#backups-final-API-Redis-cluster)
++ [When deleting a Redis replication group](#backups-final-API-Redis-rg)
 
-### When Deleting a Redis Cluster<a name="backups-final-API-Redis-cluster"></a>
+### When deleting a Redis cluster<a name="backups-final-API-Redis-cluster"></a>
 
 To create a final backup, use the `DeleteCacheCluster` ElastiCache API operation with the following parameters\.
 + `CacheClusterId` – Name of the cluster being deleted\.
@@ -102,7 +102,7 @@ https://elasticache.us-west-2.amazonaws.com/
 
 For more information, see [DeleteCacheCluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html) in the *Amazon ElastiCache API Reference*\.
 
-### When Deleting a Redis Replication Group<a name="backups-final-API-Redis-rg"></a>
+### When deleting a Redis replication group<a name="backups-final-API-Redis-rg"></a>
 
 To create a final backup when deleting a replication group, use the `DeleteReplicationGroup` ElastiCache API operation, with the following parameters:
 + `ReplicationGroupId` – Name of the replication group being deleted\.

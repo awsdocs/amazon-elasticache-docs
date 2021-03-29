@@ -1,8 +1,8 @@
-# Host\-Level Metrics<a name="CacheMetrics.HostLevel"></a>
+# Host\-level metrics<a name="CacheMetrics.HostLevel"></a>
 
 The `AWS/ElastiCache` namespace includes the following host\-level metrics for individual cache nodes\.
 
-**See Also**
+**See also**
 + [Metrics for Memcached](CacheMetrics.Memcached.md)
 
 

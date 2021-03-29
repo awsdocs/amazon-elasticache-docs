@@ -36,7 +36,7 @@ Selecting more than 20 nodes disables viewing metrics on the console\.
 
       The CloudWatch console will open, displaying your selected metrics\. You can use the **Statistic** and **Period** drop\-down list boxes and **Time Range** tab to change the metrics being displayed\. 
 
-## Monitoring CloudWatch Cluster and Node Metrics Using the CloudWatch CLI<a name="CloudWatchMetrics.CLI"></a>
+## Monitoring CloudWatch Cluster and Node Metrics using the CloudWatch CLI<a name="CloudWatchMetrics.CLI"></a>
 
  **To gather CPU utilization statistics for a cache cluster** 
 + For Linux, macOS, or Unix:
@@ -45,7 +45,7 @@ Selecting more than 20 nodes disables viewing metrics on the console\.
   aws cloudwatch get-metric-statistics \
       --namespace AWS/ElastiCache \
       --metric-name CPUUtilization \
-      --dimensions="'[{"Name":"CacheClusterId","Value":"mycachecluster"},{"Name":"CacheNodeId","Value":"0002"}]' \	
+      --dimensions="'[{"Name":"CacheClusterId","Value":"test"},{"Name":"CacheNodeId","Value":"0001"}]' \					
       --statistics=Average \
       --start-time 2018-07-05T00:00:00 \
       --end-time 2018-07-06T00:00:00 \
@@ -58,14 +58,14 @@ Selecting more than 20 nodes disables viewing metrics on the console\.
   aws cloudwatch get-metric-statistics ^
       --namespace AWS/ElastiCache ^
       --metric-name CPUUtilization ^
-      --dimensions="'[{"Name":"CacheClusterId","Value":"mycachecluster"},{"Name":"CacheNodeId","Value":"0002"}]' ^
+      --dimensions="'[{"Name":"CacheClusterId","Value":"test"},{"Name":"CacheNodeId","Value":"0001"}]' ^
       --statistics=Average ^
       --start-time 2018-07-05T00:00:00 ^
       --end-time 2018-07-06T00:00:00 ^
       --period=3600
   ```
 
-## Monitoring CloudWatch Cluster and Node Metrics Using the CloudWatch API<a name="CloudWatchMetrics.API"></a>
+## Monitoring CloudWatch Cluster and Node Metrics using the CloudWatch API<a name="CloudWatchMetrics.API"></a>
 
  **To gather CPU utilization statistics for a cache cluster** 
 + Call the CloudWatch API `GetMetricStatistics` with the following parameters \(note that the start and end times are shown as examples only; you will need to substitute your own appropriate start and end times\):

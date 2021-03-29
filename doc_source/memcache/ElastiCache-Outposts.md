@@ -20,7 +20,7 @@ ElastiCache for Outposts is not supported in the following regions: cn\-north\-1
 
 1. Under **Location**, select **On\-Premises \- Create your ElastiCache instances on AWS Outposts**\. 
 
-### Configure On\-Premises options<a name="Outposts.Creating.Console.Memcached.Details"></a>
+### Configure on\-premises options<a name="Outposts.Creating.Console.Memcached.Details"></a>
 
  You can select either an available Outpost to add your cache cluster or, if there are no available Outposts, create a new one using the following steps:
 
@@ -53,7 +53,7 @@ ElastiCache for Outposts is not supported in the following regions: cn\-north\-1
 
    1. Select **Create**\.
 
-### Viewing Outpost Cluster Details<a name="Outposts.Creating.Console.Outpost-Details"></a>
+### Viewing Outpost cluster details<a name="Outposts.Creating.Console.Outpost-Details"></a>
 
 On the Memcached list page, select a cluster that belongs to an AWS Outpost and note the following when viewing the **Cluster details**:
 + **Availability Zone**: This will represent the Outpost, using an ARN \(Amazon Resource Name\) and the AWS Resource Number\.
@@ -63,7 +63,7 @@ On the Memcached list page, select a cluster that belongs to an AWS Outpost and 
 
 You can use the AWS Command Line Interface \(AWS CLI\) to control multiple AWS services from the command line and automate them through scripts\. You can use the AWS CLI for ad hoc \(one\-time\) operations\. 
 
-### Downloading and Configuring the AWS CLI<a name="Redis-Global-Clusters-Downloading-CLI"></a>
+### Downloading and configuring the AWS CLI<a name="Redis-Global-Clusters-Downloading-CLI"></a>
 
 The AWS CLI runs on Windows, macOS, or Linux\. Use the following procedure to download and configure it\.
 
@@ -76,7 +76,7 @@ The AWS CLI runs on Windows, macOS, or Linux\. Use the following procedure to do
 ### Using the AWS CLI with Outposts<a name="Redis-Outposts-Using-CLI"></a>
 
 Use the following CLI operation to create a cache cluster that uses Outposts: 
-+  [create\-cache\-cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/CommandLineReference/CLIReference-cmd-CreateCacheCluster.html)  – Using this operation, the `outpost-mode` parameter accepts a value that specifies whether the nodes in the cache cluster are created in a single outpost or across multiple outposts\. 
++  [create\-cache\-cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/CommandLineReference/CLIReference-cmd-CreateCacheCluster.html)  – Using this operation, the `outpost-mode` parameter accepts a value that specifies whether the nodes in the cache cluster are created in a single Outpost or across multiple Outposts\. 
 **Note**  
 At this time, only `single-outpost` mode is supported\.
 

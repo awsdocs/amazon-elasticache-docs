@@ -1,4 +1,4 @@
-# What Is Amazon ElastiCache for Redis?<a name="WhatIs"></a>
+# What is Amazon ElastiCache for Redis?<a name="WhatIs"></a>
 
 Welcome to the *Amazon ElastiCache for Redis User Guide*\. Amazon ElastiCache is a web service that makes it easy to set up, manage, and scale a distributed in\-memory data store or cache environment in the cloud\. It provides a high\-performance, scalable, and cost\-effective caching solution\. At the same time, it helps remove the complexity associated with deploying and managing a distributed cache environment\.
 
@@ -17,7 +17,7 @@ ElastiCache for Redis has multiple features that help make the service more reli
 
 **Topics**
 + [Common ElastiCache Use Cases and How ElastiCache Can Help](elasticache-use-cases.md)
-+ [Amazon ElastiCache Resources](WhatIs.FirstTimeUser.md)
-+ [ElastiCache for Redis Components and Features](WhatIs.Components.md)
-+ [ElastiCache for Redis Terminology](WhatIs.Terms.md)
-+ [Tools for Managing Your Implementation](WhatIs.Managing.md)
++ [Amazon ElastiCache resources](WhatIs.FirstTimeUser.md)
++ [ElastiCache for Redis components and features](WhatIs.Components.md)
++ [ElastiCache for Redis terminology](WhatIs.Terms.md)
++ [Tools for managing your implementation](WhatIs.Managing.md)

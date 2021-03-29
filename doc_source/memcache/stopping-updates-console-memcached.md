@@ -1,4 +1,4 @@
-# Stopping the Service Updates Using the Console<a name="stopping-updates-console-memcached"></a>
+# Stopping the service updates using the console<a name="stopping-updates-console-memcached"></a>
 
 You can interrupt a service update using the console\. The following demonstrates how to do this:
 + After a service update has progressed on a selected Memcached cluster, the ElastiCache console displays the **View/Stop Update** tab at the top of the dashboard\.  

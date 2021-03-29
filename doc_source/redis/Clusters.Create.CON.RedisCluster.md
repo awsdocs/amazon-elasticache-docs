@@ -1,6 +1,6 @@
-# Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Clusters.Create.CON.RedisCluster"></a>
+# Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)<a name="Clusters.Create.CON.RedisCluster"></a>
 
-If you are running Redis 3\.2\.4 or later, you can create a Redis \(cluster mode enabled\) cluster\. Redis \(cluster mode enabled\) clusters support partitioning your data across 1 to 250 shards \(API/CLI: node groups\) but with some limitations\. For a comparison of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\), see [Supported ElastiCache for Redis Versions](supported-engine-versions.md)\.
+If you are running Redis 3\.2\.4 or later, you can create a Redis \(cluster mode enabled\) cluster\. Redis \(cluster mode enabled\) clusters support partitioning your data across 1 to 250 shards \(API/CLI: node groups\) but with some limitations\. For a comparison of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\), see [Supported ElastiCache for Redis versions](supported-engine-versions.md)\.
 
 You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication group\) using the ElastiCache management console, the AWS CLI for ElastiCache, and the ElastiCache API\.
 
@@ -27,34 +27,34 @@ You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication g
 
    1. For **Engine version compatibility**, choose the ElastiCache for Redis engine version that you want to run on this cluster\. Unless you have a specific reason to run an older version, we recommend that you choose the latest version\.
 **Important**  
-For more information on doing so, see [Upgrading Engine Versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
+For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
    1. In **Port**, use the default port, 6379\. If you have a reason to use a different port, enter the port number\.
 
-   1. For **Parameter group**, choose a parameter group or create a new one\. Parameter groups control the runtime parameters of your cluster\. For more information on parameter groups, see [Redis\-specific parameters](ParameterGroups.Redis.md) and [Creating a Parameter Group](ParameterGroups.Creating.md)\.
+   1. For **Parameter group**, choose a parameter group or create a new one\. Parameter groups control the runtime parameters of your cluster\. For more information on parameter groups, see [Redis\-specific parameters](ParameterGroups.Redis.md) and [Creating a parameter group](ParameterGroups.Creating.md)\.
 
    1. For **Node type**, choose the down arrow \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-DnArrow.png)\)\. In the **Change node type** dialog box, choose a value for **Instance family** for the node type that you want\. Then choose the node type that you want to use for this cluster, and then choose **Save**\.
 
-      For more information, see [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)\.
+      For more information, see [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)\.
 
    1. For **Number of shards**, choose the number of shards \(partitions/node groups\) that you want for this Redis \(cluster mode enabled\) cluster\.
 
       For some versions of Redis \(cluster mode enabled\), you can change the number of shards in your cluster dynamically:
-      + **Redis 3\.2\.10 and later** – If your cluster is running Redis 3\.2\.10 or later versions, you can change the number of shards in your cluster dynamically\. For more information, see [Scaling Clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\.
-      + **Other Redis versions** – If your cluster is running a version of Redis before version 3\.2\.10, there's another approach\. To change the number of shards in your cluster in this case, create a new cluster with the new number of shards\. For more information, see [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
+      + **Redis 3\.2\.10 and later** – If your cluster is running Redis 3\.2\.10 or later versions, you can change the number of shards in your cluster dynamically\. For more information, see [Scaling clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\.
+      + **Other Redis versions** – If your cluster is running a version of Redis before version 3\.2\.10, there's another approach\. To change the number of shards in your cluster in this case, create a new cluster with the new number of shards\. For more information, see [Restoring from a backup with optional cluster resizing](backups-restoring.md)\.
 
    1. For **Replicas per shard**, choose the number of read replica nodes that you want in each shard\.
 
       The following restrictions exist for Redis \(cluster mode enabled\)\.
       + If you have Multi\-AZ enabled, make sure that you have at least one replica per shard\.
       + The number of replicas is the same for each shard when creating the cluster using the console\.
-      + The number of read replicas per shard is fixed and cannot be changed\. If you find you need more or fewer replicas per shard \(API/CLI: node group\), you must create a new cluster with the new number of replicas\. For more information, see [Seeding a New Cluster with an Externally Created Backup](backups-seeding-redis.md)\.
+      + The number of read replicas per shard is fixed and cannot be changed\. If you find you need more or fewer replicas per shard \(API/CLI: node group\), you must create a new cluster with the new number of replicas\. For more information, see [Seeding a new cluster with an externally created backup](backups-seeding-redis.md)\.
 
    1. For **Subnet group**, create a new subnet group or choose an existing one that you want to apply to this cluster\. If you enabled Multi\-AZ, the subnet group must contain at least two subnets that reside in different availability zones\.
 
-      If you are using [Using Local Zones with ElastiCache ](Local_zones.md), you must create or choose a subnet that is in the local zone\. Multi\-AZ is automatically disabled\. Local Zones don't support global datastores at this time\.
+      If you are using [Using local zones with ElastiCache ](Local_zones.md), you must create or choose a subnet that is in the local zone\. Multi\-AZ is automatically disabled\. Local Zones don't support global datastores at this time\.
 
-      For more information, see [Subnets and Subnet Groups](SubnetGroups.md)\.
+      For more information, see [Subnets and subnet groups](SubnetGroups.md)\.
 
 1. Click **Advanced Redis settings** and complete the section\.
 
@@ -72,7 +72,7 @@ For more information on doing so, see [Upgrading Engine Versions](VersionManagem
 
         If you chose to specify the Availability Zones, for each cluster in each shard, choose the Availability Zone from the list\.
 
-      For more information, see [Choosing Regions and Availability Zones](RegionsAndAZs.md)\.  
+      For more information, see [Choosing regions and availability zones](RegionsAndAZs.md)\.  
 ![\[Image: Specifying Keyspaces and Availability Zones\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-ClusterOn-Slots-AZs.png)
 
       *Specifying Keyspaces and Availability Zones*
@@ -95,17 +95,17 @@ For Redis versions between 4\.0\.2, when Encryption in\-transit was first suppor
 
    1. \(Optional\) If you are going to seed your cluster with data from a \.rdb file, enter the S3 location of the \.rdb file for** Seed RDB file S3 location**\.
 
-      For more information, see [Seeding a New Cluster with an Externally Created Backup](backups-seeding-redis.md)\.
+      For more information, see [Seeding a new cluster with an externally created backup](backups-seeding-redis.md)\.
 
       For Redis \(cluster mode enabled\), make sure that you have a separate \.rdb file for each node group\.
 
    1. For regularly scheduled automatic backups, select **Enable automatic backups** and then enter the number of days that you want each automatic backup retained before it is automatically deleted\. If you don't want regularly scheduled automatic backups, clear the **Enable automatic backups** check box\. In either case, you always have the option to create manual backups\.
 
-      For more information on Redis backup and restore, see [Backup and Restore for ElastiCache for Redis ](backups.md)\.
+      For more information on Redis backup and restore, see [Backup and restore for ElastiCache for Redis ](backups.md)\.
 
    1. \(Optional\_ Specify a maintenance window\. The *maintenance window* is the time, generally an hour in length, each week when ElastiCache schedules system maintenance for your cluster\. You can allow ElastiCache to choose the day and time for your maintenance window \(*No preference*\), or you can choose the day, time, and duration yourself \(*Specify maintenance window*\)\. If you choose *Specify maintenance window* from the lists, choose the *Start day*, *Start time*, and *Duration* \(in hours\) for your maintenance window\. All times are UCT times\.
 
-      For more information, see [Managing Maintenance](maintenance-window.md)\.
+      For more information, see [Managing maintenance](maintenance-window.md)\.
 
    1. For **Notifications**, choose an existing Amazon Simple Notification Service \(Amazon SNS\) topic, or choose Manual ARN input and enter the topic's Amazon Resource Name \(ARN\)\. Amazon SNS allows you to push notifications to Internet\-connected smart devices\. The default is to disable notifications\. For more information, see [https://aws\.amazon\.com/sns/](https://aws.amazon.com/sns/)\.
 
@@ -115,7 +115,7 @@ To create the equivalent using the ElastiCache API or AWS CLI instead of the Ela
 + API: [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 + CLI: [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 
-As soon as your cluster's status is *available*, you can grant EC2 access to it, connect to it, and begin using it\. For more information, see [Access Authorization](GettingStarted.AuthorizeAccess.md) and [Connect to a Cluster's Node](GettingStarted.ConnectToCacheNode.md)\.
+As soon as your cluster's status is *available*, you can grant EC2 access to it, connect to it, and begin using it\. For more information, see [Access authorization](GettingStarted.AuthorizeAccess.md) and [Connect to a cluster's node](GettingStarted.ConnectToCacheNode.md)\.
 
 **Important**  
-As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a Cluster](Clusters.Delete.md)\. 
+As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a cluster](Clusters.Delete.md)\. 

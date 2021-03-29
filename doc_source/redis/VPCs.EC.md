@@ -13,7 +13,7 @@ The basic functionality of ElastiCache is the same in a virtual private cloud; E
 
 ElastiCache cache nodes deployed outside an Amazon VPC are assigned an IP address to which the endpoint/DNS name resolves\. This provides connectivity from Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. When you launch an ElastiCache cluster into an Amazon VPC private subnet, every cache node is assigned a private IP address within that subnet\.
 
-## Overview of ElastiCache In an Amazon VPC<a name="ElastiCacheAndVPC.Overview"></a>
+## Overview of ElastiCache in an Amazon VPC<a name="ElastiCacheAndVPC.Overview"></a>
 
 The following diagram and table describe the Amazon VPC environment, along with ElastiCache clusters and Amazon EC2 instances that are launched in the Amazon VPC\.
 
@@ -31,7 +31,7 @@ The following diagram and table describe the Amazon VPC environment, along with 
 |  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/callouts/7.png)  |  You can also launch Amazon EC2 instances in the subnet\. Each Amazon EC2 instance has a private IP address from the subnet's range of addresses\. The Amazon EC2 instance can connect to any cache node in the same subnet\.  | 
 |  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/callouts/8.png)  |  For an Amazon EC2 instance in your Amazon VPC to be reachable from the Internet, you need to assign a static, public address called an Elastic IP address to the instance\.  | 
 
-## Why use the Amazon VPC instead of EC2 Classic with your ElastiCache deployment?<a name="VPCs.WhyUse"></a>
+## Why use the Amazon VPC instead of EC2 classic with your ElastiCache deployment?<a name="VPCs.WhyUse"></a>
 
 Launching your instances into an Amazon VPC allows you to:
 + Assign static private IP addresses to your instances that persist across starts and stops\.
@@ -54,7 +54,7 @@ To create an ElastiCache cluster within an Amazon VPC, your Amazon VPC must meet
 + A cache security group must be defined for your Amazon VPC, or you can use the default provided\.
 + CIDR blocks for each subnet must be large enough to provide spare IP addresses for ElastiCache to use during maintenance activities\.
 
-## Routing and Security<a name="ElastiCacheAndVPC.RoutingAndSecurity"></a>
+## Routing and security<a name="ElastiCacheAndVPC.RoutingAndSecurity"></a>
 
 You can configure routing in your Amazon VPC to control where traffic flows \(for example, to the Internet gateway or virtual private gateway\)\. With an Internet gateway, your Amazon VPC has direct access to other AWS resources that are not running in your Amazon VPC\. If you choose to have only a virtual private gateway with a connection to your organization's local network, you can route your Internet\-bound traffic over the VPN and use local security policies and firewall to control egress\. In that case, you incur additional bandwidth charges when you access AWS resources over the Internet\.
 
@@ -63,7 +63,7 @@ You can use Amazon VPC security groups to help secure the ElastiCache clusters a
 **Note**  
 We strongly recommend that you use DNS names to connect to your cache nodes, as the underlying IP address can change if you reboot the cache node\.
 
-## Amazon VPC Documentation<a name="ElastiCacheAndVPC.VPCDocs"></a>
+## Amazon VPC documentation<a name="ElastiCacheAndVPC.VPCDocs"></a>
 
 Amazon VPC has its own set of documentation to describe how to create and use your Amazon VPC\. The following table gives links to the Amazon VPC guides\.
 

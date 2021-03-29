@@ -1,10 +1,10 @@
-# Deleting a Subnet Group<a name="SubnetGroups.Deleting"></a>
+# Deleting a subnet group<a name="SubnetGroups.Deleting"></a>
 
 If you decide that you no longer need your subnet group, you can delete it\. You cannot delete a subnet group if it is currently in use by a cluster\. You also cannot delete a subnet group on a cluster with Multi\-AZ enabled if doing so leaves that cluster with fewer than two subnets\. You must first disable **Multi\-AZ** and then delete the subnet\.
 
 The following procedures show you how to delete a subnet group\.
 
-## Deleting a Subnet Group \(Console\)<a name="SubnetGroups.Deleting.CON"></a>
+## Deleting a subnet group \(Console\)<a name="SubnetGroups.Deleting.CON"></a>
 
 **To delete a subnet group**
 
@@ -16,7 +16,7 @@ The following procedures show you how to delete a subnet group\.
 
 1. When you are asked to confirm this operation, choose **Yes, Delete**\.
 
-## Deleting a Subnet Group \(AWS CLI\)<a name="SubnetGroups.Deleting.CLI"></a>
+## Deleting a subnet group \(AWS CLI\)<a name="SubnetGroups.Deleting.CLI"></a>
 
 Using the AWS CLI, call the command delete\-cache\-subnet\-group with the following parameter:
 + `--cache-subnet-group-name` *mysubnetgroup*
@@ -39,7 +39,7 @@ This command produces no output\.
 
 For more information, see the AWS CLI topic [delete\-cache\-subnet\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/delete-cache-subnet-group.html)\.
 
-## Deleting a Subnet Group \(ElastiCache API\)<a name="SubnetGroups.Deleting.API"></a>
+## Deleting a subnet group \(ElastiCache API\)<a name="SubnetGroups.Deleting.API"></a>
 
 Using the ElastiCache API, call `DeleteCacheSubnetGroup` with the following parameter:
 + `CacheSubnetGroupName=mysubnetgroup`

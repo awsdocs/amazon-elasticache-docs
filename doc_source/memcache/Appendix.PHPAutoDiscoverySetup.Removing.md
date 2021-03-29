@@ -1,4 +1,4 @@
-# Removing the PHP Cluster Client<a name="Appendix.PHPAutoDiscoverySetup.Removing"></a>
+# Removing the PHP cluster client<a name="Appendix.PHPAutoDiscoverySetup.Removing"></a>
 
 **Topics**
 + [Removing an earlier version of PHP 7](#Appendix.PHPAutoDiscoverySetup.Removing.PHP7x)
@@ -8,7 +8,7 @@
 
 **To remove an earlier version of PHP 7**
 
-1. Remove the `amazon-elasticache-cluster-client.so` file from the appropriate PHP lib directory as previously indicated in the installation instructions\. See the section for your installation at [For Users Who Already Have *php\-memcached* Extension Installed](Appendix.PHPAutoDiscoverySetup.md#Appendix.PHPAutoDiscoverySetup.InstallingExisting)\.
+1. Remove the `amazon-elasticache-cluster-client.so` file from the appropriate PHP lib directory as previously indicated in the installation instructions\. See the section for your installation at [For users who already have *php\-memcached* extension installed](Appendix.PHPAutoDiscoverySetup.md#Appendix.PHPAutoDiscoverySetup.InstallingExisting)\.
 
 1. Remove the line `extension=amazon-elasticache-cluster-client.so` from the `php.ini` file\.
 

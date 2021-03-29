@@ -1,4 +1,4 @@
-# Viewing a Replication Group's Details \(ElastiCache API\)<a name="Replication.ViewDetails.API"></a>
+# Viewing a replication group's details \(ElastiCache API\)<a name="Replication.ViewDetails.API"></a>
 
 You can view the details for a replication using the AWS CLI `DescribeReplicationGroups` operation\. Use the following optional parameters to refine the listing\. Omitting the parameters returns the details for up to 100 replication groups\.
 

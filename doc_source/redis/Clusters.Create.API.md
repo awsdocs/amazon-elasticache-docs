@@ -1,15 +1,15 @@
-# Creating a Cluster \(ElastiCache API\)<a name="Clusters.Create.API"></a>
+# Creating a cluster \(ElastiCache API\)<a name="Clusters.Create.API"></a>
 
 To create a cluster using the ElastiCache API, use the `CreateCacheCluster` action\. 
 
 **Important**  
-As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a Cluster](Clusters.Delete.md)\. 
+As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a cluster](Clusters.Delete.md)\. 
 
 **Topics**
-+ [Creating a Redis \(Cluster Mode Disabled\) Cache Cluster \(ElastiCache API\)](#Clusters.Create.API.Redis)
-+ [Creating a Cache Cluster in Redis \(Cluster Mode Enabled\) \(ElastiCache API\)](#Clusters.Create.API.RedisCluster)
++ [Creating a Redis \(Cluster Mode Disabled\) cache cluster \(ElastiCache API\)](#Clusters.Create.API.Redis)
++ [Creating a cache cluster in Redis \(Cluster Mode Enabled\) \(ElastiCache API\)](#Clusters.Create.API.RedisCluster)
 
-## Creating a Redis \(Cluster Mode Disabled\) Cache Cluster \(ElastiCache API\)<a name="Clusters.Create.API.Redis"></a>
+## Creating a Redis \(Cluster Mode Disabled\) cache cluster \(ElastiCache API\)<a name="Clusters.Create.API.Redis"></a>
 
 The following code creates a Redis \(cluster mode disabled\) cache cluster \(ElastiCache API\)\.
 
@@ -37,8 +37,8 @@ https://elasticache.us-west-2.amazonaws.com/
     &X-Amz-Signature=<signature>
 ```
 
-## Creating a Cache Cluster in Redis \(Cluster Mode Enabled\) \(ElastiCache API\)<a name="Clusters.Create.API.RedisCluster"></a>
+## Creating a cache cluster in Redis \(Cluster Mode Enabled\) \(ElastiCache API\)<a name="Clusters.Create.API.RedisCluster"></a>
 
-Redis \(cluster mode enabled\) clusters \(API/CLI: replication groups\) cannot be created using the `CreateCacheCluster` operation\. To create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication group\), see [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)\.
+Redis \(cluster mode enabled\) clusters \(API/CLI: replication groups\) cannot be created using the `CreateCacheCluster` operation\. To create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication group\), see [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)\.
 
 For more information, see the ElastiCache API reference topic [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)\.

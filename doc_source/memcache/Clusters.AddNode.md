@@ -1,6 +1,6 @@
-# Adding Nodes to a Cluster<a name="Clusters.AddNode"></a>
+# Adding nodes to a cluster<a name="Clusters.AddNode"></a>
 
-Adding nodes to a Memcached cluster increases the number of you cluster's partitions\. When you change the number of partitions in a cluster some of your key spaces need to be remapped so that they are mapped to the right node\. Remapping key spaces temporarily increases the number of cache misses on the cluster\. For more information, see [Configuring Your ElastiCache Client for Efficient Load Balancing](BestPractices.LoadBalancing.md)\.
+Adding nodes to a Memcached cluster increases the number of you cluster's partitions\. When you change the number of partitions in a cluster some of your key spaces need to be remapped so that they are mapped to the right node\. Remapping key spaces temporarily increases the number of cache misses on the cluster\. For more information, see [Configuring your ElastiCache client for efficient load balancing](BestPractices.LoadBalancing.md)\.
 
 You can use the ElastiCache Management Console, the AWS CLI or ElastiCache API to add nodes to your cluster\.
 

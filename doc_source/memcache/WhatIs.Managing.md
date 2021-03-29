@@ -1,4 +1,4 @@
-# Tools for Managing Your Implementation<a name="WhatIs.Managing"></a>
+# Tools for managing your implementation<a name="WhatIs.Managing"></a>
 
 Once you have granted your Amazon EC2 instance access to your ElastiCache cluster, you have four means by which you can manage your ElastiCache cluster: the AWS Management Console, the AWS CLI for ElastiCache, the AWS SDK for ElastiCache, and the ElastiCache API\.
 
@@ -21,6 +21,6 @@ You can also write application code directly against the ElastiCache web service
 ## See also<a name="what-is-managing-see-also"></a>
 
 For more detailed information on managing your Amazon ElastiCache for Memcached deployment, see the following:
-+ [Managing Your ElastiCache for Memcached Implementation](managing-elasticache.md)
-+ [Internetwork Traffic Privacy](Security.md)
-+ [Monitoring Usage, Events, and Costs](MonitoringECMetrics.md)
++ [Managing your ElastiCache for Memcached implementation](managing-elasticache.md)
++ [Internetwork traffic privacy](Security.md)
++ [Monitoring usage, events, and costs](MonitoringECMetrics.md)

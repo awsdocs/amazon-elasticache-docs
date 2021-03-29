@@ -1,4 +1,4 @@
-# Managing Costs with Reserved Nodes<a name="reserved-nodes"></a>
+# Managing costs with reserved nodes<a name="reserved-nodes"></a>
 
 Reserving one or more nodes may be a way for you to reduce costs\. Reserved nodes are charged an up front fee that depends upon the node type and the length of reservation—one or three years\. This charge is much less than the hourly usage charge that you incur with On\-Demand nodes\. 
 
@@ -11,13 +11,13 @@ You can use the AWS Management Console, the AWS CLI, or the ElastiCache API to l
 For more information on reserved nodes, see [Amazon ElastiCache Reserved Cache Nodes](https://aws.amazon.com/elasticache/reserved-cache-nodes/)\.
 
 **Topics**
-+ [Standard Reserved Node Cache Offerings](#reserved-nodes-standard)
-+ [Legacy Reserved Node Cache Offerings](#reserved-nodes-utilization)
-+ [Getting Info About Reserved Node Offerings](reserved-nodes-offerings.md)
-+ [Purchasing a Reserved Node](reserved-nodes-purchasing.md)
-+ [Getting Info About Your Reserved Nodes](reserved-nodes-describing.md)
++ [Standard reserved node cache offerings](#reserved-nodes-standard)
++ [Legacy reserved node cache offerings](#reserved-nodes-utilization)
++ [Getting info about reserved node offerings](reserved-nodes-offerings.md)
++ [Purchasing a reserved node](reserved-nodes-purchasing.md)
++ [Getting info about your reserved nodes](reserved-nodes-describing.md)
 
-## Standard Reserved Node Cache Offerings<a name="reserved-nodes-standard"></a>
+## Standard reserved node cache offerings<a name="reserved-nodes-standard"></a>
 
 When you purchase a standard reserved node instance \(RI\) in Amazon ElastiCache, you purchase a commitment to getting a discounted rate on a specific cache node instance type and AWS Region for the duration of the reserved node instance\. To use an Amazon ElastiCache reserved node instance, you create a new ElastiCache node instance, just as you would for an on\-demand instance\.
 
@@ -33,7 +33,7 @@ All three offering types discussed next are available in one\-year and three\-ye
 
 **All Upfront** RI requires full payment to be made at the start of the RI term\. You incur no other costs for the remainder of the term, regardless of the number of hours used\. 
 
-## Legacy Reserved Node Cache Offerings<a name="reserved-nodes-utilization"></a>
+## Legacy reserved node cache offerings<a name="reserved-nodes-utilization"></a>
 
 There are three levels of legacy node reservations—Heavy Utilization, Medium Utilization, and Light Utilization\. Nodes can be reserved at any utilization level for either one or three years\. The node type, utilization level, and reservation term affect your total costs\. Verify the savings that reserved nodes can provide your business by comparing various models before you purchase reserved nodes\.
 
@@ -47,9 +47,9 @@ Nodes purchased at one utilization level or term cannot be converted to a differ
 *Light Utilization reserved nodes* are ideal for periodic workloads that run only a couple of hours a day or a few days per week\. Using Light Utilization reserved nodes, you pay a one\-time fee followed by a discounted hourly usage fee when your node is running\. You can start saving when your node is running more than 17 percent of the reserved node term\. You can save up to 56 percent off of the On\-Demand rates over the entire term of your reserved node\.
 
 
-**Legacy Reserved Cache Node Offerings**  
+**Legacy reserved cache node offerings**  
 
-| Offering | Up\-Front Cost | Usage Fee | Advantage | 
+| Offering | Up\-front cost | Usage fee | Advantage | 
 | --- | --- | --- | --- | 
 |  Heavy Utilization |  Highest |  Lowest hourly fee\. Applied to the whole term whether or not you're using the reserved node\. |  Lowest overall cost if you plan to run your reserved nodes more than 79 percent of a three\-year term\. | 
 |  Medium Utilization |  Medium |  Hourly usage fee charged for each hour the node is running\. No hourly charge when the node is not running\. |  Suitable for elastic workloads or when you expect moderate usage, more than 40 percent of a three\-year term\. | 

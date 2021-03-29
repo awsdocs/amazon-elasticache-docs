@@ -1,4 +1,4 @@
-# ElastiCache API Permissions: Actions, Resources, and Conditions Reference<a name="IAM.APIReference"></a>
+# ElastiCache API permissions: Actions, resources, and conditions reference<a name="IAM.APIReference"></a>
 
 When you set up [access control](IAM.md#IAM.AccessControl) and write permissions policies to attach to an IAM policy \(either idenity\-based or resource\-based\), use the following table as a reference\. The table lists each Amazon ElastiCache API operation and the corresponding actions for which you can grant permissions to perform the action\. You specify the actions in the policy's `Action` field, and you specify a resource value in the policy's `Resource` field\. Unless indicated otherwise, the resource is required\. Some fields include both a required resource and optional resources\. When there is no resource ARN, the resource in the policy is a wildcard \(\*\)\.
 
@@ -10,9 +10,9 @@ To specify an action, use the `elasticache:` prefix followed by the API operatio
 Use the scroll bars to see the rest of the table\.
 
 
-**Amazon ElastiCache API and Required Permissions for Actions**  
+**Amazon ElastiCache API and required permissions for actions**  
 
-| ElastiCache API Operations | Required Permissions \(API Actions\) | Resources  | 
+| ElastiCache API operations | Required permissions \(API actions\) | Resources  | 
 | --- | --- | --- | 
 |  [AddTagsToResource](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html) | `elasticache:AddTagsToResource` | \(Optional\) Cluster, snapshot | 
 |  [AuthorizeCacheSecurityGroupIngress](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html) | `elasticache:AuthorizeCacheSecurityGroupIngress` | Security group | 
@@ -27,6 +27,8 @@ Use the scroll bars to see the rest of the table\.
 |  [CreateGlobalReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateGlobalReplicationGroup.html) |  `elasticache:CreateGlobalReplicationGroup` | Global replication group, replication group | 
 |  [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) |  `elasticache:CreateReplicationGroup` `s3:GetObject`  If you use the `SnapshotArns` parameter, each member of the `SnapshotArns` list requires its own `s3:GetObject` permission with the `s3` ARN as its resource\.  |  Parameter group\. \(Optional\) Replication group, Snapshot, Subnet group, Global Replication Group, Primary cluster Id, Security group Ids `arn:aws:s3:::my_bucket/snapshot1.rdb` Where *my\_bucket*/*snapshot1* is an S3 bucket and snapshot that you want to create the cache cluster from\. | 
 |  [CreateSnapshot](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html) | `elasticache:CreateSnapshot` | Snapshot\. \(Optional\) Cache cluster, Replication group | 
+|  [CreateUser](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateUser.html) \(for Redis 6\.x onward\) | `elasticache:CreateUser` | User | 
+|  [CreateUserGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateUserGroup.html) \(for Redis 6\.x onward\) | `elasticache:CreateUserGroup` | UserGroup | 
 |  [DecreaseNodeGroupsInGlobalReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DecreaseNodeGroupsInGlobalReplicationGroup.html) | `elasticache:DecreaseNodeGroupsInGlobalReplicationGroup` | GlobalReplicationGroup | 
 |  [DecreaseReplicaCount](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DecreaseReplicaCount.html) | `elasticache:DecreaseReplicaCount` | Replication group | 
 |  [DeleteCacheCluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html) | `elasticache:DeleteCacheCluster` | Cache cluster\. \(Optional\) Snapshot | 
@@ -35,6 +37,8 @@ Use the scroll bars to see the rest of the table\.
 |  [DeleteGlobalReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteGlobalReplicationGroup.html) | `elasticache:DeleteGlobalReplicationGroup` | GlobalReplicationGroup | 
 |  [DeleteReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html) | `elasticache:DeleteReplicationGroup` | Replication group\. \(Optional\) Snapshot | 
 |  [DeleteSnapshot](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html) | `elasticache:DeleteSnapshot` | Snapshot | 
+|  [DeleteUser](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteUser.html) \(for Redis 6\.x onward\)  | `elasticache:User` | User | 
+|  [DeleteUserGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteUserGroup.html) \(for Redis 6\.x onward\)  | `elasticache:UserGroup` | UserGroup | 
 |  [DescribeCacheClusters](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html) | `elasticache:DescribeCacheClusters` | Cluster | 
 |  [DescribeCacheEngineVersions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheEngineVersions.html) | `elasticache:DescribeCacheEngineVersions` | No Resource ARN: \* | 
 |  [DescribeCacheParameterGroups](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameterGroups.html) | `elasticache:DescribeCacheParameterGroups` | Parameter group | 
@@ -51,11 +55,13 @@ Use the scroll bars to see the rest of the table\.
 |  [DescribeServiceUpdates](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeServiceUpdates.html) | `elasticache:DescribeServiceUpdates` | No Resource ARN: \* | 
 |  [DescribeSnapshots](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html) | `elasticache:DescribeSnapshots` | Snapshot | 
 |  [DescribeUpdateActions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeUpdateActions.html) | `elasticache:DescribeUpdateActions` | \(Optional\) Cluster, replication group | 
+|  [DescribeUsers](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeUsers.html) \(For Redis 6\.x onward\) | `elasticache:DescribeUsers` | User | 
+|  [DescribeUserGroups](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeUserGroups.html) \(For Redis 6\.x onward\) | `elasticache:DescribeUserGroups` | UserGroup | 
 |  [DisassociateGlobalReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DisassociateGlobalReplicationGroup.html) | `elasticache:DisassociateGlobalReplicationGroup` | GlobalReplicationGroup | 
 |  [FailoverGlobalReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_FailoverGlobalReplicationGroup.html) | `elasticache:FailoverGlobalReplicationGroup` | GlobalReplicationGroup | 
 |  [IncreaseNodeGroupsInGlobalReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_IncreaseNodeGroupsInGlobalReplicationGroup.html) | `elasticache:IncreaseNodeGroupsInGlobalReplicationGroup` | GlobalReplicationGroup | 
 |  [ListAllowedNodeTypeModifications](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListAllowedNodeTypeModifications.html) | `elasticache:ListAllowedNodeTypeModifications` | \(Optional\) Cluster, replication group | 
-|  [IncreaseReplicaCount](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_IncreaseReplicaCount.html) | `elasticache:IncreaseReplicaCount` | Replicatio group | 
+|  [IncreaseReplicaCount](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_IncreaseReplicaCount.html) | `elasticache:IncreaseReplicaCount` | Replication group | 
 |  [ListTagsForResource](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListTagsForResource.html) | `elasticache:ListTagsForResource` | \(Optional\) Cluster, snapshot | 
 |  [ModifyCacheCluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html) | `elasticache:ModifyCacheCluster` | Cache cluster\. \(Optional\) Parameter group, Security group | 
 |  [ModifyCacheParameterGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html) | `elasticache:ModifyCacheParameterGroup` | Parameter group | 
@@ -63,6 +69,8 @@ Use the scroll bars to see the rest of the table\.
 |  [ModifyGlobalReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyGlobalReplicationGroup.html) | `elasticache:ModifyGlobalReplicationGroup` | GlobalReplicationGroup | 
 |  [ModifyReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html) | `elasticache:ModifyReplicationGroup` | Replication group\. \(Optional\) Parameter group, Security group | 
 |  [ModifyReplicationGroupShardConfiguration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html) | `elasticache:ModifyReplicationGroupShardConfiguration` | Replication group | 
+|  [ModifyUser](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyUser.html) \(for Redis 6\.x onward\)  | `elasticache:User` | User | 
+|  [ModifyUserGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyUserGroup.html) \(for Redis 6\.x onward\) | `elasticache:UserGroup` | UserGroup | 
 |  [PurchaseReservedCacheNodesOffering](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html) | `elasticache:PurchaseReservedCacheNodesOffering` | Reserved\-instance | 
 |  [RebalanceSlotsInGlobalReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebalanceSlotsInGlobalReplicationGroup.html) | `elasticache:RebalanceSlotsInGlobalReplicationGroup` | GlobalReplicationGroup | 
 |  [RebootCacheCluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html) | `elasticache:RebootCacheCluster` | Cluster | 

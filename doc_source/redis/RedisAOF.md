@@ -1,4 +1,4 @@
-# Append Only Files \(AOF\) in ElastiCache for Redis<a name="RedisAOF"></a>
+# Append only files \(AOF\) in ElastiCache for Redis<a name="RedisAOF"></a>
 
 By default, the data in a Redis node on ElastiCache resides only in memory and isn't persistent\. If a node is rebooted, or if the underlying physical server experiences a hardware failure, the data in the cache is lost\.
 
@@ -12,11 +12,11 @@ For Multi\-AZ replication groups, AOF isn't enabled\.
 AOF isn't supported on Redis versions 2\.8\.22 and later\.
 
 **Warning**  
-AOF can't protect against all failure scenarios\. For example, if a node fails due to a hardware fault in an underlying physical server, ElastiCache provisions a new node on a different server\. In this case, the AOF file is no longer be available and can't be used to recover the data\. Thus, Redis restarts with a cold cache\.  
+AOF can't protect against all failure scenarios\. For example, if a node fails due to a hardware fault in an underlying physical server, ElastiCache provisions a new node on a different server\. In this case, the AOF file is no longer available and can't be used to recover the data\. Thus, Redis restarts with a cold cache\.  
 For greater reliability and faster recovery, we recommend that you create one or more read replicas in different Availability Zones for your cluster\. Enable Multi\-AZ on your replication group instead of using AOF\. AOF isn't enabled for Multi\-AZ replication groups\.  
 For more information on mitigating failures, see [Mitigating Failures when Running Redis](FaultTolerance.md#FaultTolerance.Redis)\.
 
 For more information, see the following:
 + [Redis\-specific parameters](ParameterGroups.Redis.md)
-+ [Minimizing Downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)
++ [Minimizing downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)
 + [Mitigating Failures](FaultTolerance.md)

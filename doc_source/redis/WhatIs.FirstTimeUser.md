@@ -1,24 +1,24 @@
-# Amazon ElastiCache Resources<a name="WhatIs.FirstTimeUser"></a>
+# Amazon ElastiCache resources<a name="WhatIs.FirstTimeUser"></a>
 
 We recommend that you begin by reading the following sections, and refer to them as you need them:
 + **Service highlights and pricing** – The [product detail page](https://aws.amazon.com/elasticache/) provides a general product overview of ElastiCache, service highlights, and pricing\.
 + **ElastiCache videos** – The [ElastiCache Videos](Tutorials.md#tutorial-videos) section has videos that introduce you to Amazon ElastiCache\. The videos cover common use cases for ElastiCache and demo how to use ElastiCache to reduce latency and improve throughput for your applications\.
-+ **Getting started** – The [Getting Started with Amazon ElastiCache for Redis](GettingStarted.md) section includes information on creating a cache cluster\. It also includes how to authorize access to the cache cluster, connect to a cache node, and delete the cache cluster\.
-+ **Performance at scale** – The [Performance at Scale with Amazon ElastiCache](https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf) whitepaper addresses caching strategies that help your application to perform well at scale\.
++ **Getting started** – The [Getting started with Amazon ElastiCache for Redis](GettingStarted.md) section includes information on creating a cache cluster\. It also includes how to authorize access to the cache cluster, connect to a cache node, and delete the cache cluster\.
++ **Performance at scale** – The [Performance at scale with Amazon ElastiCache](https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf) whitepaper addresses caching strategies that help your application to perform well at scale\.
 
 After you complete the preceding sections, read these sections:
-+ [Choosing Your Node Size](nodes-select-size.md#CacheNodes.SelectSize)
++ [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)
 
   You want your nodes to be large enough to accommodate all the data you want to cache\. At the same time, you don't want to pay for more cache than you need\. You can use this topic to help select the best node size\.
-+ [Caching Strategies and Best Practices](BestPractices.md)
++ [Caching strategies and best practices](BestPractices.md)
 
   Identify and address issues that can impact the efficiency of your cluster\.
 
 If you want to use the AWS Command Line Interface \(AWS CLI\), you can use these documents to help you get started:
-+ [AWS Command Line Interface Documentation](https://docs.aws.amazon.com/cli/)
++ [AWS Command Line Interface documentation](https://docs.aws.amazon.com/cli/)
 
   This section provides information on downloading the AWS CLI, getting the AWS CLI working on your system, and providing your AWS credentials\.
-+ [AWS CLI Documentation for ElastiCache](https://docs.aws.amazon.com/cli/latest/reference/elasticache/index.html)
++ [AWS CLI documentation for ElastiCache](https://docs.aws.amazon.com/cli/latest/reference/elasticache/index.html)
 
   This separate document covers all of the AWS CLI for ElastiCache commands, including syntax and examples\.
 

@@ -1,13 +1,13 @@
-# Seeding a New Cluster with an Externally Created Backup<a name="backups-seeding-redis"></a>
+# Seeding a new cluster with an externally created backup<a name="backups-seeding-redis"></a>
 
 When you create a new Redis cluster, you can seed it with data from a Redis \.rdb backup file\. Seeding the cluster is useful if you currently manage a Redis instance outside of ElastiCache and want to populate your new ElastiCache for Redis cluster with your existing Redis data\.
 
-To seed a new Redis cluster from a Redis backup created within Amazon ElastiCache, see [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
+To seed a new Redis cluster from a Redis backup created within Amazon ElastiCache, see [Restoring from a backup with optional cluster resizing](backups-restoring.md)\.
 
 When you use a Redis \.rdb file to seed a new Redis cluster, you can do the following:
 + Upgrade from a nonpartitioned cluster to a Redis \(cluster mode enabled\) cluster running Redis version 3\.2\.4\.
 + Specify a number of shards \(called node groups in the API and CLI\) in the new cluster\. This number can be different from the number of shards in the cluster that was used to create the backup file\.
-+ Specify a different node type for the new cluster—larger or smaller than that used in the cluster that made the backup\. If you scale to a smaller node type, be sure that the new node type has sufficient memory for your data and Redis overhead\. For more information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
++ Specify a different node type for the new cluster—larger or smaller than that used in the cluster that made the backup\. If you scale to a smaller node type, be sure that the new node type has sufficient memory for your data and Redis overhead\. For more information, see [Ensuring that you have enough memory to create a Redis snapshot](BestPractices.BGSAVE.md)\.
 + Distribute your keys in the slots of the new Redis \(cluster mode enabled\) cluster differently than in the cluster that was used to create the backup file\.
 
 **Note**  
@@ -16,19 +16,19 @@ You can't seed a Redis \(cluster mode disabled\) cluster from an \.rdb file crea
 **Important**  
 You must ensure that your Redis backup data doesn't exceed the resources of the node\. For example, you can't upload an \.rdb file with 5 GB of Redis data to a cache\.m3\.medium node that has 2\.9 GB of memory\.  
 If the backup is too large, the resulting cluster has a status of `restore-failed`\. If this happens, you must delete the cluster and start over\.  
-For a complete listing of node types and specifications, see [Redis Node\-Type Specific Parameters](ParameterGroups.Redis.md#ParameterGroups.Redis.NodeSpecific) and [Amazon ElastiCache Product Features and Details](https://aws.amazon.com/elasticache/details/)\.
-You can encrypt a Redis \.rdb file with Amazon S3 server\-side encryption \(SSE\-S3\) only\. For more information, see [Protecting Data Using Server\-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html)\.
+For a complete listing of node types and specifications, see [Redis node\-type specific parameters](ParameterGroups.Redis.md#ParameterGroups.Redis.NodeSpecific) and [Amazon ElastiCache product features and details](https://aws.amazon.com/elasticache/details/)\.
+You can encrypt a Redis \.rdb file with Amazon S3 server\-side encryption \(SSE\-S3\) only\. For more information, see [Protecting data using server\-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html)\.
 
 Following, you can find topics that walk you through migrating your Redis cluster from outside ElastiCache for Redis to ElastiCache for Redis\.
 
 **Topics**
-+ [Step 1: Create a Redis Backup](#backups-seeding-redis-create-backup)
-+ [Step 2: Create an Amazon S3 Bucket and Folder](#backups-seeding-redis-create-s3-bucket)
-+ [Step 3: Upload Your Backup to Amazon S3](#backups-seeding-redis-upload)
-+ [Step 4: Grant ElastiCache Read Access to the \.rdb File](#backups-seeding-redis-grant-access)
-+ [Step 5: Seed the ElastiCache Cluster With the \.rdb File Data](#backups-seeding-redis-seed-cluster)
++ [Step 1: Create a Redis backup](#backups-seeding-redis-create-backup)
++ [Step 2: Create an Amazon S3 bucket and folder](#backups-seeding-redis-create-s3-bucket)
++ [Step 3: Upload your backup to Amazon S3](#backups-seeding-redis-upload)
++ [Step 4: Grant ElastiCache read access to the \.rdb file](#backups-seeding-redis-grant-access)
++ [Step 5: Seed the ElastiCache cluster with the \.rdb file data](#backups-seeding-redis-seed-cluster)
 
-## Step 1: Create a Redis Backup<a name="backups-seeding-redis-create-backup"></a>
+## Step 1: Create a Redis backup<a name="backups-seeding-redis-create-backup"></a>
 
 **To create the Redis backup to seed your ElastiCache for Redis instance**
 
@@ -40,17 +40,17 @@ Following, you can find topics that walk you through migrating your Redis cluste
 
    `SAVE` is synchronous and blocks other processes until finished\. For more information, see [SAVE](http://redis.io/commands/save) at the Redis website\.
 
-For additional information on creating a backup, see [Redis Persistence](http://redis.io/topics/persistence) at the Redis website\.
+For additional information on creating a backup, see [Redis persistence](http://redis.io/topics/persistence) at the Redis website\.
 
-## Step 2: Create an Amazon S3 Bucket and Folder<a name="backups-seeding-redis-create-s3-bucket"></a>
+## Step 2: Create an Amazon S3 bucket and folder<a name="backups-seeding-redis-create-s3-bucket"></a>
 
-When you have created the backup file, you need to upload it to a folder within an Amazon S3 bucket\. To do that, you must first have an Amazon S3 bucket and folder within that bucket\. If you already have an Amazon S3 bucket and folder with the appropriate permissions, you can skip to [Step 3: Upload Your Backup to Amazon S3](#backups-seeding-redis-upload)\.
+When you have created the backup file, you need to upload it to a folder within an Amazon S3 bucket\. To do that, you must first have an Amazon S3 bucket and folder within that bucket\. If you already have an Amazon S3 bucket and folder with the appropriate permissions, you can skip to [Step 3: Upload your backup to Amazon S3](#backups-seeding-redis-upload)\.
 
 **To create an Amazon S3 bucket**
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Follow the instructions for creating an Amazon S3 bucket in [Creating a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service Console User Guide*\.
+1. Follow the instructions for creating an Amazon S3 bucket in [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service Console User Guide*\.
 
    The name of your Amazon S3 bucket must be DNS\-compliant\. Otherwise, ElastiCache can't access your backup file\. The rules for DNS compliance are:
    + Names must be at least 3 and no more than 63 characters long\.
@@ -78,9 +78,9 @@ To keep your data as secure as possible, make the permissions on your Amazon S3 
 
    Make note of both the bucket name and the folder name\.
 
-## Step 3: Upload Your Backup to Amazon S3<a name="backups-seeding-redis-upload"></a>
+## Step 3: Upload your backup to Amazon S3<a name="backups-seeding-redis-upload"></a>
 
-Now, upload the \.rdb file that you created in [Step 1: Create a Redis Backup](#backups-seeding-redis-create-backup)\. You upload it to the Amazon S3 bucket and folder that you created in [Step 2: Create an Amazon S3 Bucket and Folder](#backups-seeding-redis-create-s3-bucket)\. For more information on this task, see [Add an Object to a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html)\. Between steps 2 and 3, choose the name of the folder you created \.
+Now, upload the \.rdb file that you created in [Step 1: Create a Redis backup](#backups-seeding-redis-create-backup)\. You upload it to the Amazon S3 bucket and folder that you created in [Step 2: Create an Amazon S3 bucket and folder](#backups-seeding-redis-create-s3-bucket)\. For more information on this task, see [Add an object to a bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html)\. Between steps 2 and 3, choose the name of the folder you created \.
 
 **To upload your \.rdb file to an Amazon S3 folder**
 
@@ -102,21 +102,21 @@ Now, upload the \.rdb file that you created in [Step 1: Create a Redis Backup](#
 
 Note the path to your \.rdb file\. For example, if your bucket name is `myBucket` and the path is `myFolder/redis.rdb`, enter `myBucket/myFolder/redis.rdb`\. You need this path to seed the new cluster with the data in this backup\.
 
-For additional information, see [Bucket Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) in the *Amazon Simple Storage Service Developer Guide*\.
+For additional information, see [Bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
-## Step 4: Grant ElastiCache Read Access to the \.rdb File<a name="backups-seeding-redis-grant-access"></a>
+## Step 4: Grant ElastiCache read access to the \.rdb file<a name="backups-seeding-redis-grant-access"></a>
 
 Now, grant ElastiCache read access to your \.rdb backup file\. You grant ElastiCache access to your backup file in a different way depending if your bucket is in a default AWS Region or an opt\-in AWS Region\.
 
-AWS Regions introduced before March 20, 2019, are enabled by default\. You can begin working in these AWS Regions immediately\. Regions introduced after March 20, 2019, such as Asia Pacific \(Hong Kong\) and Middle East \(Bahrain\), are disabled by default\. You must enable, or opt in, to these Regions before you can use them, as described in [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\.
+AWS Regions introduced before March 20, 2019, are enabled by default\. You can begin working in these AWS Regions immediately\. Regions introduced after March 20, 2019, such as Asia Pacific \(Hong Kong\) and Middle East \(Bahrain\), are disabled by default\. You must enable, or opt in, to these Regions before you can use them, as described in [Managing AWS regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\.
 
 Choose your approach depending on your AWS Region:
-+ For a default Region, use the procedure in [Grant ElastiCache Read Access to the \.rdb File in a Default Region](#backups-seeding-redis-default-region)\.
-+ For an opt\-in Region, use the procedure in [Grant ElastiCache Read Access to the \.rdb File in an Opt\-In Region](#backups-seeding-opt-in-region)\.
++ For a default Region, use the procedure in [Grant ElastiCache read access to the \.rdb file in a default Region](#backups-seeding-redis-default-region)\.
++ For an opt\-in Region, use the procedure in [Grant ElastiCache read access to the \.rdb file in an opt\-in Region](#backups-seeding-opt-in-region)\.
 
-### Grant ElastiCache Read Access to the \.rdb File in a Default Region<a name="backups-seeding-redis-default-region"></a>
+### Grant ElastiCache read access to the \.rdb file in a default Region<a name="backups-seeding-redis-default-region"></a>
 
-AWS Regions introduced before March 20, 2019, are enabled by default\. You can begin working in these AWS Regions immediately\. Regions introduced after March 20, 2019, such as Asia Pacific \(Hong Kong\) and Middle East \(Bahrain\), are disabled by default\. You must enable, or opt in, to these Regions before you can use them, as described in [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\.
+AWS Regions introduced before March 20, 2019, are enabled by default\. You can begin working in these AWS Regions immediately\. Regions introduced after March 20, 2019, such as Asia Pacific \(Hong Kong\) and Middle East \(Bahrain\), are disabled by default\. You must enable, or opt in, to these Regions before you can use them, as described in [Managing AWS regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\.
 
 **To grant ElastiCache read access to the backup file in an AWS Region enabled by default**
 
@@ -133,7 +133,7 @@ AWS Regions introduced before March 20, 2019, are enabled by default\. You can b
 
 1. If **aws\-scs\-s3\-readonly** or one of the canonical IDs in the following list is not listed as a user, do the following:
 
-   1. Under **Access for other AWS accounts**, choose **Add account**\.
+   1. Under **Access for other AWS accounts**, choose **Add grantee**\.
 
    1. In the box, add the AWS Region's canonical ID as shown following:
       + AWS GovCloud \(US\-West\) Region: 
@@ -157,9 +157,9 @@ The backup must be located in an S3 bucket in AWS GovCloud \(US\) for you to dow
 
 1. Choose **Overview**, and then choose **Download**\.
 
-### Grant ElastiCache Read Access to the \.rdb File in an Opt\-In Region<a name="backups-seeding-opt-in-region"></a>
+### Grant ElastiCache read access to the \.rdb file in an opt\-in Region<a name="backups-seeding-opt-in-region"></a>
 
-AWS Regions introduced before March 20, 2019, are enabled by default\. You can begin working in these AWS Regions immediately\. Regions introduced after March 20, 2019, such as Asia Pacific \(Hong Kong\) and Middle East \(Bahrain\), are disabled by default\. You must enable, or opt in, to these Regions before you can use them, as described in [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\.
+AWS Regions introduced before March 20, 2019, are enabled by default\. You can begin working in these AWS Regions immediately\. Regions introduced after March 20, 2019, such as Asia Pacific \(Hong Kong\) and Middle East \(Bahrain\), are disabled by default\. You must enable, or opt in, to these Regions before you can use them, as described in [Managing AWS regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\.
 
 **To grant ElastiCache read access to the backup file in an opt\-in AWS Region**
 
@@ -211,9 +211,9 @@ AWS Regions introduced before March 20, 2019, are enabled by default\. You can b
    }
    ```
 
-## Step 5: Seed the ElastiCache Cluster With the \.rdb File Data<a name="backups-seeding-redis-seed-cluster"></a>
+## Step 5: Seed the ElastiCache cluster with the \.rdb file data<a name="backups-seeding-redis-seed-cluster"></a>
 
-Now you are ready to create an ElastiCache cluster and seed it with the data from the \.rdb file\. To create the cluster, follow the directions at [Creating a Cluster](Clusters.Create.md) or [Creating a Redis Replication Group from Scratch](Replication.CreatingReplGroup.NoExistingCluster.md)\. Be sure to choose Redis as your cluster engine\.
+Now you are ready to create an ElastiCache cluster and seed it with the data from the \.rdb file\. To create the cluster, follow the directions at [Creating a cluster](Clusters.Create.md) or [Creating a Redis replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.md)\. Be sure to choose Redis as your cluster engine\.
 
 The method you use to tell ElastiCache where to find the Redis backup you uploaded to Amazon S3 depends on the method you use to create the cluster:
 
@@ -233,4 +233,4 @@ When seeding a Redis \(cluster mode enabled\) cluster, you must configure each n
 CLI: [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html) in the AWS CLI Reference
 API: [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) in the ElastiCache API Reference
 
-During the process of creating your cluster, the data in your Redis backup is written to the cluster\. You can monitor the progress by viewing the ElastiCache event messages\. To do this, see the ElastiCache console and choose **Cache Events**\. You can also use the AWS ElastiCache command line interface or ElastiCache API to obtain event messages\. For more information, see [Viewing ElastiCache Events](ECEvents.Viewing.md)\.
+During the process of creating your cluster, the data in your Redis backup is written to the cluster\. You can monitor the progress by viewing the ElastiCache event messages\. To do this, see the ElastiCache console and choose **Cache Events**\. You can also use the AWS ElastiCache command line interface or ElastiCache API to obtain event messages\. For more information, see [Viewing ElastiCache events](ECEvents.Viewing.md)\.

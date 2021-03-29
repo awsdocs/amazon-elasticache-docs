@@ -1,12 +1,12 @@
-# Applying the Service Updates Using the Console<a name="applying-updates-console"></a>
+# Applying the service updates using the console<a name="applying-updates-console"></a>
 
 You can apply the service updates using one of the following console options\. 
 
 **Topics**
-+ [Applying the Service Updates Using the Console for Memcached](#applying-updates-console-memcached-console)
-+ [Applying the Service Updates Using the Service Updates List](#applying-updates-elasticache-update-console-memcached)
++ [Applying the service updates using the console for Memcached](#applying-updates-console-memcached-console)
++ [Applying the service updates using the service updates list](#applying-updates-elasticache-update-console-memcached)
 
-## Applying the Service Updates Using the Console for Memcached<a name="applying-updates-console-memcached-console"></a>
+## Applying the service updates using the console for Memcached<a name="applying-updates-console-memcached-console"></a>
 
 Choose this to view **Update Status** for individual Memcached clusters, and then choose **Apply**, **View**, or **Stop** for the service updates\. If a service update is available, the console displays a banner at the top of the **Memcached** page, as shown following\.
 
@@ -23,7 +23,7 @@ On the **Apply Updates Now** page, you can use these options:
 + **Auto\-Update after Due Date**: If this attribute is **yes**, after the **Recommended apply by Date** has passed, ElastiCache schedules clusters yet to be updated in the appropriate maintenance window\. Updates are applied along with other applicable updates\. You can continue to apply the updates until the update expiration date\. 
 
   If this attribute is **no** and you don't apply the self\-service update before it expires, ElastiCache doesn't automatically apply the service update for you\. Those clusters must wait until the next cumulative update becomes available\.
-+ The **Nodes Updated** ratio value for your Memcached cluster and the **Estimated Update Time** value help you plan your maintenance schedule\. If service updates exceed the estimated time constraints for your business flows, you can stop updates and reapply them at a later date\. For more information, see [Stopping the Self\-Service Updates](stopping-self-service-updates.md)\.
++ The **Nodes Updated** ratio value for your Memcached cluster and the **Estimated Update Time** value help you plan your maintenance schedule\. If service updates exceed the estimated time constraints for your business flows, you can stop updates and reapply them at a later date\. For more information, see [Stopping the self\-service updates](stopping-self-service-updates.md)\.
 + If you choose to apply the service updates to any or all available Memcached clusters, choose **Confirm**\. If you choose this, you then view the **Service Updates** page, where you can monitor the status of your service update\.
 + If you choose **Cancel**, you can explore further options, as explained following\.
 
@@ -45,7 +45,7 @@ On the ElastiCache dashboard, you can check **Update Status** for each of your R
 + **complete**: The update has been successfully applied\.
 + **up to date**: The cluster doesn't have any outstanding active service updates\.
 
-## Applying the Service Updates Using the Service Updates List<a name="applying-updates-elasticache-update-console-memcached"></a>
+## Applying the service updates using the service updates list<a name="applying-updates-elasticache-update-console-memcached"></a>
 
 To view the list of individual service updates and their status, along with other information, choose the **Service Updates List** tab\. 
 

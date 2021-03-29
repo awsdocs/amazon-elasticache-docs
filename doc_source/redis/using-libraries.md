@@ -1,4 +1,4 @@
-# Available Libraries<a name="using-libraries"></a>
+# Available libraries<a name="using-libraries"></a>
 
 AWS provides software development kits \(SDKs\) for software developers who prefer to build applications using language\-specific APIs instead of the Query API\. These SDKs provide basic functions \(not included in the APIs\), such as request authentication, request retries, and error handling so that it is easier to get started\. SDKs and additional resources are available for the following programming languages:
 +  [Java](https://aws.amazon.com/java) 

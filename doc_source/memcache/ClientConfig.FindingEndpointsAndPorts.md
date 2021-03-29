@@ -1,12 +1,12 @@
-# Finding Node Endpoints and Port Numbers<a name="ClientConfig.FindingEndpointsAndPorts"></a>
+# Finding node endpoints and port numbers<a name="ClientConfig.FindingEndpointsAndPorts"></a>
 
 To connect to a cache node, your application needs to know the endpoint and port number for that node\.
 
-## Finding Node Endpoints and Port Numbers \(Console\)<a name="ClientConfig.FindingEndpointsAndPorts.CON"></a>
+## Finding node endpoints and port numbers \(Console\)<a name="ClientConfig.FindingEndpointsAndPorts.CON"></a>
 
  **To determine node endpoints and port numbers** 
 
-1. Sign in to the [Amazon ElastiCache Management Console](https://aws.amazon.com/elasticache) and choose the engine running on your cluster\.
+1. Sign in to the [Amazon ElastiCache management console](https://aws.amazon.com/elasticache) and choose the engine running on your cluster\.
 
    A list of all clusters running the chosen engine appears\.
 
@@ -16,7 +16,7 @@ To connect to a cache node, your application needs to know the endpoint and port
 
 1. Locate the **Port** and **Endpoint** columns for the node you're interested in\.
 
-## Finding Cache Node Endpoints and Port Numbers \(AWS CLI\)<a name="ClientConfig.FindingEndpointsAndPorts.CLI"></a>
+## Finding cache node endpoints and port numbers \(AWS CLI\)<a name="ClientConfig.FindingEndpointsAndPorts.CLI"></a>
 
 To determine cache node endpoints and port numbers, use the command `describe-cache-clusters` with the `--show-cache-node-info` parameter\.
 
@@ -26,7 +26,7 @@ aws elasticache describe-cache-clusters --show-cache-node-info
 
 The fully qualified DNS names and port numbers are in the Endpoint section of the output\.
 
-## Finding Cache Node Endpoints and Port Numbers \(ElastiCache API\)<a name="ClientConfig.FindingEndpointsAndPorts.API"></a>
+## Finding cache node endpoints and port numbers \(ElastiCache API\)<a name="ClientConfig.FindingEndpointsAndPorts.API"></a>
 
 To determine cache node endpoints and port numbers, use the action `DescribeCacheClusters` with the `ShowCacheNodeInfo=true` parameter\.
 

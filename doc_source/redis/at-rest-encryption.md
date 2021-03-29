@@ -1,6 +1,6 @@
 # At\-Rest Encryption in ElastiCache for Redis<a name="at-rest-encryption"></a>
 
-To help keep your data secure, Amazon ElastiCache and Amazon S3 provide different ways to restrict access to data in your cache\. For more information, see [Amazon VPCs and ElastiCache Security](VPCs.md) and [Identity and Access Management in Amazon ElastiCache](IAM.md)\.
+To help keep your data secure, Amazon ElastiCache and Amazon S3 provide different ways to restrict access to data in your cache\. For more information, see [Amazon VPCs and ElastiCache security](VPCs.md) and [Identity and access management in Amazon ElastiCache](IAM.md)\.
 
 ElastiCache for Redis at\-rest encryption is an optional feature to increase data security by encrypting on\-disk data\. When enabled on a replication group, it encrypts the following aspects:
 + Disk during sync, backup and swap operations 
@@ -10,7 +10,7 @@ ElastiCache for Redis at\-rest encryption is an optional feature to increase dat
 
 At\-rest encryption can be enabled on a replication group only when it is created\. Because there is some processing needed to encrypt and decrypt the data, enabling at\-rest encryption can have a performance impact during these operations\. You should benchmark your data with and without at\-rest encryption to determine the performance impact for your use cases\. 
 
-For information on encryption in transit, see [ElastiCache for Redis In\-Transit Encryption \(TLS\)](in-transit-encryption.md) 
+For information on encryption in transit, see [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md) 
 
 **Topics**
 + [At\-Rest Encryption Conditions](#at-rest-encryption-constraints)
@@ -28,7 +28,7 @@ The following constraints on ElastiCache at\-rest encryption should be kept in m
   + M6g, M5, M4, M3
   + T3, T2
 
-  For more information, see [Supported Node Types](CacheNodes.SupportedTypes.md)
+  For more information, see [Supported node types](CacheNodes.SupportedTypes.md)
 + At\-rest encryption is enabled by explicitly setting the parameter `AtRestEncryptionEnabled` to `true`\.
 + You can enable at\-rest encryption on a replication group only when creating the replication group\. You cannot toggle at\-rest encryption on and off by modifying a replication group\. For information on implementing at\-rest encryption on an existing replication group, see [Enabling At\-Rest Encryption](#at-rest-encryption-enable)\.
 + The option to use customer managed CMK for encryption at rest is not available in AWS GovCloud \(us\-gov\-east\-1 and us\-gov\-west\-1\) regions\. 
@@ -56,8 +56,7 @@ Once a replication group is encrypted using customer managed CMK, all backups fo
 **Note**  
 Customer managed CMKs cannot be used when exporting backups to your selected Amazon S3 bucket\. However, all backups exported to Amazon S3 are encrypted using [Server side encryption\.](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) You may choose to copy the backup file to a new S3 object and encrypt using a customer managed CMK, copy the file to another S3 bucket that is set up with default encryption using a CMK or change an encryption option in the file itself\.
 You can also use customer managed CMKs to encrypt manually\-created backups for replication groups that do not use customer managed CMKs for encryption\. With this option, the backup file stored in Amazon S3 is encrypted using a CMK, even though the data is not encrypted on the original replication group\. 
-Restoring from a backup allows you to choose from available encryption options, similar to encryption choices available when creating a new replication group\.  
-Also consider:
+Restoring from a backup allows you to choose from available encryption options, similar to encryption choices available when creating a new replication group\.
 + If you delete the key or [disable](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html) the key and [revoke grants](https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html) for the key that you used to encrypt a replication group, the replication group becomes irrecoverable\. In other words, it cannot be modified or recovered after a hardware failure\. AWS KMS deletes master keys only after a waiting period of at least seven days\. After the key is deleted, you can use a different customer managed CMK to create a backup for archival purposes\. 
 + Automatic key rotation preserves the properties of your AWS KMS master keys, so the rotation has no effect on your ability to access your ElastiCache data\. Encrypted Amazon ElastiCache replication groups don't support manual key rotation, which involves creating a new master key and updating any references to the old key\. To learn more, see [Rotating Customer Master Keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*\. 
 + Encrypting an ElastiCache replication group using CMK requires one grant per replication group\. This grant is used throughout the lifespan of the replication group\. Additionally, one grant per backup is used during backup creation\. This grant is retired once the backup is created\. 
@@ -91,13 +90,13 @@ You can only enable at\-rest encryption when you create a Redis replication grou
 
 **To enable at\-rest encryption on an existing replication group**
 
-1. Create a manual backup of your existing replication group\. For more information, see [Making Manual Backups](backups-manual.md)\.
+1. Create a manual backup of your existing replication group\. For more information, see [Making manual backups](backups-manual.md)\.
 
-1. Create a new replication group by restoring from the backup\. On the new replication group, enable at\-rest encryption\. For more information, see [Restoring From a Backup with Optional Cluster Resizing](backups-restoring.md)\.
+1. Create a new replication group by restoring from the backup\. On the new replication group, enable at\-rest encryption\. For more information, see [Restoring from a backup with optional cluster resizing](backups-restoring.md)\.
 
 1. Update the endpoints in your application to point to the new replication group\.
 
-1. Delete the old replication group\. For more information, see [Deleting a Cluster](Clusters.Delete.md) or [Deleting a Replication Group](Replication.DeletingRepGroup.md)\.
+1. Delete the old replication group\. For more information, see [Deleting a cluster](Clusters.Delete.md) or [Deleting a replication group](Replication.DeletingRepGroup.md)\.
 
 ### Enabling At\-Rest Encryption Using the AWS Management Console<a name="at-rest-encryption-enable-con"></a>
 
@@ -107,8 +106,8 @@ To enable at\-rest encryption when creating a replication group using the AWS Ma
 + Choose **Yes** from the **Encryption at\-rest** list\.
 
 For the step\-by\-step procedure, see the following:
-+ [Creating a Cluster Mode Disabled Cluster \(Console\)](Clusters.Create.CON.Redis.md)
-+ [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
++ [Creating a cluster\-mode disabled cluster \(Console\)](Clusters.Create.CON.Redis.md)
++ [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
 
 ### Enabling At\-Rest Encryption Using the AWS CLI<a name="at-rest-encryption-enable-cli"></a>
 
@@ -154,7 +153,7 @@ aws elasticache create-replication-group ^
 ```
 
 For additional information, see the following:
-+ [Creating a Redis \(Cluster Mode Disabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI)
++ [Creating a Redis \(Cluster Mode Disabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI)
 + [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 
  
@@ -202,7 +201,7 @@ aws elasticache create-replication-group ^
 ```
 
 For additional information, see the following:
-+ [Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
++ [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
 + [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 
 ### Enabling At\-Rest Encryption Using the ElastiCache API<a name="at-rest-encryption-enable-api"></a>
@@ -240,7 +239,7 @@ https://elasticache.us-west-2.amazonaws.com/
 ```
 
 For additional information, see the following:
-+ [Creating a Redis \(cluster mode disabled\) Replication Group from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API)
++ [Creating a Redis \(cluster mode disabled\) replication group from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API)
 + [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 
  
@@ -278,11 +277,11 @@ https://elasticache.us-west-2.amazonaws.com/
 ```
 
 For additional information, see the following:
-+ [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
++ [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
 + [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 
  
 
 ## See Also<a name="at-rest-encryption-see-also"></a>
-+ [Amazon VPCs and ElastiCache Security](VPCs.md)
-+ [Identity and Access Management in Amazon ElastiCache](IAM.md)
++ [Amazon VPCs and ElastiCache security](VPCs.md)
++ [Identity and access management in Amazon ElastiCache](IAM.md)

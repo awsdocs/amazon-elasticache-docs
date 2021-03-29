@@ -4,13 +4,13 @@ This topic covers ElastiCache notifications that you might be interested in\. A 
 
 Notifications do not announce new or improved ElastiCache features or functionality\.
 
-## General ElastiCache Notifications<a name="elasticache-notifications-general"></a>
+## General ElastiCache notifications<a name="elasticache-notifications-general"></a>
 
 **Topics**
 
 Currently there are no outstanding ElastiCache notifications that are not engine specific\.
 
-## ElastiCache for Redis Specific Notifications<a name="elasticache-notifications-redis"></a>
+## ElastiCache for Redis specific notifications<a name="elasticache-notifications-redis"></a>
 
 **Topics**
 

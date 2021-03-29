@@ -1,8 +1,8 @@
-# Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster"></a>
+# Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster"></a>
 
 You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: *replication group*\) using the ElastiCache console, the AWS CLI, or the ElastiCache API\. A Redis \(cluster mode enabled\) replication group has from 1 to 250 shards \(API/CLI: node groups\), a primary node in each shard, and up to 5 read replicas in each shard\. You can create a cluster with higher number of shards and lower number of replicas totaling up to 90 nodes per cluster\. This cluster configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number of replicas allowed\.
 
-The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a Subnet Group](SubnetGroups.Creating.md)\.
+The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a subnet group](SubnetGroups.Creating.md)\.
 
  For versions below 5\.0\.6, the limit is 250 per cluster\.
 
@@ -10,14 +10,14 @@ To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.co
 
 **Topics**
 + [Using the ElastiCache Console](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON)
-+ [Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
-+ [Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
++ [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
++ [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
 
-## Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON"></a>
+## Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON"></a>
 
-To create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\. Be sure to enable cluster mode, **Cluster Mode enabled \(Scale Out\)**, and specify at least two shards and one replica node in each\.
+To create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\. Be sure to enable cluster mode, **Cluster Mode enabled \(Scale Out\)**, and specify at least two shards and one replica node in each\.
 
-## Creating a Redis \(Cluster Mode Enabled\) Replication Group from Scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI"></a>
+## Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI"></a>
 
 The following procedure creates a Redis \(cluster mode enabled\) replication group using the AWS CLI\.
 
@@ -80,7 +80,7 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 + Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.
 
 **\-\-cache\-parameter\-group**  
-Specify the `default.redis3.2.cluster.on` parameter group or a parameter group derived from `default.redis3.2.cluster.on` to create a Redis \(cluster mode enabled\) replication group\. For more information, see [Redis 3\.2\.4 Parameter Changes](ParameterGroups.Redis.md#ParameterGroups.Redis.3-2-4)\.
+Specify the `default.redis3.2.cluster.on` parameter group or a parameter group derived from `default.redis3.2.cluster.on` to create a Redis \(cluster mode enabled\) replication group\. For more information, see [Redis 3\.2\.4 parameter changes](ParameterGroups.Redis.md#ParameterGroups.Redis.3-2-4)\.
 
 **\-\-engine**  
 redis
@@ -240,7 +240,7 @@ The preceding operation generates the following output\.
 
 For additional information and parameters you might want to use, see the AWS CLI topic [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)\.
 
-## Creating a Replication Group in Redis \(Cluster Mode Enabled\) from Scratch \(ElastiCache API\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.API"></a>
+## Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.API"></a>
 
 The following procedure creates a Redis \(cluster mode enabled\) replication group using the ElastiCache API\.
 
@@ -322,7 +322,7 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 + Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.
 
 **CacheParameterGroup**  
-Specify the `default.redis3.2.cluster.on` parameter group or a parameter group derived from `default.redis3.2.cluster.on` to create a Redis \(cluster mode enabled\) replication group\. For more information, see [Redis 3\.2\.4 Parameter Changes](ParameterGroups.Redis.md#ParameterGroups.Redis.3-2-4)\.
+Specify the `default.redis3.2.cluster.on` parameter group or a parameter group derived from `default.redis3.2.cluster.on` to create a Redis \(cluster mode enabled\) replication group\. For more information, see [Redis 3\.2\.4 parameter changes](ParameterGroups.Redis.md#ParameterGroups.Redis.3-2-4)\.
 
 **Engine**  
 redis

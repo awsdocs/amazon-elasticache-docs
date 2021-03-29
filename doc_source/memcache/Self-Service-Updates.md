@@ -1,4 +1,4 @@
-# Self\-Service Updates in Amazon ElastiCache<a name="Self-Service-Updates"></a>
+# Self\-service updates in Amazon ElastiCache<a name="Self-Service-Updates"></a>
 
 Amazon ElastiCache automatically monitors your fleet of Memcached clusters and nodes to apply service updates as they become available\. Typically, you set up a predefined maintenance window so that ElastiCache can apply these updates\. However, in some cases you might find this approach too rigid and likely to constrain your business flows\. 
 

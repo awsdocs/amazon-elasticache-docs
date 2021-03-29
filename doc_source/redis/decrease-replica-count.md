@@ -1,4 +1,4 @@
-# Decreasing the Number of Replicas in a Shard<a name="decrease-replica-count"></a>
+# Decreasing the number of replicas in a shard<a name="decrease-replica-count"></a>
 
 You can decrease the number of replicas in a shard for Redis \(cluster mode enabled\), or in a replication group for Redis \(cluster mode disabled\):
 + For Redis \(cluster mode disabled\), you can decrease the number of replicas to one if Multi\-AZ is enabled, and to zero if it isn't enabled\.
@@ -40,13 +40,13 @@ You can't delete the primary or primary nodes in a replication group\. If you sp
 To decrease the number of replicas in a Redis shard, use the `decrease-replica-count` command with the following parameters:
 + `--replication-group-id` – Required\. Identifies which replication group you want to decrease the number of replicas in\.
 + `--apply-immediately` or `--no-apply-immediately` – Required\. Specifies whether to decrease the replica count immediately \(`--apply-immediately`\) or at the next maintenance window \(`--no-apply-immediately`\)\. Currently, `--no-apply-immediately` is not supported\.
-+ `--new-replica-count` – Optional\. Specifies the number of replica nodes that you want\. The value of `--new-replica-count` must be a valid value less than the current number of replicas in the node groups\. For minimum permitted values, see [Decreasing the Number of Replicas in a Shard](#decrease-replica-count)\. If the value of `--new-replica-count` doesn't meet this requirement, the call fails\.
++ `--new-replica-count` – Optional\. Specifies the number of replica nodes that you want\. The value of `--new-replica-count` must be a valid value less than the current number of replicas in the node groups\. For minimum permitted values, see [Decreasing the number of replicas in a shard](#decrease-replica-count)\. If the value of `--new-replica-count` doesn't meet this requirement, the call fails\.
 + `--replicas-to-remove` – Optional\. Contains a list of node IDs specifying the replica nodes to remove\.
 + `--replica-configuration` – Optional\. Allows you to set the number of replicas and Availability Zones for each node group independently\. Use this parameter for Redis \(cluster mode enabled\) groups where you want to configure each node group independently\. 
 
   `--replica-configuration` has three optional members:
-  + `NodeGroupId` – The four\-digit ID for the node group that you are configuring\. For Redis \(cluster mode disabled\) replication groups, the shard ID is always `0001`\. To find a Redis \(cluster mode enabled\) node group's \(shard's\) ID, see [Finding a Shard's ID](shard-find-id.md)\.
-  + `NewReplicaCount` – An optional parameter that specifies the number of replica nodes you want\. The value of `NewReplicaCount` must be a valid value less than the current number of replicas in the node groups\. For minimum permitted values, see [Decreasing the Number of Replicas in a Shard](#decrease-replica-count)\. If the value of `NewReplicaCount` doesn't meet this requirement, the call fails\.
+  + `NodeGroupId` – The four\-digit ID for the node group that you are configuring\. For Redis \(cluster mode disabled\) replication groups, the shard ID is always `0001`\. To find a Redis \(cluster mode enabled\) node group's \(shard's\) ID, see [Finding a shard's ID](Shards.md#shard-find-id)\.
+  + `NewReplicaCount` – An optional parameter that specifies the number of replica nodes you want\. The value of `NewReplicaCount` must be a valid value less than the current number of replicas in the node groups\. For minimum permitted values, see [Decreasing the number of replicas in a shard](#decrease-replica-count)\. If the value of `NewReplicaCount` doesn't meet this requirement, the call fails\.
   + `PreferredAvailabilityZones` – A list of `PreferredAvailabilityZone` strings that specify which Availability Zones the replication group's nodes are in\. The number of `PreferredAvailabilityZone` values must equal the value of `NewReplicaCount` plus 1 to account for the primary node\. If this member of `--replica-configuration` is omitted, ElastiCache for Redis chooses the Availability Zone for each of the new replicas\.
 
 **Important**  
@@ -116,12 +116,12 @@ For more information about decreasing the number of replicas using the CLI, see 
 To decrease the number of replicas in a Redis shard, use the `DecreaseReplicaCount` action with the following parameters:
 + `ReplicationGroupId` – Required\. Identifies which replication group you want to decrease the number of replicas in\.
 + `ApplyImmediately` – Required\. Specifies whether to decrease the replica count immediately \(`ApplyImmediately=True`\) or at the next maintenance window \(`ApplyImmediately=False`\)\. Currently, `ApplyImmediately=False` is not supported\.
-+ `NewReplicaCount` – Optional\. Specifies the number of replica nodes you want\. The value of `NewReplicaCount` must be a valid value less than the current number of replicas in the node groups\. For minimum permitted values, see [Decreasing the Number of Replicas in a Shard](#decrease-replica-count)\. If the value of `--new-replica-count` doesn't meet this requirement, the call fails\.
++ `NewReplicaCount` – Optional\. Specifies the number of replica nodes you want\. The value of `NewReplicaCount` must be a valid value less than the current number of replicas in the node groups\. For minimum permitted values, see [Decreasing the number of replicas in a shard](#decrease-replica-count)\. If the value of `--new-replica-count` doesn't meet this requirement, the call fails\.
 + `ReplicasToRemove` – Optional\. Contains a list of node IDs specifying the replica nodes to remove\.
 + `ReplicaConfiguration` – Optional\. Contains a list of node groups that allows you to set the number of replicas and Availability Zones for each node group independently\. Use this parameter for Redis \(cluster mode enabled\) groups where you want to configure each node group independently\. 
 
   `ReplicaConfiguraion` has three optional members:
-  + `NodeGroupId` – The four\-digit ID for the node group you are configuring\. For Redis \(cluster mode disabled\) replication groups, the node group ID is always `0001`\. To find a Redis \(cluster mode enabled\) node group's \(shard's\) ID, see [Finding a Shard's ID](shard-find-id.md)\.
+  + `NodeGroupId` – The four\-digit ID for the node group you are configuring\. For Redis \(cluster mode disabled\) replication groups, the node group ID is always `0001`\. To find a Redis \(cluster mode enabled\) node group's \(shard's\) ID, see [Finding a shard's ID](Shards.md#shard-find-id)\.
   + `NewReplicaCount` – The number of replicas that you want in this node group at the end of this operation\. The value must be less than the current number of replicas down to a minimum of 1 if Multi\-AZ is enabled or 0 if Multi\-AZ with Automatic Failover isn't enabled\. If this value is not less than the current number of replicas in the node group, the call fails with an exception\.
   + `PreferredAvailabilityZones` – A list of `PreferredAvailabilityZone` strings that specify which Availability Zones the replication group's nodes are in\. The number of `PreferredAvailabilityZone` values must equal the value of `NewReplicaCount` plus 1 to account for the primary node\. If this member of `ReplicaConfiguration` is omitted, ElastiCache for Redis chooses the Availability Zone for each of the new replicas\.
 

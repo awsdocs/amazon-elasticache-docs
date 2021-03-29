@@ -9,11 +9,12 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 This documentation helps you understand how to apply the shared responsibility model when using Amazon ElastiCache\. The following topics show you how to configure Amazon ElastiCache to meet your security and compliance objectives\. You also learn how to use other AWS services that help you to monitor and secure your Amazon ElastiCache resources\. 
 
 **Topics**
-+ [Data Protection in Amazon ElastiCache](data-protection.md)
-+ [Internetwork Traffic Privacy](Security.md)
-+ [Identity and Access Management in Amazon ElastiCache](IAM.md)
-+ [Logging and Monitoring in Elasticache](MonitoringECMetrics.md)
-+ [Compliance Validation for Amazon ElastiCache](redis-compliance.md)
++ [Data protection in Amazon ElastiCache](data-protection.md)
++ [Internetwork traffic privacy](Security.md)
++ [Identity and access management in Amazon ElastiCache](IAM.md)
++ [Logging and monitoring in Elasticache](MonitoringECMetrics.md)
++ [Compliance validation for Amazon ElastiCache](redis-compliance.md)
 + [Resilience in Amazon ElastiCache](disaster-recovery-resiliency.md)
-+ [Infrastructure Security in AWS Elasticache](infrastructure-security.md)
-+ [Self\-Service Updates in Amazon ElastiCache](Self-Service-Updates.md)
++ [Infrastructure security in AWS Elasticache](infrastructure-security.md)
++ [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)
++ [Troubleshooting](TroubleshootingConnections.md)

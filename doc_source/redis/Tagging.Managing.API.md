@@ -1,4 +1,4 @@
-# Managing Your Cost Allocation Tags Using the ElastiCache API<a name="Tagging.Managing.API"></a>
+# Managing your cost allocation tags using the ElastiCache API<a name="Tagging.Managing.API"></a>
 
 You can use the ElastiCache API to add, modify, or remove cost allocation tags\.
 
@@ -7,12 +7,12 @@ Cost allocation tags are applied to ElastiCache for Memcached clusters\. The clu
 Sample arn: `arn:aws:elasticache:us-west-2:1234567890:cluster:my-cluster`
 
 **Topics**
-+ [Listing Tags Using the ElastiCache API](#Tagging.Managing.API.List)
-+ [Adding Tags Using the ElastiCache API](#Tagging.Managing.API.Add)
-+ [Modifying Tags Using the ElastiCache API](#Tagging.Managing.API.Modify)
-+ [Removing Tags Using the ElastiCache API](#Tagging.Managing.API.Remove)
++ [Listing tags using the ElastiCache API](#Tagging.Managing.API.List)
++ [Adding tags using the ElastiCache API](#Tagging.Managing.API.Add)
++ [Modifying tags using the ElastiCache API](#Tagging.Managing.API.Modify)
++ [Removing tags using the ElastiCache API](#Tagging.Managing.API.Remove)
 
-## Listing Tags Using the ElastiCache API<a name="Tagging.Managing.API.List"></a>
+## Listing tags using the ElastiCache API<a name="Tagging.Managing.API.List"></a>
 
 You can use the ElastiCache API to list tags on an existing resource by using the [ListTagsForResource](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListTagsForResource.html) operation\.
 
@@ -29,7 +29,7 @@ https://elasticache.us-west-2.amazonaws.com/
    &X-Amz-Credential=<credential>
 ```
 
-## Adding Tags Using the ElastiCache API<a name="Tagging.Managing.API.Add"></a>
+## Adding tags using the ElastiCache API<a name="Tagging.Managing.API.Add"></a>
 
 You can use the ElastiCache API to add tags to an existing ElastiCache cluster by using the [AddTagsToResource](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html) operation\. If the tag key does not exist on the resource, the key and value are added to the resource\. If the key already exists on the resource, the value associated with that key is updated to the new value\.
 
@@ -52,7 +52,7 @@ https://elasticache.us-west-2.amazonaws.com/
 
 For more information, see [AddTagsToResource](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html) in the *Amazon ElastiCache API Reference*\.
 
-## Modifying Tags Using the ElastiCache API<a name="Tagging.Managing.API.Modify"></a>
+## Modifying tags using the ElastiCache API<a name="Tagging.Managing.API.Modify"></a>
 
 You can use the ElastiCache API to modify the tags on an ElastiCache cluster\.
 
@@ -64,7 +64,7 @@ Output from either operation will be a list of tags and their values on the spec
 
 Use [RemoveTagsFromResource](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RemoveTagsFromResource.html) to remove tags from the resource\.
 
-## Removing Tags Using the ElastiCache API<a name="Tagging.Managing.API.Remove"></a>
+## Removing tags using the ElastiCache API<a name="Tagging.Managing.API.Remove"></a>
 
 You can use the ElastiCache API to remove tags from an existing ElastiCache for Redis node by using the [RemoveTagsFromResource](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RemoveTagsFromResource.html) operation\.
 

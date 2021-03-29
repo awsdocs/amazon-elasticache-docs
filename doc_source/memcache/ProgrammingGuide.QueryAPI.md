@@ -1,6 +1,6 @@
-# Using the Query API<a name="ProgrammingGuide.QueryAPI"></a>
+# Using the query API<a name="ProgrammingGuide.QueryAPI"></a>
 
-## Query Parameters<a name="query-parameters"></a>
+## Query parameters<a name="query-parameters"></a>
 
 HTTP Query\-based requests are HTTP requests that use the HTTP verb GET or POST and a Query parameter named `Action`\.
 
@@ -8,13 +8,13 @@ Each Query request must include some common parameters to handle authentication 
 
 Some operations take lists of parameters\. These lists are specified using the `param.n` notation\. Values of *n* are integers starting from 1\. 
 
-## Query Request Authentication<a name="query-authentication"></a>
+## Query request authentication<a name="query-authentication"></a>
 
 You can only send Query requests over HTTPS and you must include a signature in every Query request\. This section describes how to create the signature\. The method described in the following procedure is known as *signature version 4*\. 
 
 The following are the basic steps used to authenticate requests to AWS\. This assumes you are registered with AWS and have an Access Key ID and Secret Access Key\. 
 
-**Query Authentication Process**
+**Query authentication process**
 
 1. The sender constructs a request to AWS\.
 

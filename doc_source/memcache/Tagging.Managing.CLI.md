@@ -1,4 +1,4 @@
-# Managing Your Cost Allocation Tags Using the AWS CLI<a name="Tagging.Managing.CLI"></a>
+# Managing your cost allocation tags using the AWS CLI<a name="Tagging.Managing.CLI"></a>
 
 You can use the AWS CLI to add, modify, or remove cost allocation tags\.
 
@@ -9,12 +9,12 @@ Sample arn: `arn:aws:elasticache:us-west-2:1234567890:cluster:my-cluster`
 Sample arn: `arn:aws:elasticache:us-west-2:1234567890:cluster:my-cluster`
 
 **Topics**
-+ [Listing Tags Using the AWS CLI](#Tagging.Managing.CLI.List)
-+ [Adding Tags Using the AWS CLI](#Tagging.Managing.CLI.Add)
-+ [Modifying Tags Using the AWS CLI](#Tagging.Managing.CLI.Modify)
-+ [Removing Tags Using the AWS CLI](#Tagging.Managing.CLI.Remove)
++ [Listing tags using the AWS CLI](#Tagging.Managing.CLI.List)
++ [Adding tags using the AWS CLI](#Tagging.Managing.CLI.Add)
++ [Modifying tags using the AWS CLI](#Tagging.Managing.CLI.Modify)
++ [Removing tags using the AWS CLI](#Tagging.Managing.CLI.Remove)
 
-## Listing Tags Using the AWS CLI<a name="Tagging.Managing.CLI.List"></a>
+## Listing tags using the AWS CLI<a name="Tagging.Managing.CLI.List"></a>
 
 You can use the AWS CLI to list tags on an existing ElastiCache resource by using the [list\-tags\-for\-resource](https://docs.aws.amazon.com/cli/latest/reference/elasticache/list-tags-for-resource.html) operation\.
 
@@ -61,7 +61,7 @@ If there are no tags on the resource, the output will be an empty TagList\.
 
 For more information, see the AWS CLI for ElastiCache [list\-tags\-for\-resource](https://docs.aws.amazon.com/cli/latest/reference/elasticache/list-tags-for-resource.html)\.
 
-## Adding Tags Using the AWS CLI<a name="Tagging.Managing.CLI.Add"></a>
+## Adding tags using the AWS CLI<a name="Tagging.Managing.CLI.Add"></a>
 
 You can use the AWS CLI to add tags to an existing ElastiCache resource by using the [add\-tags\-to\-resource](https://docs.aws.amazon.com/cli/latest/reference/elasticache/add-tags-to-resource.html) CLI operation\. If the tag key does not exist on the resource, the key and value are added to the resource\. If the key already exists on the resource, the value associated with that key is updated to the new value\.
 
@@ -106,7 +106,7 @@ For more information, see the AWS CLI for ElastiCache [add\-tags\-to\-resource](
 
 You can also use the AWS CLI to add tags to a cluster when you create a new cluster by using the operation [create\-cache\-cluster](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-cache-cluster.html)\. You cannot add tags when creating a cluster using the ElastiCache management console\. After the cluster is created, you can then use the console to add tags to the cluster\.
 
-## Modifying Tags Using the AWS CLI<a name="Tagging.Managing.CLI.Modify"></a>
+## Modifying tags using the AWS CLI<a name="Tagging.Managing.CLI.Modify"></a>
 
 You can use the AWS CLI to modify the tags on an ElastiCache for Memcached cluster\.
 
@@ -116,7 +116,7 @@ To modify tags:
 
 Output from either operation will be a list of tags and their values on the specified cluster\.
 
-## Removing Tags Using the AWS CLI<a name="Tagging.Managing.CLI.Remove"></a>
+## Removing tags using the AWS CLI<a name="Tagging.Managing.CLI.Remove"></a>
 
 You can use the AWS CLI to remove tags from an existing ElastiCache for Memcached cluster by using the [remove\-tags\-from\-resource](https://docs.aws.amazon.com/cli/latest/reference/elasticache/remove-tags-from-resource.html) operation\.
 

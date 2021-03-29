@@ -1,8 +1,8 @@
-# Choosing Your Node Size<a name="nodes-select-size"></a>
+# Choosing your node size<a name="nodes-select-size"></a>
 
 The node size you select for your cluster impacts costs, performance, and fault tolerance\. 
 
-## Choosing Your Node Size<a name="CacheNodes.SelectSize"></a>
+## Choosing your node size<a name="CacheNodes.SelectSize"></a>
 
 Answering the following questions can help you determine the minimum node type you need for your Redis implementation:
 + How much total memory do you need for your data?
@@ -15,13 +15,13 @@ Answering the following questions can help you determine the minimum node type y
   Redis version 2\.8\.22 and later use a forkless save process that requires less available memory than the earlier process\.
 
   For more information, see the following:
-  + [How Synchronization and Backup are Implemented](Replication.Redis.Versions.md)
-  + [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)
+  + [How synchronization and backup are implemented](Replication.Redis.Versions.md)
+  + [Ensuring that you have enough memory to create a Redis snapshot](BestPractices.BGSAVE.md)
 + How write\-heavy is your application?
 
   Write heavy applications can require significantly more available memory, memory not used by data, when taking snapshots or failing over\. Whenever the `BGSAVE` process is performed, you must have sufficient memory that is unused by data to accommodate all the writes that transpire during the `BGSAVE` process\. Examples are when taking a snapshot, when syncing a primary cluster with a replica in a cluster, and when enabling the append\-only file \(AOF\) feature\. Another is when promoting a replica to primary \(if you have Multi\-AZ enabled\)\. The worst case is when all of your data is rewritten during the process\. In this case, you need a node instance size with twice as much memory as needed for data alone\.
 
-  For more detailed information, see [Ensuring That You Have Enough Memory to Create a Redis Snapshot](BestPractices.BGSAVE.md)\.
+  For more detailed information, see [Ensuring that you have enough memory to create a Redis snapshot](BestPractices.BGSAVE.md)\.
 + Will your implementation be a standalone Redis \(cluster mode disabled\) cluster or a Redis \(cluster mode enabled\) cluster with multiple shards?
 
 **Redis \(cluster mode disabled\) cluster**  

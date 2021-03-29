@@ -1,4 +1,4 @@
-# Finding Replication Group Endpoints<a name="Replication.Endpoints"></a>
+# Finding replication group endpoints<a name="Replication.Endpoints"></a>
 
 An application can connect to any node in a replication group, provided that it has the DNS endpoint and port number for that node\. Depending upon whether you are running a Redis \(cluster mode disabled\) or a Redis \(cluster mode enabled\) replication group, you will be interested in different endpoints\.
 

@@ -1,4 +1,4 @@
-# ElastiCache API Permissions: Actions, Resources, and Conditions Reference<a name="IAM.APIReference"></a>
+# ElastiCache API permissions: Actions, resources, and conditions reference<a name="IAM.APIReference"></a>
 
 When you set up [access control](IAM.md#IAM.AccessControl) and write permissions policies to attach to an IAM policy \(either idenity\-based or resource\-based\), use the following table as a reference\. The table lists each Amazon ElastiCache API operation and the corresponding actions for which you can grant permissions to perform the action\. You specify the actions in the policy's `Action` field, and you specify a resource value in the policy's `Resource` field\. Unless indicated otherwise, the resource is required\. Some fields include both a required resource and optional resources\. When there is no resource ARN, the resource in the policy is a wildcard \(\*\)\.
 
@@ -10,9 +10,9 @@ To specify an action, use the `elasticache:` prefix followed by the API operatio
 Use the scroll bars to see the rest of the table\.
 
 
-**Amazon ElastiCache API and Required Permissions for Actions**  
+**Amazon ElastiCache API and required permissions for actions**  
 
-| ElastiCache API Operations | Required Permissions \(API Actions\) | Resources  | 
+| ElastiCache API operations | Required permissions \(API actions\) | Resources  | 
 | --- | --- | --- | 
 |  [AddTagsToResource](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html) | `elasticache:AddTagsToResource` | \(Optional\) Cluster, snapshot | 
 |  [AuthorizeCacheSecurityGroupIngress](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html) | `elasticache:AuthorizeCacheSecurityGroupIngress` | Security group | 

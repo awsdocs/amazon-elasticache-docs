@@ -1,4 +1,4 @@
-# Online Resharding and Shard Rebalancing for Redis \(cluster mode enabled\)<a name="redis-cluster-resharding-online"></a>
+# Online resharding and shard rebalancing for Redis \(cluster mode enabled\)<a name="redis-cluster-resharding-online"></a>
 
 By using online resharding and shard rebalancing with Amazon ElastiCache for Redis version 3\.2\.10 or newer, you can scale your ElastiCache for Redis \(cluster mode enabled\) dynamically with no downtime\. This approach means that your cluster can continue to serve requests even while scaling or rebalancing is in process\.
 
@@ -15,7 +15,7 @@ You can't do the following:
   + You can't specify the keyspace for shards independently\. To do this, you must use the offline process\.
 
 Currently, the following limitations apply to ElastiCache for Redis online resharding and rebalancing:
-+ These processes require Redis engine version 3\.2\.10 or newer\. For information on upgrading your engine version, see [Upgrading Engine Versions](VersionManagement.md)\.
++ These processes require Redis engine version 3\.2\.10 or newer\. For information on upgrading your engine version, see [Upgrading engine versions](VersionManagement.md)\.
 + There are limitations with slots or keyspaces and large items:
 
   If any of the keys in a shard contain a large item, that key isn't migrated to a new shard when scaling out or rebalancing\. This functionality can result in unbalanced shards\.
@@ -24,20 +24,20 @@ Currently, the following limitations apply to ElastiCache for Redis online resha
 + When scaling out, the number of nodes in any new shards equals the number of nodes in the smallest existing shard\.
 + When scaling out, any tags that are common to all existing shards are copied to the new shards\.
 
-For more information, see [Best Practices: Online Cluster Resizing](best-practices-online-resharding.md)\.
+For more information, see [Best practices: Online cluster resizing](best-practices-online-resharding.md)\.
 
 You can horizontally scale or rebalance your ElastiCache for Redis \(cluster mode enabled\) clusters using the AWS Management Console, the AWS CLI, and the ElastiCache API\.
 
-## Adding Shards with Online Resharding<a name="redis-cluster-resharding-online-add"></a>
+## Adding shards with online resharding<a name="redis-cluster-resharding-online-add"></a>
 
 You can add shards to your Redis \(cluster mode enabled\) cluster using the AWS Management Console, AWS CLI, or ElastiCache API\. When you add shards to a Redis \(cluster mode enabled\) cluster, any tags on the existing shards are copied over to the new shards\.
 
 **Topics**
-+ [Adding Shards \(Console\)](#redis-cluster-resharding-online-add-console)
-+ [Adding Shards \(AWS CLI\)](#redis-cluster-resharding-online-add-cli)
-+ [Adding Shards \(ElastiCache API\)](#redis-cluster-resharding-online-add-api)
++ [Adding shards \(Console\)](#redis-cluster-resharding-online-add-console)
++ [Adding shards \(AWS CLI\)](#redis-cluster-resharding-online-add-cli)
++ [Adding shards \(ElastiCache API\)](#redis-cluster-resharding-online-add-api)
 
-### Adding Shards \(Console\)<a name="redis-cluster-resharding-online-add-console"></a>
+### Adding shards \(Console\)<a name="redis-cluster-resharding-online-add-console"></a>
 
 You can use the AWS Management Console to add one or more shards to your Redis \(cluster mode enabled\) cluster\. The following procedure describes the process\.
 
@@ -61,7 +61,7 @@ Redis \(cluster mode enabled\) show **Clustered Redis** in the **Mode** column
 
    1. Choose **Add**\.
 
-### Adding Shards \(AWS CLI\)<a name="redis-cluster-resharding-online-add-cli"></a>
+### Adding shards \(AWS CLI\)<a name="redis-cluster-resharding-online-add-cli"></a>
 
 The following process describes how to reconfigure the shards in your Redis \(cluster mode enabled\) cluster by adding shards using the AWS CLI\.
 
@@ -107,7 +107,7 @@ aws elasticache modify-replication-group-shard-configuration ^
 
 For more information, see [modify\-replication\-group\-shard\-configuration](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group-shard-configuration.html) in the AWS CLI documentation\.
 
-### Adding Shards \(ElastiCache API\)<a name="redis-cluster-resharding-online-add-api"></a>
+### Adding shards \(ElastiCache API\)<a name="redis-cluster-resharding-online-add-api"></a>
 
 You can use the ElastiCache API to reconfigure the shards in your Redis \(cluster mode enabled\) cluster online by using the `ModifyReplicationGroupShardConfiguration` operation\.
 
@@ -149,22 +149,22 @@ https://elasticache.us-east-2.amazonaws.com/
 
 For more information, see [ModifyReplicationGroupShardConfiguration](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html) in the ElastiCache API Reference\.
 
-## Removing Shards with Online Resharding<a name="redis-cluster-resharding-online-remove"></a>
+## Removing shards with online resharding<a name="redis-cluster-resharding-online-remove"></a>
 
 You can remove shards from your Redis \(cluster mode enabled\) cluster using the AWS Management Console, AWS CLI, or ElastiCache API\.
 
 **Topics**
-+ [Removing Shards \(Console\)](#redis-cluster-resharding-online-remove-console)
-+ [Removing Shards \(AWS CLI\)](#redis-cluster-resharding-online-remove-cli)
-+ [Removing Shards \(ElastiCache API\)](#redis-cluster-resharding-online-remove-api)
++ [Removing shards \(Console\)](#redis-cluster-resharding-online-remove-console)
++ [Removing shards \(AWS CLI\)](#redis-cluster-resharding-online-remove-cli)
++ [Removing shards \(ElastiCache API\)](#redis-cluster-resharding-online-remove-api)
 
-### Removing Shards \(Console\)<a name="redis-cluster-resharding-online-remove-console"></a>
+### Removing shards \(Console\)<a name="redis-cluster-resharding-online-remove-console"></a>
 
 The following process describes how to reconfigure the shards in your Redis \(cluster mode enabled\) cluster by removing shards using the AWS Management Console\.
 
 Before removing node groups \(shards\) from your replication group, ElastiCache makes sure that all your data will fit in the remaining shards\. If the data will fit, the specified shards are deleted from the replication group as requested\. If the data won't fit in the remaining node groups, the process is terminated and the replication group is left with the same node group configuration as before the request was made\.
 
-You can use the AWS Management Console to remove one or more shards from your Redis \(cluster mode enabled\) cluster\. You cannot remove all the shards in a replication group\. Instead, you must delete the replication group\. For more information, see [Deleting a Replication Group](Replication.DeletingRepGroup.md)\. The following procedure describes the process for deleting one or more shards\.
+You can use the AWS Management Console to remove one or more shards from your Redis \(cluster mode enabled\) cluster\. You cannot remove all the shards in a replication group\. Instead, you must delete the replication group\. For more information, see [Deleting a replication group](Replication.DeletingRepGroup.md)\. The following procedure describes the process for deleting one or more shards\.
 
 **To remove shards from your Redis \(cluster mode enabled\) cluster**
 
@@ -180,14 +180,14 @@ Redis \(cluster mode enabled\) clusters have a value of 1 or greater in the **Sh
 
 1. Choose **Delete shard**\.
 
-### Removing Shards \(AWS CLI\)<a name="redis-cluster-resharding-online-remove-cli"></a>
+### Removing shards \(AWS CLI\)<a name="redis-cluster-resharding-online-remove-cli"></a>
 
 The following process describes how to reconfigure the shards in your Redis \(cluster mode enabled\) cluster by removing shards using the AWS CLI\.
 
 **Important**  
 Before removing node groups \(shards\) from your replication group, ElastiCache makes sure that all your data will fit in the remaining shards\. If the data will fit, the specified shards \(`--node-groups-to-remove`\) are deleted from the replication group as requested and their keyspaces mapped into the remaining shards\. If the data will not fit in the remaining node groups, the process is terminated and the replication group is left with the same node group configuration as before the request was made\.
 
-You can use the AWS CLI to remove one or more shards from your Redis \(cluster mode enabled\) cluster\. You cannot remove all the shards in a replication group\. Instead, you must delete the replication group\. For more information, see [Deleting a Replication Group](Replication.DeletingRepGroup.md)\.
+You can use the AWS CLI to remove one or more shards from your Redis \(cluster mode enabled\) cluster\. You cannot remove all the shards in a replication group\. Instead, you must delete the replication group\. For more information, see [Deleting a replication group](Replication.DeletingRepGroup.md)\.
 
 Use the following parameters with `modify-replication-group-shard-configuration`\.
 
@@ -222,7 +222,7 @@ aws elasticache modify-replication-group-shard-configuration ^
     --apply-immediately
 ```
 
-### Removing Shards \(ElastiCache API\)<a name="redis-cluster-resharding-online-remove-api"></a>
+### Removing shards \(ElastiCache API\)<a name="redis-cluster-resharding-online-remove-api"></a>
 
 You can use the ElastiCache API to reconfigure the shards in your Redis \(cluster mode enabled\) cluster online by using the `ModifyReplicationGroupShardConfiguration` operation\.
 
@@ -231,7 +231,7 @@ The following process describes how to reconfigure the shards in your Redis \(cl
 **Important**  
 Before removing node groups \(shards\) from your replication group, ElastiCache makes sure that all your data will fit in the remaining shards\. If the data will fit, the specified shards \(`NodeGroupsToRemove`\) are deleted from the replication group as requested and their keyspaces mapped into the remaining shards\. If the data will not fit in the remaining node groups, the process is terminated and the replication group is left with the same node group configuration as before the request was made\.
 
-You can use the ElastiCache API to remove one or more shards from your Redis \(cluster mode enabled\) cluster\. You cannot remove all the shards in a replication group\. Instead, you must delete the replication group\. For more information, see [Deleting a Replication Group](Replication.DeletingRepGroup.md)\.
+You can use the ElastiCache API to remove one or more shards from your Redis \(cluster mode enabled\) cluster\. You cannot remove all the shards in a replication group\. Instead, you must delete the replication group\. For more information, see [Deleting a replication group](Replication.DeletingRepGroup.md)\.
 
 Use the following parameters with `ModifyReplicationGroupShardConfiguration`\.
 
@@ -261,14 +261,14 @@ https://elasticache.us-east-2.amazonaws.com/
     &X-Amz-Credential=<credential>
 ```
 
-## Online Shard Rebalancing<a name="redis-cluster-resharding-online-rebalance"></a>
+## Online shard rebalancing<a name="redis-cluster-resharding-online-rebalance"></a>
 
 You can rebalance shards in your Redis \(cluster mode enabled\) cluster using the AWS Management Console, AWS CLI, or ElastiCache API\.
 
 **Topics**
 + [Online Shard Rebalancing \(Console\)](#redis-cluster-resharding-online-rebalance-console)
-+ [Online Shard Rebalancing \(AWS CLI\)](#redis-cluster-resharding-online-rebalance-cli)
-+ [Online Shard Rebalancing \(ElastiCache API\)](#redis-cluster-resharding-online-rebalance-api)
++ [Online shard rebalancing \(AWS CLI\)](#redis-cluster-resharding-online-rebalance-cli)
++ [Online shard rebalancing \(ElastiCache API\)](#redis-cluster-resharding-online-rebalance-api)
 
 ### Online Shard Rebalancing \(Console\)<a name="redis-cluster-resharding-online-rebalance-console"></a>
 
@@ -288,7 +288,7 @@ Redis \(cluster mode enabled\) clusters have a value of 1 or greater in the **Sh
 
 1. When prompted, choose **Rebalance**\. You might see a message similar to this one: *Slots in the replication group are uniformly distributed\. Nothing to do\. \(Service: AmazonElastiCache; Status Code: 400; Error Code: InvalidReplicationGroupState; Request ID: 2246cebd\-9721\-11e7\-8d5b\-e1b0f086c8cf\)*\. If you do, choose **Cancel**\.
 
-### Online Shard Rebalancing \(AWS CLI\)<a name="redis-cluster-resharding-online-rebalance-cli"></a>
+### Online shard rebalancing \(AWS CLI\)<a name="redis-cluster-resharding-online-rebalance-cli"></a>
 
 Use the following parameters with `modify-replication-group-shard-configuration`\.
 
@@ -318,7 +318,7 @@ aws elasticache modify-replication-group-shard-configuration ^
     --apply-immediately
 ```
 
-### Online Shard Rebalancing \(ElastiCache API\)<a name="redis-cluster-resharding-online-rebalance-api"></a>
+### Online shard rebalancing \(ElastiCache API\)<a name="redis-cluster-resharding-online-rebalance-api"></a>
 
 You can use the ElastiCache API to reconfigure the shards in your Redis \(cluster mode enabled\) cluster online by using the `ModifyReplicationGroupShardConfiguration` operation\.
 

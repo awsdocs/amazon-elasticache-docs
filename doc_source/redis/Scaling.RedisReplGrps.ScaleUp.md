@@ -1,4 +1,4 @@
-# Scaling Up Redis Clusters with Replicas<a name="Scaling.RedisReplGrps.ScaleUp"></a>
+# Scaling up Redis clusters with replicas<a name="Scaling.RedisReplGrps.ScaleUp"></a>
 
 Amazon ElastiCache provides console, CLI, and API support for scaling your Redis \(cluster mode disabled\) replication group up\. 
 
@@ -34,7 +34,7 @@ If your parameter group uses `reserved-memory` to set aside memory for Redis ove
 If you're using `reserved-memory-percent`, doing this is not necessary\.   
 For more information, see [Managing Reserved Memory](redis-memory-management.md)\.
 
-## Scaling Up a Redis Cluster with Replicas \(Console\)<a name="Scaling.RedisReplGrps.ScaleUp.CON"></a>
+## Scaling up a Redis cluster with replicas \(Console\)<a name="Scaling.RedisReplGrps.ScaleUp.CON"></a>
 
 The amount of time it takes to scale up to a larger node type varies, depending upon the node type and the amount of data in your current cluster\.
 
@@ -62,7 +62,7 @@ The following process scales your cluster with replicas from its current node ty
 
 1. When the cluster’s status changes from *modifying* to *available*, your cluster has scaled to the new node type\. There is no need to update the endpoints in your application\.
 
-## Scaling Up a Redis Replication Group \(AWS CLI\)<a name="Scaling.RedisReplGrps.ScaleUp.CLI"></a>
+## Scaling up a Redis replication group \(AWS CLI\)<a name="Scaling.RedisReplGrps.ScaleUp.CLI"></a>
 
 The following process scales your replication group from its current node type to a new, larger node type using the AWS CLI\. During this process, ElastiCache for Redis updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 5\.0\.4 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\.\.
 
@@ -208,7 +208,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
 
    For more information, see [describe\-replication\-groups](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-replication-groups.html) in the *AWS CLI Reference*\.
 
-## Scaling Up a Redis Replication Group \(ElastiCache API\)<a name="Scaling.RedisReplGrps.ScaleUp.API"></a>
+## Scaling up a Redis replication group \(ElastiCache API\)<a name="Scaling.RedisReplGrps.ScaleUp.API"></a>
 
 The following process scales your replication group from its current node type to a new, larger node type using the ElastiCache API\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 5\.0\.4 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\.
 

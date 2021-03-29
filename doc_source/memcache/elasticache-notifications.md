@@ -4,20 +4,20 @@ This topic covers ElastiCache notifications that you might be interested in\. A 
 
 Notifications do not announce new or improved ElastiCache features or functionality\.
 
-## General ElastiCache Notifications<a name="elasticache-notifications-general"></a>
+## General ElastiCache notifications<a name="elasticache-notifications-general"></a>
 
 **Topics**
 
 Currently there are no outstanding ElastiCache notifications that are not engine specific\.
 
-## ElastiCache for Memcached Notifications<a name="elasticache-notifications-memcached"></a>
+## ElastiCache for Memcached notifications<a name="elasticache-notifications-memcached"></a>
 
 The following ElastiCache notifications are specific to the Memcached engine\.
 
 **Topics**
-+ [Alert: Memcached LRU Crawler Causing Segmentation Faults](#notification-lru-crawler)
++ [Alert: Memcached LRU crawler causing segmentation faults](#notification-lru-crawler)
 
-### Alert: Memcached LRU Crawler Causing Segmentation Faults<a name="notification-lru-crawler"></a>
+### Alert: Memcached LRU crawler causing segmentation faults<a name="notification-lru-crawler"></a>
 
 ****  
 Alert Date: February 28, 2017  

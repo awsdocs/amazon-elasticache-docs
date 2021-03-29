@@ -1,12 +1,12 @@
-# Creating a Security Group<a name="SecurityGroups.Creating"></a>
+# Creating a security group<a name="SecurityGroups.Creating"></a>
 
-This topic is relevant to you only if you are not running in an Amazon VPC\. If you are running in an Amazon VPC, see [Amazon VPCs and ElastiCache Security](VPCs.md)\.
+This topic is relevant to you only if you are not running in an Amazon VPC\. If you are running in an Amazon VPC, see [Amazon VPCs and ElastiCache security](VPCs.md)\.
 
 To create a security group, you need to provide a name and a description\.
 
 The following procedures show you how to create a new security group\.
 
-## Creating a Security Group \(Console\)<a name="SecurityGroups.Creating.CON"></a>
+## Creating a security group \(Console\)<a name="SecurityGroups.Creating.CON"></a>
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 
@@ -20,7 +20,7 @@ The following procedures show you how to create a new security group\.
 
 1. Choose **Create**\. 
 
-## Creating a Security Group \(AWS CLI\)<a name="SecurityGroups.Creating.CLI"></a>
+## Creating a security group \(AWS CLI\)<a name="SecurityGroups.Creating.CLI"></a>
 
 At a command prompt, use the `create-cache-security-group` command with the following parameters:
 + \-\-cache\-security\-group\-name – The name of the security group you are creating\.
@@ -48,7 +48,7 @@ aws elasticache create-cache-security-group ^
 
 For more information, see [create\-cache\-security\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-cache-security-group.html)\.
 
-## Creating a Security Group \(ElastiCache API\)<a name="SecurityGroups.Creating.API"></a>
+## Creating a security group \(ElastiCache API\)<a name="SecurityGroups.Creating.API"></a>
 
 Using the ElastiCache API operation `CreateCacheSecurityGroup` with the following parameters:
 + `CacheSecurityGroupName` – The name of the security group you are creating\.
