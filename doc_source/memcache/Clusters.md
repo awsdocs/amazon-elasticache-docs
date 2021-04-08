@@ -1,8 +1,8 @@
-# Managing your ElastiCache clusters<a name="Clusters"></a>
+# Managing clusters<a name="Clusters"></a>
 
 A *cluster* is a collection of one or more cache nodes, all of which run an instance of the Memcached cache engine software\. When you create a cluster, you specify the engine and version for all of the nodes to use\.
 
-The following diagram illustrates a typical Memcached cluster\. Memcached clusters contain from 1 to 20 nodes across which you horizontally partition your data\.
+The following diagram illustrates a typical Memcached cluster\. Memcached clusters contain from 1 to 40 nodes across which you horizontally partition your data\.
 
 To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
 

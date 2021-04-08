@@ -2,7 +2,7 @@
 
 Redis implements replication in two ways: 
 + With a single shard that contains all of the cluster's data in each node—Redis \(cluster mode disabled\)
-+ With data partitioned across up to 250 shards—Redis \(cluster mode enabled\)
++ With data partitioned across up to 500 shards—Redis \(cluster mode enabled\)
 
 Each shard in a replication group has a single read/write primary node and up to 5 read\-only replica nodes\. You can create a cluster with higher number of shards and lower number of replicas totaling up to 90 nodes per cluster\. This cluster configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number of replicas allowed\.
 
@@ -36,7 +36,7 @@ You can change the roles of the nodes within the Redis \(cluster mode disabled\)
 
 ## Redis \(cluster mode enabled\)<a name="Replication.Redis.Groups.Cluster"></a>
 
-A Redis \(cluster mode enabled\) cluster is comprised of from 1 to 250 shards \(API/CLI: node groups\)\. Each shard has a primary node and up to five read\-only replica nodes\. The configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number or replicas allowed\. 
+A Redis \(cluster mode enabled\) cluster is comprised of from 1 to 500 shards \(API/CLI: node groups\)\. Each shard has a primary node and up to five read\-only replica nodes\. The configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number or replicas allowed\. 
 
 The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a subnet group](SubnetGroups.Creating.md)\.
 

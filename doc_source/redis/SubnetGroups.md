@@ -6,7 +6,7 @@ If you create a cluster in an Amazon VPC, you must specify a subnet group\. Elas
 
 This section covers how to create and leverage subnets and subnet groups to manage access to your ElastiCache resources\. 
 
-For more information about subnet group usage in an Amazon VPC environment, see [Access authorization](GettingStarted.AuthorizeAccess.md)\.
+For more information about subnet group usage in an Amazon VPC environment, see [Step 2: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md)\.
 
 **Topics**
 + [Creating a subnet group](SubnetGroups.Creating.md)

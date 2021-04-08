@@ -5,9 +5,7 @@ AWS Outposts is a fully managed service that extends AWS infrastructure, service
 **Note**  
 In this version, the following limitations apply:   
 ElastiCache for Outposts only supports M5 and R5 node families\.
-Live migration is not supported\.
 Multi\-AZ \(cross Outpost replication is not supported\)\.
-Local snapshots are not supported\.
 ElastiCache for Outposts is not supported in the following regions: cn\-north\-1, cn\-northwest\-1 and ap\-northeast\-3\.
 
 ## Using Outposts with the Memcached console<a name="Outposts.Details-memcached"></a>

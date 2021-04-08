@@ -1,6 +1,6 @@
 # Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster"></a>
 
-You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: *replication group*\) using the ElastiCache console, the AWS CLI, or the ElastiCache API\. A Redis \(cluster mode enabled\) replication group has from 1 to 250 shards \(API/CLI: node groups\), a primary node in each shard, and up to 5 read replicas in each shard\. You can create a cluster with higher number of shards and lower number of replicas totaling up to 90 nodes per cluster\. This cluster configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number of replicas allowed\.
+You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: *replication group*\) using the ElastiCache console, the AWS CLI, or the ElastiCache API\. A Redis \(cluster mode enabled\) replication group has from 1 to 500 shards \(API/CLI: node groups\), a primary node in each shard, and up to 5 read replicas in each shard\. You can create a cluster with higher number of shards and lower number of replicas totaling up to 90 nodes per cluster\. This cluster configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number of replicas allowed\.
 
 The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a subnet group](SubnetGroups.Creating.md)\.
 
@@ -15,7 +15,7 @@ To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.co
 
 ## Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON"></a>
 
-To create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\. Be sure to enable cluster mode, **Cluster Mode enabled \(Scale Out\)**, and specify at least two shards and one replica node in each\.
+To create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\. Be sure to enable cluster mode, **Cluster Mode enabled \(Scale Out\)**, and specify at least two shards and one replica node in each\.
 
 ## Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI"></a>
 
@@ -89,7 +89,7 @@ redis
 3\.2\.4
 
 **\-\-num\-node\-groups**  
-The number of node groups in this replication group\. Valid values are 1 to 250\.  
+The number of node groups in this replication group\. Valid values are 1 to 500\.  
 The node/shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and select limit type "Nodes per cluster per instance type”\. 
 
 **\-\-replicas\-per\-node\-group**  
@@ -258,7 +258,7 @@ Redis \(cluster mode enabled\) replication group naming constraints are as follo
 Description of the replication group\.
 
 **NumNodeGroups**  
-The number of node groups you want created with this replication group\. Valid values are 1 to 250\.
+The number of node groups you want created with this replication group\. Valid values are 1 to 500\.
 
 **ReplicasPerNodeGroup**  
 The number of replica nodes in each node group\. Valid values are 1 to 5\.

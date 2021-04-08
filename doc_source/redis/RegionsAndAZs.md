@@ -16,6 +16,8 @@ To create or work with a cluster in a specific region, use the corresponding reg
 **Topics**
 + [Supported regions & endpoints](#SupportedRegions)
 + [Locating your nodes](#RegionsAndAZs.AZMode)
++ [Using local zones with ElastiCache](Local_zones.md)
++ [Using Outposts](ElastiCache-Outposts.md)
 
 ## Supported regions & endpoints<a name="SupportedRegions"></a>
 

@@ -13,6 +13,7 @@ When granting permissions, you decide who is getting the permissions\. You also 
 + [Managing access to resources](#IAM.Overview.ManagingAccess)
 + [Using identity\-based policies \(IAM policies\) for Amazon ElastiCache](IAM.IdentityBasedPolicies.md)
 + [Resource\-level permissions](IAM.ResourceLevelPermissions.md)
++ [Using condition keys](IAM.ConditionKeys.md)
 + [Using Service\-Linked Roles for Amazon ElastiCache](using-service-linked-roles.md)
 + [ElastiCache API permissions: Actions, resources, and conditions reference](IAM.APIReference.md)
 
@@ -22,6 +23,9 @@ In Amazon ElastiCache, the primary resource is a *cache cluster*\.
 
 These resources have unique Amazon Resource Names \(ARNs\) associated with them as shown following\. 
 
+**Note**  
+For resource\-level permissions to be effective, the resource name on the ARN string should be lower case\.
+
 
 ****  
 
@@ -30,13 +34,15 @@ These resources have unique Amazon Resource Names \(ARNs\) associated with them 
 | \(For Redis 6\.x onward\) User  | arn:aws:elasticache:*us\-east\-2:123456789012*:user:user1 | 
 | \(For Redis 6\.x onward\) UserGroup  | arn:aws:elasticache:*us\-east\-2:123456789012*:usergroup:myusergroup | 
 | Cluster  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-cluster | 
-| Snapshot  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-snapshot | 
-| Parameter group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-parameter\-group | 
-| Replication group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-replication\-group | 
-| Security group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-security\-group | 
-| Subnet group  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-subnet\-group | 
-| Reserved instance  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-reserved\-instance | 
-| Global replication group  | arn:aws:elasticache:*123456789012*:cluster:my\-global\-replication\-group | 
+| Snapshot  | arn:aws:elasticache:*us\-east\-2:123456789012*:snapshot:my\-snapshot | 
+| Parameter group  | arn:aws:elasticache:*us\-east\-2:123456789012*:parametergroup:my\-parameter\-group | 
+| Replication group  | arn:aws:elasticache:*us\-east\-2:123456789012*:replicationgroup:my\-replication\-group | 
+| Security group  | arn:aws:elasticache:*us\-east\-2:123456789012*:securitygroup:my\-security\-group | 
+| Subnet group  | arn:aws:elasticache:*us\-east\-2:123456789012*:subnetgroup:my\-subnet\-group | 
+| Reserved instance  | arn:aws:elasticache:*us\-east\-2:123456789012*:reserved\-instance:my\-reserved\-instance | 
+| Global replication group  | arn:aws:elasticache:*123456789012*:globalreplicationgroup:my\-global\-replication\-group | 
+| User  | arn:aws:elasticache:*us\-east\-2:123456789012*:user:my\-user | 
+| User Group  | arn:aws:elasticache:*us\-east\-2:123456789012*:user:my\-user\-group | 
 
 ElastiCache provides a set of operations to work with ElastiCache resources\. For a list of available operations, see Amazon ElastiCache [Actions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_Operations.html)\.
 
@@ -111,4 +117,5 @@ For a table showing all of the Amazon ElastiCache API actions, see [ElastiCache 
 
 When you grant permissions, you can use the IAM policy language to specify the conditions when a policy should take effect\. For example, you might want a policy to be applied only after a specific date\. For more information about specifying conditions in a policy language, see [Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#Condition) in the *IAM User Guide*\. 
 
-To express conditions, you use predefined condition keys\. There are no condition keys specific to Amazon ElastiCache\. However, there are AWS\-wide condition keys that you can use as appropriate\. For a complete list of AWS\-wide keys, see [Available Keys for Conditions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\. 
+To express conditions, you use predefined condition keys\. To use ElastiCache\-specific condition keys, see [Using condition keys](IAM.ConditionKeys.md)\. There are AWS\-wide condition keys that you can use as appropriate\. For a complete list of AWS\-wide keys, see [Available Keys for Conditions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\. 
+

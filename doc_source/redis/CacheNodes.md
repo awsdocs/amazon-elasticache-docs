@@ -7,9 +7,9 @@ Generally speaking, due to its support for sharding, Redis \(cluster mode enable
 **Topics**
 + [Redis nodes and shards](CacheNodes.NodeGroups.md)
 + [Connecting to nodes](nodes-connecting.md)
-+ [ElastiCache reserved nodes](CacheNodes.Reserved.md)
 + [Supported node types](CacheNodes.SupportedTypes.md)
 + [Replacing nodes](CacheNodes.NodeReplacement.md)
++ [ElastiCache reserved nodes](CacheNodes.Reserved.md)
 
 Some important operations involving nodes are the following: 
 + [Adding nodes to a cluster](Clusters.AddNode.md)

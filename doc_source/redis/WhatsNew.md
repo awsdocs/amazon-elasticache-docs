@@ -1,6 +1,6 @@
-# ElastiCache for Redis Documentation History<a name="WhatsNew"></a>
+# ElastiCache for RedisDocumentation history<a name="WhatsNew"></a>
 + **API version:** 2015\-02\-02
-+ **Latest documentation update:** October 8, 2020
++ **Latest documentation update:** April 7, 2021
 
 The following table describes important changes in each release of the *ElastiCache for Redis User Guide* after March 2018\. For notification about updates to this documentation, you can subscribe to the RSS feed\.
 
@@ -8,6 +8,7 @@ The following table describes important changes in each release of the *ElastiCa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Support for tagging resources and condition keys](#WhatsNew) | ElastiCache now supports tagging to help you manage your clusters and other ElastiCache resources\. For more information, see [Tagging your ElastiCache resources](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging-Resources.html)\. ElastiCache also introduces support for condition keys\. You can specify conditions that determine how an IAM policy takes effect\. For more information, see [Using condition keys](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ConditionKeys.html)\. | April 7, 2021 | 
 | [ElastiCache is now available on AWS Outposts](#WhatsNew) | [AWS Outposts](https://aws.amazon.com/outposts/) bring native AWS services, infrastructure, and operating models to virtually any data center, co\-location space, or on\-premises facility\. You can deploy ElastiCache on Outposts to set up, operate, and use cache on\-premises, just as you would in the cloud\. For more information, see [Using Outposts](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ElastiCache-Outposts.html) for Redis or [Using Outposts](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ElastiCache-Outposts.html) for Memcached\. | October 8, 2020 | 
 | [ElastiCache now supports Redis 6](#WhatsNew) | Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache\. This version includes [authenticating users with role\-based access control](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html), versionless support, client\-side caching, and significant operational improvements\. For more information, see [ElastiCache for Redis Version 6\.x \(Enhanced\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html#redis-version-6.x.html)\. | October 7, 2020 | 
 | [ElastiCache now supports Local Zones](#WhatsNew) | A *Local Zone* is an extension of an AWS Region that is geographically close to your users\. You can extend any virtual private cloud \(VPC\) from a parent AWS Region into Local Zones by creating a new subnet and assigning it to a Local Zone\. For more information, see [Using Local Zones](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Local_zones.html)\. | September 25, 2020 | 

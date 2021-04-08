@@ -77,8 +77,8 @@ To enable in\-transit encryption when creating a replication group using the AWS
 + Choose **Yes** from the **Encryption in\-transit** list\.
 
 For the step\-by\-step process, see the following:
-+ [Creating a cluster\-mode disabled cluster \(Console\)](Clusters.Create.CON.Redis.md)
-+ [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
++ [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.CON.Redis.md)
++ [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
 
  
 
@@ -109,7 +109,7 @@ Use the AWS CLI operation `create-replication-group` and the following parameter
 + **\-\-engine\-version**—Must be 3\.2\.6, 4\.0\.10 or later\.
 + **\-\-transit\-encryption\-enabled**—Required\. If you enable in\-transit encryption you must also provide a value for the `--cache-subnet-group` parameter\.
 + Use one of the following parameter sets to specify the configuration of the replication group's node groups:
-  + **\-\-num\-node\-groups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 250\.
+  + **\-\-num\-node\-groups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 500\.
 
     **\-\-replicas\-per\-node\-group**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **\-\-node\-group\-configuration**—Specifies the configuration of each shard independently\.
@@ -124,7 +124,7 @@ For more information, see the following:
 
 ### Enabling in\-transit encryption using the AWS API<a name="in-transit-encryption-enable-api"></a>
 
-To enable in\-transit encryption when creating a Redis replication group using the ElastiCache API, set the parameter `TransitEncryptionEnabled` to `true` with either `CreateCacheCluster` for a single node Redis replication group, or `CreateReplicationGroup` for a replication group with read replicas\.
+To enable in\-transit encryption when creating a Redis replication group using the ElastiCache API, set the parameter `TransitEncryptionEnabled` to `true` with either `CreateReplicationGroup` for a single node Redis replication group, or `CreateReplicationGroup` for a replication group with read replicas\.
 
 #### Enabling in\-transit encryption on a cluster for Redis \(Cluster Mode Disabled\) \(API\)<a name="in-transit-encryption-enable-api-redis-classic-rg"></a>
 
@@ -153,7 +153,7 @@ Use the ElastiCache API operation `CreateReplicationGroup` and the following par
 
   When `TransitEncryptionEnabled` is set to `true`, you must also provide a value for `CacheSubnetGroup`\.
 + Use one of the following parameter sets to specify the configuration of the replication group's node groups:
-  + **NumNodeGroups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 250 but can be increased to a maximum of 250 by a service limit increase request\. For more information, see [AWS service limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html?id=docs_gateway)\.
+  + **NumNodeGroups**—Specifies the number of shards \(node groups\) in this replication group\. The maximum value of this parameter is 500 but can be increased to a maximum of 250 by a service limit increase request\. For more information, see [AWS service limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html?id=docs_gateway)\.
 
     **ReplicasPerNodeGroup**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **NodeGroupConfiguration**—Specifies the configuration of each shard independently\.
@@ -329,6 +329,6 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 ## See also<a name="in-transit-encryption-see-also"></a>
 + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
 + [Authenticating users with the Redis AUTH command](auth.md)
-+ [](Clusters.RBAC.md)
++ [Authenticating Users with Role\-Based Access Control \(RBAC\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
 + [Amazon VPCs and ElastiCache security](VPCs.md)
 + [Identity and access management in Amazon ElastiCache](IAM.md)

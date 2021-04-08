@@ -95,7 +95,7 @@ The amount of time it takes to scale down to a smaller node type varies, dependi
 
 1. Scale your current replication group up to the new node type using the AWS CLI `modify-replication-group` command with the following parameters\.
    + `--replication-group-id` – the name of the replication group\.
-   + `--cache-node-type` – the new, larger node type of the cache clusters in this replication group\. This value must be one of the instance types returned by the `list-allowed-node-type-modifications` command in step 1\.
+   + `--cache-node-type` – the new, smaller node type of the cache clusters in this replication group\. This value must be one of the instance types returned by the `list-allowed-node-type-modifications` command in step 1\.
    + `--cache-parameter-group-name` – \[Optional\] Use this parameter if you are using `reserved-memory` to manage your cluster's reserved memory\. Specify a custom cache parameter group that reserves the correct amount of memory for your new node type\. If you are using `reserved-memory-percent` you can omit this parameter\.
    + `--apply-immediately` – Causes the scale\-up process to be applied immediately\. To postpone the scale\-up operation to the next maintenance window, use `--no-apply-immediately`\.
 
@@ -218,7 +218,7 @@ The amount of time it takes to scale down to a smaller node type varies, dependi
 
 1. Scale your current replication group up to the new node type using the `ModifyRedplicationGroup` ElastiCache API action and with the following parameters\.
    + `ReplicationGroupId` – the name of the replication group\.
-   + `CacheNodeType` – the new, larger node type of the cache clusters in this replication group\. This value must be one of the instance types returned by the `ListAllowedNodeTypeModifications` action in step 1\.
+   + `CacheNodeType` – the new, smaller node type of the cache clusters in this replication group\. This value must be one of the instance types returned by the `ListAllowedNodeTypeModifications` action in step 1\.
    + `CacheParameterGroupName` – \[Optional\] Use this parameter if you are using `reserved-memory` to manage your cluster's reserved memory\. Specify a custom cache parameter group that reserves the correct amount of memory for your new node type\. If you are using `reserved-memory-percent` you can omit this parameter\.
    + `ApplyImmediately` – Set to `true` to causes the scale\-up process to be applied immediately\. To postpone the scale\-down process to the next maintenance window, use `ApplyImmediately``=false`\.
 

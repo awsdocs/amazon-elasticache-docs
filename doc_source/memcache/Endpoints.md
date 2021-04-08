@@ -20,7 +20,7 @@ The following sections guide you through discovering the endpoints you'll need f
 
 All Memcached endpoints are read/write endpoints\. To connect to nodes in a Memcached cluster your application can use either the endpoints for each node, or the cluster's configuration endpoint along with Automatic Discovery\. To use Automatic Discovery you must use a client that supports Automatic Discovery\.
 
-When using Automatic Discovery, your client application connects to your Memcached cluster using the configuration endpoint\. As you scale your cluster by adding or removing nodes, your application will automatically "know" all the nodes in the cluster and be able to connect to any of them\. Without Automatic Discovery your application would have to do this, or you'd have to manually update endpoints in your application each time you added or removed a node\. For additional information on Automatic Discovery, see [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\.
+When using Automatic Discovery, your client application connects to your Memcached cluster using the configuration endpoint\. As you scale your cluster by adding or removing nodes, your application will automatically "know" all the nodes in the cluster and be able to connect to any of them\. Without Automatic Discovery your application would have to do this, or you'd have to manually update endpoints in your application each time you added or removed a node\. For additional information on Automatic Discovery, see [Automatically identify nodes in your cluster](AutoDiscovery.md)\.
 
 The following procedure demonstrates how to find and copy a cluster's configuration endpoint or any of the node endpoints using the ElastiCache console\.
 
@@ -154,7 +154,7 @@ Output from the above operation should look something like this \(JSON format\)\
     ]   
 }
 ```
-If you choose to create a CNAME for your Memcached configuration endpoint, in order for your PHP client to recognize the CNAME as a configuration endpoint, you must include `.cfg.` in the CNAME\. For example, `mycluster.cfg.local` in your php\.ini file for the `session.save_path` parameter\.
+If you choose to create a CNAME for your Memcached configuration endpoint, in order for your auto discovery client to recognize the CNAME as a configuration endpoint, you must include `.cfg.` in the CNAME\. For example, `mycluster.cfg.local` in your php\.ini file for the `session.save_path` parameter\.
 
 For more information, see the topic [describe\-cache\-clusters](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-clusters.html)\.
 
@@ -183,4 +183,4 @@ https://elasticache.us-west-2.amazonaws.com/
     &Version=2015-02-02
     &X-Amz-Credential=<credential>
 ```
-If you choose to create a CNAME for your Memcached configuration endpoint, in order for your PHP client to recognize the CNAME as a configuration endpoint, you must include `.cfg.` in the CNAME\. For example, `mycluster.cfg.local` in your php\.ini file for the `session.save_path` parameter\.
+If you choose to create a CNAME for your Memcached configuration endpoint, in order for your auto discovery client to recognize the CNAME as a configuration endpoint, you must include `.cfg.` in the CNAME\. For example, `mycluster.cfg.local` in your php\.ini file for the `session.save_path` parameter\.

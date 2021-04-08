@@ -23,7 +23,7 @@ Every node within a cluster is the same instance type and runs the same cache en
 
 You can purchase nodes on a pay\-as\-you\-go basis, where you only pay for your use of a node\. Or you can purchase reserved nodes at a significantly reduced hourly rate\. If your usage rate is high, purchasing reserved nodes can save you money\. Suppose that your cluster is almost always in use, and you occasionally add nodes to handle use spikes\. In this case, you can purchase a number of reserved nodes to run most of the time and purchase pay\-as\-you\-go nodes for the times you occasionally need to add nodes\. For more information on reserved nodes, see [ElastiCache reserved nodes](CacheNodes.Reserved.md)\.
 
-The Memcached engine supports Auto Discovery\. *Auto Discovery* is the ability for client programs to automatically identify all of the nodes in a cache cluster, and to initiate and maintain connections to all of these nodes\. With Auto Discovery, your application doesn't need to manually connect to individual nodes\. Instead, your application connects to a configuration endpoint\. The configuration endpoint DNS entry contains the CNAME entries for each of the cache node endpoints\. Thus, by connecting to the configuration endpoint, your application immediately has information about all of the nodes in the cluster and can connect to all of them\. You don't need to hard\-code the individual cache node endpoints in your application\. For more information on Auto Discovery, see [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\.
+The Memcached engine supports Auto Discovery\. *Auto Discovery* is the ability for client programs to automatically identify all of the nodes in a cache cluster, and to initiate and maintain connections to all of these nodes\. With Auto Discovery, your application doesn't need to manually connect to individual nodes\. Instead, your application connects to a configuration endpoint\. The configuration endpoint DNS entry contains the CNAME entries for each of the cache node endpoints\. Thus, by connecting to the configuration endpoint, your application immediately has information about all of the nodes in the cluster and can connect to all of them\. You don't need to hard\-code the individual cache node endpoints in your application\. For more information on Auto Discovery, see [Automatically identify nodes in your cluster](AutoDiscovery.md)\.
 
 For more information on nodes, see [Managing nodes](CacheNodes.md)\.
 
@@ -39,7 +39,7 @@ Many ElastiCache operations are targeted at clusters:
 + Adding or removing cost allocation tags to and from a cluster
 
 For more detailed information, see the following related topics:
-+ [Managing your ElastiCache clusters](Clusters.md) and [Managing nodes](CacheNodes.md)
++ [Managing clusters](Clusters.md) and [Managing nodes](CacheNodes.md)
 
   Information about clusters, nodes, and related operations\.
 + [AWS service limits: Amazon ElastiCache](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_elasticache)
@@ -53,9 +53,9 @@ For more detailed information, see the following related topics:
 
 ### Typical cluster configurations<a name="WhatIs.Components.Clusters.TypicalConfigurations"></a>
 
-Memcached supports up to 100 nodes per customer for each AWS Region with each cluster having 1–20 nodes\. You partition your data across the nodes in a Memcached cluster\.
+Memcached supports up to 300 nodes per customer for each AWS Region with each cluster having 1–40 nodes\. You partition your data across the nodes in a Memcached cluster\.
 
-When you run the Memcached engine, clusters can be made up of 1–20 nodes\. You partition your database across the nodes\. Your application reads and writes to each node's endpoint\. For more information, see [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\.
+When you run the Memcached engine, clusters can be made up of 1–40 nodes\. You partition your database across the nodes\. Your application reads and writes to each node's endpoint\. For more information, see [Automatically identify nodes in your cluster](AutoDiscovery.md)\.
 
 For improved fault tolerance, locate your Memcached nodes in various Availability Zones \(AZs\) within the cluster's AWS Region\. That way, a failure in one AZ has minimal impact upon your entire cluster and application\. For more information, see [Mitigating Failures](FaultTolerance.md)\.
 
@@ -79,7 +79,7 @@ For information on AWS Regions supported by ElastiCache and their endpoints, see
 
 An *endpoint* is the unique address your application uses to connect to an ElastiCache node or cluster\.
 
-Each node in a Memcached cluster has its own endpoint\. The cluster also has an endpoint called the *configuration endpoint*\. If you enable Auto Discovery and connect to the configuration endpoint, your application automatically *knows* each node endpoint, even after adding or removing nodes from the cluster\. For more information, see [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\.
+Each node in a Memcached cluster has its own endpoint\. The cluster also has an endpoint called the *configuration endpoint*\. If you enable Auto Discovery and connect to the configuration endpoint, your application automatically *knows* each node endpoint, even after adding or removing nodes from the cluster\. For more information, see [Automatically identify nodes in your cluster](AutoDiscovery.md)\.
 
 For more information, see [Finding connection endpoints](Endpoints.md)\.
 
@@ -118,7 +118,7 @@ A subnet group is a collection of subnets \(typically private\) that you can des
 
 If you create a cluster in an Amazon VPC, then you must specify a cache subnet group\. ElastiCache uses that cache subnet group to choose a subnet and IP addresses within that subnet to associate with your cache nodes\.
 
-For more information about cache subnet group usage in an Amazon VPC environment, see [Amazon VPCs and ElastiCache security](VPCs.md), [Authorize access](GettingStarted.AuthorizeAccess.md), and [Subnets and subnet groups](SubnetGroups.md)\.
+For more information about cache subnet group usage in an Amazon VPC environment, see [Amazon VPCs and ElastiCache security](VPCs.md), [Step 3: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md), and [Subnets and subnet groups](SubnetGroups.md)\.
 
 ## ElastiCache for Memcached events<a name="WhatIs.Components.Events"></a>
 

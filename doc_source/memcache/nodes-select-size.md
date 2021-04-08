@@ -28,7 +28,7 @@ These options each provide similar memory capacity but different computational c
 
 For clusters running Memcached, some of the available memory on each node is used for connection overhead\. For more information, see [Memcached connection overhead](ParameterGroups.Memcached.md#ParameterGroups.Memcached.Overhead)
 
-Using multiple nodes requires spreading the keys across them\. Each node has its own endpoint\. For easy endpoint management, you can use the ElastiCache the Auto Discovery feature, which enables client programs to automatically identify all of the nodes in a cluster\. For more information, see [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\.
+Using multiple nodes requires spreading the keys across them\. Each node has its own endpoint\. For easy endpoint management, you can use the ElastiCache the Auto Discovery feature, which enables client programs to automatically identify all of the nodes in a cluster\. For more information, see [Automatically identify nodes in your cluster](AutoDiscovery.md)\.
 
 In some cases, you might be unsure how much capacity you need\. If so, for testing we recommend starting with one `cache.m5.large` node\. Then monitor the memory usage, CPU utilization, and cache hit rate with the ElastiCache metrics that are published to Amazon CloudWatch\. For more information on CloudWatch metrics for ElastiCache, see [Monitoring use with CloudWatch metrics](CacheMetrics.md)\. For production and larger workloads, the R5 nodes provide the best performance and RAM cost value\.
 

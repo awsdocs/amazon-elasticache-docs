@@ -1,4 +1,4 @@
-# Creating a cluster\-mode disabled cluster \(Console\)<a name="Clusters.Create.CON.Redis"></a>
+# Creating a Redis \(cluster mode disabled\) \(Console\)<a name="Clusters.Create.CON.Redis"></a>
 
 ElastiCache supports replication when you use the Redis engine\. To monitor the latency between when data is written to a Redis read/write primary cluster and when it is propagated to a read\-only secondary cluster, ElastiCache adds to the cluster a special key, `ElastiCacheMasterReplicationTimestamp`\. This key is the current Universal Universal Time \(UTC\) time\. Because a Redis cluster might be added to a replication group at a later time, this key is included in all Redis clusters, even if initially they are not members of a replication group\. For more information on replication groups, see [High availability using replication groups](Replication.md)\.
 
@@ -90,7 +90,7 @@ For Redis versions between 4\.0\.2, when encryption in transit was first support
 
 1. Review all your entries and choices, then go back and make any needed corrections\. When you're ready, choose **Create** to launch your cluster\.
 
-As soon as your cluster's status is *available*, you can grant Amazon EC2 access to it, connect to it, and begin using it\. For more information, see [Access authorization](GettingStarted.AuthorizeAccess.md) and [Connect to a cluster's node](GettingStarted.ConnectToCacheNode.md)\.
+As soon as your cluster's status is *available*, you can grant Amazon EC2 access to it, connect to it, and begin using it\. For more information, see [Step 2: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md) and [Step 3: Connect to the cluster's node](GettingStarted.ConnectToCacheNode.md)\.
 
 **Important**  
 As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a cluster](Clusters.Delete.md)\. 

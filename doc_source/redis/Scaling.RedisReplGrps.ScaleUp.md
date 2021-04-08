@@ -12,7 +12,7 @@ When the scale\-up process is initiated, ElastiCache does the following:
 
 1. Updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 5\.0\.4 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\. 
 
-1. Deletes the old nodes \(CLI/API: replication group\)\.
+1. Deletes the old nodes \(CLI/API: replication group\)\. You will notice a brief interruption \(a few seconds\) of reads and writes from the old nodes because the connections to the old nodes will be disconnected\.
 
 How long this process takes is dependent upon your node type and how much data is in your cluster\.
 

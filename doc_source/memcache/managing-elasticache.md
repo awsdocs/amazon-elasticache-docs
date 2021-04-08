@@ -4,13 +4,8 @@ In this section, you can find details about how to manage the various components
 
 **Topics**
 + [Engine versions and upgrading](engine-versions.md)
-+ [Choosing regions and availability zones](RegionsAndAZs.md)
-+ [Using local zones with ElastiCache](Local_zones.md)
++ [Tagging your ElastiCache resources](Tagging-Resources.md)
++ [Caching strategies and best practices](BestPractices.md)
 + [Managing maintenance](maintenance-window.md)
-+ [Managing nodes](CacheNodes.md)
-+ [Managing your ElastiCache clusters](Clusters.md)
-+ [Using Outposts](ElastiCache-Outposts.md)
-+ [Accessing your cluster](accessing-elasticache.md)
-+ [Finding connection endpoints](Endpoints.md)
 + [Scaling ElastiCache for Memcached clusters](Scaling.md)
 + [Configuring engine parameters using parameter groups](ParameterGroups.md)

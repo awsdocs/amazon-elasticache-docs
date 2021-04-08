@@ -17,8 +17,23 @@ Following, you can find videos to help you learn basic and advanced Amazon Elast
 The following videos introduce you to Amazon ElastiCache\.
 
 **Topics**
++ [AWS re:Invent 2020: What’s new in Amazon ElastiCache](#WhatIs.Videos.Beginning.2020)
++ [AWS re:Invent 2019: What’s new in Amazon ElastiCache](#WhatIs.Videos.Beginning.2019)
++ [AWS re:Invent 2017: What’s new in Amazon ElastiCache](#WhatIs.Videos.Beginning.2017)
 + [DAT204—Building Scalable Applications on AWS NoSQL Services \(re:Invent 2015\)](#WhatIs.Videos.Beginning.2015.DAT204)
 + [DAT207—Accelerating Application Performance with Amazon ElastiCache \(AWS re:Invent 2013\)](#WhatIs.Videos.Beginning.2013.DAT207)
+
+#### AWS re:Invent 2020: What’s new in Amazon ElastiCache<a name="WhatIs.Videos.Beginning.2020"></a>
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/O9mqbIYJXWE/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/O9mqbIYJXWE)
+
+#### AWS re:Invent 2019: What’s new in Amazon ElastiCache<a name="WhatIs.Videos.Beginning.2019"></a>
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/SaGW_Bln3qA/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/SaGW_Bln3qA)
+
+#### AWS re:Invent 2017: What’s new in Amazon ElastiCache<a name="WhatIs.Videos.Beginning.2017"></a>
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/wkGn1TzCgnk/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/wkGn1TzCgnk)
 
 #### DAT204—Building Scalable Applications on AWS NoSQL Services \(re:Invent 2015\)<a name="WhatIs.Videos.Beginning.2015.DAT204"></a>
 
@@ -37,12 +52,54 @@ In this video, learn how you can use Amazon ElastiCache to easily deploy an in\-
 The following videos cover more advanced Amazon ElastiCache topics\.
 
 **Topics**
++ [Design for success with Amazon ElastiCache best practices \(re:Invent 2020\)](#WhatIs.Videos.Advanced.2020.DAT305)
++ [Supercharge your real\-time apps with Amazon ElastiCache \(re:Invent 2019\)](#WhatIs.Videos.Advanced.2019.DAT305)
++ [Best practices: migrating Redis clusters from Amazon EC2 to ElastiCache \(re:Invent 2019\)](#WhatIs.Videos.Advanced.2019.DAT358)
++ [Scaling a Fantasy Sports Platform with Amazon ElastiCache & Amazon Aurora STP11 \(re:Invent 2018\)](#WhatIs.Videos.Advanced.2019)
++ [Reliable & Scalable Redis in the Cloud with Amazon ElastiCache \(re:Invent 2018\)](#WhatIs.Videos.AdvancedDD.2018)
++ [ElastiCache Deep Dive: Design Patterns for In\-Memory Data Stores \(re:Invent 2018\)](#WhatIs.Videos.AdvancedDD.2019)
 + [DAT305—Amazon ElastiCache Deep Dive \(re:Invent 2017\)](#WhatIs.Videos.Advanced.2017.DAT305)
 + [DAT306—Amazon ElastiCache Deep Dive \(re:Invent 2016\)](#WhatIs.Videos.Advanced.2016.DAT306)
 + [DAT317—How IFTTT uses ElastiCache for Redis to Predict Events \(re:Invent 2016\)](#WhatIs.Videos.Advanced.2016.DAT317)
 + [DAT407—Amazon ElastiCache Deep Dive \(re:Invent 2015\)](#WhatIs.Videos.Advanced.2015.DAT407)
 + [SDD402—Amazon ElastiCache Deep Dive \(re:Invent 2014\)](#WhatIs.Videos.Advanced.2014.SDD402)
 + [DAT307—Deep Dive into Amazon ElastiCache Architecture and Design Patterns \(re:Invent 2013\)](#WhatIs.Videos.Advanced.2013.DAT307)
+
+#### Design for success with Amazon ElastiCache best practices \(re:Invent 2020\)<a name="WhatIs.Videos.Advanced.2020.DAT305"></a>
+
+With the explosive growth of business\-critical, real\-time applications built on Redis, availability, scalability, and security have become top considerations\. Learn best practices for setting up Amazon ElastiCache for success with online scaling, high availability across Multi\-AZ deployments, and security configurations\.
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/_4SkEy6r-C4/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/_4SkEy6r-C4)
+
+#### Supercharge your real\-time apps with Amazon ElastiCache \(re:Invent 2019\)<a name="WhatIs.Videos.Advanced.2019.DAT305"></a>
+
+With the rapid growth in cloud adoption and the new scenarios that it empowers, applications need microsecond latency and high throughput to support millions of requests per second\. Developers have traditionally relied on specialized hardware and workarounds, such as disk\-based databases combined with data reduction techniques, to manage data for real\-time applications\. These approaches can be expensive and not scalable\. Learn how you can boost the performance of real\-time applications by using the fully managed, in\-memory Amazon ElastiCache for extreme performance, high scalability, availability, and security\.
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/v0GfpL5jfns/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/v0GfpL5jfns)
+
+#### Best practices: migrating Redis clusters from Amazon EC2 to ElastiCache \(re:Invent 2019\)<a name="WhatIs.Videos.Advanced.2019.DAT358"></a>
+
+Managing Redis clusters on your own can be hard\. You have to provision hardware, patch software, back up data, and monitor workloads constantly\. With the newly released Online Migration feature for Amazon ElastiCache, you can now easily move your data from self\-hosted Redis on Amazon EC2 to fully managed Amazon ElastiCache, with cluster mode disabled\. In this session, you learn about the new Online Migration tool, see a demo, and, more importantly, learn hands\-on best practices for a smooth migration to Amazon ElastiCache\.
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/Rpni5uPe0uI/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/Rpni5uPe0uI)
+
+#### Scaling a Fantasy Sports Platform with Amazon ElastiCache & Amazon Aurora STP11 \(re:Invent 2018\)<a name="WhatIs.Videos.Advanced.2019"></a>
+
+Dream11 is India’s leading sports\-tech startup\. It has a growing base of 40 million\+ users playing multiple sports, including fantasy cricket, football, and basketball, and it currently serves one million concurrent users, who produce three million requests per minute under a 50\-millisecond response time\. In this talk, Dream11 CTO Amit Sharma explains how the company uses Amazon Aurora and Amazon ElastiCache to handle flash traffic, which can triple within a 30\-second response window\. Sharma also talks about scaling transactions without locking, and he shares the steps for handling flash traffic—thereby serving five million daily active users\. Complete Title: AWS re:Invent 2018: Scaling a Fantasy Sports Platform with Amazon ElastiCache & Amazon Aurora \(STP11\)
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/hIPOLeEjVQY/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/hIPOLeEjVQY)
+
+#### Reliable & Scalable Redis in the Cloud with Amazon ElastiCache \(re:Invent 2018\)<a name="WhatIs.Videos.AdvancedDD.2018"></a>
+
+This session covers the features and enhancements in our Redis\-compatible service, Amazon ElastiCache for Redis\. We cover key features, such as Redis 5, scalability and performance improvements, security and compliance, and much more\. We also discuss upcoming features and customer case studies\.
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/pgXEnAcTNPI/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/pgXEnAcTNPI)
+
+#### ElastiCache Deep Dive: Design Patterns for In\-Memory Data Stores \(re:Invent 2018\)<a name="WhatIs.Videos.AdvancedDD.2019"></a>
+
+In this session, we provide a behind the scenes peek to learn about the design and architecture of Amazon ElastiCache\. See common design patterns with our Redis and Memcached offerings and how customers use them for in\-memory data processing to reduce latency and improve application throughput\. We review ElastiCache best practices, design patterns, and anti\-patterns\.
+
+[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/QxcB53mL_oA/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/QxcB53mL_oA)
 
 #### DAT305—Amazon ElastiCache Deep Dive \(re:Invent 2017\)<a name="WhatIs.Videos.Advanced.2017.DAT305"></a>
 

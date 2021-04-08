@@ -112,7 +112,7 @@ The following procedure uses the AWS CLI to determine whether you launched your 
 If you launched your cluster into an Amazon Virtual Private Cloud \(Amazon VPC\), you can connect to your ElastiCache cluster only from an Amazon EC2 instance that is running in the same Amazon VPC\. In this case, you will need to grant network ingress to the cluster\.
 
 **Note**  
-If your are using *Local Zones*, make sure you have enabled it\. For more information, see [Enable Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#opt-in-local-zone)\. By doing so, your VPC is extended to that Local Zone and your VPC will treat the subnet as any subnet in any other Availability Zone and relevant gateways, route tables and other security group coniderations\. will be automatically adjusted\.
+If your are using *Local Zones*, make sure you have enabled it\. For more information, see [Enable Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#opt-in-local-zone)\. By doing so, your VPC is extended to that Local Zone and your VPC will treat the subnet as any subnet in any other Availability Zone and relevant gateways, route tables and other security group considerations\. will be automatically adjusted\.
 
 **To grant network ingress from an Amazon VPC security group to a cluster**
 
@@ -203,7 +203,7 @@ It is possible to create a Certificate Authority \(CA\) using different techniqu
   + Select **Review and import**\.
   + Select **Import**\.
 
-  To submit the server's certificates to ACM using the AWS CLI, run the following command: `aws acm import-certificate --certificate file://easy-rsa/pki/issued/server.crt --private-key file://easy-rsa/pki/private/server.key --certificate-chain file://easy-rsa/pki/ca.crt --region region`
+  To submit the server's certificates to ACM using the AWS CLI, run the following command: `aws acm import-certificate --certificate fileb://easy-rsa/pki/issued/server.crt --private-key file://easy-rsa/pki/private/server.key --certificate-chain file://easy-rsa/pki/ca.crt --region region`
 
   Note the Certificate ARN for future use\.
 

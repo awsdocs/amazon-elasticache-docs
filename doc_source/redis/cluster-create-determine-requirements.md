@@ -45,7 +45,7 @@ ElastiCache for Redis clusters are comprised of from 0 to 250 shards \(also call
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCacheClusters-Redis-ClustersRGs.png)
 
-For more information, see [Managing your ElastiCache clusters](Clusters.md)\.
+For more information, see [Managing clusters](Clusters.md)\.
 
 ## Scaling requirements<a name="cluster-create-determine-requirements-scaling"></a>
 
@@ -57,7 +57,7 @@ For more information, see [Scaling ElastiCache for Redis clusters](Scaling.md) i
 
 By design, Amazon ElastiCache clusters are accessed from Amazon EC2 instances\. Network access to an ElastiCache cluster is limited to the user account that created the cluster\. Therefore, before you can access a cluster from an Amazon EC2 instance, you must authorize the Amazon EC2 instance to access the cluster\. The steps to do this vary, depending upon whether you launched into EC2\-VPC or EC2\-Classic\.
 
-If you launched your cluster into EC2\-VPC you need to grant network ingress to the cluster\. If you launched your cluster into EC2\-Classic you need to grant the Amazon Elastic Compute Cloud security group associated with the instance access to your ElastiCache security group\. For detailed instructions, see [Access authorization](GettingStarted.AuthorizeAccess.md) in this guide\.
+If you launched your cluster into EC2\-VPC you need to grant network ingress to the cluster\. If you launched your cluster into EC2\-Classic you need to grant the Amazon Elastic Compute Cloud security group associated with the instance access to your ElastiCache security group\. For detailed instructions, see [Step 2: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md) in this guide\.
 
 ## Region, Availability Zone and Local Zone requirements<a name="cluster-create-determine-requirements-region"></a>
 

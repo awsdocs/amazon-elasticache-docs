@@ -100,7 +100,7 @@ You are now ready to interact with your ElastiCache cluster\. Before you can do 
    Complete!
    ```
 
-1. Go to the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/) and obtain the endpoint for one of the nodes in your cache cluster\. For more information, see [Finding connection endpoints](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Endpoints.html) for Redis or [Finding connection endpoints](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Endpoints.html) for Memcached\.
+1. Go to the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/) and obtain the endpoint for one of the nodes in your cache cluster\. For more information, see [Finding connection endpoints](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Endpoints.html) for Memcached\.
 
 1. Use *telnet* to connect to your cache node endpoint over port 11211\. Replace the hostname shown below with the hostname of your cache node\.
 
@@ -120,7 +120,7 @@ You are now ready to interact with your ElastiCache cluster\. Before you can do 
    The cache engine responds with the following:
 
    ```
-   STORED
+   OK
    ```
 
    To retrieve the value for `mykey`, type the following:

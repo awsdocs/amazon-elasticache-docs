@@ -6,13 +6,13 @@ For a more detailed discussion of which node size to use, see [Choosing your Mem
 
 **Topics**
 + [Connecting to nodes](nodes-connecting.md)
-+ [ElastiCache reserved nodes](CacheNodes.Reserved.md)
 + [Supported node types](CacheNodes.SupportedTypes.md)
 + [Replacing nodes](CacheNodes.NodeReplacement.md)
++ [ElastiCache reserved nodes](CacheNodes.Reserved.md)
 
 Some important operations involving nodes are the following: 
 + [Adding nodes to a cluster](Clusters.AddNode.md)
 + [Removing nodes from a cluster](Clusters.DeleteNode.md)
 + [Scaling ElastiCache for Memcached clusters](Scaling.md)
 + [Finding connection endpoints](Endpoints.md)
-+ [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)
++ [Automatically identify nodes in your cluster](AutoDiscovery.md)

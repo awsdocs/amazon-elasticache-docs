@@ -1,4 +1,4 @@
-# Automatically Identify Nodes in your Memcached Cluster<a name="AutoDiscovery"></a>
+# Automatically identify nodes in your cluster<a name="AutoDiscovery"></a>
 
 For clusters running the Memcached engine, ElastiCache supports *Auto Discovery*—the ability for client programs to automatically identify all of the nodes in a cache cluster, and to initiate and maintain connections to all of these nodes\. 
 

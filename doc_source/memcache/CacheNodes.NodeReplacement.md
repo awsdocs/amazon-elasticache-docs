@@ -29,4 +29,4 @@ The ability to change your replacement window by moving your maintenance window 
 
   1. Add a new node to the cluster\. For instructions, see [Adding nodes to a cluster](Clusters.AddNode.md)\. 
 
-  1. If you are not using [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md) on this cluster, see your application and replace every instance of the old node's endpoint with the new node's endpoint\.
+  1. If you are not using [Automatically identify nodes in your cluster](AutoDiscovery.md) on this cluster, see your application and replace every instance of the old node's endpoint with the new node's endpoint\.

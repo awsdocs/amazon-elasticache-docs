@@ -100,27 +100,26 @@ You are now ready to interact with your ElastiCache cluster\. Before you can do 
    Complete!
    ```
 
-1. Go to the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/) and obtain the endpoint for one of the nodes in your cache cluster\. For more information, see [Finding connection endpoints](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Endpoints.html) for Redis or [Finding connection endpoints](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Endpoints.html) for Memcached\.
+1. Go to the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/) and obtain the endpoint for one of the nodes in your cache cluster\. For more information, [Finding connection endpoints](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Endpoints.html) for Redis\.
 
-1. Use *telnet* to connect to your cache node endpoint over port 11211\. Replace the hostname shown below with the hostname of your cache node\.
+1. Use *telnet* to connect to your cache node endpoint over port 6379\. Replace the hostname shown below with the hostname of your cache node\.
 
    ```
-   telnet my-cache-cluster.7wufxa.0001.use1.cache.amazonaws.com 11211
+   telnet my-cache-cluster.7wufxa.0001.use1.cache.amazonaws.com 6379
    ```
 
    You are now connected to the cache engine and can issue commands\. In this example, you add a data item to the cache and then get it immediately afterward\. Finally, you'll disconnect from the cache node\.
 
-   To store a key and a value, type the following two lines: 
+   To store a key and a value, type the following: 
 
    ```
-   add mykey 0 3600 28
-   This is the value for my key
+   set mykey myvalue
    ```
 
    The cache engine responds with the following:
 
    ```
-   STORED
+   OK
    ```
 
    To retrieve the value for `mykey`, type the following:
@@ -132,9 +131,8 @@ You are now ready to interact with your ElastiCache cluster\. Before you can do 
    The cache engine responds with the following:
 
    ```
-   VALUE mykey 0 28
-   This is the value for my key
-   END
+   get mykey
+   myvalue
    ```
 
    To disconnect from the cache engine, type the following:

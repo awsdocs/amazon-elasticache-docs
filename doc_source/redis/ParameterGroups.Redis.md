@@ -50,6 +50,13 @@ Parameters added in Redis 6\.x are as follows\.
 | active\-expire\-effort |  Default: 1 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | Redis deletes keys that have exceeded their time to live by two mechanisms\. In one, a key is accessed and is found to be expired\. In the other, a periodic job samples keys and causes those that have exceeded their time to live to expire\. This parameter defines the amount of effort that Redis uses to expire items in the periodic job\.  The default value of 1 tries to avoid having more than 10 percent of expired keys still in memory\. It also tries to avoid consuming more than 25 percent of total memory and to add latency to the system\. You can increase this value up to 10 to increase the amount of effort spent on expiring keys\. The tradeoff is higher CPU and potentially higher latency\. We recommend a value of 1 unless you are seeing high memory usage and can tolerate an increase in CPU utilization\.   | 
 | lazyfree\-lazy\-user\-del |  Default: no Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | When the value is set to yes, the `DEL` command acts the same as `UNLINK`\.   | 
 
+Parameters removed in Redis 6\.x are as follows\. 
+
+
+|  Name  |  Details |  Description  | 
+| --- | --- | --- | 
+| lua\-replicate\-commands |  Permitted values: yes/no Default: yes Type: boolean Modifiable: Yes Changes take effect: Immediately | Always enable Lua effect replication or not in Lua scripts  | 
+
 For more information, see [ElastiCache for Redis version 6\.x \(enhanced\)](supported-engine-versions.md#redis-version-6.x)\. 
 
 ## Redis 5\.0\.3 parameter changes<a name="ParameterGroups.Redis.5-0-3"></a>
@@ -191,7 +198,7 @@ For Redis 3\.2\.4 the following additional parameters are supported\.
 | --- | --- | --- | 
 | list\-max\-ziplist\-size | Default: \-2 Type: integer Modifiable: No  | Lists are encoded in a special way to save space\. The number of entries allowed per internal list node can be specified as a fixed maximum size or a maximum number of elements\. For a fixed maximum size, use \-5 through \-1, meaning: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html) | 
 | list\-compress\-depth | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | Lists may also be compressed\. Compress depth is the number of quicklist ziplist nodes from each side of the list to exclude from compression\. The head and tail of the list are always uncompressed for fast push and pop operations\. Settings are: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html) | 
-| cluster\-enabled |  Default: no/yes \* Type: string Modifiable: Yes | Indicates whether this is a Redis \(cluster mode enabled\) replication group in cluster mode \(yes\) or a Redis \(cluster mode enabled\) replication group in non\-cluster mode \(no\)\. Redis \(cluster mode enabled\) replication groups in cluster mode can partition their data across up to 250 node groups\. \* Redis 3\.2\.*x* has two default parameter groups\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html)\. | 
+| cluster\-enabled |  Default: no/yes \* Type: string Modifiable: Yes | Indicates whether this is a Redis \(cluster mode enabled\) replication group in cluster mode \(yes\) or a Redis \(cluster mode enabled\) replication group in non\-cluster mode \(no\)\. Redis \(cluster mode enabled\) replication groups in cluster mode can partition their data across up to 500 node groups\. \* Redis 3\.2\.*x* has two default parameter groups\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html)\. | 
 | cluster\-require\-full\-coverage | Default: no Type: boolean Modifiable: yes Changes Take Effect: Immediately |  When set to `yes`, Redis \(cluster mode enabled\) nodes in cluster mode stop accepting queries if they detect there is at least one hash slot uncovered \(no available node is serving it\)\. This way if the cluster is partially down, the cluster becomes unavailable\. It automatically becomes available again as soon as all the slots are covered again\. However, sometimes you want the subset of the cluster which is working to continue to accept queries for the part of the key space that is still covered\. To do so, just set the `cluster-require-full-coverage` option to `no`\. | 
 | hll\-sparse\-max\-bytes | Default: 3000 Type: integer Modifiable: Yes Changes Take Effect: Immediately | HyperLogLog sparse representation bytes limit\. The limit includes the 16 byte header\. When a HyperLogLog using the sparse representation crosses this limit, it is converted into the dense representation\. A value greater than 16000 is not recommended, because at that point the dense representation is more memory efficient\. We recommend a value of about 3000 to have the benefits of the space\-efficient encoding without slowing down PFADD too much, which is O\(N\) with the sparse encoding\. The value can be raised to \~10000 when CPU is not a concern, but space is, and the data set is composed of many HyperLogLogs with cardinality in the 0 \- 15000 range\. | 
 | reserved\-memory\-percent | Default: 25 Type: integer Modifiable: Yes Changes Take Effect: Immediately |  The percent of a node's memory reserved for nondata use\. By default, the Redis data footprint grows until it consumes all of the node's memory\. If this occurs, then node performance will likely suffer due to excessive memory paging\. By reserving memory, you can set aside some of the available memory for non\-Redis purposes to help reduce the amount of paging\. This parameter is specific to ElastiCache, and is not part of the standard Redis distribution\. For more information, see `reserved-memory` and [Managing Reserved Memory](redis-memory-management.md)\. | 
@@ -235,7 +242,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w75aac18c49c57c27b9"></a>
+### How close\-on\-slave\-write works<a name="w126aac23c32c57c27b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -249,7 +256,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### When you might disable close\-on\-replica\-write<a name="w75aac18c49c57c27c11"></a>
+### When you might disable close\-on\-replica\-write<a name="w126aac23c32c57c27c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 

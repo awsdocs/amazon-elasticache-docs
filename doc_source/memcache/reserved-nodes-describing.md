@@ -7,7 +7,7 @@ You can get information about the reserved nodes you've purchased using the AWS 
 + [Using the AWS CLI](#reserved-nodes-describing-cli)
 + [Using the ElastiCache API](#reserved-nodes-describing-api)
 
-## Getting info about your reserved nodes \(Console\)<a name="reserved-nodes-describing-console"></a>
+### Getting info about your reserved nodes \(Console\)<a name="reserved-nodes-describing-console"></a>
 
 The following procedure describes how to use the AWS Management Console to get information about the reserved nodes you purchased\.
 
@@ -19,7 +19,7 @@ The following procedure describes how to use the AWS Management Console to get i
 
     The reserved nodes for your account appear in the Reserved Cache Nodes list\. You can choose any of the reserved nodes in the list to see detailed information about the reserved node in the detail pane at the bottom of the console\. 
 
-## Getting info about your reserved nodes \(AWS CLI\)<a name="reserved-nodes-describing-cli"></a>
+### Getting info about your reserved nodes \(AWS CLI\)<a name="reserved-nodes-describing-cli"></a>
 
 To get information about reserved nodes for your AWS account, type the following command at a command prompt:
 
@@ -43,7 +43,7 @@ This operation produces output similar to the following \(JSON format\):
 
 For more information, see [describe\-\-reserved\-cache\-nodes](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-reserved-cache-nodes.html) in the AWS CLI Reference\.
 
-## Getting info about your reserved nodes \(ElastiCache API\)<a name="reserved-nodes-describing-api"></a>
+### Getting info about your reserved nodes \(ElastiCache API\)<a name="reserved-nodes-describing-api"></a>
 
 To get information about reserved nodes for your AWS account, call the `DescribeReservedCacheNodes` operation\.
 

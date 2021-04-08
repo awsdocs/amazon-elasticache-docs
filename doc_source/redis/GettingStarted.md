@@ -7,10 +7,9 @@ Amazon ElastiCache supports high availability through the use of Redis replicati
 Beginning with Redis version 3\.2, ElastiCache Redis supports partitioning your data across multiple node groups, with each node group implementing a replication group\. This exercise creates a standalone Redis cluster\.
 
 **Topics**
-+ [Determine requirements](getting-started-determine-requirements.md)
 + [Setting up](set-up.md)
-+ [Create a cluster](GettingStarted.CreateCluster.md)
-+ [Access authorization](GettingStarted.AuthorizeAccess.md)
-+ [Connect to a cluster's node](GettingStarted.ConnectToCacheNode.md)
-+ [Delete your cluster \(avoid unnecessary charges\)](GettingStarted.DeleteCacheCluster.md)
++ [Step 1: Create a cluster](GettingStarted.CreateCluster.md)
++ [Step 2: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md)
++ [Step 3: Connect to the cluster's node](GettingStarted.ConnectToCacheNode.md)
++ [ElastiCache tutorials and videos](Tutorials.md)
 + [Where do I go from here?](GettingStarted.WhereGoFromHere.md)

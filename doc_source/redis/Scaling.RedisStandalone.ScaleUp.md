@@ -6,9 +6,9 @@ When you scale up a single\-node Redis cluster, ElastiCache performs the followi
 
 1. The cache data in the existing cache cluster is copied to the new cache cluster\. How long this process takes depends upon your node type and how much data is in the cache cluster\.
 
-1. Reads and writes are now served using the new cache cluster\. Because the new cache cluster's endpoints are the same as they were for the old cache cluster, you do not need to update the endpoints in your application\. You will notice a brief interruption of reads and writes from the primary node while the DNS entry is updated\.
+1. Reads and writes are now served using the new cache cluster\. Because the new cache cluster's endpoints are the same as they were for the old cache cluster, you do not need to update the endpoints in your application\. You will notice a brief interruption \(a few seconds\) of reads and writes from the primary node while the DNS entry is updated\.
 
-1. ElastiCache deletes the old cache cluster\.
+1. ElastiCache deletes the old cache cluster\. You will notice a brief interruption \(a few seconds\) of reads and writes from the old node because the connections to the old node will be disconnected\. 
 
 As shown in the following table, your Redis scale\-up operation is blocked if you have an engine upgrade scheduled for the next maintenance window\. For more information on Maintenance Windows, see [Managing maintenance](maintenance-window.md)\.
 
@@ -109,7 +109,7 @@ The following procedure describes how to scale up a single\-node Redis cache clu
    For more information, see [list\-allowed\-node\-type\-modifications](https://docs.aws.amazon.com/cli/latest/reference/elasticache/list-allowed-node-type-modifications.html) in the *AWS CLI Reference*\.
 
 1. Modify your existing cache cluster specifying the cache cluster to scale up and the new, larger node type, using the AWS CLI `modify-cache-cluster` command and the following parameters\.
-   + `--cache-cluster-id` – The name of the cache cluster you are scaling up or down\. 
+   + `--cache-cluster-id` – The name of the cache cluster you are scaling up\. 
    + `--cache-node-type` – The new node type you want to scale the cache cluster\. This value must be one of the node types returned by the `list-allowed-node-type-modifications` command in step 1\.
    + `--cache-parameter-group-name` – \[Optional\] Use this parameter if you are using `reserved-memory` to manage your cluster's reserved memory\. Specify a custom cache parameter group that reserves the correct amount of memory for your new node type\. If you are using `reserved-memory-percent` you can omit this parameter\.
    + `--apply-immediately` – Causes the scale\-up process to be applied immediately\. To postpone the scale\-up process to the cluster's next maintenance window, use the `--no-apply-immediately` parameter\.

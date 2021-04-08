@@ -10,11 +10,9 @@ The following helps you find the correct topic for the scaling actions that you 
 | Action | Redis \(cluster mode disabled\) | Redis \(cluster mode enabled\) | 
 | --- | --- | --- | 
 |  Scaling in  |  [Removing nodes from a cluster](Clusters.DeleteNode.md)  |  [Scaling clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)  | 
+|  Scaling out  |  [Adding nodes to a cluster](Clusters.AddNode.md)  |  [Online resharding and shard rebalancing for Redis \(cluster mode enabled\)](redis-cluster-resharding-online.md)  | 
 |  Changing node types  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)  |  [Online vertical scaling by modifying node type](redis-cluster-vertical-scaling.md)  | 
 |  Changing the number of node groups  |  Not supported for Redis \(cluster mode disabled\) clusters  |  [Scaling clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)  | 
-
-**Note**  
-You cannot automatically migrate Intel\-based clusters to ARM\-based clusters while preserving cluster state\. 
 
 **Topics**
 + [Scaling clusters for Redis \(Cluster Mode Disabled\)](scaling-redis-classic.md)

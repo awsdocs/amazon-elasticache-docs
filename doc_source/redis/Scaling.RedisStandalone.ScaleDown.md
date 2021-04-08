@@ -189,7 +189,7 @@ The following procedure describes how to scale updown a single\-node Redis cache
 
 1. Modify your existing cache cluster specifying the cache cluster to scale up and the new, larger node type, using the `ModifyCacheCluster` ElastiCache API action and the following parameters\.
    + `CacheClusterId` – The name of the cache cluster you are scaling down\.
-   + `CacheNodeType` – The new, larger node type you want to scale the cache cluster down to\. This value must be one of the node types returned by the `ListAllowedNodeTypeModifications` action in step 1\.
+   + `CacheNodeType` – The new, smaller node type you want to scale the cache cluster down to\. This value must be one of the node types returned by the `ListAllowedNodeTypeModifications` action in step 1\.
    + `CacheParameterGroupName` – \[Optional\] Use this parameter if you are using `reserved-memory` to manage your cluster's reserved memory\. Specify a custom cache parameter group that reserves the correct amount of memory for your new node type\. If you are using `reserved-memory-percent` you can omit this parameter\.
    + `ApplyImmediately` – Set to `true` to cause the scale\-down process to be performed immediately\. To postpone the scale\-up process to the cluster's next maintenance window, use `ApplyImmediately``=false`\.
 

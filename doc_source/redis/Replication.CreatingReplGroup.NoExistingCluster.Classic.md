@@ -6,9 +6,9 @@ You can create a Redis \(cluster mode disabled\) replication group from scratch 
 The node/shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and include the instance type in the request\.
 
 To create a Redis \(cluster mode disabled\) replication group from scratch, take one of the following approaches:
-+ To do this using the console, see [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\.
-+ To do this using the AWS CLI, see [Creating a Redis \(Cluster Mode Enabled\) cluster \(AWS CLI\)](Clusters.Create.CLI.md#Clusters.Create.CLI.RedisCluster)\.
-+ To do this using the ElastiCache API, see [Creating a cache cluster in Redis \(Cluster Mode Enabled\) \(ElastiCache API\)](Clusters.Create.API.md#Clusters.Create.API.RedisCluster)\.
++ To do this using the console, see [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\.
++ To do this using the AWS CLI, see [Creating a Redis \(cluster mode enabled\) cluster \(AWS CLI\)](Clusters.Create.CLI.md#Clusters.Create.CLI.RedisCluster)\.
++ To do this using the ElastiCache API, see [Creating a cache cluster in Redis \(cluster mode enabled\) \(ElastiCache API\)](Clusters.Create.API.md#Clusters.Create.API.RedisCluster)\.
 
 ## Creating a Redis \(Cluster Mode Disabled\) replication group from scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI"></a>
 

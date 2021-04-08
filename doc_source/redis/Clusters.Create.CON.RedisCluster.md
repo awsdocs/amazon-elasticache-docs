@@ -1,6 +1,6 @@
-# Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)<a name="Clusters.Create.CON.RedisCluster"></a>
+# Creating a Redis \(cluster mode enabled\) cluster \(Console\)<a name="Clusters.Create.CON.RedisCluster"></a>
 
-If you are running Redis 3\.2\.4 or later, you can create a Redis \(cluster mode enabled\) cluster\. Redis \(cluster mode enabled\) clusters support partitioning your data across 1 to 250 shards \(API/CLI: node groups\) but with some limitations\. For a comparison of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\), see [Supported ElastiCache for Redis versions](supported-engine-versions.md)\.
+If you are running Redis 3\.2\.4 or later, you can create a Redis \(cluster mode enabled\) cluster\. Redis \(cluster mode enabled\) clusters support partitioning your data across 1 to 500 shards \(API/CLI: node groups\) but with some limitations\. For a comparison of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\), see [Supported ElastiCache for Redis versions](supported-engine-versions.md)\.
 
 You can create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication group\) using the ElastiCache management console, the AWS CLI for ElastiCache, and the ElastiCache API\.
 
@@ -115,7 +115,7 @@ To create the equivalent using the ElastiCache API or AWS CLI instead of the Ela
 + API: [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 + CLI: [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 
-As soon as your cluster's status is *available*, you can grant EC2 access to it, connect to it, and begin using it\. For more information, see [Access authorization](GettingStarted.AuthorizeAccess.md) and [Connect to a cluster's node](GettingStarted.ConnectToCacheNode.md)\.
+As soon as your cluster's status is *available*, you can grant EC2 access to it, connect to it, and begin using it\. For more information, see [Step 2: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md) and [Step 3: Connect to the cluster's node](GettingStarted.ConnectToCacheNode.md)\.
 
 **Important**  
 As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a cluster](Clusters.Delete.md)\. 

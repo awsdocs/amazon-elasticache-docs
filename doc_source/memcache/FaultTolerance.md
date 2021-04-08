@@ -14,11 +14,11 @@ When running the Memcached engine, you have the following options for minimizing
 
 To mitigate the impact of a node failure, spread your cached data over more nodes\. Because Memcached does not support replication, a node failure will always result in some data loss from your cluster\.
 
-When you create your Memcached cluster you can create it with 1 to 20 nodes, or more by special request\. Partitioning your data across a greater number of nodes means you'll lose less data if a node fails\. For example, if you partition your data across 10 nodes, any single node stores approximately 10% of your cached data\. In this case, a node failure loses approximately 10% of your cache which needs to be replaced when a replacement node is created and provisioned\. If the same data were cached in 3 larger nodes, the failure of a node would lose approximately 33% of your cached data\.
+When you create your Memcached cluster you can create it with 1 to 40 nodes, or more by special request\. Partitioning your data across a greater number of nodes means you'll lose less data if a node fails\. For example, if you partition your data across 10 nodes, any single node stores approximately 10% of your cached data\. In this case, a node failure loses approximately 10% of your cache which needs to be replaced when a replacement node is created and provisioned\. If the same data were cached in 3 larger nodes, the failure of a node would lose approximately 33% of your cached data\.
 
-If you need more than 20 nodes in a Memcached cluster, or more than 100 nodes total in an AWS Region, fill out the ElastiCache Limit Increase Request form at [https://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
+If you need more than 40 nodes in a Memcached cluster, or more than 300 nodes total in an AWS Region, fill out the ElastiCache Limit Increase Request form at [https://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
 
-For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster \(Console\)](Clusters.Create.CON.Memcached.md)\.
+For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster](Clusters.Create.CON.Memcached.md)\.
 
 ### Mitigating Availability Zone Failures<a name="FaultTolerance.Memcached.AZ"></a>
 
@@ -31,7 +31,7 @@ This is an excellent question\. Remember that we’re attempting to mitigate two
 
 There is no "magic formula" for determining how many nodes to have in your cluster\. You must weight the impact of data loss vs\. the likelihood of a failure vs\. cost, and come to your own conclusion\.
 
-For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster \(Console\)](Clusters.Create.CON.Memcached.md)\.
+For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster](Clusters.Create.CON.Memcached.md)\.
 
 For more information on regions and Availability Zones, see [Choosing regions and availability zones](RegionsAndAZs.md)\.
 

@@ -51,7 +51,7 @@ Replace *PHP\-7\.x* with the version you are using\.
 1. Insert the line `extension=amazon-elasticache-cluster-client.so` into the file `/etc/php/7.x/cli/php.ini`\.
 
    ```
-   echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php/7.0/cli/php.ini
+   echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php/7.x/cli/php.ini
    ```
 
 1. Start or restart your Apache server\.

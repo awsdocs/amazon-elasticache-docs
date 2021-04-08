@@ -4,7 +4,7 @@ Redis \(cluster mode disabled\) nodes must be large enough to contain all the ca
 
 The ElastiCache for Redis scaling up process is designed to make a best effort to retain your existing data and requires successful Redis replication\. For Redis \(cluster mode disabled\) Redis clusters, we recommend that sufficient memory be made available to Redis\. 
 
-You cannot partition your data across multiple Redis \(cluster mode disabled\) clusters\. However, if you only need to increase or decrease your cluster's read capacity, you can create a Redis \(cluster mode disabled\) cluster with replica nodes and add or remove read replicas\. To create a Redis \(cluster mode disabled\) cluster with replica nodes using your single\-node Redis cache cluster as the primary cluster, see [Creating a cluster\-mode disabled cluster \(Console\)](Clusters.Create.CON.Redis.md)\.
+You cannot partition your data across multiple Redis \(cluster mode disabled\) clusters\. However, if you only need to increase or decrease your cluster's read capacity, you can create a Redis \(cluster mode disabled\) cluster with replica nodes and add or remove read replicas\. To create a Redis \(cluster mode disabled\) cluster with replica nodes using your single\-node Redis cache cluster as the primary cluster, see [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.CON.Redis.md)\.
 
 After you create the cluster with replicas, you can increase read capacity by adding read replicas\. Later, if you need to, you can reduce read capacity by removing read replicas\. For more information, see [Increasing read capacity](Scaling.RedisReplGrps.ScaleOut.md) or [Decreasing read capacity](Scaling.RedisReplGrps.ScaleIn.md)\.
 

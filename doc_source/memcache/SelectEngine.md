@@ -54,14 +54,10 @@ Currently ElastiCache for Redis 3\.2\.10 doesn't support encryption\.
 + **ElastiCache for Redis \(Cluster mode enabled\) version 3\.2\.4**
 
   If you need the functionality of Redis 2\.8\.x plus the following features, choose Redis 3\.2\.4 \(clustered mode\):
-  + You need to partition your data across two to 250 node groups \(clustered mode only\)\.
+  + You need to partition your data across two to 500 node groups \(clustered mode only\)\.
   + You need geospatial indexing \(clustered mode or non\-clustered mode\)\.
   + You don't need to support multiple databases\.
-**Important**  
-Redis \(cluster mode enabled\) has the following limitations:  
-No scale\-up to larger node types
-No changing the number of replicas in a node group \(partition\)
-+ **ElastiCache for Redis \(non\-clustered mode\) 2\.8x and 3\.2\.4 \(Enhanced\)**
++ **ElastiCache for Redis \(non\-clustered mode\) 2\.8\.x and 3\.2\.4 \(Enhanced\)**
 
   If the following apply for you, choose Redis 2\.8\.x or Redis 3\.2\.4 \(non\-clustered mode\):
   + You need complex data types, such as strings, hashes, lists, sets, sorted sets, and bitmaps\.

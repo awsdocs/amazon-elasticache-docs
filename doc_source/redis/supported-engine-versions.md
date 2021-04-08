@@ -1,13 +1,5 @@
 # Supported ElastiCache for Redis versions<a name="supported-engine-versions"></a>
 
-You can use Amazon ElastiCache for Redis to build HIPAA\-compliant applications\. To help do this, you can enable at\-rest encryption, in\-transit encryption, and Redis AUTH when you create a Redis cluster using ElastiCache for Redis versions 3\.2\.6, 4\.0\.10, or later\. You can store healthcare\-related information, including protected health information \(PHI\), under an executed Business Associate Agreement \(BAA\) with AWS\. AWS Services in Scope have been fully assessed by a third\-party auditor and result in a certification, attestation of compliance, or Authority to Operate \(ATO\)\. For more information, see the following topics:
-+ [AWS Cloud Compliance](https://aws.amazon.com/compliance/)
-+ [HIPAA Compliance](https://aws.amazon.com/compliance/hipaa-compliance/)
-+ [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/)
-+ [ElastiCache for Redis compliance](elasticache-compliance.md)
-+ [Data security in Amazon ElastiCache](encryption.md)
-+ [Authenticating users with the Redis AUTH command](auth.md)
-
 **Topics**
 + [Redis 6\.x \(enhanced\)](#redis-version-6.x)
 + [Redis 5\.0\.6 \(enhanced\)](#redis-version-5-0.6)
@@ -43,7 +35,7 @@ For more information, see the following topics:
 
 Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache, which includes [Authenticating Users with Role Based Access Control](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html), versionless support, client\-side caching and significant operational improvements\. 
 
-Beginning with Redis 6, ElastiCache for Redis will offer a single version for each Redis OSS major release, rather than offering multiple minor versions\. Versionless engine support is designed to minimize confusion and ambiguity on having to choose from multiple minor versions\. ElastiCache for Redis will also automatically manage the minor version of your running cache clusters, ensuring improved performance and enhanced security\.
+Beginning with Redis 6\.x, ElastiCache for Redis will offer a single version for each Redis OSS major release, rather than offering multiple minor versions\. Versionless engine support is designed to minimize confusion and ambiguity on having to choose from multiple minor versions\. ElastiCache for Redis will also automatically manage the minor version of your running cache clusters, ensuring improved performance and enhanced security\. This will be handled through standard customer\-notification channels via a self\-service update campaign\. For more information, see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\. 
 
 You specify the engine version by using `6.x`\. ElastiCache for Redis will automatically invoke the preferred minor version of Redis 6 that is available\.
 
@@ -183,7 +175,7 @@ Amazon ElastiCache for Redis version 3\.2\.4 introduces the next major version o
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html)
 
 **Notes:**
-+ **Partitioning** – the ability to split your data across 2 to 250 node groups \(shards\) with replication support for each node group\.
++ **Partitioning** – the ability to split your data across 2 to 500 node groups \(shards\) with replication support for each node group\.
 + **Geospatial indexing** – Redis 3\.2\.4 introduces support for geospatial indexing via six GEO commands\. For more information, see the Redis GEO\* command documentation [Redis Commands: GEO](http://redis.io/commands#geo) on the Redis Commands page \(filtered for GEO\)\.
 
 For information about additional Redis 3 features, see [Redis 3\.2 release notes](https://raw.githubusercontent.com/antirez/redis/3.2/00-RELEASENOTES) and [Redis 3\.0 release notes](https://raw.githubusercontent.com/antirez/redis/3.0/00-RELEASENOTES)\.
@@ -228,7 +220,7 @@ Redis improvements added since version 2\.8\.21 include the following:
   + `ReplicationBytes` – The number of bytes a replication group's primary cluster is sending to the read replicas\.
   + `SaveInProgress` – A binary value that indicates whether or not there is a background save process running\.
 
-   For more information, see [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)\.
+   For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md)\.
 + A number of critical bug fixes in replication PSYNC behavior\. For more information, see [Redis 2\.8 release notes](https://raw.githubusercontent.com/antirez/redis/2.8/00-RELEASENOTES)\.
 + To maintain enhanced replication performance in Multi\-AZ replication groups and for increased cluster stability, non\-ElastiCache replicas are no longer supported\.
 + To improve data consistency between the primary cluster and replicas in a replication group, the replicas no longer evict keys independent of the primary cluster\.

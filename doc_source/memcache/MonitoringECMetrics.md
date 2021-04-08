@@ -6,6 +6,5 @@ Amazon CloudWatch provides metrics for monitoring your cache performance\. In ad
 
 **Topics**
 + [Monitoring use with CloudWatch metrics](CacheMetrics.md)
++ [Logging Amazon ElastiCache API calls with AWS CloudTrail](logging-using-cloudtrail.md)
 + [Monitoring ElastiCache events](ECEvents.md)
-+ [Monitoring costs with cost allocation tags](Tagging.md)
-+ [Managing costs with reserved nodes](reserved-nodes.md)

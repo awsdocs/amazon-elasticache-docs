@@ -50,8 +50,12 @@ Make a note of your two subnet identifiers, and which is public and private\. Yo
 
    1. Under **Security Group**, choose the **Inbound** tab\. In the **Create a new rule** box, choose **SSH**, and then choose **Add Rule**\.
 
-   1. Choose **Apply Rule Changes**\.
+   1. Set the following values for your new inbound rule to allow HTTP access: 
+      + Type: HTTP
+      + Source: 0\.0\.0\.0/0
+
+      Choose **Apply Rule Changes**\.
 
 Now you are ready to create a cache subnet group and launch a cache cluster in your Amazon VPC\. 
 + [Creating a subnet group](SubnetGroups.Creating.md)
-+ [Creating a Memcached cluster \(Console\)](Clusters.Create.CON.Memcached.md)\. 
++ [Creating a Memcached cluster](Clusters.Create.CON.Memcached.md)\. 

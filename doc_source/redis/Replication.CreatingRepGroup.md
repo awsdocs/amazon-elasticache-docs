@@ -4,7 +4,7 @@ You have the following options for creating a cluster with replica nodes\. One a
 
 **Option 1: [Creating a Replication Group Using an Available Redis \(Cluster Mode Disabled\) Cluster](Replication.CreatingReplGroup.ExistingCluster.md)**  
 Use this option to leverage an existing single\-node Redis \(cluster mode disabled\) cluster\. You specify this existing node as the primary node in the new cluster, and then individually add 1 to 5 read replicas to the cluster\. If the existing cluster is active, read replicas synchronize with it as they are created\. See [Creating a Replication Group Using an Available Redis \(Cluster Mode Disabled\) Cluster](Replication.CreatingReplGroup.ExistingCluster.md)\.  
-You cannot create a Redis \(cluster mode enabled\) cluster using an existing cluster\. To create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication group\) using the ElastiCache console, see [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\.
+You cannot create a Redis \(cluster mode enabled\) cluster using an existing cluster\. To create a Redis \(cluster mode enabled\) cluster \(API/CLI: replication group\) using the ElastiCache console, see [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\.
 
 **Option 2: [Creating a Redis replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.md)**  
 Use this option if you don't already have an available Redis \(cluster mode disabled\) cluster to use as the cluster's primary node, or if you want to create a Redis \(cluster mode enabled\) cluster\.  See [Creating a Redis replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.md)\.

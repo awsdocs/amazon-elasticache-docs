@@ -8,8 +8,7 @@ Whenever you create a cluster , it is a good idea to do some preparatory work so
 
 **Topics**
 + [Determine your requirements](cluster-create-determine-requirements.md)
-+ [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)
 + [Choosing your node size](nodes-select-size.md)
-+ [Creating a Memcached cluster \(Console\)](Clusters.Create.CON.Memcached.md)
++ [Creating a Memcached cluster](Clusters.Create.CON.Memcached.md)
 + [Creating a cluster \(AWS CLI\)](Clusters.Create.CLI.md)
 + [Creating a cluster \(ElastiCache API\)](Clusters.Create.API.md)

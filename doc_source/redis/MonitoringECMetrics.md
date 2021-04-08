@@ -5,7 +5,6 @@ To manage your enterprise caching solution, it's important that you know how you
 Amazon CloudWatch provides metrics for monitoring your cache performance\. In addition, cost allocation tags help you monitor and manage costs\.
 
 **Topics**
-+ [Monitoring Use with CloudWatch Metrics](CacheMetrics.md)
++ [Monitoring use with CloudWatch Metrics](CacheMetrics.md)
++ [Logging Amazon ElastiCache API calls with AWS CloudTrail](logging-using-cloudtrail.md)
 + [Monitoring ElastiCache events](ECEvents.md)
-+ [Monitoring costs with cost allocation tags](Tagging.md)
-+ [Managing costs with reserved nodes](reserved-nodes.md)

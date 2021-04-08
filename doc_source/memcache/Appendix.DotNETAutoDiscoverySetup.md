@@ -2,7 +2,7 @@
 
 You can find the ElastiCache \.NET Cluster Client code as open source at [https://github\.com/awslabs/elasticache\-cluster\-config\-net](https://github.com/awslabs/elasticache-cluster-config-net)\.
 
-This section describes how to install, update, and remove the \.NET components for the ElastiCache Cluster Client on Amazon EC2 instances\. For more information about auto discovery, see [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\. For sample \.NET code to use the client, see [Using the ElastiCache Cluster Client for \.NET](AutoDiscovery.Using.ModifyApp.DotNET.md)\.
+This section describes how to install, update, and remove the \.NET components for the ElastiCache Cluster Client on Amazon EC2 instances\. For more information about auto discovery, see [Automatically identify nodes in your cluster](AutoDiscovery.md)\. For sample \.NET code to use the client, see [Using the ElastiCache Cluster Client for \.NET](AutoDiscovery.Using.ModifyApp.DotNET.md)\.
 
 **Topics**
 + [Installing \.NET](#Appendix.DotNETAutoDiscoverySetup.DotNET)

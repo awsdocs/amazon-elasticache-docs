@@ -17,12 +17,14 @@ To create or work with a cluster in a specific region, use the corresponding reg
 + [Availability Zone considerations](#CacheNode.Memcached.AvailabilityZones)
 + [Supported regions & endpoints](#SupportedRegions)
 + [Locating your nodes](#RegionsAndAZs.AZMode)
++ [Using local zones with ElastiCache](Local_zones.md)
++ [Using Outposts](ElastiCache-Outposts.md)
 
 ## Availability Zone considerations<a name="CacheNode.Memcached.AvailabilityZones"></a>
 
 Distributing your Memcached nodes over multiple Availability Zones within a region helps protect you from the impact of a catastrophic failure, such as a power loss within an Availability Zone\.
 
-A Memcached cluster can have up to 100 nodes\. When you create or add nodes to your Memcached cluster, you can specify a single Availability Zone for all your nodes, allow ElastiCache to choose a single Availability Zone for all your nodes, specify the Availability Zones for each node, or allow ElastiCache to choose an Availability Zone for each node\. New nodes can be created in different Availability Zones as you add them to an existing Memcached cluster\. Once a cache node is created, its Availability Zone cannot be modified\. 
+A Memcached cluster can have up to 300 nodes\. When you create or add nodes to your Memcached cluster, you can specify a single Availability Zone for all your nodes, allow ElastiCache to choose a single Availability Zone for all your nodes, specify the Availability Zones for each node, or allow ElastiCache to choose an Availability Zone for each node\. New nodes can be created in different Availability Zones as you add them to an existing Memcached cluster\. Once a cache node is created, its Availability Zone cannot be modified\. 
 
 If you want a cluster in a single Availability Zone cluster to have its nodes distributed across multiple Availability Zones, ElastiCache can create new nodes in the various Availability Zones\. You can then delete some or all of the original cache nodes\. We recommend this approach\.
 

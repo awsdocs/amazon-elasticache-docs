@@ -11,8 +11,8 @@ You can do the following:
 
 You can't do the following:
 + **Configure shards independently:**
-  + You can't specify the number of nodes in each shard independently\. 
-  + You can't specify the keyspace for shards independently\. To do this, you must use the offline process\.
+
+  You can't specify the keyspace for shards independently\. To do this, you must use the offline process\.
 
 Currently, the following limitations apply to ElastiCache for Redis online resharding and rebalancing:
 + These processes require Redis engine version 3\.2\.10 or newer\. For information on upgrading your engine version, see [Upgrading engine versions](VersionManagement.md)\.

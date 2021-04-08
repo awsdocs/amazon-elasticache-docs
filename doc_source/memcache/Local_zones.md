@@ -11,8 +11,6 @@ A Local Zone is represented by an AWS Region code followed by an identifier that
 At this time, the available Local Zones are `us-west-2-lax-1a` and `us-west-2-lax-1b`\.
 
 The following limitations apply to ElastiCache for Local Zones:
-+ Global datastores aren't supported\.
-+ Online migration isn't supported\.
 + The following node types are supported by Local Zones at this time: 
   + Current generation: 
 
@@ -40,4 +38,4 @@ The following limitations apply to ElastiCache for Local Zones:
 
 1. Create an ElastiCache for Memcached cluster that uses the ElastiCache subnet in the Local Zone\.
 
-    For more information, see [Creating a Memcached cluster \(Console\)](Clusters.Create.CON.Memcached.md)\.
+    For more information, see [Creating a Memcached cluster](Clusters.Create.CON.Memcached.md)\.

@@ -41,11 +41,11 @@ The Memcached engine is multi\-threaded, so a node’s number of cores impacts t
 
 ## Memcached cluster configuration<a name="memcached-cluster-configuration"></a>
 
-ElastiCache for Memcached clusters are comprised of from 1 to 20 nodes\. The data in a Memcached cluster is partitioned across the nodes in the cluster\. Your application connects with a Memcached cluster using a network address called an Endpoint\. Each node in a Memcached cluster has its own endpoint which your application uses to read from or write to the specific node\. In addition to the node endpoints, the Memcached cluster itself has an endpoint called the *configuration endpoint*\. Your application can use this endpoint to read from or write to the cluster, leaving the determination of which node to read from or write to up to [Automatically Identify Nodes in your Memcached Cluster](AutoDiscovery.md)\. 
+ElastiCache for Memcached clusters are comprised of from 1 to 40 nodes\. The data in a Memcached cluster is partitioned across the nodes in the cluster\. Your application connects with a Memcached cluster using a network address called an Endpoint\. Each node in a Memcached cluster has its own endpoint which your application uses to read from or write to the specific node\. In addition to the node endpoints, the Memcached cluster itself has an endpoint called the *configuration endpoint*\. Your application can use this endpoint to read from or write to the cluster, leaving the determination of which node to read from or write to up to [Automatically identify nodes in your cluster](AutoDiscovery.md)\. 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ElastiCache-Cluster-Memcached.png)
 
-For more information, see [Managing your ElastiCache clusters](Clusters.md)\.
+For more information, see [Managing clusters](Clusters.md)\.
 
 ## Scaling requirements<a name="cluster-create-determine-requirements-scaling"></a>
 
@@ -59,7 +59,7 @@ For more information, see [Scaling ElastiCache for Memcached clusters](Scaling.m
 
 By design, Amazon ElastiCache clusters are accessed from Amazon EC2 instances\. Network access to an ElastiCache cluster is limited to the user account that created the cluster\. Therefore, before you can access a cluster from an Amazon EC2 instance, you must authorize the Amazon EC2 instance to access the cluster\. The steps to do this vary, depending upon whether you launched into EC2\-VPC or EC2\-Classic\.
 
-If you launched your cluster into EC2\-VPC you need to grant network ingress to the cluster\. If you launched your cluster into EC2\-Classic you need to grant the Amazon Elastic Compute Cloud security group associated with the instance access to your ElastiCache security group\. For detailed instructions, see [Authorize access](GettingStarted.AuthorizeAccess.md) in this guide\.
+If you launched your cluster into EC2\-VPC you need to grant network ingress to the cluster\. If you launched your cluster into EC2\-Classic you need to grant the Amazon Elastic Compute Cloud security group associated with the instance access to your ElastiCache security group\. For detailed instructions, see [Step 3: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md) in this guide\.
 
 ## Region, Availability Zone and Local Zone requirements<a name="cluster-create-determine-requirements-region"></a>
 

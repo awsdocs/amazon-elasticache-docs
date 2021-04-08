@@ -21,7 +21,7 @@ For information on encryption in transit, see [ElastiCache for Redis in\-transit
 ## At\-Rest Encryption Conditions<a name="at-rest-encryption-constraints"></a>
 
 The following constraints on ElastiCache at\-rest encryption should be kept in mind when you plan your implementation of ElastiCache encryption at\-rest:
-+ At\-rest encryption is supported on replication groups running Redis versiond 4\.0\.10 or later\.
++ At\-rest encryption is supported on replication groups running Redis versions 3\.2\.6, 4\.0\.10 or later\.
 + At\-rest encryption is supported only for replication groups running in an Amazon VPC\.
 + At\-rest encryption is only supported for replication groups running the following node types\.
   + R6g, R5, R4, R3
@@ -106,8 +106,8 @@ To enable at\-rest encryption when creating a replication group using the AWS Ma
 + Choose **Yes** from the **Encryption at\-rest** list\.
 
 For the step\-by\-step procedure, see the following:
-+ [Creating a cluster\-mode disabled cluster \(Console\)](Clusters.Create.CON.Redis.md)
-+ [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
++ [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.CON.Redis.md)
++ [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
 
 ### Enabling At\-Rest Encryption Using the AWS CLI<a name="at-rest-encryption-enable-cli"></a>
 

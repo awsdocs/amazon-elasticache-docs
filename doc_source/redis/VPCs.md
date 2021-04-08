@@ -12,6 +12,7 @@ This section explains how to manually configure an ElastiCache cluster in an Ama
 **Topics**
 + [Understanding ElastiCache and Amazon VPCs](VPCs.EC.md)
 + [Access Patterns for Accessing an ElastiCache Cluster in an Amazon VPC](elasticache-vpc-accessing.md)
++ [Migrating an EC2\-Classic cluster into a VPC](Migrating-ec2-classic_to_VPC.md)
 + [Creating a Virtual Private Cloud \(VPC\)](VPCs.CreatingVPC.md)
 + [Creating a replication group in an Amazon VPC](VPCs.CreatingReplGroup.md)
 + [Connecting to a cache cluster running in an Amazon VPC](VPCs.Connecting.md)

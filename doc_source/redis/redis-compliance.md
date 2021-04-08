@@ -13,5 +13,13 @@ Your compliance responsibility when using Amazon ElastiCache is determined by th
 + [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) – This AWS service assesses how well your resource configurations comply with internal practices, industry guidelines, and regulations\.
 + [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) – This AWS service provides a comprehensive view of your security state within AWS that helps you check your compliance with security industry standards and best practices\.
 
+You can use Amazon ElastiCache for Redis to build HIPAA\-compliant applications\. To help do this, you can enable at\-rest encryption, in\-transit encryption, and Redis AUTH when you create a Redis cluster using ElastiCache for Redis versions 3\.2\.6, 4\.0\.10, or later\. You can store healthcare\-related information, including protected health information \(PHI\), under an executed Business Associate Agreement \(BAA\) with AWS\. AWS Services in Scope have been fully assessed by a third\-party auditor and result in a certification, attestation of compliance, or Authority to Operate \(ATO\)\. For more information, see the following topics:
++ [AWS Cloud Compliance](https://aws.amazon.com/compliance/)
++ [HIPAA Compliance](https://aws.amazon.com/compliance/hipaa-compliance/)
++ [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/)
++ [ElastiCache for Redis compliance](elasticache-compliance.md)
++ [Data security in Amazon ElastiCache](encryption.md)
++ [Authenticating users with the Redis AUTH command](auth.md)
+
 **Topics**
 + [ElastiCache for Redis compliance](elasticache-compliance.md)

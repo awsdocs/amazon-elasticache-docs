@@ -18,7 +18,7 @@ Following, you can find an overview of the major components of an Amazon ElastiC
 
 ## ElastiCache nodes<a name="WhatIs.Components.Nodes"></a>
 
-A *node* is the smallest building block of an ElastiCache deployment\. A node can exist in isolation from or in some relationship to other nodes\.
+A *node* is the smallest building block of an ElastiCache deployment\. A node can exist in isolation form or in some relationship to other nodes\.
 
 A node is a fixed\-size chunk of secure, network\-attached RAM\. Each node runs an instance of the engine and version that was chosen when you created your cluster\. If necessary, you can scale the nodes in a cluster up or down to a different instance type\. For more information, see [Scaling ElastiCache for Redis clusters](Scaling.md)\.
 
@@ -30,7 +30,11 @@ For more information on nodes, see [Managing nodes](CacheNodes.md)\.
 
 ## ElastiCache for Redis shards<a name="WhatIs.Components.Shards"></a>
 
-A Redis *shard* \(called a *node group* in the API and CLI\) is a grouping of one to six related nodes\. A Redis \(cluster mode disabled\) cluster always has one shard\. A Redis \(cluster mode enabled\) cluster can have 1–250 shards\.
+A Redis *shard* \(called a *node group* in the API and CLI\) is a grouping of one to six related nodes\. A Redis \(cluster mode disabled\) cluster always has one shard\.
+
+Redis \(cluster mode enabled\) clusters can have up to 500 shards, with your data partitioned across the shards\. The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a subnet group](SubnetGroups.Creating.md)\. For versions below 5\.0\.6, the limit is 250 per cluster\.
+
+To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
 
 A *multiple node shard* implements replication by having one read/write primary node and 1–5 replica nodes\. For more information, see [High availability using replication groups](Replication.md)\.
 
@@ -49,7 +53,7 @@ Many ElastiCache operations are targeted at clusters:
 + Adding or removing cost allocation tags to and from a cluster
 
 For more detailed information, see the following related topics:
-+ [Managing your ElastiCache clusters](Clusters.md) and [Managing nodes](CacheNodes.md)
++ [Managing clusters](Clusters.md) and [Managing nodes](CacheNodes.md)
 
   Information about clusters, nodes, and related operations\.
 + [AWS service limits: Amazon ElastiCache](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_elasticache)
@@ -61,13 +65,15 @@ For more detailed information, see the following related topics:
 
 ### Typical cluster configurations<a name="WhatIs.Components.Clusters.TypicalConfigurations"></a>
 
-A Redis cluster contains 1–250 shards \(in the API, called node groups\), each of which is a partition of your data\. Redis \(cluster mode disabled\) always has just one shard\.
-
 Following are typical cluster configurations\.
 
 #### Redis clusters<a name="WhatIs.Components.Clusters.TypicalConfigurations.Redis"></a>
 
-A Redis \(cluster mode enabled\) cluster contains 1–250 shards \(in the API and CLI, called *node groups*\)\. Redis \(cluster mode disabled\) clusters always contain just one shard \(in the API and CLI, one node group\)\. A Redis shard contains one to six nodes\. If there is more than one node in a shard, the shard supports replication\. In this case, one node is the read/write primary node and the others are read\-only replica nodes\.
+Redis \(cluster mode enabled\) clusters can have up to 500 shards, with your data partitioned across the shards\. The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a subnet group](SubnetGroups.Creating.md)\. For versions below 5\.0\.6, the limit is 250 per cluster\.
+
+To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
+
+ Redis \(cluster mode disabled\) clusters always contain just one shard \(in the API and CLI, one node group\)\. A Redis shard contains one to six nodes\. If there is more than one node in a shard, the shard supports replication\. In this case, one node is the read/write primary node and the others are read\-only replica nodes\.
 
 For improved fault tolerance, we recommend having at least two nodes in a Redis cluster and enabling Multi\-AZ\. For more information, see [Mitigating Failures](FaultTolerance.md)\.
 
@@ -77,13 +83,17 @@ ElastiCache supports changing a Redis \(cluster mode disabled\) cluster's node t
 
 ## ElastiCache for Redis replication<a name="WhatIs.Components.ReplicationGroups"></a>
 
-Before you continue reading here, see [ElastiCache for Redis terminology](WhatIs.Terms.md) to better understand the differences in terminology between the ElastiCache console and the ElastiCache API and AWS CLI\.
+Before you continue reading here, see [Tools for managing your implementation](WhatIs.Managing.md) to better understand the differences in terminology between the ElastiCache console and the ElastiCache API and AWS CLI\.
 
 Replication is implemented by grouping from two to six nodes in a shard \(in the API and CLI, called a node group\)\. One of these nodes is the read/write primary node\. All the other nodes are read\-only replica nodes\.
 
 Each replica node maintains a copy of the data from the primary node\. Replica nodes use asynchronous replication mechanisms to keep synchronized with the primary node\. Applications can read from any node in the cluster but can write only to primary nodes\. Read replicas enhance scalability by spreading reads across multiple endpoints\. Read replicas also improve fault tolerance by maintaining multiple copies of the data\. Locating read replicas in multiple Availability Zones further improves fault tolerance\. For more information on fault tolerance, see [Mitigating Failures](FaultTolerance.md)\.
 
-Redis \(cluster mode disabled\) clusters support one shard \(in the API and CLI, called a *node group*\)\. Redis \(cluster mode enabled\) clusters support 1–250 shards \(in the API and CLI, called node groups\)\.
+Redis \(cluster mode disabled\) clusters support one shard \(in the API and CLI, called a *node group*\)\.
+
+Redis \(cluster mode enabled\) clusters can have up to 500 shards, with your data partitioned across the shards\. The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a subnet group](SubnetGroups.Creating.md)\. For versions below 5\.0\.6, the limit is 250 per cluster\.
+
+To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
 
 Replication from the API and CLI perspective uses different terminology to maintain compatibility with previous versions, but the results are the same\. The following table shows the API and CLI terms for implementing replication\.
 
@@ -178,7 +188,7 @@ If you create a cluster in an Amazon VPC, then you must specify a cache subnet g
 
 For more information about cache subnet group usage in an Amazon VPC environment, see the following:
 + [Amazon VPCs and ElastiCache security](VPCs.md)
-+ [Access authorization](GettingStarted.AuthorizeAccess.md)
++ [Step 2: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md)
 + [Subnets and subnet groups](SubnetGroups.md)
 
 ## ElastiCache for Redis backups<a name="WhatIs.Components.Snapshots"></a>
