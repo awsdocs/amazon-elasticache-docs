@@ -39,5 +39,5 @@ The following limitations apply to ElastiCache for Local Zones:
    For more information, see [Creating a subnet group](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html) in the *ElastiCache User Guide*\.
 
 1. Create an ElastiCache for Redis cluster that uses the ElastiCache subnet in the Local Zone\. For more information, see one of the following topics:
-   +  [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.CON.Redis.md)
-   +  [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
+   +  [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.md#Clusters.Create.CON.Redis)
+   +  [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.md#Clusters.Create.CON.RedisCluster)

@@ -8,7 +8,7 @@ The node or shard limit can be increased to a maximum of 500 per cluster if the 
 
 To request a limit increase, see [AWS service limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
 
-When you create a Redis \(cluster mode enabled\) cluster using the ElastiCache console, you specify the number of shards in the cluster and the number of nodes in the shards\. For more information, see [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\. If you use the ElastiCache API or AWS CLI to create a cluster \(called *replication group* in the API/CLI\), you can configure the number of nodes in a shard \(API/CLI: node group\) independently\. For more information, see the following: 
+When you create a Redis \(cluster mode enabled\) cluster using the ElastiCache console, you specify the number of shards in the cluster and the number of nodes in the shards\. For more information, see [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.md#Clusters.Create.CON.RedisCluster)\. If you use the ElastiCache API or AWS CLI to create a cluster \(called *replication group* in the API/CLI\), you can configure the number of nodes in a shard \(API/CLI: node group\) independently\. For more information, see the following: 
 + API: [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 + CLI: [create\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 
@@ -23,11 +23,6 @@ For more information, see [Offline resharding and shard rebalancing for Redis \(
 ## Finding a shard's ID<a name="shard-find-id"></a>
 
 You can find a shard's ID using the AWS Management Console, the AWS CLI or the ElastiCache API\.
-
-**Topics**
-+ [Using the AWS Management Console](#shard-find-id-con)
-+ [Using the AWS CLI](#shard-find-id-cli)
-+ [Using the ElastiCache API](#shard-find-id-api)
 
 ### Using the AWS Management Console<a name="shard-find-id-con"></a>
 

@@ -105,7 +105,7 @@ You can restore a Redis \(cluster mode disabled\) backup in two ways\. You can r
 When using either the `create-cache-cluster` or `create-replication-group` operation, be sure to include the parameter `--snapshot-name` or `--snapshot-arns` to seed the new cluster or replication group with the data from the backup\.
 
 For more information, see the following:
-+ [Creating a cluster \(AWS CLI\)](Clusters.Create.CLI.md) in the *ElastiCache User Guide*\.
++ [Creating a cluster \(AWS CLI\)](Clusters.Create.md#Clusters.Create.CLI) in the *ElastiCache User Guide*\.
 + [create\-cache\-cluster](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-cache-cluster.html) in the *AWS CLI Command Reference*\.
 
    
@@ -119,7 +119,7 @@ You can restore a Redis backup to either a single\-node Redis \(cluster mode dis
 When using either the `CreateCacheCluster` or `CreateReplicationGroup` operation, be sure to include the parameter `SnapshotName` or `SnapshotArns` to seed the new cluster or replication group with the data from the backup\.
 
 For more information, see the following:
-+ [Creating a cluster \(ElastiCache API\)](Clusters.Create.API.md) in the *ElastiCache User Guide*\.
++ [Creating a cluster \(ElastiCache API\)](Clusters.Create.md#Clusters.Create.API) in the *ElastiCache User Guide*\.
 + [CreateCacheCluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html) in the *ElastiCache API Reference*\.
 
    

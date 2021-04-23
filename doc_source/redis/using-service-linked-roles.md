@@ -48,11 +48,11 @@ Permission policy:
         "ec2:DescribeVpcs",
         "ec2:ModifyNetworkInterfaceAttribute",
         "ec2:RevokeSecurityGroupIngress",
-        "logs:CreateLogDelivery",
-        "logs:UpdateLogDelivery",
-        "logs:DeleteLogDelivery",
-        "logs:GetLogDelivery",
-        "logs:ListLogDeliveries",        
+        "cloudwatch:PutMetricData",
+        "outposts:GetOutpost",
+        "outposts:GetOutpostInstanceTypes",
+        "outposts:ListOutposts",
+        "outposts:ListSites"
       ],
       "Resource": "*"
     }

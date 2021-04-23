@@ -1,14 +1,19 @@
 # Creating a cluster<a name="Clusters.Create"></a>
 
-Following, you can find instructions on creating a cluster using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
+The following examples show how to create a Redis cluster using the AWS Management Console, AWS CLI and ElastiCache API\.
 
-You can also create an ElastiCache cluster using [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)\. For more information, see [ AWS::ElastiCache::CacheCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html) in the *AWS Cloud Formation User Guide*, which includes guidance on how to implement that approach\.
+## Creating a cluster \(AWS CLI\)<a name="Clusters.Create.CLI"></a>
 
-Whenever you create a cluster , it is a good idea to do some preparatory work so you won't need to upgrade or make changes right away\.
+To create a cluster using the AWS CLI, use the `create-cache-cluster` command\.
+
+**Important**  
+As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not actively using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a cluster](Clusters.Delete.md)\. 
+
+## Creating a cluster \(ElastiCache API\)<a name="Clusters.Create.API"></a>
+
+To create a cluster using the ElastiCache API, use the `CreateCacheCluster` action\. 
+
+**Important**  
+As soon as your cluster becomes available, you're billed for each hour or partial hour that the cluster is active, even if you're not using it\. To stop incurring charges for this cluster, you must delete it\. See [Deleting a cluster](Clusters.Delete.md)\. 
 
 **Topics**
-+ [Determine your requirements](cluster-create-determine-requirements.md)
-+ [Choosing your node size](nodes-select-size.md)
-+ [Creating a Memcached cluster](Clusters.Create.CON.Memcached.md)
-+ [Creating a cluster \(AWS CLI\)](Clusters.Create.CLI.md)
-+ [Creating a cluster \(ElastiCache API\)](Clusters.Create.API.md)

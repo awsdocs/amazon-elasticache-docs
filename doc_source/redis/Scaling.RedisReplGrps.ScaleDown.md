@@ -8,9 +8,6 @@ If you're using `reserved-memory-percent`, doing this is not necessary\.
 For more information, see [Managing Reserved Memory](redis-memory-management.md)\.
 
 **Topics**
-+ [Scaling down a Redis cluster with replicas \(Console\)](#Scaling.RedisReplGrps.ScaleDown.CON)
-+ [Scaling down a Redis replication group \(AWS CLI\)](#Scaling.RedisReplGrps.ScaleUp.CLI)
-+ [Scaling down a Redis replication group \(ElastiCache API\)](#Scaling.RedisReplGrps.ScaleDown.API)
 
 ## Scaling down a Redis cluster with replicas \(Console\)<a name="Scaling.RedisReplGrps.ScaleDown.CON"></a>
 

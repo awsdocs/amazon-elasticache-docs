@@ -48,7 +48,7 @@ The output of this command will look something like this, listing the name, fami
 The following sample code lists up to 10 parameter groups\.  
 
 ```
-aws elasticache describe-cache-parameter-groups --max-records 20
+aws elasticache describe-cache-parameter-groups --max-records 10
 ```
 The JSON output of this command will look something like this, listing the name, family, description and, in the case of redis5\.6 whether the parameter group is part of a global datastore \(isGlobal\), for each parameter group\.  
 
@@ -169,49 +169,6 @@ The response from this action will look something like this, listing the name, f
         <isGlobal>yes</isGlobal>
       </CacheParameterGroup>
     </CacheParameterGroups>
-  </DescribeCacheParameterGroupsResult>
-  <ResponseMetadata>
-    <RequestId>3540cc3d-af48-11e0-97f9-279771c4477e</RequestId>
-  </ResponseMetadata>
-</DescribeCacheParameterGroupsResponse>
-```
-
-**Example**  
-The following sample code lists up to 10 parameter groups\.  
-
-```
-https://elasticache.us-west-2.amazonaws.com/
-   ?Action=DescribeCacheParameterGroups
-   &MaxRecords=10
-   &SignatureVersion=4
-   &SignatureMethod=HmacSHA256
-   &Timestamp=20150202T192317Z
-   &Version=2015-02-02
-   &X-Amz-Credential=<credential>
-```
-The response from this action will look something like this, listing the name, family, description and, in the case of `redis5.6`, whether the parameter group is part of a global datastore \(isGlobal\), for each parameter group\.  
-
-```
-<DescribeCacheParameterGroupsResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
-  <DescribeCacheParameterGroupsResult>
-    <CacheParameterGroups>
-      <CacheParameterGroup>
-        <CacheParameterGroupName>myRedis28</CacheParameterGroupName>
-        <CacheParameterGroupFamily>redis2.8</CacheParameterGroupFamily>
-        <Description>My custom Redis 2.8 parameter group</Description>
-      </CacheParameterGroup>
-      <CacheParameterGroup>
-        <CacheParameterGroupName>myMem14</CacheParameterGroupName>
-        <CacheParameterGroupFamily>memcached1.4</CacheParameterGroupFamily>
-        <Description>My custom Memcached 1.4 parameter group</Description>
-      </CacheParameterGroup>
-    </CacheParameterGroups>
-     <CacheParameterGroup>
-        <CacheParameterGroupName>myRedis56</CacheParameterGroupName>
-        <CacheParameterGroupFamily>redis5.0</CacheParameterGroupFamily>
-        <Description>My custom Redis 5.6 parameter group</Description>
-        <isGlobal>yes</isGlobal>
-      </CacheParameterGroup>
   </DescribeCacheParameterGroupsResult>
   <ResponseMetadata>
     <RequestId>3540cc3d-af48-11e0-97f9-279771c4477e</RequestId>

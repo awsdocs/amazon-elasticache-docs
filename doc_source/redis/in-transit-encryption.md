@@ -77,8 +77,8 @@ To enable in\-transit encryption when creating a replication group using the AWS
 + Choose **Yes** from the **Encryption in\-transit** list\.
 
 For the step\-by\-step process, see the following:
-+ [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.CON.Redis.md)
-+ [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
++ [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.md#Clusters.Create.CON.Redis)
++ [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.md#Clusters.Create.CON.RedisCluster)
 
  
 

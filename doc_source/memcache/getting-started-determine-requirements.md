@@ -1,3 +1,3 @@
 # Step 1: Determine your cluster's requirements<a name="getting-started-determine-requirements"></a>
 
-Before you create a Memcached cluster, you should always determine the requirements for the cluster so that when you create the cluster it will meet your business needs and not need to be redone\. Because in this exercise we will largely accept default values for the cluster, we will dispense with determining requirements\. For more information, see [Determine your requirements](cluster-create-determine-requirements.md)\.
+Before you create a Memcached cluster, you should always determine the requirements for the cluster so that when you create the cluster it will meet your business needs and not need to be redone\. Because in this exercise we will largely accept default values for the cluster, we will dispense with determining requirements\. For more information, see [Determining your requirements](cluster-create-determine-requirements.md)\.

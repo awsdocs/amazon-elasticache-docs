@@ -8,7 +8,7 @@ When you change a cluster's parameters, the change is applied to the cluster eit
 
 ## Using the AWS Management Console<a name="Clusters.Modify.CON"></a>
 
-**To modify a cluster \(console\)**
+**To modify a cluster**
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
@@ -34,6 +34,18 @@ When you change a cluster's parameters, the change is applied to the cluster eit
    The **Apply Immediately** box applies only to engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, engine version modifications are applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
 
 1. Choose **Modify**\.
+
+**To enable/disable log delivery, do the following:**
+
+1. From the list of clusters, choose the cluster you want to modify\. Choose the **Cluster name** and not the checkbox beside it\.
+
+1. On the **Cluster name** page, choose the **Logs** tab\.
+
+1. To enable/disable slow logs, choose either **Enable slow logs** or **Disable slow logs**\.
+
+1. To change your configuration, choose **Modify slow logs**:
+   + Under **Destination Type**, choose either **CloudWatch Logs** or **Kinesis Firehose**\.
+   + Under **Log destination**, choose either **Create new** and enter either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name\. Or choose **Select existing** and then choose either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name\.
 
 ## Using the AWS CLI<a name="Clusters.Modify.CLI"></a>
 

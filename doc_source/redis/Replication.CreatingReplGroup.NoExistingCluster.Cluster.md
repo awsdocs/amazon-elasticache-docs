@@ -15,7 +15,7 @@ To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.co
 
 ## Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON"></a>
 
-To create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)\. Be sure to enable cluster mode, **Cluster Mode enabled \(Scale Out\)**, and specify at least two shards and one replica node in each\.
+To create a Redis \(cluster mode enabled\) cluster, see [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.md#Clusters.Create.CON.RedisCluster)\. Be sure to enable cluster mode, **Cluster Mode enabled \(Scale Out\)**, and specify at least two shards and one replica node in each\.
 
 ## Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI"></a>
 
@@ -90,7 +90,7 @@ redis
 
 **\-\-num\-node\-groups**  
 The number of node groups in this replication group\. Valid values are 1 to 500\.  
-The node/shard limit can be increased to a maximum of 250 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and select limit type "Nodes per cluster per instance type”\. 
+The node/shard limit can be increased to a maximum of 500 per cluster\. To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and select limit type "Nodes per cluster per instance type”\. 
 
 **\-\-replicas\-per\-node\-group**  
 The number of replica nodes in each node group\. Valid values are 0 to 5\.

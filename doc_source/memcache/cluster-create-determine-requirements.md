@@ -1,14 +1,7 @@
-# Determine your requirements<a name="cluster-create-determine-requirements"></a>
-
-**Topics**
-+ [Memory and processor requirements](#cluster-create-determine-requirements-memory)
-+ [Memcached cluster configuration](#memcached-cluster-configuration)
-+ [Scaling requirements](#cluster-create-determine-requirements-scaling)
-+ [Access requirements](#cluster-create-determine-requirements-access)
-+ [Region, Availability Zone and Local Zone requirements](#cluster-create-determine-requirements-region)
+# Determining your requirements<a name="cluster-create-determine-requirements"></a>
 
 **Preparation**  
-Knowing the answers to the following questions helps make creating your cluster go faster:
+Knowing the answers to the following questions helps make creating your cluster go smoother:
 + Which node instance type do you need?
 
   For guidance on choosing an instance node type, see [Choosing your Memcached node size](nodes-select-size.md#CacheNodes.SelectSize)\.

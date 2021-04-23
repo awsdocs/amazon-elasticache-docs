@@ -45,7 +45,7 @@ ElastiCache will automatically enable Multi\-AZ only if the cluster contains at 
 
 #### Enabling Multi\-AZ when creating a cluster using the ElastiCache console<a name="AutoFailover.Enable.Console.NewCacheCluster"></a>
 
-For more information on this process, see [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.CON.Redis.md)\. Be sure to have one or more replicas and enable Multi\-AZ\.
+For more information on this process, see [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.md#Clusters.Create.CON.Redis)\. Be sure to have one or more replicas and enable Multi\-AZ\.
 
 #### Enabling Multi\-AZ on an existing cluster \(Console\)<a name="AutoFailover.Enable.Console.ReplGrp"></a>
 

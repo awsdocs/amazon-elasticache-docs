@@ -114,7 +114,7 @@ You are now ready to interact with your ElastiCache cluster\. Before you can do 
 
    ```
    add mykey 0 3600 28
-   This is the value for my key
+   This is the value for mykey
    ```
 
    The cache engine responds with the following:

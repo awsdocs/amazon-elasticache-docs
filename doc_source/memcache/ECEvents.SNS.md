@@ -39,7 +39,7 @@ For Linux, macOS, or Unix:
 ```
 aws elasticache modify-cache-cluster \
     --cache-cluster-id my-cluster \
-    --notification-topic-arn arn:aws:sns:us-west-2:565419523791:ElastiCacheNotifications
+    --notification-topic-arn arn:aws:sns:us-west-2:123456789xxx:ElastiCacheNotifications
 ```
 
 For Windows:
@@ -47,7 +47,7 @@ For Windows:
 ```
 aws elasticache modify-cache-cluster ^
     --cache-cluster-id my-cluster ^
-    --notification-topic-arn arn:aws:sns:us-west-2:565419523791:ElastiCacheNotifications
+    --notification-topic-arn arn:aws:sns:us-west-2:123456789xx:ElastiCacheNotifications
 ```
 
 For more information, see [modify\-cache\-cluster](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html)\.

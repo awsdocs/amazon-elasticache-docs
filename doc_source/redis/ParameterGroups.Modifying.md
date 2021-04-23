@@ -7,7 +7,7 @@ You can modify some parameter values in a parameter group\. These parameter valu
 
 ## Modifying a parameter group \(Console\)<a name="ParameterGroups.Modifying.CON"></a>
 
-The following procedure shows how to change the `binding_protocol` parameter's value using the ElastiCache console\. You would use the same procedure to change the value of any parameter\.
+The following procedure shows how to change the `cluster-enabled` parameter's value using the ElastiCache console\. You would use the same procedure to change the value of any parameter\.
 
 **To change a parameter's value using the ElastiCache console**
 
@@ -20,8 +20,6 @@ The following procedure shows how to change the `binding_protocol` parameter's v
    The parameter group's parameters will be listed at the bottom of the screen\. You may need to page through the list to see all the parameters\.
 
 1. To modify one or more parameters, choose **Edit Parameters**\.
-
-1. In the **Edit Parameter Group:** screen, scroll using the left and right arrows until you find the `binding_protocol` parameter, then type `ascii` in the **Value** column\.
 
 1. Choose **Save Changes**\.
 

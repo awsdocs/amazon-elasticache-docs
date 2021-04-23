@@ -18,7 +18,7 @@ Security updates are released by using the **Service Updates** feature\. They ar
 
 **Note**  
 If you do not apply the Service Update by the recommended date or when the Service Update expires, ElastiCache will not take any action to apply the update on your behalf\.  
-You are notified of the Service Updates applicable to your Redis clusters by an announcement on the Redis console, email, Amazon SNS, CloudWatch events and Personal Health Dashboard\. For more information on Self\-Service Maintenance see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\.   
+You are notified of the Service Updates applicable to your Redis clusters by an announcement on the Redis console, email, Amazon SNS, CloudWatch events \(\(AWS Health Service\)\. For more information on Self\-Service Maintenance see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\.   
    
 CloudWatch events and Personal Health Dashboard are not supported in the following regions:  
 us\-gov\-west\-1 

@@ -4,11 +4,6 @@ Each time you change the number of nodes in a Memcached cluster, you must re\-ma
 
 You can delete a node from a cluster using the AWS Management Console, the AWS CLI, or the ElastiCache API\.
 
-**Topics**
-+ [Using the AWS Management Console](#Clusters.DeleteNode.CON)
-+ [Using the AWS CLI](#Clusters.DeleteNode.CLI)
-+ [Using the ElastiCache API](#Clusters.DeleteNode.API)
-
 ## Using the AWS Management Console<a name="Clusters.DeleteNode.CON"></a>
 
 **To remove nodes from a cluster \(console\)**

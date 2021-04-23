@@ -120,7 +120,7 @@ For more information, see the AWS CLI topic [https://docs.aws.amazon.com/cli/lat
       ?Action=ModifyCacheCluster
       &ApplyImmediately=true
       &NumCacheNodes=5
-      &CacheClusterId=my-cluster
+  	&CacheClusterId=my-cluster
   	&Region=us-east-2
       &Version=2014-12-01
       &SignatureVersion=4

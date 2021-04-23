@@ -2,13 +2,7 @@
 
 You can view detail information about one or more clusters using the ElastiCache console, AWS CLI, or ElastiCache API\.
 
-**Topics**
-+ [Viewing a Redis \(Cluster Mode Disabled\) cluster's details \(Console\)](#Clusters.ViewDetails.CON.Redis)
-+ [Viewing details for a Redis \(Cluster Mode Enabled\) cluster \(Console\)](#Clusters.ViewDetails.CON.RedisCluster)
-+ [Viewing a cluster's details \(AWS CLI\)](#Clusters.ViewDetails.CLI)
-+ [Viewing a cluster's details \(ElastiCache API\)](#Clusters.ViewDetails.API)
-
-## Viewing a Redis \(Cluster Mode Disabled\) cluster's details \(Console\)<a name="Clusters.ViewDetails.CON.Redis"></a>
+## Viewing details of a Redis \(Cluster Mode Disabled\) cluster \(Console\)<a name="Clusters.ViewDetails.CON.Redis"></a>
 
 You can view the details of a Redis \(cluster mode disabled\) cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API\.
 
@@ -101,7 +95,7 @@ This operation produces output similar to the following \(JSON format\):
 The following JSON output is for three different Redis clusters:  
 + `my-cluster1` – a Redis \(cluster mode disabled\) cluster with 1 node\.
 + `my-cluster2` – a Redis \(cluster mode disabled\) cluster with 2 nodes, a primary and 1 read replica\.
-+ `my-cluster22` – a Redis \(cluster mode enabled\) cluster with 2 shards, each shard having a primary node and 2 read replicas\. This cluster has encryption enabled\.
++ `my-cluster3` – a Redis \(cluster mode enabled\) cluster with 2 shards, each shard having a primary node and 2 read replicas\. This cluster has encryption enabled\.
 
 ```
 {

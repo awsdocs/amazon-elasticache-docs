@@ -2,11 +2,6 @@
 
 You can view detail information about one or more clusters using the ElastiCache console, AWS CLI, or ElastiCache API\.
 
-**Topics**
-+ [Viewing a Cluster's Details \(Console\)](#Clusters.ViewDetails.CON.Memcached)
-+ [Viewing a cluster's details \(AWS CLI\)](#Clusters.ViewDetails.CLI)
-+ [Viewing a cluster's details \(ElastiCache API\)](#Clusters.ViewDetails.API)
-
 ## Viewing a Cluster's Details \(Console\)<a name="Clusters.ViewDetails.CON.Memcached"></a>
 
 You can view the details of a Memcached cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API\.

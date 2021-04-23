@@ -26,7 +26,7 @@ For more information, see the following topics:
 
 |  | AWS CLI | ElastiCache API | 
 | --- | --- | --- | 
-| **Create Cluster** | [Creating a cluster \(AWS CLI\)](Clusters.Create.CLI.md) You can't use this action to create a replication group with cluster mode enabled\. | [Creating a cluster \(ElastiCache API\)](Clusters.Create.API.md)  You can't use this action to create a replication group with cluster mode enabled\.  | 
+| **Create Cluster** | [Creating a cluster \(AWS CLI\)](Clusters.Create.md#Clusters.Create.CLI) You can't use this action to create a replication group with cluster mode enabled\. | [Creating a cluster \(ElastiCache API\)](Clusters.Create.md#Clusters.Create.API)  You can't use this action to create a replication group with cluster mode enabled\.  | 
 | **Modify Cluster** | [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)  You can't use this action to create a replication group with cluster mode enabled\.  | [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)  You can't use this action to create a replication group with cluster mode enabled\. | 
 | **Create Replication Group** | [Creating a Redis \(Cluster Mode Disabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) replication group from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
@@ -242,7 +242,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w126aac23c32c57c27b9"></a>
+### How close\-on\-slave\-write works<a name="w135aac25c32c57c27b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -256,7 +256,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### When you might disable close\-on\-replica\-write<a name="w126aac23c32c57c27c11"></a>
+### When you might disable close\-on\-replica\-write<a name="w135aac25c32c57c27c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 

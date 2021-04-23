@@ -37,7 +37,7 @@ aws elasticache describe-events --source-type cache-cluster --duration 1440
 The output from the `describe-events` command looks something like this\.
 
 ```
-dev-dsk-spaethp-2c-779957a0 % aws elasticache describe-events --source-type cache-cluster --max-items 40  
+aws elasticache describe-events --source-type cache-cluster --max-items 40  
 {
     "Events": [
         {

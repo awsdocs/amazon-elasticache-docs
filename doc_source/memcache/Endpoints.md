@@ -11,11 +11,6 @@ Your application connects to your cluster using endpoints\. An endpoint is a nod
 
 The following sections guide you through discovering the endpoints you'll need for the engine you're running\.
 
-**Topics**
-+ [Finding Endpoints \(Console\)](#Endpoints.Find.Memcached)
-+ [Finding Endpoints \(AWS CLI\)](#Endpoints.Find.CLI)
-+ [Finding Endpoints \(ElastiCache API\)](#Endpoints.Find.API)
-
 ## Finding a Cluster's Endpoints \(Console\)<a name="Endpoints.Find.Memcached"></a>
 
 All Memcached endpoints are read/write endpoints\. To connect to nodes in a Memcached cluster your application can use either the endpoints for each node, or the cluster's configuration endpoint along with Automatic Discovery\. To use Automatic Discovery you must use a client that supports Automatic Discovery\.

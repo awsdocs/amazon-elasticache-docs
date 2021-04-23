@@ -5,16 +5,6 @@ To help you manage your clusters and other ElastiCache resources, you can assign
 **Warning**  
 As a best practice, we recommend that you do not include sensitive data in your tags\.
 
-**Topics**
-+ [Tag basics](#Tagging-basics)
-+ [Resources you can tag](#Tagging-your-resources)
-+ [Tag restrictions](#Tagging-restrictions)
-+ [Tagging resources examples](#Tagging-your-resources-example)
-+ [Tag\-Based access control policy examples](#Tagging-access-control)
-+ [Monitoring costs with cost allocation tags](Tagging.md)
-+ [Managing your cost allocation tags using the AWS CLI](Tagging.Managing.CLI.md)
-+ [Managing your cost allocation tags using the ElastiCache API](Tagging.Managing.API.md)
-
 ## Tag basics<a name="Tagging-basics"></a>
 
 A tag is a label that you assign to an AWS resource\. Each tag consists of a key and an optional value, both of which you define\. Tags enable you to categorize your AWS resources in different ways, for example, by purpose or owner\. For example, you could define a set of tags for your account's ElastiCache clusters that helps you track each instance's owner and user group\.

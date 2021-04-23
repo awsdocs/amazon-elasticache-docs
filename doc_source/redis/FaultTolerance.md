@@ -100,7 +100,7 @@ No matter how many nodes you have, if they are all located in the same Availabil
 
 Any time you lose a node you can experience a performance degradation since read operations are now shared by fewer nodes\. This performance degradation will continue until the nodes are replaced\. Because your data is not partitioned across Redis nodes, you risk some data loss only when the primary node is lost\.
 
-For information on specifying the Availability Zones for Redis nodes, see [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.CON.Redis.md)\.
+For information on specifying the Availability Zones for Redis nodes, see [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.md#Clusters.Create.CON.Redis)\.
 
 For more information on regions and Availability Zones, see [Choosing regions and availability zones](RegionsAndAZs.md)\.
 

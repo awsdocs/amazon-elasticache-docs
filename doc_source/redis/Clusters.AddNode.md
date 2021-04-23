@@ -73,26 +73,26 @@ The following procedure can be used to add nodes to a cluster\.
 
 If you want to add nodes to an existing Redis \(cluster mode disabled\) cluster that does not have replication enabled, you must first create the replication group specifying the existing cluster as the primary\. For more information, see [Creating a replication group using an available Redis cache cluster \(AWS CLI\)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.CLI)\. After the replication group is *available*, you can continue with the following process\.
 
-To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `modify-cache-cluster` with the following parameters:
-+ `--cache-cluster-id` The ID of the cache cluster that you want to add nodes to\.
-+ `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\. To add nodes to this cluster, `--num-cache-nodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `cache-node-ids-to-remove` and a list of nodes to remove from the cluster\. For more information, see [Using the AWS CLI](Clusters.DeleteNode.md#Clusters.DeleteNode.CLI)\.
+To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `increase-replica-count` with the following parameters:
++ `--replication-group-id` The ID of the replicationn group that you want to add nodes to\.
++ `--new-replica-count` specifies the number of nodes that you want in this replication group after the modification is applied\. To add nodes to this cluster, `--new-replica-count` must be greater than the current number of nodes in this cluster\.
 + `--apply-immediately` or `--no-apply-immediately` which specifies whether to add these nodes immediately or at the next maintenance window\.
 
 For Linux, macOS, or Unix:
 
 ```
-aws elasticache modify-cache-cluster \
-    --cache-cluster-id my-cluster \
-    --num-cache-nodes 5 \
+aws elasticache increase-replica-count \
+    --replication-group-id my-replication-group \
+    --new-replica-count 4 \
     --apply-immediately
 ```
 
 For Windows:
 
 ```
-aws elasticache modify-cache-cluster ^
-    --cache-cluster-id my-cluster ^
-    --num-cache-nodes 5 ^
+aws elasticache increase-replica-count ^
+    --replication-group-id my-replication-group ^
+    --new-replica-count 4 ^
     --apply-immediately
 ```
 
@@ -100,52 +100,88 @@ This operation produces output similar to the following \(JSON format\):
 
 ```
 {
-    "CacheCluster": {
-        "Engine": "memcached", 
-        "CacheParameterGroup": {
-            "CacheNodeIdsToReboot": [], 
-            "CacheParameterGroupName": "default.memcached1.4", 
-            "ParameterApplyStatus": "in-sync"
-        }, 
-        "CacheClusterId": "my-cluster", 
-        "PreferredAvailabilityZone": "us-west-2b", 
-        "ConfigurationEndpoint": {
-            "Port": 11211, 
-            "Address": "rlh-mem000.7alc7bf-example.cfg.usw2.cache.amazonaws.com"
-        }, 
-        "CacheSecurityGroups": [], 
-        "CacheClusterCreateTime": "2016-09-21T16:28:28.973Z", 
-        "AutoMinorVersionUpgrade": true, 
-        "CacheClusterStatus": "modifying", 
-        "NumCacheNodes": 2, 
-        "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:", 
-        "SecurityGroups": [
+    "ReplicationGroup": {
+        "ReplicationGroupId": "node-test",
+        "Description": "node-test",       
+        "Status": "modifying",
+        "PendingModifiedValues": {},
+        "MemberClusters": [
+            "node-test-001",
+            "node-test-002",
+            "node-test-003",
+            "node-test-004",
+            "node-test-005"
+        ],
+        "NodeGroups": [
             {
-                "Status": "active", 
-                "SecurityGroupId": "sg-dbe93fa2"
+                "NodeGroupId": "0001",
+                "Status": "modifying",
+                "PrimaryEndpoint": {
+                    "Address": "node-test.zzzzzz.ng.0001.usw2.cache.amazonaws.com",
+                    "Port": 6379
+                },
+                "ReaderEndpoint": {
+                    "Address": "node-test.zzzzzz.ng.0001.usw2.cache.amazonaws.com",
+                    "Port": 6379
+                },
+                "NodeGroupMembers": [
+                    {
+                        "CacheClusterId": "node-test-001",
+                        "CacheNodeId": "0001",
+                        "ReadEndpoint": {
+                            "Address": "node-test-001.zzzzzz.0001.usw2.cache.amazonaws.com",
+                            "Port": 6379
+                        },
+                        "PreferredAvailabilityZone": "us-west-2a",
+                        "CurrentRole": "primary"
+                    },
+                    {
+                        "CacheClusterId": "node-test-002",
+                        "CacheNodeId": "0001",
+                        "ReadEndpoint": {
+                            "Address": "node-test-002.zzzzzz.0001.usw2.cache.amazonaws.com",
+                            "Port": 6379
+                        },
+                        "PreferredAvailabilityZone": "us-west-2c",
+                        "CurrentRole": "replica"
+                    },
+                    {
+                        "CacheClusterId": "node-test-003",
+                        "CacheNodeId": "0001",
+                        "ReadEndpoint": {
+                            "Address": "node-test-003.zzzzzz.0001.usw2.cache.amazonaws.com",
+                            "Port": 6379
+                        },
+                        "PreferredAvailabilityZone": "us-west-2b",
+                        "CurrentRole": "replica"
+                    }
+                ]
             }
-        ], 
-        "CacheSubnetGroupName": "default", 
-        "EngineVersion": "1.4.24", 
-        "PendingModifiedValues": {
-            "NumCacheNodes": 5
-        }, 
-        "PreferredMaintenanceWindow": "sat:09:00-sat:10:00", 
-        "CacheNodeType": "cache.m3.medium"
+        ],
+        "SnapshottingClusterId": "node-test-002",
+        "AutomaticFailover": "enabled",
+        "MultiAZ": "enabled",
+        "SnapshotRetentionLimit": 1,
+        "SnapshotWindow": "07:30-08:30",
+        "ClusterEnabled": false,
+        "CacheNodeType": "cache.r5.large",
+        "TransitEncryptionEnabled": false,
+        "AtRestEncryptionEnabled": false,
+        "ARN": "arn:aws:elasticache:us-west-2:123456789012:replicationgroup:node-test"
     }
 }
 ```
 
-For more information, see the AWS CLI topic [https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html)\.
+For more information, see the AWS CLI topic [https://docs.aws.amazon.com/cli/latest/reference/elasticache/increase-replica-count.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/increase-replica-count.html)\.
 
 ## Using the ElastiCache API<a name="Clusters.AddNode.API"></a>
 
 If you want to add nodes to an existing Redis \(cluster mode disabled\) cluster that does not have replication enabled, you must first create the replication group specifying the existing cluster as the Primary\. For more information, see [Adding replicas to a standalone Redis \(Cluster Mode Disabled\) cluster \(ElastiCache API\)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.API)\. After the replication group is *available*, you can continue with the following process\.
 
 **To add nodes to a cluster \(ElastiCache API\)**
-+ Call the `ModifyCacheCluster` API operation with the following parameters:
-  + `CacheClusterId` The ID of the cluster that you want to add nodes to\.
-  + `NumCacheNodes` The `NumCachNodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\. To add nodes to this cluster, `NumCacheNodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `CacheNodeIdsToRemove` with a list of nodes to remove from the cluster \(see [Using the ElastiCache API](Clusters.DeleteNode.md#Clusters.DeleteNode.API)\)\.
++ Call the `IncreaseReplicaCount` API operation with the following parameters:
+  + `ReplicationGroupId` The ID of the cluster that you want to add nodes to\.
+  + `NewReplicaCount` The `NewReplicaCount` parameter specifies the number of nodes that you want in this cluster after the modification is applied\. To add nodes to this cluster, `NewReplicaCount` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, use the `DecreaseReplicaCount` API with the number of nodes to remove from the cluster\.
   + `ApplyImmediately` Specifies whether to add these nodes immediately or at the next maintenance window\.
   + `Region` Specifies the AWS Region of the cluster that you want to add nodes to\.
 
@@ -154,11 +190,11 @@ If you want to add nodes to an existing Redis \(cluster mode disabled\) cluster 
 
   ```
   https://elasticache.us-west-2.amazonaws.com/
-      ?Action=ModifyCacheCluster
+      ?Action=IncreaseReplicaCount
       &ApplyImmediately=true
-      &NumCacheNodes=5
-      &CacheClusterId=my-cluster
-  	&Region=us-east-2
+      &NumCacheNodes=4
+      &ReplicationGroupId=my-replication-group
+      &Region=us-east-2
       &Version=2014-12-01
       &SignatureVersion=4
       &SignatureMethod=HmacSHA256
@@ -171,4 +207,4 @@ If you want to add nodes to an existing Redis \(cluster mode disabled\) cluster 
       &X-Amz-Signature=<signature>
   ```
 
-For more information, see ElastiCache API topic [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)\.
+For more information, see ElastiCache API topic [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_IncreaseReplicaCount.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_IncreaseReplicaCount.html)\.

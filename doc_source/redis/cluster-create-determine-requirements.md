@@ -1,14 +1,7 @@
-# Determine your requirements<a name="cluster-create-determine-requirements"></a>
-
-**Topics**
-+ [Memory and processor requirements](#cluster-create-determine-requirements-memory)
-+ [Redis cluster configuration](#redis-cluster-configuration)
-+ [Scaling requirements](#cluster-create-determine-requirements-scaling)
-+ [Access requirements](#cluster-create-determine-requirements-access)
-+ [Region, Availability Zone and Local Zone requirements](#cluster-create-determine-requirements-region)
+# Determining your requirements<a name="cluster-create-determine-requirements"></a>
 
 **Preparation**  
-Knowing the answers to the following questions helps make creating your cluster go faster:
+Knowing the answers to the following questions helps make creating your cluster go smoother:
 + Which node instance type do you need?
 
   For guidance on choosing an instance node type, see [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)\.
@@ -41,7 +34,7 @@ The basic building block of Amazon ElastiCache is the node\. Nodes are configure
 
 ## Redis cluster configuration<a name="redis-cluster-configuration"></a>
 
-ElastiCache for Redis clusters are comprised of from 0 to 250 shards \(also called node groups\)\. The data in a Redis cluster is partitioned across the shards in the cluster\. Your application connects with a Redis cluster using a network address called an Endpoint\. The nodes in a Redis shard fulfill one of two roles: one read/write primary and all other nodes read\-only secondaries \(also called read replicas\)\. In addition to the node endpoints, the Redis cluster itself has an endpoint called the *configuration endpoint*\. Your application can use this endpoint to read from or write to the cluster, leaving the determination of which node to read from or write to up to ElastiCache for Redis\. 
+ElastiCache for Redis clusters are comprised of from 0 to 500 shards \(also called node groups\)\. The data in a Redis cluster is partitioned across the shards in the cluster\. Your application connects with a Redis cluster using a network address called an Endpoint\. The nodes in a Redis shard fulfill one of two roles: one read/write primary and all other nodes read\-only secondaries \(also called read replicas\)\. In addition to the node endpoints, the Redis cluster itself has an endpoint called the *configuration endpoint*\. Your application can use this endpoint to read from or write to the cluster, leaving the determination of which node to read from or write to up to ElastiCache for Redis\. 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCacheClusters-Redis-ClustersRGs.png)
 

@@ -33,9 +33,6 @@ You can horizontally scale or rebalance your ElastiCache for Redis \(cluster mod
 You can add shards to your Redis \(cluster mode enabled\) cluster using the AWS Management Console, AWS CLI, or ElastiCache API\. When you add shards to a Redis \(cluster mode enabled\) cluster, any tags on the existing shards are copied over to the new shards\.
 
 **Topics**
-+ [Adding shards \(Console\)](#redis-cluster-resharding-online-add-console)
-+ [Adding shards \(AWS CLI\)](#redis-cluster-resharding-online-add-cli)
-+ [Adding shards \(ElastiCache API\)](#redis-cluster-resharding-online-add-api)
 
 ### Adding shards \(Console\)<a name="redis-cluster-resharding-online-add-console"></a>
 

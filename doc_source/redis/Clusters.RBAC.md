@@ -469,8 +469,8 @@ After you have created a user group and added users, the final step in implement
 #### Assigning User Groups to Replication Groups Using the Console<a name="Users-groups-to-RGs-CON"></a>
 
 To add a user group to a replication using the AWS Management Console, do the following:
-+ For cluster mode disabled, see [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.CON.Redis.md)
-+ For cluster mode enabled, see [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.CON.RedisCluster.md)
++ For cluster mode disabled, see [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.md#Clusters.Create.CON.Redis)
++ For cluster mode enabled, see [Creating a Redis \(cluster mode enabled\) cluster \(Console\)](Clusters.Create.md#Clusters.Create.CON.RedisCluster)
 
 #### Assigning User Groups to Replication Groups Using the AWS CLI<a name="Users-groups-to-RGs-CLI"></a>
 

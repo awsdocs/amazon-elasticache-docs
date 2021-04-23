@@ -23,7 +23,7 @@ To set up a strong token, we recommend that you follow a strict password policy,
   + Digits 
   + Nonalphanumeric characters \(`!`, `&`, `#`, `$`, `^`, `<`, `>`, `-`\)
 + Tokens, or passwords, must not contain a dictionary word or a slightly modified dictionary word\.
-+ Tokens, or passwods, must not be the same as or similar to a recently used token\.
++ Tokens, or passwords, must not be the same as or similar to a recently used token\.
 
 ## Applying authentication to an ElastiCache for Redis cluster<a name="auth-using"></a>
 

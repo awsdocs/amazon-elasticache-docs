@@ -9,7 +9,7 @@ You can view the details of a Redis \(cluster mode disabled\) cluster with repli
 
 ## Viewing Details for a Redis \(Cluster Mode Disabled\) Replication Group \(Console\)<a name="Replication.ViewDetails.Redis.CON"></a>
 
-To view the details of a Redis \(cluster mode disabled\) cluster with replicas using the ElastiCache console, see the topic [Viewing a Redis \(Cluster Mode Disabled\) cluster's details \(Console\)](Clusters.ViewDetails.md#Clusters.ViewDetails.CON.Redis)\.
+To view the details of a Redis \(cluster mode disabled\) cluster with replicas using the ElastiCache console, see the topic [Viewing details of a Redis \(Cluster Mode Disabled\) cluster \(Console\)](Clusters.ViewDetails.md#Clusters.ViewDetails.CON.Redis)\.
 
 ## Viewing details for a Redis \(Cluster Mode Disabled\) replication group \(AWS CLI\)<a name="Replication.ViewDetails.Redis.CLI"></a>
 

@@ -23,6 +23,8 @@ The following procedure shows how to change the `binding_protocol` parameter's v
 
 1. In the **Edit Parameter Group:** screen, scroll using the left and right arrows until you find the `binding_protocol` parameter, then type `ascii` in the **Value** column\.
 
+1. In the **Edit Parameter Group:** screen, scroll using the left and right arrows until you find the `cluster-enabled` parameter, then type `yes` in the **Value** column\.
+
 1. Choose **Save Changes**\.
 
 1. To find the name of the parameter you changed, see [Memcached specific parameters](ParameterGroups.Memcached.md)\. If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a cluster](Clusters.Rebooting.md)\.

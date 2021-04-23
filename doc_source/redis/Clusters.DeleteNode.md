@@ -2,11 +2,6 @@
 
 You can delete a node from a cluster using the AWS Management Console, the AWS CLI, or the ElastiCache API\.
 
-**Topics**
-+ [Using the AWS Management Console](#Clusters.DeleteNode.CON)
-+ [Using the AWS CLI](#Clusters.DeleteNode.CLI)
-+ [Using the ElastiCache API](#Clusters.DeleteNode.API)
-
 ## Using the AWS Management Console<a name="Clusters.DeleteNode.CON"></a>
 
 **To remove nodes from a cluster \(console\)**
@@ -49,24 +44,23 @@ To determine what operations are pending, choose the **Description** tab and che
 
 1. Identify the IDs of the nodes that you want to remove\. For more information, see [Viewing a cluster's details](Clusters.ViewDetails.md)\.
 
-1. Use the `modify-cache-cluster` CLI operation with a list of the nodes to remove, as in the following example\.
+1. Use the `decrease-replica-count` CLI operation with a list of the nodes to remove, as in the following example\.
 
-   To remove nodes from a cluster using the command\-line interface, use the command `modify-cache-cluster` with the following parameters:
-   + `--cache-cluster-id` The ID of the cache cluster that you want to remove nodes from\.
-   + `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\.
-   + `--cache-node-ids-to-remove` A list of node IDs that you want removed from this cluster\.
+   To remove nodes from a cluster using the command\-line interface, use the command `decrease-replica-count` with the following parameters:
+   + `--replication-group-id` The ID of the replication group that you want to remove nodes from\.
+   + `--new-replica-count` The `--new-replica-count` parameter specifies the number of nodes that you want in this cluster after the modification is applied\.
+   + `--replicas-to-remove` A list of node IDs that you want removed from this cluster\.
    + `--apply-immediately` or `--no-apply-immediately` Specifies whether to remove these nodes immediately or at the next maintenance window\.
    + `--region` Specifies the AWS Region of the cluster that you want to remove nodes from\.
-
-   The following example immediately removes node 0001 from the cluster my\-cluster\.
+**Note**  
+You can pass only one of `--replicas-to-remove` or `--new-replica-count` parameters when calling this operation\.
 
    For Linux, macOS, or Unix:
 
    ```
-   aws elasticache modify-cache-cluster \
-       --cache-cluster-id my-cluster \
-       --num-cache-nodes 2 \
-       --cache-node-ids-to-remove 0001 \
+   aws elasticache decrease-replica-count \
+       --replication-group-id my-replication-group \
+       --new-replica-count 2 \   
        --region us-east-2 \
        --apply-immediately
    ```
@@ -74,10 +68,9 @@ To determine what operations are pending, choose the **Description** tab and che
    For Windows:
 
    ```
-   aws elasticache modify-cache-cluster ^
-       --cache-cluster-id my-cluster ^
-       --num-cache-nodes 2 ^
-       --cache-node-ids-to-remove 0001 ^
+   aws elasticache decrease-replica-count ^
+       --replication-group-id my-replication-group ^
+       --new-replica-count 3 ^   
        --region us-east-2 ^
        --apply-immediately
    ```
@@ -86,152 +79,139 @@ To determine what operations are pending, choose the **Description** tab and che
 
    ```
    {
-       "CacheClusters": [
-           {
-               "SecurityGroups": [
-                   {
-                       "Status": "active",
-                       "SecurityGroupId": "sg-dbe93fa2"
-                   }
-               ],
-               "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
-               "AuthTokenEnabled": false,
-               "CacheSubnetGroupName": "default",
-               "SnapshotWindow": "12:30-13:30",
-               "AutoMinorVersionUpgrade": true,
-               "CacheClusterCreateTime": "2018-02-26T21:13:24.250Z",
-               "CacheClusterStatus": "available",
-               "AtRestEncryptionEnabled": false,
-               "PreferredAvailabilityZone": "us-west-2a",
-               "TransitEncryptionEnabled": false,
-               "ReplicationGroupId": "my-cluster2",
-               "Engine": "redis",
-               "PreferredMaintenanceWindow": "sun:08:30-sun:09:30",
-               "CacheClusterId": "my-cluster2-001",
-               "PendingModifiedValues": {},
-               "CacheNodeType": "cache.r4.large",
-               "CacheParameterGroup": {
-                   "CacheNodeIdsToReboot": [],
-                   "ParameterApplyStatus": "in-sync",
-                   "CacheParameterGroupName": "default.redis3.2"
-               },
-               "SnapshotRetentionLimit": 0,
-               "EngineVersion": "3.2.10",
-               "CacheSecurityGroups": [],
-               "NumCacheNodes": 1
-           },
-           {
-               "SecurityGroups": [
-                   {
-                       "Status": "active",
-                       "SecurityGroupId": "sg-dbe93fa2"
-                   }
-               ],
-               "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
-               "AuthTokenEnabled": false,
-               "CacheSubnetGroupName": "default",
-               "SnapshotWindow": "12:30-13:30",
-               "AutoMinorVersionUpgrade": true,
-               "CacheClusterCreateTime": "2018-02-26T21:13:24.250Z",
-               "CacheClusterStatus": "available",
-               "AtRestEncryptionEnabled": false,
-               "PreferredAvailabilityZone": "us-west-2b",
-               "TransitEncryptionEnabled": false,
-               "ReplicationGroupId": "my-cluster2",
-               "Engine": "redis",
-               "PreferredMaintenanceWindow": "sun:08:30-sun:09:30",
-               "CacheClusterId": "my-cluster2-002",
-               "PendingModifiedValues": {},
-               "CacheNodeType": "cache.r4.large",
-               "CacheParameterGroup": {
-                   "CacheNodeIdsToReboot": [],
-                   "ParameterApplyStatus": "in-sync",
-                   "CacheParameterGroupName": "default.redis3.2"
-               },
-               "SnapshotRetentionLimit": 0,
-               "EngineVersion": "3.2.10",
-               "CacheSecurityGroups": [],
-               "NumCacheNodes": 1
-           },
-           {
-               "SecurityGroups": [
-                   {
-                       "Status": "active",
-                       "SecurityGroupId": "sg-dbe93fa2"
-                   }
-               ],
-               "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
-               "AuthTokenEnabled": false,
-               "CacheSubnetGroupName": "default",
-               "SnapshotWindow": "12:30-13:30",
-               "AutoMinorVersionUpgrade": true,
-               "CacheClusterCreateTime": "2018-02-26T21:13:24.250Z",
-               "CacheClusterStatus": "available",
-               "AtRestEncryptionEnabled": false,
-               "PreferredAvailabilityZone": "us-west-2c",
-               "TransitEncryptionEnabled": false,
-               "ReplicationGroupId": "my-cluster2",
-               "Engine": "redis",
-               "PreferredMaintenanceWindow": "sun:08:30-sun:09:30",
-               "CacheClusterId": "my-cluster2-003",
-               "PendingModifiedValues": {},
-               "CacheNodeType": "cache.r4.large",
-               "CacheParameterGroup": {
-                   "CacheNodeIdsToReboot": [],
-                   "ParameterApplyStatus": "in-sync",
-                   "CacheParameterGroupName": "default.redis3.2"
-               },
-               "SnapshotRetentionLimit": 0,
-               "EngineVersion": "3.2.10",
-               "CacheSecurityGroups": [],
-               "NumCacheNodes": 1
-           },
-           {
-               "CacheClusterStatus": "available",
-               "SecurityGroups": [
-                   {
-                       "Status": "active",
-                       "SecurityGroupId": "sg-dbe93fa2"
-                   }
-               ],
-               "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
-               "Engine": "redis",
-               "PreferredMaintenanceWindow": "wed:12:00-wed:13:00",
-               "CacheSubnetGroupName": "default",
-               "SnapshotWindow": "08:30-09:30",
-               "TransitEncryptionEnabled": false,
-               "AtRestEncryptionEnabled": false,
-               "CacheClusterId": "my-cluster1",
-               "CacheClusterCreateTime": "2018-02-26T21:06:43.420Z",
-               "PreferredAvailabilityZone": "us-west-2c",
-               "AuthTokenEnabled": false,
-               "PendingModifiedValues": {},
-               "CacheNodeType": "cache.r4.large",
-               "CacheParameterGroup": {
-                   "CacheNodeIdsToReboot": [],
-                   "ParameterApplyStatus": "in-sync",
-                   "CacheParameterGroupName": "default.redis3.2"
-               },
-               "SnapshotRetentionLimit": 0,
-               "AutoMinorVersionUpgrade": true,
-               "EngineVersion": "3.2.10",
-               "CacheSecurityGroups": [],
-               "NumCacheNodes": 1
-           }
-       ]
+       "ReplicationGroup": {
+           "ReplicationGroupId": "node-test",
+           "Description": "node-test"
+          },
+           "Status": "modifying",
+           "PendingModifiedValues": {},
+           "MemberClusters": [
+               "node-test-001",
+               "node-test-002",
+               "node-test-003",
+               "node-test-004",
+               "node-test-005",
+               "node-test-006"
+           ],
+           "NodeGroups": [
+               {
+                   "NodeGroupId": "0001",
+                   "Status": "modifying",
+                   "PrimaryEndpoint": {
+                       "Address": "node-test.zzzzzz.ng.0001.usw2.cache.amazonaws.com",
+                       "Port": 6379
+                   },
+                   "ReaderEndpoint": {
+                       "Address": "node-test-ro.zzzzzz.ng.0001.usw2.cache.amazonaws.com",
+                       "Port": 6379
+                   },
+                   "NodeGroupMembers": [
+                       {
+                           "CacheClusterId": "node-test-001",
+                           "CacheNodeId": "0001",
+                           "ReadEndpoint": {
+                               "Address": "node-test-001.zzzzzz.0001.usw2.cache.amazonaws.com",
+                               "Port": 6379
+                           },
+                           "PreferredAvailabilityZone": "us-west-2a",
+                           "CurrentRole": "primary"
+                       },
+                       {
+                           "CacheClusterId": "node-test-002",
+                           "CacheNodeId": "0001",
+                           "ReadEndpoint": {
+                               "Address": "node-test-002.zzzzzz.0001.usw2.cache.amazonaws.com",
+                               "Port": 6379
+                           },
+                           "PreferredAvailabilityZone": "us-west-2c",
+                           "CurrentRole": "replica"
+                       },
+                       {
+                           "CacheClusterId": "node-test-003",
+                           "CacheNodeId": "0001",
+                           "ReadEndpoint": {
+                               "Address": "node-test-003.zzzzzz.0001.usw2.cache.amazonaws.com",
+                               "Port": 6379
+                           },
+                           "PreferredAvailabilityZone": "us-west-2b",
+                           "CurrentRole": "replica"
+                       },
+                       {
+                           "CacheClusterId": "node-test-004",
+                           "CacheNodeId": "0001",
+                           "ReadEndpoint": {
+                               "Address": "node-test-004.zzzzzz.0001.usw2.cache.amazonaws.com",
+                               "Port": 6379
+                           },
+                           "PreferredAvailabilityZone": "us-west-2c",
+                           "CurrentRole": "replica"
+                       },
+                       {
+                           "CacheClusterId": "node-test-005",
+                           "CacheNodeId": "0001",
+                           "ReadEndpoint": {
+                               "Address": "node-test-005.zzzzzz.0001.usw2.cache.amazonaws.com",
+                               "Port": 6379
+                           },
+                           "PreferredAvailabilityZone": "us-west-2b",
+                           "CurrentRole": "replica"
+                       },
+                       {
+                           "CacheClusterId": "node-test-006",
+                           "CacheNodeId": "0001",
+                           "ReadEndpoint": {
+                               "Address": "node-test-006.zzzzzz.0001.usw2.cache.amazonaws.com",
+                               "Port": 6379
+                           },
+                           "PreferredAvailabilityZone": "us-west-2b",
+                           "CurrentRole": "replica"
+                       }
+                   ]
+               }
+           ],
+           "SnapshottingClusterId": "node-test-002",
+           "AutomaticFailover": "enabled",
+           "MultiAZ": "enabled",
+           "SnapshotRetentionLimit": 1,
+           "SnapshotWindow": "07:30-08:30",
+           "ClusterEnabled": false,
+           "CacheNodeType": "cache.r5.large",
+           "TransitEncryptionEnabled": false,
+           "AtRestEncryptionEnabled": false,
+           "ARN": "arn:aws:elasticache:us-west-2:123456789012:replicationgroup:node-test"
+       }
    }
    ```
 
-For more information, see the AWS CLI topics [https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-cluster.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-cluster.html) and [https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html)\.
+Alternatively, you could call `decrease-replica-count` and instead of passing in the `--new-replica-count` parameter, you could pass the `--replicas-to-remove` parameter, as shown following:
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache decrease-replica-count \
+    --replication-group-id my-replication-group \
+    --replicas-to-remove node-test-003 \   
+    --region us-east-2 \
+    --apply-immediately
+```
+
+For Windows:
+
+```
+aws elasticache decrease-replica-count ^
+    --replication-group-id my-replication-group ^
+    --replicas-to-remove node-test-003 ^   
+    --region us-east-2 ^
+    --apply-immediately
+```
+
+For more information, see the AWS CLI topics [https://docs.aws.amazon.com/cli/latest/reference/elasticache/decrease-replica-count.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/decrease-replica-count.html)\.
 
 ## Using the ElastiCache API<a name="Clusters.DeleteNode.API"></a>
 
-To remove nodes using the ElastiCache API, call the `ModifyCacheCluster` API operation with the cache cluster ID and a list of nodes to remove, as shown:
-+ `CacheClusterId` The ID of the cache cluster that you want to remove nodes from\.
-+ `NumCacheNodes` The `NumCacheNodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\.
-+ `CacheNodeIdsToRemove.member.n` The list of node IDs to remove from the cluster\.
-  + `CacheNodeIdsToRemove.member.1=0004`
-  + `CacheNodeIdsToRemove.member.1=0005`
+To remove nodes using the ElastiCache API, call the `DecreaseReplicaCount` API operation with the replication group Id and a list of nodes to remove, as shown:
++ `ReplicationGroupId` The ID of the replication group that you want to remove nodes from\.
++ `ReplicasToRemove` The `ReplicasToRemove` parameter specifies the number of nodes that you want in this cluster after the modification is applied\.
 + `ApplyImmediately` Specifies whether to remove these nodes immediately or at the next maintenance window\.
 + `Region` Specifies the AWS Region of the cluster that you want to remove a node from\.
 
@@ -239,12 +219,10 @@ The following example immediately removes nodes 0004 and 0005 from the cluster m
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
-    ?Action=ModifyCacheCluster
+    ?Action=DecreaseReplicaCount
     &CacheClusterId=my-cluster
     &ApplyImmediately=true
-    &CacheNodeIdsToRemove.member.1=0004
-    &CacheNodeIdsToRemove.member.2=0005
-    &NumCacheNodes=3   
+    &ReplicasToRemove=node-test-003    
     &Region us-east-2
     &Version=2014-12-01
     &SignatureVersion=4
@@ -258,4 +236,4 @@ https://elasticache.us-west-2.amazonaws.com/
     &X-Amz-Signature=<signature>
 ```
 
-For more information, see ElastiCache API topic [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)\.
+For more information, see ElastiCache API topic [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DecreaseReplicaCount.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DecreaseReplicaCount.html)\.
