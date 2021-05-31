@@ -1,6 +1,0 @@
-# Assigning a subnet group to a cluster or replication group<a name="SubnetGroups.Assigning"></a>
-
-After you have created a subnet group, you can launch a cluster or replication group in an Amazon VPC\. For more information, see the following\.
-+ **Standalone Redis cluster** – To launch a single\-node Redis cluster, see [Creating a Redis \(cluster mode disabled\) \(Console\)](Clusters.Create.md#Clusters.Create.CON.Redis)\. In step 7\.a \(**Advanced Redis Settings**\), choose a VPC subnet group\.
-+ **Redis \(cluster mode disabled\) replication group** – To launch a Redis \(cluster mode disabled\) replication group in a VPC, see [Creating a Redis \(Cluster Mode Disabled\) replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.Classic.md)\. In step 7\.b \(**Advanced Redis Settings**\), choose a VPC subnet group\.
-+ **Redis \(cluster mode enabled\) replication group** – [Creating a Redis \(Cluster Mode Enabled\) cluster \(Console\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON)\. In step 6\.i \(**Advanced Redis Settings**\), choose a VPC subnet group\.
