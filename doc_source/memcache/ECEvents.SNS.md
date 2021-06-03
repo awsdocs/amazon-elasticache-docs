@@ -34,7 +34,7 @@ To add or modify an Amazon SNS topic for a cluster, use the AWS CLI command `mod
 
 The following code example adds an Amazon SNS topic arn to *my\-cluster*\.
 
-For Linux, macOS, or Unix:
+For Linux, OS X, or Unix:
 
 ```
 aws elasticache modify-cache-cluster \
@@ -70,7 +70,7 @@ To add or modify an Amazon SNS topic for a cluster, call the `ModifyCacheCluster
  7.     &SignatureVersion=4
  8.     &SignatureMethod=HmacSHA256
  9.     &Timestamp=20141201T220302Z
-10.     &X-Amz-Algorithm=AWS4-HMAC-SHA256
+10.     &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
 11.     &X-Amz-Date=20141201T220302Z
 12.     &X-Amz-SignedHeaders=Host
 13.     &X-Amz-Expires=20141201T220302Z
@@ -104,7 +104,7 @@ For more information, see [ModifyCacheCluster](https://docs.aws.amazon.com/Amazo
 
 To disable Amazon SNS notifications, use the command `modify-cache-cluster` with the following parameters:
 
-For Linux, macOS, or Unix:
+For Linux, OS X, or Unix:
 
 ```
 aws elasticache modify-cache-cluster \
@@ -140,7 +140,7 @@ This call returns output similar to the following:
  7.     &SignatureVersion=4
  8.     &SignatureMethod=HmacSHA256
  9.     &Timestamp=20141201T220302Z
-10.     &X-Amz-Algorithm=AWS4-HMAC-SHA256
+10.     &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
 11.     &X-Amz-Date=20141201T220302Z
 12.     &X-Amz-SignedHeaders=Host
 13.     &X-Amz-Expires=20141201T220302Z

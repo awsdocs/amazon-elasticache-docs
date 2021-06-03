@@ -6,7 +6,7 @@ To connect to a cache node, your application needs to know the endpoint and port
 
  **To determine node endpoints and port numbers** 
 
-1. Sign in to the [Amazon ElastiCache management console](https://aws.amazon.com/elasticache) and choose the engine running on your cluster\.
+1. Sign in to the [Amazon ElastiCache management console](http://aws.amazon.com/elasticache) and choose the engine running on your cluster\.
 
    A list of all clusters running the chosen engine appears\.
 
@@ -40,7 +40,7 @@ To determine cache node endpoints and port numbers, use the action `DescribeCach
  5.     &SignatureMethod=HmacSHA256
  6.     &Timestamp=20140421T220302Z
  7.     &Version=2014-09-30   
- 8.     &X-Amz-Algorithm=AWS4-HMAC-SHA256
+ 8.     &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
  9.     &X-Amz-Credential=<credential>
 10.     &X-Amz-Date=20140421T220302Z
 11.     &X-Amz-Expires=20140421T220302Z

@@ -43,7 +43,7 @@ To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `modify-c
 + `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\. To add nodes to this cluster, `--num-cache-nodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `cache-node-ids-to-remove` and a list of nodes to remove from the cluster\. For more information, see [Using the AWS CLI](Clusters.DeleteNode.md#Clusters.DeleteNode.CLI)\.
 + `--apply-immediately` or `--no-apply-immediately` which specifies whether to add these nodes immediately or at the next maintenance window\.
 
-For Linux, macOS, or Unix:
+For Linux, OS X, or Unix:
 
 ```
 aws elasticache modify-cache-cluster \
@@ -126,7 +126,7 @@ For more information, see the AWS CLI topic [https://docs.aws.amazon.com/cli/lat
       &SignatureVersion=4
       &SignatureMethod=HmacSHA256
       &Timestamp=20141201T220302Z
-      &X-Amz-Algorithm=AWS4-HMAC-SHA256
+      &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
       &X-Amz-Date=20141201T220302Z
       &X-Amz-SignedHeaders=Host
       &X-Amz-Expires=20141201T220302Z

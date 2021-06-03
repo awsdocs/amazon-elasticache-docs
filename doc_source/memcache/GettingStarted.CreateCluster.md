@@ -1,6 +1,6 @@
 # Step 2: Create a cluster<a name="GettingStarted.CreateCluster"></a>
 
-The cluster you're about to launch will be live, and not running in a sandbox\. You incur the standard ElastiCache usage fees for the instance until you delete it\. The total charges are minimal \(typically less than a dollar\) if you complete the exercise described here in one sitting and delete your cluster when you are finished\. For more information about ElastiCache usage rates, see [https://aws\.amazon\.com/elasticache/](https://aws.amazon.com/elasticache/)\.
+The cluster you're about to launch will be live, and not running in a sandbox\. You incur the standard ElastiCache usage fees for the instance until you delete it\. The total charges are minimal \(typically less than a dollar\) if you complete the exercise described here in one sitting and delete your cluster when you are finished\. For more information about ElastiCache usage rates, see [http://aws\.amazon\.com/elasticache/](http://aws.amazon.com/elasticache/)\.
 
 **Important**  
 Your cluster is launched in an Amazon VPC\. Before you start creating your cluster, you need to create a subnet group\. For more information, see [Creating a subnet group](SubnetGroups.Creating.md)\.

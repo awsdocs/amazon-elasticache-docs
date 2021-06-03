@@ -38,7 +38,7 @@ To change a parameter's value using the AWS CLI, use the command `modify-cache-p
 **Example**  
 To find the name and permitted values of the parameter you want to change, see [Memcached specific parameters](ParameterGroups.Memcached.md)  
 The following sample code sets the value of two parameters, *chunk\_size* and *chunk\_size\_growth\_fact* on the parameter group `myMem14`\.  
-For Linux, macOS, or Unix:  
+For Linux, OS X, or Unix:  
 
 ```
 aws elasticache modify-cache-parameter-group \

@@ -58,4 +58,4 @@ Make a note of your two subnet identifiers, and which is public and private\. Yo
 
 Now you are ready to create a cache subnet group and launch a cache cluster in your Amazon VPC\. 
 + [Creating a subnet group](SubnetGroups.Creating.md)
-+ [Creating a Memcached cluster](Clusters.Create.CON.Memcached.md)\. 
++ [Creating a Memcached cluster \(console\)](Clusters.Create.md#Clusters.Create.CON.Memcached)\. 

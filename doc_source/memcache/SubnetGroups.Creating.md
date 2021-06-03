@@ -37,7 +37,7 @@ Your new subnet group appears in the **Subnet Groups** list of the ElastiCache c
 
 At a command prompt, use the command `create-cache-subnet-group` to create a subnet group\.
 
-For Linux, macOS, or Unix:
+For Linux, OS X, or Unix:
 
 ```
 aws elasticache create-cache-subnet-group \
@@ -96,7 +96,7 @@ https://elasticache.us-west-2.amazonaws.com/
     &SubnetIds.member.1=subnet-53df9c3a 
     &Timestamp=20141201T220302Z
     &Version=2014-12-01
-    &X-Amz-Algorithm=AWS4-HMAC-SHA256
+    &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
     &X-Amz-Credential=<credential>
     &X-Amz-Date=20141201T220302Z
     &X-Amz-Expires=20141201T220302Z

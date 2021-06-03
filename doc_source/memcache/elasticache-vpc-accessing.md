@@ -77,16 +77,16 @@ A VPC peering connection is a networking connection between two VPCs that enable
 
 1. Make sure that the two VPCs do not have an overlapping IP range or you will not be able to peer them\.
 
-1. Peer the two VPCs\. For more information, see [Creating and Accepting an Amazon VPC Peering Connection](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/create-vpc-peering-connection.html)\.
+1. Peer the two VPCs\. For more information, see [Creating and Accepting an Amazon VPC Peering Connection](https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/create-vpc-peering-connection.html)\.
 
-1. Update your routing table\. For more information, see [Updating Your Route Tables for a VPC Peering Connection](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-routing.html)
+1. Update your routing table\. For more information, see [Updating Your Route Tables for a VPC Peering Connection](https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-routing.html)
 
    Following is what the route tables look like for the example in the preceeding diagram\. Note that **pcx\-a894f1c1** is the peering connection\.  
 ![\[\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/VPC-RoutingTable.png)
 
    *VPC Routing Table*
 
-1. Modify the Security Group of your ElastiCache cluster to allow inbound connection from the Application security group in the peered VPC\. For more information, see [Reference Peer VPC Security Groups](http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-security-groups.html)\.
+1. Modify the Security Group of your ElastiCache cluster to allow inbound connection from the Application security group in the peered VPC\. For more information, see [Reference Peer VPC Security Groups](https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-security-groups.html)\.
 
 Accessing a cluster over a peering connection will incur additional data transfer costs\.
 

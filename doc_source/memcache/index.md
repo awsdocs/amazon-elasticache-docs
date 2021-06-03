@@ -1,18 +1,6 @@
 # Amazon ElastiCache ElastiCache for Memcached User Guide
 
 -----
-*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
-
------
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
-
------
 ## Contents
 + [What is Amazon ElastiCache for Memcached?](WhatIs.md)
    + [Common ElastiCache Use Cases and How ElastiCache Can Help](elasticache-use-cases.md)
@@ -42,7 +30,6 @@ Amazon's trademarks and trade dress may not be used in
    + [Preparing a cluster](Clusters.Prepare.md)
       + [Determining your requirements](cluster-create-determine-requirements.md)
       + [Choosing your node size](nodes-select-size.md)
-   + [Creating a Memcached cluster](Clusters.Create.CON.Memcached.md)
    + [Creating a cluster](Clusters.Create.md)
    + [Viewing a cluster's details](Clusters.ViewDetails.md)
    + [Modifying an ElastiCache cluster](Clusters.Modify.md)
@@ -84,6 +71,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Managing your cost allocation tags using the ElastiCache API](Tagging.Managing.API.md)
    + [Caching strategies and best practices](BestPractices.md)
       + [Caching strategies](Strategies.md)
+      + [Restricted Redis Commands](RestrictedCommands.md)
       + [Configuring your ElastiCache client for efficient load balancing](BestPractices.LoadBalancing.md)
    + [Managing maintenance](maintenance-window.md)
    + [Scaling ElastiCache for Memcached clusters](Scaling.md)

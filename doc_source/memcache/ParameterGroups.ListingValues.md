@@ -22,7 +22,7 @@ To list a parameter group's parameters and their values using the AWS CLI, use t
 
 **Example**  
 The following sample code list all the parameters and their values for the parameter group *myMem14*\.  
-For Linux, macOS, or Unix:  
+For Linux, OS X, or Unix:  
 
 ```
 aws elasticache describe-cache-parameters \

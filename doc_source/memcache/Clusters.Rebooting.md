@@ -44,7 +44,7 @@ To reboot a cluster \(AWS CLI\), use the `reboot-cache-cluster` CLI operation\.
 
 To reboot specific nodes in the cluster, use the `--cache-node-ids-to-reboot` to list the specific clusters to reboot\. The following command reboots the nodes 0001, 0002, and 0004 of *my\-cluster*\.
 
-For Linux, macOS, or Unix:
+For Linux, OS X, or Unix:
 
 ```
 aws elasticache reboot-cache-cluster \

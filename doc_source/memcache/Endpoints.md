@@ -67,7 +67,7 @@ You can use the AWS CLI to discover the endpoints for a cluster and its nodes wi
 
 **Example**  
 The following command retrieves the configuration endpoint \(`ConfigurationEndpoint`\) and individual node endpoints \(`Endpoint`\) for the Memcached cluster *mycluster*\.  
-For Linux, macOS, or Unix:  
+For Linux, OS X, or Unix:  
 
 ```
 aws elasticache describe-cache-clusters \

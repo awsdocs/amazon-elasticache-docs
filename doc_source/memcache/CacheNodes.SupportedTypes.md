@@ -116,5 +116,5 @@ The following table lists supported node types for each AWS Region\.
 | AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 
 For a complete list of node types and specifications, see the following:
-+ [Amazon ElastiCache Product Features and Details](https://aws.amazon.com/elasticache/details)
++ [Amazon ElastiCache Product Features and Details](http://aws.amazon.com/elasticache/details)
 + [Memcached Node\-Type Specific Parameters](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html)

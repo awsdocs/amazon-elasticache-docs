@@ -2,7 +2,7 @@
 
 If your client program does not use Auto Discovery, it can manually connect to each of the cache nodes\. This is the default behavior for Memcached clients\.
 
-You can obtain a list of cache node hostnames and port numbers from the [AWS Management Console](https://aws.amazon.com/console/)\. You can also use the AWS CLI `aws elasticache describe-cache-clusters` command with the `--show-cache-node-info` parameter\.
+You can obtain a list of cache node hostnames and port numbers from the [AWS Management Console](http://aws.amazon.com/console/)\. You can also use the AWS CLI `aws elasticache describe-cache-clusters` command with the `--show-cache-node-info` parameter\.
 
 **Example**  
 The following Java code snippet shows how to connect to all of the nodes in a four\-node cache cluster:  

@@ -65,7 +65,7 @@ Each node is shown with both the CNAME and the private IP address\. The CNAME wi
 Here is an example of the payload returned when you query the configuration information:  
 
 ```
-CONFIG cluster 0 147\r\n
+CONFIG cluster 0 136\r\n
 12\n
 myCluster.pc4ldq.0001.use1.cache.amazonaws.com|10.82.235.120|11211 myCluster.pc4ldq.0002.use1.cache.amazonaws.com|10.80.249.27|11211\n\r\n 
 END\r\n

@@ -55,7 +55,7 @@ To determine what operations are pending, choose the **Description** tab and che
 
    The following example immediately removes node 0001 from the cluster my\-cluster\.
 
-   For Linux, macOS, or Unix:
+   For Linux, OS X, or Unix:
 
    ```
    aws elasticache modify-cache-cluster \
@@ -148,7 +148,7 @@ https://elasticache.us-west-2.amazonaws.com/
     &SignatureVersion=4
     &SignatureMethod=HmacSHA256
     &Timestamp=20141201T220302Z
-    &X-Amz-Algorithm=AWS4-HMAC-SHA256
+    &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
     &X-Amz-Date=20141201T220302Z
     &X-Amz-SignedHeaders=Host
     &X-Amz-Expires=20141201T220302Z

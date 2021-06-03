@@ -3,14 +3,14 @@
 ElastiCache can publish messages using Amazon Simple Notification Service \(SNS\) when significant events happen on a cache cluster\. This feature can be used to refresh the server\-lists on client machines connected to individual cache node endpoints of a cache cluster\.
 
 **Note**  
-For more information on Amazon Simple Notification Service \(SNS\), including information on pricing and links to the Amazon SNS documentation, see the [Amazon SNS product page](https://aws.amazon.com/sns)\.
+For more information on Amazon Simple Notification Service \(SNS\), including information on pricing and links to the Amazon SNS documentation, see the [Amazon SNS product page](http://aws.amazon.com/sns)\.
 
 Notifications are published to a specified Amazon SNS *topic*\. The following are requirements for notifications:
 + Only one topic can be configured for ElastiCache notifications\.
 + The AWS account that owns the Amazon SNS topic must be the same account that owns the cache cluster on which notifications are enabled\.
 + The Amazon SNS topic you are publishing to cannot be encrypted\.
-
-## Example ElastiCache SNS Notification<a name="ElastiCache.SNS.Sample"></a>
+**Note**  
+It is possible to attach an encrypted \(at\-rest\) Amazon SNS topic to the cluster\. However, the status of the topic from the ElastiCache console will show as inactive, which effectively disassociates the topic from the cluster when ElastiCache pushes messages to the topic\. 
 
 ## ElastiCache Events<a name="ElastiCacheSNS.Events"></a>
 
@@ -42,6 +42,7 @@ The following ElastiCache events trigger Amazon SNS notifications\. For informat
 |  ElastiCache:RemoveCacheNodeComplete  |  ElastiCache:RemoveCacheNodeComplete : cluster\-name  |  A cache node has been removed from the cache cluster\.  | 
 | ElastiCache:ReplicationGroupScalingComplete | `ElastiCache:ReplicationGroupScalingComplete : cluster-name` | Scale\-up operation on replication group completed successfully\.  | 
 | ElastiCache:ReplicationGroupScalingFailed | `"Failed applying modification to cache node type to %s."` | Scale\-up operation on replication group failed\.  | 
+| ElastiCache:ServiceUpdateAvailableForNode | `"Service update is available for cache node %s."` | A self\-service update is available for the node\.  | 
 |  ElastiCache:SnapshotComplete \(Redis only\)  |  ElastiCache:SnapshotComplete : cluster\-name  |  A cache snapshot has completed successfully\.  | 
 |  ElastiCache:SnapshotFailed \(Redis only\)  |  SnapshotFailed : cluster\-name  |  A cache snapshot has failed\. See the cluster’s cache events for more a detailed cause\. If you describe the snapshot, see [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html), the status will be `failed`\.  | 
 

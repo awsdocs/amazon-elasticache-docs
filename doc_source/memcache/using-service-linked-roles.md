@@ -169,11 +169,11 @@ You can use IAM operations from the AWS Command Line Interface to edit a service
    $ aws iam [get\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/get-role.html) --role-name AWSServiceRoleForElastiCache
    ```
 
-   Use the role name, not the ARN, to refer to roles with the CLI operations\. For example, if a role has the following ARN: `arn:aws:iam::123456789012:role/myrole`, refer to the role as **myrole**\.
+   Use the role name, not the ARN, to refer to roles with the CLI operations\. For example, if a role has the following ARN: `arn:aws-cn:iam::123456789012:role/myrole`, refer to the role as **myrole**\.
 
 1. To update a service\-linked role's description, use the AWS CLI for IAM operation `[update\-role\-description](https://docs.aws.amazon.com/cli/latest/reference/iam/update-role-description.html)`\.
 
-   For Linux, macOS, or Unix:
+   For Linux, OS X, or Unix:
 
    ```
    $ aws iam [update\-role\-description](https://docs.aws.amazon.com/cli/latest/reference/iam/update-role-description.html) \
@@ -271,7 +271,7 @@ You can use IAM operations from the AWS Command Line Interface to delete a servi
    $ aws iam [get\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/get-role.html) --role-name role-name
    ```
 
-   Use the role name, not the ARN, to refer to roles with the CLI operations\. For example, if a role has the ARN `arn:aws:iam::123456789012:role/myrole`, you refer to the role as **myrole**\.
+   Use the role name, not the ARN, to refer to roles with the CLI operations\. For example, if a role has the ARN `arn:aws-cn:iam::123456789012:role/myrole`, you refer to the role as **myrole**\.
 
 1. Because a service\-linked role cannot be deleted if it is being used or has associated resources, you must submit a deletion request\. That request can be denied if these conditions are not met\. You must capture the `deletion-task-id` from the response to check the status of the deletion task\. Enter the following to submit a service\-linked role deletion request\.
 

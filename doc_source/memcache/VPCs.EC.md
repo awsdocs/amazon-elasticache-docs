@@ -76,4 +76,4 @@ Amazon VPC has its own set of documentation to describe how to create and use yo
 | Complete descriptions of the Amazon VPC API operations, data types, and errors | [Amazon EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/) \(the Amazon VPC API operations are found in the Amazon EC2 reference\) | 
 | Information for the network administrator who needs to configure the gateway at your end of an optional IPsec VPN connection | [What is AWS Site\-to\-Site VPN?](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) | 
 
-For more detailed information about Amazon Virtual Private Cloud, see [Amazon Virtual Private Cloud](https://aws.amazon.com/vpc/)\.
+For more detailed information about Amazon Virtual Private Cloud, see [Amazon Virtual Private Cloud](http://aws.amazon.com/vpc/)\.

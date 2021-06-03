@@ -4,7 +4,7 @@ A *Local Zone* is an extension of an AWS Region that is geographically close to 
 
 By using Local Zones, you can place resources such as an ElastiCache cluster in multiple locations close to your users\. 
 
-When you create an ElastiCache cluster, you can choose a subnet in a Local Zone\. Local Zones have their own connections to the internet and support AWS Direct Connect\. Thus, resources created in a Local Zone can serve local users with very low\-latency communications\. For more information, see [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/)\. 
+When you create an ElastiCache cluster, you can choose a subnet in a Local Zone\. Local Zones have their own connections to the internet and support AWS\-DC\-long;\. Thus, resources created in a Local Zone can serve local users with very low\-latency communications\. For more information, see [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/)\. 
 
 A Local Zone is represented by an AWS Region code followed by an identifier that indicates the location, for example `us-west-2-lax-1a`\.
 
@@ -38,4 +38,4 @@ The following limitations apply to ElastiCache for Local Zones:
 
 1. Create an ElastiCache for Memcached cluster that uses the ElastiCache subnet in the Local Zone\.
 
-    For more information, see [Creating a Memcached cluster](Clusters.Create.CON.Memcached.md)\.
+    For more information, see [Creating a Memcached cluster \(console\)](Clusters.Create.md#Clusters.Create.CON.Memcached)\.

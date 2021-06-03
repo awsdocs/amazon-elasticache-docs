@@ -54,7 +54,7 @@ You can modify an existing cluster using the AWS CLI `modify-cache-cluster` oper
 **Important**  
 You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
-For Linux, macOS, or Unix:
+For Linux, OS X, or Unix:
 
 ```
 aws elasticache modify-cache-cluster \
@@ -91,7 +91,7 @@ https://elasticache.us-west-2.amazonaws.com/
     &SignatureVersion=4
     &SignatureMethod=HmacSHA256
     &Timestamp=20150901T220302Z
-    &X-Amz-Algorithm=AWS4-HMAC-SHA256
+    &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
     &X-Amz-Date=20150202T220302Z
     &X-Amz-SignedHeaders=Host
     &X-Amz-Expires=20150901T220302Z

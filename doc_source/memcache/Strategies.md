@@ -79,7 +79,7 @@ get_customer(customer_id)
     customer_record = cache.get(customer_id)
     if (customer_record == null)
     
-        customer_record = db.query("SELECT * FROM Customers WHERE id == {0}", customer_id)
+        customer_record = db.query("SELECT * FROM Customers WHERE id = {0}", customer_id)
         cache.set(customer_id, customer_record)
     
     return customer_record

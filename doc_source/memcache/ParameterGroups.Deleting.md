@@ -33,7 +33,7 @@ To delete a parameter group using the AWS CLI, use the command `delete-cache-par
 The following sample code deletes the *myMem14* parameter group\.
 
 **Example**  
-For Linux, macOS, or Unix:  
+For Linux, OS X, or Unix:  
 
 ```
 aws elasticache delete-cache-parameter-group \

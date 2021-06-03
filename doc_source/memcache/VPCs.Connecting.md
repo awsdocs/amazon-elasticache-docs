@@ -7,7 +7,7 @@ This example shows how to launch an Amazon EC2 instance in your Amazon VPC\. You
 In this example, you create an Amazon EC2 instance in your Amazon VPC\. You can use this Amazon EC2 instance to connect to cache nodes running in the Amazon VPC\.
 
 **Note**  
-For information about using Amazon EC2, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/) in the [Amazon EC2 documentation](https://aws.amazon.com/documentation/ec2/)\.
+For information about using Amazon EC2, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/) in the [Amazon EC2 documentation](http://aws.amazon.com/documentation/ec2/)\.
 
 **To create an Amazon EC2 instance in your Amazon VPC using the Amazon EC2 console**
 

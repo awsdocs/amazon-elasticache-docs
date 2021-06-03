@@ -7,58 +7,67 @@
 ## Installing PHP 7\.x for new users<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x"></a>
 
 **Topics**
-+ [To install PHP 7 on a Ubuntu server 18\.10 LTS AMI \(64\-bit and 32\-bit\)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu)
++ [To install PHP 7\.x on an Amazon Linux 2 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu)
 + [To install PHP 7 on an Amazon Linux 201609 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux)
 + [To install PHP 7 on an SUSE Linux AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux)
 
-### To install PHP 7 on a Ubuntu server 18\.10 LTS AMI \(64\-bit and 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu"></a>
+### To install PHP 7\.x on an Amazon Linux 2 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu"></a>
 
 Replace *PHP\-7\.x* with the version you are using\.
 
 1. Launch a new instance from the AMI\.
 
-1. Run the following commands:
+1. Run the following command:
 
    ```
-   sudo apt-get update
-   sudo apt-get install gcc g++
+   sudo yum install gcc-c++ zlib-devel
    ```
 
-1. Install PHP 7
+1. Install PHP 7\.x using `amazon-linux-extras`
 
-   ```
-   sudo apt-get install php7.x
-   ```
+   With Amazon Linux 2, you can use the *Extras Library* to install application and software updates on your instances\. These software updates are known as topics\. You can install a specific version of a topic or omit the version information to use the most recent version\. For more information, [Extras library \(Amazon Linux 2\)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html#extras-library)\.
+
+   To do this, use the following steps;
+
+   1. First, verify if *amazon\-linux\-extras* is already installed\.
+
+   1. If not installed, use the following command to install:
+
+       `sudo yum install -y amazon-linux-extras ` 
+
+   1. Confirm that PHP 7\.x topic is available in the Amazon Linux 2 machine:
+
+       `sudo amazon-linux-extras | grep php ` 
+
+   1. From the output, review all PHP 7 topics and select the version you want:
+
+       `sudo amazon-linux-extras enable php7.x ` 
+
+   1. Install PHP packages from the repository\. For example:
+
+       `sudo yum clean metadata`
+
+      `sudo yum install php php-devel ` 
 
 1. Download the Amazon ElastiCache Cluster Client\.
+   + Open the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
+
+     Under the ElastiCache dashboard, go to **ElastiCache Cluster Client** and then choose the PHP7 version you want\.
+   + From command line, replace `PHP-7.X` with the desired PHP version, and replace the `ARCH` with desired architecture \(X86 or arm\)\.
+
+     ```
+     wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.X/latest-64bit-<ARCH>
+     ```
+
+1. Use `tar -zxvf` to extract the downloaded file\.
+
+1. With root permissions, copy the extracted artifact file `amazon-elasticache-cluster-client.so` into `/usr/lib64/php/modules`\.
 
    ```
-   wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.x/latest-64bit
+   sudo mv amazon-elasticache-cluster-client.so /usr/lib64/php/modules/
    ```
 
-1. Extract `latest-64bit`\.
-
-   ```
-   tar -zxvf latest-64bit
-   ```
-
-1. With root permissions, copy the extracted artifact file `amazon-elasticache-cluster-client.so` into `/usr/lib/php/20151012`\.
-
-   ```
-   sudo mv artifact/amazon-elasticache-cluster-client.so /usr/lib/php/20151012
-   ```
-
-1. Insert the line `extension=amazon-elasticache-cluster-client.so` into the file `/etc/php/7.x/cli/php.ini`\.
-
-   ```
-   echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php/7.x/cli/php.ini
-   ```
-
-1. Start or restart your Apache server\.
-
-   ```
-   sudo /etc/init.d/httpd start
-   ```
+1. Add `extension=amazon-elasticache-cluster-client.so` into file `/etc/php.ini`
 
  
 
@@ -66,7 +75,7 @@ Replace *PHP\-7\.x* with the version you are using\.
 
 Replace *php7\.x* with the version you are using\.
 
-1. Launch a new instance from the AMI\.
+1. Launch a new instance from the AMI\. For more information, see [Step 1: Launch an instance](https://docs.aws.amazon.com/https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance) in the *Amazon EC2 User Guide\.*
 
 1. Run the following command:
 
