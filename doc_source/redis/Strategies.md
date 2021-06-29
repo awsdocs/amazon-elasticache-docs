@@ -34,7 +34,7 @@ A *cache miss* occurs when data isn't in the cache or is expired:
 
 The following diagram illustrates both these processes\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-HowECWorks.png)
+![\[Image NOT FOUND\]](https://d2908q01vomqb2.cloudfront.net/887309d048beef83ad3eabf2a79a64a389ab1c9f/2020/01/27/Tinder-1.jpg)
 
 ### Advantages and disadvantages of lazy loading<a name="Strategies.LazyLoading.Evaluation"></a>
 
