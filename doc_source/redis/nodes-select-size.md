@@ -46,4 +46,4 @@ If you're implementing a Redis \(cluster mode enabled\) cluster with multiple sh
 
 While your cluster is running, you can monitor the memory usage, processor utilization, cache hits, and cache misses metrics that are published to CloudWatch\. You might notice that your cluster doesn't have the hit rate that you want or that keys are being evicted too often\. In these cases, you can choose a different node size with larger CPU and memory specifications\.
 
-When monitoring CPU usage, remember the Redis is single\-threaded\. Thus, multiply the reported CPU usage by the number of CPU cores to get that actual usage\. For example, a four\-core CPU reporting a 20\-percent usage rate is actually the one core Redis is running at 80 percent utlization\.
+When monitoring CPU usage, remember the Redis is single\-threaded\. Thus, multiply the reported CPU usage by the number of CPU cores to get that actual usage\. For example, a four\-core CPU reporting a 20\-percent usage rate is actually the one core Redis is running at 80 percent utilization\.
