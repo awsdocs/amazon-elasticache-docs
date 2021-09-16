@@ -157,7 +157,7 @@ For more detailed information on ElastiCache parameter groups, see [Configuring 
 
 ## ElastiCache for Redis security<a name="WhatIs.Components.Security"></a>
 
-For enhanced security, ElastiCache for Redis node access is restricted to applications running on the Amazon EC2 instances that you allow\. You can control the Amazon EC2 instances that can access your cluster security groups\.
+For enhanced security, ElastiCache for Redis node access is restricted to applications running on the Amazon EC2 instances that you allow\. You can control the Amazon EC2 instances that can access your cluster using security groups\.
 
 By default, all new ElastiCache for Redis clusters are launched in an Amazon Virtual Private Cloud \(Amazon VPC\) environment\. You can use *subnet groups* to grant cluster access from Amazon EC2 instances running on specific subnets\. If you choose to run your cluster outside of Amazon VPC, you can create *security groups*\. These enable you to authorize Amazon EC2 instances running within specific Amazon EC2 security groups\.
 

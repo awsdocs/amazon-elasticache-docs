@@ -203,7 +203,7 @@ It is possible to create a Certificate Authority \(CA\) using different techniqu
   + Select **Review and import**\.
   + Select **Import**\.
 
-  To submit the server's certificates to ACM using the AWS CLI, run the following command: `aws acm import-certificate --certificate fileb://easy-rsa/pki/issued/server.crt --private-key file://easy-rsa/pki/private/server.key --certificate-chain file://easy-rsa/pki/ca.crt --region region`
+  To submit the server's certificates to ACM using the AWS CLI, run the following command: `aws acm import-certificate --certificate fileb://easy-rsa/pki/issued/server.crt --private-key fileb://easy-rsa/pki/private/server.key --certificate-chain file://easy-rsa/pki/ca.crt --region region`
 
   Note the Certificate ARN for future use\.
 

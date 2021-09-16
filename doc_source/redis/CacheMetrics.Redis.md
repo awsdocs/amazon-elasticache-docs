@@ -78,7 +78,7 @@ For a full list of available commands, see [redis commands](https://redis.io/com
 | Metric  | Description  | Unit  | 
 | --- | --- | --- | 
 | CurrItems | The number of items in the cache\. This is derived from the Redis keyspace statistic, summing all of the keys in the entire keyspace\. | Count | 
-| EvalBasedCmds | The total number of commands for eval\-based commands\. This is derived from the Redis commandstats statistic\. This is derived from the Redis commandstats statistic by summing eval, evalsha\. | Count | 
+| EvalBasedCmds | The total number of commands for eval\-based commands\. This is derived from the Redis commandstats statistic by summing eval, evalsha\. | Count | 
 | EvalBasedCmdsLatency | Latency of eval\-based commands\. | Microseconds | 
 | GeoSpatialBasedCmds | The total number of commands for geospatial\-based commands\. This is derived from the Redis commandstats statistic\. It's derived by summing all of the geo type of commands: geoadd, geodist, geohash, geopos, georadius, and georadiusbymember\. | Count | 
 | GeoSpatialBasedCmdsLatency | Latency of geospatial\-based commands\.  | Microseconds | 
