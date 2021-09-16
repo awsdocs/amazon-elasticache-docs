@@ -40,7 +40,7 @@ Use the following CLI operations to work with global datastores:
     --global-replication-group-id global datastore name
   ```
 
-  When calling this operation and passing in a `--global-replication-group-id` value, ElastiCache for Redis ElastiCache will infer the values from the primary replication group of the global replication group for the following paramaeters\. Do not pass in values for these parameters:
+  When calling this operation and passing in a `--global-replication-group-id` value, ElastiCache for Redis will infer the values from the primary replication group of the global replication group for the following paramaeters\. Do not pass in values for these parameters:
 
   `"PrimaryClusterId",`
 

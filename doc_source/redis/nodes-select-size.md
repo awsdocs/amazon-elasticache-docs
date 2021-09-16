@@ -8,6 +8,8 @@ Answering the following questions can help you determine the minimum node type y
 + How much total memory do you need for your data?
 
   To get a general estimate, take the size of the items that you want to cache\. Multiply this size by the number of items that you want to keep in the cache at the same time\. To get a reasonable estimation of the item size, first serialize your cache items, then count the characters\. Then divide this over the number of shards in your cluster\.
+
+  For more information, see [Supported node types](CacheNodes.SupportedTypes.md)\.
 + What version of Redis are you running?
 
   Redis versions before 2\.8\.22 require you to reserve more memory for failover, snapshot, synchronizing, and promoting a replica to primary operations\. This requirement occurs because you must have sufficient memory available for all writes that occur during the process\. 

@@ -2,7 +2,7 @@
 
 Before creating a cluster for production use, you obviously need to consider how you will configure the cluster to meet your business needs\. Those issues are addressed in the [Preparing a cluster](Clusters.Prepare.md) section\. For the purposes of this Getting Started exercise, you will create a cluster with cluster mode disabled and you can accept the default configuration values where they apply\.
 
-The cluster you create will be live, and not running in a sandbox\. You will incur the standard ElastiCache usage fees for the instance until you delete it\. The total charges will be minimal \(typically less than a dollar\) if you complete the exercise described here in one sitting and delete your cluster when you are finished\. For more information about ElastiCache usage rates, see [Amazon ElastiCache](http://aws.amazon.com/elasticache/)\.
+The cluster you create will be live, and not running in a sandbox\. You will incur the standard ElastiCache usage fees for the instance until you delete it\. The total charges will be minimal \(typically less than a dollar\) if you complete the exercise described here in one sitting and delete your cluster when you are finished\. For more information about ElastiCache usage rates, see [Amazon ElastiCache](https://aws.amazon.com/elasticache/)\.
 
 Your cluster is launched in a virtual private cloud \(VPC\) based on the Amazon VPC service\. 
 
@@ -70,7 +70,7 @@ You can upgrade to newer engine versions\. If you upgrade major engine versions,
    1. Encrypt your data; you have the following options:
       + **Encryption at rest** – Enables encryption of data stored on disk\. For more information, see [encryption at rest](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html)\.
 **Note**  
-You have the option to supply a different encryption key by choosing **Customer Managed Customer Master Key** and choosing the key\. For more information, see [Using Customer Managed CMKs from AWS KMS](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html#using-customer-managed-keys-for-elasticache-security)
+You have the option to supply a different encryption key by choosing **Customer Managed AWS KMS key** and choosing the key\. For more information, see [Using Customer Managed AWS KMS keys](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html#using-customer-managed-keys-for-elasticache-security)
       + **Encryption in\-transit** – Enables encryption of data on the wire\. For more information, see [encryption in transit](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\. For Redis engine version 6\.x, if you enable encryption in transit you're prompted to specify one of the following **Access Control** options:
         + **No Access Control** – This is the default setting\. This indicates no restrictions on user access to the cluster\.
         + **User Group Access Control List** – Choose a user group with a defined set of users that can access the cluster\. For more information, see [Managing User Groups with the Console and CLI](Clusters.RBAC.md#User-Groups)\.
@@ -97,7 +97,7 @@ For Redis versions between 3\.2\.6, when encryption in transit was first support
 
       For more information, see [Managing maintenance](maintenance-window.md)\.
 
-   1. For **Notifications**, choose an existing Amazon Simple Notification Service \(Amazon SNS\) topic, or choose manual ARN input and enter the topic Amazon Resource Name \(ARN\)\. If you use Amazon SNS, you can push notifications to internet\-connected smart devices\. The default is to disable notifications\. For more information, see [http://aws\.amazon\.com/sns/](http://aws.amazon.com/sns/)\.
+   1. For **Notifications**, choose an existing Amazon Simple Notification Service \(Amazon SNS\) topic, or choose manual ARN input and enter the topic Amazon Resource Name \(ARN\)\. If you use Amazon SNS, you can push notifications to internet\-connected smart devices\. The default is to disable notifications\. For more information, see [https://aws\.amazon\.com/sns/](https://aws.amazon.com/sns/)\.
 
 1. Review all your entries and choices, then go back and make any needed corrections\. When you're ready, choose **Create** to launch your cluster\.
 
@@ -110,7 +110,7 @@ As soon as your cluster becomes available, you're billed for each hour or partia
 
 **Example**  
 The following CLI code creates a Redis \(cluster mode disabled\) cache cluster with no replicas\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache create-cache-cluster \

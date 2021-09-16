@@ -9,7 +9,7 @@ Your application connects to your cluster using endpoints\. An endpoint is a nod
 + **Redis \(cluster mode disabled\) clusters**, use the *Primary Endpoint* for all write operations\. Use the *Reader Endpoint* to evenly split incoming connections to the endpoint between all read replicas\. Use the individual *Node Endpoints* for read operations \(In the API/CLI these are referred to as Read Endpoints\)\.
 
    
-+ **Redis \(cluster mode enabled\) clusters**, use the cluster's *Configuration Endpoint* for all operations\. You must use a client that supports Redis Cluster \(Redis 3\.2\)\. You can still read from individual node endpoints \(In the API/CLI these are referred to as Read Endpoints\)\.
++ **Redis \(cluster mode enabled\) clusters**, use the cluster's *Configuration Endpoint* for all operations that support cluster mode enabled commands\. You must use a client that supports Redis Cluster \(Redis 3\.2\)\. You can still read from individual node endpoints \(In the API/CLI these are referred to as Read Endpoints\)\.
 
    
 
@@ -71,9 +71,9 @@ redis-01.7abc2d.0001.usw2.cache.amazonaws.com:6379
 **In\-transit encryption enabled**
 
 ```
-master.clusterName.xxxxxx.regionAndAz.cache.amazonaws.com:port
+primary.clusterName.xxxxxx.regionAndAz.cache.amazonaws.com:port
 
-master.ncit.ameaqx.use1.cache.amazonaws.com:6379
+primary.ncit.ameaqx.use1.cache.amazonaws.com:6379
 ```
 
 ## Finding Endpoints for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Endpoints.Find.RedisCluster"></a>
@@ -163,7 +163,7 @@ You can use the AWS CLI to discover the endpoints for a cluster and its nodes wi
 **Example**  
 The following command retrieves the cluster information for the single\-node Redis \(cluster mode disabled\) cluster *mycluster*\.  
 The parameter `--cache-cluster-id` can be used with single\-node Redis \(cluster mode disabled\) cluster id or specific node ids in Redis replication groups\. The `--cache-cluster-id` of a Redis replication group is a 4\-digit value such as `0001`\. If `--cache-cluster-id` is the id of a cluster \(node\) in a Redis replication group, the `replication-group-id` is included in the output\.
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache describe-cache-clusters \

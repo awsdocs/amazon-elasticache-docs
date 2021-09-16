@@ -30,7 +30,7 @@ At a command prompt, use the `create-cache-security-group` command with the foll
 
   **Example:** "My new security group"
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-cache-security-group \

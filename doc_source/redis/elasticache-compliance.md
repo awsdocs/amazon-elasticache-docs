@@ -20,7 +20,7 @@ Security updates are released by using the **Service Updates** feature\. They ar
 If you do not apply the Service Update by the recommended date or when the Service Update expires, ElastiCache will not take any action to apply the update on your behalf\.  
 You are notified of the Service Updates applicable to your Redis clusters by an announcement on the Redis console, email, Amazon SNS, CloudWatch events \(\(AWS Health Service\)\. For more information on Self\-Service Maintenance see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\.   
    
-CloudWatch events and Personal Health Dashboard are not supported in the following regions:  
+CloudWatch events and AWS Personal Health Dashboard are not supported in the following regions:  
 us\-gov\-west\-1 
 us\-gov\-east\-1
 cn\-north\-1
@@ -84,7 +84,7 @@ The AWS PCI DSS Compliance program includes Amazon ElastiCache for Redis as a PC
 
 To enable PCI DSS support on your ElastiCache for Redis cluster, your cluster and nodes within the cluster must satisfy the following requirements\.
 + **Engine version requirements** – Your cluster must be running ElastiCache for Redis 3\.2\.6, 4\.0\.10 and later for both cluster mode enabled and disabled\.
-+ **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, T2, R4 or R5\. For more information, see the following:
++ **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, M6g, T2, R4, R5 or R6g\. For more information, see the following:
   + [Supported node types](CacheNodes.SupportedTypes.md)
   + [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)
 + **Security Updates Requirement** – You must regularly update your Redis cluster by the **Recommended Apply by Date**\. You can update the cluster in real\-time and on\-demand to ensure no impact to your business\. For more information, see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\.

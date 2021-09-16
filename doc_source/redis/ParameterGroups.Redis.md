@@ -46,7 +46,7 @@ Parameters added in Redis 6\.x are as follows\.
 | --- | --- | --- | 
 | cluster\-allow\-reads\-when\-down |  Default: no Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | When set to yes, a Redis \(cluster mode enabled\) replication group continues to process read commands even when a node is not able to reach a quorum of primaries\.  When set to the default of no, the replication group rejects all commands\. We recommend setting this value to yes if you are using a cluster with fewer than three node groups or your application can safely handle stale reads\.   | 
 | tracking\-table\-max\-keys |  Default: 1,000,000 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | To assist client\-side caching, Redis supports tracking which clients have accessed which keys\.  When the tracked key is modified, invalidation messages are sent to all clients to notify them their cached values are no longer valid\. This value enables you to specify the upper bound of this table\. After this parameter value is exceeded, clients are sent invalidation randomly\. This value should be tuned to limit memory usage while still keeping track of enough keys\. Keys are also invalidated under low memory conditions\.   | 
-| acllog\-len |  Default: 10 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | This value corresponds to the max number of entries in the ACL log\.   | 
+| acllog\-max\-len |  Default: 128 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | This value corresponds to the max number of entries in the ACL log\.   | 
 | active\-expire\-effort |  Default: 1 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | Redis deletes keys that have exceeded their time to live by two mechanisms\. In one, a key is accessed and is found to be expired\. In the other, a periodic job samples keys and causes those that have exceeded their time to live to expire\. This parameter defines the amount of effort that Redis uses to expire items in the periodic job\.  The default value of 1 tries to avoid having more than 10 percent of expired keys still in memory\. It also tries to avoid consuming more than 25 percent of total memory and to add latency to the system\. You can increase this value up to 10 to increase the amount of effort spent on expiring keys\. The tradeoff is higher CPU and potentially higher latency\. We recommend a value of 1 unless you are seeing high memory usage and can tolerate an increase in CPU utilization\.   | 
 | lazyfree\-lazy\-user\-del |  Default: no Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | When the value is set to yes, the `DEL` command acts the same as `UNLINK`\.   | 
 
@@ -93,7 +93,7 @@ Redis 5\.0 default parameter groups
 | stream\-node\-max\-entries |  Permitted values: 0\+ Default: 100 Type: integer Modifiable: Yes Changes take effect: Immediately | The stream data structure is a radix tree of nodes that encode multiple items inside\. Use this configuration to specify the maximum number of items a single node can contain before switching to a new node when appending new stream entries\. If set to 0, the number of items in the tree node is unlimited  | 
 | active\-defrag\-max\-scan\-fields |  Permitted values: 1 to 1000000 Default: 1000 Type: integer Modifiable: Yes Changes take effect: Immediately | Maximum number of set/hash/zset/list fields that will be processed from the main dictionary scan  | 
 | lua\-replicate\-commands |  Permitted values: yes/no Default: yes Type: boolean Modifiable: Yes Changes take effect: Immediately | Always enable Lua effect replication or not in Lua scripts  | 
-| replica\-ignore\-maxmemory |  Default: yes Type: boolean Modifiable: No  | Determines if replica ignores maxmemory setting by not evicting items independent from the master  | 
+| replica\-ignore\-maxmemory |  Default: yes Type: boolean Modifiable: No  | Determines if replica ignores maxmemory setting by not evicting items independent from the primary  | 
 
 Redis has renamed several parameters in engine version 5\.0 in response to community feedback\. For more information, see [What's New in Redis 5?](https://aws.amazon.com/redis/Whats_New_Redis5/)\. The following table lists the new names and how they map to previous versions\.
 
@@ -102,7 +102,7 @@ Redis has renamed several parameters in engine version 5\.0 in response to commu
 
 |  Name  |  Details |  Description  | 
 | --- | --- | --- | 
-| replica\-lazy\-flush |  Default: no Type: boolean Modifiable: No Former name: slave\-lazy\-flush  | Performs an asynchronous flushDB during replica sync\. | 
+| replica\-lazy\-flush |  Default: yes Type: boolean Modifiable: No Former name: slave\-lazy\-flush  | Performs an asynchronous flushDB during replica sync\. | 
 | client\-output\-buffer\-limit\-replica\-hard\-limit | Default: For values see [Redis node\-type specific parameters](#ParameterGroups.Redis.NodeSpecific) Type: integer Modifiable: No Former name: client\-output\-buffer\-limit\-slave\-hard\-limit | For Redis read replicas: If a client's output buffer reaches the specified number of bytes, the client will be disconnected\. | 
 | client\-output\-buffer\-limit\-replica\-soft\-limit | Default: For values see [Redis node\-type specific parameters](#ParameterGroups.Redis.NodeSpecific) Type: integer Modifiable: No Former name: client\-output\-buffer\-limit\-slave\-soft\-limit | For Redis read replicas: If a client's output buffer reaches the specified number of bytes, the client will be disconnected, but only if this condition persists for client\-output\-buffer\-limit\-replica\-soft\-seconds\. | 
 | client\-output\-buffer\-limit\-replica\-soft\-seconds | Default: 60 Type: integer Modifiable: No Former name: client\-output\-buffer\-limit\-slave\-soft\-seconds  | For Redis read replicas: If a client's output buffer remains at client\-output\-buffer\-limit\-replica\-soft\-limit bytes for longer than this number of seconds, the client will be disconnected\. | 
@@ -242,7 +242,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w156aac25c32c57c27b9"></a>
+### How close\-on\-slave\-write works<a name="w213aac25c34c57c27b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -256,7 +256,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### When you might disable close\-on\-replica\-write<a name="w156aac25c32c57c27c11"></a>
+### When you might disable close\-on\-replica\-write<a name="w213aac25c34c57c27c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 

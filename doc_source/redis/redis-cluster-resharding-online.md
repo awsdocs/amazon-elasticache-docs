@@ -75,7 +75,7 @@ Use the following parameters with `modify-replication-group-shard-configuration`
 The following example reconfigures the keyspaces over four shards in the Redis \(cluster mode enabled\) cluster `my-cluster`\. The example also specifies the Availability Zone for each node in each shard\. The operation begins immediately\.
 
 **Example \- Adding Shards**  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache modify-replication-group-shard-configuration \
@@ -200,7 +200,7 @@ The following procedure describes the process for deleting one or more shards\.
 
 **Example \- Removing Shards**  
 The following example removes two node groups from the Redis \(cluster mode enabled\) cluster `my-cluster`, so there are a total of two node groups when the operation completes\. The keyspaces from the removed shards are distributed evenly over the remaining shards\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache modify-replication-group-shard-configuration \
@@ -298,7 +298,7 @@ The following process describes how to reconfigure the shards in your Redis \(cl
 
 **Example \- Rebalancing the Shards in a Cluster**  
 The following example rebalances the slots in the Redis \(cluster mode enabled\) cluster `my-cluster` so that the slots are distributed as equally as possible\. The value of `--node-group-count` \(`4`\) is the number of shards currently in the cluster\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache modify-replication-group-shard-configuration \

@@ -40,7 +40,7 @@ You can't promote a read replica to primary if the replication group is Multi\-A
 
 The following AWS CLI command modifies the replication group `sample-repl-group`, making the read replica `my-replica-1` the primary in the replication group\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-replication-group \

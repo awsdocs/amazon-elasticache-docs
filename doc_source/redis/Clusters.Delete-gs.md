@@ -3,7 +3,7 @@
 As long as a cluster is in the *available* state, you are being charged for it, whether or not you are actively using it\. To stop incurring charges, delete the cluster\.
 
 **Warning**  
-When you delete an ElastiCache for Redis cluster, your manual snapshots are retained\. You can also create a final snapshot before the cluster is deleted\. Automatic cache snapshots are not retained\. For moe information, see [Backup and restore for ElastiCache for Redis ](backups.md)\.
+When you delete an ElastiCache for Redis cluster, your manual snapshots are retained\. You can also create a final snapshot before the cluster is deleted\. Automatic cache snapshots are not retained\. For more information, see [Backup and restore for ElastiCache for Redis ](backups.md)\.
 
 ## Using the AWS Management Console<a name="Clusters.Delete.CON-gs"></a>
 
@@ -39,7 +39,7 @@ aws elasticache delete-cache-cluster --cache-cluster-id my-cluster
 
 The `delete-cache-cluster` CLI action only deletes one cache cluster\. To delete multiple cache clusters, call `delete-cache-cluster` for each cache cluster that you want to delete\. You do not need to wait for one cache cluster to finish deleting before deleting another\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache delete-cache-cluster \

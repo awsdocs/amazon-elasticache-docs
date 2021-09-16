@@ -1,6 +1,6 @@
 # ElastiCache for Redis Documentation history<a name="WhatsNew"></a>
 + **API version:** 2015\-02\-02
-+ **Latest documentation update:** April 22, 2021
++ **Latest documentation update:** August 19, 2021
 
 The following table describes important changes in each release of the *ElastiCache for Redis User Guide* after March 2018\. For notification about updates to this documentation, you can subscribe to the RSS feed\.
 
@@ -8,6 +8,7 @@ The following table describes important changes in each release of the *ElastiCa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Support for Auto Scaling](#WhatsNew) | ElastiCache for Redis now supports Auto Scaling\. ElastiCache for Redis auto scaling is the ability to increase or decrease the desired shards or replicas in your ElastiCache for Redis service automatically\. ElastiCache leverages the Application Auto Scaling service to provide this functionality\. For more information, see [Auto Scaling ElastiCache for Redis clusters](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoScaling.html)\.  | August 19, 2021 | 
 | [Support for delivery of Redis Slow logs](#WhatsNew) | ElastiCache now lets you stream Redis SLOWLOG to one of two destinations: Amazon Kinesis Data Firehose or Amazon CloudWatch Logs\. For more information, see [Log delivery](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html)\.  | April 22, 2021 | 
 | [Support for tagging resources and condition keys](#WhatsNew) | ElastiCache now supports tagging to help you manage your clusters and other ElastiCache resources\. For more information, see [Tagging your ElastiCache resources](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging-Resources.html)\. ElastiCache also introduces support for condition keys\. You can specify conditions that determine how an IAM policy takes effect\. For more information, see [Using condition keys](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ConditionKeys.html)\. | April 7, 2021 | 
 | [ElastiCache is now available on AWS Outposts](#WhatsNew) | [AWS Outposts](https://aws.amazon.com/outposts/) bring native AWS services, infrastructure, and operating models to virtually any data center, co\-location space, or on\-premises facility\. You can deploy ElastiCache on Outposts to set up, operate, and use cache on\-premises, just as you would in the cloud\. For more information, see [Using Outposts](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ElastiCache-Outposts.html) for Redis or [Using Outposts](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ElastiCache-Outposts.html) for Memcached\. | October 8, 2020 | 

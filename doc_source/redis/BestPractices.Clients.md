@@ -1,0 +1,3 @@
+# Best practices: Redis clients and ElastiCache for Redis<a name="BestPractices.Clients"></a>
+
+To learn more about best practices for interacting with ElastiCache for Redis resources with commonly used open\-source Redis client libraries, see [Best practices: Redis clients and Amazon ElastiCache for Redis](http://aws.amazon.com/blogs/database/best-practices-redis-clients-and-amazon-elasticache-for-redis/)\. 

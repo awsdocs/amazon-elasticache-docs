@@ -47,7 +47,7 @@ You must include either the `--new-replica-count` or `--replica-configuration` p
 
 **Example**  
 The following example increases the number of replicas in the replication group `sample-repl-group` to three\. When the example is finished, there are three replicas in each node group\. This number applies whether this is a Redis \(cluster mode disabled\) group with a single node group or a Redis \(cluster mode enabled\) group with multiple node groups\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache increase-replica-count \
@@ -64,7 +64,7 @@ aws elasticache increase-replica-count ^
     --apply-immediately
 ```
 The following example increases the number of replicas in the replication group `sample-repl-group` to the value specified for the two specified node groups\. Given that there are multiple node groups, this is a Redis \(cluster mode enabled\) replication group\. When specifying the optional `PreferredAvailabilityZones`, the number of Availability Zones listed must equal the value of `NewReplicaCount` plus 1 more\. This approach accounts for the primary node for the group identified by `NodeGroupId`\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache increase-replica-count \

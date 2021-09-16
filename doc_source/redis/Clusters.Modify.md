@@ -4,7 +4,7 @@ In addition to adding or removing nodes from a cluster, there can be times where
 
 We recommend that you have your maintenance window fall at the time of lowest usage\. Thus it might need modification from time to time\.
 
-When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Redis\-specific parameters](ParameterGroups.Redis.md)\. For information on rebooting a cluster, see [Rebooting a cluster](Clusters.Rebooting.md)\.
+When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for 
 
 ## Using the AWS Management Console<a name="Clusters.Modify.CON"></a>
 
@@ -63,7 +63,7 @@ You can modify an existing cluster using the AWS CLI `modify-cache-cluster` oper
 **Important**  
 You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-cache-cluster \

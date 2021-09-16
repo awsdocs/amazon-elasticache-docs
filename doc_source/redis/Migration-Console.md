@@ -9,7 +9,7 @@ You can use the AWS Management Console to migrate your data from the EC2 instanc
 1. Either create a new Redis cluster or choose an existing cluster\. Make sure that the cluster meets the following requirements:
    + Your Redis engine version should be 5\.0\.5 or higher\. We don’t recommend migrating to Redis version 5\.0\.5\. Redis version 5\.0\.6 offers enhanced stability and security\.
    + Your Redis cluster should be in cluster\-mode disabled configuration\.
-   + You Redis on EC2 instance should not have Redis AUTH enabled\.
+   + Your Redis on EC2 instance should not have Redis AUTH enabled\.
    + Redis config `protected-mode` should be set to `no`\.
    + If you have `bind` configuration in your Redis config, then it should be updated to allow requests from ElastiCache nodes\.
    + The number of databases should be the same between the ElastiCache node and your Redis on EC2 instance\. This value is set using `databases` in the Redis config\.

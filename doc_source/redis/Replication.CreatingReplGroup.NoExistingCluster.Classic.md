@@ -92,7 +92,7 @@ If you want to enable in\-transit or at\-rest encryption on this replication gro
 
 The following operation creates a Redis \(cluster mode disabled\) replication group `sample-repl-group` with three nodes, a primary and two replicas\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-replication-group \

@@ -78,7 +78,7 @@ To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `increase
 + `--new-replica-count` specifies the number of nodes that you want in this replication group after the modification is applied\. To add nodes to this cluster, `--new-replica-count` must be greater than the current number of nodes in this cluster\.
 + `--apply-immediately` or `--no-apply-immediately` which specifies whether to add these nodes immediately or at the next maintenance window\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache increase-replica-count \

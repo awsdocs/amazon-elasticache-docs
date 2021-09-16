@@ -242,7 +242,7 @@ Export the backup to an Amazon S3 bucket using the `copy-snapshot` CLI operation
 
 The following operation copies a backup to my\-s3\-bucket\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache copy-snapshot \

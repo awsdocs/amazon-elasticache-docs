@@ -20,7 +20,7 @@ The following procedures show you how to modify a subnet group\.
 
 At a command prompt, use the command `modify-cache-subnet-group` to modify a subnet group\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-cache-subnet-group \

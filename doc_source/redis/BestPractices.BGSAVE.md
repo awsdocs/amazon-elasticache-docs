@@ -9,7 +9,7 @@ When you work with Redis ElastiCache, Redis calls a background write command in 
 + When creating a snapshot for a backup\.
 + When synchronizing replicas with the primary in a replication group\.
 + When enabling the append\-only file feature \(AOF\) for Redis\.
-+ When promoting a replica to master \(which causes a primary/replica sync\)\.
++ When promoting a replica to primary \(which causes a primary/replica sync\)\.
 
 Whenever Redis executes a background write process, you must have sufficient available memory to accommodate the process overhead\. Failure to have sufficient memory available causes the process to fail\. Because of this, it is important to choose a node instance type that has sufficient memory when creating your Redis cluster\.
 

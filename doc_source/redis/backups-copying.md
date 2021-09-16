@@ -35,7 +35,7 @@ To copy a backup, use the `copy-snapshot` operation\.
 
 The following example makes a copy of an automatic backup\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache copy-snapshot \

@@ -103,7 +103,7 @@ If you want to enable in\-transit or at\-rest encryption on this replication gro
 
 The following operation creates the Redis \(cluster mode enabled\) replication group `sample-repl-group` with three node groups/shards \(\-\-num\-node\-groups\), each with three nodes, a primary and two read replicas \(\-\-replicas\-per\-node\-group\)\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-replication-group \
@@ -181,7 +181,7 @@ The configuration for each node group\. The `--node-group-configuration` paramet
 
 The following operation creates the Redis \(cluster mode enabled\) replication group `new-group` with two node groups/shards \(`--num-node-groups`\)\. Unlike the preceding example, each node group is configured differently from the other node group \(`--node-group-configuration`\)\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-replication-group \

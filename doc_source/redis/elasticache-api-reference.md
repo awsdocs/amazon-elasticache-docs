@@ -14,7 +14,7 @@ This section describes the prerequisites for running the command line tools, whe
 Follow the instructions in this topic only if you are going to the AWS CLI for ElastiCache\.
 
 **Important**  
-The Amazon ElastiCache Command Line Interface \(CLI\) does not support any ElastiCache improvements after API version 2014\-09\-30\. To use newer ElastiCache functionality from the command line, use the [AWS Command Line Interface](http://aws.amazon.com/cli)\.
+The Amazon ElastiCache Command Line Interface \(CLI\) does not support any ElastiCache improvements after API version 2014\-09\-30\. To use newer ElastiCache functionality from the command line, use the [AWS Command Line Interface](https://aws.amazon.com/cli)\.
 
 **Topics**
 + [Prerequisites](#prerequisites)
@@ -71,7 +71,7 @@ The Amazon ElastiCache Command Line Interface \(CLI\) does not support any Elast
 
 ### Getting the command line tools<a name="Overview.SetupTools.Getting"></a>
 
-The command line tools are available as a ZIP file on the [ElastiCache Developer Tools web site](http://aws.amazon.com/developertools/Amazon-ElastiCache)\. These tools are written in Java, and include shell scripts for Windows 2000/XP/Vista/Windows 7, Linux/UNIX, and Mac OSX\. The ZIP file is self\-contained and no installation is required; simply download the zip file and unzip it to a directory on your local machine\.
+The command line tools are available as a ZIP file on the [ElastiCache Developer Tools web site](https://aws.amazon.com/developertools/Amazon-ElastiCache)\. These tools are written in Java, and include shell scripts for Windows 2000/XP/Vista/Windows 7, Linux/UNIX, and Mac OSX\. The ZIP file is self\-contained and no installation is required; simply download the zip file and unzip it to a directory on your local machine\.
 
 ### Setting up the tools<a name="Overview.SetupTools.WhereTheyAre"></a>
 

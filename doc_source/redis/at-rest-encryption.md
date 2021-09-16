@@ -6,7 +6,10 @@ ElastiCache for Redis at\-rest encryption is an optional feature to increase dat
 + Disk during sync, backup and swap operations 
 + Backups stored in Amazon S3 
 
- ElastiCache for Redis offers default \(service managed\) encryption at rest, as well as ability to use your own symmetric customer managed customer master keys in [AWS Key Management Service \(KMS\)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)\. 
+ ElastiCache for Redis offers default \(service managed\) encryption at rest, as well as ability to use your own symmetric customer managed AWS KMS keys in [AWS Key Management Service \(KMS\)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)\. 
+
+**Note**  
+The default \(service managed\) encryption is the only option available in the GovCloud \(US\) Regions\.
 
 At\-rest encryption can be enabled on a replication group only when it is created\. Because there is some processing needed to encrypt and decrypt the data, enabling at\-rest encryption can have a performance impact during these operations\. You should benchmark your data with and without at\-rest encryption to determine the performance impact for your use cases\. 
 
@@ -14,7 +17,7 @@ For information on encryption in transit, see [ElastiCache for Redis in\-transit
 
 **Topics**
 + [At\-Rest Encryption Conditions](#at-rest-encryption-constraints)
-+ [Using Customer Managed CMKs from AWS KMS](#using-customer-managed-keys-for-elasticache-security)
++ [Using customer managed keys from AWS KMS](#using-customer-managed-keys-for-elasticache-security)
 + [Enabling At\-Rest Encryption](#at-rest-encryption-enable)
 + [See Also](#at-rest-encryption-see-also)
 
@@ -31,36 +34,36 @@ The following constraints on ElastiCache at\-rest encryption should be kept in m
   For more information, see [Supported node types](CacheNodes.SupportedTypes.md)
 + At\-rest encryption is enabled by explicitly setting the parameter `AtRestEncryptionEnabled` to `true`\.
 + You can enable at\-rest encryption on a replication group only when creating the replication group\. You cannot toggle at\-rest encryption on and off by modifying a replication group\. For information on implementing at\-rest encryption on an existing replication group, see [Enabling At\-Rest Encryption](#at-rest-encryption-enable)\.
-+ The option to use customer managed CMK for encryption at rest is not available in AWS GovCloud \(us\-gov\-east\-1 and us\-gov\-west\-1\) regions\. 
++ The option to use customer managed key for encryption at rest is not available in AWS GovCloud \(us\-gov\-east\-1 and us\-gov\-west\-1\) regions\. 
 
 Implementing at\-rest encryption can reduce performance during backup and node sync operations\. Benchmark at\-rest encryption compared to no encryption on your own data to determine its impact on performance for your implementation\.
 
-## Using Customer Managed CMKs from AWS KMS<a name="using-customer-managed-keys-for-elasticache-security"></a>
+## Using customer managed keys from AWS KMS<a name="using-customer-managed-keys-for-elasticache-security"></a>
 
-ElastiCache for Redis supports symmetric customer managed customer master keys \(CMK\) for encryption at rest\. Customer\-managed CMKs are encryption keys that you create, own and manage in your AWS account\. For more information, see [Customer Master Keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) in the *AWS Key Management Service Developer Guide*\. The keys must be created in AWS KMS before they can be used with Elasticache\.
+ElastiCache for Redis supports symmetric customer managed AWS KMS keys \(KMS key\) for encryption at rest\. Customer\-managed KMS keys are encryption keys that you create, own and manage in your AWS account\. For more information, see [AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#root_keys) in the *AWS Key Management Service Developer Guide*\. The keys must be created in AWS KMS before they can be used with Elasticache\.
 
-To learn how to create AWS KMS master keys, see [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\. 
+To learn how to create AWS KMS root keys, see [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\. 
 
 ElastiCache for Redis allows you to integrate with AWS KMS\. For more information, see [Using Grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the *AWS Key Management Service Developer Guide*\. No customer action is needed to enable Amazon ElastiCache integration with AWS KMS\. 
 
-The `kms:ViaService` condition key limits use of an AWS KMS customer master key \(CMK\) to requests from specified AWS services\. To use `kms:ViaService` with ElastiCache, include both ViaService names in the condition key value: `elasticache.AWS_region.amazonaws.com` and `dax.AWS_region.amazonaws.com`\. For more information, see [kms:ViaService](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-via-service)\.
+The `kms:ViaService` condition key limits use of an AWS KMS key \(KMS key\) to requests from specified AWS services\. To use `kms:ViaService` with ElastiCache, include both ViaService names in the condition key value: `elasticache.AWS_region.amazonaws.com` and `dax.AWS_region.amazonaws.com`\. For more information, see [kms:ViaService](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-via-service)\.
 
-You can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) to track the requests that Amazon ElastiCache sends to AWS Key Management Service on your behalf\. All API calls to AWS Key Management Service related to customer managed CMKs have corresponding CloudTrail logs\. You can also see the grants that ElastiCache creates by calling the [ListGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html) KMS API call\. 
+You can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) to track the requests that Amazon ElastiCache sends to AWS Key Management Service on your behalf\. All API calls to AWS Key Management Service related to customer managed keys have corresponding CloudTrail logs\. You can also see the grants that ElastiCache creates by calling the [ListGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html) KMS API call\. 
 
-Once a replication group is encrypted using customer managed CMK, all backups for the replication group are encrypted as follows:
-+ Automatic daily backups are encrypted using the customer managed CMK associated with the cluster\.
-+ Final backup created when replication group is deleted, is also encrypted using the customer managed CMK associated with the replication group\.
-+ Manually created backups are encrypted by default to use the CMK associated with the replication group\. You may override this by choosing another customer managed CMK\.
-+ Copying a backup defaults to using customer managed CMK associated with the source backup\. You may override this by choosing another customer managed CMK\.
+Once a replication group is encrypted using customer managed key, all backups for the replication group are encrypted as follows:
++ Automatic daily backups are encrypted using the customer managed key associated with the cluster\.
++ Final backup created when replication group is deleted, is also encrypted using the customer managed key associated with the replication group\.
++ Manually created backups are encrypted by default to use the KMS key associated with the replication group\. You may override this by choosing another customer managed key\.
++ Copying a backup defaults to using a customer managed key associated with the source backup\. You may override this by choosing another customer managed key\.
 
 **Note**  
-Customer managed CMKs cannot be used when exporting backups to your selected Amazon S3 bucket\. However, all backups exported to Amazon S3 are encrypted using [Server side encryption\.](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) You may choose to copy the backup file to a new S3 object and encrypt using a customer managed CMK, copy the file to another S3 bucket that is set up with default encryption using a CMK or change an encryption option in the file itself\.
-You can also use customer managed CMKs to encrypt manually\-created backups for replication groups that do not use customer managed CMKs for encryption\. With this option, the backup file stored in Amazon S3 is encrypted using a CMK, even though the data is not encrypted on the original replication group\. 
+Customer managed keys cannot be used when exporting backups to your selected Amazon S3 bucket\. However, all backups exported to Amazon S3 are encrypted using [Server side encryption\.](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) You may choose to copy the backup file to a new S3 object and encrypt using a customer managed KMS key, copy the file to another S3 bucket that is set up with default encryption using a KMS key or change an encryption option in the file itself\.
+You can also use customer managed keys to encrypt manually\-created backups for replication groups that do not use customer managed keys for encryption\. With this option, the backup file stored in Amazon S3 is encrypted using a KMS key, even though the data is not encrypted on the original replication group\. 
 Restoring from a backup allows you to choose from available encryption options, similar to encryption choices available when creating a new replication group\.
-+ If you delete the key or [disable](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html) the key and [revoke grants](https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html) for the key that you used to encrypt a replication group, the replication group becomes irrecoverable\. In other words, it cannot be modified or recovered after a hardware failure\. AWS KMS deletes master keys only after a waiting period of at least seven days\. After the key is deleted, you can use a different customer managed CMK to create a backup for archival purposes\. 
-+ Automatic key rotation preserves the properties of your AWS KMS master keys, so the rotation has no effect on your ability to access your ElastiCache data\. Encrypted Amazon ElastiCache replication groups don't support manual key rotation, which involves creating a new master key and updating any references to the old key\. To learn more, see [Rotating Customer Master Keys](https://docs..amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*\. 
-+ Encrypting an ElastiCache replication group using CMK requires one grant per replication group\. This grant is used throughout the lifespan of the replication group\. Additionally, one grant per backup is used during backup creation\. This grant is retired once the backup is created\. 
-+ For more information on AWS KMS grants and limits, see [Limits](https://docs..amazon.com/kms/latest/developerguide/limits.html) in the *AWS Key Management Service Developer Guide*\.
++ If you delete the key or [disable](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html) the key and [revoke grants](https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html) for the key that you used to encrypt a replication group, the replication group becomes irrecoverable\. In other words, it cannot be modified or recovered after a hardware failure\. AWS KMS deletes root keys only after a waiting period of at least seven days\. After the key is deleted, you can use a different customer managed key to create a backup for archival purposes\. 
++ Automatic key rotation preserves the properties of your AWS KMS root keys, so the rotation has no effect on your ability to access your ElastiCache data\. Encrypted Amazon ElastiCache replication groups don't support manual key rotation, which involves creating a new root key and updating any references to the old key\. To learn more, see [Rotating AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*\. 
++ Encrypting an ElastiCache replication group using KMS key requires one grant per replication group\. This grant is used throughout the lifespan of the replication group\. Additionally, one grant per backup is used during backup creation\. This grant is retired once the backup is created\. 
++ For more information on AWS KMS grants and limits, see [Limits](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html) in the *AWS Key Management Service Developer Guide*\.
 
 ## Enabling At\-Rest Encryption<a name="at-rest-encryption-enable"></a>
 
@@ -70,9 +73,9 @@ You can enable ElastiCache at\-rest encryption when you create a Redis replicati
 
 When creating a replication group, you can pick one of the following options:
 + **Default** – This option uses service managed encryption at rest\. 
-+ **Customer managed CMK ** – This option allows you to provide the Key ID/ARN from AWS KMS for encryption at rest\. 
++ **Customer managed key ** – This option allows you to provide the Key ID/ARN from AWS KMS for encryption at rest\. 
 
-To learn how to create AWS KMS master keys, see [Create Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide* 
+To learn how to create AWS KMS root keys, see [Create Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide* 
 
 **Contents**
 + [Enabling At\-Rest Encryption on an Existing Redis Cluster](#at-reset-encryption-enable-existing-cluster)
@@ -125,7 +128,7 @@ The following parameters and their values are necessary to enable encryption on 
 + **\-\-at\-rest\-encryption\-enabled**—Required to enable at\-rest encryption\.
 
 **Example 1: Redis \(Cluster Mode Disabled\) Cluster with Replicas**  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache create-replication-group \
@@ -171,7 +174,7 @@ The following parameters and their values are necessary to enable encryption on 
 + **\-\-cache\-parameter\-group**—Must be `default-redis4.0.cluster.on` or one derived from it to make this a cluster mode enabled replication group\.
 
 **Example 2: A Redis \(Cluster Mode Enabled\) Cluster**  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache create-replication-group \

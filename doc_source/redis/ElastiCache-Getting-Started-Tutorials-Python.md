@@ -12,4 +12,4 @@ As you work through this tutorial, you can refer to the AWS SDK for Python \(Bot
 
 ## Tutorial Prerequisites<a name="ElastiCache-Getting-Started-Tutorials-Prerquisites"></a>
 + Set up an AWS access key to use the AWS SDKs\. For more information, see [Setting up](set-up.md)\.
-+ Install Python 2\.6 or later\. For more information, see [https://www\.python\.org/downloads](https://www.python.org/downloads)\. For instructions, see [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) in the Boto 3 documentation\.
++ Install Python 3\.0 or later\. For more information, see [https://www\.python\.org/downloads](https://www.python.org/downloads)\. For instructions, see [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) in the Boto 3 documentation\.

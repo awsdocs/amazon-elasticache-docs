@@ -68,7 +68,7 @@ To create a manual backup of a cluster using the AWS CLI, use the `create-snapsh
 
 The following AWS CLI operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis` that has no read replicas\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-snapshot \
@@ -88,7 +88,7 @@ aws elasticache create-snapshot ^
 
 The following AWS CLI operation creates the backup `bkup-20150515` from the Redis \(cluster mode disabled\) cluster `myNonClusteredRedis`\. This backup has one or more read replicas\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-snapshot \
@@ -144,7 +144,7 @@ Output from the operation looks something like the following\.
 
 The following AWS CLI operation creates the backup `bkup-20150515` from the Redis \(cluster mode enabled\) cluster `myClusteredRedis`\. Note the use of `--replication-group-id` instead of `--cache-cluster-id` to identify the source\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-snapshot \

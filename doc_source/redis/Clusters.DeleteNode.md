@@ -55,7 +55,7 @@ To determine what operations are pending, choose the **Description** tab and che
 **Note**  
 You can pass only one of `--replicas-to-remove` or `--new-replica-count` parameters when calling this operation\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache decrease-replica-count \
@@ -185,7 +185,7 @@ You can pass only one of `--replicas-to-remove` or `--new-replica-count` paramet
 
 Alternatively, you could call `decrease-replica-count` and instead of passing in the `--new-replica-count` parameter, you could pass the `--replicas-to-remove` parameter, as shown following:
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache decrease-replica-count \

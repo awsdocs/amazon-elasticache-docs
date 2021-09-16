@@ -8,6 +8,7 @@ Generally speaking, due to its support for sharding, Redis \(cluster mode enable
 + [Redis nodes and shards](CacheNodes.NodeGroups.md)
 + [Connecting to nodes](nodes-connecting.md)
 + [Supported node types](CacheNodes.SupportedTypes.md)
++ [Rebooting nodes \(cluster mode disabled only\)](nodes.rebooting.md)
 + [Replacing nodes](CacheNodes.NodeReplacement.md)
 + [ElastiCache reserved nodes](CacheNodes.Reserved.md)
 

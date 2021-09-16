@@ -18,7 +18,7 @@ To generate a list of parameter groups using the AWS CLI, use the command `descr
 
 **Example**  
 The following sample code lists the parameter group *myRed28*\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache describe-cache-parameter-groups \
@@ -46,7 +46,7 @@ The output of this command will look something like this, listing the name, fami
 
 **Example**  
 The following sample code lists the parameter group *myRed56* for parameter groups running on Redis engine version 5\.0\.6 onwards\. If the parameter group is part of a [Replication across AWS Regions using global datastores](Redis-Global-Datastore.md), the `IsGlobal` property value returned in the output will be `Yes`\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache describe-cache-parameter-groups \

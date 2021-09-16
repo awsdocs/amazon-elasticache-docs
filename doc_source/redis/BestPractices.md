@@ -10,3 +10,4 @@ Following, you can find recommended best practices for Amazon ElastiCache\. Foll
 + [Mitigating failure issues when using Redis AOF](BestPractices.AOF.md)
 + [Best practices: Online cluster resizing](best-practices-online-resharding.md)
 + [Best practices: Minimizing downtime during maintenance](BestPractices.MinimizeDowntime.md)
++ [Best practices: Redis clients and ElastiCache for Redis](BestPractices.Clients.md)

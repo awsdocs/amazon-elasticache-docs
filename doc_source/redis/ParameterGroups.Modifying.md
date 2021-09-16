@@ -23,7 +23,19 @@ The following procedure shows how to change the `cluster-enabled` parameter's va
 
 1. Choose **Save Changes**\.
 
-1. To find the name of the parameter you changed, see [Redis\-specific parameters](ParameterGroups.Redis.md)\. If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a cluster](Clusters.Rebooting.md)\.
+1. To find the name of the parameter you changed, see [Redis\-specific parameters](ParameterGroups.Redis.md)\. If you have a Redis \(cluster mode disabled\) cluster and make changes to the following parameters, you must reboot the nodes in the cluster:
+   + activerehashing
+   + databases
+
+    For more information, see [Rebooting nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html)\.
+**Redis \(Cluster Mode Enabled\) parameter changes**  
+If you make changes to the following parameters on a Redis \(cluster mode enabled\) cluster, follow the ensuing steps\.  
+activerehashing
+databases
+Create a manual backup of your cluster\. See [Making manual backups](backups-manual.md)\.
+Delete the Redis \(cluster mode enabled\) cluster\. See [Deleting a cluster](Clusters.Delete.md)\.
+Restore the cluster using the altered parameter group and backup to seed the new cluster\. See [Restoring from a backup with optional cluster resizing](backups-restoring.md)\.
+Changes to other parameters do not require this\.
 
 
 
@@ -34,7 +46,7 @@ To change a parameter's value using the AWS CLI, use the command `modify-cache-p
 **Example**  
 To find the name and permitted values of the parameter you want to change, see [Redis\-specific parameters](ParameterGroups.Redis.md)  
 The following sample code sets the value of two parameters, *reserved\-memory\-percent* and *cluster\-enabled* on the parameter group `myredis32-on-30`\. We set *reserved\-memory\-percent* to `30` \(30 percent\) and *cluster\-enabled* to `yes` so that the parameter group can be used with Redis \(cluster mode enabled\) clusters \(replication groups\)\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache modify-cache-parameter-group \
@@ -62,7 +74,22 @@ Output from this command will look something like this\.
 
 For more information, see [https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-parameter-group.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-parameter-group.html)\.
 
-If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a cluster](Clusters.Rebooting.md)\.
+To find the name of the parameter you changed, see [Redis\-specific parameters](ParameterGroups.Redis.md)\. 
+
+ If you have a Redis \(cluster mode disabled\) cluster and make changes to the following parameters, you must reboot the nodes in the cluster:
++ activerehashing
++ databases
+
+ For more information, see [Rebooting nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html)\.
+
+**Redis \(Cluster Mode Enabled\) parameter changes**  
+If you make changes to the following parameters on a Redis \(cluster mode enabled\) cluster, follow the ensuing steps\.  
+activerehashing
+databases
+Create a manual backup of your cluster\. See [Making manual backups](backups-manual.md)\.
+Delete the Redis \(cluster mode enabled\) cluster\. See [Deleting a cluster](Clusters.Delete.md)\.
+Restore the cluster using the altered parameter group and backup to seed the new cluster\. See [Restoring from a backup with optional cluster resizing](backups-restoring.md)\.
+Changes to other parameters do not require this\.
 
 ## Modifying a parameter group \(ElastiCache API\)<a name="ParameterGroups.Modifying.API"></a>
 
@@ -89,4 +116,17 @@ https://elasticache.us-west-2.amazonaws.com/
 
 For more information, see [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html)\.
 
-After updating and saving the parameter, if the change to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a cluster](Clusters.Rebooting.md)\.
+ If you have a Redis \(cluster mode disabled\) cluster and make changes to the following parameters, you must reboot the nodes in the cluster:
++ activerehashing
++ databases
+
+ For more information, see [Rebooting nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html)\.
+
+**Redis \(Cluster Mode Enabled\) parameter changes**  
+If you make changes to the following parameters on a Redis \(cluster mode enabled\) cluster, follow the ensuing steps\.  
+activerehashing
+databases
+Create a manual backup of your cluster\. See [Making manual backups](backups-manual.md)\.
+Delete the Redis \(cluster mode enabled\) cluster\. See [Deleting a cluster](Clusters.Delete.md)\.
+Restore the cluster using the altered parameter group and backup to seed the new cluster\. See [Restoring from a backup with optional cluster resizing](backups-restoring.md)\.
+Changes to other parameters do not require this\.

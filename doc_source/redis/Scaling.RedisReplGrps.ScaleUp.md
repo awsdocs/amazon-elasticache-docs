@@ -73,7 +73,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
 1. Determine which node types you can scale up to by running the AWS CLI `list-allowed-node-type-modifications` command with the following parameter\.
    + `--replication-group-id` – the name of the replication group\. Use this parameter to describe a particular replication group rather than all replication groups\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache list-allowed-node-type-modifications \
@@ -117,7 +117,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
    + `--cache-parameter-group-name` – \[Optional\] Use this parameter if you are using `reserved-memory` to manage your cluster's reserved memory\. Specify a custom cache parameter group that reserves the correct amount of memory for your new node type\. If you are using `reserved-memory-percent` you can omit this parameter\.
    + `--apply-immediately` – Causes the scale\-up process to be applied immediately\. To postpone the scale\-up operation to the next maintenance window, use `--no-apply-immediately`\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache modify-replication-group \
@@ -192,7 +192,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
 1. If you used the `--apply-immediately` parameter, monitor the status of the replication group using the AWS CLI `describe-replication-group` command with the following parameter\. While the status is still in *modifying*, you might see less than 1 second downtime for nodes running on 5\.0\.5 versions and above and a brief interruption of reads and writes for older versions from the primary node while the DNS entry is updated\.
    + `--replication-group-id` – the name of the replication group\. Use this parameter to describe a particular replication group rather than all replication groups\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache describe-replication-groups \

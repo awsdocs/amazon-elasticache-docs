@@ -74,4 +74,6 @@ The following are guidelines for improving backup performance\.
    
 + Create backups from a read replica – If you are running Redis in a node group with more than one node, you can take a backup from the primary node or one of the read replicas\. Because of the system resources required during BGSAVE, we recommend that you create backups from one of the read replicas\. While the backup is being created from the replica, the primary node remains unaffected by BGSAVE resource requirements\. The primary node can continue serving requests without slowing down\.
 
+  To do this, see [Creating a manual backup \(Console\)](backups-manual.md#backups-manual-CON) and in the **Cluster Name** field in the **Create Backup** window, choose a replica instead of the default primary node\.
+
 If you delete a replication group and request a final backup, ElastiCache always takes the backup from the primary node\. This ensures that you capture the very latest Redis data, before the replication group is deleted\.

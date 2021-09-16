@@ -1,6 +1,6 @@
 # Connecting to Elasticache<a name="ElastiCache-Getting-Started-Tutorials-Connecting"></a>
 
-The following examples use the boto3 SDK for ElastiCache to connect to ElastiCache\.
+The following examples use the Redis client to connect to ElastiCache\.
 
 **Topics**
 + [Connecting to a cluster mode disabled cluster](#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-disabled)
@@ -15,7 +15,7 @@ from redis import Redis
 import logging
 
 logging.basicConfig(level=logging.INFO)
-redis = redis = Redis(host='master.xxx.yyyyyy.zzz1.cache.amazonaws.com', port=6379, decode_responses=True, ssl=True, username='myuser', password='MyPassword0123456789')
+redis = Redis(host='primary.xxx.yyyyyy.zzz1.cache.amazonaws.com', port=6379, decode_responses=True, ssl=True, username='myuser', password='MyPassword0123456789')
 
 if redis.ping():
     logging.info("Connected to Redis")

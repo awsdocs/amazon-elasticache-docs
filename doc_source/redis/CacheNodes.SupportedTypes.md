@@ -3,6 +3,8 @@
 For information on which node size to use, see [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)\. 
 
 ElastiCache supports the following node types\. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts\.
+
+For more information on performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/)\.
 + General purpose:
   + Current generation: 
 
@@ -117,7 +119,8 @@ The following table lists supported node types for each AWS Region\.
 | China \(Ningxia\) | cn\-northwest\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 | Middle East \(Bahrain\) | me\-south\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 | AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+| AWS GovCloud \(US\-East\) | us\-gov\-west\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
 
 For a complete list of node types and specifications, see the following:
-+ [Amazon ElastiCache Product Features and Details](http://aws.amazon.com/elasticache/details)
++ [Amazon ElastiCache Product Features and Details](https://aws.amazon.com/elasticache/details)
 + [Redis\-specific parameters](ParameterGroups.Redis.md)

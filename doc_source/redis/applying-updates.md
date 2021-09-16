@@ -106,11 +106,11 @@ In the **Service Updates Status** list, you can view the following:
   + **expired:** The update is no longer available to apply\.
 + **Service Update SLA Met**: This reflects whether your cluster is [compliant](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance-self-service.html)\.
   + **yes**: All available updates have been applied to this cluster and available nodes by the apply\-by date\. 
-  + **no**: The service update might have been applied successfully to one or more nodes, but other nodes within the cluster still have an **available** status\. This typically happens when a service update is applied and then stopped\. 
+  + **no**: If no, at least one node in the replication group has not been updated by the recommended apply\-by date\. This typically happens when a service update is applied and then stopped\. 
 **Note**  
 If you stop the progress of a service update on a cluster, any nodes that are already updated have a **complete** status\. Any nodes that have an **In Progress** or **Stopping** status revert to a **Stopped** status, and the **Service Update SLA Met** status changes to **no**\. 
   + **N/A**: The replication group was created after the recommended apply\-by date\. 
-+ **Cluster Status Modified Date**: The latest date that the cluster was modified with a service update\.
++ **Cluster Status Modified Date**: The latest date that the update status was changed for a cluster\.
 
 **Note**  
 The **Show Previous Updates** check box, if selected, displays a list of previous updates that are no longer available\.

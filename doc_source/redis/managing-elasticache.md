@@ -11,4 +11,5 @@ In this section, you can find details about how to manage the various components
 + [High availability using replication groups](Replication.md)
 + [Backup and restore for ElastiCache for Redis](backups.md)
 + [Scaling ElastiCache for Redis clusters](Scaling.md)
++ [Auto Scaling ElastiCache for Redis clusters](AutoScaling.md)
 + [Configuring engine parameters using parameter groups](ParameterGroups.md)

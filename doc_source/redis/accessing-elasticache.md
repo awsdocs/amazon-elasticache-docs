@@ -45,7 +45,7 @@ The following procedure uses the AWS CLI to determine whether you launched your 
 
 1. At the command prompt, run the following command\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache describe-cache-clusters \

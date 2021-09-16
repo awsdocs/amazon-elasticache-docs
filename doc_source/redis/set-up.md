@@ -55,7 +55,7 @@ Before you can access ElastiCache programmatically or through the AWS Command Li
 
 Before you can access ElastiCache programatically or through the AWS CLI, you must configure your credentials to enable authorization for your applications\.
 
- There are several ways to do this\. For example, you can manually create the credentials file to store your access key ID and secret access key\. You also can use the `aws configure `command of the AWS CLI to automatically create the file\. Alternatively, you can use environment variables\. For more information about configuring your credentials, see the programming\-specific AWS SDK developer guide at [Tools to Build on AWS](https://docs.aws.amazon.com/https://aws.amazon.com/tools/)\.
+ There are several ways to do this\. For example, you can manually create the credentials file to store your access key ID and secret access key\. You also can use the `aws configure `command of the AWS CLI to automatically create the file\. Alternatively, you can use environment variables\. For more information about configuring your credentials, see the programming\-specific AWS SDK developer guide at [Tools to Build on AWS](https://aws.amazon.com/tools/)\.
 
 ## Downloading and Configuring the AWS CLI<a name="elasticache-install-configure-cli"></a>
 

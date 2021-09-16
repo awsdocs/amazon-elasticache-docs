@@ -23,7 +23,7 @@ To add a read replica to a Redis \(cluster mode disabled\) replication group, us
 
 The following example creates the cluster `my-read replica` and adds it to the replication group `my-replication-group`\. The node types, parameter groups, security groups, maintenance window, and other settings for the read replica are the same as for the other nodes in `my-replication-group`\. 
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-cache-cluster \

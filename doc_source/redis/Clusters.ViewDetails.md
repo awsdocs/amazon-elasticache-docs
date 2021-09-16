@@ -77,7 +77,7 @@ aws elasticache describe-cache-clusters --max-items 25
 ```
 
 **Example**  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache describe-cache-clusters \

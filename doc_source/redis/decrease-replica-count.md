@@ -54,7 +54,7 @@ You must include one and only one of the `--new-replica-count`, `--replicas-to-r
 
 **Example**  
 The following example uses `--new-replica-count` to decrease the number of replicas in the replication group `sample-repl-group` to one\. When the example is finished, there is one replica in each node group\. This number applies whether this is a Redis \(cluster mode disabled\) group with a single node group or a Redis \(cluster mode enabled\) group with multiple node groups\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache decrease-replica-count
@@ -71,7 +71,7 @@ aws elasticache decrease-replica-count ^
     --apply-immediately
 ```
 The following example decreases the number of replicas in the replication group `sample-repl-group` by removing two specified replicas \(`0001` and `0003`\) from the node group\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache decrease-replica-count \
@@ -88,7 +88,7 @@ aws elasticache decrease-replica-count ^
     --apply-immediately
 ```
 The following example uses `--replica-configuration` to decrease the number of replicas in the replication group `sample-repl-group` to the value specified for the two specified node groups\. Given that there are multiple node groups, this is a Redis \(cluster mode enabled\) replication group\. When specifying the optional `PreferredAvailabilityZones`, the number of Availability Zones listed must equal the value of `NewReplicaCount` plus 1 more\. This approach accounts for the primary node for the group identified by `NodeGroupId`\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache decrease-replica-count \

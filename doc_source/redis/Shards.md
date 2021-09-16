@@ -55,7 +55,7 @@ To find shard \(node group\) ids for either Redis \(cluster mode disabled\) or R
 
 **Example**  
 This command returns the details for `sample-repl-group`\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache describe-replication-groups \
@@ -140,7 +140,7 @@ To find shard \(node group\) ids for either Redis \(cluster mode disabled\) or R
 
 **Example**  
 This command returns the details for `sample-repl-group`\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 https://elasticache.us-west-2.amazonaws.com/

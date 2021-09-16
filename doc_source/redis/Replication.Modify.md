@@ -20,7 +20,7 @@ To modify a Redis \(cluster mode disabled\) cluster, see [Modifying an ElastiCac
 
 The following AWS CLI command enables Multi\-AZ on an existing Redis replication group\. You can use the same command to make other modifications to a replication group\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-replication-group \

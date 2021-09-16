@@ -14,6 +14,8 @@ RBAC is designed to support the introduction of [Redis ACL](https://redis.io/top
 + Redis 6 introduces the [ACL LIST](https://redis.io/commands/acl-list) command\. This command returns a list of users along with the ACL rules applied to each user\. ElastiCache for Redis supports the `ACL LIST` command, but does not include support for password hashes as Redis does\. With ElastiCache for Redis, you can use the [describe\-users](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-users.html) operation to get similar information, including the rules contained within the access string\. However, [describe\-users](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-users.html) doesn't retrieve a user password\. 
 
   Other read\-only commands supported by ElastiCache for Redis include [ACL WHOAMI](https://redis.io/commands/acl-whoami), [ACL USERS](https://redis.io/commands/acl-users), and [ACL CAT](https://redis.io/commands/acl-cat)\. ElastiCache for Redis doesn't support any other write\-based ACL commands\.
++ The following constraints apply:    
+<a name="quotas-table"></a>[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
 
 Using RBAC with ElastiCache for Redis is described in more detail following\.
 
@@ -27,7 +29,7 @@ Using RBAC with ElastiCache for Redis is described in more detail following\.
 
 To specify permissions to an ElastiCache for Redis replication group, you create an access string and assign it to a user, using either the AWS CLI or AWS Management Console\. 
 
-Access strings are defined as a list of space\-delimited rules which are applied on the user\. They define which commands a user can execute and which keys a user can operate on\. In order to execute a command, a user must have access to the command being executed and all keys being accessed by the command\. Rules are applied from left to right cumulatively, and a simpler string may be used instead of the one provided if there is redundancies in the string provided\.
+Access strings are defined as a list of space\-delimited rules which are applied on the user\. They define which commands a user can execute and which keys a user can operate on\. In order to execute a command, a user must have access to the command being executed and all keys being accessed by the command\. Rules are applied from left to right cumulatively, and a simpler string may be used instead of the one provided if there are redundancies in the string provided\.
 
 For information about the syntax of the ACL rules, see [ACL](https://redis.io/topics/acl)\. 
 
@@ -105,7 +107,7 @@ The following procedures shows how to swap the original `default` user with anot
 
 1. Create a new user with the user name `default` by using the following commands\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache create-user \
@@ -129,7 +131,7 @@ The following procedures shows how to swap the original `default` user with anot
 
 1. Create a user group and add the user that you created previously\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache create-user-group \
@@ -149,7 +151,7 @@ The following procedures shows how to swap the original `default` user with anot
 
 1. Swap the new `default` user with the original `default` user\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache modify-user-group \
@@ -197,7 +199,7 @@ Use the following procedures to manage users with the AWS CLI\.
 
   When a user is modified, the user groups associated with the user are updated, along with any replication groups associated with the user group\. All existing connections are maintained\. The following are examples\.
 
-  For Linux, OS X, or Unix:
+  For Linux, macOS, or Unix:
 
   ```
   aws elasticache modify-user \
@@ -240,7 +242,7 @@ We don't recommend using the `nopass` option\. If you do, we recommend setting t
 **To delete a user by using the CLI**
 + Use the `delete-user` command to delete a user\. The user account is deleted and removed from any user groups to which it belongs\. The following is an example\.
 
-  For Linux, OS X, or Unix:
+  For Linux, macOS, or Unix:
 
   ```
   aws elasticache delete-user \
@@ -327,7 +329,7 @@ Use the following procedures to manage user groups using the CLI\.
 **To create a new user group and add a user by using the CLI**
 + Use the `create-user-group` command as shown following\.
 
-  For Linux, OS X, or Unix:
+  For Linux, macOS, or Unix:
 
   ```
   aws elasticache create-user-group \
@@ -364,7 +366,7 @@ Use the following procedures to manage user groups using the CLI\.
 **To modify a user group by adding new users or removing current members by using the CLI**
 + Use the `modify-user-group` command as shown following\.
 
-  For Linux, OS X, or Unix:
+  For Linux, macOS, or Unix:
 
   ```
   aws elasticache modify-user-group --user-group-id new-group-1 \
@@ -410,7 +412,7 @@ Any open connections belonging to a user removed from a user group are ended by 
 **To delete a user group by using the CLI**
 + Use the `delete-user-group` command as shown following\. The user group itself, not the users belonging to the group, is deleted\.
 
-  For Linux, OS X, or Unix:
+  For Linux, macOS, or Unix:
 
   ```
   aws elasticache delete-user-group /
@@ -483,7 +485,7 @@ To add a user group to a replication using the AWS Management Console, do the fo
 + **\-\-user\-group\-ids** – This value provides user groups comprised of users with specified access permissions for the cluster\.
 + **\-\-cache\-subnet\-group** – Required for associating a user group\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-replication-group \
@@ -537,7 +539,7 @@ The preceding code returns the following response\.
 
 The following AWS CLI operation modifies a replication group with encryption in transit \(TLS\) enabled and the user\-group\-ids parameter with the value `my-user-group-id`\. 
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-replication-group \
@@ -628,7 +630,7 @@ Use the following procedure to migrate from Redis AUTH to RBAC using the CLI\.
 **To migrate from Redis AUTH to RBAC using the CLI**
 +  Use the `modify-replication-group` command as shown following\. 
 
-  For Linux, OS X, or Unix:
+  For Linux, macOS, or Unix:
 
   ```
     

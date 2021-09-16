@@ -38,7 +38,7 @@ The following AWS CLI operation creates a replication group with encryption in t
 + **\-\-auth\-token** – Required for HIPAA eligibility\. This value must be the correct token for this token\-protected Redis server\.
 + **\-\-cache\-subnet\-group** – Required for HIPAA eligibility\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-replication-group \
@@ -172,7 +172,7 @@ If you are authenticating users with Redis Role\-Based Access Control \(RBAC\) a
 **To migrate from RBAC to Redis AUTH using the AWS CLI**
 + Use one of the following commands\.
 
-  For Linux, OS X, or Unix:
+  For Linux, macOS, or Unix:
 
   ```
   aws elasticache modify-replication-group \

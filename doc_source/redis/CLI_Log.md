@@ -2,7 +2,7 @@
 
 Create a replication group with slow log delivery to CloudWatch Logs\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-replication-group \
@@ -46,7 +46,7 @@ aws elasticache create-replication-group ^
 
 Modify a replication group to deliver slow log to CloudWatch Logs
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-replication-group \
@@ -87,7 +87,7 @@ aws elasticache modify-replication-group ^
 
 Modify a replication group to disable slow log delivery
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-replication-group \

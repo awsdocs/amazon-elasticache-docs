@@ -90,8 +90,6 @@ A VPC peering connection is a networking connection between two VPCs that enable
 
 Accessing a cluster over a peering connection will incur additional data transfer costs\.
 
- 
-
 #### Using Transit Gateway<a name="elasticache-vpc-accessing-using-transit-gateway"></a>
 
 A transit gateway enables you to attach VPCs and VPN connections in the same AWS Region and route traffic between them\. A transit gateway works across AWS accounts, and you can use AWS Resource Access Manager to share your transit gateway with other accounts\. After you share a transit gateway with another AWS account, the account owner can attach their VPCs to your transit gateway\. A user from either account can delete the attachment at any time\.
@@ -116,7 +114,7 @@ Once the Transit Amazon VPC is established, an application deployed in a “spok
 
 **To access a cluster in a different VPC within a different AWS Region**
 
-1. Deploy a Transit VPC Solution\. For more information, see, [How do I build a global transit network on AWS?](https://aws.amazon.com/answers/networking/transit-vpc/)\.
+1. Deploy a Transit VPC Solution\. For more information, see, [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/)\.
 
 1. Update the VPC routing tables in the App and Cache VPCs to route traffic through the VGW \(Virtual Private Gateway\) and the VPN Appliance\. In case of Dynamic Routing with Border Gateway Protocol \(BGP\) your routes may be automatically propagated\.
 

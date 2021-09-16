@@ -16,7 +16,7 @@ You can't seed a Redis \(cluster mode disabled\) cluster from an \.rdb file crea
 **Important**  
 You must ensure that your Redis backup data doesn't exceed the resources of the node\. For example, you can't upload an \.rdb file with 5 GB of Redis data to a cache\.m3\.medium node that has 2\.9 GB of memory\.  
 If the backup is too large, the resulting cluster has a status of `restore-failed`\. If this happens, you must delete the cluster and start over\.  
-For a complete listing of node types and specifications, see [Redis node\-type specific parameters](ParameterGroups.Redis.md#ParameterGroups.Redis.NodeSpecific) and [Amazon ElastiCache product features and details](http://aws.amazon.com/elasticache/details/)\.
+For a complete listing of node types and specifications, see [Redis node\-type specific parameters](ParameterGroups.Redis.md#ParameterGroups.Redis.NodeSpecific) and [Amazon ElastiCache product features and details](https://aws.amazon.com/elasticache/details/)\.
 You can encrypt a Redis \.rdb file with Amazon S3 server\-side encryption \(SSE\-S3\) only\. For more information, see [Protecting data using server\-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html)\.
 
 Following, you can find topics that walk you through migrating your Redis cluster from outside ElastiCache for Redis to ElastiCache for Redis\.
@@ -60,7 +60,7 @@ When you have created the backup file, you need to upload it to a folder within 
      + Contains only lowercase letters, numbers, and dashes\.
    + Names can't be formatted as an IP address \(for example, 192\.0\.2\.0\)\.
 
-   We strongly recommend that you create your Amazon S3 bucket in the same AWS Region as your new ElastiCache for Redis cluster\. This approach makes sure that the highest data transfer speed when ElastiCache reads your \.rdb file from Amazon S3\.
+   You must create your Amazon S3 bucket in the same AWS Region as your new ElastiCache for Redis cluster\. This approach makes sure that the highest data transfer speed when ElastiCache reads your \.rdb file from Amazon S3\.
 **Note**  
 To keep your data as secure as possible, make the permissions on your Amazon S3 bucket as restrictive as you can\. At the same time, the permissions still need to allow the bucket and its contents to be used to seed your new Redis cluster\.
 

@@ -55,7 +55,7 @@ To create a parameter group using the AWS CLI, use the command `create-cache-par
 
 **Example**  
 The following example creates a parameter group named *myRed28* using the redis2\.8 family as the template\.   
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache create-cache-parameter-group \

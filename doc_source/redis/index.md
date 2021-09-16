@@ -1,6 +1,18 @@
 # Amazon ElastiCache for Redis User Guide
 
 -----
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+
+-----
+Amazon's trademarks and trade dress may not be used in 
+     connection with any product or service that is not Amazon's, 
+     in any manner that is likely to cause confusion among customers, 
+     or in any manner that disparages or discredits Amazon. All other 
+     trademarks not owned by Amazon are the property of their respective
+     owners, who may or may not be affiliated with, connected to, or 
+     sponsored by Amazon.
+
+-----
 ## Contents
 + [Comparing Memcached and Redis](SelectEngine.md)
 + [What is Amazon ElastiCache for Redis?](WhatIs.md)
@@ -36,6 +48,7 @@
    + [Redis nodes and shards](CacheNodes.NodeGroups.md)
    + [Connecting to nodes](nodes-connecting.md)
    + [Supported node types](CacheNodes.SupportedTypes.md)
+   + [Rebooting nodes (cluster mode disabled only)](nodes.rebooting.md)
    + [Replacing nodes](CacheNodes.NodeReplacement.md)
    + [ElastiCache reserved nodes](CacheNodes.Reserved.md)
 + [Managing clusters](Clusters.md)
@@ -45,7 +58,6 @@
    + [Creating a cluster](Clusters.Create.md)
    + [Viewing a cluster's details](Clusters.ViewDetails.md)
    + [Modifying an ElastiCache cluster](Clusters.Modify.md)
-   + [Rebooting a cluster](Clusters.Rebooting.md)
    + [Adding nodes to a cluster](Clusters.AddNode.md)
    + [Removing nodes from a cluster](Clusters.DeleteNode.md)
    + [Canceling pending add or delete node operations](Clusters.CancelPending.md)
@@ -69,6 +81,7 @@
       + [Mitigating failure issues when using Redis AOF](BestPractices.AOF.md)
       + [Best practices: Online cluster resizing](best-practices-online-resharding.md)
       + [Best practices: Minimizing downtime during maintenance](BestPractices.MinimizeDowntime.md)
+      + [Best practices: Redis clients and ElastiCache for Redis](BestPractices.Clients.md)
    + [Managing maintenance](maintenance-window.md)
    + [Replication across AWS Regions using global datastores](Redis-Global-Datastore.md)
       + [Prerequisites and limitations](Redis-Global-Datastores-Getting-Started.md)
@@ -126,6 +139,26 @@
          + [Online vertical scaling by modifying node type](redis-cluster-vertical-scaling.md)
             + [Online scaling up](redis-cluster-vertical-scaling-scaling-up.md)
             + [Online scaling down](redis-cluster-vertical-scaling-scaling-down.md)
+   + [Auto Scaling ElastiCache for Redis clusters](AutoScaling.md)
+      + [Auto Scaling policies](AutoScaling-Policies.md)
+      + [Using Auto Scaling with shards](AutoScaling-Using-Shards.md)
+         + [Target tracking scaling policies](AutoScaling-Scaling-Policies-Target.md)
+         + [Adding a scaling policy](AutoScaling-Scaling-Adding-Policy-Shards.md)
+         + [Registering a Scalable Target](AutoScaling-Scaling-Registering-Policy-CLI.md)
+         + [Defining a scaling policy](AutoScaling-Scaling-Defining-Policy-API.md)
+         + [Editing a scaling policy](AutoScaling-Scaling-Editing-a-Scaling-Policy.md)
+         + [Deleting a scaling policy](AutoScaling-Scaling-Deleting-a-Scaling-Policy.md)
+         + [Use AWS CloudFormation for Auto Scaling policies](AutoScaling-with-Cloudformation-Shards.md)
+         + [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Shards.md)
+      + [Using Auto Scaling with replicas](AutoScaling-Using-Replicas.md)
+         + [Target tracking scaling policies](AutoScaling-Scaling-Policies-Replicas-Replicas.md)
+         + [Adding a scaling policy](AutoScaling-Adding-Policy-Replicas.md)
+         + [Registering a Scalable Target](AutoScaling-Register-Policy.md)
+         + [Defining a scaling policy](AutoScaling-Defining-Policy.md)
+         + [Editing a scaling policy](AutoScaling-Editing-Policy.md)
+         + [Deleting a scaling policy](AutoScaling-Deleting-Policy.md)
+         + [Use AWS CloudFormation for Auto Scaling policies](AutoScaling-with-Cloudformation.md)
+         + [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Replicas.md)
    + [Configuring engine parameters using parameter groups](ParameterGroups.md)
       + [Parameter management](ParameterGroups.Management.md)
       + [Cache parameter group tiers](ParameterGroups.Tiers.md)
@@ -192,6 +225,7 @@
          + [Applying the self-service updates](applying-updates.md)
          + [Stopping the self-service updates](stopping-self-service-updates.md)
    + [Troubleshooting](TroubleshootingConnections.md)
++ [Quotas for ElastiCache](quota-limits.md)
 + [Reference](elasticache-api-reference.md)
    + [Using the ElastiCache API](ProgrammingGuide.md)
       + [Using the query API](ProgrammingGuide.QueryAPI.md)

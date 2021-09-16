@@ -63,7 +63,7 @@ The following procedure describes how to scale up a single\-node Redis cache clu
 1. Determine the node types you can scale up to by running the AWS CLI `list-allowed-node-type-modifications` command with the following parameter\.
    + `--cache-cluster-id`
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache list-allowed-node-type-modifications \
@@ -114,7 +114,7 @@ The following procedure describes how to scale up a single\-node Redis cache clu
    + `--cache-parameter-group-name` – \[Optional\] Use this parameter if you are using `reserved-memory` to manage your cluster's reserved memory\. Specify a custom cache parameter group that reserves the correct amount of memory for your new node type\. If you are using `reserved-memory-percent` you can omit this parameter\.
    + `--apply-immediately` – Causes the scale\-up process to be applied immediately\. To postpone the scale\-up process to the cluster's next maintenance window, use the `--no-apply-immediately` parameter\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache modify-cache-cluster \

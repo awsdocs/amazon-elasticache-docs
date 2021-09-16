@@ -58,7 +58,7 @@ The following code example uses the AWS CLI to enable Multi\-AZ for the replicat
 **Important**  
 The replication group `redis12` must already exist and have at least one available read replica\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-replication-group \
@@ -331,7 +331,7 @@ You can test automatic failover on any Multi\-AZ enabled cluster using the AWS C
 The following example uses the AWS CLI to test automatic failover on the node group `redis00-0003` in the Redis \(cluster mode enabled\) cluster `redis00`\.
 
 **Example Test automatic failover**  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache test-failover \

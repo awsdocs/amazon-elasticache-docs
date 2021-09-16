@@ -17,7 +17,7 @@ You must ensure that all four of the prerequisites mentioned following are satis
 
    At a minimum, all the following in the target ElastiCache deployment should be compatible with your Redis configuration for Redis replication: 
    + Your Redis cluster should be in cluster\-mode disabled configuration\.
-   + You Redis on EC2 instance should not have Redis AUTH enabled\.
+   + Your Redis on EC2 instance should not have Redis AUTH enabled\.
    + Redis config `protected-mode` should be set to `no`\.
    + If you have `bind` configuration in your Redis config, then it should be updated to allow requests from ElastiCache nodes\.
    + The number of logical databases should be the same on the ElastiCache node and your Redis on EC2 instance\. This value is set using `databases` in the Redis config\.

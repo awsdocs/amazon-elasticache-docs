@@ -39,7 +39,7 @@ If you want to enable in\-transit or at\-rest encryption on this replication gro
 
 The following command creates the replication group `sample-repl-group` using the available Redis \(cluster mode disabled\) cluster `redis01` as the replication group's primary node\. It creates 2 new nodes which are read replicas\. The settings of `redis01` \(that is, parameter group, security group, node type, engine version, and so on\.\) will be applied to all nodes in the replication group\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-replication-group \
@@ -83,7 +83,7 @@ Remember, a replication group cannot have more than five read replicas\. Attempt
 
 The following code adds the read replica `my-replica01` to the replication group `sample-repl-group`\. The settings of the primary cluster–parameter group, security group, node type, and so on\.–will be applied to nodes as they are added to the replication group\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache create-cache-cluster \

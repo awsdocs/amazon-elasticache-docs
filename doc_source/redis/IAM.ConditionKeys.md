@@ -496,7 +496,7 @@ This section shows example policies for implementing fine\-grained access contro
    }
    ```
 
-1. **elasticache:KmsKeyId**:   Specify usage of customer\-managed customer master keys \(CMK\)\. This key would complement the At\-Rest Encryption one\.
+1. **elasticache:KmsKeyId**:   Specify usage of customer managed AWS KMS keys\. This key would complement the At\-Rest Encryption one\.
 
    ```
    {

@@ -28,7 +28,7 @@ At a command prompt, use the `authorize-cache-security-group-ingress` command to
 + `--ec2-security-group-owner-id` – the id of the owner of the Amazon EC2 security group\.
 
 **Example**  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache authorize-cache-security-group-ingress \

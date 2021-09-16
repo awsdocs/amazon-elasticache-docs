@@ -33,7 +33,7 @@ Each region is designed to be completely isolated from the other regions\. Withi
 
 Some regions support a subset of node types\. For a table of supported node types by AWS Region, see [Supported node types by AWS Region](CacheNodes.SupportedTypes.md#CacheNodes.SupportedTypesByRegion)\.
 
-For a table of AWS products and services by region, see [Products and Services by Region](http://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
+For a table of AWS products and services by region, see [Products and Services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
 
 ## Locating your nodes<a name="RegionsAndAZs.AZMode"></a>
 
