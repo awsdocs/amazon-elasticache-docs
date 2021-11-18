@@ -31,7 +31,7 @@ When you change a cluster's parameters, the change is applied to the cluster eit
    + Maintenance Window
    + Topic for SNS Notification
 
-   The **Apply Immediately** box applies only to engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, engine version modifications are applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
+   The **Apply Immediately** box applies only to node type and engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, engine version modifications are applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
 
 1. Choose **Modify**\.
 
