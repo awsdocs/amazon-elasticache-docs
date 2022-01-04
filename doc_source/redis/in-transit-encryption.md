@@ -4,7 +4,7 @@ To help keep your data secure, Amazon ElastiCache and Amazon EC2 provide mechani
 
 In\-transit encryption is optional and can only be enabled on Redis replication groups when they are created\. You enable in\-transit encryption on a replication group by setting the parameter `TransitEncryptionEnabled` to `true` \(CLI: `--transit-encryption-enabled`\) when you create the replication group\. You can do this whether you are creating the replication group using the AWS Management Console, the AWS CLI, or the ElastiCache API\. If you enable in\-transit encryption, you must also provide a value for `CacheSubnetGroup`\.
 
-**Important**  
+**Important**
 The parameters `TransitEncryptionEnabled` \(CLI: `--transit-encryption-enabled`\) are only available when using the `CreateReplicationGroup` \(CLI: `create-replication-group`\) operation\.
 
 **Topics**
@@ -42,7 +42,7 @@ The following constraints on Amazon ElastiCache in\-transit encryption should be
 
 Because of the processing required to encrypt and decrypt the data at the endpoints, implementing in\-transit encryption can reduce performance\. Benchmark in\-transit encryption compared to no encryption on your own data to determine its impact on performance for your implementation\.
 
-**Tip**  
+**Tip**
 Because creating new connections can be expensive, you can reduce the performance impact of in\-transit encryption by persisting your SSL connections\.
 
 ## Enabling in\-transit encryption<a name="in-transit-encryption-enable"></a>
@@ -64,7 +64,7 @@ You can only enable in\-transit encryption when you create a Redis replication g
 1. Update the endpoints in your application to the new replication group's endpoints\. For more information, see [Finding connection endpoints](Endpoints.md)\.
 
 1. Delete the old replication group\. For more information, see the following:
-   + [Deleting a cluster](Clusters.Delete.md) 
+   + [Deleting a cluster](Clusters.Delete.md)
    + [Deleting a replication group](Replication.DeletingRepGroup.md)
 
  
@@ -114,7 +114,7 @@ Use the AWS CLI operation `create-replication-group` and the following parameter
     **\-\-replicas\-per\-node\-group**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **\-\-node\-group\-configuration**—Specifies the configuration of each shard independently\.
 
-  
+
 
 For more information, see the following:
 + [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
@@ -158,7 +158,7 @@ Use the ElastiCache API operation `CreateReplicationGroup` and the following par
     **ReplicasPerNodeGroup**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **NodeGroupConfiguration**—Specifies the configuration of each shard independently\.
 
-  
+
 
 For more information, see the following:
 + [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
@@ -168,7 +168,7 @@ For more information, see the following:
 
 
 
-To access data from ElastiCache for Redis nodes enabled with in\-transit encryption, you use clients that work with Secure Socket Layer \(SSL\)\. You can also use redis\-cli with TLS/SSL on Amazon linux and Amazon Linux 2\. 
+To access data from ElastiCache for Redis nodes enabled with in\-transit encryption, you use clients that work with Secure Socket Layer \(SSL\)\. You can also use redis\-cli with TLS/SSL on Amazon linux and Amazon Linux 2\.
 
 **To use redis\-cli to connect to a Redis cluster enabled with in\-transit encryption on Amazon Linux 2 or Amazon Linux**
 
@@ -179,24 +179,24 @@ To access data from ElastiCache for Redis nodes enabled with in\-transit encrypt
    Amazon Linux 2
 
    ```
-   $ sudo yum -y install openssl-devel gcc
-   $ wget http://download.redis.io/redis-stable.tar.gz
-   $ tar xvzf redis-stable.tar.gz
-   $ cd redis-stable
-   $ make distclean
-   $ make redis-cli BUILD_TLS=yes
-   $ sudo install -m 755 src/redis-cli /usr/local/bin/
+   sudo yum -y install openssl-devel gcc
+   wget http://download.redis.io/redis-stable.tar.gz
+   tar xvzf redis-stable.tar.gz
+   cd redis-stable
+   make distclean
+   make redis-cli BUILD_TLS=yes
+   sudo install -m 755 src/redis-cli /usr/local/bin/
    ```
 
    Amazon Linux
 
    ```
-   $ sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel clang wget
-   $ wget http://download.redis.io/redis-stable.tar.gz
-   $ tar xvzf redis-stable.tar.gz
-   $ cd redis-stable
-   $ make redis-cli CC=clang BUILD_TLS=yes
-   $ sudo install -m 755 src/redis-cli /usr/local/bin/
+   sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel clang wget
+   wget http://download.redis.io/redis-stable.tar.gz
+   tar xvzf redis-stable.tar.gz
+   cd redis-stable
+   make redis-cli CC=clang BUILD_TLS=yes
+   sudo install -m 755 src/redis-cli /usr/local/bin/
    ```
 
    On Amazon Linux, you may also need to run the following additional steps:
@@ -237,13 +237,13 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 
    ```
    vi /etc/stunnel/redis-cli.conf
-   
-   				
+
+
    fips = no
    setuid = root
    setgid = root
    pid = /var/run/stunnel.pid
-   debug = 7 
+   debug = 7
    delay = yes
    options = NO_SSLv2
    options = NO_SSLv3
@@ -272,19 +272,19 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 
    ```
    sudo netstat -tulnp | grep -i stunnel
-   				
-   tcp        0      0 127.0.0.1:6379              0.0.0.0:*                   LISTEN      3189/stunnel        
+
+   tcp        0      0 127.0.0.1:6379              0.0.0.0:*                   LISTEN      3189/stunnel
    tcp        0      0 127.0.0.1:6380              0.0.0.0:*                   LISTEN      3189/stunnel
    ```
 
 1. Connect to the encrypted Redis node using the local endpoint of the tunnel\.
-   + If no AUTH password was used during ElastiCache for Redis cluster creation, this example uses the redis\-cli to connect to the ElastiCache for Redis server using complete path for redis\-cli, on Amazon Linux: 
+   + If no AUTH password was used during ElastiCache for Redis cluster creation, this example uses the redis\-cli to connect to the ElastiCache for Redis server using complete path for redis\-cli, on Amazon Linux:
 
      ```
      /home/ec2-user/redis-stable/src/redis-cli -h localhost -p 6379
      ```
 
-     If AUTH password was used during Redis cluster creation, this example uses redis\-cli to connect to the Redis server using complete path for redis\-cli, on Amazon Linux: 
+     If AUTH password was used during Redis cluster creation, this example uses redis\-cli to connect to the Redis server using complete path for redis\-cli, on Amazon Linux:
 
      ```
       /home/ec2-user/redis-stable/src/redis-cli -h localhost -p 6379 -a my-secret-password
@@ -293,23 +293,23 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
    OR
    + Change directory to redis\-stable and do the following:
 
-     If no AUTH password was used during ElastiCache for Redis cluster creation, this example uses the redis\-cli to connect to the ElastiCache for Redis server using complete path for redis\-cli, on Amazon Linux: 
+     If no AUTH password was used during ElastiCache for Redis cluster creation, this example uses the redis\-cli to connect to the ElastiCache for Redis server using complete path for redis\-cli, on Amazon Linux:
 
      ```
      src/redis-cli -h localhost -p 6379
      ```
 
-     If AUTH password was used during Redis cluster creation, this example uses redis\-cli to connect to the Redis server using complete path for redis\-cli, on Amazon Linux: 
+     If AUTH password was used during Redis cluster creation, this example uses redis\-cli to connect to the Redis server using complete path for redis\-cli, on Amazon Linux:
 
      ```
-     src/redis-cli -h localhost -p 6379 -a my-secret-password	
+     src/redis-cli -h localhost -p 6379 -a my-secret-password
      ```
 
    This example uses Telnet to connect to the Redis server\.
 
    ```
    telnet localhost 6379
-   			
+
    Trying 127.0.0.1...
    Connected to localhost.
    Escape character is '^]'.

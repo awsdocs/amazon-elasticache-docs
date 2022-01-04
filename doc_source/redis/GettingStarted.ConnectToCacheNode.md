@@ -98,7 +98,7 @@ This process covers testing a connection using redis\-cli utility for unplanned 
 
    Amazon Linux 2
 
-   ```console
+   ```
    sudo amazon-linux-extras install epel -y
    sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel -y
    sudo wget http://download.redis.io/redis-stable.tar.gz
@@ -110,11 +110,11 @@ This process covers testing a connection using redis\-cli utility for unplanned 
    Amazon Linux
 
    ```
-   $sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel clang wget
-   $sudo wget http://download.redis.io/redis-stable.tar.gz
-   $sudo tar xvzf redis-stable.tar.gz
-   $cd redis-stable
-   $sudo CC=clang make BUILD_TLS=yes
+   sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel clang wget
+   sudo wget http://download.redis.io/redis-stable.tar.gz
+   sudo tar xvzf redis-stable.tar.gz
+   cd redis-stable
+   sudo CC=clang make BUILD_TLS=yes
    ```
 **Note**
 If the cluster you are connecting to isn't encrypted, you don't need the `Build_TLS=yes` option\.
