@@ -98,7 +98,7 @@ This process covers testing a connection using redis\-cli utility for unplanned 
 
    Amazon Linux 2
 
-   ```bash
+   ```console
    sudo amazon-linux-extras install epel -y
    sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel -y
    sudo wget http://download.redis.io/redis-stable.tar.gz
