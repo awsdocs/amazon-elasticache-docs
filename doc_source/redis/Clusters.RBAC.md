@@ -529,7 +529,7 @@ The preceding code returns the following response\.
         "SnapshotRetentionLimit": 0,
         "SnapshotWindow": "10:30-11:30",
         "ClusterEnabled": false,
-        "UserGroupIds": ["new-group-1"]
+        "UserGroupIds": ["new-group-1"],
         "CacheNodeType": "cache.m5.large",
         "TransitEncryptionEnabled": true,
         "AtRestEncryptionEnabled": false
