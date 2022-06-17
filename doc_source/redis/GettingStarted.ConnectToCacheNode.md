@@ -2,9 +2,9 @@
 
 Before you continue, complete [Step 3: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md)\.
 
-This section assumes that you've created an Amazon EC2 instance and can connect to it\. For instructions on how to do this, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/)\. 
+This section assumes that you've created an Amazon EC2 instance and can connect to it\. For instructions on how to do this, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/)\.
 
-An Amazon EC2 instance can connect to a cluster node only if you have authorized it to do so\. 
+An Amazon EC2 instance can connect to a cluster node only if you have authorized it to do so\.
 
 ## Find your node endpoints<a name="GettingStarted.FindEndpoints"></a>
 
@@ -16,9 +16,9 @@ If a Redis \(cluster mode disabled\) cluster has only one node, the node's endpo
 
 The primary endpoint is a DNS name that always resolves to the primary node in the cluster\. The primary endpoint is immune to changes to your cluster, such as promoting a read replica to the primary role\. For write activity, we recommend that your applications connect to the primary endpoint instead of connecting directly to the primary\.
 
-A reader endpoint will evenly split incoming connections to the endpoint between all read replicas in a ElastiCache for Redis cluster\. Additional factors such as when the application creates the connections or how the application \(re\)\-uses the connections will determine the traffic distribution\. Reader endpoints keep up with cluster changes in real\-time as replicas are added or removed\. You can place your ElastiCache for Redis cluster’s multiple read replicas in different AWS Availability Zones \(AZ\) to ensure high availability of reader endpoints\. 
+A reader endpoint will evenly split incoming connections to the endpoint between all read replicas in a ElastiCache for Redis cluster\. Additional factors such as when the application creates the connections or how the application \(re\)\-uses the connections will determine the traffic distribution\. Reader endpoints keep up with cluster changes in real\-time as replicas are added or removed\. You can place your ElastiCache for Redis cluster’s multiple read replicas in different AWS Availability Zones \(AZ\) to ensure high availability of reader endpoints\.
 
-**Note**  
+**Note**
 A reader endpoint is not a load balancer\. It is a DNS record that will resolve to an IP address of one of the replica nodes in a round robin fashion\.
 
 For read activity, applications can also connect to any node in the cluster\. Unlike the primary endpoint, node endpoints resolve to specific endpoints\. If you make a change in your cluster, such as adding or deleting a replica, you must update the node endpoints in your application\.
@@ -31,7 +31,7 @@ For read activity, applications can also connect to any node in the cluster\. Un
 
    The clusters screen will appear with a list of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\) clusters\. Choose the cluster you created in the [Creating a Redis \(cluster mode disabled\) cluster \(Console\)](GettingStarted.CreateCluster.md#Clusters.Create.CON.Redis-gs) section\.
 
-1. To find the cluster's Primary and/or Reader endpoints, choose the box to the left of cluster's name\.  
+1. To find the cluster's Primary and/or Reader endpoints, choose the box to the left of cluster's name\.
 ![\[Image: Primary endpoint for a Redis (cluster mode disabled) cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/Reader-Endpoint.png)
 
    *Primary and Reader endpoints for a Redis \(cluster mode disabled\) cluster*
@@ -40,7 +40,7 @@ For read activity, applications can also connect to any node in the cluster\. Un
 
 1. If the Redis \(cluster mode disabled\) cluster has replica nodes, you can find the cluster's replica node endpoints by choosing the cluster's name\.
 
-   The nodes screen appears with each node in the cluster, primary and replicas, listed with its endpoint\.  
+   The nodes screen appears with each node in the cluster, primary and replicas, listed with its endpoint\.
 ![\[Image: Node endpoints for a Redis (cluster mode disabled) cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-Endpoints-Redis-Node.png)
 
    *Node endpoints for a Redis \(cluster mode disabled\) cluster*
@@ -59,7 +59,7 @@ A Redis \(cluster mode disabled\) primary endpoint looks something like the foll
 
 ```
 clusterName.xxxxxx.nodeId.regionAndAz.cache.amazonaws.com:port
-			
+
 redis-01.7abc2d.0001.usw2.cache.amazonaws.com:6379
 ```
 
@@ -71,9 +71,9 @@ master.clusterName.xxxxxx.regionAndAz.cache.amazonaws.com:port
 master.ncit.ameaqx.use1.cache.amazonaws.com:6379
 ```
 
-Now that you have the endpoint you need, copy it to your clipboard for use in connecting to the cluster in the next step\. 
+Now that you have the endpoint you need, copy it to your clipboard for use in connecting to the cluster in the next step\.
 
-To further explore how to find your endpoints, see the relevant topics for the engine and cluster type you're running\. 
+To further explore how to find your endpoints, see the relevant topics for the engine and cluster type you're running\.
 + [Finding connection endpoints](Endpoints.md)
 + [Finding Endpoints for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)](Endpoints.md#Endpoints.Find.RedisCluster)—You need the cluster's Configuration endpoint\.
 + [Finding Endpoints \(AWS CLI\)](Endpoints.md#Endpoints.Find.CLI)
@@ -85,14 +85,14 @@ Now that you have the endpoint you need, you can log in to an EC2 instance and c
 
 The following example uses Amazon EC2 instances running Amazon Linux and Amazon Linux 2\. For details on installing and compiling redis\-cli with other Linux distributions, see the documentation for your specific operating system\.\.
 
-**Note**  
+**Note**
 This process covers testing a connection using redis\-cli utility for unplanned use only\. For a list of supported Redis clients, see the [Redis documentation](https://redis.io/)\. For examples of using the AWS SDKs with ElastiCache, see [Getting Started with ElastiCache and AWS SDKs](ElastiCache-Getting-Started-Tutorials.md)\.
 
 ### Download and install redis\-cli<a name="Download-and-install-redis-cli"></a>
 
 
 
-1. Connect to your Amazon EC2 instance using the connection utility of your choice\. For instructions on how to connect to an Amazon EC2 instance, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html)\. 
+1. Connect to your Amazon EC2 instance using the connection utility of your choice\. For instructions on how to connect to an Amazon EC2 instance, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html)\.
 
 1. Download and install redis\-cli utility by running following commands:
 
@@ -116,7 +116,7 @@ This process covers testing a connection using redis\-cli utility for unplanned 
    cd redis-stable
    sudo CC=clang make BUILD_TLS=yes
    ```
-**Note**  
+**Note**
 If the cluster you are connecting to isn't encrypted, you don't need the `Build_TLS=yes` option\.
 
 ### Connecting to a cluster mode disabled unencrypted\-cluster<a name="Connecting-to-a-cluster-mode-disabled-unencrypted-cluster"></a>
@@ -126,7 +126,7 @@ If the cluster you are connecting to isn't encrypted, you don't need the `Build_
    ```
    src/redis-cli -h cluster-endpoint -c -p port number
    ```
-**Note**  
+**Note**
 In the preceding command, option \-c enables cluster mode following [\-ASK and \-MOVED redirections](https://redis.io/topics/cluster-spec)\.
 
    The result in a Redis command prompt looks similar to the following:
@@ -159,12 +159,12 @@ In the preceding command, option \-c enables cluster mode following [\-ASK and \
 
 By default, redis\-cli uses an unencrypted TCP connection when connecting to Redis\. The option `BUILD_TLS=yes` enables SSL/TLS at the time of redis\-cli compilation as shown in the preceding [Download and install redis\-cli](#Download-and-install-redis-cli) section\. Enabling AUTH is optional\. However, you must enable encryption in\-transit in order to enable AUTH\. For more details on ElastiCache encryption and authentication, see [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)\.
 
-**Note**  
+**Note**
 You can use the option `--tls` with redis\-cli to connect to both cluster mode enabled and disabled encrypted clusters\. If a cluster has an AUTH token set, then you can use the option `-a` to provide an AUTH password\.
 
 In the following examples, be sure to replace *cluster\-endpoint* and *port number* with the endpoint of your cluster and your port number\. \(The default port for Redis is 6379\.\)
 
-**Connect to cluster mode disabled encrypted clusters** 
+**Connect to cluster mode disabled encrypted clusters**
 
 The following example connects to an encryption and authentication enabled cluster:
 
@@ -178,7 +178,7 @@ The following example connects to a cluster that has only encryption enabled:
 src/redis-cli -h cluster-endpoint --tls -p port number
 ```
 
-**Connect to cluster mode enabled encrypted clusters** 
+**Connect to cluster mode enabled encrypted clusters**
 
 The following example connects to an encryption and authentication enabled cluster:
 
@@ -224,7 +224,7 @@ In the following example, you use the *redis\-cli* utility to connect to a clust
 
 **To connect to a Redis cluster that is not encryption\-enabled using *redis\-cli***
 
-1. Connect to your Amazon EC2 instance using the connection utility of your choice\. For instructions on how to connect to an Amazon EC2 instance, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/)\. 
+1. Connect to your Amazon EC2 instance using the connection utility of your choice\. For instructions on how to connect to an Amazon EC2 instance, see the [Amazon EC2 Getting Started Guide](https://docs.aws.amazon.com/AWSEC2/latest/GettingStartedGuide/)\.
 
 1. Copy and paste the link [https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip](https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip) in an Internet browser to download the zip file for the Redis client from the available release at GitHub [https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504](https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504)
 
@@ -248,7 +248,7 @@ In the following example, you use the *redis\-cli* utility to connect to a clust
    get a                  // Get value for key "a"
    "hello"
    get b                  // Get value for key "b" results in miss
-   (nil)				
+   (nil)
    set b "Good-bye" EX 5  // Set key "b" with a string value and a 5 second expiration
    "Good-bye"
    get b                  // Get value for key "b"
@@ -266,7 +266,7 @@ In the following example, you use the *redis\-cli* utility to connect to a clust
    ```
    src/redis-cli -h cluster-endpoint -c -p port number
    ```
-**Note**  
+**Note**
 In the preceding command, option \-c enables cluster mode following [\-ASK and \-MOVED redirections](https://redis.io/topics/cluster-spec)\.
 
    The result in a Redis command prompt looks similar to the following:
@@ -299,12 +299,12 @@ In the preceding command, option \-c enables cluster mode following [\-ASK and \
 
 By default, redis\-cli uses an unencrypted TCP connection when connecting to Redis\. The option `BUILD_TLS=yes` enables SSL/TLS at the time of redis\-cli compilation as shown in the preceding [Download and install redis\-cli](#Download-and-install-redis-cli) section\. Enabling AUTH is optional\. However, you must enable encryption in\-transit in order to enable AUTH\. For more details on ElastiCache encryption and authentication, see [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)\.
 
-**Note**  
+**Note**
 You can use the option `--tls` with redis\-cli to connect to both cluster mode enabled and disabled encrypted clusters\. If a cluster has an AUTH token set, then you can use the option `-a` to provide an AUTH password\.
 
 In the following examples, be sure to replace *cluster\-endpoint* and *port number* with the endpoint of your cluster and your port number\. \(The default port for Redis is 6379\.\)
 
-**Connect to cluster mode disabled encrypted clusters** 
+**Connect to cluster mode disabled encrypted clusters**
 
 The following example connects to an encryption and authentication enabled cluster:
 
@@ -318,7 +318,7 @@ The following example connects to a cluster that has only encryption enabled:
 src/redis-cli -h cluster-endpoint --tls -p port number
 ```
 
-**Connect to cluster mode enabled encrypted clusters** 
+**Connect to cluster mode enabled encrypted clusters**
 
 The following example connects to an encryption and authentication enabled cluster:
 

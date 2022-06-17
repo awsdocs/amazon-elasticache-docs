@@ -34,21 +34,21 @@ Replace *PHP\-7\.x* with the version you are using\.
 
    1. If not installed, use the following command to install:
 
-       `sudo yum install -y amazon-linux-extras ` 
+       `sudo yum install -y amazon-linux-extras `
 
    1. Confirm that PHP 7\.x topic is available in the Amazon Linux 2 machine:
 
-       `sudo amazon-linux-extras | grep php ` 
+       `sudo amazon-linux-extras | grep php `
 
    1. From the output, review all PHP 7 topics and select the version you want:
 
-       `sudo amazon-linux-extras enable php7.x ` 
+       `sudo amazon-linux-extras enable php7.x `
 
    1. Install PHP packages from the repository\. For example:
 
        `sudo yum clean metadata`
 
-      `sudo yum install php php-devel ` 
+      `sudo yum install php php-devel `
 
 1. Download the Amazon ElastiCache Cluster Client\.
    + Open the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
@@ -255,7 +255,7 @@ Replace *php7\.x* with the version you are using\.
 1. Install PHP dependencies:
 
    ```
-   $ sudo yum install gcc-c++ php php-pear
+   sudo yum install gcc-c++ php php-pear
    ```
 
 1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\.
@@ -263,21 +263,21 @@ Replace *php7\.x* with the version you are using\.
 1. Install `php-memcached`\. The URI should be the download path for the installation package:
 
    ```
-   $ sudo pecl install <package download path>
+   sudo pecl install <package download path>
    ```
 
    Here is a sample installation command for PHP 5\.4, 64\-bit Linux\. In this sample, replace *X\.Y\.Z* with the actual version number:
 
    ```
-   $ sudo pecl install /home/AmazonElastiCacheClusterClient-X.Y.Z-PHP54-64bit.tgz
+   sudo pecl install /home/AmazonElastiCacheClusterClient-X.Y.Z-PHP54-64bit.tgz
    ```
-**Note**  
+**Note**
 Be sure to use the latest version of the install artifact\.
 
-1. With root/sudo permission, add a new file named `memcached.ini` in the `/etc/php.d` directory, and insert "extension=amazon\-elasticache\-cluster\-client\.so" in the file: 
+1. With root/sudo permission, add a new file named `memcached.ini` in the `/etc/php.d` directory, and insert "extension=amazon\-elasticache\-cluster\-client\.so" in the file:
 
    ```
-   $ echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php.d/memcached.ini
+   echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php.d/memcached.ini
    ```
 
 1. Start or restart your Apache server\.
@@ -327,31 +327,31 @@ Be sure to use the latest version of the install artifact\.
 1. Install PHP dependencies:
 
    ```
-   sudo apt-get update 
+   sudo apt-get update
    sudo apt-get install gcc g++ php5 php-pear
    ```
 
-1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\. 
+1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\.
 
-1. Install `php-memcached`\. The URI should be the download path for the installation package\. 
+1. Install `php-memcached`\. The URI should be the download path for the installation package\.
 
    ```
-   $ sudo pecl install <package download path>
+   sudo pecl install <package download path>
    ```
-**Note**  
-This installation step installs the build artifact `amazon-elasticache-cluster-client.so` into the `/usr/lib/php5/20121212*` directory\. Verify the absolute path of the build artifact, because you need it in the next step\. 
+**Note**
+This installation step installs the build artifact `amazon-elasticache-cluster-client.so` into the `/usr/lib/php5/20121212*` directory\. Verify the absolute path of the build artifact, because you need it in the next step\.
 
    If the previous command doesn't work, you need to manually extract the PHP client artifact `amazon-elasticache-cluster-client.so` from the downloaded `*.tgz` file, and copy it to the `/usr/lib/php5/20121212*` directory\.
 
    ```
-   $ tar -xvf <package download path>
+   tar -xvf <package download path>
    cp amazon-elasticache-cluster-client.so /usr/lib/php5/20121212/
    ```
 
 1. With root/sudo permission, add a new file named `memcached.ini` in the `/etc/php5/cli/conf.d` directory, and insert "extension=<absolute path to amazon\-elasticache\-cluster\-client\.so>" in the file\.
 
    ```
-   $ echo "extension=<absolute path to amazon-elasticache-cluster-client.so>" | sudo tee --append /etc/php5/cli/conf.d/memcached.ini
+   echo "extension=<absolute path to amazon-elasticache-cluster-client.so>" | sudo tee --append /etc/php5/cli/conf.d/memcached.ini
    ```
 
 1. Start or restart your Apache server\.
@@ -364,26 +364,26 @@ This installation step installs the build artifact `amazon-elasticache-cluster-c
 
 ### To install PHP 5 for SUSE Linux enterprise server 11 AMI \(64\-bit or 32\-bit\)<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.SuseLinux"></a>
 
-1. Launch a SUSE Linux instance \(either 64\-bit or 32\-bit\) and log into it\. 
+1. Launch a SUSE Linux instance \(either 64\-bit or 32\-bit\) and log into it\.
 
 1. Install PHP dependencies:
 
    ```
-   $ sudo zypper install gcc php53-devel
+   sudo zypper install gcc php53-devel
    ```
 
-1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\. 
+1. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version\. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.Downloading.md)\.
 
-1. Install `php-memcached`\. The URI should be the download path for the installation package\. 
+1. Install `php-memcached`\. The URI should be the download path for the installation package\.
 
    ```
-   $ sudo pecl install <package download path>
+   sudo pecl install <package download path>
    ```
 
 1. With root/sudo permission, add a new file named `memcached.ini` in the `/etc/php5/conf.d` directory, and insert **extension=`amazon-elasticache-cluster-client.so`** in the file\.
 
    ```
-   $ echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php5/conf.d/memcached.ini
+   echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php5/conf.d/memcached.ini
    ```
 
 1. Start or restart your Apache server\.
@@ -392,8 +392,8 @@ This installation step installs the build artifact `amazon-elasticache-cluster-c
    sudo /etc/init.d/httpd start
    ```
 
-**Note**  
-If Step 5 doesn't work for any of the previous platforms, verify the install path for `amazon-elasticache-cluster-client.so`\. Also, specify the full path of the binary in the extension\. In addition, verify that the PHP in use is a supported version\. We support versions 5\.3 through 5\.5\. 
+**Note**
+If Step 5 doesn't work for any of the previous platforms, verify the install path for `amazon-elasticache-cluster-client.so`\. Also, specify the full path of the binary in the extension\. In addition, verify that the PHP in use is a supported version\. We support versions 5\.3 through 5\.5\.
 
  
 
@@ -403,5 +403,5 @@ On some systems, notably CentOS7 and Red Hat Enterprise Linux \(RHEL\) 7\.1, `li
 
 ```
 cd /usr/lib64
-$ sudo ln libsasl2.so.3 libsasl2.so.2
+sudo ln libsasl2.so.3 libsasl2.so.2
 ```
