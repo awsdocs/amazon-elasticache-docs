@@ -3,7 +3,7 @@
 ElastiCache can publish messages using Amazon Simple Notification Service \(SNS\) when significant events happen on a cache cluster\. This feature can be used to refresh the server\-lists on client machines connected to individual cache node endpoints of a cache cluster\.
 
 **Note**  
-For more information on Amazon Simple Notification Service \(SNS\), including information on pricing and links to the Amazon SNS documentation, see the [Amazon SNS product page](http://aws.amazon.com/sns)\.
+For more information on Amazon Simple Notification Service \(SNS\), including information on pricing and links to the Amazon SNS documentation, see the [Amazon SNS product page](https://aws.amazon.com/sns)\.
 
 Notifications are published to a specified Amazon SNS *topic*\. The following are requirements for notifications:
 + Only one topic can be configured for ElastiCache notifications\.
@@ -11,6 +11,7 @@ Notifications are published to a specified Amazon SNS *topic*\. The following ar
 + The Amazon SNS topic you are publishing to cannot be encrypted\.
 **Note**  
 It is possible to attach an encrypted \(at\-rest\) Amazon SNS topic to the cluster\. However, the status of the topic from the ElastiCache console will show as inactive, which effectively disassociates the topic from the cluster when ElastiCache pushes messages to the topic\. 
++ The Amazon SNS topic has to be in the same Region as the ElastiCache cluster\.
 
 ## ElastiCache Events<a name="ElastiCacheSNS.Events"></a>
 

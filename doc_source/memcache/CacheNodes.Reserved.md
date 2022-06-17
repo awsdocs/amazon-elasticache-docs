@@ -2,19 +2,19 @@
 
 Reserving one or more nodes might be a way for you to reduce costs\. Reserved nodes are charged an up front fee that depends upon the node type and the length of reservation— one or three years\. 
 
-To see if reserved nodes are a cost savings for your use cases, first determine the node size and number of nodes you need\. Then estimate the usage of the node, and compare the total cost to you of using On\-Demand nodes versus reserved nodes\. You can mix and match reserved and On\-Demand node usage in your clusters\. For pricing information, see [Amazon ElastiCache Pricing](http://aws.amazon.com/elasticache/pricing/)\.
+To see if reserved nodes are a cost savings for your use cases, first determine the node size and number of nodes you need\. Then estimate the usage of the node, and compare the total cost to you of using On\-Demand nodes versus reserved nodes\. You can mix and match reserved and On\-Demand node usage in your clusters\. For pricing information, see [Amazon ElastiCache Pricing](https://aws.amazon.com/elasticache/pricing/)\.
 
 ## Managing costs with reserved nodes<a name="reserved-nodes"></a>
 
 Reserving one or more nodes may be a way for you to reduce costs\. Reserved nodes are charged an up front fee that depends upon the node type and the length of reservation—one or three years\. This charge is much less than the hourly usage charge that you incur with On\-Demand nodes\. 
 
-To see if reserved nodes are a cost savings for your use cases, first determine the node size and number of nodes you need\. Then estimate the usage of the node, and compare the total cost to you using On\-Demand nodes versus reserved nodes\. You can mix and match reserved and On\-Demand node usage in your clusters\. For pricing information, see [Amazon ElastiCache Pricing](http://aws.amazon.com/elasticache/pricing/)\.
+To see if reserved nodes are a cost savings for your use cases, first determine the node size and number of nodes you need\. Then estimate the usage of the node, and compare the total cost to you using On\-Demand nodes versus reserved nodes\. You can mix and match reserved and On\-Demand node usage in your clusters\. For pricing information, see [Amazon ElastiCache Pricing](https://aws.amazon.com/elasticache/pricing/)\.
 
 AWS Region, Cache Node Class, and term length must be chosen at purchase, and cannot be changed later\.
 
 You can use the AWS Management Console, the AWS CLI, or the ElastiCache API to list and purchase available reserved node offerings\.
 
-For more information on reserved nodes, see [Amazon ElastiCache Reserved Cache Nodes](http://aws.amazon.com/elasticache/reserved-cache-nodes/)\.
+For more information on reserved nodes, see [Amazon ElastiCache Reserved Cache Nodes](https://aws.amazon.com/elasticache/reserved-cache-nodes/)\.
 
 **Topics**
 + [Standard reserved node cache offerings](#reserved-nodes-standard)
@@ -62,4 +62,4 @@ Nodes purchased at one utilization level or term cannot be converted to a differ
 |  Light Utilization |  Lowest |  Hourly usage fee charged for each hour the node is running\. No hourly charge when the node is not running\. Highest hourly fees of all the offering types, but fees apply only when the reserved node is running\. |  Highest overall cost if you plan to run all of the time\. However, this is the lowest overall cost if you plan to use your reserved node infrequently, more than about 15 percent of a three\-year term\. | 
 |  On\-Demand Use \(No reserved nodes\) |  None |  Highest hourly fee\. Applied whenever the node is running\. |  Highest hourly cost\. | 
 
-For more information, see [Amazon ElastiCache Pricing](http://aws.amazon.com/elasticache/pricing/)\.
+For more information, see [Amazon ElastiCache Pricing](https://aws.amazon.com/elasticache/pricing/)\.

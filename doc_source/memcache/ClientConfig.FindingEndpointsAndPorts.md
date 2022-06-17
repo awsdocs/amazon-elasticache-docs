@@ -6,7 +6,7 @@ To connect to a cache node, your application needs to know the endpoint and port
 
  **To determine node endpoints and port numbers** 
 
-1. Sign in to the [Amazon ElastiCache management console](http://aws.amazon.com/elasticache) and choose the engine running on your cluster\.
+1. Sign in to the [Amazon ElastiCache management console](https://aws.amazon.com/elasticache) and choose the engine running on your cluster\.
 
    A list of all clusters running the chosen engine appears\.
 

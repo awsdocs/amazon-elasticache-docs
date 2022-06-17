@@ -4,5 +4,4 @@ Following, you can find recommended best practices for Amazon ElastiCache\. Foll
 
 **Topics**
 + [Caching strategies](Strategies.md)
-+ [Restricted Redis Commands](RestrictedCommands.md)
 + [Configuring your ElastiCache client for efficient load balancing](BestPractices.LoadBalancing.md)

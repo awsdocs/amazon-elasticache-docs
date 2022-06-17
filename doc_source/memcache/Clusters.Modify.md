@@ -35,18 +35,6 @@ When you change a cluster's parameters, the change is applied to the cluster eit
 
 1. Choose **Modify**\.
 
-**To enable/disable log delivery, do the following:**
-
-1. From the list of clusters, choose the cluster you want to modify\. Choose the **Cluster name** and not the checkbox beside it\.
-
-1. On the **Cluster name** page, choose the **Logs** tab\.
-
-1. To enable/disable slow logs, choose either **Enable slow logs** or **Disable slow logs**\.
-
-1. To change your configuration, choose **Modify slow logs**:
-   + Under **Destination Type**, choose either **CloudWatch Logs** or **Kinesis Firehose**\.
-   + Under **Log destination**, choose either **Create new** and enter either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name\. Or choose **Select existing** and then choose either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name\.
-
 ## Using the AWS CLI<a name="Clusters.Modify.CLI"></a>
 
 You can modify an existing cluster using the AWS CLI `modify-cache-cluster` operation\. To modify a cluster's configuration value, specify the cluster's ID, the parameter to change and the parameter's new value\. The following example changes the maintenance window for a cluster named `my-cluster` and applies the change immediately\.
@@ -54,7 +42,7 @@ You can modify an existing cluster using the AWS CLI `modify-cache-cluster` oper
 **Important**  
 You can upgrade to newer engine versions\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-cache-cluster \

@@ -25,7 +25,7 @@ To determine if your cluster is on the EC2\-Classic platform, see [Determine the
    + When prompted for confirmation, choose **Enable ClassicLink**\. 
    + \(Optional\) If you want the public DNS hostname to resolve to the private IP address, enable ClassicLink DNS support for the VPC before you link any instances\. For more information, see [Enable ClassicLink DNS support](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html#classiclink-enable-dns-support)\.
 
-1. Finally, you connect to an ElastiCache cluster from your EC2 instance following the steps at [Connect to a cluster's node](https://docs.aws.amazon.com/AAmazonElastiCache/latest/mem-ug/GettingStarted.ConnectToCacheNode.html)\.
+1. Finally, you connect to an ElastiCache cluster from your EC2 instance following the steps at [Connect to a cluster's node](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/GettingStarted.ConnectToCacheNode.html)\.
 
 **Note**  
 Previous generation node types might not be supported on the VPC platform\. For a full list of VPC supported node types, see [Supported node types by AWS Region](CacheNodes.SupportedTypes.md#CacheNodes.SupportedTypesByRegion)\.

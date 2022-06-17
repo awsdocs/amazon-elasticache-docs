@@ -55,7 +55,7 @@ To create a parameter group using the AWS CLI, use the command `create-cache-par
 
 **Example**  
 The following example creates a parameter group named *myMem14* using the memcached1\.4 family as the template\.   
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache create-cache-parameter-group \

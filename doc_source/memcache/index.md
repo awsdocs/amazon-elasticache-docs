@@ -1,6 +1,18 @@
 # Amazon ElastiCache ElastiCache for Memcached User Guide
 
 -----
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+
+-----
+Amazon's trademarks and trade dress may not be used in 
+     connection with any product or service that is not Amazon's, 
+     in any manner that is likely to cause confusion among customers, 
+     or in any manner that disparages or discredits Amazon. All other 
+     trademarks not owned by Amazon are the property of their respective
+     owners, who may or may not be affiliated with, connected to, or 
+     sponsored by Amazon.
+
+-----
 ## Contents
 + [What is Amazon ElastiCache for Memcached?](WhatIs.md)
    + [Common ElastiCache Use Cases and How ElastiCache Can Help](elasticache-use-cases.md)
@@ -26,6 +38,7 @@
    + [Supported node types](CacheNodes.SupportedTypes.md)
    + [Replacing nodes](CacheNodes.NodeReplacement.md)
    + [ElastiCache reserved nodes](CacheNodes.Reserved.md)
+   + [Migrating previous generation nodes](CacheNodes.NodeMigration.md)
 + [Managing clusters](Clusters.md)
    + [Preparing a cluster](Clusters.Prepare.md)
       + [Determining your requirements](cluster-create-determine-requirements.md)
@@ -71,7 +84,6 @@
       + [Managing your cost allocation tags using the ElastiCache API](Tagging.Managing.API.md)
    + [Caching strategies and best practices](BestPractices.md)
       + [Caching strategies](Strategies.md)
-      + [Restricted Redis Commands](RestrictedCommands.md)
       + [Configuring your ElastiCache client for efficient load balancing](BestPractices.LoadBalancing.md)
    + [Managing maintenance](maintenance-window.md)
    + [Scaling ElastiCache for Memcached clusters](Scaling.md)
@@ -85,6 +97,9 @@
       + [Deleting a parameter group](ParameterGroups.Deleting.md)
       + [Memcached specific parameters](ParameterGroups.Memcached.md)
 + [Security in Amazon ElastiCache](memcached-security.md)
+   + [Data protection in Amazon ElastiCache](data-protection.md)
+      + [Data security in Amazon ElastiCache](encryption.md)
+         + [ElastiCache in-transit encryption (TLS)](in-transit-encryption.md)
    + [Internetwork traffic privacy](Security.md)
       + [Amazon VPCs and ElastiCache security](VPCs.md)
          + [Understanding ElastiCache and Amazon VPCs](VPCs.EC.md)
@@ -92,6 +107,7 @@
          + [Migrating an EC2-Classic cluster into a VPC](Migrating-ec2-classic_to_VPC.md)
          + [Creating a Virtual Private Cloud (VPC)](VPCs.CreatingVPC.md)
          + [Connecting to a cache cluster running in an Amazon VPC](VPCs.Connecting.md)
+      + [Amazon ElastiCache API and interface VPC endpoints (AWS PrivateLink)](elasticache-privatelink.md)
       + [Subnets and subnet groups](SubnetGroups.md)
          + [Creating a subnet group](SubnetGroups.Creating.md)
          + [Assigning a subnet group to a cluster](SubnetGroups.Assigning.md)
@@ -131,6 +147,7 @@
          + [Stopping the self-service updates](stopping-self-service-updates.md)
             + [Stopping the service updates using the console](stopping-updates-console-memcached.md)
             + [Stopping the service updates using the AWS CLI](stopping-updates-cli-memcached.md)
++ [Quotas for ElastiCache](quota-limits.md)
 + [Reference](elasticache-api-reference.md)
    + [Using the ElastiCache API](ProgrammingGuide.md)
       + [Using the query API](ProgrammingGuide.QueryAPI.md)

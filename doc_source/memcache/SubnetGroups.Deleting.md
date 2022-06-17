@@ -21,7 +21,7 @@ The following procedures show you how to delete a subnet group\.
 Using the AWS CLI, call the command delete\-cache\-subnet\-group with the following parameter:
 + `--cache-subnet-group-name` *mysubnetgroup*
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache delete-cache-subnet-group \

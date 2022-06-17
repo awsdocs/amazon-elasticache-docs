@@ -20,7 +20,7 @@ You can use the AWS CLI to list tags on an existing ElastiCache resource by usin
 
 The following code uses the AWS CLI to list the tags on the Memcached cluster `my-cluster` in the us\-west\-2 region\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache list-tags-for-resource \
@@ -67,7 +67,7 @@ You can use the AWS CLI to add tags to an existing ElastiCache resource by using
 
 The following code uses the AWS CLI to add the keys `Service` and `Region` with the values `elasticache` and `us-west-2` respectively to the cluster `my-cluster` in region us\-west\-2\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache add-tags-to-resource \
@@ -122,7 +122,7 @@ You can use the AWS CLI to remove tags from an existing ElastiCache for Memcache
 
 The following code uses the AWS CLI to remove the tags with the keys `Service` and `Region` from the cluster `my-cluster` in the us\-west\-2 region\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache remove-tags-from-resource \

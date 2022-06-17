@@ -10,6 +10,7 @@ The 60\-minute maintenance window is chosen at random from an 8\-hour block of t
 | ap\-northeast\-1 | Asia Pacific \(Tokyo\) Region | 13:00–21:00 UTC | 
 | ap\-northeast\-2 | Asia Pacific \(Seoul\) Region | 12:00–20:00 UTC | 
 | ap\-northeast\-3 | Asia Pacific \(Osaka\) Region | 12:00–20:00 UTC | 
+| ap\-southeast\-3 | Asia Pacific \(Jakarta\) Region | 14:00–22:00 UTC | 
 | ap\-south\-1 | Asia Pacific \(Mumbai\) Region | 17:30–1:30 UTC | 
 | ap\-southeast\-1 | Asia Pacific \(Singapore\) Region | 14:00–22:00 UTC | 
 | cn\-north\-1 | China \(Beijing\) Region | 14:00–22:00 UTC | 

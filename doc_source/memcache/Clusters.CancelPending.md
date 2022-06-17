@@ -12,8 +12,7 @@ If you elected to not apply a change immediately, the operation has **pending** 
 
 1. In the list of clusters, choose the name of the cluster, not the box to the left of the cluster's name, that has pending operations that you want to cancel\.
 
-1. To determine what operations are pending, choose the **Description** tab and check to see how many pending creations or deletions are shown\. You cannot have both pending creations and pending deletions\.   
-![\[Image: Cluster description tab\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ModifyCacheCluster-DescriptionTab-PendActions.png)
+1. To determine what operations are pending, choose the **Description** tab and check to see how many pending creations or deletions are shown\. You cannot have both pending creations and pending deletions\. 
 
 1. Choose the **Nodes** tab\.
 

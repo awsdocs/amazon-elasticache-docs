@@ -52,7 +52,9 @@ Permission policy:
         "outposts:GetOutpost",
         "outposts:GetOutpostInstanceTypes",
         "outposts:ListOutposts",
-        "outposts:ListSites"
+        "outposts:ListSites",
+        "application-autoscaling:DeregisterScalableTarget",
+        "application-autoscaling:DescribeScalableTargets"
       ],
       "Resource": "*"
     }
@@ -108,11 +110,15 @@ You can use the IAM console to create a service\-linked role\.
 
 1. In the navigation pane of the IAM console, choose **Roles**\. Then choose **Create new role**\.
 
-1. Expand the **AWS service\-linked role** section, and then select the service that you want to allow to assume this new service\-linked role\.
+1. Under **Select type of trusted entity** choose **AWS Service**\.
 
-1. Next to the **AWSServiceRoleForElastiCache** service\-linked role, choose **Select**\.
+1. Under **Or select a service to view its use cases**, choose **ElastiCache**\.
 
-1. For **Role name**, type a suffix to add to the service\-linked role default name\. This suffix helps you identify the purpose of this role\. Role names must be unique within your AWS account\. They are not distinguished by case\. For example, you cannot create roles named both **<service\-linked\-role\-name>\_SAMPLE** and **<service\-linked\-role\-name>\_sample**\. Because various entities might reference the role, you cannot edit the name of the role after it has been created\.
+1. Choose **Next: Permissions**\.
+
+1. Under **Policy name**, note that the `ElastiCacheServiceRolePolicy` is required for this role\. Choose **Next:Tags**\.
+
+1. Note that tags are not supported for Service\-Linked roles\. Choose **Next:Review**\.
 
 1. \(Optional\) For **Role description**, edit the description for the new service\-linked role\.
 
@@ -169,11 +175,11 @@ You can use IAM operations from the AWS Command Line Interface to edit a service
    $ aws iam [get\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/get-role.html) --role-name AWSServiceRoleForElastiCache
    ```
 
-   Use the role name, not the ARN, to refer to roles with the CLI operations\. For example, if a role has the following ARN: `arn:aws-cn:iam::123456789012:role/myrole`, refer to the role as **myrole**\.
+   Use the role name, not the ARN, to refer to roles with the CLI operations\. For example, if a role has the following ARN: `arn:aws:iam::123456789012:role/myrole`, refer to the role as **myrole**\.
 
 1. To update a service\-linked role's description, use the AWS CLI for IAM operation `[update\-role\-description](https://docs.aws.amazon.com/cli/latest/reference/iam/update-role-description.html)`\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    $ aws iam [update\-role\-description](https://docs.aws.amazon.com/cli/latest/reference/iam/update-role-description.html) \
@@ -271,7 +277,7 @@ You can use IAM operations from the AWS Command Line Interface to delete a servi
    $ aws iam [get\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/get-role.html) --role-name role-name
    ```
 
-   Use the role name, not the ARN, to refer to roles with the CLI operations\. For example, if a role has the ARN `arn:aws-cn:iam::123456789012:role/myrole`, you refer to the role as **myrole**\.
+   Use the role name, not the ARN, to refer to roles with the CLI operations\. For example, if a role has the ARN `arn:aws:iam::123456789012:role/myrole`, you refer to the role as **myrole**\.
 
 1. Because a service\-linked role cannot be deleted if it is being used or has associated resources, you must submit a deletion request\. That request can be denied if these conditions are not met\. You must capture the `deletion-task-id` from the response to check the status of the deletion task\. Enter the following to submit a service\-linked role deletion request\.
 

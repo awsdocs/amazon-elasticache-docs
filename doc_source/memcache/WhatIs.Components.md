@@ -46,7 +46,7 @@ For more detailed information, see the following related topics:
 
   Information about ElastiCache limits, such as the maximum number of nodes or clusters\.
 
-  If you need to exceed these limits, make your request using the [Amazon ElastiCache cache node request form](http://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
+  If you need to exceed these limits, make your request using the [Amazon ElastiCache cache node request form](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
 + [Mitigating Failures](FaultTolerance.md)
 
   Information about improving the fault tolerance of your clusters\.

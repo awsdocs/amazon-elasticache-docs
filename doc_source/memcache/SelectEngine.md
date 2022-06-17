@@ -14,11 +14,14 @@ On the surface, the engines look similar\. Each of them is an in\-memory key\-va
 + You need to cache objects\.
 
 **Choose Redis with a version of ElastiCache for Redis if the following apply for you:**
-+ **ElastiCache for Redis version 6\.x \(Enhanced\)**
++ **ElastiCache for Redis version 6\.2 \(Enhanced\)**
+
+  You want the ability to tier data between memory and SSD using the r6gd node type\. For more information, see [Data tiering](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html)\.
++ **ElastiCache for Redis version 6\.0 \(Enhanced\)**
 
   You want to authenticate users with role\-based access control\.
 
-  For more information, see [Redis Version 6\.x \(Enhanced\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html#redis-version-6.x)\.
+  For more information, see [Redis Version 6\.0 \(Enhanced\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html#redis-version-6.0)\.
 + **ElastiCache for Redis version 5\.0\.0 \(Enhanced\)**
 
   You want to use [ Redis streams](https://redis.io/topics/streams-intro), a log data structure that allows producers to append new items in real time and also allows consumers to consume messages either in a blocking or non\-blocking fashion\.
@@ -74,13 +77,14 @@ Currently ElastiCache for Redis 3\.2\.10 doesn't support encryption\.
 
 |  |  Memcached  |  Redis \(cluster mode disabled\)  |  Redis \(cluster mode enabled\)  | 
 | --- |--- |--- |--- |
-| Engine versions | 1\.5\.x  | 2\.8\.x and later | 3\.2\.x and later | 
+| Engine versions | 1\.6\.6  | 2\.8\.x and later | 3\.2\.x and later | 
 | Data types | Simple  | 2\.8\.x \- Complex \* | 3\.2\.x and later \- Complex  | 
 | Complex  | 
 | Data partitioning | Yes | No | Yes | 
 | Cluster is modifiable | Yes | Yes | 3\.2\.10 and later \- Limited | 
 | Online resharding | No | No | 3\.2\.10 and later | 
 | Encryption | No | 3\.2\.6, 4\.0\.10 and later | 3\.2\.6, 4\.0\.10 and later | 
+| Data tiering | No | 6\.2 and later | 6\.2 and later | 
 | Compliance certifications | 
 | --- |
 | Compliance Certification     FedRAMP     HIPAA     PCI DSS |   No No No |   3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later |   3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later | 

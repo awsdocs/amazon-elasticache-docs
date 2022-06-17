@@ -6,12 +6,12 @@ You can restrict the scope of permissions by specifying resources in an IAM poli
 
 **Note**  
 For resource\-level permissions to be effective, the resource name on the ARN string should be lower case\.
-+ \(For Redis 6\.x onward\) User – arn:aws:elasticache:*us\-east\-2:123456789012*:user:user1
-+ \(For Redis 6\.x onward\) UserGroup – arn:aws:elasticache:*us\-east\-2:123456789012*:usergroup:my\-usergroup
++ \(For Redis 6\.0 onward\) User – arn:aws:elasticache:*us\-east\-2:123456789012*:user:user1
++ \(For Redis 6\.0 onward\) UserGroup – arn:aws:elasticache:*us\-east\-2:123456789012*:usergroup:my\-usergroup
 + Cluster – arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-cluster
 + Snapshot – arn:aws:elasticache:*us\-east\-2:123456789012*:snapshot:my\-snapshot
 + Parameter group – arn:aws:elasticache:*us\-east\-2:123456789012*:parametergroup:my\-parameter\-group
-+ Replication group – arn:aws:elasticache:*us\-east\-2:123456789012*:replication\-group:my\-replication\-group
++ Replication group – arn:aws:elasticache:*us\-east\-2:123456789012*:replicationgroup:my\-replication\-group
 + Security group – arn:aws:elasticache:*us\-east\-2:123456789012*:securitygroup:my\-security\-group
 + Subnet group – arn:aws:elasticache:*us\-east\-2:123456789012*:subnetgroup:my\-subnet\-group
 + Reserved instance – arn:aws:elasticache:*us\-east\-2:123456789012*:reservedinstance:my\-reserved\-instance

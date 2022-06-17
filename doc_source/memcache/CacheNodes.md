@@ -9,6 +9,7 @@ For a more detailed discussion of which node size to use, see [Choosing your Mem
 + [Supported node types](CacheNodes.SupportedTypes.md)
 + [Replacing nodes](CacheNodes.NodeReplacement.md)
 + [ElastiCache reserved nodes](CacheNodes.Reserved.md)
++ [Migrating previous generation nodes](CacheNodes.NodeMigration.md)
 
 Some important operations involving nodes are the following: 
 + [Adding nodes to a cluster](Clusters.AddNode.md)

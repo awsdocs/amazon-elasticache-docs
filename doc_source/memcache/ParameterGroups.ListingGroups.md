@@ -18,7 +18,7 @@ To generate a list of parameter groups using the AWS CLI, use the command `descr
 
 **Example**  
 The following sample code lists the parameter group *myMem14*\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache describe-cache-parameter-groups \

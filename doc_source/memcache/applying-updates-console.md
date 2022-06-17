@@ -95,7 +95,7 @@ In the **Service Updates Status** list, you can view the following:
   + **no**: The service update might have been applied successfully to one or more nodes, but other nodes within the cluster still have an **available** status\. This typically happens when a service update is applied and then stopped\. 
 **Note**  
 If you stop the progress of a service update on a cluster, any nodes that are already updated have a **complete** status\. Any nodes that have an **In Progress** or **Stopping** status revert to a **Stopped** status, and the **Service Update SLA Met** status changes to **no**\. 
-+ **Cluster Status Modified Date**: The latest date that the cluster was modified with a service update\.
++ **Cluster Status Modified Date**: The latest date that the update status was changed for a cluster\.
 
 **Note**  
 The **Show Previous Updates** check box, if selected, displays a list of previous updates that are no longer available\.

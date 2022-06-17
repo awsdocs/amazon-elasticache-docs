@@ -6,8 +6,6 @@ The following diagram illustrates a typical Memcached cluster\. Memcached cluste
 
 To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
 
- When you have multiple nodes in a shard, one of the nodes is a read/write primary node\. All other nodes in the shard are read\-only replicas\.
-
 A typical Memcached cluster looks as follows\.
 
 ![\[Image: Typical Memcached Cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ElastiCache-Cluster-Memcached.png)

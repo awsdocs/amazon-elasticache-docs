@@ -9,7 +9,8 @@
 **Topics**
 + [To install PHP 7\.x on an Amazon Linux 2 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu)
 + [To install PHP 7 on an Amazon Linux 201609 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux)
-+ [To install PHP 7 on an SUSE Linux AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux)
++ [To install PHP 7 on an SUSE Linux 15 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux)
++ [To install PHP 7\.x on an Ubuntu 22\.04 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.UbuntuLinux22)
 
 ### To install PHP 7\.x on an Amazon Linux 2 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu"></a>
 
@@ -53,13 +54,17 @@ Replace *PHP\-7\.x* with the version you are using\.
    + Open the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
      Under the ElastiCache dashboard, go to **ElastiCache Cluster Client** and then choose the PHP7 version you want\.
-   + From command line, replace `PHP-7.X` with the desired PHP version, and replace the `ARCH` with desired architecture \(X86 or arm\)\.
+   + From command line, replace `PHP-7.X` with the desired PHP version, and replace the `ARCH` with desired architecture \(X86 or arm\) and for PHP >= 7\.4 replace the OpenSSL with the desired OpenSSL version \(openssl1\.1 or openssl3\)\. If you are using PHP > 7\.4, remove OpenSSL suffix\.
 
      ```
-     wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.X/latest-64bit-<ARCH>
+     wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.X/latest-64bit-<ARCH>-<OpenSSL>
      ```
 
 1. Use `tar -zxvf` to extract the downloaded file\.
+
+   ```
+   tar -zxvf latest-64bit-<ARCH>-<OpenSSL>
+   ```
 
 1. With root permissions, copy the extracted artifact file `amazon-elasticache-cluster-client.so` into `/usr/lib64/php/modules`\.
 
@@ -69,13 +74,27 @@ Replace *PHP\-7\.x* with the version you are using\.
 
 1. Add `extension=amazon-elasticache-cluster-client.so` into file `/etc/php.ini`
 
+1. If you downloaded ElastiCache Cluster Client with PHP 7\.4 or higher, install OpenSSL 1\.1\.x or higher\. Installation instructions for OpenSSL 1\.1\.1:
+
+   ```
+   sudo yum -y update
+   sudo yum install -y make gcc perl-core pcre-devel wget zlib-devel
+   wget https://www.openssl.org/source/openssl-1.1.1c.tar.gz
+   tar xvf openssl-1.1.1c.tar.gz
+   cd openssl-1.1.1c
+   ./config 
+   make
+   sudo make install
+   sudo ln -s /usr/local/lib64/libssl.so.1.1 /usr/lib64/libssl.so.1.1
+   ```
+
  
 
 ### To install PHP 7 on an Amazon Linux 201609 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux"></a>
 
 Replace *php7\.x* with the version you are using\.
 
-1. Launch a new instance from the AMI\. For more information, see [Step 1: Launch an instance](https://docs.aws.amazon.com/https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance) in the *Amazon EC2 User Guide\.*
+1. Launch a new instance from the AMI\. For more information, see [Step 1: Launch an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance) in the *Amazon EC2 User Guide\.*
 
 1. Run the following command:
 
@@ -121,7 +140,7 @@ Replace *php7\.x* with the version you are using\.
 
  
 
-### To install PHP 7 on an SUSE Linux AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux"></a>
+### To install PHP 7 on an SUSE Linux 15 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux"></a>
 
 Replace *php7\.x* with the version you are using\.
 
@@ -130,6 +149,8 @@ Replace *php7\.x* with the version you are using\.
 1. Run the following command:
 
    ```
+   sudo zypper refresh
+   sudo zypper update -y
    sudo zypper install gcc
    ```
 
@@ -139,16 +160,23 @@ Replace *php7\.x* with the version you are using\.
    sudo yum install php7.x
    ```
 
-1. Download the Amazon ElastiCache Cluster Client\.
+   or
 
    ```
-   wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.x/latest-64bit
+   sudo zypper addrepo http://download.opensuse.org/repositories/devel:/languages:/php/openSUSE_Leap_15.3/ php
+   sudo zypper install php7
+   ```
+
+1. Download the Amazon ElastiCache Cluster Client, replace <ARCH> with desired architecture \(X86 or arm\)\. SUSE 15 comes with OpenSSL1\.1 built in, so for PHP >= 7\.4 choose the client binary with OpenSSL1\. If you are using PHP < 7\.4, remove OpenSSL suffix\.
+
+   ```
+   wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.x/latest-64bit-<ARCH>-openssl1.1
    ```
 
 1. Extract `latest-64bit`\.
 
    ```
-   tar -zxvf latest-64bit
+   tar -zxvf latest-64bit-<ARCH>-openssl1.1
    ```
 
 1. With root permission, copy the extracted artifact file `amazon-elasticache-cluster-client.so` into `/usr/lib64/php7/extensions/`\.
@@ -168,6 +196,46 @@ Replace *php7\.x* with the version you are using\.
    ```
    sudo /etc/init.d/httpd start
    ```
+
+ 
+
+### To install PHP 7\.x on an Ubuntu 22\.04 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.UbuntuLinux22"></a>
+
+Replace *php7\.x* with the version you are using\.
+
+1. Launch a new instance from the AMI\.
+
+1. Run the following command:
+
+   ```
+   sudo apt-get update
+   sudo apt-get install gcc g++ make
+   ```
+
+1. Install PHP 7\.x\. Installation instructions for PHP 7\.4: 
+
+   ```
+   sudo apt -y install software-properties-common
+   sudo add-apt-repository ppa:ondrej/php
+   sudo apt-get update
+   sudo apt -y install php7.4
+   ```
+
+1. Download the Amazon ElastiCache Cluster Client, replace <ARCH> with desired architecture \(X86 or arm\)\. Ubuntu 22\.04 comes with OpenSSL3 built in, so for PHP >= 7\.4 choose the client binary with OpenSSL3\. If you are using PHP < 7\.4, remove OpenSSL suffix\.
+
+   ```
+   wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.x/latest-64bit-<ARCH>-openssl3
+   ```
+
+1. Extract latest\-64bit\.
+
+   ```
+   tar -zxvf latest-64bit-<ARCH>-openssl3
+   ```
+
+1. With root permission, copy the extracted artifact file `amazon-elasticache-cluster-client.so` into the php extension directory `/usr/lib/php/20190902`\. In case this extension dir does not exist, you can find it by running: `php -i | grep extension_dir`
+
+1. Insert the line `extension=amazon-elasticache-cluster-client.so` into the file `/etc/php/7.x/cli/php.ini`\.
 
  
 

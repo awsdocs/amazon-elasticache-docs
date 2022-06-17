@@ -3,6 +3,8 @@
 For information on which node size to use, see [Choosing your Memcached node size](nodes-select-size.md#CacheNodes.SelectSize)\. 
 
 ElastiCache supports the following node types\. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts\.
+
+For more information on performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/)\.
 + General purpose:
   + Current generation: 
 
@@ -16,10 +18,14 @@ For region availability, see [Supported node types by AWS Region](#CacheNodes.Su
 
     **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
 
+    **T4g node types** \(available only for Memcached engine version 1\.5\.16 onward\)\.
+
+     `cache.t4g.micro`, `cache.t4g.small`, `cache.t4g.medium` 
+
     **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
 
     **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
-  + Previous generation: \(not recommended\)
+  + Previous generation: \(not recommended\. Existing clusters are still supported but creation of new clusters is not supported for these types\.\)
 
     **T1 node types:** `cache.t1.micro`
 
@@ -30,12 +36,14 @@ For region availability, see [Supported node types by AWS Region](#CacheNodes.Su
   + Previous generation: \(not recommended\)
 
     **C1 node types:** `cache.c1.xlarge`
++ Memory optimized with data tiering:
+  + Current generation: 
 + Memory optimized:
   + Current generation: 
 
-    **R6g node types** \(available only for Memcached engine version 1\.5\.16 onward\)\.
+    \(**R6g node types** are available only for Memcached engine version 1\.5\.16 onward\.\)
 
-     `cache.r6g.large`, `cache.r6g.xlarge`, `cache.r6g.2xlarge`, `cache.r6g.4xlarge`, `cache.r6g.8xlarge`, `cache.r6g.12xlarge`, `cache.r6g.16xlarge` 
+    **R6g node types:** `cache.r6g.large`, `cache.r6g.xlarge`, `cache.r6g.2xlarge`, `cache.r6g.4xlarge`, `cache.r6g.8xlarge`, `cache.r6g.12xlarge`, `cache.r6g.16xlarge` `cache.r6g.24xlarge` 
 **Note**  
 For region availability, see [Supported node types by AWS Region](#CacheNodes.SupportedTypesByRegion)\.
 
@@ -48,15 +56,18 @@ For region availability, see [Supported node types by AWS Region](#CacheNodes.Su
 
     **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
 
-You can launch general\-purpose burstable T3\-Standard and T2\-Standard cache nodes in Amazon ElastiCache\. These nodes provide a baseline level of CPU performance with the ability to burst CPU usage at any time until the accrued credits are exhausted\. A *CPU credit* provides the performance of a full CPU core for one minute\.
+You can launch general\-purpose burstable T4g, T3\-Standard and T2\-Standard cache nodes in Amazon ElastiCache\. These nodes provide a baseline level of CPU performance with the ability to burst CPU usage at any time until the accrued credits are exhausted\. A *CPU credit* provides the performance of a full CPU core for one minute\.
 
-Amazon ElastiCache's T3 and T2 nodes are configured as standard and suited for workloads with an average CPU utilization that is consistently below the baseline performance of the instance\. To burst above the baseline, the node spends credits that it has accrued in its CPU credit balance\. If the node is running low on accrued credits, performance is gradually lowered to the baseline performance level\. This gradual lowering ensures the node doesn't experience a sharp performance drop\-off when its accrued CPU credit balance is depleted\. For more information, see [CPU Credits and Baseline Performance for Burstable Performance Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html) in the *Amazon EC2 User Guide*\.**
+Amazon ElastiCache's T4g, T3 and T2 nodes are configured as standard and suited for workloads with an average CPU utilization that is consistently below the baseline performance of the instance\. To burst above the baseline, the node spends credits that it has accrued in its CPU credit balance\. If the node is running low on accrued credits, performance is gradually lowered to the baseline performance level\. This gradual lowering ensures the node doesn't experience a sharp performance drop\-off when its accrued CPU credit balance is depleted\. For more information, see [CPU Credits and Baseline Performance for Burstable Performance Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html) in the *Amazon EC2 User Guide*\.**
 
 The following table lists the burstable performance node types, the rate at which CPU credits are earned per hour\. It also shows the maximum number of earned CPU credits that a node can accrue and the number of vCPUs per node\. In addition, it gives the baseline performance level as a percentage of a full core performance \(using a single vCPU\)\.
 
 
 | Node type | CPU credits earned per hour |  Maximum earned credits that can be accrued\* |  vCPUs  |  Baseline performance per vCPU  |  Memory \(GiB\)  |  Network performance  | 
 | --- | --- | --- | --- | --- | --- | --- | 
+| t4g\.micro | 12 | 288 | 2 | 10% | 0\.5 | Up to 5 Gigabit | 
+| t4g\.small | 24 | 576 | 2 | 20% | 1\.37 | Up to 5 Gigabit | 
+| t4g\.medium | 24 | 576 | 2 | 20% | 3\.09 | Up to 5 Gigabit | 
 | t3\.micro | 12 | 288 | 2 | 10% | 0\.5 | Up to 5 Gigabit | 
 | t3\.small | 24 | 576 | 2 | 20% | 1\.37 | Up to 5 Gigabit | 
 | t3\.medium | 24 | 576 | 2 | 20% | 3\.09 | Up to 5 Gigabit | 
@@ -85,36 +96,8 @@ Supported engine versions vary by AWS Region\. The latest engine versions are su
 
 ## Supported node types by AWS Region<a name="CacheNodes.SupportedTypesByRegion"></a>
 
-The following table lists supported node types for each AWS Region\.
-
-
-| AWS Region name | AWS Region |  T3  |  T2  |  M4  |  M5  |  M6g  |  R4  |  R5  |  R6g  | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| US East \(Ohio\) | us\-east\-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| US East \(N\. Virginia\) | us\-east\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| US West \(N\. California\) | us\-west\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| US West \(Oregon\) | us\-west\-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Los Angeles \(Local Zone\) | us\-west\-2\-lax\-1a | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Los Angeles \(Local Zone\) | us\-west\-2\-lax\-1b | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Canada \(Central\) | ca\-central\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Tokyo\) | ap\-northeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Seoul\) | ap\-northeast\-2 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Asia Pacific \(Osaka\) | ap\-northeast\-3 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Asia Pacific \(Singapore\) | ap\-southeast\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Sydney\) | ap\-southeast\-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Asia Pacific \(Hong Kong\) | ap\-east\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Europe \(Stockholm\) | eu\-north\-1 | Yes | No | Yes | Yes | No | Yes | Yes | No | 
-| Europe \(Frankfurt\) | eu\-central\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Europe \(Ireland\) | eu\-west\-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Europe \(London\) | eu\-west\-2 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| EU \(Paris\) | eu\-west\-3 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| South America \(São Paulo\) | sa\-east\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| China \(Beijing\) | cn\-north\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| China \(Ningxia\) | cn\-northwest\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| Middle East \(Bahrain\) | me\-south\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
-| AWS GovCloud \(US\-West\) | us\-gov\-west\-1 | Yes | Yes | Yes | Yes | No | Yes | Yes | No | 
+See [Amazon ElastiCache pricing](https://aws.amazon.com/elasticache/pricing/)\.
 
 For a complete list of node types and specifications, see the following:
-+ [Amazon ElastiCache Product Features and Details](http://aws.amazon.com/elasticache/details)
++ [Amazon ElastiCache Product Features and Details](https://aws.amazon.com/elasticache/details)
 + [Memcached Node\-Type Specific Parameters](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html)

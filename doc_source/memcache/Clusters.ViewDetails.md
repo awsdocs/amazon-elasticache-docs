@@ -46,7 +46,7 @@ aws elasticache describe-cache-clusters --max-items 25
 ```
 
 **Example**  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache describe-cache-clusters \
@@ -130,6 +130,7 @@ This operation produces output similar to the following \(JSON format\):
             "PendingModifiedValues": {}, 
             "PreferredMaintenanceWindow": "sat:09:00-sat:10:00", 
             "CacheNodeType": "cache.m3.medium"
+            
         }
     ]
 }

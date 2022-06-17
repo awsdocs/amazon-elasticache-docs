@@ -39,7 +39,7 @@ aws elasticache delete-cache-cluster --cache-cluster-id my-cluster
 
 The `delete-cache-cluster` CLI action only deletes one cache cluster\. To delete multiple cache clusters, call `delete-cache-cluster` for each cache cluster that you want to delete\. You do not need to wait for one cache cluster to finish deleting before deleting another\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache delete-cache-cluster \

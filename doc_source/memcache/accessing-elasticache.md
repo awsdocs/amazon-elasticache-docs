@@ -45,7 +45,7 @@ The following procedure uses the AWS CLI to determine whether you launched your 
 
 1. At the command prompt, run the following command\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache describe-cache-clusters \
@@ -97,7 +97,8 @@ The following procedure uses the AWS CLI to determine whether you launched your 
            "EngineVersion": "3.2.10", 
            "PendingModifiedValues": {}, 
            "PreferredMaintenanceWindow": "sat:05:30-sat:06:30", 
-           "CacheNodeType": "cache.t2.medium"
+           "CacheNodeType": "cache.t2.medium",
+           
        }
    ]
    }
@@ -203,7 +204,7 @@ It is possible to create a Certificate Authority \(CA\) using different techniqu
   + Select **Review and import**\.
   + Select **Import**\.
 
-  To submit the server's certificates to ACM using the AWS CLI, run the following command: `aws acm import-certificate --certificate fileb://easy-rsa/pki/issued/server.crt --private-key file://easy-rsa/pki/private/server.key --certificate-chain file://easy-rsa/pki/ca.crt --region region`
+  To submit the server's certificates to ACM using the AWS CLI, run the following command: `aws acm import-certificate --certificate fileb://easy-rsa/pki/issued/server.crt --private-key fileb://easy-rsa/pki/private/server.key --certificate-chain file://easy-rsa/pki/ca.crt --region region`
 
   Note the Certificate ARN for future use\.
 

@@ -36,6 +36,6 @@ For more information, see the following:
 
 ## ElastiCache Customer Testimonials<a name="elasticache-use-cases-testimonials"></a>
 
-To learn about how businesses like Airbnb, PBS, Esri, and others use Amazon ElastiCache to grow their businesses with improved customer experience, see [How Others Use Amazon ElastiCache](http://aws.amazon.com/elasticache/testimonials/)\.
+To learn about how businesses like Airbnb, PBS, Esri, and others use Amazon ElastiCache to grow their businesses with improved customer experience, see [How Others Use Amazon ElastiCache](https://aws.amazon.com/elasticache/testimonials/)\.
 
 You can also watch the [ElastiCache Videos](Tutorials.md#tutorial-videos) for additional ElastiCache customer use cases\.

@@ -38,8 +38,6 @@ You can delete a node from a cluster using the AWS Management Console, the AWS C
 
 To determine what operations are pending, choose the **Description** tab and check to see how many pending creations or deletions are shown\. You cannot have both pending creations and pending deletions\. 
 
-![\[Image: Cluster description tab\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ModifyCacheCluster-DescriptionTab-PendActions.png)
-
 ## Using the AWS CLI<a name="Clusters.DeleteNode.CLI"></a>
 
 1. Identify the IDs of the nodes that you want to remove\. For more information, see [Viewing a cluster's details](Clusters.ViewDetails.md)\.
@@ -55,7 +53,7 @@ To determine what operations are pending, choose the **Description** tab and che
 
    The following example immediately removes node 0001 from the cluster my\-cluster\.
 
-   For Linux, OS X, or Unix:
+   For Linux, macOS, or Unix:
 
    ```
    aws elasticache modify-cache-cluster \
@@ -115,7 +113,8 @@ To determine what operations are pending, choose the **Description** tab and che
                ]
            }, 
            "PreferredMaintenanceWindow": "sat:09:00-sat:10:00", 
-           "CacheNodeType": "cache.m3.medium"
+           "CacheNodeType": "cache.m3.medium",
+            
        }
    }
    ```

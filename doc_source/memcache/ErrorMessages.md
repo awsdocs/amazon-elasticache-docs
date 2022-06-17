@@ -7,13 +7,13 @@ The following error messages are returned by Amazon ElastiCache\. You may receiv
 
 Error Message: **Cluster node quota exceeded\. Each cluster can have at most *%n* nodes in this region\.**  <a name="ErrorMessages.ClusterNodeQuota"></a>
 **Cause:** You attempted to create or modify a cluster with the result that the cluster would have more than *%n* nodes\.   
-**Solution:** Change your request so that the cluster does not have more than *%n* nodes\. Or, if you need more than *%n* nodes, make your request using the [Amazon ElastiCache Node request form](http://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.  
+**Solution:** Change your request so that the cluster does not have more than *%n* nodes\. Or, if you need more than *%n* nodes, make your request using the [Amazon ElastiCache Node request form](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.  
 For more information, see [Amazon ElastiCache Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_elasticache) in *Amazon Web Services General Reference*\.  
  
 
 Error Messages: **Customer node quota exceeded\. You can have at most *%n* nodes in this region** Or, **You have already reached your quota of %s nodes in this region\.**  <a name="ErrorMessages.CACHE_CLUSTER_CUSTOMER_QUOTA_EXCEEDED"></a>
 **Cause:** You attempted to create or modify a cluster with the result that your account would have more than *%n* nodes across all clusters in this region\.  
-**Solution:** Change your request so that the total nodes in the region across all clusters for this account does not exceed *%n*\. Or, if you need more than *%n* nodes, make your request using the [Amazon ElastiCache Node request form](http://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.  
+**Solution:** Change your request so that the total nodes in the region across all clusters for this account does not exceed *%n*\. Or, if you need more than *%n* nodes, make your request using the [Amazon ElastiCache Node request form](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.  
 For more information, see [Amazon ElastiCache Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_elasticache) in *Amazon Web Services General Reference*\.  
  
 

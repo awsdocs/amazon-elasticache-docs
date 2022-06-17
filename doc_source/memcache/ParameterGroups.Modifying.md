@@ -38,7 +38,7 @@ To change a parameter's value using the AWS CLI, use the command `modify-cache-p
 **Example**  
 To find the name and permitted values of the parameter you want to change, see [Memcached specific parameters](ParameterGroups.Memcached.md)  
 The following sample code sets the value of two parameters, *chunk\_size* and *chunk\_size\_growth\_fact* on the parameter group `myMem14`\.  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache modify-cache-parameter-group \
@@ -66,8 +66,6 @@ Output from this command will look something like this\.
 
 For more information, see [https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-parameter-group.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-parameter-group.html)\.
 
-If changes to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a cluster](Clusters.Rebooting.md)\.
-
 ## Modifying a parameter group \(ElastiCache API\)<a name="ParameterGroups.Modifying.API"></a>
 
 To change a parameter group's parameter values using the ElastiCache API, use the `ModifyCacheParameterGroup` action\.
@@ -92,5 +90,3 @@ https://elasticache.us-west-2.amazonaws.com/
 ```
 
 For more information, see [https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html)\.
-
-After updating and saving the parameter, if the change to the parameter take place *After restart*, reboot every cluster that uses this parameter group\. For more information, see [Rebooting a cluster](Clusters.Rebooting.md)\.

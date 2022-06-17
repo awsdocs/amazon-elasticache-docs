@@ -24,7 +24,7 @@ In a scenario where you want to have 35 GB of cache memory, you can set up any o
 **Comparing node options**  
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html)
 
-These options each provide similar memory capacity but different computational capacity and cost\. To compare the costs of your specific options, see [Amazon ElastiCache Pricing](http://aws.amazon.com/elasticache/pricing/)\.
+These options each provide similar memory capacity but different computational capacity and cost\. To compare the costs of your specific options, see [Amazon ElastiCache Pricing](https://aws.amazon.com/elasticache/pricing/)\.
 
 For clusters running Memcached, some of the available memory on each node is used for connection overhead\. For more information, see [Memcached connection overhead](ParameterGroups.Memcached.md#ParameterGroups.Memcached.Overhead)
 

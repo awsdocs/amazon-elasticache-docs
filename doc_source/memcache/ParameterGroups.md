@@ -5,7 +5,7 @@ Amazon ElastiCache uses parameters to control the runtime properties of your nod
 As you would expect, some parameter values, such as `maxmemory`, are determined by the engine and node type\. For a table of these parameter values by node type, see [Memcached node\-type specific parameters](ParameterGroups.Memcached.md#ParameterGroups.Memcached.NodeSpecific)\.
 
 **Note**  
-For a list of Memcached\-specific parameters, see [Memcached Specific Parameters](https://docs.aws.amazon.com/en_us/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html)\.
+For a list of Memcached\-specific parameters, see [Memcached Specific Parameters](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html)\.
 
 **Topics**
 + [Parameter management](ParameterGroups.Management.md)

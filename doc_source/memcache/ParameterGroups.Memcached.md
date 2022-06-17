@@ -28,7 +28,7 @@ For Memcached 1\.5\.10, the following additional parameters are supported\.
 
 | Name | Details | Description | 
 | --- | --- | --- | 
-| no\_modern  | Default: 0 Type: boolean Modifiable: Yes Allowed\_Values: 0,1 Changes Take Effect: At launch  |  An alias for disabling `slab_reassign`, `slab_automove`, `lru_crawler`, `lru_maintainer`, `maxconns_fast` commands\. `No modern` also sets the hash\_algorithm to `jenkins` and allows inlining of ASCII VALUE\. Applicable to memcached 1\.5 and higher\. To revert to `modern`, which is now the default, you must re\-launch\. | 
+| no\_modern  | Default: 1 Type: boolean Modifiable: Yes Allowed\_Values: 0,1 Changes Take Effect: At launch  |  An alias for disabling `slab_reassign`, `slab_automove`, `lru_crawler`, `lru_maintainer`, `maxconns_fast` commands\. `No modern` also sets the hash\_algorithm to `jenkins` and allows inlining of ASCII VALUE\. Applicable to memcached 1\.5 and higher\. To revert to modern, you must disable this parameter and re\-launch, which will automatically enable `slab_reassign`, `slab_automove`, `lru_crawler`, `lru_maintainer`, and `maxconns_fast`\. The default configuration value for this parameter has been changed from 0 to 1 as of August 20, 2021\. The updated default value will get automatically picked up by new elasticache users for each regions after August 20th, 2021\. Existing ElastiCache users in the regions before August 20th, 2021 need to manually modify their custom parameter groups in order to pick up this new change\.  | 
 | inline\_ascii\_resp  | Default: 0 Type: boolean Modifiable: Yes Allowed\_Values: 0,1 Changes Take Effect: At launch  |  Stores numbers from `VALUE` response, inside an item, using up to 24 bytes\. Small slowdown for ASCII `get`, `faster` sets\.  | 
 
 For Memcached 1\.5\.10, the following parameters are removed\.
@@ -117,7 +117,7 @@ For Memcached 1\.4\.5, the following parameters are supported\.
 | lock\_down\_paged\_memory | Default: 0 \(false\) Type: Boolean Modifiable: No | If 1 \(true\), ElastiCache will lock down all paged memory\. | 
 | max\_item\_size | Default: 1048576 Type: integer Modifiable: Yes Changes Take Effect: After restart | The size, in bytes, of the largest item that can be stored in the cluster\. | 
 | max\_simultaneous\_connections | Default: 65000 Type: integer Modifiable: No | The maximum number of simultaneous connections\. | 
-| maximize\_core\_file\_limit | Default: 0 \(false\) Type: Boolean Modifiable:  Changes Take Effect: No | If 1 \(true\), ElastiCache will maximize the core file limit\. | 
+| maximize\_core\_file\_limit | Default: 0 \(false\) Type: Boolean Modifiable:  Changes Take Effect: After restart | If 1 \(true\), ElastiCache will maximize the core file limit\. | 
 | memcached\_connections\_overhead | Default: 100 Type: integer Modifiable: Yes Changes Take Effect: After restart | The amount of memory to be reserved for Memcached connections and other miscellaneous overhead\. For information about this parameter, see [Memcached connection overhead](#ParameterGroups.Memcached.Overhead)\. | 
 | requests\_per\_event | Default: 20 Type: integer Modifiable: No | The maximum number of requests per event for a given connection\. This limit is required to prevent resource starvation\. | 
 
@@ -148,6 +148,9 @@ Although most parameters have a single value, some parameters have different val
 | cache\.t3\.micro | 512 | 2 | 
 | cache\.t3\.small | 1402 | 2 | 
 | cache\.t3\.medium | 3364 | 2 | 
+| cache\.t4g\.micro | 512 | 2 | 
+| cache\.t4g\.small | 1402 | 2 | 
+| cache\.t4g\.medium | 3164 | 2 | 
 | cache\.m1\.small | 1301 | 1 | 
 | cache\.m1\.medium | 3350 | 1 | 
 | cache\.m1\.large | 7100 | 2 | 

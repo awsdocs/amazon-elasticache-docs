@@ -45,3 +45,5 @@ You are now ready to download the ElastiCache Cluster Client\.
 1. From the ElastiCache console, choose **ElastiCache Cluster Client**\.
 
 1. From the **Download ElastiCache Memcached Cluster Client** list, choose the ElastiCache Cluster Client that matches your PHP version and AMI architecture, then choose the **Download** button\.
+
+   For a TLS supported client download the binary with PHP version 7\.4 or higher\.

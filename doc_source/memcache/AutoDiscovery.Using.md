@@ -14,7 +14,7 @@ You can also use the `aws elasticache describe-cache-clusters` command with the 
 Whatever method you use to find the cluster's endpoints, the configuration endpoint will always have **\.cfg** in its address\.
 
 **Example Finding endpoints using the AWS CLI for ElastiCache**  
-For Linux, OS X, or Unix:  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache describe-cache-clusters \
@@ -96,10 +96,11 @@ To take advantage of Auto Discovery, client programs must use the *ElastiCache C
 
 1. From the ElastiCache console, choose **ElastiCache Cluster Client** then choose **Download**\.
 
-The source code for the ElastiCache Cluster Client for Java is available at [https://github\.com/amazonwebservices/aws\-elasticache\-cluster\-client\-memcached\-for\-java](https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java)\. This library is based on the popular Spymemcached client\. The ElastiCache Cluster Client is released under the Amazon Software License [http://aws\.amazon\.com/asl](http://aws.amazon.com/asl)\. You are free to modify the source code as you see fit\. You can even incorporate the code into other open source Memcached libraries, or into your own client code\.
+The source code for the ElastiCache Cluster Client for Java is available at [https://github\.com/amazonwebservices/aws\-elasticache\-cluster\-client\-memcached\-for\-java](https://github.com/amazonwebservices/aws-elasticache-cluster-client-memcached-for-java)\. This library is based on the popular Spymemcached client\. The ElastiCache Cluster Client is released under the Amazon Software License [https://aws\.amazon\.com/asl](https://aws.amazon.com/asl)\. You are free to modify the source code as you see fit\. You can even incorporate the code into other open source Memcached libraries, or into your own client code\.
 
 **Note**  
 To use the ElastiCache Cluster Client for PHP, you will first need to install it on your Amazon EC2 instance\. For more information, see [Installing the ElastiCache cluster client for PHP](Appendix.PHPAutoDiscoverySetup.md)\.  
+For a TLS supported client download the binary with PHP version 7\.4 or higher\.  
 To use the ElastiCache Cluster Client for \.NET, you will first need to install it on your Amazon EC2 instance\. For more information, see [Installing the ElastiCache cluster client for \.NET](Appendix.DotNETAutoDiscoverySetup.md)\.
 
 ## Step 3: Modify Your Application Program<a name="AutoDiscovery.Using.ModifyApp"></a>

@@ -3,7 +3,7 @@
 ElastiCache and CloudWatch are integrated so you can gather a variety of metrics\. You can monitor these metrics using CloudWatch\. 
 
 **Note**  
-The following examples require the CloudWatch command line tools\. For more information about CloudWatch and to download the developer tools, see the [ CloudWatch product page](http://aws.amazon.com/cloudwatch)\. 
+The following examples require the CloudWatch command line tools\. For more information about CloudWatch and to download the developer tools, see the [ CloudWatch product page](https://aws.amazon.com/cloudwatch)\. 
 
 The following procedures show you how to use CloudWatch to gather storage space statistics for an cache cluster for the past hour\. 
 
@@ -39,7 +39,7 @@ Selecting more than 20 nodes disables viewing metrics on the console\.
 ## Monitoring CloudWatch Cluster and Node Metrics using the CloudWatch CLI<a name="CloudWatchMetrics.CLI"></a>
 
  **To gather CPU utilization statistics for a cache cluster** 
-+ For Linux, OS X, or Unix:
++ For Linux, macOS, or Unix:
 
   ```
   aws cloudwatch get-metric-statistics \

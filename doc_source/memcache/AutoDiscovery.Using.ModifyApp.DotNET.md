@@ -1,5 +1,8 @@
 # Using the ElastiCache Cluster Client for \.NET<a name="AutoDiscovery.Using.ModifyApp.DotNET"></a>
 
+**Note**  
+The ElastiCache \.NET cluster client has been deprecated as of May, 2022\.
+
 \.NET client for ElastiCache is open source at [https://github\.com/awslabs/elasticache\-cluster\-config\-net](https://github.com/awslabs/elasticache-cluster-config-net)\.
 
  \.NET applications typically get their configurations from their config file\. The following is a sample application config file\.

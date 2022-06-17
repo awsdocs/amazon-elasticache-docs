@@ -16,7 +16,7 @@ To mitigate the impact of a node failure, spread your cached data over more node
 
 When you create your Memcached cluster you can create it with 1 to 40 nodes, or more by special request\. Partitioning your data across a greater number of nodes means you'll lose less data if a node fails\. For example, if you partition your data across 10 nodes, any single node stores approximately 10% of your cached data\. In this case, a node failure loses approximately 10% of your cache which needs to be replaced when a replacement node is created and provisioned\. If the same data were cached in 3 larger nodes, the failure of a node would lose approximately 33% of your cached data\.
 
-If you need more than 40 nodes in a Memcached cluster, or more than 300 nodes total in an AWS Region, fill out the ElastiCache Limit Increase Request form at [http://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](http://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
+If you need more than 40 nodes in a Memcached cluster, or more than 300 nodes total in an AWS Region, fill out the ElastiCache Limit Increase Request form at [https://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
 
 For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster \(console\)](Clusters.Create.md#Clusters.Create.CON.Memcached)\.
 

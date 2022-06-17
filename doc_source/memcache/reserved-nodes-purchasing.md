@@ -50,7 +50,7 @@ When you choose **Yes, Purchase** you incur the charges for the reserved nodes y
 
  Type the following command at a command prompt: 
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 1. aws elasticache purchase-reserved-cache-nodes-offering \

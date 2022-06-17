@@ -1,7 +1,7 @@
 # ElastiCache for Memcached resources<a name="WhatIs.FirstTimeUser"></a>
 
 We recommend that you begin by reading the following sections, and refer to them as you need them:
-+ **Service Highlights and Pricing** – The [product detail page](http://aws.amazon.com/elasticache/) provides a general product overview of ElastiCache, service highlights, and pricing\.
++ **Service Highlights and Pricing** – The [product detail page](https://aws.amazon.com/elasticache/) provides a general product overview of ElastiCache, service highlights, and pricing\.
 + **ElastiCache Videos** – The [ElastiCache Videos](Tutorials.md#tutorial-videos) section has videos that introduce you to Amazon ElastiCache for Memcached, cover common use cases, and demo how to use ElastiCache for Memcached to reduce latency and improve throughput of your applications\.
 + **Getting Started** – The [Getting started with Amazon ElastiCache for Memcached](GettingStarted.md) section includes an example that walks you through the process of creating a cache cluster, authorizing access to the cache cluster, connecting to a cache node, and deleting the cache cluster\.
 + **Performance at Scale** – The [Performance at scale with Amazon ElastiCache](https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf) white paper addresses caching strategies that enable your application to perform well at scale\.
@@ -23,7 +23,7 @@ If you want to use the AWS Command Line Interface \(AWS CLI\), you can use these
   This separate document covers all of the AWS CLI for ElastiCache commands, including syntax and examples\.
 
 You can write application programs to use the ElastiCache API with a variety of popular programming languages\. Here are some resources:
-+ [Tools for AWSlong;](http://aws.amazon.com/tools/)
++ [Tools for AWSlong;](https://aws.amazon.com/tools/)
 
   AWSlong; provides a number of software development kits \(SDKs\) with support for ElastiCache for Memcached\. You can code for ElastiCache using Java, \.NET, PHP, Ruby, and other languages\. These SDKs can greatly simplify your application development by formatting your requests to ElastiCache, parsing responses, and providing retry logic and error handling\. 
 + [Using the ElastiCache API](ProgrammingGuide.md)

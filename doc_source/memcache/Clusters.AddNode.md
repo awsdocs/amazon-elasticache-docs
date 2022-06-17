@@ -1,6 +1,6 @@
 # Adding nodes to a cluster<a name="Clusters.AddNode"></a>
 
-Adding nodes to a Memcached cluster increases the number of you cluster's partitions\. When you change the number of partitions in a cluster some of your key spaces need to be remapped so that they are mapped to the right node\. Remapping key spaces temporarily increases the number of cache misses on the cluster\. For more information, see [Configuring your ElastiCache client for efficient load balancing](BestPractices.LoadBalancing.md)\.
+Adding nodes to a Memcached cluster increases the number of your cluster's partitions\. When you change the number of partitions in a cluster some of your key spaces need to be remapped so that they are mapped to the right node\. Remapping key spaces temporarily increases the number of cache misses on the cluster\. For more information, see [Configuring your ElastiCache client for efficient load balancing](BestPractices.LoadBalancing.md)\.
 
 You can use the ElastiCache Management Console, the AWS CLI or ElastiCache API to add nodes to your cluster\.
 
@@ -29,8 +29,7 @@ The following procedure can be used to add nodes to a cluster\.
 **Impact of New Add and Remove Requests on Pending Requests**    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Clusters.AddNode.html)
 
-   To determine what operations are pending, choose the **Description** tab and check to see how many pending creations or deletions are shown\. You cannot have both pending creations and pending deletions\.   
-![\[Image: Cluster description tab\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ModifyCacheCluster-DescriptionTab-PendActions.png)
+   To determine what operations are pending, choose the **Description** tab and check to see how many pending creations or deletions are shown\. You cannot have both pending creations and pending deletions\. 
 
 1. Choose the **Add** button\.
 
@@ -43,7 +42,7 @@ To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `modify-c
 + `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied\. To add nodes to this cluster, `--num-cache-nodes` must be greater than the current number of nodes in this cluster\. If this value is less than the current number of nodes, ElastiCache expects the parameter `cache-node-ids-to-remove` and a list of nodes to remove from the cluster\. For more information, see [Using the AWS CLI](Clusters.DeleteNode.md#Clusters.DeleteNode.CLI)\.
 + `--apply-immediately` or `--no-apply-immediately` which specifies whether to add these nodes immediately or at the next maintenance window\.
 
-For Linux, OS X, or Unix:
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-cache-cluster \
@@ -96,7 +95,8 @@ This operation produces output similar to the following \(JSON format\):
             "NumCacheNodes": 5
         }, 
         "PreferredMaintenanceWindow": "sat:09:00-sat:10:00", 
-        "CacheNodeType": "cache.m3.medium"
+        "CacheNodeType": "cache.m3.medium",
+         
     }
 }
 ```
