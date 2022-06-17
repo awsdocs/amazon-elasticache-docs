@@ -5,6 +5,11 @@ The node size you select for your cluster impacts costs, performance, and fault 
 ## Choosing your node size<a name="CacheNodes.SelectSize"></a>
 
 Answering the following questions can help you determine the minimum node type you need for your Redis implementation:
++ Do you have workloads that access a small percentage of their data regularly?
+
+  If this is the case and you are running on Redis engine version 6\.2 or later, you can leverage data tiering by choosing the r6gd node type\. With data tiering, least\-recently used data is stored in SSD\. When it is retrieved there is a small latency cost, which is balanced by cost savings\. For more information, see [Data tiering](data-tiering.md)\.
+
+  For more information, see [Supported node types](CacheNodes.SupportedTypes.md)\.
 + How much total memory do you need for your data?
 
   To get a general estimate, take the size of the items that you want to cache\. Multiply this size by the number of items that you want to keep in the cache at the same time\. To get a reasonable estimation of the item size, first serialize your cache items, then count the characters\. Then divide this over the number of shards in your cluster\.

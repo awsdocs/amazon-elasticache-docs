@@ -1,6 +1,9 @@
 # Stopping the self\-service updates<a name="stopping-self-service-updates"></a>
 
-You can stop updates to Redis clusters if needed\. For example, you might want to stop updates if you have an unexpected surge to your Redis clusters that are undergoing updates\. Or you might want to stop updates if they're taking too long and interrupting your business flow at a peak time\.
+You may stop updates to Redis clusters if needed\. For example, you might want to stop updates if you have an unexpected surge to your Redis clusters that are undergoing updates\. Or you might want to stop updates if they're taking too long and interrupting your business flow at a peak time\.
+
+**Note**  
+If the service update in progress is of **engine** update type and it includes a Redis engine version update, it will not be possible to stop the upgrade once the operation started\. This is to ensure your cluster runs the same Redis engine version across all nodes\. Service update description will describe the type of Redis engine version update\. It can also be found in the PHD, SNS or Email notifications\.
 
 The [Stopping](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_BatchApplyStopAction.html) operation immediately interrupts all updates to those clusters and any nodes that are yet to be updated\. It continues to completion any nodes that have an **in progress** status\. However, it ceases updates to other nodes in the same cluster that have an **update available** status and reverts them to a **Stopping** status\.
 

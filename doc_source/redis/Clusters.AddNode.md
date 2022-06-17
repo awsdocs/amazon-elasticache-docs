@@ -62,8 +62,7 @@ The following procedure can be used to add nodes to a cluster\.
 **Impact of New Add and Remove Requests on Pending Requests**    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.AddNode.html)
 
-   To determine what operations are pending, choose the **Description** tab and check to see how many pending creations or deletions are shown\. You cannot have both pending creations and pending deletions\.   
-![\[Image: Cluster description tab\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ModifyCacheCluster-DescriptionTab-PendActions.png)
+   To determine what operations are pending, choose the **Description** tab and check to see how many pending creations or deletions are shown\. You cannot have both pending creations and pending deletions\. 
 
 1. Choose the **Add** button\.
 
@@ -165,6 +164,7 @@ This operation produces output similar to the following \(JSON format\):
         "SnapshotWindow": "07:30-08:30",
         "ClusterEnabled": false,
         "CacheNodeType": "cache.r5.large",
+         "DataTiering": "disabled"
         "TransitEncryptionEnabled": false,
         "AtRestEncryptionEnabled": false,
         "ARN": "arn:aws:elasticache:us-west-2:123456789012:replicationgroup:node-test"

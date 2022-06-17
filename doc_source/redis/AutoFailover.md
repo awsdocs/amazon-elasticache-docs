@@ -21,7 +21,7 @@ Enabling ElastiCache Multi\-AZ on your Redis cluster \(in the API and CLI, repli
 + [Enabling Multi\-AZ](#AutoFailover.Enable)
 + [Failure scenarios with Multi\-AZ responses](#AutoFailover.Scenarios)
 + [Testing automatic failover](#auto-failover-test)
-+ [Limitations on Redis Multi\-AZ](#AutoFailover.Notes)
++ [Limitations on Redis Multi\-AZ](#AutoFailover.Limitations)
 
 ## Enabling Multi\-AZ<a name="AutoFailover.Enable"></a>
 
@@ -283,6 +283,7 @@ When testing, note the following:
   + [Viewing ElastiCache events](ECEvents.Viewing.md) in the *ElastiCache User Guide*
   + [DescribeEvents](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html) in the *ElastiCache API Reference*
   + [describe\-events](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-events.html) in the *AWS CLI Command Reference\.*
++ This API is designed for testing the behavior of your application in case of ElastiCache failover\. It is not designed to be an operational tool for initiating a failover to address an issue with the cluster\. Moreover, in certain conditions such as large\-scale operational events, AWS may block this API\.
 
 **Topics**
 + [Testing automatic failover using the AWS Management Console](#auto-failover-test-con)
@@ -408,6 +409,7 @@ Output from the preceding command looks something like the following\.
             "redis1x3-003"
         ], 
         "CacheNodeType": "cache.m3.medium", 
+        "DataTiering": "disabled"
         "PendingModifiedValues": {}
     }
 }
@@ -453,7 +455,7 @@ For more information, see the following:
 
  
 
-## Limitations on Redis Multi\-AZ<a name="AutoFailover.Notes"></a>
+## Limitations on Redis Multi\-AZ<a name="AutoFailover.Limitations"></a>
 
 Be aware of the following limitations for Redis Multi\-AZ:
 + Multi\-AZ is supported on Redis version 2\.8\.6 and later\.

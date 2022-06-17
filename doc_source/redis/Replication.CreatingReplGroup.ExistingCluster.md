@@ -31,12 +31,6 @@ The number of nodes you want in this cluster\. This value includes the primary n
 **\-\-primary\-cluster\-id**  
 The name of the available Redis \(cluster mode disabled\) cluster's node that you want to be the primary node in this replication group\.
 
-If you want to enable in\-transit or at\-rest encryption on this replication group, add either or both of the `--transit-encryption-enabled` or `--at-rest-encryption-enabled` parameters and meet the following conditions\.
-+ Your cluster must be running Redis version 3\.2\.6 or 4\.0\.10\.
-+ The replication group must be created in an Amazon VPC\.
-+ You must also include the parameter `--cache-subnet-group`\.
-+ You must also include the parameter `--auth-token` with the customer specified string value for your AUTH token \(password\) needed to perform operations on this replication group\.
-
 The following command creates the replication group `sample-repl-group` using the available Redis \(cluster mode disabled\) cluster `redis01` as the replication group's primary node\. It creates 2 new nodes which are read replicas\. The settings of `redis01` \(that is, parameter group, security group, node type, engine version, and so on\.\) will be applied to all nodes in the replication group\.
 
 For Linux, macOS, or Unix:
@@ -118,6 +112,7 @@ Output from this command will look something like this\.
             "redis01"
         ],
         "CacheNodeType": "cache.m4.large",
+        "DataTiering": "disabled"
         "PendingModifiedValues": {}
     }
 }
@@ -147,12 +142,6 @@ The number of nodes you want in this cluster\. This value includes the primary n
 
 **PrimaryClusterId**  
 The name of the available Redis \(cluster mode disabled\) cluster that you want to be the primary node in this cluster\.
-
-If you want to enable in\-transit or at\-rest encryption on this replication group, add either or both of the `TransitEncryptionEnabled=true` or `AtRestEncryptionEnabled=true` parameters and meet the following conditions\.
-+ Your cluster must be running Redis version 3\.2\.6, 4\.0\.10 or later\.
-+ The replication group must be created in an Amazon VPC\.
-+ You must also include the parameter `CacheSubnetGroup`\.
-+ You must also include the parameter `AuthToken` with the customer specified string value for your AUTH token \(password\) needed to perform operations on this replication group\.
 
 The following command creates the cluster with replicas `sample-repl-group` using the available Redis \(cluster mode disabled\) cluster `redis01` as the replication group's primary node\. It creates 2 new nodes which are read replicas\. The settings of `redis01` \(that is, parameter group, security group, node type, engine version, and so on\.\) will be applied to all nodes in the replication group\.
 

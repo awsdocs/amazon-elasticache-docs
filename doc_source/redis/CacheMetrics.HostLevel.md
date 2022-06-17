@@ -16,4 +16,9 @@ The `AWS/ElastiCache` namespace includes the following host\-level metrics for i
 | NetworkBytesOut | The number of bytes sent out on all network interfaces by the instance\.  |  Bytes  | 
 | NetworkPacketsIn | The number of packets received on all network interfaces by the instance\. This metric identifies the volume of incoming traffic in terms of the number of packets on a single instance\.  | Count  | 
 | NetworkPacketsOut |  The number of packets sent out on all network interfaces by the instance\. This metric identifies the volume of outgoing traffic in terms of the number of packets on a single instance\. | Count  | 
+| NetworkBandwidthInAllowanceExceeded | The number of packets queued or dropped because the inbound aggregate bandwidth exceeded the maximum for the instance\. | Count  | 
+| NetworkConntrackAllowanceExceeded | The number of packets dropped because connection tracking exceeded the maximum for the instance and new connections could not be established\. This can result in packet loss for traffic to or from the instance\. | Count  | 
+| NetworkLinkLocalAllowanceExceeded | The number of packets dropped because the PPS of the traffic to local proxy services exceeded the maximum for the network interface\. This impacts traffic to the DNS service, the Instance Metadata Service, and the Amazon Time Sync Service\. | Count  | 
+| NetworkBandwidthOutAllowanceExceeded | The number of packets queued or dropped because the outbound aggregate bandwidth exceeded the maximum for the instance\. | Count  | 
+| NetworkPacketsPerSecondAllowanceExceeded | The number of packets queued or dropped because the bidirectional packets per second exceeded the maximum for the instance\. | Count  | 
 | SwapUsage |  The amount of swap used on the host\.  |  Bytes  | 

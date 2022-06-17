@@ -24,5 +24,5 @@ ScalingTarget:
       TargetTrackingScalingPolicyConfiguration:
         PredefinedMetricSpecification:
           PredefinedMetricType: ElastiCachePrimaryEngineCPUUtilization
-        TargetValue: 20
+        TargetValue: 40
 ```

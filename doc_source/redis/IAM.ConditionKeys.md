@@ -27,12 +27,14 @@ To apply a condition, you add the condition information to the IAM policy statem
             "Effect": "Allow",
             "Action": [
                 "elasticache:CreateCacheCluster"
+                "elasticache:CreateReplicationGroup"
             ],
             "Resource": [
                 "arn:aws:elasticache:*:*:cluster:*"
+                "arn:aws:elasticache:*:*:replicationgroup:*"
             ],
             "Condition": {
-                "ForAnyValue:StringEquals": {
+                "StringEquals": {
                     "elasticache:CacheNodeType": [
                         "cache.r5.large"
                     ]
@@ -77,12 +79,14 @@ This section shows example policies for implementing fine\-grained access contro
                "Effect": "Allow",
                "Action": [
                    "elasticache:CreateCacheCluster"
+                   "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
                    "arn:aws:elasticache:*:*:cluster:*"
+                   "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
-                   "ForAnyValue:StringEquals": {
+                   "StringEquals": {
                        "elasticache:CacheNodeType": [
                            "cache.t2.micro",
                            "cache.t2.medium"
@@ -102,8 +106,7 @@ This section shows example policies for implementing fine\-grained access contro
        "Statement": [
             {
                "Effect": "Allow",
-               "Action": [
-                   "elasticache:CreateCacheCluster",           
+               "Action": [                         
                    "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
@@ -114,10 +117,10 @@ This section shows example policies for implementing fine\-grained access contro
    
            {
                "Effect": "Allow",
-               "Action": [
+               "Action": [                
                    "elasticache:CreateReplicationGroup"
                ],
-               "Resource": [
+               "Resource": [                   
                    "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
@@ -138,8 +141,7 @@ This section shows example policies for implementing fine\-grained access contro
        "Statement": [
             {
                "Effect": "Allow",
-               "Action": [
-                   "elasticache:CreateCacheCluster",           
+               "Action": [                         
                    "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
@@ -150,10 +152,10 @@ This section shows example policies for implementing fine\-grained access contro
    
            {
                "Effect": "Allow",
-               "Action": [
+               "Action": [                
                    "elasticache:CreateReplicationGroup"
                ],
-               "Resource": [
+               "Resource": [                
                    "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
@@ -188,12 +190,14 @@ This section shows example policies for implementing fine\-grained access contro
            },
    
            {
-               "Effect": "Allow",
+              "Effect": "Allow",
                "Action": [
                    "elasticache:CreateCacheCluster"
+                   "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
                    "arn:aws:elasticache:*:*:cluster:*"
+                   "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
                    "StringEquals": {
@@ -228,9 +232,11 @@ This section shows example policies for implementing fine\-grained access contro
                "Effect": "Allow",
                "Action": [
                    "elasticache:CreateCacheCluster"
+                   "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
                    "arn:aws:elasticache:*:*:cluster:*"
+                   "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
                    "StringEquals": {
@@ -251,8 +257,7 @@ This section shows example policies for implementing fine\-grained access contro
    
             {
                "Effect": "Allow",
-               "Action": [
-                   "elasticache:CreateCacheCluster",           
+               "Action": [                           
                    "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
@@ -262,11 +267,11 @@ This section shows example policies for implementing fine\-grained access contro
            },
    
            {
-               "Effect": "Allow",
-               "Action": [
+               "Effect": "Allow",            
+               "Action": [                
                    "elasticache:CreateReplicationGroup"
                ],
-               "Resource": [
+               "Resource": [                
                    "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
@@ -287,8 +292,7 @@ This section shows example policies for implementing fine\-grained access contro
        "Statement": [
             {
                "Effect": "Allow",
-               "Action": [
-                   "elasticache:CreateCacheCluster",           
+               "Action": [                          
                    "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
@@ -298,11 +302,11 @@ This section shows example policies for implementing fine\-grained access contro
            },
    
            {
-               "Effect": "Allow",
-               "Action": [
+               "Effect": "Allow",        
+               "Action": [               
                    "elasticache:CreateReplicationGroup"
                ],
-               "Resource": [
+               "Resource": [               
                    "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
@@ -323,8 +327,7 @@ This section shows example policies for implementing fine\-grained access contro
        "Statement": [
             {
                "Effect": "Allow",
-               "Action": [
-                   "elasticache:CreateCacheCluster",           
+               "Action": [                          
                    "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
@@ -334,11 +337,11 @@ This section shows example policies for implementing fine\-grained access contro
            },
    
            {
-               "Effect": "Allow",
-               "Action": [
+               "Effect": "Allow",            
+               "Action": [                
                    "elasticache:CreateReplicationGroup"
                ],
-               "Resource": [
+               "Resource": [               
                    "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
@@ -369,13 +372,14 @@ This section shows example policies for implementing fine\-grained access contro
                ]
            },
            {
-               "Effect": "Deny",
+               "Effect": "Deny",           
                "Action": [
+                   "elasticache:CreateCacheCluster"
                    "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
+                   "arn:aws:elasticache:*:*:cluster:*"
                    "arn:aws:elasticache:*:*:replicationgroup:*"
-               ],
                "Condition": {
                    "Bool": {
                        "elasticache:MultiAZEnabled": "false"
@@ -394,8 +398,7 @@ This section shows example policies for implementing fine\-grained access contro
        "Statement": [
             {
                "Effect": "Allow",
-               "Action": [
-                   "elasticache:CreateCacheCluster",           
+               "Action": [                      
                    "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
@@ -404,12 +407,12 @@ This section shows example policies for implementing fine\-grained access contro
                ]
            },
    
-           {
+           {           
                "Effect": "Allow",
-               "Action": [
+               "Action": [                
                    "elasticache:CreateReplicationGroup"
                ],
-               "Resource": [
+               "Resource": [               
                    "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
@@ -441,12 +444,14 @@ This section shows example policies for implementing fine\-grained access contro
                ]
            },
    
-           {
+           {            
                "Effect": "Allow",
                "Action": [
+                   "elasticache:CreateCacheCluster"
                    "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
+                   "arn:aws:elasticache:*:*:cluster:*"
                    "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
@@ -478,12 +483,14 @@ This section shows example policies for implementing fine\-grained access contro
                ]
            },
    
-           {
+           {           
                "Effect": "Allow",
                "Action": [
+                   "elasticache:CreateCacheCluster"
                    "elasticache:CreateReplicationGroup"
                ],
                "Resource": [
+                   "arn:aws:elasticache:*:*:cluster:*"
                    "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
@@ -503,8 +510,7 @@ This section shows example policies for implementing fine\-grained access contro
    	"Version": "2012-10-17",
    	"Statement": [{
    			"Effect": "Allow",
-   			"Action": [
-   				"elasticache:CreateCacheCluster",
+   			"Action": [				
    				"elasticache:CreateReplicationGroup"
    			],
    			"Resource": [
@@ -513,12 +519,12 @@ This section shows example policies for implementing fine\-grained access contro
    			]
    		},
    		{
-   			"Effect": "Allow",
-   			"Action": [
-   				"elasticache:CreateReplicationGroup"
-   			],
-   			"Resource": [
-   				"arn:aws:elasticache:*:*:replicationgroup:*"
+   			"Effect": "Allow",			
+               "Action": [               
+                   "elasticache:CreateReplicationGroup"
+               ],
+               "Resource": [               
+                   "arn:aws:elasticache:*:*:replicationgroup:*"
    			],
    			"Condition": {
    				"StringEquals": {
@@ -549,17 +555,72 @@ This section shows example policies for implementing fine\-grained access contro
                ]
            },
    
-           {
+           {            
                "Effect": "Allow",
                "Action": [
+                   "elasticache:CreateCacheCluster"
                    "elasticache:CreateReplicationGroup"
+               ],
+               "Resource": [
+                   "arn:aws:elasticache:*:*:cluster:*"
+                   "arn:aws:elasticache:*:*:replicationgroup:*"
+               ],
+               "Condition": {
+                   "StringEquals": {
+                       "elasticache:CacheParameterGroupName": "my-org-param-group"
+                   }
+               }
+           }
+       ]
+   }
+   ```
+
+1. **elasticache:CreateCacheCluster**: Denying `CreateCacheCluster` action if the request tag `Project` is missing or is not equal to `Dev`, `QA` or `Prod`\.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+             {
+               "Effect": "Allow",
+               "Action": [
+                   "elasticache:CreateCacheCluster"
+               ],
+               "Resource": [
+                   "arn:aws:elasticache:*:*:parametergroup:*",
+                   "arn:aws:elasticache:*:*:subnetgroup:*",
+                   "arn:aws:elasticache:*:*:securitygroup:*",
+                   "arn:aws:elasticache:*:*:replicationgroup:*"
+               ]
+           },
+           {
+               "Effect": "Deny",
+               "Action": [
+                   "elasticache:CreateCacheCluster"
                ],
                "Resource": [
                    "arn:aws:elasticache:*:*:cluster:*"
                ],
                "Condition": {
+                   "Null": {
+                       "aws:RequestTag/Project": "true"
+                   }
+               }
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "elasticache:CreateCacheCluster",
+                   "elasticache:AddTagsToResource"
+               ],
+               "Resource": "arn:aws:elasticache:*:*:cluster:*",
+               "Condition": {
                    "StringEquals": {
-                       "elasticache:CacheParameterGroupName": "my-org-param-group"
+                       "aws:RequestTag/Project": [
+                           "Dev",
+                           "Prod",
+                           "QA"
+                       ]
                    }
                }
            }

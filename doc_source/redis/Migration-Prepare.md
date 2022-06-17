@@ -13,9 +13,9 @@ You must ensure that all four of the prerequisites mentioned following are satis
    + It has sufficient memory available to fit the data from your Redis on EC2 instance\. To configure the right reserved memory settings, see [Managing Reserved Memory](redis-memory-management.md)\.
    + You can migrate directly from Redis versions 2\.8\.21 onward to Redis version 5\.0\.5 onward if are using the CLI or Redis versions 5\.0\.6 onward using the CLI or console\. We don’t recommend migrating to Redis version 5\.0\.5\. Redis version 5\.0\.6 offers enhanced stability and security\.
 
-1. Make sure that the configurations of your Redis on EC2 and the ElastiCache for Redis deployment are compatible\. 
+1. Make sure that the configurations of your Redis on EC2 and the ElastiCache for Redis deployment are comptatible\. 
 
-   At a minimum, all the following in the target ElastiCache deployment should be compatible with your Redis configuration for Redis replication: 
+   At a minimum, all the following in the target ElastiCache deployment should be comptatible with your Redis configuration for Redis replication: 
    + Your Redis cluster should be in cluster\-mode disabled configuration\.
    + Your Redis on EC2 instance should not have Redis AUTH enabled\.
    + Redis config `protected-mode` should be set to `no`\.

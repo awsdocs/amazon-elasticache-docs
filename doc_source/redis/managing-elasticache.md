@@ -4,6 +4,7 @@ In this section, you can find details about how to manage the various components
 
 **Topics**
 + [Engine versions and upgrading](engine-versions.md)
++ [Getting started with JSON in ElastiCache for Redis](json-gs.md)
 + [Tagging your ElastiCache resources](Tagging-Resources.md)
 + [Caching strategies and best practices](BestPractices.md)
 + [Managing maintenance](maintenance-window.md)

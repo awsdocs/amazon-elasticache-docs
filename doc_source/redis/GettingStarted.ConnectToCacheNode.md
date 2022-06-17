@@ -99,22 +99,22 @@ This process covers testing a connection using redis\-cli utility for unplanned 
    Amazon Linux 2
 
    ```
-   $sudo amazon-linux-extras install epel -y
-   $sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel -y
-   $sudo wget http://download.redis.io/redis-stable.tar.gz
-   $sudo tar xvzf redis-stable.tar.gz
-   $cd redis-stable
-   $sudo make BUILD_TLS=yes
+   sudo amazon-linux-extras install epel -y
+   sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel -y
+   sudo wget http://download.redis.io/redis-stable.tar.gz
+   sudo tar xvzf redis-stable.tar.gz
+   cd redis-stable
+   sudo make BUILD_TLS=yes
    ```
 
    Amazon Linux
 
    ```
-   $sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel clang wget
-   $sudo wget http://download.redis.io/redis-stable.tar.gz
-   $sudo tar xvzf redis-stable.tar.gz
-   $cd redis-stable
-   $sudo CC=clang make BUILD_TLS=yes
+   sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel clang wget
+   sudo wget http://download.redis.io/redis-stable.tar.gz
+   sudo tar xvzf redis-stable.tar.gz
+   cd redis-stable
+   sudo CC=clang make BUILD_TLS=yes
    ```
 **Note**  
 If the cluster you are connecting to isn't encrypted, you don't need the `Build_TLS=yes` option\.
@@ -157,7 +157,7 @@ In the preceding command, option \-c enables cluster mode following [\-ASK and \
 
 ### Connecting to an Encryption/Authentication enabled cluster<a name="Connecting-to-an-Encryption-Authentication-enabled-cluster"></a>
 
-By default, redis\-cli uses an unencrypted TCP connection when connecting to Redis\. The option `BUILD_TLS=yes` enables SSL/TLS at the time of redis\-cli compilation as shown in the preceding [Download and install redis\-cli](#Download-and-install-redis-cli) section\. Enabling AUTH is optional\. However, you must enable encryption in\-transit in order to enable AUTH\. For more details on ElastiCache encryption and authentication, see [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md)\.
+By default, redis\-cli uses an unencrypted TCP connection when connecting to Redis\. The option `BUILD_TLS=yes` enables SSL/TLS at the time of redis\-cli compilation as shown in the preceding [Download and install redis\-cli](#Download-and-install-redis-cli) section\. Enabling AUTH is optional\. However, you must enable encryption in\-transit in order to enable AUTH\. For more details on ElastiCache encryption and authentication, see [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)\.
 
 **Note**  
 You can use the option `--tls` with redis\-cli to connect to both cluster mode enabled and disabled encrypted clusters\. If a cluster has an AUTH token set, then you can use the option `-a` to provide an AUTH password\.
@@ -183,13 +183,13 @@ src/redis-cli -h cluster-endpoint --tls -p port number
 The following example connects to an encryption and authentication enabled cluster:
 
 ```
-src/redis-cli -h cluster-endpoint --tls -a your-password -p port number
+src/redis-cli -c -h cluster-endpoint --tls -a your-password -p port number
 ```
 
 The following example connects to a cluster that has only encryption enabled:
 
 ```
-src/redis-cli -h cluster-endpoint --tls -p port number
+src/redis-cli -c -h cluster-endpoint --tls -p port number
 ```
 
 After you connect to the cluster, you can run the Redis commands as shown in the preceding examples for unencrypted clusters\.
@@ -297,7 +297,7 @@ In the preceding command, option \-c enables cluster mode following [\-ASK and \
 
 ## Connecting to an Encryption/Authentication enabled cluster<a name="Connecting-to-an-Encryption-Authentication-enabled-cluster"></a>
 
-By default, redis\-cli uses an unencrypted TCP connection when connecting to Redis\. The option `BUILD_TLS=yes` enables SSL/TLS at the time of redis\-cli compilation as shown in the preceding [Download and install redis\-cli](#Download-and-install-redis-cli) section\. Enabling AUTH is optional\. However, you must enable encryption in\-transit in order to enable AUTH\. For more details on ElastiCache encryption and authentication, see [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md)\.
+By default, redis\-cli uses an unencrypted TCP connection when connecting to Redis\. The option `BUILD_TLS=yes` enables SSL/TLS at the time of redis\-cli compilation as shown in the preceding [Download and install redis\-cli](#Download-and-install-redis-cli) section\. Enabling AUTH is optional\. However, you must enable encryption in\-transit in order to enable AUTH\. For more details on ElastiCache encryption and authentication, see [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)\.
 
 **Note**  
 You can use the option `--tls` with redis\-cli to connect to both cluster mode enabled and disabled encrypted clusters\. If a cluster has an AUTH token set, then you can use the option `-a` to provide an AUTH password\.
@@ -323,13 +323,13 @@ src/redis-cli -h cluster-endpoint --tls -p port number
 The following example connects to an encryption and authentication enabled cluster:
 
 ```
-src/redis-cli -h cluster-endpoint --tls -a your-password -p port number
+src/redis-cli -c -h cluster-endpoint --tls -a your-password -p port number
 ```
 
 The following example connects to a cluster that has only encryption enabled:
 
 ```
-src/redis-cli -h cluster-endpoint --tls -p port number
+src/redis-cli -c -h cluster-endpoint --tls -p port number
 ```
 
 After you connect to the cluster, you can run the Redis commands as shown in the preceding examples for unencrypted clusters\.

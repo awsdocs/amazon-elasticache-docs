@@ -8,10 +8,6 @@ To fine\-tune your cluster's performance, you can modify some parameter values o
 + If you change a cluster's parameter group, the values for any conditionally modifiable parameter must be the same in both the current and new parameter groups\.
 + When you change a cluster's parameters, the change is applied to the cluster either immediately or, with the exceptions noted following, after the cluster nodes are rebooted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Redis\-specific parameters](ParameterGroups.Redis.md)\. 
 
-  If you have a Redis \(cluster mode disabled\) cluster and make changes to the following parameters, you must reboot the nodes in the cluster:
-  + activerehashing
-  + databases
-
   For more information, see [Rebooting nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html)\.
 **Redis \(Cluster Mode Enabled\) parameter changes**  
 If you make changes to the following parameters on a Redis \(cluster mode enabled\) cluster, follow the ensuing steps\.  

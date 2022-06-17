@@ -77,6 +77,7 @@ This operation produces output similar to the following \(JSON format\):
             "ProductDescription": "redis",
             "Duration": 94608000,
             "CacheNodeType": "cache.r3.2xlarge"
+          
         }
     ]
 }

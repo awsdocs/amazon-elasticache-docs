@@ -40,7 +40,7 @@ For more information, see the **CPUs** section at [Monitoring best practices wit
 
 This is a host\-level metric reported in bytes\. For more information, see [Host\-Level Metrics](CacheMetrics.HostLevel.md)\.
 
-This metric should not exceed 50 MB\. If it does, see the following topics:
+This metric should not exceed 300 MB\. If it does, see the following topics:
 + [Ensuring that you have enough memory to create a Redis snapshot](BestPractices.BGSAVE.md)
 + [Managing Reserved Memory](redis-memory-management.md)
 

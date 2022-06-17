@@ -54,9 +54,6 @@ Applications use the Redis \(cluster mode enabled\) cluster's *configuration end
 
 All of the nodes in a Redis \(cluster mode enabled\) cluster must reside in the same region\. To improve fault tolerance, you can provision both primaries and read replicas in multiple Availability Zones within that region\.
 
-Multi\-AZ is required for all Redis \(cluster mode enabled\) clusters\. For more information, see [Minimizing downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)\.
-
 Currently, in Redis \(cluster mode enabled\), there are some limitations\.
 + You cannot manually promote any of the replica nodes to primary\.
-+ Multi\-AZ is required\.
 + You can only change the structure of a cluster, the node type, and the number of nodes by restoring from a backup\. For more information, see [Restoring from a backup with optional cluster resizing](backups-restoring.md)\. The number of shards in a Redis \(cluster mode enabled\) cluster can be changed dynamically, while the cluster continues to serve read and write requests\. For more information, see [Online resharding and shard rebalancing for Redis \(cluster mode enabled\)](redis-cluster-resharding-online.md)\.

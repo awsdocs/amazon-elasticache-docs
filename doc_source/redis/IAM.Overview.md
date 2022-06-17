@@ -31,8 +31,8 @@ For resource\-level permissions to be effective, the resource name on the ARN st
 
 | Resource type | ARN format | 
 | --- | --- | 
-| \(For Redis 6\.x onward\) User  | arn:aws:elasticache:*us\-east\-2:123456789012*:user:user1 | 
-| \(For Redis 6\.x onward\) UserGroup  | arn:aws:elasticache:*us\-east\-2:123456789012*:usergroup:myusergroup | 
+| \(For Redis 6\.0 onward\) User  | arn:aws:elasticache:*us\-east\-2:123456789012*:user:user1 | 
+| \(For Redis 6\.0 onward\) UserGroup  | arn:aws:elasticache:*us\-east\-2:123456789012*:usergroup:myusergroup | 
 | Cluster  | arn:aws:elasticache:*us\-east\-2:123456789012*:cluster:my\-cluster | 
 | Snapshot  | arn:aws:elasticache:*us\-east\-2:123456789012*:snapshot:my\-snapshot | 
 | Parameter group  | arn:aws:elasticache:*us\-east\-2:123456789012*:parametergroup:my\-parameter\-group | 

@@ -2,7 +2,7 @@
 
 In this tutorial, you use the AWS SDK for Python \(Boto3\) to write simple programs to perform the following ElastiCache operations:
 + Create ElastiCache clusters \(cluster mode enabled and cluster mode disabled\)
-+ Check if users or user groups exist, otherwise create them \(Redis 6\.x onwards only\)
++ Check if users or user groups exist, otherwise create them \(Redis 6\.0 onwards only\)
 + Connect to ElastiCache
 + Perform operations such as setting and getting strings, reading from and writing to steams and publishing and subscribing from Pub/Sub channel\.
 

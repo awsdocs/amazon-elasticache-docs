@@ -1,8 +1,8 @@
 # Prerequisites and limitations<a name="Redis-Global-Datastores-Getting-Started"></a>
 
 Before getting started with global datastores, be aware of the following:
-+ Global datastores are supported in the following AWS Regions: Asia Pacific \(Seoul\) Region, Asia Pacific \(Tokyo\) Region, Asia Pacific \(Singapore\) Region, Asia Pacific \(Sydney\) Region, Asia Pacific \(Mumbai\) Region, Europe \(Frankfurt\) Region, EU \(Paris\) Region, Europe \(London\) Region, Europe \(Ireland\) Region, US East \(N\. Virginia\) Region, US East \(Ohio\) Region, US West \(N\. California\) Region, US West \(Oregon\) Region, South America \(São Paulo\) Region, AWS GovCloud \(US\-West\), AWS GovCloud \(US\-East\), Canada \(Central\) Region, China \(Beijing\) Region and China \(Ningxia\) Region\. 
-+ To use global datastores, use Redis engine version 5\.0\.6 or higher and R5 or M5 node types or higher\.
++ Global datastores are supported in the following AWS Regions: Asia Pacific \(Seoul, Tokyo, Singapore, Sydney, Mumbai, and Osaka\), Europe \(Frankfurt, Paris, London, Ireland, and Stockholm\), US East \(N\. Virginia and Ohio\), US West \(N\. California and Oregon\), South America \(São Paulo\), AWS GovCloud \(US\-West and US\-East\), Canada \(Central\) Region, China \(Beijing and Ningxia\) 
++ To use global datastores, use Redis engine version 5\.0\.6 or higher and R5, R6g, R6gd, M5 or M6g node types\.
 +  All clusters—primary and secondary—in your global datastore should have the same number of primary nodes, node type, engine version, and number of shards \(in case of cluster\-mode enabled\)\. Each cluster in your global datastore can have a different number of read replicas to accommodate the read traffic local to that cluster\. 
 
   Replication must be enabled if you plan to use an existing single\-node cluster\.

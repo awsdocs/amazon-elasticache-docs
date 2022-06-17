@@ -1,6 +1,6 @@
 # Restoring from a backup with optional cluster resizing<a name="backups-restoring"></a>
 
-You can restore the data from a Redis \.rdb backup file to a new cluster at any time\.
+You can only restore backups running r6gd node types into clusters running r6gd node types\.
 
 The Amazon ElastiCache for Redis restore process supports the following:
 + Upgrading from a Redis \(cluster mode disabled\) cluster to a Redis \(cluster mode enabled\) cluster running Redis version 3\.2\.4\.
@@ -14,6 +14,7 @@ The Amazon ElastiCache for Redis restore process supports the following:
 **Important**  
 You cannot restore from a backup created using a Redis \(cluster mode enabled\) cluster to a Redis \(cluster mode disabled\) cluster\.
 Redis \(cluster mode enabled\) clusters do not support multiple databases\. Therefore, when restoring to a Redis \(cluster mode enabled\) your restore fails if the \.rdb file references more than one database\.
+You cannot restore a backup from a cluster that uses data tiering \(for example, r6gd node type\) into a cluster that does not use data tiering \(for example, r6g node type\)\.
 
 Whether you make any changes when restoring a cluster from a backup is governed by choices that you make\. You make these choices in the **Restore Cluster** dialog box when using the ElastiCache console to restore\. You make these choices by setting parameter values when using the AWS CLI or ElastiCache API to restore\.
 

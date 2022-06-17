@@ -51,7 +51,7 @@ ElastiCache autogenerates a new parameter group from values of the provided para
    + Encryption at rest – Enables encryption of data stored on disk\. For more information, see [Encryption at rest](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html)\.
 **Note**  
 You can supply a different encryption key by choosing **Customer Managed AWS KMS key** and choosing the key\. For more information, see [Using Customer Managed AWS KMS keys](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html#using-customer-managed-keys-for-elasticache-security)\.
-   + Encryption in\-transit – Enables encryption of data on the wire\. For more information, see [Encryption in transit](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\. For Redis engine version 6\.x, if you enable encryption in\-transit you are prompted to specify one of the following **Access Control** options:
+   + Encryption in\-transit – Enables encryption of data on the wire\. For more information, see [Encryption in transit](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\. For Redis engine version 6\.0 onwards, if you enable encryption in\-transit you are prompted to specify one of the following **Access Control** options:
      + **No Access Control** – This is the default setting\. This indicates no restrictions\.
      + **User Group Access Control List** – Choose a user group with a defined set of users and permissions on available operations\. For more information, see [Managing User Groups with the Console and CLI](Clusters.RBAC.md#User-Groups)\.
      + **Redis AUTH Default User** – An authentication mechanism for Redis server\. For more information, see [Redis AUTH](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html)\.
@@ -86,21 +86,159 @@ If you choose to create a global datastore with a new cluster, use the following
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. On the navigation pane, choose **Global Datastore** and then choose **Create**\.
+1. On the navigation pane, choose **Global Datastore** and then choose **Create global datastore**\.
 
-1. Under **Create Global Datastore**, do the following:
+1. Under **Primary cluster settings**, do the following:
 
-   1. Enter a value for **Global Datastore Name suffix**\. ElastiCache uses the suffix to generate a unique name for the global datastore\. You can search for the global datastore by using the suffix that you specify here\.
+   1. For **Cluster mode**, choose **Enabled** or **Disabled**\.
+
+   1. For **Global Datastore info** enter a value for **Name**\. ElastiCache uses the suffix to generate a unique name for the global datastore\. You can search for the global datastore by using the suffix that you specify here\.
 
    1. \(Optional\) Enter a value for **Global Datastore Description**\.
 
-1. Under **Primary cluster details**, for **Region**, choose an available AWS Region\.
+1. Under **Regional cluster**:
 
-1.  Follow the steps at [Creating a Redis \(cluster mode enabled\) cluster \(console\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.RedisCluster.html)\.
+   1. For **Region**, choose an available AWS Region\.
+
+   1. Choose **Create new regional cluster** or **Use existing regional cluster**
+
+   1. If you choose **Create new regional cluster**, under **Cluster info**, enter a name and optional description of the cluster\.
+
+   1. Under **Location**, we recommend you accept the default settings for **Multi\-AZ** and **Auto\-failover**\.
+
+1. Under **Cluster settings**
+
+   1. For **Engine version**, choose an available version, which is 5\.0\.6 or later\.
+
+   1. For **Port**, use the default port, 6379\. If you have a reason to use a different port, enter the port number\.
+
+   1. For **Parameter group**, choose a parameter group or create a new one\. Parameter groups control the runtime parameters of your cluster\. For more information on parameter groups, see [Redis\-specific parameters](ParameterGroups.Redis.md) and [Creating a parameter group](ParameterGroups.Creating.md)\.
 **Note**  
 When you select a parameter group to set the engine configuration values, that parameter group is applied to all clusters in the global datastore\. On the **Parameter Groups** page, the yes/no **Global** attribute indicates whether a parameter group is part of a global datastore\.
 
-1. After you have successfully created the cluster in the previous step, choose **Next** to configure your secondary cluster details, which are outlined in the previous section beginning with Step 5\.
+   1. For **Node type**, choose the down arrow \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-DnArrow.png)\)\. In the **Change node type** dialog box, choose a value for **Instance family** for the node type that you want\. Then choose the node type that you want to use for this cluster, and then choose **Save**\.
+
+      For more information, see [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)\.
+
+      If you choose an r6gd node type, data\-tiering is automatically enabled\. For more information, see [Data tiering](data-tiering.md)\.
+
+   1. If you are creating a Redis \(cluster mode disabled\) cluster:
+
+      For **Number of replicas**, choose the number of replicas that you want for this cluster\.
+
+   1. If you are creating a Redis \(cluster mode enabled\) cluster:
+
+      1. For **Number of shards**, choose the number of shards \(partitions/node groups\) that you want for this Redis \(cluster mode enabled\) cluster\.
+
+         For some versions of Redis \(cluster mode enabled\), you can change the number of shards in your cluster dynamically:
+         + **Redis 3\.2\.10 and later** – If your cluster is running Redis 3\.2\.10 or later versions, you can change the number of shards in your cluster dynamically\. For more information, see [Scaling clusters in Redis \(Cluster Mode Enabled\)](scaling-redis-cluster-mode-enabled.md)\.
+         + **Other Redis versions** – If your cluster is running a version of Redis before version 3\.2\.10, there's another approach\. To change the number of shards in your cluster in this case, create a new cluster with the new number of shards\. For more information, see [Restoring from a backup with optional cluster resizing](backups-restoring.md)\.
+
+      1. For **Replicas per shard**, choose the number of read replica nodes that you want in each shard\.
+
+         The following restrictions exist for Redis \(cluster mode enabled\)\.
+         + If you have Multi\-AZ enabled, make sure that you have at least one replica per shard\.
+         + The number of replicas is the same for each shard when creating the cluster using the console\.
+         + The number of read replicas per shard is fixed and cannot be changed\. If you find you need more or fewer replicas per shard \(API/CLI: node group\), you must create a new cluster with the new number of replicas\. For more information, see [Seeding a new cluster with an externally created backup](backups-seeding-redis.md)\.
+
+1. For **Subnet group settings**, choose the subnet that you want to apply to this cluster\. ElastiCache provides a default IPv4 subnet group or you can choose to create a new one\. For IPv6, you need to create a subnet group with an IPv6 CIDR block\.
+
+   For more information see, [Create a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
+
+1. For **Availability zone placements**, you have two options:
+   + **No preference** – ElastiCache chooses the Availability Zone\.
+   + **Specify availability zones** – You specify the Availability Zone for each cluster\.
+
+     If you chose to specify the Availability Zones, for each cluster in each shard, choose the Availability Zone from the list\.
+
+   For more information, see [Choosing regions and availability zones](RegionsAndAZs.md)\.  
+![\[Image: Specifying Keyspaces and Availability Zones\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-ClusterOn-Slots-AZs.png)
+
+   *Specifying Keyspaces and Availability Zones*
+
+1. Choose **Next**
+
+1. Under **Advanced Redis settings**
+
+   1. For **Security**: 
+
+     1. To encrypt your data, you have the following options:
+        + **Encryption at rest** – Enables encryption of data stored on disk\. For more information, see [Encryption at Rest](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html)\.
+**Note**  
+You have the option to supply a different encryption key by choosing **Customer Managed AWS KMS key** and choosing the key\. For more information, see [Using customer managed keys from AWS KMS](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html#using-customer-managed-keys-for-elasticache-security)\.
+        + **Encryption in\-transit** – Enables encryption of data on the wire\. For more information, see [encryption in transit](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\. For Redis engine version 6\.0 and above, if you enable Encryption in\-transit you will be prompted to specify one of the following **Access Control** options:
+          + **No Access Control** – This is the default setting\. This indicates no restrictions on user access to the cluster\.
+          + **User Group Access Control List** – Select a user group with a defined set of users that can access the cluster\. For more information, see [Managing User Groups with the Console and CLI](Clusters.RBAC.md#User-Groups)\.
+          + **Redis AUTH Default User** – An authentication mechanism for Redis server\. For more information, see [Redis AUTH](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html)\.
+        + **Redis AUTH** – An authentication mechanism for Redis server\. For more information, see [Redis AUTH](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html)\.
+**Note**  
+For Redis versions between 3\.2\.6 onward, excluding version 3\.2\.10, Redis AUTH is the sole option\.
+
+     1. For **Security groups**, choose the security groups that you want for this cluster\. A *security group* acts as a firewall to control network access to your cluster\. You can use the default security group for your VPC or create a new one\.
+
+        For more information on security groups, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide\.*
+
+1. For regularly scheduled automatic backups, select **Enable automatic backups** and then enter the number of days that you want each automatic backup retained before it is automatically deleted\. If you don't want regularly scheduled automatic backups, clear the **Enable automatic backups** check box\. In either case, you always have the option to create manual backups\.
+
+   For more information on Redis backup and restore, see [Backup and restore for ElastiCache for Redis ](backups.md)\.
+
+1. \(Optional\) Specify a maintenance window\. The *maintenance window* is the time, generally an hour in length, each week when ElastiCache schedules system maintenance for your cluster\. You can allow ElastiCache to choose the day and time for your maintenance window \(*No preference*\), or you can choose the day, time, and duration yourself \(*Specify maintenance window*\)\. If you choose *Specify maintenance window* from the lists, choose the *Start day*, *Start time*, and *Duration* \(in hours\) for your maintenance window\. All times are UCT times\.
+
+   For more information, see [Managing maintenance](maintenance-window.md)\.
+
+1. \(Optional\) For **Logs**:
+   + Under **Log format**, choose either **Text** or **JSON**\.
+   + Under **Destination Type**, choose either **CloudWatch Logs** or **Kinesis Firehose**\.
+   + Under **Log destination**, choose either **Create new** and enter either your CloudWatch Logs log group name or your Kinesis Data Firehose stream name, or choose **Select existing** and then choose either your CloudWatch Logs log group name or your Kinesis Data Firehose stream name,
+
+1. For **Tags**, to help you manage your clusters and other ElastiCache resources, you can assign your own metadata to each resource in the form of tags\. For mor information, see [Tagging your ElastiCache resources](Tagging-Resources.md)\.
+
+1. Review all your entries and choices, then make any needed corrections\. When you're ready, choose **Next**\.
+
+1. After you have configured the cluster in the previous steps, you now configure your secondary cluster details\.\.
+
+1. Under **Regional cluster**, choose the AWS Region where th cluster is located\.
+
+1. Under **Cluster info**, enter a name and optional description of the cluster\.
+
+1. The following options are prepopulated to match the primary cluster configuration and cannot be changed:
+   + Location
+   + Engine version
+   + Instance type
+   + Node type
+   + Number of shards
+   + Parameter group
+**Note**  
+ElastiCache autogenerates a new parameter group from values of the provided parameter group and applies the new parameter group to the cluster\. Use this new parameter group to modify parameters on a global datastore\. Each autogenerated parameter group is associated with one and only one cluster and, therefore, only one global datastore\.
+   + Encryption at rest – Enables encryption of data stored on disk\. For more information, see [Encryption at rest](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html)\.
+**Note**  
+You can supply a different encryption key by choosing **Customer Managed AWS KMS key** and choosing the key\. For more information, see [Using Customer Managed AWS KMS keys](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html#using-customer-managed-keys-for-elasticache-security)\.
+   + Encryption in\-transit – Enables encryption of data on the wire\. For more information, see [Encryption in transit](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html)\. For Redis engine version 6\.4 and above, if you enable encryption in\-transit you are prompted to specify one of the following **Access Control** options:
+     + **No Access Control** – This is the default setting\. This indicates no restrictions on user access to the cluster\.
+     + **User Group Access Control List** – Choose a user group with a defined set of users that can access the cluster\. For more information, see [Managing User Groups with the Console and CLI](Clusters.RBAC.md#User-Groups)\.
+     + **Redis AUTH Default User** – An authentication mechanism for Redis server\. For more information, see [Redis AUTH](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html)\.
+**Note**  
+For Redis versions between 4\.0\.2, when Encryption in\-transit was first supported, and 6\.0\.4, Redis AUTH is the sole option\.
+
+   The remaining secondary cluster settings are pre\-populated with the same values as the primary cluster, but the following can be updated to meet specific requirements for that cluster:
+   + Port
+   + Number of replicas
+   + Subnet group
+   + Preferred Availability Zone\(s\) 
+   + Security groups
+   + Customer Managed \(AWS KMS key\) 
+   + Redis AUTH Token
+   + Enable automatic backups
+   + Backup retention period
+   + Backup window
+   + Maintenance window
+   + Topic for SNS notification
+
+1. Choose **Create**\. This sets the status of the global datastore to **Creating**\. After the primary cluster and secondary clusters are associated with the global datastore, the status changes to **Available**\. You have a primary cluster that accepts reads and writes and a secondary cluster that accepts reads replicated from the primary cluster\.
+
+   The Redis page is also updated to indicate whether a cluster is part of a global datastore, including the following:
+   + **Global Datastore** – The name of the global datastore to which the cluster belongs\.
+   + **Global Datastore Role** – The role of the cluster, either primary or secondary\.
 
 You can add up to one additional secondary cluster in a different AWS Region\. For more information, see [Adding a Region to a global datastore](#Redis-Global-Datastores-Console-Create-Secondary)\.
 

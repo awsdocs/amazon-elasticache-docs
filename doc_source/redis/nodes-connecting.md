@@ -90,4 +90,4 @@ For Ubuntu systems, before running `make`, run `make distclean`\.
    quit                   // Exit from redis-cli
    ```
 
-For connecting to nodes or clusters which have Secure Sockets Layer \(SSL\) encryption \(in\-transit enabled\), see [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md)\.
+For connecting to nodes or clusters which have Secure Sockets Layer \(SSL\) encryption \(in\-transit enabled\), see [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)\.

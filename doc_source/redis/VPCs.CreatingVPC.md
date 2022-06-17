@@ -8,28 +8,17 @@ In this example, you create an Amazon VPC with a private subnet for each Availab
 
 1. Sign in to the AWS Management Console, and open the Amazon VPC console at [https://console\.aws\.amazon\.com/vpc/](https://console.aws.amazon.com/vpc/)\.
 
-1. Create a new Amazon VPC by using the Amazon Virtual Private Cloud wizard:
+1. In the VPC dashboard, choose **Create VPC**\.
 
-   1. In the navigation list, choose **VPC Dashboard**\.
+1. Under **Resources** to create, choose **VPC and more**\.
 
-   1. Choose **Start VPC Wizard**\.
+1. Under **Number of Availability Zones \(AZs\)**, choose the number of Availability Zones you want to launch your subnets in\.
 
-   1. In the Amazon VPC wizard, choose **VPC with Public and Private Subnets**, and then choose **Next**\.
+1. Under **Number of public subnets**, choose the number of public subnets you want to add to your VPC\.
 
-   1. On the **VPC with Public and Private Subnets** page, keep the default options, and then choose **Create VPC**\.
-
-   1. In the confirmation message that appears, choose **Close**\.
-
-1. Confirm that there are two subnets in your Amazon VPC, a public subnet and a private subnet\. These subnets are created automatically\.
-
-   1. In the navigation list, choose **Subnets**\.
-
-   1. In the list of subnets, find the two subnets that are in your Amazon VPC:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/vpc-01.png)
-
-      The public subnet will have one fewer available IP address, because the wizard creates an Amazon EC2 NAT instance and an Elastic IP address \(for which Amazon EC2 rates apply\) for outbound communication to the Internet from your private subnet\.
+1. Under **Number of private subnets**, choose the number of private subnets you want to add to your VPC\.
 **Tip**  
-Make a note of your two subnet identifiers, and which is public and private\. You will need this information later when you launch your cache clusters and add an Amazon EC2 instance to your Amazon VPC\.
+Make a note of your subnet identifiers, and which are public and private\. You will need this information later when you launch your clusters and add an Amazon EC2 instance to your Amazon VPC\.
 
 1. Create an Amazon VPC security group\. You will use this group for your cache cluster and your Amazon EC2 instance\.
 

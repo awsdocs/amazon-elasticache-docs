@@ -3,6 +3,8 @@
 To help keep your data secure, Amazon ElastiCache and Amazon S3 provide different ways to restrict access to data in your cache\. For more information, see [Amazon VPCs and ElastiCache security](VPCs.md) and [Identity and access management in Amazon ElastiCache](IAM.md)\.
 
 ElastiCache for Redis at\-rest encryption is an optional feature to increase data security by encrypting on\-disk data\. When enabled on a replication group, it encrypts the following aspects:
+
+Data stored on SSDs \(solid\-state drives\) in data tiering enabled clusters is always encrypted by default\. However, when the cluster is backed up, the snapshot data is not automatically encrypted\. Encryption needs to be enabled on the snapshot\. For more information, see [Enabling At\-Rest Encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html#at-rest-encryption-enable)\.
 + Disk during sync, backup and swap operations 
 + Backups stored in Amazon S3 
 
@@ -13,7 +15,7 @@ The default \(service managed\) encryption is the only option available in the G
 
 At\-rest encryption can be enabled on a replication group only when it is created\. Because there is some processing needed to encrypt and decrypt the data, enabling at\-rest encryption can have a performance impact during these operations\. You should benchmark your data with and without at\-rest encryption to determine the performance impact for your use cases\. 
 
-For information on encryption in transit, see [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md) 
+For information on encryption in transit, see [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md) 
 
 **Topics**
 + [At\-Rest Encryption Conditions](#at-rest-encryption-constraints)
@@ -27,14 +29,16 @@ The following constraints on ElastiCache at\-rest encryption should be kept in m
 + At\-rest encryption is supported on replication groups running Redis versions 3\.2\.6, 4\.0\.10 or later\.
 + At\-rest encryption is supported only for replication groups running in an Amazon VPC\.
 + At\-rest encryption is only supported for replication groups running the following node types\.
-  + R6g, R5, R4, R3
+  + R6gd, R6g, R5, R4, R3
   + M6g, M5, M4, M3
-  + T3, T2
+  + T4g,T3, T2
 
   For more information, see [Supported node types](CacheNodes.SupportedTypes.md)
 + At\-rest encryption is enabled by explicitly setting the parameter `AtRestEncryptionEnabled` to `true`\.
 + You can enable at\-rest encryption on a replication group only when creating the replication group\. You cannot toggle at\-rest encryption on and off by modifying a replication group\. For information on implementing at\-rest encryption on an existing replication group, see [Enabling At\-Rest Encryption](#at-rest-encryption-enable)\.
++ If a cluster is using a node type from the r6gd family, data stored on SSD is encrypted whether at\-rest encryption is enabled or not\.
 + The option to use customer managed key for encryption at rest is not available in AWS GovCloud \(us\-gov\-east\-1 and us\-gov\-west\-1\) regions\. 
++ If a cluster is using a node type from the r6gd family, data stored on SSD is encrypted with the chosen customer managed AWS KMS key \(or service\-managed encryption in AWS GovCloud Regions\)\.
 
 Implementing at\-rest encryption can reduce performance during backup and node sync operations\. Benchmark at\-rest encryption compared to no encryption on your own data to determine its impact on performance for your implementation\.
 

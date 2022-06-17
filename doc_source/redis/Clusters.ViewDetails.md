@@ -121,6 +121,7 @@ The following JSON output is for three different Redis clusters:
             "AuthTokenEnabled": false,
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
+            "DataTiering": "disabled"
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -160,6 +161,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster2-001",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
+            "DataTiering": "disabled"
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -193,6 +195,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster2-002",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
+            "DataTiering": "disabled"
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -226,6 +229,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster2-003",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
+            "DataTiering": "disabled"
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -264,6 +268,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0001-001",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
+            "DataTiering": "disabled"
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -297,6 +302,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0001-002",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
+             "DataTiering": "disabled"
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -330,6 +336,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0001-003",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
+             "DataTiering": "disabled"
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -363,6 +370,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0002-001",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
+             "DataTiering": "disabled"
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -396,6 +404,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0002-002",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
+             "DataTiering": "disabled"
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -429,6 +438,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0002-003",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
+             "DataTiering": "disabled"
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",

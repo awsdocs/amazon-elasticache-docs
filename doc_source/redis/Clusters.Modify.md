@@ -4,7 +4,7 @@ In addition to adding or removing nodes from a cluster, there can be times where
 
 We recommend that you have your maintenance window fall at the time of lowest usage\. Thus it might need modification from time to time\.
 
-When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for 
+When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Redis\-specific parameters](ParameterGroups.Redis.md)\. 
 
 ## Using the AWS Management Console<a name="Clusters.Modify.CON"></a>
 
@@ -28,10 +28,12 @@ When you change a cluster's parameters, the change is applied to the cluster eit
    + Description
    + Engine Version Compatibility
 **Important**  
-You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
+You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.0, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
    + VPC Security Group\(s\)
    + Parameter Group
    + Node Type
+**Note**  
+If the cluster is using a node type from the r6gd family, you can only choose a different node size from within that family\. If you choose a node type from the r6gd family, data tiering will automatically be enabled\. For more information, see [Data tiering](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html)\.
    + Multi\-AZ
    + Auto failover \(cluster mode disabled only\)
    + Enable Automatic Backups
@@ -44,24 +46,40 @@ You can upgrade to newer engine versions\. If you upgrade major engine versions,
 
 1. Choose **Modify**\.
 
-**To enable/disable log delivery, do the following:**
+**To enable/disable log delivery**
 
 1. From the list of clusters, choose the cluster you want to modify\. Choose the **Cluster name** and not the checkbox beside it\.
 
-1. On the **Cluster name** page, choose the **Logs** tab\.
+1. On the **Cluster details** page, choose the **Logs** tab,
 
-1. To enable/disable slow logs, choose either **Enable slow logs** or **Disable slow logs**\.
+1. To enable/disable slow logs, choose either **Enable** or **Disable**\.
 
-1. To change your configuration, choose **Modify slow logs**:
-   + Under **Destination Type**, choose either **CloudWatch Logs** or **Kinesis Firehose**\.
-   + Under **Log destination**, choose either **Create new** and enter either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name\. Or choose **Select existing** and then choose either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name\.
+   If you choose enable:
+
+   1. Under **Log format**, choose either **JSON** or **Text**\.
+
+   1. Under **Log destination type**, choose either **CloudWatch Logs** or **Kinesis Firehose**\.
+
+   1. Under **Log destination**, choose either **Create new** and enter either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name\. Or choose **Select existing** and then choose either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name\.
+
+   1. Choose **Enable**\.
+
+**To change your configuration:**
+
+1. Choose **Modify**
+
+1. Under **Log format**, choose either **JSON** or **Text**\.
+
+1. Under **Destination Type**, choose either **CloudWatch Logs** or **Kinesis Firehose**\.
+
+1. Under **Log destination**, choose either **Create new** and enter your CloudWatchLogs log group name or your Kinesis Data Firehose stream name\. Or choose **Select existing** and then choose your CloudWatchLogs log group name or your Kinesis Data Firehose stream name\.
 
 ## Using the AWS CLI<a name="Clusters.Modify.CLI"></a>
 
 You can modify an existing cluster using the AWS CLI `modify-cache-cluster` operation\. To modify a cluster's configuration value, specify the cluster's ID, the parameter to change and the parameter's new value\. The following example changes the maintenance window for a cluster named `my-cluster` and applies the change immediately\.
 
 **Important**  
-You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
+You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.0, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
 For Linux, macOS, or Unix:
 
@@ -88,7 +106,7 @@ For more information, see the AWS CLI for ElastiCache topic [https://docs.aws.am
 You can modify an existing cluster using the ElastiCache API `ModifyCacheCluster` operation\. To modify a cluster's configuration value, specify the cluster's ID, the parameter to change and the parameter's new value\. The following example changes the maintenance window for a cluster named `my-cluster` and applies the change immediately\.
 
 **Important**  
-You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.x, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
+You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.0, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.
 
 Line breaks are added for ease of reading\.
 

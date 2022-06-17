@@ -20,6 +20,8 @@ ElastiCache for Redis has multiple features that help make the service more reli
 + You can have automated backups performed when you need them, or manually create your own backup snapshot\. You can use these backups to restore a cluster\. The ElastiCache for Redis restore process works reliably and efficiently\.
 + You can get high availability with a primary instance and a synchronous secondary instance that you can fail over to when problems occur\. You can also use read replicas to increase read scaling\. 
 + You can control access to your ElastiCache for Redis clusters by using AWS Identity and Access Management to define users and permissions\. You can also help protect your clusters by putting them in a virtual private cloud \(VPC\)\. 
++ By using the Global Datastore for Redis feature, you can work with fully managed, fast, reliable, and secure replication across AWS Regions\. Using this feature, you can create cross\-Region read replica clusters for ElastiCache for Redis to enable low\-latency reads and disaster recovery across AWS Regions\. 
++ Data tiering provides a price\-performance option for Redis workloads by utilizing lower\-cost solid state drives \(SSDs\) in each cluster node in addition to storing data in memory\. It is ideal for workloads that access up to 20 percent of their overall dataset regularly, and for applications that can tolerate additional latency when accessing data on SSD\. For more information, see [Data tiering](data-tiering.md)\.
 
 ## Clusters<a name="WhatIs.Clusters"></a>
 
@@ -29,10 +31,12 @@ Each ElastiCache for Redis cluster runs a Redis engine version\. Each Redis engi
 
 The computation and memory capacity of a cluster is determined by its instance, or node, class\. You can select the node type that best meets your needs\. If your needs change over time, you can change node types\. For information, see [Supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)\.
 
+You can also leverage data\-tiering when considering your node type needs\. Data tiering is a feature where some least frequently used data is stored on disk to mitigate against memory limitations on applications that can tolerate additional latency when data on SSD \(solid state drives\) is accessed\.
+
 **Note**  
 For pricing information on ElastiCache instance classes, see [Amazon ElastiCache pricing](https://aws.amazon.com/elasticache/pricing/)\.
 
-Cluster node storage comes in two types: Standard and memory\-optimized\. They differ in performance characteristics and price, allowing you to tailor your storage performance and cost to your needs\. Each instance has minimum and maximum storage requirements depending on the storage type\. It's important to have sufficient storage so that your clusters have room to grow\. Also, sufficient storage makes sure that features have room to write content or log entries\. For more information, see Amazon RDS DB instance storage\.
+Cluster node storage comes in two types: Standard and memory\-optimized\. They differ in performance characteristics and price, allowing you to tailor your storage performance and cost to your needs\. Each instance has minimum and maximum storage requirements depending on the storage type\. It's important to have sufficient storage so that your clusters have room to grow\. Also, sufficient storage makes sure that features have room to write content or log entries\.
 
 You can run a cluster on a virtual private cloud \(VPC\) using the Amazon Virtual Private Cloud \(Amazon VPC\) service\. When you use a VPC, you have control over your virtual networking environment\. You can choose your own IP address range, create subnets, and configure routing and access control lists\. ElastiCache manages backups, software patching, automatic failure detection, and recovery\. There's no additional cost to run your cluster in a VPC\. For more information on using Amazon VPC with ElastiCache for Redis, see [Amazon VPCs and ElastiCache security](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/VPCs.html)\.
 

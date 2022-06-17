@@ -20,14 +20,14 @@ import logging
 logging.basicConfig(level=logging.INFO)
 client = boto3.client('elasticache')
 
-def create_cluster_mode_disabled(CacheNodeType='cache.t3.small',EngineVersion='6.x',NumCacheClusters=2,ReplicationGroupDescription='Sample cache cluster',ReplicationGroupId=None):
+def create_cluster_mode_disabled(CacheNodeType='cache.t3.small',EngineVersion='6.0',NumCacheClusters=2,ReplicationGroupDescription='Sample cache cluster',ReplicationGroupId=None):
     """Creates an Elasticache Cluster with cluster mode disabled
 
     Returns a dictionary with the API response
 
     :param CacheNodeType: Node type used on the cluster. If not specified, cache.t3.small will be used
-    Refer to https://docs..amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html for supported node types
-    :param EngineVersion: Engine version to be used. If not specified, Redis 6.x will be used.
+    Refer to https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html for supported node types
+    :param EngineVersion: Engine version to be used. If not specified, latest will be used.
     :param NumCacheClusters: Number of nodes in the cluster. Minimum 1 (just a primary node) and maximun 6 (1 primary and 5 replicas).
     If not specified, cluster will be created with 1 primary and 1 replica.
     :param ReplicationGroupDescription: Description for the cluster.
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     # Creates an Elasticace Cluster mode disabled cluster, based on cache.m6g.large nodes, Redis 6, one primary and two replicas
     elasticacheResponse = create_cluster_mode_disabled(
         #CacheNodeType='cache.m6g.large', 
-        EngineVersion='6.x',
+        EngineVersion='6.0',
         NumCacheClusters=3,
         ReplicationGroupDescription='Redis cluster mode disabled with replicas',
         ReplicationGroupId='redis202104053'
@@ -84,14 +84,14 @@ import logging
 logging.basicConfig(level=logging.INFO)
 client = boto3.client('elasticache')
 
-def create_cluster_mode_disabled_rbac(CacheNodeType='cache.t3.small',EngineVersion='6.x',NumCacheClusters=2,ReplicationGroupDescription='Sample cache cluster',ReplicationGroupId=None, UserGroupIds=None, SecurityGroupIds=None,CacheSubnetGroupName=None):
+def create_cluster_mode_disabled_rbac(CacheNodeType='cache.t3.small',EngineVersion='6.0',NumCacheClusters=2,ReplicationGroupDescription='Sample cache cluster',ReplicationGroupId=None, UserGroupIds=None, SecurityGroupIds=None,CacheSubnetGroupName=None):
     """Creates an Elasticache Cluster with cluster mode disabled and RBAC
 
     Returns a dictionary with the API response
 
     :param CacheNodeType: Node type used on the cluster. If not specified, cache.t3.small will be used
     Refer to https://docs..amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html for supported node types
-    :param EngineVersion: Engine version to be used. If not specified, Redis 6.x will be used.
+    :param EngineVersion: Engine version to be used. If not specified, latest will be used.
     :param NumCacheClusters: Number of nodes in the cluster. Minimum 1 (just a primary node) and maximun 6 (1 primary and 5 replicas).
     If not specified, cluster will be created with 1 primary and 1 replica.
     :param ReplicationGroupDescription: Description for the cluster.
@@ -135,7 +135,7 @@ if __name__ == '__main__':
    
     response=create_cluster_mode_disabled_rbac(
         CacheNodeType='cache.m6g.large',
-        EngineVersion='6.x',
+        EngineVersion='6.0',
         NumCacheClusters=3,
         ReplicationGroupDescription='Redis cluster mode disabled with replicas',
         ReplicationGroupId='redis202104',
@@ -168,14 +168,14 @@ import logging
 logging.basicConfig(level=logging.INFO)
 client = boto3.client('elasticache')
 
-def create_cluster_mode_enabled(CacheNodeType='cache.t3.small',EngineVersion='6.x',NumNodeGroups=1,ReplicasPerNodeGroup=1, ReplicationGroupDescription='Sample cache with cluster mode enabled',ReplicationGroupId=None):
+def create_cluster_mode_enabled(CacheNodeType='cache.t3.small',EngineVersion='6.0',NumNodeGroups=1,ReplicasPerNodeGroup=1, ReplicationGroupDescription='Sample cache with cluster mode enabled',ReplicationGroupId=None):
     """Creates an Elasticache Cluster with cluster mode enabled
 
     Returns a dictionary with the API response
 
     :param CacheNodeType: Node type used on the cluster. If not specified, cache.t3.small will be used
     Refer to https://docs..amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html for supported node types
-    :param EngineVersion: Engine version to be used. If not specified, Redis 6.x will be used.
+    :param EngineVersion: Engine version to be used. If not specified, latest will be used.
     :param NumNodeGroups: Number of shards in the cluster. Minimum 1 and maximun 90.
     If not specified, cluster will be created with 1 shard.
     :param ReplicasPerNodeGroup: Number of replicas per shard. If not specified 1 replica per shard will be created.
@@ -197,7 +197,7 @@ def create_cluster_mode_enabled(CacheNodeType='cache.t3.small',EngineVersion='6.
     #   Creates a cluster mode enabled cluster with 1 shard(NumNodeGroups), 1 primary node (implicit) and 2 replicas (replicasPerNodeGroup)
         NumNodeGroups=NumNodeGroups,
         ReplicasPerNodeGroup=ReplicasPerNodeGroup,
-        CacheParameterGroupName='default.redis6.x.cluster.on'
+        CacheParameterGroupName='default.redis6.0.cluster.on'
     )
 
     return response
@@ -206,7 +206,7 @@ def create_cluster_mode_enabled(CacheNodeType='cache.t3.small',EngineVersion='6.
 # Creates a cluster mode enabled 
 response = create_cluster_mode_enabled(
     CacheNodeType='cache.m6g.large',
-    EngineVersion='6.x',
+    EngineVersion='6.0',
     ReplicationGroupDescription='Redis cluster mode enabled with replicas',
     ReplicationGroupId='redis20210',
 #   Creates a cluster mode enabled cluster with 1 shard(NumNodeGroups), 1 primary (implicit) and 2 replicas (replicasPerNodeGroup)
@@ -236,14 +236,14 @@ import logging
 logging.basicConfig(level=logging.INFO)
 client = boto3.client('elasticache')
 
-def create_cluster_mode_enabled(CacheNodeType='cache.t3.small',EngineVersion='6.x',NumNodeGroups=1,ReplicasPerNodeGroup=1, ReplicationGroupDescription='Sample cache with cluster mode enabled',ReplicationGroupId=None,UserGroupIds=None, SecurityGroupIds=None,CacheSubnetGroupName=None,CacheParameterGroupName='default.redis6.x.cluster.on'):
+def create_cluster_mode_enabled(CacheNodeType='cache.t3.small',EngineVersion='6.0',NumNodeGroups=1,ReplicasPerNodeGroup=1, ReplicationGroupDescription='Sample cache with cluster mode enabled',ReplicationGroupId=None,UserGroupIds=None, SecurityGroupIds=None,CacheSubnetGroupName=None,CacheParameterGroupName='default.redis6.0.cluster.on'):
     """Creates an Elasticache Cluster with cluster mode enabled and RBAC
 
     Returns a dictionary with the API response
 
     :param CacheNodeType: Node type used on the cluster. If not specified, cache.t3.small will be used
     Refer to https://docs..amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html for supported node types
-    :param EngineVersion: Engine version to be used. If not specified, Redis 6.x will be used.
+    :param EngineVersion: Engine version to be used. If not specified, latest will be used.
     :param NumNodeGroups: Number of shards in the cluster. Minimum 1 and maximun 90.
     If not specified, cluster will be created with 1 shard.
     :param ReplicasPerNodeGroup: Number of replicas per shard. If not specified 1 replica per shard will be created.
@@ -285,7 +285,7 @@ if __name__ == '__main__':
     # Creates a cluster mode enabled cluster
     response = create_cluster_mode_enabled(
         CacheNodeType='cache.m6g.large',
-        EngineVersion='6.x',
+        EngineVersion='6.0',
         ReplicationGroupDescription='Redis cluster mode enabled with replicas',
         ReplicationGroupId='redis2021',
     #   Creates a cluster mode enabled cluster with 1 shard(NumNodeGroups), 1 primary (implicit) and 2 replicas (replicasPerNodeGroup)

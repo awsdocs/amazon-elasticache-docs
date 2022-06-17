@@ -10,6 +10,9 @@ When you scale up a single\-node Redis cluster, ElastiCache performs the followi
 
 1. ElastiCache deletes the old cache cluster\. You will notice a brief interruption \(a few seconds\) of reads and writes from the old node because the connections to the old node will be disconnected\. 
 
+**Note**  
+For clusters running the r6gd node type, you can only scale to node sizes within the r6gd node family\.
+
 As shown in the following table, your Redis scale\-up operation is blocked if you have an engine upgrade scheduled for the next maintenance window\. For more information on Maintenance Windows, see [Managing maintenance](maintenance-window.md)\.
 
 
@@ -161,7 +164,8 @@ The following procedure describes how to scale up a single\-node Redis cache clu
    	            "CacheNodeType": "cache.m3.2xlarge"
    	        }, 
    	        "PreferredMaintenanceWindow": "tue:11:30-tue:12:30", 
-   	        "CacheNodeType": "cache.m3.medium"
+   	        "CacheNodeType": "cache.m3.medium",
+   	         "DataTiering": "disabled"
    	    }
    	}
    ```

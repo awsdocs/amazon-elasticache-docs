@@ -36,7 +36,7 @@ The following example describes a typical policy configuration for target\-track
 
 ## Using a custom metric<a name="AutoScaling-Scaling-Custom-Metric"></a>
 
- By using custom metrics, you can define a target\-tracking scaling policy that meets your custom requirements\. You can define a custom metric based on any Elasticache metric that changes in proportion to scaling\. Not all Elasticache metrics work for target tracking\. The metric must be a valid utilization metric and describe how busy an instance is\. The value of the metric must increase or decrease in proportion to the number of Shards in the cluster\. This proportional increase or decrease is necessary to use the metric data to proportionally scale out or in the number of shards\. 
+ By using custom metrics, you can define a target\-tracking scaling policy that meets your custom requirements\. You can define a custom metric based on any Elasticache metric that changes in proportion to scaling\. Not all ElastiCache metrics work for target tracking\. The metric must be a valid utilization metric and describe how busy an instance is\. The value of the metric must increase or decrease in proportion to the number of Shards in the cluster\. This proportional increase or decrease is necessary to use the metric data to proportionally scale out or in the number of shards\. 
 
 **Example**  
 The following example describes a target\-tracking configuration for a scaling policy\. In this configuration, a custom metric adjusts an ElastiCache for Redis cluster based on an average CPU utilization of 50 percent across all shards in an cluster named `my-db-cluster`\. 
@@ -105,7 +105,7 @@ After registering your cluster with ElastiCache for Redis auto scaling and defin
 
 ### Applying a scaling policy using the AWS CLI<a name="AutoScaling-Scaling-Applying-a-Scaling-Policy-CLI"></a>
 
-To apply a scaling policy to your ElastiCache for Redis cluster, use the [put\-scaling\-policy](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/put-scaling-policy.html) command with the following parameters: 
+To apply a scaling policy to your ElastiCache for Redis cluster, use the [put\-scaling\-policy](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/put-scaling-policy.html) command with the following parameters: 
 + **\-\-policy\-name** – The name of the scaling policy\. 
 + **\-\-policy\-type** – Set this value to `TargetTrackingScaling`\. 
 + **\-\-resource\-id** – The resource identifier for the ElastiCache for Redis\. For this parameter, the resource type is `ReplicationGroup` and the unique identifier is the name of the ElastiCache for Redis cluster, for example `replication-group/myscalablecluster`\. 
@@ -141,7 +141,7 @@ aws application-autoscaling put-scaling-policy ^
 
 ### Applying a scaling policy using the API<a name="AutoScaling-Scaling-Applying-a-Scaling-Policy-API"></a>
 
-To apply a scaling policy to your ElastiCache for Redis cluster, use the [PutScalingPolicy](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScalingPolicy.html) AWS CLI command with the following parameters: 
+To apply a scaling policy to your ElastiCache for Redis cluster, use the [PutScalingPolicy](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/put-scaling-policy.html) AWS CLI command with the following parameters: 
 + **\-\-policy\-name** – The name of the scaling policy\. 
 + **\-\-resource\-id** – The resource identifier for the ElastiCache for Redis\. For this parameter, the resource type is `ReplicationGroup` and the unique identifier is the name of the ElastiCache for Redis cluster, for example `replication-group/myscalablecluster`\. 
 + **\-\-service\-namespace** – Set this value to `elasticache`\. 

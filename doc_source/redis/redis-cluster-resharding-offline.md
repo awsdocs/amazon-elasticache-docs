@@ -1,6 +1,9 @@
 # Offline resharding and shard rebalancing for Redis \(cluster mode enabled\)<a name="redis-cluster-resharding-offline"></a>
 
 The main advantage you get from offline shard reconfiguration is that you can do more than merely add or remove shards from your replication group\. When you reshard offline, in addition to changing the number of shards in your replication group, you can do the following:
+
+**Note**  
+Offline resharding is not supported on Redis clusters with data tiering enabled\. For more information, see [Data tiering](data-tiering.md)\.
 + Change the node type of your replication group\.
 + Specify the Availability Zone for each node in the replication group\.
 + Upgrade to a newer engine version\.

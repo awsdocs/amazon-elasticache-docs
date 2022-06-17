@@ -1,7 +1,8 @@
 # Supported ElastiCache for Redis versions<a name="supported-engine-versions"></a>
 
 **Topics**
-+ [Redis 6\.x \(enhanced\)](#redis-version-6.x)
++ [Redis 6\.2 \(enhanced\)](#redis-version-6.2)
++ [Redis 6\.0 \(enhanced\)](#redis-version-6.0)
 + [Redis 5\.0\.6 \(enhanced\)](#redis-version-5-0.6)
 + [Redis 5\.0\.5 \(enhanced\)](#redis-version-5-0.5)
 + [Redis 5\.0\.4 \(enhanced\)](#redis-version-5-0.4)
@@ -31,29 +32,45 @@ For more information, see the following topics:
 | **Create Replication Group** | [Creating a Redis \(Cluster Mode Disabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) replication group from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
 
-## ElastiCache for Redis version 6\.x \(enhanced\)<a name="redis-version-6.x"></a>
+## ElastiCache for Redis version 6\.2 \(enhanced\)<a name="redis-version-6.2"></a>
 
-Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache, which includes [Authenticating Users with Role Based Access Control](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html), versionless support, client\-side caching and significant operational improvements\. 
+ElastiCache for Redis 6\.2 includes performance improvements for TLS\-enabled clusters using x86 node types with 8 vCPUs or more or Graviton2 node types with 4 vCPUs or more\. These enhancements improve throughput and reduce client connection establishment time by offloading encryption to other vCPUs\. With Redis 6\.2, you can also manage access to Pub/Sub channels with Access Control List \(ACL\) rules\.
 
-Beginning with Redis 6\.x, ElastiCache for Redis will offer a single version for each Redis OSS major release, rather than offering multiple minor versions\. Versionless engine support is designed to minimize confusion and ambiguity on having to choose from multiple minor versions\. ElastiCache for Redis will also automatically manage the minor version of your running cache clusters, ensuring improved performance and enhanced security\. This will be handled through standard customer\-notification channels via a self\-service update campaign\. For more information, see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\. 
+ With this version, we also introduce support for data tiering on cluster nodes containing locally attached NVMe SSD\. For more information, see [Data tiering](data-tiering.md)\.
 
-You specify the engine version by using `6.x`\. ElastiCache for Redis will automatically invoke the preferred minor version of Redis 6 that is available\.
+This version also introduces support for native JavaScript Object Notation \(JSON\) format, a simple, schemaless way to encode complex datasets inside Redis clusters\. With JSON support, you can leverage the performance and Redis APIs for applications that operate over JSON\. For more information, see [Getting started with JSON](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/json-gs.html)\. Also included are JSON\-related metrics, `JsonBasedCmds` and `JsonBasedCmdsLatency`, that are incorporated into CloudWatch to monitor the usage of this datatype\. For more information, see [Metrics for Redis](CacheMetrics.Redis.md)\.
 
-For example, when you create/modify a cache cluster, you set the `--engine-version` parameter to `6.x`\. The cluster will be launched with the current available preferred minor version of Redis 6 at the creation/modification time\. Any request with a specific version value will be rejected, an exception will be thrown and the process will fail\. 
+You specify the engine version by using 6\.2\. ElastiCache for Redis will automatically invoke the preferred patch version of Redis 6\.2 that is available\. For example, when you create/modify a cache cluster, you set the `--engine-version` parameter to 6\.2\. The cluster will be launched with the current available preferred patch version of Redis 6\.2 at the creation/modification time\. Specifying engine version 6\.x in the API will result in the latest minor version of Redis 6\.
 
-When calling the `DescribeCacheEngineVersions` API, the `EngineVersion` parameter value will be set to 6\.x and the actual engine version will be returned in the `CacheEngineVersionDescription` field\.
+For existing 6\.0 clusters, you can opt\-in to the next auto minor version upgrade by setting the `AutoMinorVersionUpgrade` parameter to `yes` in the `CreateCacheCluster`, `ModifyCacheCluster`, `CreateReplicationGroup` or `ModifyReplicationGroup` APIs\. ElastiCache for Redis will upgrade the minor version of your existing 6\.0 clusters to 6\.2 using self\-service updates\. For more information, see [Self\-service updates in Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Self-Service-Updates.html)\.
+
+When calling the DescribeCacheEngineVersions API, the `EngineVersion` parameter value will be set to 6\.2 and the actual engine version with the patch version will be returned in the `CacheEngineVersionDescription` field\. 
+
+For more information on the Redis 6\.2 release, see [Redis 6\.2 Release Notes](https://raw.githubusercontent.com/antirez/redis/6.2/00-RELEASENOTES) at Redis on GitHub\.
+
+## ElastiCache for Redis version 6\.0 \(enhanced\)<a name="redis-version-6.0"></a>
+
+Amazon ElastiCache for Redis introduces the next version of the Redis engine, which includes [Authenticating Users with Role Based Access Control](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html), client\-side caching and significant operational improvements\. 
+
+ Beginning with Redis 6\.0, ElastiCache for Redis will offer a single version for each Redis OSS minor release, rather than offering multiple patch versions\. ElastiCache for Redis will automatically manage the patch version of your running cache clusters, ensuring improved performance and enhanced security\. 
+
+You can also opt\-in to the next auto minor version upgrade by setting the `AutoMinorVersionUpgrade` parameter to `yes` and ElastiCache for Redis will manage the minor version upgrade, through self\-service updates\. For more information, see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\. 
+
+You specify the engine version by using `6.0`\. ElastiCache for Redis will automatically invoke the preferred patch version of Redis 6\.0 that is available\. For example, when you create/modify a cache cluster, you set the `--engine-version` parameter to 6\.0\. The cluster will be launched with the current available preferred patch version of Redis 6\.0 at the creation/modification time\. Any request with a specific patch version value will be rejected, an exception will be thrown and the process will fail\.
+
+When calling the DescribeCacheEngineVersions API, the `EngineVersion` parameter value will be set to 6\.0 and the actual engine version with the patch version will be returned in the `CacheEngineVersionDescription` field\. 
 
 For more information on the Redis 6\.0 release, see [Redis 6\.0 Release Notes](https://raw.githubusercontent.com/antirez/redis/6.0/00-RELEASENOTES) at Redis on GitHub\.
 
 ## ElastiCache for Redis version 5\.0\.6 \(enhanced\)<a name="redis-version-5-0.6"></a>
 
-Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache, which includes bug fixes\. 
+Amazon ElastiCache for Redis introduces the next version of the Redis engine, which includes bug fixes\. 
 
 For more information, see [Redis 5\.0\.6 Release Notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES) at Redis on GitHub\.
 
 ## ElastiCache for Redis version 5\.0\.5 \(enhanced\)<a name="redis-version-5-0.5"></a>
 
-Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache\. It includes online configuration changes for ElastiCache for Redis of auto\-failover clusters during all planned operations\. You can now scale your cluster, upgrade the Redis engine version and apply patches and maintenance updates while the cluster stays online and continues serving incoming requests\. It also includes bug fixes\.
+Amazon ElastiCache for Redis introduces the next version of the Redis engine;\. It includes online configuration changes for ElastiCache for Redis of auto\-failover clusters during all planned operations\. You can now scale your cluster, upgrade the Redis engine version and apply patches and maintenance updates while the cluster stays online and continues serving incoming requests\. It also includes bug fixes\.
 
 For more information, see [Redis 5\.0\.5 Release Notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES) at Redis on GitHub\.
 
@@ -162,7 +179,7 @@ For more information, see the following:
 ## ElastiCache for Redis version 3\.2\.6 \(enhanced\)<a name="redis-version-3-2-6"></a>
 
 Amazon ElastiCache for Redis introduces the next major version of the Redis engine supported by Amazon ElastiCache\. ElastiCache for Redis 3\.2\.6 users have all the functionality of earlier Redis versions plus the option to encrypt their data\. For more information, see the following:
-+ [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md)
++ [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)
 + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
 + [HIPAA eligibility](elasticache-compliance.md#elasticache-compliance-hipaa)
 

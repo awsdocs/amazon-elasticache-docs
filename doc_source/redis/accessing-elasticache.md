@@ -97,7 +97,8 @@ The following procedure uses the AWS CLI to determine whether you launched your 
            "EngineVersion": "3.2.10", 
            "PendingModifiedValues": {}, 
            "PreferredMaintenanceWindow": "sat:05:30-sat:06:30", 
-           "CacheNodeType": "cache.t2.medium"
+           "CacheNodeType": "cache.t2.medium",
+           "DataTiering": "disabled"
        }
    ]
    }

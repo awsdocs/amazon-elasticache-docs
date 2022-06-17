@@ -145,6 +145,7 @@ The following procedure describes how to scale up a Redis cache cluster using th
                "my-redis-cluster-0001-002"
            ],
            "CacheNodeType": "cache.m3.xlarge",
+            "DataTiering": "disabled"
            "PendingModifiedValues": {}
        }
    }

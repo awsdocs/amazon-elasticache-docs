@@ -11,6 +11,7 @@ Generally speaking, due to its support for sharding, Redis \(cluster mode enable
 + [Rebooting nodes \(cluster mode disabled only\)](nodes.rebooting.md)
 + [Replacing nodes](CacheNodes.NodeReplacement.md)
 + [ElastiCache reserved nodes](CacheNodes.Reserved.md)
++ [Migrating previous generation nodes](CacheNodes.NodeMigration.md)
 
 Some important operations involving nodes are the following: 
 + [Adding nodes to a cluster](Clusters.AddNode.md)

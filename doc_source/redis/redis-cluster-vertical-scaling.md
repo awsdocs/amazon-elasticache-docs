@@ -2,6 +2,9 @@
 
 By using online vertical scaling with Amazon ElastiCache for Redis version 3\.2\.10 or newer, you can scale your Redis clusters dynamically with minimal downtime\. This allows your Redis cluster to serve requests even while scaling\.
 
+**Note**  
+Scaling is not supported between a data tiering cluster \(for example, a cluster using an r6gd node type\) and a cluster that does not use data tiering \(for example, a cluster using an r6g node type\)\. For more information, see [Data tiering](data-tiering.md)\.
+
 You can do the following:
 + **Scale up** – Increase read and write capacity by adjusting the node type of your Redis cluster to use a larger node type\.
 

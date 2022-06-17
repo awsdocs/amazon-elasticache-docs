@@ -165,9 +165,7 @@ For more information, see [Pub/Sub](http://redis.io/topics/pubsub) in the Redis 
 
 ## Recommendation Data \(Redis Hashes\)<a name="elasticache-for-redis-use-cases-recommendations"></a>
 
-Using INCR or DECR in Redis makes compiling recommendations simple\. Each time a user "likes" a product, you increment an *item:productID:like* counter\. Each time a user "dislikes" a product, you increment an *item:productID:dislike* counter\. Using Redis hashes, you can also maintain a list of everyone who has liked or disliked a product\. The following diagram illustrates an ElastiCache for Redis real\-time analytics store\.
-
-![\[\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/./images/ElastiCache-Redis-Analytics.png)
+Using INCR or DECR in Redis makes compiling recommendations simple\. Each time a user "likes" a product, you increment an *item:productID:like* counter\. Each time a user "dislikes" a product, you increment an *item:productID:dislike* counter\. Using Redis hashes, you can also maintain a list of everyone who has liked or disliked a product\.
 
 **Example \- Likes and Dislikes**  
 

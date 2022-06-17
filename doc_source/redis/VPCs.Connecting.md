@@ -103,7 +103,7 @@ You are now ready to interact with your ElastiCache cluster\. Before you can do 
 1. Use *telnet* to connect to your cache node endpoint over port 6379\. Replace the hostname shown below with the hostname of your cache node\.
 
    ```
-   telnet my-cache-cluster.7wufxa.0001.use1.cache.amazonaws.com 11211
+   telnet my-cache-cluster.7wufxa.0001.use1.cache.amazonaws.com 6379
    ```
 
    You are now connected to the cache engine and can issue commands\. In this example, you add a data item to the cache and then get it immediately afterward\. Finally, you'll disconnect from the cache node\.

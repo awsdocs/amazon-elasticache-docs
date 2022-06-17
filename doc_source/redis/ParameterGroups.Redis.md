@@ -3,7 +3,7 @@
 If you do not specify a parameter group for your Redis cluster, then a default parameter group appropriate to your engine version will be used\. You can't change the values of any parameters in the default parameter group\. However, you can create a custom parameter group and assign it to your cluster at any time as long as the values of conditionally modifiable parameters are the same in both parameter groups\. For more information, see [Creating a parameter group](ParameterGroups.Creating.md)\.
 
 **Topics**
-+ [Redis 6\.x parameter changes](#ParameterGroups.Redis.6-0-x)
++ [Redis 6\.x parameter changes](#ParameterGroups.Redis.6-x)
 + [Redis 5\.0\.3 parameter changes](#ParameterGroups.Redis.5-0-3)
 + [Redis 5\.0\.0 parameter changes](#ParameterGroups.Redis.5.0)
 + [Redis 4\.0\.10 parameter changes](#ParameterGroups.Redis.4-0-10)
@@ -31,7 +31,7 @@ For more information, see the following topics:
 | **Create Replication Group** | [Creating a Redis \(Cluster Mode Disabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) replication group from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
 
-## Redis 6\.x parameter changes<a name="ParameterGroups.Redis.6-0-x"></a>
+## Redis 6\.x parameter changes<a name="ParameterGroups.Redis.6-x"></a>
 
 **Parameter group family:** redis6\.x
 
@@ -39,16 +39,22 @@ Redis 6\.x default parameter groups are as follows:
 + `default.redis6.x` – Use this parameter group, or one derived from it, for Redis \(cluster mode disabled\) clusters and replication groups\.
 + `default.redis6.x.cluster.on` – Use this parameter group, or one derived from it, for Redis \(cluster mode enabled\) clusters and replication groups\.
 
+**Note**  
+ In Redis engine version 6\.2, when the r6gd node family was introduced for use with [Data tiering](data-tiering.md), only *noeviction*, *volatile\-lru* and *allkeys\-lru* max\-memory policies are supported with r6gd node types\. 
+
+For more information, see [ElastiCache for Redis version 6\.2 \(enhanced\)](supported-engine-versions.md#redis-version-6.2) and [ElastiCache for Redis version 6\.0 \(enhanced\)](supported-engine-versions.md#redis-version-6.0)\. 
+
 Parameters added in Redis 6\.x are as follows\. 
 
 
 |  Name  |  Details |  Description  | 
 | --- | --- | --- | 
-| cluster\-allow\-reads\-when\-down |  Default: no Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | When set to yes, a Redis \(cluster mode enabled\) replication group continues to process read commands even when a node is not able to reach a quorum of primaries\.  When set to the default of no, the replication group rejects all commands\. We recommend setting this value to yes if you are using a cluster with fewer than three node groups or your application can safely handle stale reads\.   | 
-| tracking\-table\-max\-keys |  Default: 1,000,000 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | To assist client\-side caching, Redis supports tracking which clients have accessed which keys\.  When the tracked key is modified, invalidation messages are sent to all clients to notify them their cached values are no longer valid\. This value enables you to specify the upper bound of this table\. After this parameter value is exceeded, clients are sent invalidation randomly\. This value should be tuned to limit memory usage while still keeping track of enough keys\. Keys are also invalidated under low memory conditions\.   | 
-| acllog\-max\-len |  Default: 128 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | This value corresponds to the max number of entries in the ACL log\.   | 
-| active\-expire\-effort |  Default: 1 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | Redis deletes keys that have exceeded their time to live by two mechanisms\. In one, a key is accessed and is found to be expired\. In the other, a periodic job samples keys and causes those that have exceeded their time to live to expire\. This parameter defines the amount of effort that Redis uses to expire items in the periodic job\.  The default value of 1 tries to avoid having more than 10 percent of expired keys still in memory\. It also tries to avoid consuming more than 25 percent of total memory and to add latency to the system\. You can increase this value up to 10 to increase the amount of effort spent on expiring keys\. The tradeoff is higher CPU and potentially higher latency\. We recommend a value of 1 unless you are seeing high memory usage and can tolerate an increase in CPU utilization\.   | 
-| lazyfree\-lazy\-user\-del |  Default: no Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | When the value is set to yes, the `DEL` command acts the same as `UNLINK`\.   | 
+| acl\-pubsub\-default \(added in 6\.2\) |  Permitted values: `resetchannels`, `allchannels` Default: `allchannels` Type: string Modifiable: Yes Changes take effect: The existing Redis users associated to the cluster will continue to have existing permissions\. Either update the users or reboot the cluster to update the existing Redis users\. | Default pubsub channel permissions for ACL users deployed to this cluster\.   | 
+| cluster\-allow\-reads\-when\-down \(added in 6\.0\) |  Default: no Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | When set to yes, a Redis \(cluster mode enabled\) replication group continues to process read commands even when a node is not able to reach a quorum of primaries\.  When set to the default of no, the replication group rejects all commands\. We recommend setting this value to yes if you are using a cluster with fewer than three node groups or your application can safely handle stale reads\.   | 
+| tracking\-table\-max\-keys \(added in 6\.0\) |  Default: 1,000,000 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | To assist client\-side caching, Redis supports tracking which clients have accessed which keys\.  When the tracked key is modified, invalidation messages are sent to all clients to notify them their cached values are no longer valid\. This value enables you to specify the upper bound of this table\. After this parameter value is exceeded, clients are sent invalidation randomly\. This value should be tuned to limit memory usage while still keeping track of enough keys\. Keys are also invalidated under low memory conditions\.   | 
+| acllog\-max\-len \(added in 6\.0\) |  Default: 128 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | This value corresponds to the max number of entries in the ACL log\.   | 
+| active\-expire\-effort \(added in 6\.0\) |  Default: 1 Type: number Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | Redis deletes keys that have exceeded their time to live by two mechanisms\. In one, a key is accessed and is found to be expired\. In the other, a periodic job samples keys and causes those that have exceeded their time to live to expire\. This parameter defines the amount of effort that Redis uses to expire items in the periodic job\.  The default value of 1 tries to avoid having more than 10 percent of expired keys still in memory\. It also tries to avoid consuming more than 25 percent of total memory and to add latency to the system\. You can increase this value up to 10 to increase the amount of effort spent on expiring keys\. The tradeoff is higher CPU and potentially higher latency\. We recommend a value of 1 unless you are seeing high memory usage and can tolerate an increase in CPU utilization\.   | 
+| lazyfree\-lazy\-user\-del \(added in 6\.0\) |  Default: no Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster | When the value is set to yes, the `DEL` command acts the same as `UNLINK`\.   | 
 
 Parameters removed in Redis 6\.x are as follows\. 
 
@@ -56,8 +62,6 @@ Parameters removed in Redis 6\.x are as follows\.
 |  Name  |  Details |  Description  | 
 | --- | --- | --- | 
 | lua\-replicate\-commands |  Permitted values: yes/no Default: yes Type: boolean Modifiable: Yes Changes take effect: Immediately | Always enable Lua effect replication or not in Lua scripts  | 
-
-For more information, see [ElastiCache for Redis version 6\.x \(enhanced\)](supported-engine-versions.md#redis-version-6.x)\. 
 
 ## Redis 5\.0\.3 parameter changes<a name="ParameterGroups.Redis.5-0-3"></a>
 
@@ -131,7 +135,7 @@ Redis 4\.0\.x default parameter groups
 
 |  Name  |  Details |  Description  | 
 | --- | --- | --- | 
-| maxmemory\-policy |  Permitted values: `allkeys-lru`, `volatile-lru`, **allkeys\-lfu**, **volatile\-lfu**, `allkeys-random`, `volatile-random`, `volatile-ttl`, `noeviction` Default: volatile\-lru Type: string Modifiable: Yes Changes take place: immediately | maxmemory\-policy was added in version 2\.6\.13\. In version 4\.0\.10 two new permitted values are added: allkeys\-lfu, which will evict any key using approximated LFU, and volatile\-lfu, which will evict using approximated LFU among the keys with an expire set\.  | 
+| maxmemory\-policy |  Permitted values: `allkeys-lru`, `volatile-lru`, **allkeys\-lfu**, **volatile\-lfu**, `allkeys-random`, `volatile-random`, `volatile-ttl`, `noeviction` Default: volatile\-lru Type: string Modifiable: Yes Changes take place: immediately | maxmemory\-policy was added in version 2\.6\.13\. In version 4\.0\.10 two new permitted values are added: allkeys\-lfu, which will evict any key using approximated LFU, and volatile\-lfu, which will evict using approximated LFU among the keys with an expire set\. In version 6\.2, when the r6gd node family was introduced for use with data\-tiering, only noeviction, volatile\-lru and allkeys\-lru max\-memory policies are supported with r6gd node types\.  | 
 
 
 **Parameters added in Redis 4\.0\.10**  
@@ -198,7 +202,7 @@ For Redis 3\.2\.4 the following additional parameters are supported\.
 | --- | --- | --- | 
 | list\-max\-ziplist\-size | Default: \-2 Type: integer Modifiable: No  | Lists are encoded in a special way to save space\. The number of entries allowed per internal list node can be specified as a fixed maximum size or a maximum number of elements\. For a fixed maximum size, use \-5 through \-1, meaning: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html) | 
 | list\-compress\-depth | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | Lists may also be compressed\. Compress depth is the number of quicklist ziplist nodes from each side of the list to exclude from compression\. The head and tail of the list are always uncompressed for fast push and pop operations\. Settings are: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html) | 
-| cluster\-enabled |  Default: no/yes \* Type: string Modifiable: Yes | Indicates whether this is a Redis \(cluster mode enabled\) replication group in cluster mode \(yes\) or a Redis \(cluster mode enabled\) replication group in non\-cluster mode \(no\)\. Redis \(cluster mode enabled\) replication groups in cluster mode can partition their data across up to 500 node groups\. \* Redis 3\.2\.*x* has two default parameter groups\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html)\. | 
+| cluster\-enabled |  Default: no/yes \* Type: string Modifiable: No | Indicates whether this is a Redis \(cluster mode enabled\) replication group in cluster mode \(yes\) or a Redis \(cluster mode enabled\) replication group in non\-cluster mode \(no\)\. Redis \(cluster mode enabled\) replication groups in cluster mode can partition their data across up to 500 node groups\. \* Redis 3\.2\.*x* has two default parameter groups\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html)\. | 
 | cluster\-require\-full\-coverage | Default: no Type: boolean Modifiable: yes Changes Take Effect: Immediately |  When set to `yes`, Redis \(cluster mode enabled\) nodes in cluster mode stop accepting queries if they detect there is at least one hash slot uncovered \(no available node is serving it\)\. This way if the cluster is partially down, the cluster becomes unavailable\. It automatically becomes available again as soon as all the slots are covered again\. However, sometimes you want the subset of the cluster which is working to continue to accept queries for the part of the key space that is still covered\. To do so, just set the `cluster-require-full-coverage` option to `no`\. | 
 | hll\-sparse\-max\-bytes | Default: 3000 Type: integer Modifiable: Yes Changes Take Effect: Immediately | HyperLogLog sparse representation bytes limit\. The limit includes the 16 byte header\. When a HyperLogLog using the sparse representation crosses this limit, it is converted into the dense representation\. A value greater than 16000 is not recommended, because at that point the dense representation is more memory efficient\. We recommend a value of about 3000 to have the benefits of the space\-efficient encoding without slowing down PFADD too much, which is O\(N\) with the sparse encoding\. The value can be raised to \~10000 when CPU is not a concern, but space is, and the data set is composed of many HyperLogLogs with cardinality in the 0 \- 15000 range\. | 
 | reserved\-memory\-percent | Default: 25 Type: integer Modifiable: Yes Changes Take Effect: Immediately |  The percent of a node's memory reserved for nondata use\. By default, the Redis data footprint grows until it consumes all of the node's memory\. If this occurs, then node performance will likely suffer due to excessive memory paging\. By reserving memory, you can set aside some of the available memory for non\-Redis purposes to help reduce the amount of paging\. This parameter is specific to ElastiCache, and is not part of the standard Redis distribution\. For more information, see `reserved-memory` and [Managing Reserved Memory](redis-memory-management.md)\. | 
@@ -242,7 +246,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w213aac25c34c57c27b9"></a>
+### How close\-on\-slave\-write works<a name="w278aac25c35c57c27b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -256,7 +260,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### When you might disable close\-on\-replica\-write<a name="w213aac25c34c57c27c11"></a>
+### When you might disable close\-on\-replica\-write<a name="w278aac25c35c57c27c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 
@@ -315,39 +319,7 @@ Redis 2\.6\.13 was the first version of Redis supported by ElastiCache\. The fol
 
 
 ****  
-
-|  Name  |  Details  |  Description  | 
-| --- | --- | --- | 
-| activerehashing | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes take place: At Creation | Determines whether to enable Redis' active rehashing feature\. The main hash table is rehashed ten times per second; each rehash operation consumes 1 millisecond of CPU time\. This value is set when you create the parameter group\. When assigning a new parameter group to a cluster, this value must be the same in both the old and new parameter groups\. | 
-| appendonly | Default: no Type: string Modifiable: Yes Changes Take Effect: Immediately | Enables or disables Redis' append only file feature \(AOF\)\. AOF captures any Redis commands that change data in the cache, and is used to recover from certain node failures\.  The default value is *no*, meaning AOF is turned off\. Set this parameter to *yes* to enable AOF\. For more information, see [Mitigating Failures](FaultTolerance.md)\. Append Only Files \(AOF\) is not supported for cache\.t1\.micro and cache\.t2\.\* nodes\. For nodes of this type, the `appendonly` parameter value is ignored\.   For Multi\-AZ replication groups, AOF is not allowed\. | 
-| appendfsync | Default: everysec Type: string Modifiable: Yes Changes Take Effect: Immediately | When appendonly is set to yes, controls how often the AOF output buffer is written to disk: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html)  | 
-| client\-output\-buffer\-limit\-normal\-hard\-limit | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | If a client's output buffer reaches the specified number of bytes, the client will be disconnected\. The default is zero \(no hard limit\)\. | 
-| client\-output\-buffer\-limit\-normal\-soft\-limit | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | If a client's output buffer reaches the specified number of bytes, the client will be disconnected, but only if this condition persists for client\-output\-buffer\-limit\-normal\-soft\-seconds\. The default is zero \(no soft limit\)\. | 
-| client\-output\-buffer\-limit\-normal\-soft\-seconds | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | If a client's output buffer remains at client\-output\-buffer\-limit\-normal\-soft\-limit bytes for longer than this number of seconds, the client will be disconnected\. The default is zero \(no time limit\)\. | 
-| client\-output\-buffer\-limit\-pubsub\-hard\-limit | Default: 33554432 Type: integer Modifiable: Yes Changes Take Effect: Immediately | For Redis publish/subscribe clients: If a client's output buffer reaches the specified number of bytes, the client will be disconnected\. | 
-| client\-output\-buffer\-limit\-pubsub\-soft\-limit | Default: 8388608 Type: integer Modifiable: Yes Changes Take Effect: Immediately | For Redis publish/subscribe clients: If a client's output buffer reaches the specified number of bytes, the client will be disconnected, but only if this condition persists for client\-output\-buffer\-limit\-pubsub\-soft\-seconds\. | 
-| client\-output\-buffer\-limit\-pubsub\-soft\-seconds | Default: 60 Type: integer Modifiable: Yes Changes Take Effect: Immediately | For Redis publish/subscribe clients: If a client's output buffer remains at client\-output\-buffer\-limit\-pubsub\-soft\-limit bytes for longer than this number of seconds, the client will be disconnected\. | 
-| client\-output\-buffer\-limit\-slave\-hard\-limit | Default: For values see [Redis node\-type specific parameters](#ParameterGroups.Redis.NodeSpecific) Type: integer Modifiable: No | For Redis read replicas: If a client's output buffer reaches the specified number of bytes, the client will be disconnected\. | 
-| client\-output\-buffer\-limit\-slave\-soft\-limit | Default: For values see [Redis node\-type specific parameters](#ParameterGroups.Redis.NodeSpecific) Type: integer Modifiable: No | For Redis read replicas: If a client's output buffer reaches the specified number of bytes, the client will be disconnected, but only if this condition persists for client\-output\-buffer\-limit\-slave\-soft\-seconds\. | 
-| client\-output\-buffer\-limit\-slave\-soft\-seconds | Default: 60 Type: integer Modifiable: No | For Redis read replicas: If a client's output buffer remains at client\-output\-buffer\-limit\-slave\-soft\-limit bytes for longer than this number of seconds, the client will be disconnected\. | 
-| databases | Default: 16 Type: integer Modifiable: No Changes take place: At Creation | The number of logical partitions the databases is split into\. We recommend keeping this value low\. This value is set when you create the parameter group\. When assigning a new parameter group to a cluster, this value must be the same in both the old and new parameter groups\. | 
-| hash\-max\-ziplist\-entries | Default: 512 Type: integer Modifiable: Yes Changes Take Effect: Immediately | Determines the amount of memory used for hashes\. Hashes with fewer than the specified number of entries are stored using a special encoding that saves space\. | 
-| hash\-max\-ziplist\-value | Default: 64 Type: integer Modifiable: Yes Changes Take Effect: Immediately | Determines the amount of memory used for hashes\. Hashes with entries that are smaller than the specified number of bytes are stored using a special encoding that saves space\. | 
-| list\-max\-ziplist\-entries | Default: 512 Type: integer Modifiable: Yes Changes Take Effect: Immediately | Determines the amount of memory used for lists\. Lists with fewer than the specified number of entries are stored using a special encoding that saves space\. | 
-| list\-max\-ziplist\-value | Default: 64 Type: integer Modifiable: Yes Changes Take Effect: Immediately | Determines the amount of memory used for lists\. Lists with entries that are smaller than the specified number of bytes are stored using a special encoding that saves space\. | 
-| lua\-time\-limit | Default: 5000 Type: integer Modifiable: No | The maximum execution time for a Lua script, in milliseconds, before ElastiCache takes action to stop the script\. If `lua-time-limit` is exceeded, all Redis commands will return an error of the form *\_\_\_\_\-BUSY*\. Since this state can cause interference with many essential Redis operations, ElastiCache will first issue a *SCRIPT KILL* command\. If this is unsuccessful, ElastiCache will forcibly restart Redis\. | 
-| maxclients | Default: 65000 Type: integer Modifiable: No | The maximum number of clients that can be connected at one time\. | 
-| maxmemory\-policy | Default: volatile\-lru Type: string Modifiable: Yes Changes Take Effect: Immediately | The eviction policy for keys when maximum memory usage is reached\. Valid values are: `volatile-lru \| allkeys-lru \| volatile-random \| allkeys-random \| volatile-ttl \| noeviction` For more information, see [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)\. | 
-| maxmemory\-samples | Default: 3 Type: integer Modifiable: Yes Changes Take Effect: Immediately | For least\-recently\-used \(LRU\) and time\-to\-live \(TTL\) calculations, this parameter represents the sample size of keys to check\. By default, Redis chooses 3 keys and uses the one that was used least recently\. | 
-| reserved\-memory | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately |  The total memory, in bytes, reserved for non\-data usage\. By default, the Redis node will grow until it consumes the node's `maxmemory` \(see [Redis node\-type specific parameters](#ParameterGroups.Redis.NodeSpecific)\)\. If this occurs, then node performance will likely suffer due to excessive memory paging\. By reserving memory you can set aside some of the available memory for non\-Redis purposes to help reduce the amount of paging\. This parameter is specific to ElastiCache, and is not part of the standard Redis distribution\. For more information, see `reserved-memory-percent` and [Managing Reserved Memory](redis-memory-management.md)\. | 
-| set\-max\-intset\-entries | Default: 512 Type: integer Modifiable: Yes Changes Take Effect: Immediately | Determines the amount of memory used for certain kinds of sets \(strings that are integers in radix 10 in the range of 64 bit signed integers\)\. Such sets with fewer than the specified number of entries are stored using a special encoding that saves space\. | 
-| slave\-allow\-chaining | Default: no Type: string Modifiable: No | Determines whether a read replica in Redis can have read replicas of its own\. | 
-| slowlog\-log\-slower\-than | Default: 10000 Type: integer Modifiable: Yes Changes Take Effect: Immediately | The maximum execution time, in microseconds, for commands to be logged by the Redis Slow Log feature\. | 
-| slowlog\-max\-len | Default: 128 Type: integer Modifiable: Yes Changes Take Effect: Immediately | The maximum length of the Redis Slow Log\. | 
-| tcp\-keepalive | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | If this is set to a nonzero value \(N\), node clients are polled every N seconds to ensure that they are still connected\. With the default setting of 0, no such polling occurs\. Some aspects of this parameter changed in Redis version 3\.2\.4\. See [Parameters changed in Redis 3\.2\.4 \(enhanced\)](#ParameterGroups.Redis.3-2-4.Changed)\. | 
-| timeout | Default: 0 Type: integer Modifiable: Yes Changes Take Effect: Immediately | The number of seconds a node waits before timing out\. Values are: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html) | 
-| zset\-max\-ziplist\-entries | Default: 128 Type: integer Modifiable: Yes Changes Take Effect: Immediately | Determines the amount of memory used for sorted sets\. Sorted sets with fewer than the specified number of elements are stored using a special encoding that saves space\. | 
-| zset\-max\-ziplist\-value | Default: 64 Type: integer Modifiable: Yes Changes Take Effect: Immediately | Determines the amount of memory used for sorted sets\. Sorted sets with entries that are smaller than the specified number of bytes are stored using a special encoding that saves space\. | 
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html)
 
 **Note**  
 If you do not specify a parameter group for your Redis 2\.6\.13 cluster, then a default parameter group \(`default.redis2.6`\) will be used\. You cannot change the values of any parameters in the default parameter group; however, you can always create a custom parameter group and assign it to your cluster at any time\.
@@ -369,6 +341,9 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.t3\.micro | 536870912 | 53687091 | 53687091 | 
 | cache\.t3\.small | 1471026299 | 147102629 | 147102629 | 
 | cache\.t3\.medium | 3317862236 | 331786223 | 331786223 | 
+| cache\.t4g\.micro | 536870912 | 53687091 | 53687091 | 
+| cache\.t4g\.small | 1471026299 | 147102629 | 147102629 | 
+| cache\.t4g\.medium | 3317862236 | 331786223 | 331786223 | 
 | cache\.m1\.small | 943718400 | 94371840 | 94371840 | 
 | cache\.m1\.medium | 3093299200 | 309329920 | 309329920 | 
 | cache\.m1\.large | 7025459200 | 702545920 | 702545920 | 
@@ -423,6 +398,12 @@ The `maxmemory` parameter cannot be modified\.
 | cache\.r6g\.8xlarge | 225000375228 | 22500037523 | 22500037523 | 
 | cache\.r6g\.12xlarge | 341206346547 | 34120634655 | 34120634655 | 
 | cache\.r6g\.16xlarge | 450000750456 | 45000075046 | 45000075046 | 
+| cache\.r6gd\.xlarge | 28261849702 | 2826184970 | 2826184970 | 
+| cache\.r6gd\.2xlarge | 56711183565 | 5671118356 | 5671118356 | 
+| cache\.r6gd\.4xlarge | 113609865216 | 11360986522 | 11360986522 | 
+| cache\.r6gd\.8xlarge | 225000375228 | 22500037523 | 22500037523 | 
+| cache\.r6gd\.12xlarge | 341206346547 | 34120634655 | 34120634655 | 
+| cache\.r6gd\.16xlarge | 450000750456 | 45000075046 | 45000075046 | 
 
 **Note**  
 All current generation instance types are created in an Amazon Virtual Private Cloud VPC by default\.  

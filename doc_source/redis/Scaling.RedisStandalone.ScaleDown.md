@@ -2,6 +2,9 @@
 
 The following sections walk you through how to scale a single\-node Redis cluster down to a smaller node type\. Ensuring that the new, smaller node type is large enough to accommodate all the data and Redis overhead is important to the long\-term success of your new Redis cluster\. For more information, see [Ensuring that you have enough memory to create a Redis snapshot](BestPractices.BGSAVE.md)\.
 
+**Note**  
+For clusters running the r6gd node type, you can only scale to node sizes within the r6gd node family\.
+
 **Topics**
 + [Scaling down a single\-node Redis cluster \(Console\)](#Scaling.RedisStandalone.ScaleDown.CON)
 + [Scaling down single\-node Redis cache clusters \(AWS CLI\)](#Scaling.RedisStandalone.ScaleUpDown-Modify.CLI)
@@ -149,7 +152,8 @@ The following procedure describes how to scale down a single\-node Redis cache c
    	            "CacheNodeType": "cache.m3.2xlarge"
    	        }, 
    	        "PreferredMaintenanceWindow": "tue:11:30-tue:12:30", 
-   	        "CacheNodeType": "cache.m3.medium"
+   	        "CacheNodeType": "cache.m3.medium",
+   	         "DataTiering": "disabled"
    	    }
    	}
    ```

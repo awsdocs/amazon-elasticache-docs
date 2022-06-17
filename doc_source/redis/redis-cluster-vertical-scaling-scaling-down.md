@@ -146,6 +146,7 @@ The following procedure describes how to scale down a Redis cache cluster using 
                "my-redis-cluster-0001-002"
            ],
            "CacheNodeType": "cache.t2.micro",
+            "DataTiering": "disabled"
            "PendingModifiedValues": {}
        }
    }

@@ -18,7 +18,7 @@ Following, you can find an overview of the major components of an Amazon ElastiC
 
 ## ElastiCache nodes<a name="WhatIs.Components.Nodes"></a>
 
-A *node* is the smallest building block of an ElastiCache deployment\. A node can exist in isolation form or in some relationship to other nodes\.
+A *node* is the smallest building block of an ElastiCache deployment\. A node can exist in isolation from or in some relationship to other nodes\.
 
 A node is a fixed\-size chunk of secure, network\-attached RAM\. Each node runs an instance of the engine and version that was chosen when you created your cluster\. If necessary, you can scale the nodes in a cluster up or down to a different instance type\. For more information, see [Scaling ElastiCache for Redis clusters](Scaling.md)\.
 
@@ -79,6 +79,8 @@ For improved fault tolerance, we recommend having at least two nodes in a Redis 
 
 As demand upon your Redis \(cluster mode disabled\) cluster changes, you can scale up or down\. To do this, you move your cluster to a different node instance type\. If your application is read intensive, we recommend adding read\-only replicas Redis \(cluster mode disabled\) cluster\. By doing this, you can spread the reads across a more appropriate number of nodes\.
 
+You can also use data\-tiering\. More frequently accessed data is stored in memory and less frequently accessed data is stored on disk\. The advantage of using data tiering is that it decreases memory needs\. For more information, see [Data tiering](data-tiering.md)\.
+
 ElastiCache supports changing a Redis \(cluster mode disabled\) cluster's node type to a larger node type dynamically\. For information on scaling up or down, see [Scaling single\-node clusters for Redis \(Cluster Mode Disabled\)](Scaling.RedisStandalone.md) or [Scaling Redis \(Cluster Mode Disabled\) clusters with replica nodes](Scaling.RedisReplGrps.md)\.
 
 ## ElastiCache for Redis replication<a name="WhatIs.Components.ReplicationGroups"></a>
@@ -108,6 +110,8 @@ In the following table, you can find a comparison of the features of Redis \(clu
 All of the shards \(in the API and CLI, node groups\) and nodes must reside in the same AWS Region\. However, you can provision the individual nodes in multiple Availability Zones within that AWS Region\. 
 
 Read replicas guard against potential data loss because your data is replicated over two or more nodes—the primary and one or more read replicas\. For greater reliability and faster recovery, we recommend that you create one or more read replicas in different Availability Zones\. In addition, enable Multi\-AZ instead of using Redis Append Only File \(AOF\)\. AOF is disabled when Multi\-AZ is enabled\. For more information, see [Minimizing downtime in ElastiCache for Redis with Multi\-AZ](AutoFailover.md)\.
+
+You can also leverage Global datastores\. By using the Global Datastore for Redis feature, you can work with fully managed, fast, reliable, and secure replication across AWS Regions\. Using this feature, you can create cross\-Region read replica clusters for ElastiCache for Redis to enable low\-latency reads and disaster recovery across AWS Regions\. For more information, see [Replication across AWS Regions using global datastores](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html)\.
 
 **Replication: Limits and exclusions**
 + AOF is not supported on node type `cache.t1.micro` and cache\.t2\. For nodes of these types, the `appendonly` parameter value is ignored\.
@@ -139,7 +143,7 @@ The endpoint for a single node Redis cluster is used to connect to the cluster f
 
 A multiple node Redis \(cluster mode disabled\) cluster has two types of endpoints\. The primary endpoint always connects to the primary node in the cluster, even if the specific node in the primary role changes\. Use the primary endpoint for all writes to the cluster\.
 
-The read endpoint in a Redis \(cluster mode disabled\) cluster always points to a specific node\. Whenever you add or remove a read replica, you must update the associated node endpoint in your application\.
+Use the Reader Endpoint to evenly split incoming connections to the endpoint between all read replicas\. Use the individual Node Endpoints for read operations \(In the API/CLI these are referred to as Read Endpoints\)\.
 
 ### Redis \(Cluster Mode Enabled\) endpoints<a name="WhatIs.Components.Endpoints.Redis.Cluster"></a>
 

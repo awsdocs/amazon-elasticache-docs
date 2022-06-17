@@ -1,6 +1,6 @@
-# ElastiCache for Redis in\-transit encryption \(TLS\)<a name="in-transit-encryption"></a>
+# ElastiCache in\-transit encryption \(TLS\)<a name="in-transit-encryption"></a>
 
-To help keep your data secure, Amazon ElastiCache and Amazon EC2 provide mechanisms to guard against unauthorized access of your data on the server\. By providing in\-transit encryption capability, ElastiCache gives you a tool you can use to help protect your data when it is moving from one location to another\. For example, you might move data from a primary node to a read replica node within a replication group, or between your replication group and your application\.
+To help keep your data secure, Amazon ElastiCache and Amazon EC2 provide mechanisms to guard against unauthorized access of your data on the server\. By providing in\-transit encryption capability, ElastiCache gives you a tool you can use to help protect your data when it is moving from one location to another\. 
 
 In\-transit encryption is optional and can only be enabled on Redis replication groups when they are created\. You enable in\-transit encryption on a replication group by setting the parameter `TransitEncryptionEnabled` to `true` \(CLI: `--transit-encryption-enabled`\) when you create the replication group\. You can do this whether you are creating the replication group using the AWS Management Console, the AWS CLI, or the ElastiCache API\. If you enable in\-transit encryption, you must also provide a value for `CacheSubnetGroup`\.
 
@@ -10,8 +10,8 @@ The parameters `TransitEncryptionEnabled` \(CLI: `--transit-encryption-enabled`\
 **Topics**
 + [In\-transit encryption overview](#in-transit-encryption-overview)
 + [In\-transit encryption conditions](#in-transit-encryption-constraints)
++ [In\-transit encryption best practices](#in-transit-encryption-best-practices)
 + [Enabling in\-transit encryption](#in-transit-encryption-enable)
-+ [Connecting to Amazon ElastiCache for Redis nodes enabled with in\-transit encryption using redis\-cli](#connect-tls)
 + [See also](#in-transit-encryption-see-also)
 + [Authenticating users with the Redis AUTH command](auth.md)
 
@@ -33,17 +33,16 @@ The following constraints on Amazon ElastiCache in\-transit encryption should be
 + In\-transit encryption is only supported for replication groups running the following node types\.
   + R6g, R5, R4, R3
   + M6g, M5, M4, M3
-  + T3, T2
+  + T4g, T3, T2
 
   For more information, see [Supported node types](CacheNodes.SupportedTypes.md)\.
 + In\-transit encryption is enabled by explicitly setting the parameter `TransitEncryptionEnabled` to `true`\.
 + You can enable in\-transit encryption on a replication group only when creating the replication group\. You cannot toggle in\-transit encryption on and off by modifying a replication group\. For information on implementing in\-transit encryption on an existing replication group, see [Enabling in\-transit encryption](#in-transit-encryption-enable)\.
 + To connect to an in\-transit encryption enabled replication group, a database must be enabled for transport layer security \(TLS\)\. To connect to a replication group that is not in\-transit encryption enabled, the database cannot be TLS\-enabled\.
 
-Because of the processing required to encrypt and decrypt the data at the endpoints, implementing in\-transit encryption can reduce performance\. Benchmark in\-transit encryption compared to no encryption on your own data to determine its impact on performance for your implementation\.
-
-**Tip**  
-Because creating new connections can be expensive, you can reduce the performance impact of in\-transit encryption by persisting your SSL connections\.
+## In\-transit encryption best practices<a name="in-transit-encryption-best-practices"></a>
++ Because of the processing required to encrypt and decrypt the data at the endpoints, implementing in\-transit encryption can reduce performance\. Benchmark in\-transit encryption compared to no encryption on your own data to determine its impact on performance for your implementation\.
++ Because creating new connections can be expensive, you can reduce the performance impact of in\-transit encryption by persisting your TLS connections\.
 
 ## Enabling in\-transit encryption<a name="in-transit-encryption-enable"></a>
 
@@ -164,7 +163,7 @@ For more information, see the following:
 + [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
 + [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 
-## Connecting to Amazon ElastiCache for Redis nodes enabled with in\-transit encryption using redis\-cli<a name="connect-tls"></a>
+### Connecting to Amazon ElastiCache for Redis nodes enabled with in\-transit encryption using redis\-cli<a name="connect-tls"></a>
 
 
 
@@ -179,24 +178,24 @@ To access data from ElastiCache for Redis nodes enabled with in\-transit encrypt
    Amazon Linux 2
 
    ```
-   $ sudo yum -y install openssl-devel gcc
-   $ wget http://download.redis.io/redis-stable.tar.gz
-   $ tar xvzf redis-stable.tar.gz
-   $ cd redis-stable
-   $ make distclean
-   $ make redis-cli BUILD_TLS=yes
-   $ sudo install -m 755 src/redis-cli /usr/local/bin/
+   sudo yum -y install openssl-devel gcc
+   wget http://download.redis.io/redis-stable.tar.gz
+   tar xvzf redis-stable.tar.gz
+   cd redis-stable
+   make distclean
+   make redis-cli BUILD_TLS=yes
+   sudo install -m 755 src/redis-cli /usr/local/bin/
    ```
 
    Amazon Linux
 
    ```
-   $ sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel clang wget
-   $ wget http://download.redis.io/redis-stable.tar.gz
-   $ tar xvzf redis-stable.tar.gz
-   $ cd redis-stable
-   $ make redis-cli CC=clang BUILD_TLS=yes
-   $ sudo install -m 755 src/redis-cli /usr/local/bin/
+   sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel clang wget
+   wget http://download.redis.io/redis-stable.tar.gz
+   tar xvzf redis-stable.tar.gz
+   cd redis-stable
+   make redis-cli CC=clang BUILD_TLS=yes
+   sudo install -m 755 src/redis-cli /usr/local/bin/
    ```
 
    On Amazon Linux, you may also need to run the following additional steps:

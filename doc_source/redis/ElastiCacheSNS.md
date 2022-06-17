@@ -11,6 +11,7 @@ Notifications are published to a specified Amazon SNS *topic*\. The following ar
 + The Amazon SNS topic you are publishing to cannot be encrypted\.
 **Note**  
 It is possible to attach an encrypted \(at\-rest\) Amazon SNS topic to the cluster\. However, the status of the topic from the ElastiCache console will show as inactive, which effectively disassociates the topic from the cluster when ElastiCache pushes messages to the topic\. 
++ The Amazon SNS topic has to be in the same Region as the ElastiCache cluster\.
 
 ## ElastiCache Events<a name="ElastiCacheSNS.Events"></a>
 

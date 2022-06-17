@@ -19,7 +19,7 @@ The following sections guide you through discovering the endpoints you'll need f
 
 If a Redis \(cluster mode disabled\) cluster has only one node, the node's endpoint is used for both reads and writes\. If a Redis \(cluster mode disabled\) cluster has multiple nodes, there are three types of endpoints; the *primary endpoint*, the *reader endpoint* and the *node endpoints*\.
 
-The primary endpoint is a DNS name that always resolves to the primary node in the cluster\. The primary endpoint is immune to changes to your cluster, such as promoting a read replica to the primary role\. For write activity, we recommend that your applications connect to the primary endpoint instead of connecting directly to the primary\.
+The primary endpoint is a DNS name that always resolves to the primary node in the cluster\. The primary endpoint is immune to changes to your cluster, such as promoting a read replica to the primary role\. For write activity, we recommend that your applications connect to the primary endpoint\.
 
 A reader endpoint will evenly split incoming connections to the endpoint between all read replicas in a ElastiCache for Redis cluster\. Additional factors such as when the application creates the connections or how the application \(re\)\-uses the connections will determine the traffic distribution\. Reader endpoints keep up with cluster changes in real\-time as replicas are added or removed\. You can place your ElastiCache for Redis cluster’s multiple read replicas in different AWS Availability Zones \(AZ\) to ensure high availability of reader endpoints\. 
 
@@ -71,9 +71,9 @@ redis-01.7abc2d.0001.usw2.cache.amazonaws.com:6379
 **In\-transit encryption enabled**
 
 ```
-primary.clusterName.xxxxxx.regionAndAz.cache.amazonaws.com:port
+master.clusterName.xxxxxx.regionAndAz.cache.amazonaws.com:port
 
-primary.ncit.ameaqx.use1.cache.amazonaws.com:6379
+master.ncit.ameaqx.use1.cache.amazonaws.com:6379
 ```
 
 ## Finding Endpoints for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Endpoints.Find.RedisCluster"></a>
@@ -221,6 +221,7 @@ Output from the above operation should look something like this \(JSON format\)\
             "CacheSecurityGroups": [],
             "CacheSubnetGroupName": "default",
             "CacheNodeType": "cache.t2.small",
+             "DataTiering": "disabled"
             "EngineVersion": "3.2.10",
             "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
             "CacheClusterCreateTime": "2018-04-25T18:19:28.241Z"

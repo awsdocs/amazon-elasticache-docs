@@ -14,6 +14,6 @@ During resharding, we recommend the following:
 + **Follow Lua best practices** – Avoid long running Lua scripts, and always declare keys used in Lua scripts up front\. We recommend this approach to determine that the Lua script is not using cross slot commands\. Ensure that the keys used in Lua scripts belong to the same slot\.
 
 After resharding, note the following:
-+ Scale\-in might be partially successful if insufficient memory is available on target shards\. If such a result occurs, review available memory and retry the operation, if necessary\.
++ Scale\-in might be partially successful if insufficient memory is available on target shards\. If such a result occurs, review available memory and retry the operation, if necessary\. The data on the target shards will not be deleted\.
 + Slots with large items are not migrated\. In particular, slots with items larger than 256 MB post\-serialization are not migrated\.
 + The `BRPOPLPUSH` command is not supported if it operates on the slot being migrated\. `FLUSHALL` and `FLUSHDB` commands are not supported inside Lua scripts during a resharding operation\.

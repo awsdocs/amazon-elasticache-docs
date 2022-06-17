@@ -30,7 +30,7 @@ The following shows an example of a permissions policy\.
          "Sid": "AllowUserToPassRole",
          "Effect": "Allow",
          "Action": [ "iam:PassRole" ],
-       "Resource": "*"
+       "Resource": "arn:aws:iam::123456789012:role/EC2-roles-for-cluster"
        }
    ]
 }
@@ -38,7 +38,7 @@ The following shows an example of a permissions policy\.
 
 The policy has two statements:
 + The first statement grants permissions for the Amazon ElastiCache actions \(`elasticache:CreateCacheCluster`, `elasticache:DescribeCacheClusters`, `elasticache:ModifyCacheCluster`, and `elasticache:RebootCacheCluster`\) on any cache cluster owned by the account\.
-+ The second statement grants permissions for the IAM action \(`iam:PassRole`\) on IAM roles\. The wildcard character \(\*\) at the end of the `Resource` value means that the statement allows permission for the `iam:PassRole` action on any IAM role\. To limit this permission to a specific role, replace the wildcard character \(\*\) in the resource ARN with the specific role name\.
++ The second statement grants permissions for the IAM action \(`iam:PassRole`\) on the IAM role name specified at the end of the `Resource` value\.
 
 The policy doesn't specify the `Principal` element because in an identity\-based policy you don't specify the principal who gets the permission\. When you attach policy to a user, the user is the implicit principal\. When you attach a permissions policy to an IAM role, the principal identified in the role's trust policy gets the permissions\. 
 

@@ -17,10 +17,10 @@ To create a final backup when deleting a Redis cluster, on the delete dialog box
 You can create a final backup when deleting a Redis cluster \(for the API or CLI, a replication group\) using the AWS CLI\.
 
 **Topics**
-+ [When deleting a Redis cluster with no read replicas](#w213aac25c25c47b7b1b7)
-+ [When deleting a Redis cluster with read replicas](#w213aac25c25c47b7b1b9)
++ [When deleting a Redis cluster with no read replicas](#w278aac25c27c47b7b1b7)
++ [When deleting a Redis cluster with read replicas](#w278aac25c27c47b7b1b9)
 
-### When deleting a Redis cluster with no read replicas<a name="w213aac25c25c47b7b1b7"></a>
+### When deleting a Redis cluster with no read replicas<a name="w278aac25c27c47b7b1b7"></a>
 
 To create a final backup, use the `delete-cache-cluster` AWS CLI operation with the following parameters\.
 + `--cache-cluster-id` – Name of the cluster being deleted\.
@@ -46,7 +46,7 @@ aws elasticache delete-cache-cluster ^
 
 For more information, see [delete\-cache\-cluster](https://docs.aws.amazon.com/cli/latest/reference/elasticache/delete-cache-cluster.html) in the *AWS CLI Command Reference*\.
 
-### When deleting a Redis cluster with read replicas<a name="w213aac25c25c47b7b1b9"></a>
+### When deleting a Redis cluster with read replicas<a name="w278aac25c27c47b7b1b9"></a>
 
 To create a final backup when deleting a replication group, use the `delete-replication-group` AWS CLI operation, with the following parameters:
 + `--replication-group-id` – Name of the replication group being deleted\.

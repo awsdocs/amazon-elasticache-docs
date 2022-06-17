@@ -11,6 +11,9 @@ The most common use case is when an application deployed on an EC2 instance need
 1. Create a VPC security group for your cluster\. This security group can be used to restrict access to the cluster instances\. For example, you can create a custom rule for this security group that allows TCP access using the port you assigned to the cluster when you created it and an IP address you will use to access the cluster\. 
 
    The default port for Redis clusters and replication groups is `6379`\.
+**Important**  
+Amazon ElastiCache security groups are only applicable to clusters that are *not* running in an Amazon Virtual Private Cloud environment \(VPC\)\. If you are running in an Amazon Virtual Private Cloud, ** Security Groups** is not available in the console navigation pane\.  
+If you are running your ElastiCache nodes in an Amazon VPC, you control access to your clusters with Amazon VPC security groups, which are different from ElastiCache security groups\. For more information about using ElastiCache in an Amazon VPC, see [Amazon VPCs and ElastiCache security](VPCs.md)
 
 1. Create a VPC security group for your EC2 instances \(web and application servers\)\. This security group can, if needed, allow access to the EC2 instance from the Internet via the VPC's routing table\. For example, you can set rules on this security group to allow TCP access to the EC2 instance over port 22\.
 

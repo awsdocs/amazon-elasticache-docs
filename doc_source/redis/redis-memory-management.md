@@ -11,9 +11,12 @@ Reserved memory is memory set aside for nondata use\. When performing a backup o
 
 If you are running a version of Redis before 2\.8\.22, reserve more memory for backups and failovers than if you are running Redis 2\.8\.22 or later\. This requirement is due to the different ways that ElastiCache for Redis implements the backup process\. The rule of thumb is to reserve half of a node type's `maxmemory` value for Redis overhead for versions before 2\.8\.22, and one\-fourth for Redis versions 2\.8\.22 and later\. 
 
+When using clusters with data tiering, we recommend increasing maxmemory to up to half your node's available memory if your workload is write\-heavy\.
+
 For more information, see the following:
 + [Ensuring that you have enough memory to create a Redis snapshot](BestPractices.BGSAVE.md)
 + [How synchronization and backup are implemented](Replication.Redis.Versions.md)
++ [Data tiering](data-tiering.md)
 
 ## Parameters to Manage Reserved Memory<a name="redis-memory-management-parameters"></a>
 
@@ -92,6 +95,8 @@ The following procedure shows how to use `reserved-memory` to manage the memory 
 On March 16, 2017, Amazon ElastiCache introduced the parameter `reserved-memory-percent` and made it available on all versions of ElastiCache for Redis\. The purpose of `reserved-memory-percent` is to simplify reserved memory management across all your clusters\. It does so by enabling you to have a single parameter group for each parameter group family \(such as `redis2.8`\) to manage your clusters' reserved memory, regardless of node type\. The default value for `reserved-memory-percent` is 25 \(25 percent\)\.
 
 The ElastiCache for Redis parameter `reserved-memory-percent` is specific to ElastiCache for Redis and isn't part of the Redis distribution\.
+
+If your cluster is using a node type from the r6gd family and your memory usage reaches 75 percent, data\-tiering will automatically be triggered\. For more information, see [Data tiering](data-tiering.md)\.
 
 **To reserve memory using reserved\-memory\-percent**  
 To use `reserved-memory-percent` to manage the memory on your ElastiCache for Redis cluster, do one of the following:

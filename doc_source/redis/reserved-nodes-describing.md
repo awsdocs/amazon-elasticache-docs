@@ -34,6 +34,7 @@ This operation produces output similar to the following \(JSON format\):
     "ReservedCacheNodeId": "myreservationid",
     "ReservedCacheNodesOfferingId": "649fd0c8-cf6d-47a0-bfa6-060f8e75e95f",
     "CacheNodeType": "cache.m1.small",
+     "DataTiering": "disabled"
     "Duration": "31536000",
     "ProductDescription": "memcached",
     "OfferingType": "Medium Utilization",

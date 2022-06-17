@@ -20,7 +20,7 @@ Security updates are released by using the **Service Updates** feature\. They ar
 If you do not apply the Service Update by the recommended date or when the Service Update expires, ElastiCache will not take any action to apply the update on your behalf\.  
 You are notified of the Service Updates applicable to your Redis clusters by an announcement on the Redis console, email, Amazon SNS, CloudWatch events \(\(AWS Health Service\)\. For more information on Self\-Service Maintenance see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\.   
    
-CloudWatch events and AWS Personal Health Dashboard are not supported in the following regions:  
+CloudWatch events and AWS Health Dashboard are not supported in the following regions:  
 us\-gov\-west\-1 
 us\-gov\-east\-1
 cn\-north\-1
@@ -37,13 +37,13 @@ You can request access to the AWS FedRAMP Security Packages through the FedRAMP 
 To enable FedRAMP support on your ElastiCache for Redis cluster, your cluster and nodes within the cluster must satisfy the following requirements\.
 + **Engine version requirements** – Your cluster must be running ElastiCache for Redis 3\.2\.6, 4\.0\.10 and later for both cluster mode enabled and disabled to qualify for FedRAMP compliance\.
   + Starting with ElastiCache for Redis versions 3\.2\.6, 4\.0\.10 and later for both cluster mode enabled and disabled, you can also enable additional data security features such as:
-    + [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md)
+    + [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)
     + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
     + [Authenticating users with the Redis AUTH command](auth.md)
-+ **Node type requirements** – Your cluster must be running a current\-generation node type — M4, M5, M6g, T2, T3, R4, R5 or R6g\. For more information, see the following: 
++ **Node type requirements** – Your cluster must be running a current\-generation node type — M4, M5, M6g, T2, T3, T4g, R4, R5 or R6g\. For more information, see the following: 
   + [Supported node types](CacheNodes.SupportedTypes.md)
   + [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)
-+ **FIPS Endpoints requirements** – Your ElastiCache for Redis can be created using the FIPS endpoints available in the following regions:\.    
++ **FIPS Endpoints requirements** – Your ElastiCache for Redis clusters can be created using the FIPS endpoints available in the following regions:\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html)
 + **Security Updates Requirement** – You must regularly update your Redis cluster by the **Recommended Apply by Date**\. You can update the cluster in real\-time and on\-demand to ensure no impact to your business\. For more information, see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\.
 
@@ -57,14 +57,15 @@ To use ElastiCache for Redis in compliance with HIPAA, you need to set up a Busi
 
 To enable HIPAA support on your ElastiCache for Redis cluster, your cluster and nodes within the cluster must satisfy the following requirements\.
 + **Engine version requirements** – Your cluster must be running one of the following ElastiCache for Redis versions to qualify for HIPAA eligibility\.
+  + [ElastiCache for Redis version 6\.0 \(enhanced\)](supported-engine-versions.md#redis-version-6.0) or higher\.
   + [ElastiCache for Redis version 5\.0\.0 \(enhanced\)](supported-engine-versions.md#redis-version-5-0) or higher\.
   + [ElastiCache for Redis version 4\.0\.10 \(enhanced\)](supported-engine-versions.md#redis-version-4-0-10)
   + [ElastiCache for Redis version 3\.2\.6 \(enhanced\)](supported-engine-versions.md#redis-version-3-2-6)
-+ **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, M6g, T2, T3, R4, R5 or R6g\. For more information, see the following:
++ **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, M6g, T2, T3, T4g, R4, R5, R6g or R6gd\. For more information, see the following:
   + [Supported node types](CacheNodes.SupportedTypes.md)
   + [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)
 + **Data security requirements** – Your cluster must enable in\-transit encryption, at\-rest encryption, and Redis AUTH\. For more information, see the following:
-  + [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md)
+  + [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)
   + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
   + [Authenticating users with the Redis AUTH command](auth.md)
 + **Security Updates Requirement ** – You must update your Redis cluster with the latest Service Updates of type **security** by the **Recommended Apply by Date**\. You can update the cluster in real\-time and on\-demand to ensure no impact to your business\. For more information, see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)
@@ -84,7 +85,7 @@ The AWS PCI DSS Compliance program includes Amazon ElastiCache for Redis as a PC
 
 To enable PCI DSS support on your ElastiCache for Redis cluster, your cluster and nodes within the cluster must satisfy the following requirements\.
 + **Engine version requirements** – Your cluster must be running ElastiCache for Redis 3\.2\.6, 4\.0\.10 and later for both cluster mode enabled and disabled\.
-+ **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, M6g, T2, R4, R5 or R6g\. For more information, see the following:
++ **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, M6g, T2, T3, T4g, R4, R5, R6g or R6gd\. For more information, see the following:
   + [Supported node types](CacheNodes.SupportedTypes.md)
   + [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)
 + **Security Updates Requirement** – You must regularly update your Redis cluster by the **Recommended Apply by Date**\. You can update the cluster in real\-time and on\-demand to ensure no impact to your business\. For more information, see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\.
@@ -92,7 +93,7 @@ To enable PCI DSS support on your ElastiCache for Redis cluster, your cluster an
 ElastiCache for Redis also offers Data Security Controls to further secure the cluster to store, process, and transmit sensitive financial data like Customer Cardholder Data \(CHD\) when using the service\.
 
 **Data security options** – For more information, see the following:
-+ [ElastiCache for Redis in\-transit encryption \(TLS\)](in-transit-encryption.md)
++ [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)
 + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
 + [Authenticating users with the Redis AUTH command](auth.md)
 

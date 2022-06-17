@@ -1,11 +1,11 @@
 # Applying the self\-service updates<a name="applying-updates"></a>
 
-You can start applying the service updates to your Redis fleet from the time that the updates have an **available** status until they have an **expired** status\. Service updates of the type **security** are cumulative\. In other words, any nonexpired updates that you haven't applied yet are included with your latest update\.
+You can start applying the service updates to your Redis fleet from the time that the updates have an **available** status until they have an **expired** status\. Service updates of the type **security** are cumulative\. In other words, any nonexpired updates that you haven't applied yet are included with your latest update\. Service updates of the type **engine** are cumulative and may also contain security updates\.
 
 **Note**  
 You can apply only those service updates that have an **available** status, even if the recommended apply by date is past due\. 
 
-For more information about reviewing your Redis fleet and applying any service\-specific updates to applicable Redis clusters, see [Applying the service updates using the console for Redis](#applying-updates-console-redis-console)\.
+For more information about reviewing your ElastiCache fleet and applying any service\-specific updates to applicable Redis clusters, see [Applying the service updates using the console for Redis](#applying-updates-console-redis-console)\.
 
 When a new service update is available for one or more of your Redis clusters, you can use the ElastiCache console, API, or AWS CLI to apply the update\. The following sections explain the options that you can use to apply updates\.
 
@@ -74,7 +74,9 @@ In **Service Updates List**, you can view the following:
   + **important:** We recommend that you apply this update as soon as your business flow allows \(within 30 days or less\)\.
   + **medium:** We recommend that you apply this update as soon as you can \(within 60 days or less\)\.
   + **low:** We recommend that you apply this update as soon as you can \(within 90 days or less\)\.
-+ ** Update Type**: For this version, only security updates are supported\.
++ ** Update Type**: The currently supported update types:
+  + **security\-update**: Upgrade to improve the security, reliability, and operational performance on ElastiCache nodes\.
+  + **engine\-update**: Upgrade to improve the security, reliability, and operational performance of ElastiCache nodes\. It can include ElastiCache engine related fixes or Redis engine version upgrades\.
 + ** Release Date**: When the update is released and available to apply on your Redis fleet\.
 + ** Recommended Apply By Date**: ElastiCache guidance date to apply the updates by\.
 
@@ -98,7 +100,9 @@ In the **Service Updates Status** list, you can view the following:
   + **important:** We recommend that you apply this update as soon as you can \(within 30 days or less\)\.
   + **medium:** We recommend that you apply this update as soon as you can \(within 60 days or less\)\.
   + **low:** We recommend that you apply this update as soon as you can \(within 90 days or less\)\.
-+ ** Update Type**: For this version, only security updates are supported\.
++ ** Update Type**: The currently supported update types:
+  + **security\-update**: Upgrade to improve the security, reliability, and operational performance on ElastiCache nodes\.
+  + **engine\-update**: Upgrade to improve the security, reliability, and operational performance of ElastiCache nodes\. It can include ElastiCache engine related fixes or Redis engine version upgrades\.
 + **Service Update Status**: The status of the update, which is one of the following:
   + **available:** The update is available for requisite Redis clusters\.
   + **complete:** The update has been applied and all Redis clusters are [compliant](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance-self-service.html)\.

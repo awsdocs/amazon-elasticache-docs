@@ -8,7 +8,7 @@ ScalingTarget:
    Properties:
      MaxCapacity: 0
      MinCapacity: 0
-     ResourceId: !Sub replication-group/{logicalName}
+     ResourceId: !Sub replication-group/${logicalName}
      ScalableDimension: 'elasticache:replication-group:Replicas'
      ServiceNamespace: elasticache
      RoleARN: !Sub "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/elasticache.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ElastiCacheRG"
@@ -24,5 +24,5 @@ ScalingTarget:
       TargetTrackingScalingPolicyConfiguration:
         PredefinedMetricSpecification:
           PredefinedMetricType: ElastiCacheReplicaEngineCPUUtilization
-        TargetValue: 20
+        TargetValue: 40
 ```

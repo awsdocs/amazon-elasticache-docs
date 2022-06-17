@@ -1,12 +1,12 @@
 # Authenticating users with Role\-Based Access Control \(RBAC\)<a name="Clusters.RBAC"></a>
 
-Instead of authenticating users with the Redis AUTH command as described in [Authenticating users with the Redis AUTH command](auth.md), in Amazon ElastiCache for Redis 6\.x you can use a feature called Role\-Based Access Control \(RBAC\)\. 
+Instead of authenticating users with the Redis AUTH command as described in [Authenticating users with the Redis AUTH command](auth.md), in Redis 6\.0 onward you can use a feature called Role\-Based Access Control \(RBAC\)\. 
 
 Unlike Redis AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups\. These user groups are designed as a way to organize access to replication groups\. 
 
 With RBAC, you create users and assign them specific permissions by using an access string, as described following\. You assign the users to user groups aligned with a specific role \(administrators, human resources\) that are then deployed to one or more ElastiCache for Redis replication groups\. By doing this, you can establish security boundaries between clients using the same Redis replication group or groups and prevent clients from accessing each other’s data\. 
 
-RBAC is designed to support the introduction of [Redis ACL](https://redis.io/topics/acl) in Redis 6\. When you use RBAC with your ElastiCache for Redis cluster, there are some limitations: 
+RBAC is designed to support the introduction of [Redis ACL](https://redis.io/docs/manual/security/acl/) in Redis 6\. When you use RBAC with your ElastiCache for Redis cluster, there are some limitations: 
 + You can't specify passwords in an access string\. You set passwords with [CreateUser](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateUser.html) or [ModifyUser](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyUser.html) calls\.
 + For user rights, you pass `on` and `off` as a part of the access string\. If neither is specified in the access string, the user is assigned `off` and doesn't have access rights to the replication group\.
 + You can't use forbidden and renamed commands\. If you specify a forbidden or a renamed command, an exception will be thrown\. If you want to use access control lists \(ACLs\) for a renamed command, specify the original name of the command, in other words the name of the command before it was renamed\.
@@ -87,7 +87,9 @@ To add proper access control to a cluster, replace this default user with a new 
 
 The following procedures shows how to swap the original `default` user with another `default` user that has a modified access string\.
 
-**To create a new default user on the console**
+**If you are using the older version of the ElastiCache console:**
+
+**To modify the default user on the console**
 
 1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
@@ -103,7 +105,25 @@ The following procedures shows how to swap the original `default` user with anot
 
 1. Choose **Swap**\. When you do this, any existing connections to a replication group that the original default user has are terminated\.
 
-**To create a new default user with the AWS CLI**
+**If you are using the new version of the ElastiCache console:**
+
+**To modify the default user on the console**
+
+1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
+
+1. Choose **Redis** from the navigation pane\.
+
+1. Choose **User Group Management**\.
+
+1. For **User Group ID**, choose the ID that you want to modify\. Make sure that you choose the link and not the check box\.
+
+1. Choose **Modify**\.
+
+1. In the **Modify** window, choose **Manage** and for **Default User** choose the user that you want as the default user\.
+
+1. Choose **Modify**\. When you do this, any existing connections to a replication group that the original default user has are terminated\.
+
+**To modify the default user with the AWS CLI**
 
 1. Create a new user with the user name `default` by using the following commands\.
 
@@ -480,7 +500,7 @@ To add a user group to a replication using the AWS Management Console, do the fo
 
 **Key Parameters**
 + **\-\-engine** – Must be `redis`\.
-+ **\-\-engine\-version** – Must be 6\.x or later\.
++ **\-\-engine\-version** – Must be 6\.0 or later\.
 + **\-\-transit\-encryption\-enabled** – Required for authentication and for associating a user group\.
 + **\-\-user\-group\-ids** – This value provides user groups comprised of users with specified access permissions for the cluster\.
 + **\-\-cache\-subnet\-group** – Required for associating a user group\.
@@ -492,7 +512,7 @@ aws elasticache create-replication-group \
     --replication-group-id "new-replication-group" \
     --replication-group-description "new-replication-group" \
     --engine "redis" \
-    --engine-version "6.x" \
+    --engine-version "6.0" \
     --cache-node-type cache.m5.large \
     --transit-encryption-enabled \
     --user-group-ids "new-group-1" \
@@ -506,7 +526,7 @@ aws elasticache create-replication-group ^
     --replication-group-id "new-replication-group" ^
     --replication-group-description "new-replication-group" ^
     --engine "redis" ^
-    --engine-version "6.x" ^
+    --engine-version "6.0" ^
     --cache-node-type cache.m5.large ^
     --transit-encryption-enabled ^
     --user-group-ids "new-group-1" ^
@@ -531,6 +551,7 @@ The preceding code returns the following response\.
         "ClusterEnabled": false,
         "UserGroupIds": ["new-group-1"]
         "CacheNodeType": "cache.m5.large",
+        "DataTiering": "disabled"
         "TransitEncryptionEnabled": true,
         "AtRestEncryptionEnabled": false
     }

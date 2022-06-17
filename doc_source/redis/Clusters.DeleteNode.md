@@ -38,8 +38,6 @@ If deleting the node results in the cluster no longer being Multi\-AZ compliant,
 
 To determine what operations are pending, choose the **Description** tab and check to see how many pending creations or deletions are shown\. You cannot have both pending creations and pending deletions\. 
 
-![\[Image: Cluster description tab\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ModifyCacheCluster-DescriptionTab-PendActions.png)
-
 ## Using the AWS CLI<a name="Clusters.DeleteNode.CLI"></a>
 
 1. Identify the IDs of the nodes that you want to remove\. For more information, see [Viewing a cluster's details](Clusters.ViewDetails.md)\.
@@ -176,6 +174,7 @@ You can pass only one of `--replicas-to-remove` or `--new-replica-count` paramet
            "SnapshotWindow": "07:30-08:30",
            "ClusterEnabled": false,
            "CacheNodeType": "cache.r5.large",
+            "DataTiering": "disabled"
            "TransitEncryptionEnabled": false,
            "AtRestEncryptionEnabled": false,
            "ARN": "arn:aws:elasticache:us-west-2:123456789012:replicationgroup:node-test"

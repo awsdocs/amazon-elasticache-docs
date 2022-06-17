@@ -51,7 +51,8 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
         "cacheClusterId":"test-memcached",
         "engine":"memcached",
         "aZMode":"cross-az",
-        "cacheNodeType":"cache.m1.small"
+        "cacheNodeType":"cache.m1.small",
+       
     },
     "responseElements":{
         "engine":"memcached",
@@ -65,6 +66,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
         "preferredAvailabilityZone":"Multiple",
         "numCacheNodes":2,
         "cacheNodeType":"cache.m1.small",
+      
         "cacheClusterStatus":"creating",
         "autoMinorVersionUpgrade":true,
         "preferredMaintenanceWindow":"thu:05:00-thu:06:00",

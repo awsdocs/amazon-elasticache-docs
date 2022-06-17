@@ -32,9 +32,6 @@ If you plan to delete cluster and it's important to preserve the data, you can t
 + [Exporting a backup](backups-exporting.md)
 + [Restoring from a backup with optional cluster resizing](backups-restoring.md)
 + [Seeding a new cluster with an externally created backup](backups-seeding-redis.md)
-+ [Tagging backups](backups-tagging.md)
-+ [Deleting a backup](backups-deleting.md)
-+ [Append only files \(AOF\) in ElastiCache for Redis](RedisAOF.md)
 
 ## Backup constraints<a name="backups-constraints"></a>
 
@@ -45,6 +42,8 @@ Consider the following constraints when planning or making backups:
 + During any contiguous 24\-hour period, you can create no more than 20 manual backups per node in the cluster\.
 + Redis \(cluster mode enabled\) only supports taking backups on the cluster level \(for the API or CLI, the replication group level\)\. Redis \(cluster mode enabled\) doesn't support taking backups at the shard level \(for the API or CLI, the node group level\)\.
 + During the backup process, you can't run any other API or CLI operations on the cluster\.
++ If using clusters with data tiering, you cannot export a backup to Amazon S3\.
++ You can restore a backup of a cluster using the r6gd node type only to clusters using the r6gd node type\.
 
 ## Backup costs<a name="backups-costs"></a>
 

@@ -158,7 +158,7 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
                    "arn:aws:elasticache:*:*:cluster:*"
                ],
                "Condition": {
-                   "ForAllValues:StringEquals": {
+                   "StringEquals": {
                        "aws:ResourceTag/Project": "XYZ"
                    }
                }
@@ -180,7 +180,7 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
                    "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
-                   "ForAllValues:StringEquals": {
+                   "StringEquals": {
                        "aws:ResourceTag/Service": "Elasticache",
                        "aws:ResourceTag/Project": "XYZ"
                    },                
@@ -209,7 +209,7 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
                    "arn:aws:elasticache:*:*:*:*"
                ],
                "Condition": {
-                   "ForAllValues:StringNotEqualsIgnoreCase": {
+                   "ForAnyValue:StringNotEqualsIgnoreCase": {
                        "aws:TagKeys": [ 
                            "Service", 
                            "Project" 
@@ -234,7 +234,7 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
                    "arn:aws:elasticache:*:*:replicationgroup:*"
                ],
                "Condition": {
-                   "ForAnyValue:StringEquals": {
+                   "StringEquals": {
                        "aws:RequestTag/Project": "Foo"
                    }
                }
@@ -256,9 +256,62 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
                    "arn:aws:elasticache:*:*:snapshot:*"
                ],
                "Condition": {
-                   "ForAllValues:StringEquals": {
+                   "StringEquals": {
                        "aws:ResourceTag/Project": "XYZ",
                        "aws:RequestTag/Service": "Elasticache"
+                   }
+               }
+           }
+       ]
+   }
+   ```
+
+1. Denying `CreateCacheCluster` action if the request tag `Project` is missing or is not equal to `Dev`, `QA` or `Prod`\.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+             {
+               "Effect": "Allow",
+               "Action": [
+                   "elasticache:CreateCacheCluster"
+               ],
+               "Resource": [
+                   "arn:aws:elasticache:*:*:parametergroup:*",
+                   "arn:aws:elasticache:*:*:subnetgroup:*",
+                   "arn:aws:elasticache:*:*:securitygroup:*",
+                   "arn:aws:elasticache:*:*:replicationgroup:*"
+               ]
+           },
+           {
+               "Effect": "Deny",
+               "Action": [
+                   "elasticache:CreateCacheCluster"
+               ],
+               "Resource": [
+                   "arn:aws:elasticache:*:*:cluster:*"
+               ],
+               "Condition": {
+                   "Null": {
+                       "aws:RequestTag/Project": "true"
+                   }
+               }
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "elasticache:CreateCacheCluster",
+                   "elasticache:AddTagsToResource"
+               ],
+               "Resource": "arn:aws:elasticache:*:*:cluster:*",
+               "Condition": {
+                   "StringEquals": {
+                       "aws:RequestTag/Project": [
+                           "Dev",
+                           "Prod",
+                           "QA"
+                       ]
                    }
                }
            }
