@@ -49,7 +49,6 @@ The following procedure uses the AWS CLI to determine whether you launched your 
 
    ```
    aws elasticache describe-cache-clusters \
-   --show-cache-cluster-details \
    --cache-cluster-id my-cluster
    ```
 
@@ -57,7 +56,6 @@ The following procedure uses the AWS CLI to determine whether you launched your 
 
    ```
    aws elasticache describe-cache-clusters ^
-   --show-cache-cluster-details ^
    --cache-cluster-id my-cluster
    ```
 
