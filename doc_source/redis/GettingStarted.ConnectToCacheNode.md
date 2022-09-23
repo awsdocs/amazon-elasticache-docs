@@ -100,7 +100,7 @@ This process covers testing a connection using redis\-cli utility for unplanned 
 
    ```
    sudo amazon-linux-extras install epel -y
-   sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel -y
+   sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel wget -y
    sudo wget http://download.redis.io/redis-stable.tar.gz
    sudo tar xvzf redis-stable.tar.gz
    cd redis-stable
