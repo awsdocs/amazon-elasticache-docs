@@ -75,13 +75,23 @@ When you select a parameter group to set the engine configuration values, that p
          + The number of replicas is the same for each shard when creating the cluster using the console\.
          + The number of read replicas per shard is fixed and cannot be changed\. If you find you need more or fewer replicas per shard \(API/CLI: node group\), you must create a new cluster with the new number of replicas\. For more information, see [Seeding a new cluster with an externally created backup](backups-seeding-redis.md)\.
 
-   1. For **Subnet group settings**, choose the subnet that you want to apply to this cluster\. ElastiCache provides a default IPv4 subnet group or you can choose to create a new one\. For IPv6, you need to create a subnet group with an IPv6 CIDR block\.
+   1. Under **Connectivity**
 
-      For more information see, [Create a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
+      1. For **Network type**, choose the IP version\(s\) this cluster will support\. 
 
-      If you are [Using local zones with ElastiCache ](Local_zones.md), you must create or choose a subnet that is in the local zone\. 
+      1. For **Subnet groups**, choose the subnet that you want to apply to this cluster\. ElastiCache uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes\. ElastiCache clusters require a dual\-stack subnet with both IPv4 and IPv6 addresses assigned to them to operate in dual\-stack mode and an IPv6\-only subnet to operate as IPv6\-only\.
 
-      For more information, see [Subnets and subnet groups](SubnetGroups.md)\.
+         When creating a new subnet group, enter the **VPC ID** to which it belongs\.
+
+         Select a **Discovery IP type**\. Only the IP adresses of your chosen protocol are returned\. 
+
+         For more information, see:
+         + [Choosing a network type](network-type.md)\.
+         + [Create a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
+
+         If you are [Using local zones with ElastiCache ](Local_zones.md), you must create or choose a subnet that is in the local zone\. 
+
+         For more information, see [Subnets and subnet groups](SubnetGroups.md)\.
 
    1. For **Availability zone placements**, you have two options:
       + **No preference** – ElastiCache chooses the Availability Zone\.
@@ -89,10 +99,7 @@ When you select a parameter group to set the engine configuration values, that p
 
         If you chose to specify the Availability Zones, for each cluster in each shard, choose the Availability Zone from the list\.
 
-      For more information, see [Choosing regions and availability zones](RegionsAndAZs.md)\.  
-![\[Image: Specifying Keyspaces and Availability Zones\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-ClusterOn-Slots-AZs.png)
-
-      *Specifying Keyspaces and Availability Zones*
+      For more information, see [Choosing regions and availability zones](RegionsAndAZs.md)\.
 
    1. Choose **Next**
 
@@ -172,9 +179,8 @@ aws elasticache create-cache-cluster \
 --cache-cluster-id my-cluster \
 --cache-node-type cache.r4.large \
 --engine redis \
---engine-version 3.2.4 \
 --num-cache-nodes 1 \
---cache-parameter-group default.redis3.2 \
+--cache-parameter-group default.redis6.x \
 --snapshot-arns arn:aws:s3:::my_bucket/snapshot.rdb
 ```
 For Windows:  
@@ -184,9 +190,8 @@ aws elasticache create-cache-cluster ^
 --cache-cluster-id my-cluster ^
 --cache-node-type cache.r4.large ^
 --engine redis ^
---engine-version 3.2.4 ^
 --num-cache-nodes 1 ^
---cache-parameter-group default.redis3.2 ^
+--cache-parameter-group default.redis6.x ^
 --snapshot-arns arn:aws:s3:::my_bucket/snapshot.rdb
 ```
 

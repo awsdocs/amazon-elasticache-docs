@@ -20,10 +20,8 @@ The following shows an example of a permissions policy\.
        "Effect": "Allow",
        "Action": [
           "elasticache:CreateCacheCluster",
-          "elasticache:CreateReplicationGroup",
           "elasticache:DescribeCacheClusters",
-          "elasticache:ModifyCacheCluster",
-          "elasticache:RebootCacheCluster"],
+          "elasticache:ModifyCacheCluster"],
        "Resource": "*"
        },
        {
@@ -37,7 +35,7 @@ The following shows an example of a permissions policy\.
 ```
 
 The policy has two statements:
-+ The first statement grants permissions for the Amazon ElastiCache actions \(`elasticache:CreateCacheCluster`, `elasticache:DescribeCacheClusters`, `elasticache:ModifyCacheCluster`, and `elasticache:RebootCacheCluster`\) on any cache cluster owned by the account\.
++ The first statement grants permissions for the Amazon ElastiCache actions \(`elasticache:CreateCacheCluster`, `elasticache:DescribeCacheClusters`, `elasticache:ModifyCacheCluster` 
 + The second statement grants permissions for the IAM action \(`iam:PassRole`\) on the IAM role name specified at the end of the `Resource` value\.
 
 The policy doesn't specify the `Principal` element because in an identity\-based policy you don't specify the principal who gets the permission\. When you attach policy to a user, the user is the implicit principal\. When you attach a permissions policy to an IAM role, the principal identified in the role's trust policy gets the permissions\. 
@@ -88,9 +86,6 @@ The following AWS managed policies, which you can attach to users in your accoun
 + **AmazonElastiCacheReadOnlyAccess** \- Grants read\-only access to Amazon ElastiCache resources\.
 + **AmazonElastiCacheFullAccess** \- Grants full access to Amazon ElastiCache resources\.
 
-**Note**  
-You can review these permissions policies by signing in to the IAM console and searching for specific policies there\.
-
 You can also create your own custom IAM policies to allow permissions for Amazon ElastiCache API actions\. You can attach these custom policies to the IAM users or groups that require those permissions\. 
 
 ## Customer\-managed policy examples<a name="IAM.IdentityBasedPolicies.CustomerManagedPolicies"></a>
@@ -110,6 +105,7 @@ Always test your IAM policies thoroughly before using them in production\. Some 
 + [Example 3: Allow a user to perform common ElastiCache system administrator tasks](#example-allow-specific-elasticache-actions)
 + [Example 4: Allow a user to access all ElastiCache API actions](#allow-unrestricted-access)
 + [Example 5: Allow a user to call IAM CreateServiceLinkedRole API](#create-service-linked-role-policy)
++ [Example 6: Allow a user to connect to replication group using IAM authentication](#iam-connect-policy)
 
 ### Example 1: Allow a user to create and manage security groups<a name="example-allow-network-admin-access"></a>
 
@@ -216,6 +212,38 @@ The following policy allows user to call the IAM `CreateServiceLinkedRole` API\.
           "iam:AWSServiceName":"elasticache.amazonaws.com"
         }
       }
+    }
+  ]
+}
+```
+
+### Example 6: Allow a user to connect to replication group using IAM authentication<a name="iam-connect-policy"></a>
+
+The following policy allows any user to connect to any replication group, using IAM authentication, from the IP address 123\.45\.167\.89\.
+
+```
+{
+  "Version" : "2012-10-17",
+  "Statement" :
+  [
+    {
+      "Effect" : "Allow",
+      "Action" : ["elasticache:Connect"],
+      "Resource" : [
+        "arn:aws:elasticache:us-east-1:123456789012:replicationgroup:*",
+      ],
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": "123.45.167.89"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : ["elasticache:Connect"],
+      "Resource" : [
+        "arn:aws:elasticache:us-east-1:123456789012:user:*"
+      ]
     }
   ]
 }

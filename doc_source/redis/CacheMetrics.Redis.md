@@ -71,7 +71,7 @@ For a full list of available commands, see [redis commands](https://redis.io/com
 |  KeyBasedCmdsLatency |  Latency of key\-based commands\.  | Microseconds | 
 | ListBasedCmds | The total number of commands that are list\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more lists \(lindex, lrange, lpush, ltrim, and so on\)\. | Count | 
 |  ListBasedCmdsLatency |  Latency of list\-based commands\.  | Microseconds | 
-| PubSubBasedCmds | The total number of commands for pub/sub functionality\. This is derived from the Redis commandstatsstatistics by summing all of the commands used for pub/sub functionality: psubscribe, publish, pubsub, punsubscribe, subscribe, and unsubscribe\. | Count | 
+| PubSubBasedCmds | The total number of commands for pub/sub functionality\. This is derived from the Redis commandstatsstatistics by summing all of the commands used for pub/sub functionality: psubscribe, publish, pubsub, punsubscribe, ssubscribe, sunsubscribe, spublish, subscribe, and unsubscribe\. | Count | 
 | PubSubBasedCmdsLatency | Latency of pub/sub\-based commands\. | Microseconds | 
 | SetBasedCmds | The total number of commands that are set\-based\. This is derived from the Redis commandstats statistic by summing all of the commands that act upon one or more sets \(scard, sdiff, sadd, sunion, and so on\)\. | Count | 
 |  SetBasedCmdsLatency |  Latency of set\-based commands\.  | Microseconds | 

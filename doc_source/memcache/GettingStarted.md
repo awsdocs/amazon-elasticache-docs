@@ -5,5 +5,6 @@ The topics in this section walk you through the process of creating, granting ac
 **Topics**
 + [Setting up](set-up.md)
 + [Create and connect to a Memcached cluster](deploy-cluster.md)
++ [Tutorial: Configuring a Lambda function to access amazon ElastiCache in an Amazon VPC](Lambda.md)
 + [ElastiCache tutorials and videos](Tutorials.md)
 + [Where do I go from here?](GettingStarted.WhereGoFromHere.md)

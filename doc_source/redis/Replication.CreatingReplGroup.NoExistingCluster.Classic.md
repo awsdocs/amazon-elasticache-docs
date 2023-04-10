@@ -31,67 +31,16 @@ If you enable Multi\-AZ \(`--automatic-failover-enabled`\), the value of `--num-
 **\-\-cache\-node\-type**  
 The node type for each node in the replication group\.  
 ElastiCache supports the following node types\. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts\.  
-For more information on performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/)\.  
-+ General purpose:
-  + Current generation: 
-
-    **M6g node types** \(available only for Redis engine version 5\.0\.6 onward\)\.
-
-     `cache.m6g.large`, `cache.m6g.xlarge`, `cache.m6g.2xlarge`, `cache.m6g.4xlarge`, `cache.m6g.8xlarge`, `cache.m6g.12xlarge`, `cache.m6g.16xlarge` 
-**Note**  
-For region availability, see [Supported node types by AWS Region](CacheNodes.SupportedTypes.md#CacheNodes.SupportedTypesByRegion)\.
-
-    **M5 node types:** `cache.m5.large`, `cache.m5.xlarge`, `cache.m5.2xlarge`, `cache.m5.4xlarge`, `cache.m5.12xlarge`, `cache.m5.24xlarge` 
-
-    **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
-
-    **T4g node types** \(available only for Redis engine version 5\.0\.6 onward\)\.
-
-     `cache.t4g.micro`, `cache.t4g.small`, `cache.t4g.medium` 
-
-    **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
-
-    **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
-  + Previous generation: \(not recommended\. Existing clusters are still supported but creation of new clusters is not supported for these types\.\)
-
-    **T1 node types:** `cache.t1.micro`
-
-    **M1 node types:** `cache.m1.small`, `cache.m1.medium`, `cache.m1.large`, `cache.m1.xlarge`
-
-    **M3 node types:** `cache.m3.medium`, `cache.m3.large`, `cache.m3.xlarge`, `cache.m3.2xlarge`
-+ Compute optimized:
-  + Previous generation: \(not recommended\)
-
-    **C1 node types:** `cache.c1.xlarge`
-+ Memory optimized with data tiering:
-  + Current generation: 
-
-    **R6gd node types** \(available only for Redis engine version 6\.2 onward\)\. For more information, see [Data tiering](data-tiering.md)\.
-
-     `cache.r6gd.xlarge`, `cache.r6gd.2xlarge`, `cache.r6gd.4xlarge`, `cache.r6gd.8xlarge`, `cache.r6gd.12xlarge`, `cache.r6gd.16xlarge` 
-+ Memory optimized:
-  + Current generation: 
-
-    \(*R6g node types* are available only for Redis engine version 5\.0\.6 onward\.\)
-
-    **R6g node types:** `cache.r6g.large`, `cache.r6g.xlarge`, `cache.r6g.2xlarge`, `cache.r6g.4xlarge`, `cache.r6g.8xlarge`, `cache.r6g.12xlarge`, `cache.r6g.16xlarge` `cache.r6g.24xlarge` 
-**Note**  
-For region availability, see [Supported node types by AWS Region](CacheNodes.SupportedTypes.md#CacheNodes.SupportedTypesByRegion)\.
-
-    **R5 node types:** `cache.r5.large`, `cache.r5.xlarge`, `cache.r5.2xlarge`, `cache.r5.4xlarge`, `cache.r5.12xlarge`, `cache.r5.24xlarge`
-
-    **R4 node types:** `cache.r4.large`, `cache.r4.xlarge`, `cache.r4.2xlarge`, `cache.r4.4xlarge`, `cache.r4.8xlarge`, `cache.r4.16xlarge`
-  + Previous generation: \(not recommended\)
-
-    **M2 node types:** `cache.m2.xlarge`, `cache.m2.2xlarge`, `cache.m2.4xlarge`
-
-    **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
+For more information on performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/)\.
 
 **\-\-data\-tiering\-enabled**  
 Set this parameter if you are using an r6gd node type\. If you don't want data tiering, set `--no-data-tiering-enabled`\. For more information, see [Data tiering](data-tiering.md)\.
 
 **\-\-cache\-parameter\-group**  
 Specify a parameter group that corresponds to your engine version\. If you are running Redis 3\.2\.4 or later, specify the `default.redis3.2` parameter group or a parameter group derived from `default.redis3.2` to create a Redis \(cluster mode disabled\) replication group\. For more information, see [Redis\-specific parameters](ParameterGroups.Redis.md)\.
+
+**\-\-network\-type**  
+Either `ipv4`, `ipv6` or `dual-stack`\. If you choose dual\-stack, you must set the `--IpDiscovery` parameter to either `ipv4` or `ipv6`\.
 
 **\-\-engine**  
 redis
@@ -116,10 +65,8 @@ aws elasticache create-replication-group \
    --replication-group-id sample-repl-group \
    --replication-group-description "Demo cluster with replicas" \
    --num-cache-clusters 3 \
-   --cache-node-type cache.m4.large \
-   --cache-parameter-group default.redis3.2 \
-   --engine redis \
-   --engine-version 3.2.4
+   --cache-node-type cache.m4.large \ 
+   --engine redis
 ```
 
 For Windows:
@@ -129,10 +76,8 @@ aws elasticache create-replication-group ^
    --replication-group-id sample-repl-group ^
    --replication-group-description "Demo cluster with replicas" ^
    --num-cache-clusters 3 ^
-   --cache-node-type cache.m4.large ^
-   --cache-parameter-group default.redis3.2 ^
-   --engine redis ^
-   --engine-version 3.2.4
+   --cache-node-type cache.m4.large ^  
+   --engine redis
 ```
 
 Output from the this command is something like this\.
@@ -153,7 +98,7 @@ Output from the this command is something like this\.
             "sample-repl-group-003"
         ],
         "CacheNodeType": "cache.m4.large",
-        "DataTiering": "disabled"
+        "DataTiering": "disabled",
         "PendingModifiedValues": {}
     }
 }
@@ -185,61 +130,7 @@ If you enable Multi\-AZ \(`AutomaticFailoverEnabled=true`\), the value of `NumCa
 **CacheNodeType**  
 The node type for each node in the replication group\.  
 ElastiCache supports the following node types\. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts\.  
-For more information on performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/)\.  
-+ General purpose:
-  + Current generation: 
-
-    **M6g node types** \(available only for Redis engine version 5\.0\.6 onward\)\.
-
-     `cache.m6g.large`, `cache.m6g.xlarge`, `cache.m6g.2xlarge`, `cache.m6g.4xlarge`, `cache.m6g.8xlarge`, `cache.m6g.12xlarge`, `cache.m6g.16xlarge` 
-**Note**  
-For region availability, see [Supported node types by AWS Region](CacheNodes.SupportedTypes.md#CacheNodes.SupportedTypesByRegion)\.
-
-    **M5 node types:** `cache.m5.large`, `cache.m5.xlarge`, `cache.m5.2xlarge`, `cache.m5.4xlarge`, `cache.m5.12xlarge`, `cache.m5.24xlarge` 
-
-    **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
-
-    **T4g node types** \(available only for Redis engine version 5\.0\.6 onward\)\.
-
-     `cache.t4g.micro`, `cache.t4g.small`, `cache.t4g.medium` 
-
-    **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
-
-    **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
-  + Previous generation: \(not recommended\. Existing clusters are still supported but creation of new clusters is not supported for these types\.\)
-
-    **T1 node types:** `cache.t1.micro`
-
-    **M1 node types:** `cache.m1.small`, `cache.m1.medium`, `cache.m1.large`, `cache.m1.xlarge`
-
-    **M3 node types:** `cache.m3.medium`, `cache.m3.large`, `cache.m3.xlarge`, `cache.m3.2xlarge`
-+ Compute optimized:
-  + Previous generation: \(not recommended\)
-
-    **C1 node types:** `cache.c1.xlarge`
-+ Memory optimized with data tiering:
-  + Current generation: 
-
-    **R6gd node types** \(available only for Redis engine version 6\.2 onward\)\. For more information, see [Data tiering](data-tiering.md)\.
-
-     `cache.r6gd.xlarge`, `cache.r6gd.2xlarge`, `cache.r6gd.4xlarge`, `cache.r6gd.8xlarge`, `cache.r6gd.12xlarge`, `cache.r6gd.16xlarge` 
-+ Memory optimized:
-  + Current generation: 
-
-    \(*R6g node types* are available only for Redis engine version 5\.0\.6 onward\.\)
-
-    **R6g node types:** `cache.r6g.large`, `cache.r6g.xlarge`, `cache.r6g.2xlarge`, `cache.r6g.4xlarge`, `cache.r6g.8xlarge`, `cache.r6g.12xlarge`, `cache.r6g.16xlarge` `cache.r6g.24xlarge` 
-**Note**  
-For region availability, see [Supported node types by AWS Region](CacheNodes.SupportedTypes.md#CacheNodes.SupportedTypesByRegion)\.
-
-    **R5 node types:** `cache.r5.large`, `cache.r5.xlarge`, `cache.r5.2xlarge`, `cache.r5.4xlarge`, `cache.r5.12xlarge`, `cache.r5.24xlarge`
-
-    **R4 node types:** `cache.r4.large`, `cache.r4.xlarge`, `cache.r4.2xlarge`, `cache.r4.4xlarge`, `cache.r4.8xlarge`, `cache.r4.16xlarge`
-  + Previous generation: \(not recommended\)
-
-    **M2 node types:** `cache.m2.xlarge`, `cache.m2.2xlarge`, `cache.m2.4xlarge`
-
-    **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
+For more information on performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/)\.
 
 **\-\-data\-tiering\-enabled**  
 Set this parameter if you are using an r6gd node type\. If you don't want data tiering, set `--no-data-tiering-enabled`\. For more information, see [Data tiering](data-tiering.md)\.
@@ -247,11 +138,14 @@ Set this parameter if you are using an r6gd node type\. If you don't want data t
 **CacheParameterGroup**  
 Specify a parameter group that corresponds to your engine version\. If you are running Redis 3\.2\.4 or later, specify the `default.redis3.2` parameter group or a parameter group derived from `default.redis3.2` to create a Redis \(cluster mode disabled\) replication group\. For more information, see [Redis\-specific parameters](ParameterGroups.Redis.md)\.
 
+**\-\-network\-type**  
+Either `ipv4`, `ipv` or `dual-stack`\. If you choose dual\-stack, you must set the `--IpDiscovery` parameter to either `ipv4` or `ipv6`\.
+
 **Engine**  
 redis
 
 **EngineVersion**  
-3\.2\.4
+6\.0
 
 The names of the nodes will be derived from the replication group name by postpending `-00`*\#* to the replication group name\. For example, using the replication group name `myReplGroup`, the name for the primary will be `myReplGroup-001` and the read replicas `myReplGroup-002` through `myReplGroup-006`\.
 
@@ -267,9 +161,9 @@ The following operation creates the Redis \(cluster mode disabled\) replication 
 https://elasticache.us-west-2.amazonaws.com/
    ?Action=CreateReplicationGroup 
    &CacheNodeType=cache.m4.large
-   &CacheParameterGroup=default.redis3.2
+   &CacheParameterGroup=default.redis6.x
    &Engine=redis
-   &EngineVersion=3.2.4
+   &EngineVersion=6.0
    &NumCacheClusters=3
    &ReplicationGroupDescription=test%20group
    &ReplicationGroupId=myReplGroup

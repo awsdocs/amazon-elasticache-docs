@@ -16,6 +16,11 @@ Before you continue, determine whether you launched your cluster into EC2\-VPC o
 
 For more information, see [Detecting Your Supported Platforms and Whether You Have a Default VPC](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#detecting-platform)\.
 
+
+|  | 
+| --- |
+| We are retiring EC2\-Classic on August 15, 2022\. We recommend that you migrate from EC2\-Classic to a VPC\. For more information, see [Migrating an EC2\-Classic cluster into a VPC](Migrating-ec2-classic_to_VPC.md) and the blog [EC2\-Classic Networking is Retiring – Here’s How to Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/)\. | 
+
 ### Determining Your Cluster's Platform using the ElastiCache Console<a name="authorize-access-vpc-or-classic-console"></a>
 
 The following procedure uses the ElastiCache console to determine whether you launched your cluster into EC2\-VPC or EC2\-Classic\.
@@ -26,11 +31,13 @@ The following procedure uses the ElastiCache console to determine whether you la
 
 1. To see a list of your clusters running the Memcached engine, in the left navigation pane, choose **Memcached**\.
 
-1. In the list of clusters, expand the cluster you want to authorize access to by choosing the box to the left of the cluster name\.
+1. In the list of clusters, expand the cluster you want to authorize access to by choosing the the cluster name \(not the button to its left\.
+
+1. Choose the the **Network and security tab**\.
 
 1. Locate **Subnet group:**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ElastiCache-SubnetGroup.png)
-   + If the **Subnet group** has a name, as shown here, you launched your cluster in EC2\-VPC and should continue at [You launched your cluster into EC2\-VPC](#authorize-access-vpc)\.
+   + If the **Subnet group** has a name and a **VPC ID**, as shown here, you launched your cluster in EC2\-VPC and should continue at [You launched your cluster into EC2\-VPC](#authorize-access-vpc)\.
    + If there is a dash \(\-\) instead of a **Subnet group** name, you launched your cluster in EC2\-Classic and should continue at [You launched your cluster running in EC2\-Classic](#authorize-access-ec2-classic)\.
 
 For more information, see [Detecting Your Supported Platforms and Whether You Have a Default VPC](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#detecting-platform)\.
@@ -94,7 +101,7 @@ The following procedure uses the AWS CLI to determine whether you launched your 
            ], 
            "TransitEncryptionEnabled": false, 
            "CacheSubnetGroupName": "default", 
-           "EngineVersion": "3.2.10", 
+           "EngineVersion": "6.0", 
            "PendingModifiedValues": {}, 
            "PreferredMaintenanceWindow": "sat:05:30-sat:06:30", 
            "CacheNodeType": "cache.t2.medium",

@@ -9,7 +9,7 @@ Online migration is not supported for clusters running on the r6gd node type\.
 
 To migrate your data from Redis running on Amazon EC2 to Amazon ElastiCache requires an existing or newly created Amazon ElastiCache deployment\. The deployment must have a configuration that is ready for migration\. It also should be in line with the configuration that you want, including attributes like instance type and number of replicas\. 
 
-Online migration is designed for data migration from hosted Redis on Amazon EC2 to ElastiCache for Redis and not between ElastiCache for Redis clusters\.
+Online migration is designed for data migration from hosted Redis on Amazon EC2 or on\-premise self\-hosted Redis to ElastiCache for Redis and not between ElastiCache for Redis clusters\.
 
 **Important**  
 We strongly recommend you read the following sections in their entirety before beginning the online migration process\.

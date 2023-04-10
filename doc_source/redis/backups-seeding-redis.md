@@ -224,7 +224,7 @@ The method you use to tell ElastiCache where to find the Redis backup you upload
 **Seed the ElastiCache for Redis cluster or replication group with the \.rdb file data**
 + **Using the ElastiCache console**
 
-  After you choose the Redis engine, expand the **Advanced Redis settings** section and locate **Import data to cluster**\. In the **Seed RDB file S3 location** box, type in the Amazon S3 path for the files\(s\)\. If you have multiple \.rdb files, type in the path for each file in a comma separated list\. The Amazon S3 path looks something like `myBucket/myFolder/myBackupFilename.rdb`\.
+  When selecting **Cluster settings**, choose **Restore from backups** as your cluster creation method, then choose **Other backups** as your **Source** in the **Backup source** section\. In the **Seed RDB file S3 location** box, type in the Amazon S3 path for the files\(s\)\. If you have multiple \.rdb files, type in the path for each file in a comma separated list\. The Amazon S3 path looks something like `myBucket/myFolder/myBackupFilename.rdb`\.
 + **Using the AWS CLI**
 
   If you use the `create-cache-cluster` or the `create-replication-group` operation, use the parameter `--snapshot-arns` to specify a fully qualified ARN for each \.rdb file\. For example, `arn:aws:s3:::myBucket/myFolder/myBackupFilename.rdb`\. The ARN must resolve to the backup files you stored in Amazon S3\.

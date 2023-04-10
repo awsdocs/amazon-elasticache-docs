@@ -5,9 +5,9 @@ A node is the smallest building block of an Amazon ElastiCache deployment\. It i
 For a more detailed discussion of which node size to use, see [Choosing your Memcached node size](nodes-select-size.md#CacheNodes.SelectSize)\. 
 
 **Topics**
-+ [Connecting to nodes](nodes-connecting.md)
++ [Connecting to nodes](nodes-connecting-mc.md)
 + [Supported node types](CacheNodes.SupportedTypes.md)
-+ [Replacing nodes](CacheNodes.NodeReplacement.md)
++ [Replacing nodes](CacheNodes.NodeReplacement-mc.md)
 + [ElastiCache reserved nodes](CacheNodes.Reserved.md)
 + [Migrating previous generation nodes](CacheNodes.NodeMigration.md)
 

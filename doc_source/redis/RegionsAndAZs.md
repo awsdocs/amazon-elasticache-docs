@@ -25,7 +25,7 @@ Amazon ElastiCache is available in multiple AWS Regions\. This means that you ca
 
 By default, the AWS SDKs, AWS CLI, ElastiCache API, and ElastiCache console reference the US\-West \(Oregon\) region\. As ElastiCache expands availability to new regions, new endpoints for these regions are also available to use in your HTTP requests, the AWS SDKs, AWS CLI, and the console\.
 
-Each region is designed to be completely isolated from the other regions\. Within each region are multiple Availability Zones \(AZ\)\. By launching your nodes in different AZs you are able to achieve the greatest possible fault tolerance\. For more information on regions and Availability Zones, see [Choosing regions and availability zones](#RegionsAndAZs) at the top of this topic\.
+Each Region is designed to be completely isolated from the other Regions\. Within each Region are multiple Availability Zones \(AZ\)\. By launching your nodes in different AZs you are able to achieve the greatest possible fault tolerance\. For more information on Regions and Availability Zones, see [Choosing regions and availability zones](#RegionsAndAZs) at the top of this topic\.
 
 
 **Regions where ElastiCache is supported**  

@@ -23,4 +23,5 @@ If you want to enable in\-transit  or at\-rest encryption, you must meet the fol
 **Topics**
 + [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)
 + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
-+ [Authenticating users with Role\-Based Access Control \(RBAC\)](Clusters.RBAC.md)
++ [Authentication](auth-redis.md)
++ [Role\-Based Access Control \(RBAC\)](Clusters.RBAC.md)

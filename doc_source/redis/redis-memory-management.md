@@ -53,9 +53,9 @@ The following procedure shows how to use `reserved-memory` to manage the memory 
 
    ```
    aws elasticache create-cache-parameter-group \
-      --cache-parameter-group-name redis28-m3xl \
+      --cache-parameter-group-name redis6x-m3xl \
       --description "Redis 2.8.x for m3.xlarge node type" \
-      --cache-parameter-group-family redis2.8
+      --cache-parameter-group-family redis6.x
    ```
 
 1. Calculate how many bytes of memory to reserve for Redis overhead\. You can find the value of `maxmemory` for your node type at [Redis node\-type specific parameters](ParameterGroups.Redis.md#ParameterGroups.Redis.NodeSpecific)\.

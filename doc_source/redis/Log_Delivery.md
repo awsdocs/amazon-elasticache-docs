@@ -38,7 +38,7 @@ The ElastiCache for Redis Engine Log contains the following information:
 + **CacheNodeId** – The ID of the cache node
 + **Log level** – LogLevel can one of the following: `VERBOSE("-")`, `NOTICE("*")`, `WARNING("#")`\.
 + **Time** – The UTC time of the logged message\. Time is in following format: `"DD MMM YYYY hh:mm:ss.ms UTC"`
-+ **Role** – Role of the node from where the log is emitted\. It can be one of the following: “M” for Primary and “S” for replica\.
++ **Role** – Role of the node from where the log is emitted\. It can be one of the following: “M” for Primary, “S” for replica, "C" for writer child process working on RDB/AOF or "X" for sentinel\.
 + **Message** – Redis Engine log message\.
 
 ## Permissions to configure logging<a name="Log_permissions"></a>

@@ -18,7 +18,7 @@ Because Memcached is multi\-threaded, this metric can be as high as 90%\. If you
 
 This is a host\-level metric reported in bytes\. For more information, see [Host\-Level Metrics](CacheMetrics.HostLevel.md)\.
 
-This metric should not exceed 50 MB\. If it does, we recommend that you increase the *ConnectionOverhead parameter value*\.
+The `FreeableMemory` CloudWatch metric being close to 0 \(i\.e\., below 100MB\) or `SwapUsage` metric greater than the `FreeableMemory` metric indicates a node is under memory pressure\. If this happens, we recommend that you increase the *ConnectionOverhead parameter value*\.
 
 ## Evictions<a name="metrics-evictions"></a>
 

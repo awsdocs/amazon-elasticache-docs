@@ -409,7 +409,7 @@ Output from the preceding command looks something like the following\.
             "redis1x3-003"
         ], 
         "CacheNodeType": "cache.m3.medium", 
-        "DataTiering": "disabled"
+        "DataTiering": "disabled",
         "PendingModifiedValues": {}
     }
 }

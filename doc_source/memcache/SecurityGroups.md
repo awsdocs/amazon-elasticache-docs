@@ -1,5 +1,10 @@
 # Security groups: EC2\-Classic<a name="SecurityGroups"></a>
 
+
+|  | 
+| --- |
+| We are retiring EC2\-Classic on August 15, 2022\. We recommend that you migrate from EC2\-Classic to a VPC\. For more information, see [Migrating an EC2\-Classic cluster into a VPC](Migrating-ec2-classic_to_VPC.md) and the blog [EC2\-Classic Networking is Retiring – Here’s How to Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/)\. | 
+
 **Important**  
 Amazon ElastiCache security groups are only applicable to clusters that are *not* running in an Amazon Virtual Private Cloud environment \(VPC\)\. If you are running in an Amazon Virtual Private Cloud, ** Security Groups** is not available in the console navigation pane\.  
 If you are running your ElastiCache nodes in an Amazon VPC, you control access to your clusters with Amazon VPC security groups, which are different from ElastiCache security groups\. For more information about using ElastiCache in an Amazon VPC, see [Amazon VPCs and ElastiCache security](VPCs.md)

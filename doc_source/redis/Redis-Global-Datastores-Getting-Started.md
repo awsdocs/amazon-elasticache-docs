@@ -18,7 +18,6 @@ At this time, you can't use global datastores in [Using local zones with ElastiC
 + You can scale regional clusters both vertically \(scaling up and down\) and horizontally \(scaling in and out\)\. You can scale the clusters by modifying the global datastore\. All the regional clusters in the global datastore are then scaled without interruption\. For more information, see [Scaling ElastiCache for Redis clusters](Scaling.md)\.
 + Global datastores support [encryption at rest](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html), [encryption in transit](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html), and [Redis AUTH](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html)\. 
 +  Global datastores support AWS KMS keys\. For more information, see [AWS key management service concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) in the *AWS Key Management Service Developer Guide\.* 
-+  Security for cross\-Region communication is provided through [VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)\. For more information, see [What is VPC peering?](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) in the *Amazon VPC Peering Guide\.* 
 
 **Note**  
 Global datastores support [pub/sub messaging](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-use-cases.html#elasticache-for-redis-use-cases-messaging) with the following stipulations:  

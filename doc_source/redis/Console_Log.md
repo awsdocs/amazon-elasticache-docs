@@ -16,7 +16,7 @@ You can choose to either enable/disable log delivery or change either the destin
 
 1. Sign in to the Console and open the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/home)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
 1. From the list of clusters, choose the cluster you want to modify\. Choose the **Cluster name** and not the checkbox beside it\.
 

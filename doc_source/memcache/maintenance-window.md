@@ -23,6 +23,7 @@ The 60\-minute maintenance window is chosen at random from an 8\-hour block of t
 | eu\-west\-1 | Europe \(Ireland\) Region | 22:00–06:00 UTC | 
 | eu\-west\-2 | Europe \(London\) Region | 23:00–07:00 UTC | 
 | me\-south\-1 | Middle East \(Bahrain\) Region | 13:00–21:00 UTC | 
+| me\-central\-1 | Middle East \(UAE\) Region | 13:00–21:00 UTC | 
 | eu\-south\-1 | Europe \(Milan\) Region | 21:00–05:00 UTC | 
 | sa\-east\-1 | South America \(São Paulo\) Region | 01:00–09:00 UTC | 
 | us\-east\-1 | US East \(N\. Virginia\) Region | 03:00–11:00 UTC | 
@@ -34,8 +35,11 @@ The 60\-minute maintenance window is chosen at random from an 8\-hour block of t
 **Changing your Cluster's Maintenance Window**  
 The maintenance window should fall at the time of lowest usage and thus might need modification from time to time\. You can modify your cluster to specify a time range of up to 24 hours in duration during which any maintenance activities you have requested should occur\. Any deferred or pending cluster modifications you requested occur during this time\.
 
+**Note**  
+If you want to apply node type modifications and/or engine upgrades immediately using the AWS Management Console select the **Apply Immediately** box\. Otherwise these modifications will be applied during your next scheduled maintenance window\. To the use the API, see [modify\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group.html) or [modify\-cache\-cluster](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html)\.
+
 **More information**  
 For information on your maintenance window and node replacement, see the following:
 + [ElastiCache Maintenance](https://aws.amazon.com/elasticache/elasticache-maintenance/)—FAQ on maintenance and node replacement
-+ [Replacing nodes](CacheNodes.NodeReplacement.md)—Managing node replacement
++ [Replacing nodes](CacheNodes.NodeReplacement-mc.md)—Managing node replacement
 + [Modifying an ElastiCache cluster](Clusters.Modify.md)—Changing a cluster's maintenance window

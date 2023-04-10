@@ -4,13 +4,13 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
@@ -28,22 +28,30 @@ Amazon's trademarks and trade dress may not be used in
       + [Step 3: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md)
       + [Step 4: Connect to the cluster's node](GettingStarted.ConnectToCacheNode.md)
       + [Step 5: Delete your cluster (avoid unnecessary charges)](GettingStarted.DeleteCacheCluster.md)
+   + [Tutorial: Configuring a Lambda function to access amazon ElastiCache in an Amazon VPC](Lambda.md)
+      + [Step 1: Create an ElastiCache cluster](Lambda.CreateECCluster.md)
+      + [Step 2: Create a Lambda function](Lambda.CreateLambdaFunction.md)
+         + [Step 2.1: Create the deployment package](Lambda.CreateLambdaFunction.DeploymentPkg.md)
+         + [Step 2.2: Create the IAM role (execution role)](Lambda.CreateLambdaFunction.IAMRole.md)
+         + [Step 2.3: Upload the deployment package (create the Lambda function)](Lambda.CreateLambdaFunction.Upload.md)
+      + [Step 3: Test the Lambda function](Lambda.TestLambdaFunction.md)
    + [ElastiCache tutorials and videos](Tutorials.md)
    + [Where do I go from here?](GettingStarted.WhereGoFromHere.md)
 + [Choosing regions and availability zones](RegionsAndAZs.md)
    + [Using local zones with ElastiCache](Local_zones.md)
    + [Using Outposts](ElastiCache-Outposts.md)
 + [Managing nodes](CacheNodes.md)
-   + [Connecting to nodes](nodes-connecting.md)
+   + [Connecting to nodes](nodes-connecting-mc.md)
    + [Supported node types](CacheNodes.SupportedTypes.md)
-   + [Replacing nodes](CacheNodes.NodeReplacement.md)
+   + [Replacing nodes](CacheNodes.NodeReplacement-mc.md)
    + [ElastiCache reserved nodes](CacheNodes.Reserved.md)
    + [Migrating previous generation nodes](CacheNodes.NodeMigration.md)
 + [Managing clusters](Clusters.md)
+   + [Choosing a network type](network-type.md)
    + [Preparing a cluster](Clusters.Prepare.md)
       + [Determining your requirements](cluster-create-determine-requirements.md)
       + [Choosing your node size](nodes-select-size.md)
-   + [Creating a cluster](Clusters.Create.md)
+   + [Creating a cluster](Clusters.Create-mc.md)
    + [Viewing a cluster's details](Clusters.ViewDetails.md)
    + [Modifying an ElastiCache cluster](Clusters.Modify.md)
    + [Rebooting a cluster](Clusters.Rebooting.md)
@@ -76,7 +84,7 @@ Amazon's trademarks and trade dress may not be used in
             + [DNS names and underlying IP](ClientConfig.DNS.md)
 + [Managing your ElastiCache for Memcached implementation](managing-elasticache.md)
    + [Engine versions and upgrading](engine-versions.md)
-      + [Supported ElastiCache for Memcached versions](supported-engine-versions.md)
+      + [Supported ElastiCache for Memcached versions](supported-engine-versions-mc.md)
       + [Upgrading engine versions](VersionManagement.md)
    + [Tagging your ElastiCache resources](Tagging-Resources.md)
       + [Monitoring costs with cost allocation tags](Tagging.md)
@@ -85,6 +93,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Caching strategies and best practices](BestPractices.md)
       + [Caching strategies](Strategies.md)
       + [Configuring your ElastiCache client for efficient load balancing](BestPractices.LoadBalancing.md)
+      + [IPv6 client examples](network-type-best-practices.md)
    + [Managing maintenance](maintenance-window.md)
    + [Scaling ElastiCache for Memcached clusters](Scaling.md)
    + [Configuring engine parameters using parameter groups](ParameterGroups.md)
@@ -98,8 +107,8 @@ Amazon's trademarks and trade dress may not be used in
       + [Memcached specific parameters](ParameterGroups.Memcached.md)
 + [Security in Amazon ElastiCache](memcached-security.md)
    + [Data protection in Amazon ElastiCache](data-protection.md)
-      + [Data security in Amazon ElastiCache](encryption.md)
-         + [ElastiCache in-transit encryption (TLS)](in-transit-encryption.md)
+      + [Data security in Amazon ElastiCache](encryption-mc.md)
+         + [ElastiCache in-transit encryption (TLS)](in-transit-encryption-mc.md)
    + [Internetwork traffic privacy](Security.md)
       + [Amazon VPCs and ElastiCache security](VPCs.md)
          + [Understanding ElastiCache and Amazon VPCs](VPCs.EC.md)
@@ -117,7 +126,10 @@ Amazon's trademarks and trade dress may not be used in
          + [Creating a security group](SecurityGroups.Creating.md)
          + [Listing available security groups](SecurityGroups.Listing.md)
          + [Authorizing network access to an amazon EC2 security group](SecurityGroups.AuthorizingEC2.md)
-   + [Identity and access management in Amazon ElastiCache](IAM.md)
+   + [Identity and Access Management for Amazon ElastiCache](IAM.md)
+      + [How Amazon ElastiCache works with IAM](security_iam_service-with-iam.md)
+      + [Identity-based policy examples for Amazon ElastiCache](security_iam_id-based-policy-examples.md)
+      + [Troubleshooting Amazon ElastiCache identity and access](security_iam_troubleshoot.md)
       + [Overview of managing access permissions to your ElastiCache resources](IAM.Overview.md)
          + [Using identity-based policies (IAM policies) for Amazon ElastiCache](IAM.IdentityBasedPolicies.md)
          + [Resource-level permissions](IAM.ResourceLevelPermissions.md)
@@ -139,14 +151,8 @@ Amazon's trademarks and trade dress may not be used in
    + [Resilience in Amazon ElastiCache](disaster-recovery-resiliency.md)
       + [Mitigating Failures](FaultTolerance.md)
    + [Infrastructure security in AWS Elasticache](infrastructure-security.md)
-   + [Self-service updates in Amazon ElastiCache](Self-Service-Updates.md)
+   + [Service updates in ElastiCache for Memcached](Self-Service-Updates.md)
       + [Managing the service updates](managing-updates.md)
-         + [Applying the self-service updates](applying-updates.md)
-            + [Applying the service updates using the console](applying-updates-console.md)
-            + [Applying the service updates using the AWS CLI](applying-updates-cli-memcached.md)
-         + [Stopping the self-service updates](stopping-self-service-updates.md)
-            + [Stopping the service updates using the console](stopping-updates-console-memcached.md)
-            + [Stopping the service updates using the AWS CLI](stopping-updates-cli-memcached.md)
 + [Quotas for ElastiCache](quota-limits.md)
 + [Reference](elasticache-api-reference.md)
    + [Using the ElastiCache API](ProgrammingGuide.md)

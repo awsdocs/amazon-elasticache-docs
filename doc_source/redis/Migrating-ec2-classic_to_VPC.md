@@ -1,5 +1,8 @@
 # Migrating an EC2\-Classic cluster into a VPC<a name="Migrating-ec2-classic_to_VPC"></a>
 
+**Note**  
+We are retiring EC2\-Classic on August 15, 2022\.
+
 Some legacy ElastiCache clusters on the EC2\-Classic platform are not in an Amazon VPC\. You can use the AWS Management Console to move it into an Amazon VPC using the following steps:
 
 ## Migrating an EC2\-Classic Redis cluster into a VPC<a name="Moving_to_VPC"></a>

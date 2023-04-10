@@ -4,7 +4,7 @@ In addition to adding or removing nodes from a cluster, there can be times where
 
 We recommend that you have your maintenance window fall at the time of lowest usage\. Thus it might need modification from time to time\.
 
-When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Memcached specific parameters](ParameterGroups.Memcached.md) and  \. For information on rebooting a cluster, see [Rebooting a cluster](Clusters.Rebooting.md)\.
+When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Memcached specific parameters](ParameterGroups.Memcached.md) and  \. For information on rebooting a cluster's nodes, see [Rebooting a cluster](Clusters.Rebooting.md)\.
 
 ## Using the AWS Management Console<a name="Clusters.Modify.CON"></a>
 
@@ -26,6 +26,9 @@ When you change a cluster's parameters, the change is applied to the cluster eit
 
 1. In the **Modify Cluster** window, make the modifications that you want\. Options include:
    + Engine Version Compatibility
+   + Network type
+**Note**  
+If you are switching from IPv4 to IPv6, you must select or create subnet groups compatible with IPv6\. For more information, see [Choosing a network type](network-type.md)\.
    + VPC Security Group\(s\)
    + Parameter Group
    + Maintenance Window

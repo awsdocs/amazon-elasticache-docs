@@ -55,7 +55,7 @@ Amazon ElastiCache is available in multiple AWS Regions\. This means that you ca
 
 By default, the AWS SDKs, AWS CLI, ElastiCache API, and ElastiCache console reference the US\-West \(Oregon\) region\. As ElastiCache expands availability to new regions, new endpoints for these regions are also available to use in your HTTP requests, the AWS SDKs, AWS CLI, and the console\.
 
-Each region is designed to be completely isolated from the other regions\. Within each region are multiple Availability Zones \(AZ\)\. By launching your nodes in different AZs you are able to achieve the greatest possible fault tolerance\. For more information on regions and Availability Zones, see [Choosing regions and availability zones](#RegionsAndAZs) at the top of this topic\.
+Each Region is designed to be completely isolated from the other Regions\. Within each Region are multiple Availability Zones \(AZ\)\. By launching your nodes in different AZs you are able to achieve the greatest possible fault tolerance\. For more information on Regions and Availability Zones, see [Choosing regions and availability zones](#RegionsAndAZs) at the top of this topic\.
 
 
 **Regions where ElastiCache is supported**  
@@ -72,6 +72,6 @@ Amazon ElastiCache supports locating all of a cluster's nodes in a single or mul
 By locating the nodes in different AZs, you eliminate the chance that a failure, such as a power outage, in one AZ will cause your entire system to fail\. Testing has demonstrated that there is no significant latency difference between locating all nodes in one AZ or spreading them across multiple AZs\. 
 
 You can specify an AZ for each node when you create a cluster or by adding nodes when you modify an existing cluster\. For more information, see the following:
-+ [Creating a cluster](Clusters.Create.md)
++ [Creating a cluster](Clusters.Create-mc.md)
 + [Modifying an ElastiCache cluster](Clusters.Modify.md)
 + [Adding nodes to a cluster](Clusters.AddNode.md)

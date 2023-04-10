@@ -174,7 +174,7 @@ You can pass only one of `--replicas-to-remove` or `--new-replica-count` paramet
            "SnapshotWindow": "07:30-08:30",
            "ClusterEnabled": false,
            "CacheNodeType": "cache.r5.large",
-            "DataTiering": "disabled"
+            "DataTiering": "disabled",
            "TransitEncryptionEnabled": false,
            "AtRestEncryptionEnabled": false,
            "ARN": "arn:aws:elasticache:us-west-2:123456789012:replicationgroup:node-test"

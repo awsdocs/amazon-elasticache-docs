@@ -42,7 +42,7 @@ If the cluster is using a node type from the r6gd family, you can only choose a 
    + Backup Window
    + Topic for SNS Notification
 
-   The **Apply Immediately** box applies only to node type and engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, node type and engine version modifications are applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
+   The **Apply Immediately** box applies only to engine version modifications\. To apply changes immediately, choose the **Apply Immediately** check box\. If this box is not chosen, node type and engine version modifications are applied during the next maintenance window\. Other modifications, such as changing the maintenance window, are applied immediately\.
 
 1. Choose **Modify**\.
 

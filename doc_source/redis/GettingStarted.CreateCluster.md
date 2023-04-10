@@ -55,13 +55,21 @@ When you select a parameter group to set the engine configuration values, that p
 
       1. For **Number of replicas**, choose the number of read replicas you want\. If you enabled Multi\-AZ, the number must be between 1\-5\.
 
-   1. For **Subnet group settings**, choose the subnet that you want to apply to this cluster\. ElastiCache provides a default IPv4 subnet group or you can choose to create a new one\. For IPv6, you need to create a subnet group with an IPv6 CIDR block\.
+   1. Under **Connectivity**
 
-      For more information see, [Create a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
+      1. For **Network type**, choose the IP version\(s\) this cluster will support\. 
 
-      If you are [Using local zones with ElastiCache ](Local_zones.md), you must create or choose a subnet that is in the local zone\. 
+      1. For **Subnet groups**, choose the subnet that you want to apply to this cluster\. ElastiCache uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes\. ElastiCache clusters require a dual\-stack subnet with both IPv4 and IPv6 addresses assigned to them to operate in dual\-stack mode and an IPv6\-only subnet to operate as IPv6\-only\.
 
-      For more information, see [Subnets and subnet groups](SubnetGroups.md)\.
+         When creating a new subnet group, enter the **VPC ID** to which it belongs\.
+
+         For more information, see:
+         + [Choosing a network type](network-type.md)\.
+         + [Create a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
+
+         If you are [Using local zones with ElastiCache ](Local_zones.md), you must create or choose a subnet that is in the local zone\. 
+
+         For more information, see [Subnets and subnet groups](SubnetGroups.md)\.
 
    1. For **Availability zone placements**, you have two options:
       + **No preference** – ElastiCache chooses the Availability Zone\.
@@ -137,9 +145,7 @@ aws elasticache create-cache-cluster \
 --cache-cluster-id my-cluster \
 --cache-node-type cache.r4.large \
 --engine redis \
---engine-version 3.2.4 \
 --num-cache-nodes 1 \
---cache-parameter-group default.redis3.2 \
 --snapshot-arns arn:aws:s3:::my_bucket/snapshot.rdb
 ```
 For Windows:  
@@ -149,9 +155,7 @@ aws elasticache create-cache-cluster ^
 --cache-cluster-id my-cluster ^
 --cache-node-type cache.r4.large ^
 --engine redis ^
---engine-version 3.2.4 ^
 --num-cache-nodes 1 ^
---cache-parameter-group default.redis3.2 ^
 --snapshot-arns arn:aws:s3:::my_bucket/snapshot.rdb
 ```
 
@@ -166,9 +170,9 @@ https://elasticache.us-west-2.amazonaws.com/
     ?Action=CreateCacheCluster
     &CacheClusterId=my-cluster
     &CacheNodeType=cache.r4.large
-    &CacheParameterGroup=default.redis3.2
+    &CacheParameterGroup=default.redis6.x
     &Engine=redis
-    &EngineVersion=3.2.4
+    &EngineVersion=6.0
     &NumCacheNodes=1
     &SignatureVersion=4       
     &SignatureMethod=HmacSHA256

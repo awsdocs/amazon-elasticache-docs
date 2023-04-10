@@ -62,4 +62,4 @@ To use the ElastiCache Cluster Client for PHP, you will first need to install it
   ?>
 ```
 
-For an example on how to use the ElastiCache Cluster Client with TLS enabled, see [Creating a TLS Memcached client using PHP](in-transit-encryption.md#in-transit-encryption-connect-php)\.
+For an example on how to use the ElastiCache Cluster Client with TLS enabled, see [Creating a TLS Memcached client using PHP](in-transit-encryption-mc.md#in-transit-encryption-connect-php)\.

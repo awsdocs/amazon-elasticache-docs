@@ -133,7 +133,7 @@ The following procedure describes how to scale down a single\-node Redis cache c
    	        "Engine": "redis", 
    	        "CacheParameterGroup": {
    	            "CacheNodeIdsToReboot": [], 
-   	            "CacheParameterGroupName": "default.redis3.2", 
+   	            "CacheParameterGroupName": "default.redis6,x", 
    	            "ParameterApplyStatus": "in-sync"
    	        }, 
    	        "SnapshotRetentionLimit": 1, 
@@ -147,7 +147,7 @@ The following procedure describes how to scale down a single\-node Redis cache c
    	        "PreferredAvailabilityZone": "us-west-2a", 
    	        "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:", 
    	        "CacheSubnetGroupName": "default", 
-   	        "EngineVersion": "3.2.4", 
+   	        "EngineVersion": "6.0", 
    	        "PendingModifiedValues": {
    	            "CacheNodeType": "cache.m3.2xlarge"
    	        }, 

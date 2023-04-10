@@ -20,4 +20,4 @@ To find your endpoints, see the relevant topic from the following list\. When yo
 
 Once your cluster is in the *available* state and you've authorized access to it \([Step 3: Authorize access to the cluster](GettingStarted.AuthorizeAccess.md), you can log in to an Amazon EC2 instance and connect to the cluster\.
 
-For instructions on connecting to a Memcached cluster, see [Connecting to nodes](nodes-connecting.md)\.
+For instructions on connecting to a Memcached cluster, see [Connecting to nodes](nodes-connecting-mc.md)\.

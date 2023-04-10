@@ -1,10 +1,10 @@
 # At\-Rest Encryption in ElastiCache for Redis<a name="at-rest-encryption"></a>
 
-To help keep your data secure, Amazon ElastiCache and Amazon S3 provide different ways to restrict access to data in your cache\. For more information, see [Amazon VPCs and ElastiCache security](VPCs.md) and [Identity and access management in Amazon ElastiCache](IAM.md)\.
+To help keep your data secure, Amazon ElastiCache and Amazon S3 provide different ways to restrict access to data in your cache\. For more information, see [Amazon VPCs and ElastiCache security](VPCs.md) and [Identity and Access Management for Amazon ElastiCache](IAM.md)\.
 
 ElastiCache for Redis at\-rest encryption is an optional feature to increase data security by encrypting on\-disk data\. When enabled on a replication group, it encrypts the following aspects:
 
-Data stored on SSDs \(solid\-state drives\) in data tiering enabled clusters is always encrypted by default\. However, when the cluster is backed up, the snapshot data is not automatically encrypted\. Encryption needs to be enabled on the snapshot\. For more information, see [Enabling At\-Rest Encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html#at-rest-encryption-enable)\.
+Data stored on SSDs \(solid\-state drives\) in data tiering enabled clusters is always encrypted by default\. When the cluster is backed up, under encryption options, choose whether to use the default encryption key or a customer\-managed key\. For more information, see [Enabling At\-Rest Encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html#at-rest-encryption-enable)\.
 + Disk during sync, backup and swap operations 
 + Backups stored in Amazon S3 
 
@@ -12,6 +12,9 @@ Data stored on SSDs \(solid\-state drives\) in data tiering enabled clusters is 
 
 **Note**  
 The default \(service managed\) encryption is the only option available in the GovCloud \(US\) Regions\.
+
+**Important**  
+Enabling at\-Rest Encryption on an existing redis cluster involves deleting your existing replication group, **after** running backup and restore on the replication group\.
 
 At\-rest encryption can be enabled on a replication group only when it is created\. Because there is some processing needed to encrypt and decrypt the data, enabling at\-rest encryption can have a performance impact during these operations\. You should benchmark your data with and without at\-rest encryption to determine the performance impact for your use cases\. 
 
@@ -139,11 +142,9 @@ aws elasticache create-replication-group \
     --replication-group-id my-classic-rg \
     --replication-group-description "3 node replication group" \
     --cache-node-type cache.m4.large \
-    --engine redis \
-    --engine-version 4.0.10 \
+    --engine redis \    
     --at-rest-encryption-enabled \  
-    --num-cache-clusters 3 \
-    --cache-parameter-group default.redis4.0
+    --num-cache-clusters 3
 ```
 For Windows:  
 
@@ -152,11 +153,9 @@ aws elasticache create-replication-group ^
     --replication-group-id my-classic-rg ^
     --replication-group-description "3 node replication group" ^
     --cache-node-type cache.m4.large ^
-    --engine redis ^
-    --engine-version 4.0.10 ^
+    --engine redis ^    
     --at-rest-encryption-enabled ^  
     --num-cache-clusters 3 ^
-    --cache-parameter-group default.redis4.0
 ```
 
 For additional information, see the following:
@@ -188,9 +187,9 @@ aws elasticache create-replication-group \
    --num-node-groups 3 \
    --replicas-per-node-group 2 \
    --engine redis \
-   --engine-version 4.0.10 \
+   --engine-version 6.2 \
    --at-rest-encryption-enabled \
-   --cache-parameter-group default.redis4.0.cluster.on
+   --cache-parameter-group default.redis6.x.cluster.on
 ```
 For Windows:  
 
@@ -202,9 +201,9 @@ aws elasticache create-replication-group ^
    --num-node-groups 3 ^
    --replicas-per-node-group 2 ^
    --engine redis ^
-   --engine-version 4.0.10 ^
+   --engine-version 6.2 ^
    --at-rest-encryption-enabled ^
-   --cache-parameter-group default.redis4.0.cluster.on
+   --cache-parameter-group default.redis6.x.cluster.on
 ```
 
 For additional information, see the following:
@@ -232,9 +231,9 @@ https://elasticache.us-west-2.amazonaws.com/
    ?Action=CreateReplicationGroup 
    &AtRestEncryptionEnabled=true
    &CacheNodeType=cache.m3.large
-   &CacheParameterGroup=default.redis4.0
+   &CacheParameterGroup=default.redis6.x
    &Engine=redis
-   &EngineVersion=4.0.10
+   &EngineVersion=6.0
    &NumCacheClusters=3
    &ReplicationGroupDescription=test%20group
    &ReplicationGroupId=my-classic-rg
@@ -269,9 +268,9 @@ https://elasticache.us-west-2.amazonaws.com/
    ?Action=CreateReplicationGroup 
    &AtRestEncryptionEnabled=true
    &CacheNodeType=cache.m3.large
-   &CacheParemeterGroup=default.redis4.0.cluster.on
+   &CacheParemeterGroup=default.redis6.x.cluster.on
    &Engine=redis
-   &EngineVersion=4.0.10
+   &EngineVersion=6.0
    &NumNodeGroups=3
    &ReplicasPerNodeGroup=2
    &ReplicationGroupDescription=test%20group
@@ -291,4 +290,4 @@ For additional information, see the following:
 
 ## See Also<a name="at-rest-encryption-see-also"></a>
 + [Amazon VPCs and ElastiCache security](VPCs.md)
-+ [Identity and access management in Amazon ElastiCache](IAM.md)
++ [Identity and Access Management for Amazon ElastiCache](IAM.md)

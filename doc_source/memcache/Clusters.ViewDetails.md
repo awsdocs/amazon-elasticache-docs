@@ -18,122 +18,30 @@ The following procedure details how to view the details of a Memcached cluster u
 
 1. To see details of a cluster, choose the box to the left of the cluster's name\.
 
-1. To view node information:
+1. To view node information, choose the **Nodes** tab, which displays information on node\(s\) status and endpoint\.
 
-   1. Choose the cluster's name\.
+1. To view metrics, choose the **Metrics** tab, which displays the relevant metrics for all nodes in the cluster\. For more information, see [Monitoring use with CloudWatch metrics](CacheMetrics.md)
 
-   1. Choose the **Nodes** tab\.
+1. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration and the VPC security group\. For more information, see [Subnets and subnet groups](SubnetGroups.md)\.
 
-   1. To view metrics on one or more nodes, choose the box to the left of the Node ID, and then choose the time range for the metrics from the **Time range** list\. Choosing multiple nodes generates overlay graphs\.  
-![\[Image: Metrics over the last hour for two Memcached nodes\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ElastiCache-Memcached-Metrics.png)
+1. Choose the **Maintenance** tab to view details on the cluster's maintenance settings\. For more information, see [Managing maintenance](maintenance-window.md)\.
 
-      *Metrics over the last hour for two Memcached nodes*
+1. Choose the **Tags** tab to view details on any tags applied to cluster resources\. For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md)\.
 
 ## Viewing a cluster's details \(AWS CLI\)<a name="Clusters.ViewDetails.CLI"></a>
 
-You can view the details for a cluster using the AWS CLI `describe-cache-clusters` command\. If the `--cache-cluster-id` parameter is omitted, details for multiple clusters, up to `--max-items`, are returned\. If the `--cache-cluster-id` parameter is included, details for the specified cluster are returned\. You can limit the number of records returned with the `--max-items` parameter\.
-
-The following code lists the details for `my-cluster`\.
+The following code lists the details for *my\-cluster*:
 
 ```
 aws elasticache describe-cache-clusters --cache-cluster-id my-cluster
 ```
 
-The following code list the details for up to 25 clusters\.
+Replace *my\-cluster* with the name of your cluster in a case where the cluster is created with 1 cache node and 0 shards using the `create-cache-cluster` command\.
+
+In a case where the cluster is created using the AWS Management Console \(cluster node enabled or disabled with 1 or more shards\), use the following command to describe the cluster's details \(replace *my\-cluster* with the name of the replication group \(name of your cluster\):
 
 ```
-aws elasticache describe-cache-clusters --max-items 25
-```
-
-**Example**  
-For Linux, macOS, or Unix:  
-
-```
-aws elasticache describe-cache-clusters \
-    --cache-cluster-id my-cluster \
-    --show-cache-node-info
-```
-For Windows:  
-
-```
-aws elasticache describe-cache-clusters ^
-    --cache-cluster-id my-cluster ^
-    --show-cache-node-info
-```
-This operation produces output similar to the following \(JSON format\):  
-
-```
-{
-    "CacheClusters": [
-        {
-            "Engine": "memcached", 
-            "CacheNodes": [
-                {
-                    "CacheNodeId": "0001", 
-                    "Endpoint": {
-                        "Port": 11211, 
-                        "Address": "my-cluster.7ef-example.0001.usw2.cache.amazonaws.com"
-                    }, 
-                    "CacheNodeStatus": "available", 
-                    "ParameterGroupStatus": "in-sync", 
-                    "CacheNodeCreateTime": "2016-09-21T16:28:28.973Z", 
-                    "CustomerAvailabilityZone": "us-west-2b"
-                }, 
-                {
-                    "CacheNodeId": "0002", 
-                    "Endpoint": {
-                        "Port": 11211, 
-                        "Address": "my-cluster.7ef-example.0002.usw2.cache.amazonaws.com"
-                    }, 
-                    "CacheNodeStatus": "available", 
-                    "ParameterGroupStatus": "in-sync", 
-                    "CacheNodeCreateTime": "2016-09-21T16:28:28.973Z", 
-                    "CustomerAvailabilityZone": "us-west-2b"
-                }, 
-                {
-                    "CacheNodeId": "0003", 
-                    "Endpoint": {
-                        "Port": 11211, 
-                        "Address": "my-cluster.7ef-example.0003.usw2.cache.amazonaws.com"
-                    }, 
-                    "CacheNodeStatus": "available", 
-                    "ParameterGroupStatus": "in-sync", 
-                    "CacheNodeCreateTime": "2016-09-21T16:28:28.973Z", 
-                    "CustomerAvailabilityZone": "us-west-2b"
-                }
-            ], 
-            "CacheParameterGroup": {
-                "CacheNodeIdsToReboot": [], 
-                "CacheParameterGroupName": "default.memcached1.4", 
-                "ParameterApplyStatus": "in-sync"
-            }, 
-            "CacheClusterId": "my-cluster", 
-            "PreferredAvailabilityZone": "us-west-2b", 
-            "ConfigurationEndpoint": {
-                "Port": 11211, 
-                "Address": "my-cluster.7ef-example.cfg.usw2.cache.amazonaws.com"
-            }, 
-            "CacheSecurityGroups": [], 
-            "CacheClusterCreateTime": "2016-09-21T16:28:28.973Z", 
-            "AutoMinorVersionUpgrade": true, 
-            "CacheClusterStatus": "available", 
-            "NumCacheNodes": 3, 
-            "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:", 
-            "SecurityGroups": [
-                {
-                    "Status": "active", 
-                    "SecurityGroupId": "sg-dbe93fa2"
-                }
-            ], 
-            "CacheSubnetGroupName": "default", 
-            "EngineVersion": "1.4.24", 
-            "PendingModifiedValues": {}, 
-            "PreferredMaintenanceWindow": "sat:09:00-sat:10:00", 
-            "CacheNodeType": "cache.m3.medium"
-            
-        }
-    ]
-}
+aws elasticache describe-replication-groups --replication-group-id my-cluster 
 ```
 
 For more information, see the AWS CLI for ElastiCache topic [https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-clusters.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-clusters.html)\.

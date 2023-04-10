@@ -80,10 +80,10 @@ There are two packages you need to pull from GitHub and compile; [aws\-elasticac
 The following sections describe how to compile the ElastiCache Memcached Auto Discovery Client
 
 **Topics**
-+ [Compiling the ElastiCache Memcached client for PHP 7](#Appendix.PHPAudiscoveryCompile.Client.PHP7)
++ [Compiling the ElastiCache Memcached client for PHP 7 or higher](#Appendix.PHPAudiscoveryCompile.Client.PHP7)
 + [Compiling the ElastiCache Memcached client for PHP 5](#Appendix.PHPAudiscoveryCompile.PHP5)
 
-### Compiling the ElastiCache Memcached client for PHP 7<a name="Appendix.PHPAudiscoveryCompile.Client.PHP7"></a>
+### Compiling the ElastiCache Memcached client for PHP 7 or higher<a name="Appendix.PHPAudiscoveryCompile.Client.PHP7"></a>
 
  Replace PHP\-7\.x with the version you are using\. 
 
@@ -99,7 +99,6 @@ Run the following set of commands under the code directory\.
 ```
 git clone  https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php.git
 cd aws-elasticache-cluster-client-memcached-for-php 
-git checkout php7.X
 phpize
 mkdir BUILD
 CD BUILD

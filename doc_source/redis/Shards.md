@@ -127,7 +127,7 @@ Output from this command looks something like this\. The shard \(node group\) id
                 "sample-repl-group-0002-002"
             ], 
             "CacheNodeType": "cache.m3.medium", 
-            "DataTiering": "disabled"
+            "DataTiering": "disabled",
             "PendingModifiedValues": {}
         }
     ]

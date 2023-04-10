@@ -54,11 +54,23 @@ Your cluster is launched in an Amazon VPC\. Before you start creating your clust
 
       1. From the **Number of nodes** list, choose the number of nodes \(partitions\) you want provisioned for this cluster\.
 
-      1. For **Subnet group settings** list, you can either create a new one or choose the subnet you want to apply to this cluster\. For this exercise, accept the default subnet group\.
+      1. Under **Connectivity**
 
-         For more information, see [Subnets and subnet groups](SubnetGroups.md)\.
+         1. For **Network type**, choose the IP version\(s\) this cluster will support\. 
 
-      1. For **Availability zone placemnts**, you have two options\.
+         1. For **Subnet groups**, choose the subnet that you want to apply to this cluster\. ElastiCache uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes\. ElastiCache clusters require a dual\-stack subnet with both IPv4 and IPv6 addresses assigned to them to operate in dual\-stack mode and an IPv6\-only subnet to operate as IPv6\-only\.
+
+            When creating a new subnet group, enter the **VPC ID** to which it belongs\.
+
+            For more information, see:
+            + [Choosing a network type](network-type.md)\.
+            + [Create a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
+
+            If you are [Using local zones with ElastiCache ](Local_zones.md), you must create or choose a subnet that is in the local zone\. 
+
+            For more information, see [Subnets and subnet groups](SubnetGroups.md)\.
+
+      1. For **Availability zone placements**, you have two options\.
          + **No preference** – ElastiCache chooses each node's Availability Zone for you\.
          + **Specify availability zones** – You specify the Availability Zone for each node\.
 

@@ -107,6 +107,9 @@ Before registering to Auto Scaling, we recommend the following:
    + Scaling when not required due to workload spike/dip on a few hot shards/replicas\.
    + Not scaling when required due to overall avg close to target even though having hot shards/replicas\.
 
+**Note**  
+When scaling out your cluster, ElastiCache will automatically replicate the Functions loaded in one of the existing nodes \(selected at random\) to the new node\(s\)\. If your cluster has Redis 7\.0 or above and your application uses [Redis Functions](https://redis.io/docs/manual/programmability/functions-intro/), we recommend loading all of your functions to all the shards before scaling out so that your cluster does not end up with different functions on different shards\.
+
 After registering to AutoScaling, note the following:
 + There are limitations on Auto scaling Supported Configurations, so we recommend you not change configuration of a replication group that is registered for Auto scaling\. The following are examples:
   + Manually modifying instance type to unsupported types\.

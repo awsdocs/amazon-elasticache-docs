@@ -33,6 +33,6 @@ Keep the following considerations in mind:
   + not scaling when required due to aggregated AVG across all shards affecting alarm not to breach\. 
 + ElastiCache for Redis default limits on Nodes per cluster still applies\. So, when opting for Auto Scaling and if you expect maximum nodes to be more than default limit, request a limit increase at [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
 + Ensure that you have enough ENIs \(Elastic Network Interfaces\) available in your VPC, which are required during scale\-out\. For more information, see [Elastic network interfaces](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ElasticNetworkInterfaces.html)\.
-+ If there is not enough capacity available from EC2, ElastiCache for Redis Auto Scaling would not scale would not scale out and be delayed til the capacity is available\.
++ If there is not enough capacity available from EC2, ElastiCache for Redis Auto Scaling would not scale and be delayed til the capacity is available\.
 + ElastiCache for Redis Auto Scaling during scale\-in will not remove shards with slots having an item size larger than 256 MB post\-serialization\.
 + During scale\-in it will not remove shards if insufficient memory available on resultant shard configuration\.

@@ -1,15 +1,14 @@
 # Restoring from a backup with optional cluster resizing<a name="backups-restoring"></a>
 
-You can only restore backups running r6gd node types into clusters running r6gd node types\.
-
 The Amazon ElastiCache for Redis restore process supports the following:
-+ Upgrading from a Redis \(cluster mode disabled\) cluster to a Redis \(cluster mode enabled\) cluster running Redis version 3\.2\.4\.
++ Upgrading from a Redis \(cluster mode disabled\) cluster to a Redis \(cluster mode enabled\) cluster running Redis version 3\.2\.4 or later\.
 + Migrating from one or more \.rdb backup files you created from your self\-managed Redis clusters to a single ElastiCache for Redis \(cluster mode enabled\) cluster\.
 
   The \.rdb files must be put in S3 to perform the restore\.
 + Specifying a number of shards \(API/CLI: node groups\) in the new cluster that is different from the number of shards in the cluster that was used to create the backup file\.
 + Specifying a different node type for the new cluster—larger or smaller\. If scaling to a smaller node type, be sure that the new node type has sufficient memory for your data and Redis overhead\. For more information, see [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)\.
 + Configuring the slots of the new Redis \(cluster mode enabled\) cluster differently than in the cluster that was used to create the backup file\.
++ You can only restore backups running r6gd node types into clusters running r6gd node types\.
 
 **Important**  
 You cannot restore from a backup created using a Redis \(cluster mode enabled\) cluster to a Redis \(cluster mode disabled\) cluster\.
@@ -23,8 +22,6 @@ During the restore operation, ElastiCache creates the new cluster, and then popu
 **Important**  
 Before you proceed, be sure you have created a backup of the cluster you want to restore from\. For more information, see [Making manual backups](backups-manual.md)\.   
 If you want to restore from an externally created backup, see [Seeding a new cluster with an externally created backup](backups-seeding-redis.md)\.
-
-The following procedures show you how to restore a backup to a new cluster using the ElastiCache console, the AWS CLI, or the ElastiCache API\.
 
 ## Restoring from a backup \(Console\)<a name="backups-restoring-CON"></a>
 
@@ -48,7 +45,7 @@ You can restore a Redis backup in two ways\. You can restore to a single\-node R
 
    1. **Engine version compatibility** – The ElastiCache for Redis engine version you want to run\.
 
-   1. **Cluster mode enabled \(scale out\)** – Choose this to convert your Redis \(cluster mode disabled\) cluster to a Redis \(cluster mode enabled\)\. The engine version becomes 3\.2\.4\.
+   1. **Cluster mode enabled \(scale out\)** – Choose this to convert your Redis \(cluster mode disabled\) cluster to a Redis \(cluster mode enabled\)\. The engine version becomes 6\.2\.
 
       If you choose **Cluster mode enabled \(scale out\)**:
 

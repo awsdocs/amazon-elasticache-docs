@@ -55,7 +55,7 @@ The following procedure walks you through scaling your cluster vertically using 
 
 **To scale a Memcached cluster vertically \(console\)**
 
-1. Create a new cluster with the new node type\. For more information, see [Creating a Memcached cluster \(console\)](Clusters.Create.md#Clusters.Create.CON.Memcached)\.
+1. Create a new cluster with the new node type\. For more information, see [Creating a Memcached cluster \(console\)](Clusters.Create-mc.md#Clusters.Create.CON.Memcached)\.
 
 1. In your application, update the endpoints to the new cluster's endpoints\. For more information, see [Finding a Cluster's Endpoints \(Console\)](Endpoints.md#Endpoints.Find.Memcached)\.
 
@@ -67,7 +67,7 @@ The following procedure walks you through scaling your Memcached cache cluster v
 
 **To scale a Memcached cache cluster vertically \(AWS CLI\)**
 
-1. Create a new cache cluster with the new node type\. For more information, see [Creating a cluster \(AWS CLI\)](Clusters.Create.md#Clusters.Create.CLI)\.
+1. Create a new cache cluster with the new node type\. For more information, see [Creating a cluster \(AWS CLI\)](Clusters.Create-mc.md#Clusters.Create.CLI)\.
 
 1. In your application, update the endpoints to the new cluster's endpoints\. For more information, see [Finding Endpoints \(AWS CLI\)](Endpoints.md#Endpoints.Find.CLI)\.
 
@@ -79,7 +79,7 @@ The following procedure walks you through scaling your Memcached cache cluster v
 
 **To scale a Memcached cache cluster vertically \(ElastiCache API\)**
 
-1. Create a new cache cluster with the new node type\. For more information, see [Creating a cluster \(ElastiCache API\)](Clusters.Create.md#Clusters.Create.API)\.
+1. Create a new cache cluster with the new node type\. For more information, see [Creating a cluster \(ElastiCache API\)](Clusters.Create-mc.md#Clusters.Create.API)\.
 
 1. In your application, update the endpoints to the new cache cluster's endpoints\. For more information, see [Finding Endpoints \(ElastiCache API\)](Endpoints.md#Endpoints.Find.API)\.
 

@@ -10,11 +10,11 @@ You can delete a scaling policy using the AWS Management Console, the AWS CLI, o
 
 1. In the navigation pane, choose **Redis**\. 
 
-1. Choose the cluster whose Auto Scaling policy you want to edit\. 
+1. Choose the cluster whose Auto Scaling policy you want to edit \(choose the cluster name, not the button to its left\)\. 
 
 1. Choose the **Auto Scaling policies** tab\. 
 
-1. In the **Auto Scaling policies** section, choose the Auto Scaling policy, and then choose **Delete** from the **Actions** menu\. 
+1. Under **Scaling policies**, choose the Auto Scaling policy, and then choose **Delete**\. 
 
 ## Deleting a scaling policy using the AWS CLI<a name="AutoScaling-Scaling-Deleting-a-Scaling-Policy-CLI"></a>
 

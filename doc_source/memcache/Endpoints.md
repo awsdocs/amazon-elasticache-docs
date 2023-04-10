@@ -17,32 +17,7 @@ All Memcached endpoints are read/write endpoints\. To connect to nodes in a Memc
 
 When using Automatic Discovery, your client application connects to your Memcached cluster using the configuration endpoint\. As you scale your cluster by adding or removing nodes, your application will automatically "know" all the nodes in the cluster and be able to connect to any of them\. Without Automatic Discovery your application would have to do this, or you'd have to manually update endpoints in your application each time you added or removed a node\. For additional information on Automatic Discovery, see [Automatically identify nodes in your cluster](AutoDiscovery.md)\.
 
-The following procedure demonstrates how to find and copy a cluster's configuration endpoint or any of the node endpoints using the ElastiCache console\.
-
-**To find and copy the endpoints for a Memcached cluster \(console\)**
-
-1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
-
-1. From the navigation pane, choose **Memcached**\.
-
-   The cache clusters screen will appear with a list of Memcached clusters\.
-
-1. Find the Memcached cluster you want the endpoints for\.
-
-   If all you want is the configuration endpoint, you're done\. The configuration endpoint is in the **Configuration Endpoint** column and looks something like this, `clusterName.xxxxxx.cfg.usw2.cache.amazonaws.com:port`\.
-
-   If you want to also see the individual node endpoints or copy any of the endpoints to your clipboard, choose **Copy Node Endpoint**\.  
-![\[Image: Screen showing endpoints for a Memcached cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/images/ElastiCache-Endpoints-Memcached.png)
-
-   *Endpoints for a Memcached cluster*
-
-1. To copy an endpoint to your clipboard:
-
-   1. On the **Copy Node Endpoint** screen, highlight the endpoint you want to copy\.
-
-   1. Right–click the highlighted endpoint, and then choose **Copy** from the context menu\.
-
-   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to nodes](nodes-connecting.md)\.
+To copy an endpoint, choose the copy icon directly in front of the endpoint address\. For information on using the endpoint to connect to a node, see [Connecting to nodes](nodes-connecting-mc.md)\.
 
 Configuration and node endpoints look very similar\. The differences are highlighted with **bold** following\.
 

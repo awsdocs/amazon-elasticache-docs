@@ -18,7 +18,7 @@ The following procedure adds replication to a single\-node Redis that does not h
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
    A list of clusters running the Redis engine is displayed\.
 
@@ -164,7 +164,7 @@ This operation produces output similar to the following \(JSON format\):
         "SnapshotWindow": "07:30-08:30",
         "ClusterEnabled": false,
         "CacheNodeType": "cache.r5.large",
-         "DataTiering": "disabled"
+         "DataTiering": "disabled",
         "TransitEncryptionEnabled": false,
         "AtRestEncryptionEnabled": false,
         "ARN": "arn:aws:elasticache:us-west-2:123456789012:replicationgroup:node-test"

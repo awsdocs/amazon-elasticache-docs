@@ -11,9 +11,9 @@ This documentation helps you understand how to apply the shared responsibility m
 **Topics**
 + [Data protection in Amazon ElastiCache](data-protection.md)
 + [Internetwork traffic privacy](Security.md)
-+ [Identity and access management in Amazon ElastiCache](IAM.md)
++ [Identity and Access Management for Amazon ElastiCache](IAM.md)
 + [Monitoring usage, events, and costs](MonitoringECMetrics.md)
 + [Compliance Validation for Amazon ElastiCache](memcached-compliance.md)
 + [Resilience in Amazon ElastiCache](disaster-recovery-resiliency.md)
 + [Infrastructure security in AWS Elasticache](infrastructure-security.md)
-+ [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)
++ [Service updates in ElastiCache for Memcached](Self-Service-Updates.md)

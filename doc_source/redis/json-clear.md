@@ -20,15 +20,14 @@ JSON.CLEAR <key> [path]
 ```
 127.0.0.1:6379> JSON.SET k1 . '[[], [0], [0,1], [0,1,2], 1, true, null, "d"]'
 OK
+127.0.0.1:6379>  JSON.CLEAR k1  $[*]
+(integer) 7
 127.0.0.1:6379> JSON.CLEAR k1  $[*]
 (integer) 4
-127.0.0.1:6379> JSON.CLEAR k1  $[*]
-(integer) 4
-
 127.0.0.1:6379> JSON.SET k2 . '{"children": ["John", "Jack", "Tom", "Bob", "Mike"]}'
 OK
 127.0.0.1:6379> JSON.CLEAR k2 .children
 (integer) 1
 127.0.0.1:6379> JSON.GET k2 .children
-(integer) 1
+"[]"
 ```

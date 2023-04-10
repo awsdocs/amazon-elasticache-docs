@@ -33,6 +33,11 @@ The following diagram and table describe the Amazon VPC environment, along with 
 
 ## Why use the Amazon VPC instead of EC2 classic with your ElastiCache deployment?<a name="VPCs.WhyUse"></a>
 
+
+|  | 
+| --- |
+| We are retiring EC2\-Classic on August 15, 2022\. We recommend that you migrate from EC2\-Classic to a VPC\. For more information, see [Migrating an EC2\-Classic cluster into a VPC](Migrating-ec2-classic_to_VPC.md) and the blog [EC2\-Classic Networking is Retiring – Here’s How to Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/)\. | 
+
 Launching your instances into an Amazon VPC allows you to:
 + Assign static private IP addresses to your instances that persist across starts and stops\.
 + Assign multiple IP addresses to your instances\.

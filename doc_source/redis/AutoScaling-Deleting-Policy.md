@@ -14,7 +14,7 @@ You can only edit policies with type Predefined metrics by using the AWS Managem
 
 1. Choose the **Auto Scaling policies** tab\. 
 
-1. In the **Auto scaling policies** section, choose the auto scaling policy, and then choose **Delete** from the **Actions** dialog box\. 
+1. Under **Scaling policies**, choose the auto scaling policy, and then choose **Delete**\. 
 
 **Deleting a scaling policy using the AWS CLI or the Application Auto Scaling API **
 

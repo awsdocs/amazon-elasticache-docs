@@ -1,4 +1,4 @@
-# Authenticating users with the Redis AUTH command<a name="auth"></a>
+# Authenticating with the Redis AUTH command<a name="auth"></a>
 
 Redis authentication tokens, or passwords, enable Redis to require a password before allowing clients to run commands, thereby improving data security\.
 
@@ -44,12 +44,10 @@ For Linux, macOS, or Unix:
 aws elasticache create-replication-group \
     --replication-group-id authtestgroup \
     --replication-group-description authtest \
-    --engine redis \
-    --engine-version 4.0.10 \
+    --engine redis \ 
     --cache-node-type cache.m4.large \
     --num-node-groups 1 \
-    --replicas-per-node-group 2 \
-    --cache-parameter-group default.redis3.2.cluster.on \
+    --replicas-per-node-group 2 \    
     --transit-encryption-enabled \
     --auth-token This-is-a-sample-token \
     --cache-subnet-group sng-test
@@ -61,12 +59,10 @@ For Windows:
 aws elasticache create-replication-group ^
     --replication-group-id authtestgroup ^
     --replication-group-description authtest ^
-    --engine redis ^
-    --engine-version 4.0.10 ^
+    --engine redis ^ 
     --cache-node-type cache.m4.large ^
     --num-node-groups 1 ^
-    --replicas-per-node-group 2 ^
-    --cache-parameter-group default.redis3.2.cluster.on ^ 
+    --replicas-per-node-group 2 ^    
     --transit-encryption-enabled ^
     --auth-token This-is-a-sample-token ^
     --cache-subnet-group sng-test

@@ -8,6 +8,9 @@ After you create a cluster with a supported engine version, the JSON data type a
 
 The JSON\-related metrics `JsonBasedCmds` and `JsonBasedCmdsLatency` are incorporated into CloudWatch to monitor the usage of this data type\. For more information, see [Metrics for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html)\.
 
+**Note**  
+To use JSON, you must be running Redis engine version 6\.2\.6 or later\.
+
 **Topics**
 + [Redis JSON data type overview](json-document-overview.md)
 + [Supported Redis JSON commands](json-list-commands.md)

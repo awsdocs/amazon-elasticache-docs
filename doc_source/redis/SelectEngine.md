@@ -14,6 +14,9 @@ On the surface, the engines look similar\. Each of them is an in\-memory key\-va
 + You need to cache objects\.
 
 **Choose Redis with a version of ElastiCache for Redis if the following apply for you:**
++ **ElastiCache for Redis version 7\.0 \(Enhanced\)**
+
+  You want to use [Redis Functions](https://redis.io/docs/manual/programmability/functions-intro/), [Sharded Pub/Sub](https://redis.io/docs/manual/pubsub/#sharded-pubsub), or [Redis ACL improvements](https://redis.io/docs/management/security/acl/)\. For more information, see [Redis Version 7\.0 \(Enhanced\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html#redis-version-7.0)\. 
 + **ElastiCache for Redis version 6\.2 \(Enhanced\)**
 
   You want the ability to tier data between memory and SSD using the r6gd node type\. For more information, see [Data tiering](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html)\.
@@ -32,6 +35,8 @@ On the surface, the engines look similar\. Each of them is an in\-memory key\-va
   Supports both encryption and dynamically adding or removing shards from your Redis \(cluster mode enabled\) cluster\.
 
   For more information, see [Redis Version 4\.0\.10 \(Enhanced\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html#redis-version-4-0-10)\.
+
+The following versions are deprecated, have reached or soon to reach end of life\.
 + **ElastiCache for Redis version 3\.2\.10 \(Enhanced\)**
 
   Supports the ability to dynamically add or remove shards from your Redis \(cluster mode enabled\) cluster\.
@@ -77,17 +82,17 @@ Currently ElastiCache for Redis 3\.2\.10 doesn't support encryption\.
 
 |  |  Memcached  |  Redis \(cluster mode disabled\)  |  Redis \(cluster mode enabled\)  | 
 | --- |--- |--- |--- |
-| Engine versions | 1\.6\.6  | 2\.8\.x and later | 3\.2\.x and later | 
+| Engine versions\+ | 1\.4\.5 and later | 4\.0\.10 and later | 4\.0\.10 and later | 
 | Data types | Simple  | 2\.8\.x \- Complex \* | 3\.2\.x and later \- Complex  | 
 | Complex  | 
 | Data partitioning | Yes | No | Yes | 
 | Cluster is modifiable | Yes | Yes | 3\.2\.10 and later \- Limited | 
 | Online resharding | No | No | 3\.2\.10 and later | 
-| Encryption | No | 3\.2\.6, 4\.0\.10 and later | 3\.2\.6, 4\.0\.10 and later | 
+| Encryption | in\-transit 1\.6\.12 and later | 4\.0\.10 and later | 4\.0\.10 and later | 
 | Data tiering | No | 6\.2 and later | 6\.2 and later | 
 | Compliance certifications | 
 | --- |
-| Compliance Certification     FedRAMP     HIPAA     PCI DSS |   No No No |   3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later |   3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later 3\.2\.6, 4\.0\.10 and later | 
+| Compliance Certification     FedRAMP     HIPAA     PCI DSS |   Yes \- 1\.6\.12 and later Yes \- 1\.6\.12 and later Yes |   4\.0\.10 and later 4\.0\.10 and later 4\.0\.10 and later |   4\.0\.10 and later 4\.0\.10 and later 4\.0\.10 and later | 
 | Multi\-threaded | Yes | No | No | 
 | Node type upgrade | No | Yes | Yes | 
 | Engine upgrading | Yes | Yes | Yes | 
@@ -96,11 +101,11 @@ Currently ElastiCache for Redis 3\.2\.10 doesn't support encryption\.
 | Pub/Sub capabilities | No | Yes | Yes | 
 | Sorted sets | No | Yes | Yes | 
 | Backup and restore | No | Yes | Yes | 
-| Geospatial indexing | No | 2\.8\.x \- No | Yes | 
-| 3\.2\.x and later \- Yes | 
+| Geospatial indexing | No | 4\.0\.10 and later | Yes | 
 | Notes: | 
 |  string, objects \(like databases\) | 
 | \* string, sets, sorted sets, lists, hashes, bitmaps, hyperloglog | 
 |  string, sets, sorted sets, lists, hashes, bitmaps, hyperloglog, geospatial indexes | 
+| \+ Excludes versions which are deprecated, have reached or soon to reach end of life\. | 
 
 After you choose the engine for your cluster, we recommend that you use the most recent version of that engine\. For more information, see [Supported ElastiCache for Memcached Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) or [Supported ElastiCache for Redis Versions](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)\.

@@ -1,6 +1,7 @@
 # Supported ElastiCache for Redis versions<a name="supported-engine-versions"></a>
 
 **Topics**
++ [Redis 7\.0 \(enhanced\)](#redis-version-7.0)
 + [Redis 6\.2 \(enhanced\)](#redis-version-6.2)
 + [Redis 6\.0 \(enhanced\)](#redis-version-6.0)
 + [Redis 5\.0\.6 \(enhanced\)](#redis-version-5-0.6)
@@ -21,7 +22,7 @@
 + [Redis 2\.6\.13](#redis-version-2-6-13)
 
 **Note**  
-Because the newer Redis versions provide a better and more stable user experience, Redis versions 5\.0\.0, 5\.0\.3, 5\.0\.4 and 5\.0\.5 as well as 2\.6\.13, 2\.8\.6, and 2\.8\.19 are deprecated when using the ElastiCache console\. We recommend against using these Redis versions\. If you need to use one of them, work with the AWS CLI or ElastiCache API\.  
+Because the newer Redis versions provide a better and more stable user experience, Redis versions 2\.6\.13, 2\.8\.6, and 2\.8\.19 are deprecated when using the ElastiCache console\. We recommend against using these Redis versions\. If you need to use one of them, work with the AWS CLI or ElastiCache API\.  
 For more information, see the following topics:  
 
 
@@ -32,13 +33,23 @@ For more information, see the following topics:
 | **Create Replication Group** | [Creating a Redis \(Cluster Mode Disabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) replication group from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
 
+## ElastiCache for Redis version 7\.0 \(enhanced\)<a name="redis-version-7.0"></a>
+
+ElastiCache for Redis 7\.0 adds a number of improvements and support for new functionality:
++ [Redis Functions](https://redis.io/docs/manual/programmability/functions-intro/): ElastiCache for Redis 7 adds support for Redis Functions, and provides a managed experience enabling developers to execute [LUA scripts](https://redis.io/docs/manual/programmability/eval-intro/) with application logic stored on the ElastiCache cluster, without requiring clients to re\-send the scripts to the server with every connection\. 
++ [ACL improvements](https://redis.io/docs/management/security/acl/): ElastiCache for Redis 7 adds support for the next version of Redis Access Control Lists \(ACLs\)\. With ElastiCache for Redis 7, clients can now specify multiple sets of permissions on specific keys or keyspaces in Redis\. 
++ [Sharded Pub/Sub](https://redis.io/docs/manual/pubsub/#sharded-pubsub): ElastiCache for Redis 7 adds support to run Redis Pub/Sub functionality in a sharded way when running ElastiCache in Cluster Mode Enabled \(CME\)\. Redis Pub/Sub capabilities enable publishers to issue messages to any number of subscribers on a channel\. With Amazon ElastiCache for Redis 7, channels are bound to a shard in the ElastiCache cluster, eliminating the need to propagate channel information across shards resulting in improved scalability\. 
++ Enhanced I/O multiplexing: ElastiCache for Redis version 7 introduces enhanced I/O multiplexing, which delivers increased throughput and reduced latency for high\-throughput workloads that have many concurrent client connections to an ElastiCache cluster\. For example, when using a cluster of r6g\.xlarge nodes and running 5200 concurrent clients, you can achieve up to 72% increased throughput \(read and write operations per second\) and up to 71% decreaseed P99 latency, compared with ElastiCache for Redis version 6\. 
+
+For more information on the Redis 7\.0 release, see [Redis 7\.0 Release Notes](https://raw.githubusercontent.com/antirez/redis/7.0/00-RELEASENOTES) at Redis on GitHub\.
+
 ## ElastiCache for Redis version 6\.2 \(enhanced\)<a name="redis-version-6.2"></a>
 
 ElastiCache for Redis 6\.2 includes performance improvements for TLS\-enabled clusters using x86 node types with 8 vCPUs or more or Graviton2 node types with 4 vCPUs or more\. These enhancements improve throughput and reduce client connection establishment time by offloading encryption to other vCPUs\. With Redis 6\.2, you can also manage access to Pub/Sub channels with Access Control List \(ACL\) rules\.
 
  With this version, we also introduce support for data tiering on cluster nodes containing locally attached NVMe SSD\. For more information, see [Data tiering](data-tiering.md)\.
 
-This version also introduces support for native JavaScript Object Notation \(JSON\) format, a simple, schemaless way to encode complex datasets inside Redis clusters\. With JSON support, you can leverage the performance and Redis APIs for applications that operate over JSON\. For more information, see [Getting started with JSON](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/json-gs.html)\. Also included are JSON\-related metrics, `JsonBasedCmds` and `JsonBasedCmdsLatency`, that are incorporated into CloudWatch to monitor the usage of this datatype\. For more information, see [Metrics for Redis](CacheMetrics.Redis.md)\.
+Redis engine version 6\.2\.6 also introduces support for native JavaScript Object Notation \(JSON\) format, a simple, schemaless way to encode complex datasets inside Redis clusters\. With JSON support, you can leverage the performance and Redis APIs for applications that operate over JSON\. For more information, see [Getting started with JSON](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/json-gs.html)\. Also included are JSON\-related metrics, `JsonBasedCmds` and `JsonBasedCmdsLatency`, that are incorporated into CloudWatch to monitor the usage of this datatype\. For more information, see [Metrics for Redis](CacheMetrics.Redis.md)\.
 
 You specify the engine version by using 6\.2\. ElastiCache for Redis will automatically invoke the preferred patch version of Redis 6\.2 that is available\. For example, when you create/modify a cache cluster, you set the `--engine-version` parameter to 6\.2\. The cluster will be launched with the current available preferred patch version of Redis 6\.2 at the creation/modification time\. Specifying engine version 6\.x in the API will result in the latest minor version of Redis 6\.
 
@@ -54,7 +65,7 @@ Amazon ElastiCache for Redis introduces the next version of the Redis engine, wh
 
  Beginning with Redis 6\.0, ElastiCache for Redis will offer a single version for each Redis OSS minor release, rather than offering multiple patch versions\. ElastiCache for Redis will automatically manage the patch version of your running cache clusters, ensuring improved performance and enhanced security\. 
 
-You can also opt\-in to the next auto minor version upgrade by setting the `AutoMinorVersionUpgrade` parameter to `yes` and ElastiCache for Redis will manage the minor version upgrade, through self\-service updates\. For more information, see [Self\-service updates in Amazon ElastiCache](Self-Service-Updates.md)\. 
+You can also opt\-in to the next auto minor version upgrade by setting the `AutoMinorVersionUpgrade` parameter to `yes` and ElastiCache for Redis will manage the minor version upgrade, through self\-service updates\. For more information, see [Service updates in ElastiCache for Redis](Self-Service-Updates.md)\. 
 
 You specify the engine version by using `6.0`\. ElastiCache for Redis will automatically invoke the preferred patch version of Redis 6\.0 that is available\. For example, when you create/modify a cache cluster, you set the `--engine-version` parameter to 6\.0\. The cluster will be launched with the current available preferred patch version of Redis 6\.0 at the creation/modification time\. Any request with a specific patch version value will be rejected, an exception will be thrown and the process will fail\.
 

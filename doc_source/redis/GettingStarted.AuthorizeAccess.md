@@ -4,7 +4,7 @@
 
 All ElastiCache clusters are designed to be accessed from an Amazon EC2 instance\. The most common scenario is to access an ElastiCache cluster from an Amazon EC2 instance in the same Amazon Virtual Private Cloud \(Amazon VPC\), which will be the case for this exercise\. 
 
-By default, network access to your cluster is limited to the user account that was used to create it\. Before you can connect to a cluster from an EC2 instance, you must authorize the EC2 instance to access the cluster\. The steps required depend upon whether you launched your cluster into EC2\-VPC or EC2\-Classic\.
+By default, network access to your cluster is limited to the account that was used to create it\. Before you can connect to a cluster from an EC2 instance, you must authorize the EC2 instance to access the cluster\. The steps required depend upon whether you launched your cluster into EC2\-VPC or EC2\-Classic\.
 
 The most common use case is when an application deployed on an EC2 instance needs to connect to a cluster in the same VPC\. The simplest way to manage access between EC2 instances and clusters in the same VPC is to do the following:
 

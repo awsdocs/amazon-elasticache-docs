@@ -141,7 +141,7 @@ When you select a parameter group to set the engine configuration values, that p
          + The number of replicas is the same for each shard when creating the cluster using the console\.
          + The number of read replicas per shard is fixed and cannot be changed\. If you find you need more or fewer replicas per shard \(API/CLI: node group\), you must create a new cluster with the new number of replicas\. For more information, see [Seeding a new cluster with an externally created backup](backups-seeding-redis.md)\.
 
-1. For **Subnet group settings**, choose the subnet that you want to apply to this cluster\. ElastiCache provides a default IPv4 subnet group or you can choose to create a new one\. For IPv6, you need to create a subnet group with an IPv6 CIDR block\.
+1. For **Subnet group settings**, choose the subnet that you want to apply to this cluster\. ElastiCache provides a default IPv4 subnet group or you can choose to create a new one\. For IPv6, you need to create a subnet group with an IPv6 CIDR block\. If you choose **dual stack**, you then must select a Discovery IP type, either IPv6 or IPv4\.
 
    For more information see, [Create a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
 

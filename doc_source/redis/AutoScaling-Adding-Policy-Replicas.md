@@ -10,13 +10,13 @@ To add an auto scaling policy to an ElastiCache for Redis
 
 1. In the navigation pane, choose **Redis**\. 
 
-1. Choose the ElastiCache for Redis cluster that you want to add a policy for\. 
-
-1. Select the **Manage Auto Scaling policies** from **Actions** dropdown\. 
+1. Choose the cluster that you want to add a policy to \(choose the cluster name and not the button to its left\)\. 
 
 1. Choose the **Auto Scaling policies** tab\. 
 
-1. In the **Auto scaling policies** section, the **Add Scaling policy** dialog box appears\. Choose **Dynamic scaling**\.
+1. Choose **add dynamic scaling**\. 
+
+1. Under **Scaling policies**, choose **Add dynamic scaling**\.
 
 1. For **Policy Name**, enter the policy name\. 
 
@@ -30,4 +30,4 @@ To add an auto scaling policy to an ElastiCache for Redis
 
 1. For **Maximum capacity**, type the maximum number of replicas the ElastiCache for Redis Auto Scaling policy is required to maintain\. This value must be >=5\. 
 
-1. Choose **Add policy**\.
+1. Choose **Create**\.

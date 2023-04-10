@@ -13,7 +13,7 @@ The following procedure describes how to scale up a Redis cluster using the Elas
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
 1. From the list of clusters, choose the cluster\. 
 

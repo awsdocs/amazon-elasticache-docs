@@ -1,6 +1,6 @@
-# Authenticating users with Role\-Based Access Control \(RBAC\)<a name="Clusters.RBAC"></a>
+# Role\-Based Access Control \(RBAC\)<a name="Clusters.RBAC"></a>
 
-Instead of authenticating users with the Redis AUTH command as described in [Authenticating users with the Redis AUTH command](auth.md), in Redis 6\.0 onward you can use a feature called Role\-Based Access Control \(RBAC\)\. 
+Instead of authenticating users with the Redis AUTH command as described in [Authenticating with the Redis AUTH command](auth.md), in Redis 6\.0 onward you can use a feature called Role\-Based Access Control \(RBAC\)\. 
 
 Unlike Redis AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups\. These user groups are designed as a way to organize access to replication groups\. 
 
@@ -24,6 +24,7 @@ Using RBAC with ElastiCache for Redis is described in more detail following\.
 + [Applying RBAC to a Replication Group for ElastiCache for Redis](#rbac-using)
 + [Migrating from Redis AUTH to RBAC](#Migrate-From-RBAC-to-Auth)
 + [Migrating from RBAC to Redis AUTH](#Migrate-From-RBAC-to-AUTH-1)
++ [Automatically rotating passwords for users](User-Secrets-Manager.md)
 
 ## Specifying Permissions Using an Access String<a name="Access-string"></a>
 
@@ -57,6 +58,17 @@ You can refine these permissions further by listing commands the user has access
 For information on assigning an access string to a user, see [Creating Users and User Groups with the Console and CLI](#Users-management)\.
 
 If you are migrating an existing workload to ElastiCache, you can retrieve the access string by calling `ACL LIST`, excluding the user and any password hashes\.
+
+For Redis version 6\.2 and above the following access string syntax is also supported:
++ `&*` – Access is given to all available channels\.
+
+For Redis version 7\.0 and above the following access string syntax is also supported:
++ `|` – Can be used for blocking subcommands \(e\.g "\-config\|set"\)\.
++ `%R~<pattern>` – Add the specified read key pattern\. This behaves similar to the regular key pattern but only grants permission to read from keys that match the given pattern\. See [key permissions](https://redis.io/docs/management/security/acl/#key-permission) for more information\.
++ `%W~<pattern>` – Add the specified write key pattern\. This behaves similar to the regular key pattern but only grants permission to write to keys that match the given pattern\. See [key permissions](https://redis.io/docs/management/security/acl/#key-permission) for more information\.
++ `%RW~<pattern>` – Alia for `~<pattern>`\.
++ `(<rule list>)` – Create a new selector to match rules against\. Selectors are evaluated after the user permissions, and are evaluated according to the order they are defined\. If a command matches either the user permissions or any selector, it is allowed\. See [ACL selectors](https://redis.io/docs/management/security/acl/#selectors) more information\.
++ `clearselectors` – Delete all of the selectors attached to the user\.
 
 ## Applying RBAC to a Replication Group for ElastiCache for Redis<a name="rbac-using"></a>
 
@@ -210,7 +222,7 @@ Use the following procedure to manage users on the console\.
 
      When creating a user, you can set up to two passwords\. When you modify a password, any existing connections to replication groups are maintained\.
    + **Modify User** – Enables you to update a user's password or change its access string\.
-   + **Delete User** – The user account will be removed from any User Management Groups to which it belongs\.
+   + **Delete User** – The account will be removed from any User Management Groups to which it belongs\.
 
 Use the following procedures to manage users with the AWS CLI\.
 
@@ -252,7 +264,7 @@ Use the following procedures to manage users with the AWS CLI\.
       "Authentication": {
           "Type": "no-password"
       },
-      "ARN": "arn:aws:elasticache:us-east-1:493071037918:user:user-id-1"
+      "ARN": "arn:aws:elasticache:us-east-1:4930710xxxxxx:user:user-id-1"
   }
   ```
 
@@ -260,7 +272,7 @@ Use the following procedures to manage users with the AWS CLI\.
 We don't recommend using the `nopass` option\. If you do, we recommend setting the user's permissions to read\-only with access to a limited set of keys\.
 
 **To delete a user by using the CLI**
-+ Use the `delete-user` command to delete a user\. The user account is deleted and removed from any user groups to which it belongs\. The following is an example\.
++ Use the `delete-user` command to delete a user\. The account is deleted and removed from any user groups to which it belongs\. The following is an example\.
 
   For Linux, macOS, or Unix:
 
@@ -502,7 +514,7 @@ To add a user group to a replication using the AWS Management Console, do the fo
 + **\-\-engine** – Must be `redis`\.
 + **\-\-engine\-version** – Must be 6\.0 or later\.
 + **\-\-transit\-encryption\-enabled** – Required for authentication and for associating a user group\.
-+ **\-\-user\-group\-ids** – This value provides user groups comprised of users with specified access permissions for the cluster\.
++ **\-\-user\-group\-ids** – This value provides the ID of the user group, comprised of users with specified access permissions for the cluster\.
 + **\-\-cache\-subnet\-group** – Required for associating a user group\.
 
 For Linux, macOS, or Unix:
@@ -512,7 +524,6 @@ aws elasticache create-replication-group \
     --replication-group-id "new-replication-group" \
     --replication-group-description "new-replication-group" \
     --engine "redis" \
-    --engine-version "6.0" \
     --cache-node-type cache.m5.large \
     --transit-encryption-enabled \
     --user-group-ids "new-group-1" \
@@ -526,7 +537,6 @@ aws elasticache create-replication-group ^
     --replication-group-id "new-replication-group" ^
     --replication-group-description "new-replication-group" ^
     --engine "redis" ^
-    --engine-version "6.0" ^
     --cache-node-type cache.m5.large ^
     --transit-encryption-enabled ^
     --user-group-ids "new-group-1" ^
@@ -549,9 +559,9 @@ The preceding code returns the following response\.
         "SnapshotRetentionLimit": 0,
         "SnapshotWindow": "10:30-11:30",
         "ClusterEnabled": false,
-        "UserGroupIds": ["new-group-1"]
+        "UserGroupIds": ["new-group-1"],
         "CacheNodeType": "cache.m5.large",
-        "DataTiering": "disabled"
+        "DataTiering": "disabled",
         "TransitEncryptionEnabled": true,
         "AtRestEncryptionEnabled": false
     }
@@ -620,7 +630,7 @@ Note the `PendingChanges` in the response\. Any modifications made to a replicat
 
 ## Migrating from Redis AUTH to RBAC<a name="Migrate-From-RBAC-to-Auth"></a>
 
-If you are using Redis AUTH as described in [Authenticating users with the Redis AUTH command](auth.md) and want to migrate to using RBAC, use the following procedures\.
+If you are using Redis AUTH as described in [Authenticating with the Redis AUTH command](auth.md) and want to migrate to using RBAC, use the following procedures\.
 
 Use the following procedure to migrate from Redis AUTH to RBAC using the console\.
 
@@ -671,4 +681,4 @@ Use the following procedure to migrate from Redis AUTH to RBAC using the CLI\.
 
 ## Migrating from RBAC to Redis AUTH<a name="Migrate-From-RBAC-to-AUTH-1"></a>
 
-If you are using RBAC and want to migrate to Redis AUTH , see [Migrating from RBAC to Redis AUTH](auth.md#Migrate-From-RBAC-to-AUTH)\. 
+If you are using RBAC and want to migrate to Redis AUTH , see [Migrating from RBAC to Redis AUTH](auth.md#Migrate-From-RBAC-to-AUTH)\.

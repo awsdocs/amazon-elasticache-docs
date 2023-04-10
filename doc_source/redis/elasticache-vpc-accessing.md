@@ -73,6 +73,9 @@ The following diagram illustrates accessing a cluster by an Amazon EC2 instance 
 
 A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private IP addresses\. Instances in either VPC can communicate with each other as if they are within the same network\. You can create a VPC peering connection between your own Amazon VPCs, or with an Amazon VPC in another AWS account within a single region\. To learn more about Amazon VPC peering, see the [VPC documentation](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-peering.html)\.
 
+**Note**  
+DNS name resolution may fail for peered VPCs, depending on the configurations applied to the ElastiCache VPC\. To resolve this, both VPCs must be enabled for DNS hostnames and DNS resolution\. For more information, see [Enable DNS resolution for a VPC peering connection](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html)\.
+
 **To access a cluster in a different Amazon VPC over peering**
 
 1. Make sure that the two VPCs do not have an overlapping IP range or you will not be able to peer them\.

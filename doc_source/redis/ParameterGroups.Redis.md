@@ -3,6 +3,7 @@
 If you do not specify a parameter group for your Redis cluster, then a default parameter group appropriate to your engine version will be used\. You can't change the values of any parameters in the default parameter group\. However, you can create a custom parameter group and assign it to your cluster at any time as long as the values of conditionally modifiable parameters are the same in both parameter groups\. For more information, see [Creating a parameter group](ParameterGroups.Creating.md)\.
 
 **Topics**
++ [Redis 7 parameter changes](#ParameterGroups.Redis.7)
 + [Redis 6\.x parameter changes](#ParameterGroups.Redis.6-x)
 + [Redis 5\.0\.3 parameter changes](#ParameterGroups.Redis.5-0-3)
 + [Redis 5\.0\.0 parameter changes](#ParameterGroups.Redis.5.0)
@@ -20,7 +21,7 @@ If you do not specify a parameter group for your Redis cluster, then a default p
 + [Redis node\-type specific parameters](#ParameterGroups.Redis.NodeSpecific)
 
 **Note**  
-Because the newer Redis versions provide a better and more stable user experience, Redis versions 5\.0\.0, 5\.0\.3, 5\.0\.4 and 5\.0\.5 as well as 2\.6\.13, 2\.8\.6, and 2\.8\.19 are deprecated when using the ElastiCache console\. We recommend against using these Redis versions\. If you need to use one of them, work with the AWS CLI or ElastiCache API\.  
+Because the newer Redis versions provide a better and more stable user experience, Redis versions 2\.6\.13, 2\.8\.6, and 2\.8\.19 are deprecated when using the ElastiCache console\. We recommend against using these Redis versions\. If you need to use one of them, work with the AWS CLI or ElastiCache API\.  
 For more information, see the following topics:  
 
 
@@ -30,6 +31,38 @@ For more information, see the following topics:
 | **Modify Cluster** | [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)  You can't use this action to create a replication group with cluster mode enabled\.  | [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)  You can't use this action to create a replication group with cluster mode enabled\. | 
 | **Create Replication Group** | [Creating a Redis \(Cluster Mode Disabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) replication group from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
 | **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
+
+## Redis 7 parameter changes<a name="ParameterGroups.Redis.7"></a>
+
+**Parameter group family:** redis7
+
+Redis 7 default parameter groups are as follows:
++ `default.redis7` – Use this parameter group, or one derived from it, for Redis \(cluster mode disabled\) clusters and replication groups\.
++ `default.redis7.cluster.on` – Use this parameter group, or one derived from it, for Redis \(cluster mode enabled\) clusters and replication groups\.
+
+Parameters added in Redis 7 are as follows\. 
+
+
+|  Name  |  Details |  Description  | 
+| --- | --- | --- | 
+| cluster\-allow\-pubsub\-shard\-when\-down |  Permitted values: `yes`, `no` Default: `yes` Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | When set to the default of yes, allows nodes to serve pubsub shard traffic while the cluster is in a down state, as long as it believes it owns the slots\.  | 
+| cluster\-preferred\-endpoint\-type |  Permitted values: `ip`, `tls-dynamic` Default: `ip` Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | This value controls what endpoint is returned for MOVED/ASKING requests as well as the endpoint field for `CLUSTER SLOTS` and `CLUSTER SHARDS`\. When the value is set to ip, the node will advertise its ip address\. When the value is set to tls\-dynamic, the node will advertise a hostname when encryption\-in\-transit is enabled and an ip address otherwise\.  | 
+| latency\-tracking |  Permitted values: `yes`, `no` Default: `no` Type: string Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | When set to yes tracks the per command latencies and enables exporting the percentile distribution via the `INFO` latency statistics command, and cumulative latency distributions \(histograms\) via the `LATENCY` command\.  | 
+| hash\-max\-listpack\-entries |  Permitted values: `0+` Default: `512` Type: integer Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | The maximum number of hash entries in order for the dataset to be compressed\.  | 
+| hash\-max\-listpack\-value |  Permitted values: `0+` Default: `64` Type: integer Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | The threshold of biggest hash entries in order for the dataset to be compressed\.  | 
+| zset\-max\-listpack\-entries |  Permitted values: `0+` Default: `128` Type: integer Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | The maximum number of sorted set entries in order for the dataset to be compressed\.  | 
+| zset\-max\-listpack\-value |  Permitted values: `0+` Default: `64` Type: integer Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | The threshold of biggest sorted set entries in order for the dataset to be compressed\.  | 
+
+Parameters removed in Redis 7 are as follows\. 
+
+
+|  Name  |  Details |  Description  | 
+| --- | --- | --- | 
+| hash\-max\-ziplist\-entries |  Permitted values: `0+` Default: `512` Type: integer Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | Use `listpack` instead of `ziplist` for representing small hash encoding  | 
+| hash\-max\-ziplist\-value |  Permitted values: `0+` Default: `64` Type: integer Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | Use `listpack` instead of `ziplist` for representing small hash encoding  | 
+| zset\-max\-ziplist\-entries |  Permitted values: `0+` Default: `128` Type: integer Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | Use `listpack` instead of `ziplist` for representing small hash encoding\.  | 
+| zset\-max\-ziplist\-value |  Permitted values: `0+` Default: `64` Type: integer Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | Use `listpack` instead of `ziplist` for representing small hash encoding\.  | 
+| list\-max\-ziplist\-size |  Permitted values: Default: `-2` Type: integer Modifiable: Yes Changes take effect: Immediately across all nodes in the cluster\. | The number of entries allowed per internal list node\.  | 
 
 ## Redis 6\.x parameter changes<a name="ParameterGroups.Redis.6-x"></a>
 
@@ -246,7 +279,7 @@ For Redis 2\.8\.23 the following additional parameter is supported\.
 | --- | --- | --- | 
 | close\-on\-slave\-write  | Default: yes Type: string \(yes/no\) Modifiable: Yes Changes Take Effect: Immediately | If enabled, clients who attempt to write to a read\-only replica will be disconnected\. | 
 
-### How close\-on\-slave\-write works<a name="w278aac25c35c57c27b9"></a>
+### How close\-on\-slave\-write works<a name="w82aac25c35c57c29b9"></a>
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary\.
 
@@ -260,7 +293,7 @@ With `close-on-replica-write` enabled, any time a client attempts to write to a 
 
 ![\[Image: close-on-slave-write, writing to new primary cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-close-on-slave-write-03.png)
 
-### When you might disable close\-on\-replica\-write<a name="w278aac25c35c57c27c11"></a>
+### When you might disable close\-on\-replica\-write<a name="w82aac25c35c57c29c11"></a>
 
 If disabling `close-on-replica-write` results in writes to the failing cluster, why disable `close-on-replica-write`?
 

@@ -23,6 +23,10 @@ Currently, the following limitations apply to ElastiCache for Redis online resha
   If any of the keys in a shard contain a large item \(items greater than 256 MB after serialization\), that shard isn't deleted when scaling in\. This functionality can result in some shards not being deleted\.
 + When scaling out, the number of nodes in any new shards equals the number of nodes in the smallest existing shard\.
 + When scaling out, any tags that are common to all existing shards are copied to the new shards\.
++ When scaling out a Global Data Store cluster, ElastiCache will not automatically replicate Functions from one of the existing nodes to the new node\(s\)\. We recommend loading your Functions in the new shard\(s\) after scaling out your cluster so that every shards have the same functions\. 
+
+**Note**  
+In Elasticache for Redis version 7 and above: When scaling out your cluster, ElastiCache will automatically replicate the Functions loaded in one of the existing nodes \(selected at random\) to the new node\(s\)\. If your application uses [Redis Functions](https://redis.io/docs/manual/programmability/functions-intro/), we recommend loading all of your functions to all the shards before scaling out so that your ElastiCache for Redis cluster does not end up with different function definitions on different shards\.
 
 For more information, see [Best practices: Online cluster resizing](best-practices-online-resharding.md)\.
 
@@ -42,7 +46,7 @@ You can use the AWS Management Console to add one or more shards to your Redis \
 
 1. Open the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
 1. Locate and choose the name, not the box to the left of the cluster's name, of the Redis \(cluster mode enabled\) cluster that you want to add shards to\.
 **Tip**  
@@ -167,7 +171,7 @@ You can use the AWS Management Console to remove one or more shards from your Re
 
 1. Open the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
 1. Locate and choose the name, not the box to the left of the cluster's name, of the Redis \(cluster mode enabled\) cluster you want to remove shards from\.
 **Tip**  
@@ -275,7 +279,7 @@ The following process describes how to reconfigure the shards in your Redis \(cl
 
 1. Open the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
 1. Choose the name, not the box to the left of the name, of the Redis \(cluster mode enabled\) cluster that you want to rebalance\.
 **Tip**  

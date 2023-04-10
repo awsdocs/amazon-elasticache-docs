@@ -7,6 +7,8 @@ Auto Discovery is added for cache clusters running on Amazon ElastiCache Memcach
 
 With Auto Discovery, your application does not need to manually connect to individual cache nodes; instead, your application connects to one Memcached node and retrieves the list of nodes\. From that list your application is aware of the rest of the nodes in the cluster and can connect to any of them\. You do not need to hard code the individual cache node endpoints in your application\.
 
+If you are using dual stack network type on your cluster, Auto Disovery will return only IPv4 or IPv6 addresses, depending on which one you select\. For more information, see [Choosing a network type](network-type.md)\.
+
 All of the cache nodes in the cluster maintain a list of metadata about all of the other nodes\. This metadata is updated whenever nodes are added or removed from the cluster\.
 
 **Topics**

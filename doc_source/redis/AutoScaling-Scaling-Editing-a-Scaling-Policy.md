@@ -10,17 +10,15 @@ You can edit a scaling policy using the AWS Management Console, the AWS CLI, or 
 
 1. In the navigation pane, choose **Redis**\. 
 
-1. Choose the cluster whose Auto Scaling policy you want to edit\. 
-
-1. Choose **Actions** and then choose **Manage Auto Scaling policies**\. 
+1. Choose the cluster that you want to add a policy to \(choose the cluster name and not the button to its left\)\. 
 
 1. Choose the **Auto Scaling policies** tab\. 
 
-1. In the **Auto Scaling policies** section, choose the Auto Scaling policy, and then choose **Edit** from the **Actions** menu\. 
+1. Under **Scaling policies**, choose the button to the left of the Auto Scaling policy you wish to change, and then choose **Modify**\. 
 
 1. Make the requisite changes to the policy\.
 
-1. Choose **Update policy**\.
+1. Choose **Modify**\.
 
 ## Editing a scaling policy using the AWS CLI and API<a name="AutoScaling-Scaling-Editing-a-Scaling-Policy-CLI"></a>
 

@@ -112,7 +112,7 @@ Output from this command will look something like this\.
             "redis01"
         ],
         "CacheNodeType": "cache.m4.large",
-        "DataTiering": "disabled"
+        "DataTiering": "disabled",
         "PendingModifiedValues": {}
     }
 }
@@ -149,7 +149,7 @@ The following command creates the cluster with replicas `sample-repl-group` usin
 https://elasticache.us-west-2.amazonaws.com/
    ?Action=CreateReplicationGroup 
    &Engine=redis
-   &EngineVersion=3.2.4
+   &EngineVersion=6.0
    &ReplicationGroupDescription=Demo%20cluster%20with%20replicas
    &ReplicationGroupId=sample-repl-group
    &PrimaryClusterId=redis01

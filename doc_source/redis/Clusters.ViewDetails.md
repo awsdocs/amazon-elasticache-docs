@@ -20,12 +20,19 @@ The following procedure details how to view the details of a Redis \(cluster mod
 
    1. Choose the cluster's name\.
 
-   1. Choose the **Nodes** tab\. Doing this displays details about each node, including the node's endpoint which you need to use to read from the cluster\.
+   1. Choose the **Shards and nodes** tab\. Doing this displays details about each node, including the node's endpoint which you need to use to read from the cluster\.
 
-   1. To view metrics on one or more nodes, select the box to the left of the node ID, then choose the time range for the metrics from the **Time range** list\. If you choose multiple nodes, you can see overlay graphs\.  
-![\[Image: Metrics over the last hour for two Redis nodes\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-Redis-Metrics.png)
+1. To view metrics, choose the **Metrics** tab, which displays the relevant metrics for all nodes in the cluster\. For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md)
 
-      Metrics over the last hour for two Redis nodes
+1. To view logs, choose the **Logs** tab, which indicates if the cluster is using Slow logs or Engine logs and provides relevant details\. For more information, see [Log delivery](Log_Delivery.md)\.
+
+1. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration\. For more information, see [Subnets and subnet groups](SubnetGroups.md)\.
+
+1. Choose the **Maintenance** tab to view details on the cluster's maintenance settings\. For more information, see [Managing maintenance](maintenance-window.md)\.
+
+1. Choose the **Service updates** tab to view details on any available service updates along with their recommended apply\-by date\. For more information, see [Service updates in ElastiCache for Redis](Self-Service-Updates.md)\.
+
+1. Choose the **Tags** tab to view details on any tags applied to cluster resources\. For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md)\.
 
 ## Viewing details for a Redis \(Cluster Mode Enabled\) cluster \(Console\)<a name="Clusters.ViewDetails.CON.RedisCluster"></a>
 
@@ -45,57 +52,35 @@ The following procedure details how to view the details of a Redis \(cluster mod
 
    The screen expands below the cluster and display details about the cluster, including the cluster's configuration endpoint\.
 
-1. To see a listing of the cluster's shards and the number of nodes in each shard, choose the cluster's name\.
+1. To see a listing of the cluster's shards and the number of nodes in each shard, choose the **Shards and nodes** tab\.
 
 1. To view specific information on a node:
 
    1. Choose the shard's ID\.
 
-   1. Choose the **Nodes** tab\.
+     Doing this displays information about each node, including each node's endpoint that you need to use to read data from the cluster\.
 
-      Doing this displays information about each node, including each node's endpoint that you need to use to read data from the cluster\.
+1. To view metrics, choose the **Metrics** tab, which displays the relevant metrics for all nodes in the cluster\. For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md)
 
-   1. To view metrics on one or more nodes, choose the box by the node's ID, and then choose a time range for the metrics for **Time range**\. Choosing multiple nodes generates overlay graphs\.  
-![\[Image: Metrics over the last hour for two Redis nodes\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-RedisCluster-Metrics.png)
+1. To view logs, choose the **Logs** tab, which indicates if the cluster is using Slow logs or Engine logs and provides relevant details\. For more information, see [Log delivery](Log_Delivery.md)\.
 
-      *Metrics over the last hour for two Redis nodes*
+1. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration, the VPC security group and what, if any, encryption method is enabled on the cluster\. For more information, see [Subnets and subnet groups](SubnetGroups.md) and [Data security in Amazon ElastiCache](encryption.md)\.
+
+1. Choose the **Maintenance** tab to view details on the cluster's maintenance settings\. For more information, see [Managing maintenance](maintenance-window.md)\.
+
+1. Choose the **Service updates** tab to view details on any available service updates along with their recommended apply\-by date\. For more information, see [Service updates in ElastiCache for Redis](Self-Service-Updates.md)\.
+
+1. Choose the **Tags** tab to view details on any tags applied to cluster resources\. For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md)\.
 
 ## Viewing a cluster's details \(AWS CLI\)<a name="Clusters.ViewDetails.CLI"></a>
 
-You can view the details for a cluster using the AWS CLI `describe-cache-clusters` command\. If the `--cache-cluster-id` parameter is omitted, details for multiple clusters, up to `--max-items`, are returned\. If the `--cache-cluster-id` parameter is included, details for the specified cluster are returned\. You can limit the number of records returned with the `--max-items` parameter\.
-
-The following code lists the details for `my-cluster`\.
+The following code lists the details for *my\-cluster*:
 
 ```
 aws elasticache describe-cache-clusters --cache-cluster-id my-cluster
 ```
 
-The following code list the details for up to 25 clusters\.
-
-```
-aws elasticache describe-cache-clusters --max-items 25
-```
-
-**Example**  
-For Linux, macOS, or Unix:  
-
-```
-aws elasticache describe-cache-clusters \
-    --cache-cluster-id my-cluster \
-    --show-cache-node-info
-```
-For Windows:  
-
-```
-aws elasticache describe-cache-clusters ^
-    --cache-cluster-id my-cluster ^
-    --show-cache-node-info
-```
-This operation produces output similar to the following \(JSON format\):  
-The following JSON output is for three different Redis clusters:  
-+ `my-cluster1` – a Redis \(cluster mode disabled\) cluster with 1 node\.
-+ `my-cluster2` – a Redis \(cluster mode disabled\) cluster with 2 nodes, a primary and 1 read replica\.
-+ `my-cluster3` – a Redis \(cluster mode enabled\) cluster with 2 shards, each shard having a primary node and 2 read replicas\. This cluster has encryption enabled\.
+Replace *my\-cluster* with the name of your cluster in a case where the cluster is created with 1 cache node and 0 shards using the `create-cache-cluster` command\.
 
 ```
 {
@@ -121,7 +106,7 @@ The following JSON output is for three different Redis clusters:
             "AuthTokenEnabled": false,
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
-            "DataTiering": "disabled"
+           "DataTiering": "disabled",
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -161,14 +146,14 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster2-001",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
-            "DataTiering": "disabled"
+            "DataTiering": "disabled",
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
-                "CacheParameterGroupName": "default.redis3.2"
+                "CacheParameterGroupName": "default.redis6.x"
             },
             "SnapshotRetentionLimit": 0,
-            "EngineVersion": "3.2.10",
+            "EngineVersion": "6.0",
             "CacheSecurityGroups": [],
             "NumCacheNodes": 1
         },
@@ -195,14 +180,14 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster2-002",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
-            "DataTiering": "disabled"
+            "DataTiering": "disabled",
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
-                "CacheParameterGroupName": "default.redis3.2"
+                "CacheParameterGroupName": "default.redis6.x"
             },
             "SnapshotRetentionLimit": 0,
-            "EngineVersion": "3.2.10",
+            "EngineVersion": "6.0",
             "CacheSecurityGroups": [],
             "NumCacheNodes": 1
         },
@@ -229,7 +214,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster2-003",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
-            "DataTiering": "disabled"
+            "DataTiering": "disabled",
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -268,14 +253,14 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0001-001",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
-            "DataTiering": "disabled"
+            "DataTiering": "disabled",
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
-                "CacheParameterGroupName": "default.redis3.2.cluster.on"
+                "CacheParameterGroupName": "default.redis6.x.cluster.on"
             },
             "SnapshotRetentionLimit": 0,
-            "EngineVersion": "3.2.6",
+            "EngineVersion": "6.0",
             "CacheSecurityGroups": [],
             "NumCacheNodes": 1
         },
@@ -302,7 +287,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0001-002",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
-             "DataTiering": "disabled"
+             "DataTiering": "disabled",
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -336,14 +321,14 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0001-003",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
-             "DataTiering": "disabled"
+             "DataTiering": "disabled",
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
-                "CacheParameterGroupName": "default.redis3.2.cluster.on"
+                "CacheParameterGroupName": "default.redis6.x.cluster.on"
             },
             "SnapshotRetentionLimit": 0,
-            "EngineVersion": "3.2.6",
+            "EngineVersion": "6.0",
             "CacheSecurityGroups": [],
             "NumCacheNodes": 1
         },
@@ -370,14 +355,14 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0002-001",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
-             "DataTiering": "disabled"
+             "DataTiering": "disabled",
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
-                "CacheParameterGroupName": "default.redis3.2.cluster.on"
+                "CacheParameterGroupName": "default.redis6.x.cluster.on"
             },
             "SnapshotRetentionLimit": 0,
-            "EngineVersion": "3.2.6",
+            "EngineVersion": "6.0",
             "CacheSecurityGroups": [],
             "NumCacheNodes": 1
         },
@@ -404,7 +389,7 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0002-002",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
-             "DataTiering": "disabled"
+             "DataTiering": "disabled",
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
@@ -438,19 +423,25 @@ The following JSON output is for three different Redis clusters:
             "CacheClusterId": "my-cluster3-0002-003",
             "PendingModifiedValues": {},
             "CacheNodeType": "cache.r4.large",
-             "DataTiering": "disabled"
+             "DataTiering": "disabled",
             "CacheParameterGroup": {
                 "CacheNodeIdsToReboot": [],
                 "ParameterApplyStatus": "in-sync",
-                "CacheParameterGroupName": "default.redis3.2.cluster.on"
+                "CacheParameterGroupName": "default.redis6.x.cluster.on"
             },
             "SnapshotRetentionLimit": 0,
-            "EngineVersion": "3.2.6",
+            "EngineVersion": "6.0",
             "CacheSecurityGroups": [],
             "NumCacheNodes": 1
         }
     ]
 }
+```
+
+In a case where the cluster is created using the AWS Management Console \(cluster node enabled or disabled with 1 or more shards\), use the following command to describe the cluster's details \(replace *my\-cluster* with the name of the replication group \(name of your cluster\):
+
+```
+aws elasticache describe-replication-groups --replication-group-id my-cluster 
 ```
 
 For more information, see the AWS CLI for ElastiCache topic [https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-clusters.html](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-clusters.html)\.

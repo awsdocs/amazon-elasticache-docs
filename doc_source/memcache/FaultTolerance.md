@@ -18,7 +18,7 @@ When you create your Memcached cluster you can create it with 1 to 40 nodes, or 
 
 If you need more than 40 nodes in a Memcached cluster, or more than 300 nodes total in an AWS Region, fill out the ElastiCache Limit Increase Request form at [https://aws\.amazon\.com/contact\-us/elasticache\-node\-limit\-request/](https://aws.amazon.com/contact-us/elasticache-node-limit-request/)\.
 
-For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster \(console\)](Clusters.Create.md#Clusters.Create.CON.Memcached)\.
+For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster \(console\)](Clusters.Create-mc.md#Clusters.Create.CON.Memcached)\.
 
 ### Mitigating Availability Zone Failures<a name="FaultTolerance.Memcached.AZ"></a>
 
@@ -31,7 +31,7 @@ This is an excellent question\. Remember that we’re attempting to mitigate two
 
 There is no "magic formula" for determining how many nodes to have in your cluster\. You must weight the impact of data loss vs\. the likelihood of a failure vs\. cost, and come to your own conclusion\.
 
-For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster \(console\)](Clusters.Create.md#Clusters.Create.CON.Memcached)\.
+For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster \(console\)](Clusters.Create-mc.md#Clusters.Create.CON.Memcached)\.
 
 For more information on regions and Availability Zones, see [Choosing regions and availability zones](RegionsAndAZs.md)\.
 

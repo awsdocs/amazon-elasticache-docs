@@ -23,9 +23,9 @@ If you want to use the AWS Command Line Interface \(AWS CLI\), you can use these
   This separate document covers all of the AWS CLI for ElastiCache commands, including syntax and examples\.
 
 You can write application programs to use the ElastiCache API with a variety of popular programming languages\. Here are some resources:
-+ [Tools for AWSlong;](https://aws.amazon.com/tools/)
++ [Tools for Amazon Web Services](https://aws.amazon.com/tools/)
 
-  AWSlong; provides a number of software development kits \(SDKs\) with support for ElastiCache for Memcached\. You can code for ElastiCache using Java, \.NET, PHP, Ruby, and other languages\. These SDKs can greatly simplify your application development by formatting your requests to ElastiCache, parsing responses, and providing retry logic and error handling\. 
+  Amazon Web Services provides a number of software development kits \(SDKs\) with support for ElastiCache for Memcached\. You can code for ElastiCache using Java, \.NET, PHP, Ruby, and other languages\. These SDKs can greatly simplify your application development by formatting your requests to ElastiCache, parsing responses, and providing retry logic and error handling\. 
 + [Using the ElastiCache API](ProgrammingGuide.md)
 
   If you don't want to use the AWS SDKs, you can interact with ElastiCache directly using the Query API\. You can find troubleshooting tips and information on creating and authenticating requests and handling responses in this section\. 

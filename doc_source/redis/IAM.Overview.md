@@ -5,7 +5,16 @@ Every AWS resource is owned by an AWS account, and permissions to create or acce
 **Note**  
 An *account administrator* \(or administrator user\) is a user with administrator privileges\. For more information, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.
 
-When granting permissions, you decide who is getting the permissions\. You also decide the resources they get permissions for and the specific actions that you want to allow on those resources\.
+To provide access, add permissions to your users, groups, or roles:
++ Users and groups in AWS IAM Identity Center \(successor to AWS Single Sign\-On\):
+
+  Create a permission set\. Follow the instructions in [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
++ Users managed in IAM through an identity provider:
+
+  Create a role for identity federation\. Follow the instructions in [Creating a role for a third\-party identity provider \(federation\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*\.
++ IAM users:
+  + Create a role that your user can assume\. Follow the instructions in [Creating a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*\.
+  + \(Not recommended\) Attach a policy directly to a user or add a user to a user group\. Follow the instructions in [Adding permissions to a user \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*\.
 
 **Topics**
 + [Amazon ElastiCache resources and operations](#IAM.Overview.ResourcesAndOperations)
@@ -37,12 +46,9 @@ For resource\-level permissions to be effective, the resource name on the ARN st
 | Snapshot  | arn:aws:elasticache:*us\-east\-2:123456789012*:snapshot:my\-snapshot | 
 | Parameter group  | arn:aws:elasticache:*us\-east\-2:123456789012*:parametergroup:my\-parameter\-group | 
 | Replication group  | arn:aws:elasticache:*us\-east\-2:123456789012*:replicationgroup:my\-replication\-group | 
-| Security group  | arn:aws:elasticache:*us\-east\-2:123456789012*:securitygroup:my\-security\-group | 
 | Subnet group  | arn:aws:elasticache:*us\-east\-2:123456789012*:subnetgroup:my\-subnet\-group | 
 | Reserved instance  | arn:aws:elasticache:*us\-east\-2:123456789012*:reserved\-instance:my\-reserved\-instance | 
 | Global replication group  | arn:aws:elasticache:*123456789012*:globalreplicationgroup:my\-global\-replication\-group | 
-| User  | arn:aws:elasticache:*us\-east\-2:123456789012*:user:my\-user | 
-| User Group  | arn:aws:elasticache:*us\-east\-2:123456789012*:user:my\-user\-group | 
 
 ElastiCache provides a set of operations to work with ElastiCache resources\. For a list of available operations, see Amazon ElastiCache [Actions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_Operations.html)\.
 
@@ -101,7 +107,7 @@ For more information about using identity\-based policies with ElastiCache, see 
 
 ### Specifying policy elements: Actions, effects, resources, and principals<a name="IAM.Overview.PolicyElements"></a>
 
-For each Amazon ElastiCache resource \(see [Amazon ElastiCache resources and operations](#IAM.Overview.ResourcesAndOperations)\), the service defines a set of API operations \(see [Actions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_Operations.html)\)\. To grant permissions for these API operations, ElastiCache defines a set of actions that you can specify in a policy\. For example, for the ElastiCache snapshot resource, the following actions are defined: `CreateCacheCluster`, `DeleteCacheCluster`, and `DescribeCacheCluster`\. Performing an API operation can require permissions for more than one action\.
+For each Amazon ElastiCache resource \(see [Amazon ElastiCache resources and operations](#IAM.Overview.ResourcesAndOperations)\), the service defines a set of API operations \(see [Actions](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_Operations.html)\)\. To grant permissions for these API operations, ElastiCache defines a set of actions that you can specify in a policy\. For example, for the ElastiCache cluster resource, the following actions are defined: `CreateCacheCluster`, `DeleteCacheCluster`, and `DescribeCacheCluster`\. Performing an API operation can require permissions for more than one action\.
 
 The following are the most basic policy elements:
 + **Resource** – In a policy, you use an Amazon Resource Name \(ARN\) to identify the resource to which the policy applies\. For more information, see [Amazon ElastiCache resources and operations](#IAM.Overview.ResourcesAndOperations)\.

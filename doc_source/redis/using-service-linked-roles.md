@@ -31,34 +31,43 @@ The AWSServiceRoleForElastiCache service\-linked role permissions policy allows 
 ```
 Permission policy:
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ec2:AuthorizeSecurityGroupIngress",
-        "ec2:CreateNetworkInterface",
-        "ec2:CreateSecurityGroup",
-        "ec2:DeleteNetworkInterface",
-        "ec2:DeleteSecurityGroup",
-        "ec2:DescribeAvailabilityZones",
-        "ec2:DescribeNetworkInterfaces",
-        "ec2:DescribeSecurityGroups",
-        "ec2:DescribeSubnets",
-        "ec2:DescribeVpcs",
-        "ec2:ModifyNetworkInterfaceAttribute",
-        "ec2:RevokeSecurityGroupIngress",
-        "cloudwatch:PutMetricData",
-        "outposts:GetOutpost",
-        "outposts:GetOutpostInstanceTypes",
-        "outposts:ListOutposts",
-        "outposts:ListSites",
-        "application-autoscaling:DeregisterScalableTarget",
-        "application-autoscaling:DescribeScalableTargets"
-      ],
-      "Resource": "*"
-    }
-  ]
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"ec2:AuthorizeSecurityGroupIngress",
+				"ec2:CreateNetworkInterface",
+				"ec2:CreateSecurityGroup",
+				"ec2:DeleteNetworkInterface",
+				"ec2:DeleteSecurityGroup",
+				"ec2:DescribeAvailabilityZones",
+				"ec2:DescribeNetworkInterfaces",
+				"ec2:DescribeSecurityGroups",
+				"ec2:DescribeSubnets",
+				"ec2:DescribeVpcs",
+				"ec2:ModifyNetworkInterfaceAttribute",
+				"ec2:RevokeSecurityGroupIngress",
+				"cloudwatch:PutMetricData",
+				"outposts:GetOutpost",
+				"outposts:GetOutpostInstanceTypes",
+				"outposts:ListOutposts",
+				"outposts:ListSites",
+				"logs:DeleteLogDelivery",
+				"application-autoscaling:DeregisterScalableTarget",
+				"application-autoscaling:DescribeScalableTargets"
+			],
+			"Resource": "*"
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
+				"ec2:AssignIpv6Addresses",
+				"ec2:UnassignIpv6Addresses"
+			],
+			"Resource": "arn:aws:ec2:*:*:network-interface/eni-*"
+		}
+	]
 }
 ```
 

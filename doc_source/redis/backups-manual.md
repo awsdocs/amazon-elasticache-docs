@@ -23,7 +23,7 @@ You can create a manual backup of a node using the AWS Management Console, the A
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
    The Redis clusters screen appears\.
 
@@ -112,7 +112,7 @@ Output from the operation looks something like the following\.
 {
     "Snapshot": {
         "Engine": "redis", 
-        "CacheParameterGroupName": "default.redis3.2", 
+        "CacheParameterGroupName": "default.redis6.x", 
         "VpcId": "vpc-91280df6", 
         "CacheClusterId": "myNonClusteredRedis-001", 
         "SnapshotRetentionLimit": 0, 
@@ -124,7 +124,7 @@ Output from the operation looks something like the following\.
         "SnapshotStatus": "creating", 
         "SnapshotSource": "manual", 
         "SnapshotWindow": "08:30-09:30", 
-        "EngineVersion": "3.2.4", 
+        "EngineVersion": "6.0", 
         "NodeSnapshots": [
             {
                 "CacheSize": "", 
@@ -169,7 +169,7 @@ Output from this operation looks something like the following\.
 {
     "Snapshot": {
         "Engine": "redis", 
-        "CacheParameterGroupName": "default.redis3.2.cluster.on", 
+        "CacheParameterGroupName": "default.redis6.x.cluster.on", 
         "VpcId": "vpc-91280df6", 
         "NodeSnapshots": [
             {
@@ -190,7 +190,7 @@ Output from this operation looks something like the following\.
         "SnapshotStatus": "creating", 
         "SnapshotSource": "manual", 
         "SnapshotWindow": "10:00-11:00", 
-        "EngineVersion": "3.2.4", 
+        "EngineVersion": "6.0", 
         "CacheSubnetGroupName": "default", 
         "ReplicationGroupDescription": "2 shards 2 nodes each", 
         "Port": 6379, 

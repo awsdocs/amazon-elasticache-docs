@@ -2,10 +2,7 @@
 
 To help keep your data secure, Amazon ElastiCache and Amazon EC2 provide mechanisms to guard against unauthorized access of your data on the server\. By providing in\-transit encryption capability, ElastiCache gives you a tool you can use to help protect your data when it is moving from one location to another\. 
 
-In\-transit encryption is optional and can only be enabled on Redis replication groups when they are created\. You enable in\-transit encryption on a replication group by setting the parameter `TransitEncryptionEnabled` to `true` \(CLI: `--transit-encryption-enabled`\) when you create the replication group\. You can do this whether you are creating the replication group using the AWS Management Console, the AWS CLI, or the ElastiCache API\. If you enable in\-transit encryption, you must also provide a value for `CacheSubnetGroup`\.
-
-**Important**
-The parameters `TransitEncryptionEnabled` \(CLI: `--transit-encryption-enabled`\) are only available when using the `CreateReplicationGroup` \(CLI: `create-replication-group`\) operation\.
+ You enable in\-transit encryption on a replication group by setting the parameter `TransitEncryptionEnabled` to `true` \(CLI: `--transit-encryption-enabled`\) when you create the replication group\. You can do this whether you are creating the replication group using the AWS Management Console, the AWS CLI, or the ElastiCache API\. If you enable in\-transit encryption, you must also provide a value for `CacheSubnetGroup`\.
 
 **Topics**
 + [In\-transit encryption overview](#in-transit-encryption-overview)
@@ -13,14 +10,13 @@ The parameters `TransitEncryptionEnabled` \(CLI: `--transit-encryption-enabled`\
 + [In\-transit encryption best practices](#in-transit-encryption-best-practices)
 + [Enabling in\-transit encryption](#in-transit-encryption-enable)
 + [See also](#in-transit-encryption-see-also)
-+ [Authenticating users with the Redis AUTH command](auth.md)
 
 ## In\-transit encryption overview<a name="in-transit-encryption-overview"></a>
 
 Amazon ElastiCache in\-transit encryption is an optional feature that allows you to increase the security of your data at its most vulnerable points—when it is in transit from one location to another\. Because there is some processing needed to encrypt and decrypt the data at the endpoints, enabling in\-transit encryption can have some performance impact\. You should benchmark your data with and without in\-transit encryption to determine the performance impact for your use cases\.
 
 ElastiCache in\-transit encryption implements the following features:
-+ **Encrypted connections**—both the server and client connections are Secure Socket Layer \(SSL\) encrypted\.
++ **Encrypted connections**—both the server and client connections are TLS encrypted\.
 + **Encrypted replication—**data moving between a primary node and replica nodes is encrypted\.
 + **Server authentication**—clients can authenticate that they are connecting to the right server\.
 + **Client authentication**—using the Redis AUTH feature, the server can authenticate the clients\.
@@ -29,6 +25,7 @@ ElastiCache in\-transit encryption implements the following features:
 
 The following constraints on Amazon ElastiCache in\-transit encryption should be kept in mind when you plan your implementation:
 + In\-transit encryption is supported on replication groups running Redis versions 3\.2\.6, 4\.0\.10 and later\.
++ Modifying the in\-transit encryption setting, for an existing cluster, is supported on replication groups running Redis version 7 and later\.
 + In\-transit encryption is supported only for replication groups running in an Amazon VPC\.
 + In\-transit encryption is only supported for replication groups running the following node types\.
   + R6g, R5, R4, R3
@@ -37,45 +34,19 @@ The following constraints on Amazon ElastiCache in\-transit encryption should be
 
   For more information, see [Supported node types](CacheNodes.SupportedTypes.md)\.
 + In\-transit encryption is enabled by explicitly setting the parameter `TransitEncryptionEnabled` to `true`\.
-+ You can enable in\-transit encryption on a replication group only when creating the replication group\. You cannot toggle in\-transit encryption on and off by modifying a replication group\. For information on implementing in\-transit encryption on an existing replication group, see [Enabling in\-transit encryption](#in-transit-encryption-enable)\.
 + To connect to an in\-transit encryption enabled replication group, a database must be enabled for transport layer security \(TLS\)\. To connect to a replication group that is not in\-transit encryption enabled, the database cannot be TLS\-enabled\.
 
-<<<<<<< HEAD
 ## In\-transit encryption best practices<a name="in-transit-encryption-best-practices"></a>
 + Because of the processing required to encrypt and decrypt the data at the endpoints, implementing in\-transit encryption can reduce performance\. Benchmark in\-transit encryption compared to no encryption on your own data to determine its impact on performance for your implementation\.
 + Because creating new connections can be expensive, you can reduce the performance impact of in\-transit encryption by persisting your TLS connections\.
-=======
-Because of the processing required to encrypt and decrypt the data at the endpoints, implementing in\-transit encryption can reduce performance\. Benchmark in\-transit encryption compared to no encryption on your own data to determine its impact on performance for your implementation\.
-
-**Tip**
-Because creating new connections can be expensive, you can reduce the performance impact of in\-transit encryption by persisting your SSL connections\.
->>>>>>> 2e27aca1159cab78acf8051759a61de802060a29
 
 ## Enabling in\-transit encryption<a name="in-transit-encryption-enable"></a>
 
-You can enable in\-transit encryption when you create an ElastiCache for Redis replication group using the AWS Management Console, the AWS CLI, or the ElastiCache API\.
+You can enable in\-transit encryption using the AWS Management Console, the AWS CLI, or the ElastiCache API\.
 
  
 
-### Enabling in\-transit encryption on an existing cluster<a name="in-transit-encryption-enable-existing"></a>
-
-You can only enable in\-transit encryption when you create a Redis replication group\. If you have an existing replication group on which you want to enable in\-transit encryption, do the following\.
-
-**To enable in\-transit encryption for an existing Redis replication group**
-
-1. Create a manual backup of the replication group\. For more information, see [Making manual backups](backups-manual.md)\.
-
-1. Create a new replication group by restoring from the backup setting the engine version to 3\.2\.6, 4\.0\.10 and later, and the parameter `TransitEncryptionEnabled` to `true` \(CLI:` --transit-encryption-enabled`\)\. For more information, see [Restoring from a backup with optional cluster resizing](backups-restoring.md)\.
-
-1. Update the endpoints in your application to the new replication group's endpoints\. For more information, see [Finding connection endpoints](Endpoints.md)\.
-
-1. Delete the old replication group\. For more information, see the following:
-   + [Deleting a cluster](Clusters.Delete.md)
-   + [Deleting a replication group](Replication.DeletingRepGroup.md)
-
- 
-
-### Enabling in\-transit encryption using the AWS Management Console<a name="in-transit-encryption-enable-con"></a>
+### Enabling in\-transit encryption for a new cluster using the AWS Management Console<a name="in-transit-encryption-enable-con"></a>
 
 To enable in\-transit encryption when creating a replication group using the AWS Management Console, make the following selections:
 + Choose Redis as your engine\.
@@ -88,7 +59,7 @@ For the step\-by\-step process, see the following:
 
  
 
-### Enabling in\-transit encryption using the AWS CLI<a name="in-transit-encryption-enable-cli"></a>
+### Enabling in\-transit encryption for a new cluster using the AWS CLI<a name="in-transit-encryption-enable-cli"></a>
 
 To enable in\-transit encryption when creating a Redis replication group using the AWS CLI, use the parameter `transit-encryption-enabled`\.
 
@@ -120,7 +91,7 @@ Use the AWS CLI operation `create-replication-group` and the following parameter
     **\-\-replicas\-per\-node\-group**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **\-\-node\-group\-configuration**—Specifies the configuration of each shard independently\.
 
-
+  
 
 For more information, see the following:
 + [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)
@@ -164,17 +135,69 @@ Use the ElastiCache API operation `CreateReplicationGroup` and the following par
     **ReplicasPerNodeGroup**—Specifies the number of replica nodes in each node group\. The value specified here is applied to all shards in this replication group\. The maximum value of this parameter is 5\.
   + **NodeGroupConfiguration**—Specifies the configuration of each shard independently\.
 
-
+  
 
 For more information, see the following:
 + [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API)
 + [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html)
 
+### Enabling in\-transit encryption for an existing cluster using the AWS Management Console<a name="in-transit-encryption-enable-existing"></a>
+
+Enabling encryption in transit, is a two\-step process, you must first set the transit encryption mode to `preferred`\. This mode allows your Redis clients to connect using both encrypted and unencrypted connections\. After you migrate all your Redis clients to use encrypted connections, you can then modify your cluster configuration to set the transit encryption mode to `required`\. Setting the transit encryption mode to `required` will drop all unencrypted connections and will allow encrypted connections only\.
+
+**Step 1: Set your **Transit encryption mode** to **Preferred****
+
+1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
+
+1. Choose **Redis clusters** from the ElastiCache **Resources** listed on the navigation pane, present on the left hand\.
+
+1. Choose the **Redis cluster** you want to update\.
+
+1. Choose the **Actions** dropdown, then choose **Modify**\.
+
+1. Choose **Enable** under **Encryption in transit** in the **Security** section\.
+
+1. Choose **Preferred** as the **Transit encryption mode**\. 
+
+1. Choose **Preview changes** and save your changes\.
+
+After you migrate all your Redis clients to use encrypted connections:
+
+**Step 2: Set your **Transit encryption mode** to **Required****
+
+1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
+
+1. Choose **Redis clusters** from the ElastiCache **Resources** listed on the navigation pane, present on the left hand\.
+
+1. Choose the **Redis cluster** you want to update\.
+
+1. Choose the **Actions** dropdown, then choose **Modify**\.
+
+1. Choose **Required** as the **Transit encryption mode**, in the **Security** section\.
+
+1. Choose **Preview changes** and save your changes\.
+
+### Enabling in\-transit encryption for an existing cluster using the \(CLI\)<a name="in-transit-encryption-enable-cli-redis-cluster-existing-cli"></a>
+
+Enabling encryption in transit, is a two\-step process, you must first set the transit encryption mode to `preferred`\. This mode allows your Redis clients to connect using both encrypted and unencrypted connections\. After you migrate all your Redis clients to use encrypted connections, you can then modify your cluster configuration to set the transit encryption mode to `required`\. Setting the transit encryption mode to `required` will drop all unencrypted connections and will allow encrypted connections only\.
+
+Use the AWS CLI operation `modify-replication-group` and the following parameters to update a Redis \(cluster mode enabled\) replication group that has in\-transit encryption disabled\.
+
+**To enable in\-transit encryption**
+
+1. Set transit\-encryption\-mode to `preferred`, using the following parameters
+   + **\-\-transit\-encryption\-enabled**—Required\.
+   + **\-\-transit\-encryption\-mode**—Must be set to `preferred`\.
+
+1. Set transit\-encryption\-mode to `required`, using the following parameters:
+   + **\-\-transit\-encryption\-enabled**—Required\.
+   + **\-\-transit\-encryption\-mode**—Must be set to `required`\.
+
 ### Connecting to Amazon ElastiCache for Redis nodes enabled with in\-transit encryption using redis\-cli<a name="connect-tls"></a>
 
 
 
-To access data from ElastiCache for Redis nodes enabled with in\-transit encryption, you use clients that work with Secure Socket Layer \(SSL\)\. You can also use redis\-cli with TLS/SSL on Amazon linux and Amazon Linux 2\.
+To access data from ElastiCache for Redis nodes enabled with in\-transit encryption, you use clients that work with Secure Socket Layer \(SSL\)\. You can also use redis\-cli with TLS/SSL on Amazon linux and Amazon Linux 2\. 
 
 **To use redis\-cli to connect to a Redis cluster enabled with in\-transit encryption on Amazon Linux 2 or Amazon Linux**
 
@@ -243,13 +266,13 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 
    ```
    vi /etc/stunnel/redis-cli.conf
-
-
+   
+   				
    fips = no
    setuid = root
    setgid = root
    pid = /var/run/stunnel.pid
-   debug = 7
+   debug = 7 
    delay = yes
    options = NO_SSLv2
    options = NO_SSLv3
@@ -278,19 +301,19 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 
    ```
    sudo netstat -tulnp | grep -i stunnel
-
-   tcp        0      0 127.0.0.1:6379              0.0.0.0:*                   LISTEN      3189/stunnel
+   				
+   tcp        0      0 127.0.0.1:6379              0.0.0.0:*                   LISTEN      3189/stunnel        
    tcp        0      0 127.0.0.1:6380              0.0.0.0:*                   LISTEN      3189/stunnel
    ```
 
 1. Connect to the encrypted Redis node using the local endpoint of the tunnel\.
-   + If no AUTH password was used during ElastiCache for Redis cluster creation, this example uses the redis\-cli to connect to the ElastiCache for Redis server using complete path for redis\-cli, on Amazon Linux:
+   + If no AUTH password was used during ElastiCache for Redis cluster creation, this example uses the redis\-cli to connect to the ElastiCache for Redis server using complete path for redis\-cli, on Amazon Linux: 
 
      ```
      /home/ec2-user/redis-stable/src/redis-cli -h localhost -p 6379
      ```
 
-     If AUTH password was used during Redis cluster creation, this example uses redis\-cli to connect to the Redis server using complete path for redis\-cli, on Amazon Linux:
+     If AUTH password was used during Redis cluster creation, this example uses redis\-cli to connect to the Redis server using complete path for redis\-cli, on Amazon Linux: 
 
      ```
       /home/ec2-user/redis-stable/src/redis-cli -h localhost -p 6379 -a my-secret-password
@@ -299,23 +322,23 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
    OR
    + Change directory to redis\-stable and do the following:
 
-     If no AUTH password was used during ElastiCache for Redis cluster creation, this example uses the redis\-cli to connect to the ElastiCache for Redis server using complete path for redis\-cli, on Amazon Linux:
+     If no AUTH password was used during ElastiCache for Redis cluster creation, this example uses the redis\-cli to connect to the ElastiCache for Redis server using complete path for redis\-cli, on Amazon Linux: 
 
      ```
      src/redis-cli -h localhost -p 6379
      ```
 
-     If AUTH password was used during Redis cluster creation, this example uses redis\-cli to connect to the Redis server using complete path for redis\-cli, on Amazon Linux:
+     If AUTH password was used during Redis cluster creation, this example uses redis\-cli to connect to the Redis server using complete path for redis\-cli, on Amazon Linux: 
 
      ```
-     src/redis-cli -h localhost -p 6379 -a my-secret-password
+     src/redis-cli -h localhost -p 6379 -a my-secret-password	
      ```
 
    This example uses Telnet to connect to the Redis server\.
 
    ```
    telnet localhost 6379
-
+   			
    Trying 127.0.0.1...
    Connected to localhost.
    Escape character is '^]'.
@@ -334,7 +357,7 @@ To work around this, you can use the `stunnel` command to create an SSL tunnel t
 
 ## See also<a name="in-transit-encryption-see-also"></a>
 + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
-+ [Authenticating users with the Redis AUTH command](auth.md)
++ [Authenticating with the Redis AUTH command](auth.md)
 + [Authenticating Users with Role\-Based Access Control \(RBAC\)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
 + [Amazon VPCs and ElastiCache security](VPCs.md)
-+ [Identity and access management in Amazon ElastiCache](IAM.md)
++ [Identity and Access Management for Amazon ElastiCache](IAM.md)

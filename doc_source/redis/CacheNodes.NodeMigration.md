@@ -17,7 +17,7 @@ The following procedure describes how to migrate your Redis cluster node type us
 
 1. Sign in to the Console and open the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/home)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
 1. From the list of clusters, choose the cluster you want to migrate\.
 
@@ -63,7 +63,7 @@ Once you have completed that process, you can then modify the node type using th
 
 1. Sign in to the Console and open the ElastiCache console at [https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/home)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
 1. From the list of clusters, choose the cluster you want to remove a node from\.
 
@@ -74,6 +74,11 @@ Once you have completed that process, you can then modify the node type using th
 1. Choose **Actions** and then choose **Delete node**\.
 
 ## If nodes are running on EC2\-Classic<a name="Redis.ec2-classic"></a>
+
+
+|  | 
+| --- |
+| We are retiring EC2\-Classic on August 15, 2022\. We recommend that you migrate from EC2\-Classic to a VPC\. For more information, see [Migrating an EC2\-Classic cluster into a VPC](Migrating-ec2-classic_to_VPC.md) and the blog [EC2\-Classic Networking is Retiring – Here’s How to Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/)\. | 
 
 Follow these steps to verify if your EC2 is running in EC2\-Classic platform \(console\):
 

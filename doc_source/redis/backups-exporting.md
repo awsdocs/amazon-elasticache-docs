@@ -16,7 +16,7 @@ The following scenarios expose your data in ways that you might not want:
 **When another person has access to the Amazon S3 bucket that you exported your backup to\.**  
 To control access to your backups, only allow access to the Amazon S3 bucket to those whom you want to access your data\. For information about managing access to an Amazon S3 bucket, see [Managing access](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) in the *Amazon S3 Developer Guide*\.
 **When another person has permissions to use the CopySnapshot API operation\.**  
-Users or groups that have permissions to use the `CopySnapshot` API operation can create their own Amazon S3 buckets and copy backups to them\. To control access to your backups, use an AWS Identity and Access Management \(IAM\) policy to control who has the ability to use the `CopySnapshot` API\. For more information about using IAM to control the use of ElastiCache API operations, see [Identity and access management in Amazon ElastiCache](IAM.md) in the *ElastiCache User Guide*\.
+Users or groups that have permissions to use the `CopySnapshot` API operation can create their own Amazon S3 buckets and copy backups to them\. To control access to your backups, use an AWS Identity and Access Management \(IAM\) policy to control who has the ability to use the `CopySnapshot` API\. For more information about using IAM to control the use of ElastiCache API operations, see [Identity and Access Management for Amazon ElastiCache](IAM.md) in the *ElastiCache User Guide*\.
 
 **Topics**
 + [Step 1: Create an Amazon S3 bucket](#backups-exporting-create-s3-bucket)
@@ -78,7 +78,7 @@ For GovCloud Regions, the Canonical Id is `40fa568277ad703bd160f66ae4f83fc9dfdfd
 
 ## Step 3: Export an ElastiCache backup<a name="backups-exporting-procedures"></a>
 
-Now you've created your S3 bucket and granted ElastiCache permissions to access it\. Next, you can use the ElastiCache console, the AWS CLI, or the ElastiCache API to export your snapshot to it\. The following assumes that you have the following additional S3 specific IAM permissions\.
+Now you've created your S3 bucket and granted ElastiCache permissions to access it\. Next, you can use the ElastiCache console, the AWS CLI, or the ElastiCache API to export your snapshot to it\. The following examples assume that the IAM identity of the caller has the following additional S3 specific IAM permissions\.
 
 ```
 {
@@ -95,6 +95,44 @@ Now you've created your S3 bucket and granted ElastiCache permissions to access 
 		],
 		"Resource": "arn:aws:s3:::*"
 	}]
+}
+```
+
+AWS Regions introduced before March 20, 2019, are enabled by default\. You can begin working in these AWS Regions immediately\. Regions introduced after March 20, 2019, such as Asia Pacific \(Hong Kong\) and Middle East \(Bahrain\), are disabled by default\. You must enable, or opt in, to these Regions before you can use them, as described in [Managing AWS regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in *AWS General Reference*\.
+
+For opt\-in Regions, the following is an example of what the updated policy for the S3 bucket might look like\. \(This examples uses the Asia Pacific \(Hong Kong\) Region\.\)
+
+```
+{
+    "Version": "2012-10-17",
+    "Id": "Policy15397346",
+    "Statement": [
+        {
+            "Sid": "Stmt15399483",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "elasticache.amazonaws.com"
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::hkg-elasticache-backup",
+                "arn:aws:s3:::hkg-elasticache-backup/*"
+            ]
+        },
+        {
+            "Sid": "Stmt15399484",
+            "Effect": "Allow",
+
+            "Principal": {
+                "Service": "ap-east-1.elasticache-snapshot.amazonaws.com"
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::hkg-elasticache-backup",
+                "arn:aws:s3:::hkg-elasticache-backup/*"
+            ]
+        }
+    ]
 }
 ```
 

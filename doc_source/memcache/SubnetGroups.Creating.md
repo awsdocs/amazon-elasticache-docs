@@ -4,6 +4,8 @@ A *cache subnet group* is a collection of subnets that you may want to designate
 
 When you create a new subnet group, note the number of available IP addresses\. If the subnet has very few free IP addresses, you might be constrained as to how many more nodes you can add to the cluster\. To resolve this issue, you can assign one or more subnets to a subnet group so that you have a sufficient number of IP addresses in your cluster's Availability Zone\. After that, you can add more nodes to your cluster\.
 
+If you choose IPV4 as your network type, a default subnet group will be available or you can choose to create a new one\. ElastiCache uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes\. If you choose dual\-stack or IPV6, you will be directed to create dual\-stack or IPV6 subnets\. For more information on network types, see [Choosing a network type](network-type.md)\. For more information, see [Create a subnet in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet)\.
+
 The following procedures show you how to create a subnet group called `mysubnetgroup` \(console\), the AWS CLI, and the ElastiCache API\.
 
 ## Creating a subnet group \(Console\)<a name="SubnetGroups.Creating.CON"></a>

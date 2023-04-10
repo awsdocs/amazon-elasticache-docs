@@ -73,7 +73,7 @@ For more information, see [Managing clusters](Clusters.md)\.
 
 ## Create a cluster mode disabled cluster with TLS and RBAC<a name="ElastiCache-Getting-Started-Tutorials-RBAC"></a>
 
-To ensure security, you can use Transport Layer Security \(TLS\) and Role\-Based Access Control \(RBAC\) when creating a cluster mode disabled cluster\. Unlike Redis AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups\. These user groups are designed as a way to organize access to replication groups\. For more information, see [Authenticating users with Role\-Based Access Control \(RBAC\)](Clusters.RBAC.md)\.
+To ensure security, you can use Transport Layer Security \(TLS\) and Role\-Based Access Control \(RBAC\) when creating a cluster mode disabled cluster\. Unlike Redis AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups\. These user groups are designed as a way to organize access to replication groups\. For more information, see [Role\-Based Access Control \(RBAC\)](Clusters.RBAC.md)\.
 
 Copy the following program and paste it into a file named *ClusterModeDisabledWithRBAC\.py*\.
 
@@ -96,7 +96,7 @@ def create_cluster_mode_disabled_rbac(CacheNodeType='cache.t3.small',EngineVersi
     If not specified, cluster will be created with 1 primary and 1 replica.
     :param ReplicationGroupDescription: Description for the cluster.
     :param ReplicationGroupId: Mandatory name for the cluster.
-    :param UserGroupIds: Mandatory list of user groups to be assigned to the cluster.
+    :param UserGroupIds: The ID of the user group to be assigned to the cluster.
     :param SecurityGroupIds: List of security groups to be assigned. If not defined, default will be used
     :param CacheSubnetGroupName: subnet group where the cluster will be placed. If not defined, default will be used.
     :return: dictionary with the API results
@@ -225,7 +225,7 @@ For more information, see [Managing clusters](Clusters.md)\.
 
 ## Create a cluster mode enabled cluster with TLS and RBAC<a name="ElastiCache-Getting-Started-Tutorials-Cluster-RBAC"></a>
 
-To ensure security, you can use Transport Layer Security \(TLS\) and Role\-Based Access Control \(RBAC\) when creating a cluster mode enabled cluster\. Unlike Redis AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups\. These user groups are designed as a way to organize access to replication groups\. For more information, see [Authenticating users with Role\-Based Access Control \(RBAC\)](Clusters.RBAC.md)\.
+To ensure security, you can use Transport Layer Security \(TLS\) and Role\-Based Access Control \(RBAC\) when creating a cluster mode enabled cluster\. Unlike Redis AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups\. These user groups are designed as a way to organize access to replication groups\. For more information, see [Role\-Based Access Control \(RBAC\)](Clusters.RBAC.md)\.
 
 Copy the following program and paste it into a file named *ClusterModeEnabledWithRBAC\.py*\.
 
@@ -312,7 +312,7 @@ For more information, see [Managing clusters](Clusters.md)\.
 
 ## Check if users/usergroup exists, otherwise create them<a name="ElastiCache-Getting-Started-Tutorials-Users"></a>
 
-With RBAC, you create users and assign them specific permissions by using an access string\. You assign the users to user groups aligned with a specific role \(administrators, human resources\) that are then deployed to one or more ElastiCache for Redis replication groups\. By doing this, you can establish security boundaries between clients using the same Redis replication group or groups and prevent clients from accessing each other’s data\. For more information, see [Authenticating users with Role\-Based Access Control \(RBAC\)](Clusters.RBAC.md)\.
+With RBAC, you create users and assign them specific permissions by using an access string\. You assign the users to user groups aligned with a specific role \(administrators, human resources\) that are then deployed to one or more ElastiCache for Redis replication groups\. By doing this, you can establish security boundaries between clients using the same Redis replication group or groups and prevent clients from accessing each other’s data\. For more information, see [Role\-Based Access Control \(RBAC\)](Clusters.RBAC.md)\.
 
 Copy the following program and paste it into a file named *UserAndUserGroups\.py*\.
 

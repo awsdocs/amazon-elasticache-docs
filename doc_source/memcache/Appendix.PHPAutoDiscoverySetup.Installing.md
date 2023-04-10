@@ -1,20 +1,21 @@
 # Installation steps for new users<a name="Appendix.PHPAutoDiscoverySetup.Installing"></a>
 
 **Topics**
-+ [Installing PHP 7\.x for new users](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x)
++ [Installing PHP 7\.x \- 8\.x for new users](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x)
 + [Installing PHP 5\.x for new users](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x)
 
-## Installing PHP 7\.x for new users<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x"></a>
+## Installing PHP 7\.x \- 8\.x for new users<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x"></a>
 
 **Topics**
-+ [To install PHP 7\.x on an Amazon Linux 2 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu)
-+ [To install PHP 7 on an Amazon Linux 201609 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux)
-+ [To install PHP 7 on an SUSE Linux 15 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux)
-+ [To install PHP 7\.x on an Ubuntu 22\.04 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.UbuntuLinux22)
++ [To install PHP 7\.x \- 8\.x on an Amazon Linux 2 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu)
++ [To install PHP 7\.x \- 8\.x on an Amazon Linux 201609 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux)
++ [To install PHP 7\.x \- 8\.x on an SUSE Linux 15 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux)
++ [To install PHP 7\.x \- 8\.x on an Ubuntu 22\.04 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.UbuntuLinux22)
 
-### To install PHP 7\.x on an Amazon Linux 2 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu"></a>
+### To install PHP 7\.x \- 8\.x on an Amazon Linux 2 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu"></a>
 
-Replace *PHP\-7\.x* with the version you are using\.
+**Note**  
+If necessary, replace *PHP\-7\.x* with the version you are using\.
 
 1. Launch a new instance from the AMI\.
 
@@ -90,9 +91,10 @@ Replace *PHP\-7\.x* with the version you are using\.
 
  
 
-### To install PHP 7 on an Amazon Linux 201609 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux"></a>
+### To install PHP 7\.x \- 8\.x on an Amazon Linux 201609 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux"></a>
 
-Replace *php7\.x* with the version you are using\.
+**Note**  
+If necessary, replace *php7\.x* with the version you are using\.
 
 1. Launch a new instance from the AMI\. For more information, see [Step 1: Launch an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance) in the *Amazon EC2 User Guide\.*
 
@@ -102,7 +104,7 @@ Replace *php7\.x* with the version you are using\.
    sudo yum install gcc-c++
    ```
 
-1. Install PHP 7
+1. Install PHP
 
    ```
    sudo yum install php7.x
@@ -120,7 +122,7 @@ Replace *php7\.x* with the version you are using\.
    tar -zxvf latest-64bit
    ```
 
-1. With root permission, copy the extracted artifact file `amazon-elasticache-cluster-client.so` into `/usr/lib64/php/7.0/modules/`\.
+1. With root permission, copy the extracted artifact file `amazon-elasticache-cluster-client.so` into `/usr/lib64/php/7.x/modules/`\.
 
    ```
    sudo mv artifact/amazon-elasticache-cluster-client.so /usr/lib64/php/7.x/modules/
@@ -140,9 +142,10 @@ Replace *php7\.x* with the version you are using\.
 
  
 
-### To install PHP 7 on an SUSE Linux 15 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux"></a>
+### To install PHP 7\.x \- 8\.x on an SUSE Linux 15 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux"></a>
 
-Replace *php7\.x* with the version you are using\.
+**Note**  
+If necessary, replace *php7\.x* with the version you are using\.
 
 1. Launch a new instance from the AMI\.
 
@@ -154,7 +157,7 @@ Replace *php7\.x* with the version you are using\.
    sudo zypper install gcc
    ```
 
-1. Install PHP 7\.
+1. Install PHP
 
    ```
    sudo yum install php7.x
@@ -163,8 +166,7 @@ Replace *php7\.x* with the version you are using\.
    or
 
    ```
-   sudo zypper addrepo http://download.opensuse.org/repositories/devel:/languages:/php/openSUSE_Leap_15.3/ php
-   sudo zypper install php7
+   sudo zypper addrepo //download.opensuse.org/repositories/devel:/languages:/php/openSUSE_Leap_15.3/ php
    ```
 
 1. Download the Amazon ElastiCache Cluster Client, replace <ARCH> with desired architecture \(X86 or arm\)\. SUSE 15 comes with OpenSSL1\.1 built in, so for PHP >= 7\.4 choose the client binary with OpenSSL1\. If you are using PHP < 7\.4, remove OpenSSL suffix\.
@@ -199,9 +201,10 @@ Replace *php7\.x* with the version you are using\.
 
  
 
-### To install PHP 7\.x on an Ubuntu 22\.04 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.UbuntuLinux22"></a>
+### To install PHP 7\.x \- 8\.x on an Ubuntu 22\.04 AMI<a name="Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.UbuntuLinux22"></a>
 
-Replace *php7\.x* with the version you are using\.
+**Note**  
+If necessary, replace *php7\.x* with the version you are using\.
 
 1. Launch a new instance from the AMI\.
 
@@ -209,17 +212,25 @@ Replace *php7\.x* with the version you are using\.
 
    ```
    sudo apt-get update
-   sudo apt-get install gcc g++ make
+   sudo apt-get install gcc g++ make zlib1g zlib1g-dev
    ```
 
-1. Install PHP 7\.x\. Installation instructions for PHP 7\.4: 
+1. Install PHP
 
-   ```
-   sudo apt -y install software-properties-common
-   sudo add-apt-repository ppa:ondrej/php
-   sudo apt-get update
-   sudo apt -y install php7.4
-   ```
+   1. Installation instructions for PHP 8\.1:
+
+      ```
+      sudo apt install php8.1-cli php8.1-dev
+      ```
+
+   1. Installation instructions for PHP 7\.4: 
+
+      ```
+      sudo apt -y install software-properties-common
+      sudo add-apt-repository ppa:ondrej/php
+      sudo apt-get update
+      sudo apt -y install php7.4
+      ```
 
 1. Download the Amazon ElastiCache Cluster Client, replace <ARCH> with desired architecture \(X86 or arm\)\. Ubuntu 22\.04 comes with OpenSSL3 built in, so for PHP >= 7\.4 choose the client binary with OpenSSL3\. If you are using PHP < 7\.4, remove OpenSSL suffix\.
 

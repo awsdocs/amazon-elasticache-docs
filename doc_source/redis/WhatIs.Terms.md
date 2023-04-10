@@ -13,6 +13,7 @@ The console now uses the term *cluster* for all ElastiCache for Redis clusters\.
 + When the cluster is a single node Redis cluster\.
 + When the cluster is a Redis \(cluster mode disabled\) cluster that supports replication within a single shard \(in the API and CLI, called a *node group*\)\.
 + When the cluster is a Redis \(cluster mode enabled\) cluster that supports replication within 1\-90 shards or up to 500 with a limit increase request\. To request a limit increase, see [AWS service limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
+For more information on replication groups, see [High availability using replication groups](Replication.md)\.  
 The following diagram illustrates the various topologies of ElastiCache for Redis clusters from the console's perspective\.  
 
 ![\[Image: ElastiCache for Redis clusters (Console view)\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-Clusters-ConsoleView.png)

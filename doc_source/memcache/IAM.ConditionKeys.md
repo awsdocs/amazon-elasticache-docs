@@ -100,7 +100,7 @@ This section shows example policies for implementing fine\-grained access contro
    {
        "Version": "2012-10-17",
        "Statement": [
-   		 {
+        {
                "Effect": "Allow",
                "Action": [
                    "elasticache:CreateCacheCluster"
@@ -225,39 +225,39 @@ This section shows example policies for implementing fine\-grained access contro
 
    ```
    {
-   	"Version": "2012-10-17",
-   	"Statement": [
-   	  	{
-   			"Effect": "Allow",
-   			"Action": [
-   				"elasticache:CreateCacheCluster"
-   			],
-   			"Resource": [
-   				"arn:aws:elasticache:*:*:parametergroup:*",
-   				"arn:aws:elasticache:*:*:subnetgroup:*"
-   			]
-   		},
-   		{
-   			"Effect": "Allow",
-   			"Action": [
-   				"elasticache:CreateCacheCluster"
-   			],
-   			"Resource": [
-   				"arn:aws:elasticache:*:*:cluster:*"
-   			],
-   			"Condition": {
-   				"StringEqualsIfExists": {
-   					"elasticache:CacheNodeType": [
-   						"cache.r5.large",
-   						"cache.r6g.4xlarge"
-   					]
-   				},
-   				"StringEquals": {
-   					"aws:RequestTag/Project": "XYZ"
-   				}
-   			}
-   		}
-   	]
+     "Version": "2012-10-17",
+     "Statement": [
+         {
+         "Effect": "Allow",
+         "Action": [
+           "elasticache:CreateCacheCluster"
+         ],
+         "Resource": [
+           "arn:aws:elasticache:*:*:parametergroup:*",
+           "arn:aws:elasticache:*:*:subnetgroup:*"
+         ]
+       },
+       {
+         "Effect": "Allow",
+         "Action": [
+           "elasticache:CreateCacheCluster"
+         ],
+         "Resource": [
+           "arn:aws:elasticache:*:*:cluster:*"
+         ],
+         "Condition": {
+           "StringEqualsIfExists": {
+             "elasticache:CacheNodeType": [
+               "cache.r5.large",
+               "cache.r6g.4xlarge"
+             ]
+           },
+           "StringEquals": {
+             "aws:RequestTag/Project": "XYZ"
+           }
+         }
+       }
+     ]
    }
    ```
 

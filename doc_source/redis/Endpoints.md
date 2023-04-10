@@ -32,18 +32,18 @@ For read activity, applications can also connect to any node in the cluster\. Un
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
    The clusters screen will appear with a list of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\) clusters\.
 
-1. To find the cluster's Primary and/or Reader endpoints, choose the box to the left of cluster's name\.  
+1. To find the cluster's Primary and/or Reader endpoints, choose the cluster's name \(not the button to its left\)\.  
 ![\[Image: Primary endpoint for a Redis (cluster mode disabled) cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/Reader-Endpoint.png)
 
    *Primary and Reader endpoints for a Redis \(cluster mode disabled\) cluster*
 
    If there is only one node in the cluster, there is no primary endpoint and you can continue at the next step\.
 
-1. If the Redis \(cluster mode disabled\) cluster has replica nodes, you can find the cluster's replica node endpoints by choosing the cluster's name\.
+1. If the Redis \(cluster mode disabled\) cluster has replica nodes, you can find the cluster's replica node endpoints by choosing the cluster's name and then choosing the **Nodes** tab\.
 
    The nodes screen appears with each node in the cluster, primary and replicas, listed with its endpoint\.  
 ![\[Image: Node endpoints for a Redis (cluster mode disabled) cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-Endpoints-Redis-Node.png)
@@ -52,11 +52,11 @@ For read activity, applications can also connect to any node in the cluster\. Un
 
 1. To copy an endpoint to your clipboard:
 
-   1. One endpoint at a time, find then highlight the endpoint you want to copy\.
+   1. One endpoint at a time, find the endpoint you want to copy\.
 
-   1. Right\-click the highlighted endpoint, then choose **Copy** from the context menu\.
+   1. Choose the copy icon directly in front of the endpoint\.
 
-   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to nodes](nodes-connecting.md)\.
+   The endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to nodes](nodes-connecting.md)\.
 
 A Redis \(cluster mode disabled\) primary endpoint looks something like the following\. There is a difference depending upon whether or not In\-Transit encryption is enabled\.
 
@@ -78,75 +78,19 @@ master.ncit.ameaqx.use1.cache.amazonaws.com:6379
 
 ## Finding Endpoints for a Redis \(Cluster Mode Enabled\) Cluster \(Console\)<a name="Endpoints.Find.RedisCluster"></a>
 
-Use the *Configuration Endpoint* for both read and write operations\. Redis determines which of the cluster's node to access\.
+A Redis \(cluster mode enabled\) cluster has a single configuration endpoint\. By connecting to the configuration endpoint, your application is able to discover the primary and read endpoints for each shard in the cluster\.
 
-The following procedure demonstrates how to find and copy Redis \(cluster mode enabled\) cluster endpoints\.
-
-**To find the configuration endpoint for a Redis \(cluster mode enabled\) cluster**
+**To find a Redis \(cluster mode enabled\) cluster's endpoint**
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
 
-1. From the navigation pane, choose **Redis**\.
+1. From the navigation pane, choose **Redis clusters**\.
 
-   A list of clusters running any version of Redis appears\.
+   The clusters screen will appear with a list of Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\) clusters\. Choose the Redis \(cluster mode enabled\) cluster you wish to connect to\.
 
-1. From the list of clusters, choose the box to the left of a cluster running "Clustered Redis"\.
+1. To find the cluster's Configuration endpoint, choose the cluster's name \(not the radio button\)\.
 
-   The screen expands showing details about the selected cluster\.
-
-1. Locate the *Configuration endpoint*\.  
-![\[Image: Configuration endpoint for a Redis (cluster mode enabled) cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-Endpoints-RedisCluster-Configuration.png)
-
-   *Configuration endpoint for a Redis \(cluster mode enabled\) cluster*
-
-**To find the node endpoints for a Redis \(cluster mode enabled\) cluster**
-
-1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console\.aws\.amazon\.com/elasticache/](https://console.aws.amazon.com/elasticache/)\.
-
-1. From the navigation pane, choose **Redis**\.
-
-   A list of clusters running any version of Redis appears\.
-
-1. From the list of clusters, choose the cluster name of a cluster running "Clustered Redis"\.
-
-   The shards page opens\.
-
-1. Choose the name of the shard you want node endpoint for\.
-
-   A list of the shard's nodes appears with each node's endpoint\.
-
-1. Locate the *Endpoint* column and read the endpoint for each node\.  
-![\[Image: Node endpoints for a Redis (cluster mode enabled) cluster\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-Endpoints-RedisCluster-Node.png)
-
-   *Node endpoints for a Redis \(cluster mode enabled\) cluster*
-
-**To copy an endpoint to your clipboard**
-
-1. Find the endpoint you want to copy using one of the preceeding procedures\.
-
-1. Highlight the endpoint that you want to copy\.
-
-1. Right\-click the highlighted endpoint and choose **Copy** from the context menu\.
-
-   The highlighted endpoint is now copied to your clipboard\. For information on using the endpoint to connect to a node, see [Connecting to nodes](nodes-connecting.md)\.
-
-A Redis \(cluster mode enabled\) configuration endpoint looks something like the following\.
-
-**In\-transit encryption not enabled**
-
-```
-clusterName.xxxxxx.regionAndAz.cache.amazonaws.com:port
-			
-rce.ameaqx.use1.cache.amazonaws.com:6379
-```
-
-**In\-transit encryption enabled**
-
-```
-clustercfg.clusterName.xxxxxx.regionAndAz.cache.amazonaws.com:port
-			
-clustercfg.rce.ameaqx.use1.cache.amazonaws.com:6379
-```
+1. The **Configuration endpoint** is displayed under **Cluster details**\. To copy it, choose the *copy* icon to the left of the endpoint\. 
 
 ## Finding Endpoints \(AWS CLI\)<a name="Endpoints.Find.CLI"></a>
 

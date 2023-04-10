@@ -28,13 +28,13 @@ We recommend the following best practices:
 
 Data tiering has the following limitations:
 + You can only use data tiering on clusters that are part of a replication group\.
-+ The node type you use must be from the r6gd family, which is available in the following regions: `us-east-2`, `us-east-1`, `us-west-2`, `us-west-1`, `eu-west-1`, `eu-central-1`, `ap-northeast-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-south-1`, `ca-central-1` and `sa-east-1`\.
++ The node type you use must be from the r6gd family, which is available in the following regions: `us-east-2`, `us-east-1`, `us-west-2`, `us-west-1`, `eu-west-1`, `eu-central-1`, `eu-north-1`, `eu-west-3`, `ap-northeast-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-south-1`, `ca-central-1` and `sa-east-1`\.
 + You must use the Redis 6\.2 or later engine\.
 + You cannot restore a backup of an r6gd cluster into another cluster unless it also uses r6gd\.
 + You cannot export a backup to Amazon S3 for data\-tiering clusters\.
 + Online migration is not supported for clusters running on the r6gd node type\.
-+ Scaling is not supported from a data tiering cluster \(for example, a cluster using an r6gd node type\) to a cluster that does not use data tiering \(for example, a cluster using an r6g node type\)\.
-+ Auto scaling is not supported for clusters running using data tiering\.
++ Scaling is not supported from a data tiering cluster \(for example, a cluster using an r6gd node type\) to a cluster that does not use data tiering \(for example, a cluster using an r6g node type\)\. For more information, see [Scaling ElastiCache for Redis clusters](Scaling.md)\.
++ Auto scaling is not supported for clusters running using data tiering\. For more information, see [Auto Scaling ElastiCache for Redis clusters](AutoScaling.md)
 + Data tiering only supports `volatile-lru`, `allkeys-lru` and `noeviction` maxmemory policies\. 
 + Forkless save is not supported\. For more information, see [How synchronization and backup are implemented](Replication.Redis.Versions.md)\.
 + Items larger than 128 MiB are not moved to SSD\.
@@ -70,8 +70,7 @@ aws elasticache create-replication-group \
    --num-node-groups 1 \
    --replicas-per-node-group 1 \
    --cache-node-type cache.r6gd.xlarge \
-   --engine redis \
-   --engine-version 6.2 \
+   --engine redis \   
    --cache-subnet-group-name default \
    --automatic-failover-enabled \
    --data-tiering-enabled
@@ -86,8 +85,7 @@ aws elasticache create-replication-group ^
    --num-node-groups 1 ^
    --replicas-per-node-group 1 ^
    --cache-node-type cache.r6gd.xlarge ^
-   --engine redis ^
-   --engine-version 6.2 ^
+   --engine redis ^   
    --cache-subnet-group-name default ^
    --automatic-failover-enabled ^
    --data-tiering-enabled
@@ -105,7 +103,7 @@ After running this operation, you will see a response similar to the following:
         "MemberClusters": [
             "redis-dt-cluster"
         ],
-        "AutomaticFailover": "disabled",
+        "AutomaticFailover": "enabled",
         "DataTiering": "enabled",
         "SnapshotRetentionLimit": 0,
         "SnapshotWindow": "06:00-07:00",
@@ -174,8 +172,7 @@ aws elasticache create-replication-group \
    --num-node-groups 1 \
    --replicas-per-node-group 1 \
    --cache-node-type cache.r6gd.xlarge \
-   --engine redis \
-   --engine-version 6.2 \
+   --engine redis \   
    --cache-subnet-group-name default \
    --automatic-failover-enabled \
    --data-tiering-enabled \
@@ -191,8 +188,7 @@ aws elasticache create-replication-group ^
    --num-node-groups 1 ^
    --replicas-per-node-group 1 ^
    --cache-node-type cache.r6gd.xlarge ^
-   --engine redis ^
-   --engine-version 6.2 ^
+   --engine redis ^   
    --cache-subnet-group-name default ^
    --automatic-failover-enabled ^
    --data-tiering-enabled ^
@@ -211,7 +207,7 @@ After running this operation, you will see a response similar to the following:
         "MemberClusters": [
             "redis-dt-cluster"
         ],
-        "AutomaticFailover": "disabled",
+        "AutomaticFailover": "enabled",
         "DataTiering": "enabled",
         "SnapshotRetentionLimit": 0,
         "SnapshotWindow": "06:00-07:00",

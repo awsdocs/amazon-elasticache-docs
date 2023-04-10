@@ -12,7 +12,7 @@ You can also use the AWS Command Line Interface \(AWS CLI\) for ElastiCache\. Th
 
 ## Using the AWS SDK<a name="WhatIs.Managing.Means.SDK"></a>
 
-If you want to access ElastiCache from an application, you can use one of the AWS software development kits \(SDKs\)\. The SDKs wrap the ElastiCache API calls, and insulate your application from the low\-level details of the ElastiCache API\. You provide your credentials, and the SDK libraries take care of authentication and request signing\. For more information about using the AWS SDKs, see [Tools for AWSlong;](https://aws.amazon.com/tools/)\.
+If you want to access ElastiCache from an application, you can use one of the AWS software development kits \(SDKs\)\. The SDKs wrap the ElastiCache API calls, and insulate your application from the low\-level details of the ElastiCache API\. You provide your credentials, and the SDK libraries take care of authentication and request signing\. For more information about using the AWS SDKs, see [Tools for Amazon Web Services](https://aws.amazon.com/tools/)\.
 
 ## Using the ElastiCache API<a name="WhatIs.Managing.Means.API"></a>
 

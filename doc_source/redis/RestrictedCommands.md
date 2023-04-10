@@ -1,6 +1,6 @@
-# Restricted Redis Commands<a name="RestrictedCommands"></a>
+# Restricted Redis commands<a name="RestrictedCommands"></a>
 
-To deliver a managed service experience, restricts access to certain cache engine\-specific commands that require advanced privileges\. For cache clusters running Redis, the following commands are unavailable:
+To deliver a managed service experience, Redis restricts access to certain cache engine\-specific commands that require advanced privileges\. For cache clusters running Redis, the following commands are unavailable:
 + `acl setuser`
 + `acl load`
 + `acl save`
@@ -13,6 +13,7 @@ To deliver a managed service experience, restricts access to certain cache engin
 + `config`
 + `debug`
 + `migrate`
++ `psync`
 + `replicaof`
 + `save`
 + `slaveof`
