@@ -24,6 +24,7 @@ When using IAM authentication, the following limitations apply:
 + The IAM authentication token is valid for 15 minutes\. For long\-lived connections, we recommend using a Redis client that supports a credentials provider interface\.
 + An IAM authenticated connection to ElastiCache for Redis will automatically be disconnected after 12 hours\. The connection can be prolonged for 12 hours by sending an `AUTH` or `HELLO` command with a new IAM authentication token\.
 + IAM authentication is not supported in `MULTI EXEC` commands\.
++ Currently, IAM authentication doesn't support all global condition context keys\. For more information about global condition context keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the IAM User Guide\.
 
 ## Setup<a name="auth-iam-setup"></a>
 

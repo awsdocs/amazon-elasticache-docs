@@ -22,10 +22,10 @@ The following table summarizes important differences between Redis \(cluster mod
 | Restore | Yes, using a single \.rdb file from a Redis \(cluster mode disabled\) cluster\. | Yes, using \.rdb files from either a Redis \(cluster mode disabled\) or a Redis \(cluster mode enabled\) cluster\. | 
 | Supported by | All Redis versions | Redis 3\.2 and following | 
 | Engine upgradeable | Yes, with some limits\. For more information, see [Upgrading engine versions](VersionManagement.md)\. | Yes, with some limits\. For more information, see [Upgrading engine versions](VersionManagement.md)\. | 
-| Encryption | Versions 3\.2\.6 and 4\.0\.10 and later\. | Versions 3\.2\.6 and 4\.0\.10 and later\. | 
-| HIPAA Eligible | Version 3\.2\.6 and 4\.0\.10 and later\. | Version 3\.2\.6 and 4\.0\.10 and later\. | 
-| PCI DSS Compliant | Version 3\.2\.6 and 4\.0\.10 and later\. | Version 3\.2\.6 and 4\.0\.10 and later\. | 
-| Online resharding | N/A | Version 3\.2\.10 and later\. | 
+| Encryption | Versions 3\.2\.6 \(scheduled for EOL, see [Redis versions end of life schedule](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html)\) and 4\.0\.10 and later\. | Versions 3\.2\.6 \(scheduled for EOL, see [Redis versions end of life schedule](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html)\) and 4\.0\.10 and later\. | 
+| HIPAA Eligible | Versions 3\.2\.6 \(scheduled for EOL, see [Redis versions end of life schedule](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html)\) and 4\.0\.10 and later\. | Versions 3\.2\.6 \(scheduled for EOL, see [Redis versions end of life schedule](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html)\) and 4\.0\.10 and later\. | 
+| PCI DSS Compliant | Versions 3\.2\.6 \(scheduled for EOL, see [Redis versions end of life schedule](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html)\) and 4\.0\.10 and later\. | Versions 3\.2\.6 \(scheduled for EOL, see [Redis versions end of life schedule](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html)\) and 4\.0\.10 and later\. | 
+| Online resharding | N/A | Version 3\.2\.10 \(scheduled for EOL, see [Redis versions end of life schedule](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html)\) and later\. | 
 
 ## Which should I choose?<a name="Replication.Redis-RedisCluster.Choose"></a>
 

@@ -194,7 +194,7 @@ Additional filter expression examples:
 ```
 127.0.0.1:6379> JSON.SET k1 . '{"books": [{"price":5,"sold":true,"in-stock":true,"title":"foo"}, {"price":15,"sold":false,"title":"abc"}]}'
 OK
-127.0.0.1:6379> ON.GET k1 $.books[?(@.price>1&&@.price<20&&@.in-stock)]
+127.0.0.1:6379> JSON.GET k1 $.books[?(@.price>1&&@.price<20&&@.in-stock)]
 "[{\"price\":5,\"sold\":true,\"in-stock\":true,\"title\":\"foo\"}]"
 127.0.0.1:6379> JSON.GET k1 '$.books[?(@.price>1 && @.price<20 && @.in-stock)]'
 "[{\"price\":5,\"sold\":true,\"in-stock\":true,\"title\":\"foo\"}]"

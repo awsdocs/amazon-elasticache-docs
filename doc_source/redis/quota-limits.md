@@ -14,9 +14,9 @@ Your AWS account has the following quotas related to ElastiCache\.
 | Nodes per Region | 300 | 
 | Nodes per cluster per instance type \(Redis cluster mode enabled\) | 90 | 
 | Nodes per shard \(Redis cluster mode disabled\) | 6 | 
-| Parameter groups per Region | 150 | 
+| Parameter groups per Region | 300 | 
 | Security groups per Region | 50 | 
-| Subnet groups per Region | 150 | 
+| Subnet groups per Region | 300 | 
 | Subnets per subnet group | 20 | 
 | Users per user group | 100 | 
 | Maximum number of users | 1000 | 

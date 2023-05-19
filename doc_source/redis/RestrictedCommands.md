@@ -8,7 +8,15 @@ To deliver a managed service experience, Redis restricts access to certain cache
 + `bgrewriteaof`
 + `bgsave`
 + `cluster addslot`
++ `cluster addslotsrange`
++ `cluster bumpepoch`
 + `cluster delslot`
++ `cluster delslotsrange `
++ `cluster failover `
++ `cluster flushslots `
++ `cluster forget `
++ `cluster links`
++ `cluster meet`
 + `cluster setslot`
 + `config`
 + `debug`

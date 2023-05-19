@@ -10,64 +10,78 @@ For information on which node size to use, see [Choosing your node size](nodes-s
 
 For more information on Previous Generation, please refer to [Previous Generation Nodes](https://aws.amazon.com/elasticache/previous-generation/)\.
 
+**Note**  
+Instance types with burstable network performance use a network I/O credit mechanism to burst beyond their baseline bandwidth on a best\-effort basis\.
 
-| Purpose | Instance type | Minimum supported Redis version | Enhanced I/O \(Redis 5\.0\.3\+\) | TLS Offloading \(Redis 6\.2\.5\+\) | Enhanced I/O Multiplexing \(Redis 7\.0\.4\+\) | 
-| --- | --- | --- | --- | --- | --- | 
-| General |  |  |  |  |  | 
-|  | cache\.m6g\.large | 5\.0\.6 |  |  |  | 
-|  | cache\.m6g\.xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.m6g\.2xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.m6g\.4xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.m6g\.8xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.m6g\.12xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.m6g\.16xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.m5\.large | 3\.2\.4 |  |  |  | 
-|  | cache\.m5\.xlarge | 3\.2\.4 | Y |  |  | 
-|  | cache\.m5\.2xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.m5\.4xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.m5\.12xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.m5\.24xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.m4\.large | 3\.2\.4 |  |  |  | 
-|  | cache\.m4\.xlarge | 3\.2\.4 | Y |  |  | 
-|  | cache\.m4\.2xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.m4\.4xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.m4\.10xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.t4g\.micro | 5\.0\.6 |  |  |  | 
-|  | cache\.t4g\.small | 5\.0\.6 |  |  |  | 
-|  | cache\.t4g\.medium | 5\.0\.6 |  |  |  | 
-|  | cache\.t3\.micro | 3\.2\.4 |  |  |  | 
-|  | cache\.t3\.small | 3\.2\.4 |  |  |  | 
-|  | cache\.t3\.medium | 3\.2\.4 |  |  |  | 
-|  | cache\.t2\.micro | 3\.2\.4 |  |  |  | 
-|  | cache\.t2\.small | 3\.2\.4 |  |  |  | 
-|  | cache\.t2\.medium | 3\.2\.4 |  |  |  | 
-| Memory optimized |  |  |  |  |  | 
-|  | cache\.r6g\.large | 5\.0\.6 |  |  |  | 
-|  | cache\.r6g\.xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.r6g\.2xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.r6g\.4xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.r6g\.8xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.r6g\.12xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.r6g\.16xlarge | 5\.0\.6 | Y | Y | Y | 
-|  | cache\.r5\.large | 3\.2\.4 |  |  |  | 
-|  | cache\.r5\.xlarge | 3\.2\.4 | Y |  |  | 
-|  | cache\.r5\.2xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.r5\.4xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.r5\.12xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.r5\.24xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.r4\.large | 3\.2\.4 |  |  |  | 
-|  | cache\.r4\.xlarge | 3\.2\.4 | Y |  |  | 
-|  | cache\.r4\.2xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.r4\.4xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.r4\.8xlarge | 3\.2\.4 | Y | Y | Y | 
-|  | cache\.r4\.16xlarge | 3\.2\.4 | Y | Y | Y | 
-| Memory optimized with data tiering |  |  |  |  |  | 
-|  | cache\.r6gd\.xlarge | 6\.2\.0 | Y |  |  | 
-|  | cache\.r6gd\.2xlarge | 6\.2\.0 | Y | Y | Y | 
-|  | cache\.r6gd\.4xlarge | 6\.2\.0 | Y | Y | Y | 
-|  | cache\.r6gd\.8xlarge | 6\.2\.0 | Y | Y | Y | 
-|  | cache\.r6gd\.12xlarge | 6\.2\.0 | Y | Y | Y | 
-|  | cache\.r6gd\.16xlarge | 6\.2\.0 | Y | Y | Y | 
+**General**
+
+
+| Instance type | Minimum supported Redis version | Enhanced I/O \(Redis 5\.0\.6\+\) | TLS Offloading \(Redis 6\.2\.5\+\) | Enhanced I/O Multiplexing \(Redis 7\.0\.4\+\) | Baseline bandwidth \(Gbps\) | Burst bandwidth \(Gbps\) | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| cache\.m6g\.large | 5\.0\.6 | N | N | N | 0\.75 | 10\.0 | 
+| cache\.m6g\.xlarge | 5\.0\.6 | Y | Y | Y | 1\.25 | 10\.0 | 
+| cache\.m6g\.2xlarge | 5\.0\.6 | Y | Y | Y | 2\.5 | 10\.0 | 
+| cache\.m6g\.4xlarge | 5\.0\.6 | Y | Y | Y | 5\.0 | 10\.0 | 
+| cache\.m6g\.8xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
+| cache\.m6g\.12xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
+| cache\.m6g\.16xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
+| cache\.m5\.large | 3\.2\.4 | N | N | N | 0\.75 | 10\.0 | 
+| cache\.m5\.xlarge | 3\.2\.4 | Y | N | N | 1\.25 | 10\.0 | 
+| cache\.m5\.2xlarge | 3\.2\.4 | Y | Y | Y | 2\.5 | 10\.0 | 
+| cache\.m5\.4xlarge | 3\.2\.4 | Y | Y | Y | 5\.0 | 10\.0 | 
+| cache\.m5\.12xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
+| cache\.m5\.24xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
+| cache\.m4\.large | 3\.2\.4 | N | N | N | 0\.45 | 1\.2 | 
+| cache\.m4\.xlarge | 3\.2\.4 | Y | N | N | 0\.75 | 2\.8 | 
+| cache\.m4\.2xlarge | 3\.2\.4 | Y | Y | Y | 1\.0 | 10\.0 | 
+| cache\.m4\.4xlarge | 3\.2\.4 | Y | Y | Y | 2\.0 | 10\.0 | 
+| cache\.m4\.10xlarge | 3\.2\.4 | Y | Y | Y | 5\.0 | 10\.0 | 
+| cache\.t4g\.micro | 3\.2\.4 | N | N | N | 0\.064 | 5\.0 | 
+| cache\.t4g\.small | 5\.0\.6 | N | N | N | 0\.128 | 5\.0 | 
+| cache\.t4g\.medium | 5\.0\.6 | N | N | N | 0\.256 | 5\.0 | 
+| cache\.t3\.micro | 3\.2\.4 | N | N | N | 0\.064 | 5\.0 | 
+| cache\.t3\.small | 3\.2\.4 | N | N | N | 0\.128 | 5\.0 | 
+| cache\.t3\.medium | 3\.2\.4 | N | N | N | 0\.256 | 5\.0 | 
+| cache\.t2\.micro | 3\.2\.4 | N | N | N | 0\.064 | 1\.024 | 
+| cache\.t2\.small | 3\.2\.4 | N | N | N | 0\.128 | 1\.024 | 
+| cache\.t2\.medium | 3\.2\.4 | N | N | N | 0\.256 | 1\.024 | 
+
+**Memory optimized**
+
+
+| Instance type | Minimum supported Redis version | Enhanced I/O \(Redis 5\.0\.6\+\) | TLS Offloading \(Redis 6\.2\.5\+\) | Enhanced I/O Multiplexing \(Redis 7\.0\.4\+\) | Baseline bandwidth \(Gbps\) | Burst bandwidth \(Gbps\) | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| cache\.r6g\.large | 5\.0\.6 | N | N | N | 0\.75 | 10\.0 | 
+| cache\.r6g\.xlarge | 5\.0\.6 | Y | Y | Y | 1\.25 | 10\.0 | 
+| cache\.r6g\.2xlarge | 5\.0\.6 | Y | Y | Y | 2\.5 | 10\.0 | 
+| cache\.r6g\.4xlarge | 5\.0\.6 | Y | Y | Y | 5\.0 | 10\.0 | 
+| cache\.r6g\.8xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
+| cache\.r6g\.12xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
+| cache\.r6g\.16xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
+| cache\.r5\.large | 3\.2\.4 | N | N | N | 0\.75 | 10\.0 | 
+| cache\.r5\.xlarge | 3\.2\.4 | Y | N | N | 1\.25 | 10\.0 | 
+| cache\.r5\.2xlarge | 3\.2\.4 | Y | Y | Y | 2\.5 | 10\.0 | 
+| cache\.r5\.4xlarge | 3\.2\.4 | Y | Y | Y | 5\.0 | 10\.0 | 
+| cache\.r5\.12xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
+| cache\.r5\.24xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
+| cache\.r4\.large | 3\.2\.4 | N | N | N | 0\.75 | 10\.0 | 
+| cache\.r4\.xlarge | 3\.2\.4 | Y | N | N | 1\.25 | 10\.0 | 
+| cache\.r4\.2xlarge | 3\.2\.4 | Y | Y | Y | 2\.5 | 10\.0 | 
+| cache\.r4\.4xlarge | 3\.2\.4 | Y | Y | Y | 5\.0 | 10\.0 | 
+| cache\.r4\.8xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
+| cache\.r4\.16xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
+
+**Memory optimized with data tiering**
+
+
+| Instance type | Minimum supported Redis version | Enhanced I/O \(Redis 5\.0\.6\+\) | TLS Offloading \(Redis 6\.2\.5\+\) | Enhanced I/O Multiplexing \(Redis 7\.0\.4\+\) | Baseline bandwidth \(Gbps\) | Burst bandwidth \(Gbps\) | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| cache\.r6gd\.xlarge | 6\.2\.0 | Y | N | N | 1\.25 | 10 | 
+| cache\.r6gd\.2xlarge | 6\.2\.0 | Y | Y | Y | 2\.5 | 10 | 
+| cache\.r6gd\.4xlarge | 6\.2\.0 | Y | Y | Y | 5\.0 | 10 | 
+| cache\.r6gd\.8xlarge | 6\.2\.0 | Y | Y | Y | N/A | N/A | 
+| cache\.r6gd\.12xlarge | 6\.2\.0 | Y | Y | Y | N/A | N/A | 
+| cache\.r6gd\.16xlarge | 6\.2\.0 | Y | Y | Y | N/A | N/A | 
 
 ## Supported node types by AWS Region<a name="CacheNodes.SupportedTypesByRegion"></a>
 

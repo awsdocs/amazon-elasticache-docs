@@ -34,7 +34,7 @@ The following list identifies actions you can take when ElastiCache schedules on
 
    
 
-  For non\-Cluster configurations with autofailover enabled, clusters on Redis 5\.0\.5 and above complete replacement while the cluster continues to stay online and serve incoming write requests\. For auto failover enabled clusters on Redis 5\.0\.4 or below, you might notice a brief write interruption of up to a few seconds associated with DNS updates\. 
+  For non\-Cluster configurations with autofailover enabled, clusters on Redis 5\.0\.6 and above complete replacement while the cluster continues to stay online and serve incoming write requests\. For auto failover enabled clusters on Redis 4\.0\.10 or below, you might notice a brief write interruption of up to a few seconds associated with DNS updates\. 
 
    
 

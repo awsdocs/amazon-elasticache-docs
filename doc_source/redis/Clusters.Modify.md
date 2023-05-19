@@ -4,7 +4,7 @@ In addition to adding or removing nodes from a cluster, there can be times where
 
 We recommend that you have your maintenance window fall at the time of lowest usage\. Thus it might need modification from time to time\.
 
-When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Redis\-specific parameters](ParameterGroups.Redis.md)\. 
+When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** section of the **Details** column in the tables for [Redis\-specific parameters](ParameterGroups.Redis.md)\. 
 
 ## Using the AWS Management Console<a name="Clusters.Modify.CON"></a>
 
@@ -26,6 +26,9 @@ When you change a cluster's parameters, the change is applied to the cluster eit
 
 1. In the **Modify Cluster** window, make the modifications that you want\. Options include:
    + Description
+   + Cluster mode \- To modify cluster mode from **Disabled** to **Enabled**, you must first set the cluster mode to **Compatible**\.
+
+     Compatible mode allows your Redis clients to connect using both cluster mode enabled and cluster mode disabled\. After you migrate all Redis clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to **Enabled**\.
    + Engine Version Compatibility
 **Important**  
 You can upgrade to newer engine versions\. If you upgrade major engine versions, for example from 5\.0\.6 to 6\.0, you need to select a parameter group family that is compatible with the new engine version\. For more information on doing so, see [Upgrading engine versions](VersionManagement.md)\. However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again\.

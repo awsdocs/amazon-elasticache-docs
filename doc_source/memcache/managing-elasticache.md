@@ -6,6 +6,7 @@ In this section, you can find details about how to manage the various components
 + [Engine versions and upgrading](engine-versions.md)
 + [Tagging your ElastiCache resources](Tagging-Resources.md)
 + [Caching strategies and best practices](BestPractices.md)
++ [Modifying cluster mode](modify-cluster-mode.md)
 + [Managing maintenance](maintenance-window.md)
 + [Scaling ElastiCache for Memcached clusters](Scaling.md)
 + [Configuring engine parameters using parameter groups](ParameterGroups.md)

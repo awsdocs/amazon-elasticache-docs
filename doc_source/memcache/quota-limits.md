@@ -13,7 +13,7 @@ Your AWS account has the following quotas related to ElastiCache\.
 | --- | --- | 
 | Nodes per Region | 300 | 
 | Nodes per cluster | 40 | 
-| Parameter groups per Region | 150 | 
+| Parameter groups per Region | 300 | 
 | Security groups per Region | 50 | 
-| Subnet groups per Region | 150 | 
+| Subnet groups per Region | 300 | 
 | Subnets per subnet group | 20 | 

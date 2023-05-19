@@ -5,33 +5,13 @@
 + [Redis 6\.2 \(enhanced\)](#redis-version-6.2)
 + [Redis 6\.0 \(enhanced\)](#redis-version-6.0)
 + [Redis 5\.0\.6 \(enhanced\)](#redis-version-5-0.6)
-+ [Redis 5\.0\.5 \(enhanced\)](#redis-version-5-0.5)
-+ [Redis 5\.0\.4 \(enhanced\)](#redis-version-5-0.4)
-+ [Redis 5\.0\.3 \(enhanced\)](#redis-version-5-0.3)
-+ [Redis 5\.0\.0 \(enhanced\)](#redis-version-5-0)
++ [Redis 5\.0\.5 \(deprecated, use version 5\.0\.6\)](#redis-version-5-0.5)
++ [Redis 5\.0\.4 \(deprecated, use version 5\.0\.6\)](#redis-version-5-0.4)
++ [Redis 5\.0\.3 \(deprecated, use version 5\.0\.6\)](#redis-version-5-0.3)
++ [Redis 5\.0\.0 \(deprecated, use version 5\.0\.6\)](#redis-version-5-0)
 + [Redis 4\.0\.10 \(enhanced\)](#redis-version-4-0-10)
-+ [Redis 3\.2\.10 \(enhanced\)](#redis-version-3-2-10)
-+ [Redis 3\.2\.6 \(enhanced\)](#redis-version-3-2-6)
-+ [Redis 3\.2\.4 \(enhanced\)](#redis-version-3-2-4)
-+ [Redis 2\.8\.24 \(enhanced\)](#redis-version-2-8-24)
-+ [Redis 2\.8\.23 \(enhanced\)](#redis-version-2-8-23)
-+ [Redis 2\.8\.22 \(enhanced\)](#redis-version-2-8-22)
-+ [Redis 2\.8\.21](#redis-version-2-8-21)
-+ [Redis 2\.8\.19](#redis-version-2-8-19)
-+ [Redis 2\.8\.6](#redis-version-2-8-6)
-+ [Redis 2\.6\.13](#redis-version-2-6-13)
-
-**Note**  
-Because the newer Redis versions provide a better and more stable user experience, Redis versions 2\.6\.13, 2\.8\.6, and 2\.8\.19 are deprecated when using the ElastiCache console\. We recommend against using these Redis versions\. If you need to use one of them, work with the AWS CLI or ElastiCache API\.  
-For more information, see the following topics:  
-
-
-|  | AWS CLI | ElastiCache API | 
-| --- | --- | --- | 
-| **Create Cluster** | [Creating a cluster \(AWS CLI\)](Clusters.Create.md#Clusters.Create.CLI) You can't use this action to create a replication group with cluster mode enabled\. | [Creating a cluster \(ElastiCache API\)](Clusters.Create.md#Clusters.Create.API)  You can't use this action to create a replication group with cluster mode enabled\.  | 
-| **Modify Cluster** | [Using the AWS CLI](Clusters.Modify.md#Clusters.Modify.CLI)  You can't use this action to create a replication group with cluster mode enabled\.  | [Using the ElastiCache API](Clusters.Modify.md#Clusters.Modify.API)  You can't use this action to create a replication group with cluster mode enabled\. | 
-| **Create Replication Group** | [Creating a Redis \(Cluster Mode Disabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI) [Creating a Redis \(Cluster Mode Enabled\) replication group from scratch \(AWS CLI\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI)  | [Creating a Redis \(cluster mode disabled\) replication group from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.API) [Creating a replication group in Redis \(Cluster Mode Enabled\) from scratch \(ElastiCache API\)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API) | 
-| **Modify Replication Group** | [Using the AWS CLI](Replication.Modify.md#Replication.Modify.CLI)  | [Using the ElastiCache API](Replication.Modify.md#Replication.Modify.API)  | 
++ [Scheduled End of Life \(EOL\) versions \(3\.x\)](#redis-version-3-2-10-scheduled-eol)
++ [Past End of Life \(EOL\) versions 2\.x](#redis-version-2-x-eol)
 
 ## ElastiCache for Redis version 7\.0 \(enhanced\)<a name="redis-version-7.0"></a>
 
@@ -75,33 +55,14 @@ For more information on the Redis 6\.0 release, see [Redis 6\.0 Release Notes](h
 
 ## ElastiCache for Redis version 5\.0\.6 \(enhanced\)<a name="redis-version-5-0.6"></a>
 
-Amazon ElastiCache for Redis introduces the next version of the Redis engine, which includes bug fixes\. 
-
-For more information, see [Redis 5\.0\.6 Release Notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES) at Redis on GitHub\.
-
-## ElastiCache for Redis version 5\.0\.5 \(enhanced\)<a name="redis-version-5-0.5"></a>
-
-Amazon ElastiCache for Redis introduces the next version of the Redis engine;\. It includes online configuration changes for ElastiCache for Redis of auto\-failover clusters during all planned operations\. You can now scale your cluster, upgrade the Redis engine version and apply patches and maintenance updates while the cluster stays online and continues serving incoming requests\. It also includes bug fixes\.
-
-For more information, see [Redis 5\.0\.5 Release Notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES) at Redis on GitHub\.
-
-## ElastiCache for Redis version 5\.0\.4 \(enhanced\)<a name="redis-version-5-0.4"></a>
-
-Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache\. It includes the following enhancements:
+Amazon ElastiCache for Redis introduces the next version of the Redis engine, which includes bug fixes and the following cumulative updates: 
 + Engine stability guarantee in special conditions\.
 + Improved Hyperloglog error handling\.
 + Enhanced handshake commands for reliable replication\.
 + Consistent message delivery tracking via `XCLAIM` command\.
 + Improved `LFU `field management in objects\.
 + Enhanced transaction management when using `ZPOP`\. 
-
-For more information, see [Redis 5\.0\.4 Release Notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES) at Redis on GitHub\.
-
-## ElastiCache for Redis version 5\.0\.3 \(enhanced\)<a name="redis-version-5-0.3"></a>
-
-Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache\. It includes the following enhancements:
-+ Bug fixes to improve sorted set edge cases, accurate memory usage and more\. For more information, see [Redis 5\.0\.3 release notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES)\.
-+ Ability to rename commands: ElastiCache for Redis 5\.0\.3 includes a new parameter called `rename-commands` that allows you to rename potentially dangerous or expensive Redis commands that might cause accidental data loss, such as `FLUSHALL` or `FLUSHDB`\. This is similar to the rename\-command configuration in open source Redis\. However, ElastiCache has improved the experience by providing a fully managed workflow\. The command name changes are applied immediately, and automatically propagated across all nodes in the cluster that contain the command list\. There is no intervention required on your part, such as rebooting nodes\. 
++ Ability to rename commands: A parameter called `rename-commands` that allows you to rename potentially dangerous or expensive Redis commands that might cause accidental data loss, such as `FLUSHALL` or `FLUSHDB`\. This is similar to the rename\-command configuration in open source Redis\. However, ElastiCache has improved the experience by providing a fully managed workflow\. The command name changes are applied immediately, and automatically propagated across all nodes in the cluster that contain the command list\. There is no intervention required on your part, such as rebooting nodes\. 
 
   The following examples demonstrate how to modify existing parameter groups\. They include the `rename-commands` parameter, which is a space\-separated list of commands you want to rename:
 
@@ -140,10 +101,6 @@ To prevent a command's use entirely, use the keyword `blocked`, as shown followi
     ```
 
   For more information on the parameter changes and a list of what commands are eligible for renaming, see [Redis 5\.0\.3 parameter changes](ParameterGroups.Redis.md#ParameterGroups.Redis.5-0-3)\.
-
-## ElastiCache for Redis version 5\.0\.0 \(enhanced\)<a name="redis-version-5-0"></a>
-
-Amazon ElastiCache for Redis introduces the next major version of the Redis engine supported by Amazon ElastiCache\. ElastiCache for Redis 5\.0\.0 brings support for the following improvements:
 + Redis Streams: This models a log data structure that allows producers to append new items in real time\. It also allows consumers to consume messages either in a blocking or nonblocking fashion\. Streams also allow consumer groups, which represent a group of clients to cooperatively consume different portions of the same stream of messages, similar to [Apache Kafka](https://kafka.apache.org/documentation/)\. For more information, see [Introduction to Redis Streams](https://redis.io/topics/streams-intro)\.
 + Support for a family of stream commands, such as `XADD`, `XRANGE` and `XREAD`\. For more information, see [Redis Streams Commands](https://redis.io/commands#stream)\.
 + A number of new and renamed parameters\. For more information, see [Redis 5\.0\.0 parameter changes](ParameterGroups.Redis.md#ParameterGroups.Redis.5.0)\.
@@ -155,6 +112,39 @@ Amazon ElastiCache for Redis has back\-ported two critical bug fixes from [Redis
 RESTORE mismatch reply when certain keys have already expired\.
 The `XCLAIM` command can potentially return a wrong entry or desynchronize the protocol\.
 Both of these bug fixes are included in ElastiCache for Redis support for Redis engine version 5\.0\.0 and are consumed in future version updates\.
+
+For more information, see [Redis 5\.0\.6 Release Notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES) at Redis on GitHub\.
+
+## ElastiCache for Redis version 5\.0\.5 \(deprecated, use version 5\.0\.6\)<a name="redis-version-5-0.5"></a>
+
+Amazon ElastiCache for Redis introduces the next version of the Redis engine;\. It includes online configuration changes for ElastiCache for Redis of auto\-failover clusters during all planned operations\. You can now scale your cluster, upgrade the Redis engine version and apply patches and maintenance updates while the cluster stays online and continues serving incoming requests\. It also includes bug fixes\.
+
+For more information, see [Redis 5\.0\.6 Release Notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES) at Redis on GitHub\.
+
+## ElastiCache for Redis version 5\.0\.4 \(deprecated, use version 5\.0\.6\)<a name="redis-version-5-0.4"></a>
+
+Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache\. It includes the following enhancements:
++ Engine stability guarantee in special conditions\.
++ Improved Hyperloglog error handling\.
++ Enhanced handshake commands for reliable replication\.
++ Consistent message delivery tracking via `XCLAIM` command\.
++ Improved `LFU `field management in objects\.
++ Enhanced transaction management when using `ZPOP`\. 
+
+For more information, see [Redis 5\.0\.4 Release Notes](https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES) at Redis on GitHub\.
+
+## ElastiCache for Redis version 5\.0\.3 \(deprecated, use version 5\.0\.6\)<a name="redis-version-5-0.3"></a>
+
+Amazon ElastiCache for Redis introduces the next version of the Redis engine supported by Amazon ElastiCache which includes bug fixes\. 
+
+## ElastiCache for Redis version 5\.0\.0 \(deprecated, use version 5\.0\.6\)<a name="redis-version-5-0"></a>
+
+Amazon ElastiCache for Redis introduces the next major version of the Redis engine supported by Amazon ElastiCache\. ElastiCache for Redis 5\.0\.0 brings support for the following improvements:
++ Redis Streams: This models a log data structure that allows producers to append new items in real time\. It also allows consumers to consume messages either in a blocking or nonblocking fashion\. Streams also allow consumer groups, which represent a group of clients to cooperatively consume different portions of the same stream of messages, similar to [Apache Kafka](https://kafka.apache.org/documentation/)\. For more information, see [Introduction to Redis Streams](https://redis.io/topics/streams-intro)\.
++ Support for a family of stream commands, such as `XADD`, `XRANGE` and `XREAD`\. For more information, see [Redis Streams Commands](https://redis.io/commands#stream)\.
++ A number of new and renamed parameters\. For more information, see [Redis 5\.0\.0 parameter changes](ParameterGroups.Redis.md#ParameterGroups.Redis.5.0)\.
++ A new Redis metric, `StreamBasedCmds`\.
++ Slightly faster snapshot time for Redis nodes\.
 
 ## ElastiCache for Redis version 4\.0\.10 \(enhanced\)<a name="redis-version-4-0-10"></a>
 
@@ -175,7 +165,9 @@ Redis \(cluster mode disabled\) users running Redis version 3\.2\.10 can use the
 **Comparing ElastiCache for Redis cluster resizing and encryption support**  
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html)
 
-## ElastiCache for Redis version 3\.2\.10 \(enhanced\)<a name="redis-version-3-2-10"></a>
+## Scheduled End of Life \(EOL\) versions \(3\.x\)<a name="redis-version-3-2-10-scheduled-eol"></a>
+
+### ElastiCache for Redis version 3\.2\.10 \(enhanced\)<a name="redis-version-3-2-10"></a>
 
 Amazon ElastiCache for Redis introduces the next major version of the Redis engine supported by Amazon ElastiCache\. ElastiCache for Redis 3\.2\.10 introduces online cluster resizing to add or remove shards from the cluster while it continues to serve incoming I/O requests\. ElastiCache for Redis 3\.2\.10 users have all the functionality of earlier Redis versions except the ability to encrypt their data\. This ability is currently available only in version 3\.2\.6\. 
 
@@ -187,14 +179,14 @@ For more information, see the following:
 + [Online resharding and shard rebalancing for Redis \(cluster mode enabled\)](redis-cluster-resharding-online.md)
 + [Best practices: Online cluster resizing](best-practices-online-resharding.md)
 
-## ElastiCache for Redis version 3\.2\.6 \(enhanced\)<a name="redis-version-3-2-6"></a>
+### ElastiCache for Redis version 3\.2\.6 \(enhanced\)<a name="redis-version-3-2-6"></a>
 
 Amazon ElastiCache for Redis introduces the next major version of the Redis engine supported by Amazon ElastiCache\. ElastiCache for Redis 3\.2\.6 users have all the functionality of earlier Redis versions plus the option to encrypt their data\. For more information, see the following:
 + [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)
 + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
 + [HIPAA eligibility](elasticache-compliance.md#elasticache-compliance-hipaa)
 
-## ElastiCache for Redis version 3\.2\.4 \(enhanced\)<a name="redis-version-3-2-4"></a>
+### ElastiCache for Redis version 3\.2\.4 \(enhanced\)<a name="redis-version-3-2-4"></a>
 
 Amazon ElastiCache for Redis version 3\.2\.4 introduces the next major version of the Redis engine supported by Amazon ElastiCache\. ElastiCache for Redis 3\.2\.4 users have all the functionality of earlier Redis versions available to them plus the option to run in *cluster mode* or *non\-cluster mode*\. The following table summarizes \.
 
@@ -229,17 +221,19 @@ ElastiCache disables the following Redis 3\.2 management commands:
 
 For information about Redis 3\.2\.4 parameters, see [Redis 3\.2\.4 parameter changes](ParameterGroups.Redis.md#ParameterGroups.Redis.3-2-4)\.
 
-## ElastiCache for Redis version 2\.8\.24 \(enhanced\)<a name="redis-version-2-8-24"></a>
+## Past End of Life \(EOL\) versions 2\.x<a name="redis-version-2-x-eol"></a>
+
+### ElastiCache for Redis version 2\.8\.24 \(enhanced\)<a name="redis-version-2-8-24"></a>
 
 Redis improvements added since version 2\.8\.23 include bug fixes and logging of bad memory access addresses\. For more information, see [Redis 2\.8 release notes](https://raw.githubusercontent.com/antirez/redis/2.8/00-RELEASENOTES)\. 
 
-## ElastiCache for Redis version 2\.8\.23 \(enhanced\)<a name="redis-version-2-8-23"></a>
+### ElastiCache for Redis version 2\.8\.23 \(enhanced\)<a name="redis-version-2-8-23"></a>
 
 Redis improvements added since version 2\.8\.22 include bug fixes\. For more information, see [Redis 2\.8 release notes](https://raw.githubusercontent.com/antirez/redis/2.8/00-RELEASENOTES)\. This release also includes support for the new parameter `close-on-slave-write` which, if enabled, disconnects clients who attempt to write to a read\-only replica\.
 
 For more information on Redis 2\.8\.23 parameters, see [Redis 2\.8\.23 \(enhanced\) added parameters](ParameterGroups.Redis.md#ParameterGroups.Redis.2-8-23) in the ElastiCache User Guide\.
 
-## ElastiCache for Redis version 2\.8\.22 \(enhanced\)<a name="redis-version-2-8-22"></a>
+### ElastiCache for Redis version 2\.8\.22 \(enhanced\)<a name="redis-version-2-8-22"></a>
 
 Redis improvements added since version 2\.8\.21 include the following:
 + Support for forkless backups and synchronizations, which allows you to allocate less memory for backup overhead and more for your application\. For more information, see [How synchronization and backup are implemented](Replication.Redis.Versions.md)\. The forkless process can impact both latency and throughput\. When there is high write throughput, when a replica re\-syncs, it can be unreachable for the entire time it is syncing\.
@@ -255,11 +249,11 @@ Redis improvements added since version 2\.8\.21 include the following:
 + Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2\.8\.22 and later\.
 + In low\-memory situations, clients with a large output buffer might be disconnected from a replica cluster\. If disconnected, the client needs to reconnect\. Such situations are most likely to occur for PUBSUB clients\.
 
-## ElastiCache for Redis version 2\.8\.21<a name="redis-version-2-8-21"></a>
+### ElastiCache for Redis version 2\.8\.21<a name="redis-version-2-8-21"></a>
 
 Redis improvements added since version 2\.8\.19 include a number of bug fixes\. For more information, see [Redis 2\.8 release notes](https://raw.githubusercontent.com/antirez/redis/2.8/00-RELEASENOTES)\.
 
-## ElastiCache for Redis version 2\.8\.19<a name="redis-version-2-8-19"></a>
+### ElastiCache for Redis version 2\.8\.19<a name="redis-version-2-8-19"></a>
 
 Redis improvements added since version 2\.8\.6 include the following:
 + Support for HyperLogLog\. For more information, see [Redis new data structure: HyperLogLog](http://antirez.com/news/75)\.
@@ -267,7 +261,7 @@ Redis improvements added since version 2\.8\.6 include the following:
 + To prevent a primary node from sending stale data to replica nodes, the master SYNC fails if a background save \(`bgsave`\) child process is aborted\.
 + Support for the *HyperLogLogBasedCommands* CloudWatch metric\. For more information, see [Metrics for Redis](CacheMetrics.Redis.md)\.
 
-## ElastiCache for Redis version 2\.8\.6<a name="redis-version-2-8-6"></a>
+### ElastiCache for Redis version 2\.8\.6<a name="redis-version-2-8-6"></a>
 
 Redis improvements added since version 2\.6\.13 include the following:
 + Improved resiliency and fault tolerance for read replicas\.
@@ -276,6 +270,6 @@ Redis improvements added since version 2\.6\.13 include the following:
 + Full support for pub/sub—notifying clients of events on the server\.
 + Automatic detection of a primary node failure and failover of your primary node to a secondary node\.
 
-## ElastiCache for Redis version 2\.6\.13<a name="redis-version-2-6-13"></a>
+### ElastiCache for Redis version 2\.6\.13<a name="redis-version-2-6-13"></a>
 
 Redis version 2\.6\.13 was the initial version of Redis supported by Amazon ElastiCache for Redis\. Multi\-AZ is not supported on Redis 2\.6\.13\.

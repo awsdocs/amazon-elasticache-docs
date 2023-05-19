@@ -70,7 +70,7 @@ aws elasticache create-replication-group ^
 
 ## Modifying the AUTH token on an existing ElastiCache for Redis cluster<a name="auth-modifyng-token"></a>
 
-To make it easier to update your authentication, you can modify the AUTH token used on an ElastiCache for Redis cluster\. You can make this modification if the engine version is 5\.0\.5 or higher and if ElastiCache for Redis has encryption in transit enabled\. 
+To make it easier to update your authentication, you can modify the AUTH token used on an ElastiCache for Redis cluster\. You can make this modification if the engine version is 5\.0\.6 or higher and if ElastiCache for Redis has encryption in transit enabled\. 
 
 Modifying the auth token supports two strategies: ROTATE and SET\. The ROTATE strategy adds an additional AUTH token to the server while retaining the previous token\. The SET strategy updates the server to support just a single AUTH token\. Make these modification calls with the `--apply-immediately` parameter to apply changes immediately\.
 

@@ -2,7 +2,7 @@
 
 To help keep your data secure, Amazon ElastiCache and Amazon EC2 provide mechanisms to guard against unauthorized access of your data on the server\.
 
-Amazon ElastiCache for Redis also provides optional encryption features for data on clusters running Redis versions 3\.2\.6, 4\.0\.10 or later:
+Amazon ElastiCache for Redis also provides optional encryption features for data on clusters running Redis versions 3\.2\.6 \(scheduled for EOL, see [Redis versions end of life schedule](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html)\), 4\.0\.10 or later:
 + In\-transit encryption encrypts your data whenever it is moving from one place to another, such as between nodes in your cluster or between your cluster and your application\.
 + At\-rest encryption encrypts your on\-disk data during sync and backup operations\.
 

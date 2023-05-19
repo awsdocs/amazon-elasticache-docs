@@ -8,8 +8,8 @@ ElastiCache also propagates the Domain Name Service \(DNS\) name of the promoted
 
 In case of planned node replacements initiated due to maintenance updates or self\-service updates, be aware of the following:
 + For ElastiCache for Redis Cluster, the planned node replacements complete while the cluster serves incoming write requests\. 
-+ For Redis Cluster mode disabled clusters with Multi\-AZ enabled that run on the 5\.0\.5 or later engine, the planned node replacements complete while the cluster serves incoming write requests\. 
-+ For Redis Cluster mode disabled clusters with Multi\-AZ enabled that run on the 5\.0\.4 or earlier engine, you might notice a brief write interruption associated with DNS updates\. This interruption might take up to a few seconds\. This process is much faster than recreating and provisioning a new primary, which is what occurs if you don't enable Multi\-AZ\. 
++ For Redis Cluster mode disabled clusters with Multi\-AZ enabled that run on the 5\.0\.6 or later engine, the planned node replacements complete while the cluster serves incoming write requests\. 
++ For Redis Cluster mode disabled clusters with Multi\-AZ enabled that run on the 4\.0\.10 or earlier engine, you might notice a brief write interruption associated with DNS updates\. This interruption might take up to a few seconds\. This process is much faster than recreating and provisioning a new primary, which is what occurs if you don't enable Multi\-AZ\. 
 
 
 

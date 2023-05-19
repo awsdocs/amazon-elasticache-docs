@@ -10,7 +10,7 @@ When the scale\-up process is initiated, ElastiCache does the following:
 
 1. Syncs the new read replicas with the new primary node\.
 
-1. Updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 5\.0\.4 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\. 
+1. Updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 4\.0\.10 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\. 
 
 1. Deletes the old nodes \(CLI/API: replication group\)\. You will notice a brief interruption \(a few seconds\) of reads and writes from the old nodes because the connections to the old nodes will be disconnected\.
 
@@ -38,7 +38,7 @@ For more information, see [Managing Reserved Memory](redis-memory-management.md)
 
 The amount of time it takes to scale up to a larger node type varies, depending upon the node type and the amount of data in your current cluster\.
 
-The following process scales your cluster with replicas from its current node type to a new, larger node type using the ElastiCache console\. During this process, there may be a brief interruption of reads and writes for other versions from the primary node while the DNS entry is updated\. you might see less than 1 second downtime for nodes running on 5\.0\.5 versions and above and a few seconds for older versions\. 
+The following process scales your cluster with replicas from its current node type to a new, larger node type using the ElastiCache console\. During this process, there may be a brief interruption of reads and writes for other versions from the primary node while the DNS entry is updated\. you might see less than 1 second downtime for nodes running on 5\.0\.6 versions and above and a few seconds for older versions\. 
 
 **To scale up Redis cluster with replicas \(console\)**
 
@@ -64,7 +64,7 @@ The following process scales your cluster with replicas from its current node ty
 
 ## Scaling up a Redis replication group \(AWS CLI\)<a name="Scaling.RedisReplGrps.ScaleUp.CLI"></a>
 
-The following process scales your replication group from its current node type to a new, larger node type using the AWS CLI\. During this process, ElastiCache for Redis updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 5\.0\.4 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\.\.
+The following process scales your replication group from its current node type to a new, larger node type using the AWS CLI\. During this process, ElastiCache for Redis updates the DNS entries so they point to the new nodes\. Because of this you don't have to update the endpoints in your application\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 4\.0\.10 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\.\.
 
 The amount of time it takes to scale up to a larger node type varies, depending upon your node type and the amount of data in your current cache cluster\.
 
@@ -189,7 +189,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
 
    For more information, see [modify\-replication\-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-replication-group.html) in the *AWS CLI Reference*\.
 
-1. If you used the `--apply-immediately` parameter, monitor the status of the replication group using the AWS CLI `describe-replication-group` command with the following parameter\. While the status is still in *modifying*, you might see less than 1 second downtime for nodes running on 5\.0\.5 versions and above and a brief interruption of reads and writes for older versions from the primary node while the DNS entry is updated\.
+1. If you used the `--apply-immediately` parameter, monitor the status of the replication group using the AWS CLI `describe-replication-group` command with the following parameter\. While the status is still in *modifying*, you might see less than 1 second downtime for nodes running on 5\.0\.6 versions and above and a brief interruption of reads and writes for older versions from the primary node while the DNS entry is updated\.
    + `--replication-group-id` – the name of the replication group\. Use this parameter to describe a particular replication group rather than all replication groups\.
 
    For Linux, macOS, or Unix:
@@ -210,7 +210,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
 
 ## Scaling up a Redis replication group \(ElastiCache API\)<a name="Scaling.RedisReplGrps.ScaleUp.API"></a>
 
-The following process scales your replication group from its current node type to a new, larger node type using the ElastiCache API\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 5\.0\.4 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\.
+The following process scales your replication group from its current node type to a new, larger node type using the ElastiCache API\. For Redis 5\.0\.5 and above, you can scale auto failover enabled clusters while the cluster continues to stay online and serve incoming requests\. On version 4\.0\.10 and below, you may notice a brief interruption of reads and writes on previous versions from the primary node while the DNS entry is updated\.
 
 The amount of time it takes to scale up to a larger node type varies, depending upon your node type and the amount of data in your current cache cluster\.
 

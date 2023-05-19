@@ -40,11 +40,11 @@ Enable [AutoReconnect](https://lettuce.io/core/release/api/io/lettuce/core/clust
 
 Set [CommandTimeout](https://lettuce.io/core/release/api/io/lettuce/core/RedisURI.html#getTimeout--)\. For more details, see the Timeouts section later in this topic\.
 
-Set predicates for filtering out failed nodes from the topology\. Lettuce saves all nodes that are found in the 'cluster nodes' output \(including nodes with PFAIL/FAIL status\) in the client's 'partitions' \(also known as shards\)\. During the process of creating the cluster topology, it attempts to connect to all the partition nodes\. This Lettuce behavior of adding failed nodes can cause connection errors \(or warnings\) when nodes are getting replaced for any reason\. 
+Set [nodeFilter](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#nodeFilter-java.util.function.Predicate-) to filter out failed nodes from the topology\. Lettuce saves all nodes that are found in the 'cluster nodes' output \(including nodes with PFAIL/FAIL status\) in the client's 'partitions' \(also known as shards\)\. During the process of creating the cluster topology, it attempts to connect to all the partition nodes\. This Lettuce behavior of adding failed nodes can cause connection errors \(or warnings\) when nodes are getting replaced for any reason\. 
 
 For example, after a failover is finished and the cluster starts the recovery process, while the clusterTopology is getting refreshed, the cluster bus nodes map has a short period of time that the down node is listed as a FAIL node, before it's completely removed from the topology\. During this period, the Lettuce Redis client considers it a healthy node and continually connects to it\. This causes a failure after retrying is exhausted\. 
 
-Lettuce version 6\.1\.6 supports adding [nodeFilter](https://lettuce.io/core/release/api/io/lettuce/core/cluster/ClusterClientOptions.Builder.html#nodeFilter-java.util.function.Predicate-) configuration to the RedisClusterClient, which can filter out nodes in a fail state as follows:
+For example:
 
 ```
 final ClusterClientOptions clusterClientOptions = 
@@ -59,38 +59,8 @@ final ClusterClientOptions clusterClientOptions =
 redisClusterClient.setOptions(clusterClientOptions);
 ```
 
-When using Lettuce version 6\.0\.9 or lower, if upgrading Lettuce isn't possible, you can also override the RedisClusterClient\.determinePartitions so you can clean up partitions yourself to avoid reaching out to failed nodes\. determinePartitions receives the old partition and Map<RedisURI, Partitions> as input parameters, so you could hook into filtering yourself\. For example:
-
-```
-public class ElastiCacheRedisClusterClient extends RedisClusterClient {
-    public ElastiCacheRedisClusterClient(RedisURI initialUri) {
-         super(null, Collections.singleton(initialUri));
-    }
-    @Override
-    protected Partitions determinePartitions(Partitions current, Map<RedisURI,          Partitions> topologyViews) {
-        // Clean up failed node in topologyViews
-        for (Partitions partitions : topologyViews.values()) {
-            List<RedisClusterNode> nodeToRemove = new ArrayList<>();
-            for (RedisClusterNode node : partitions.getPartitions()) {
-                 if (node.is(NodeFlag.EVENTUAL_FAIL) || 
-                     node.is(NodeFlag.FAIL) || 
-                     node.is(NodeFlag.NOADDR)) {
-                     nodeToRemove.add(node);
-                 }
-            }
-            for (RedisClusterNode node : nodeToRemove) {
-                 partitions.getPartitions().remove(node);
-            }
-            log.info("Redis Fail Node removed {} ", nodeToRemove);
-        }
-        return super.determinePartitions(current, topologyViews);
-    }
-}
-```
-
 **Note**  
-It's best to use this filtering with DynamicRefreshSources set to true\. Otherwise, if the topology view is taken from a single problematic seed node that sees a primary node of some shard as failing, it will filter out this primary node\. This results in slots not being covered\.   
-Having multiple seed nodes \(when DynamicRefreshSources is set to true\) reduces the likelihood of this issue\. This is because at least some of the seed nodes should have an updated topology view after a failover with the newly promoted primary node\.
+Node filtering is best used with DynamicRefreshSources set to true\. Otherwise, if the topology view is taken from a single problematic seed node, that sees a primary node of some shard as failing, it will filter out this primary node, which will result in slots not being covered\. Having multiple seed nodes \(when DynamicRefreshSources is true\) reduces the likelihood of this issue, since at least some of the seed nodes should have an updated topology view after a failover with the newly promoted primary\.
 
 **ClusterTopologyRefreshOptions: Options to control the cluster topology refreshing of the Cluster Mode Enabled client**
 

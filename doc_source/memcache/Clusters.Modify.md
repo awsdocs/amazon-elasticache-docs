@@ -4,7 +4,7 @@ In addition to adding or removing nodes from a cluster, there can be times where
 
 We recommend that you have your maintenance window fall at the time of lowest usage\. Thus it might need modification from time to time\.
 
-When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Memcached specific parameters](ParameterGroups.Memcached.md) and  \. For information on rebooting a cluster's nodes, see [Rebooting a cluster](Clusters.Rebooting.md)\.
+When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** section of the **Details** column in the tables for [Memcached specific parameters](ParameterGroups.Memcached.md)\. For information on rebooting a cluster's nodes, see [Rebooting a cluster](Clusters.Rebooting.md)\.
 
 ## Using the AWS Management Console<a name="Clusters.Modify.CON"></a>
 

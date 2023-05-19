@@ -34,7 +34,7 @@ ClientResources clientResources = DefaultClientResources.builder()
 
 // Create a cluster client instance with the URI and resources
 RedisClusterClient redisClusterClient = 
-    RedisClusterClient.create(clientResources, redisUri);
+    RedisClusterClient.create(clientResources, redisUriCluster);
 
 // Use a dynamic timeout for commands, to avoid timeouts during
 // cluster management and slow operations.

@@ -7,6 +7,7 @@ In this section, you can find details about how to manage the various components
 + [Getting started with JSON in ElastiCache for Redis](json-gs.md)
 + [Tagging your ElastiCache resources](Tagging-Resources.md)
 + [Caching strategies and best practices](BestPractices.md)
++ [Modifying cluster mode](modify-cluster-mode.md)
 + [Managing maintenance](maintenance-window.md)
 + [Replication across AWS Regions using global datastores](Redis-Global-Datastore.md)
 + [High availability using replication groups](Replication.md)

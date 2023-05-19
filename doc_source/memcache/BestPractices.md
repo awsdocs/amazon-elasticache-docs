@@ -4,5 +4,6 @@ Following, you can find recommended best practices for Amazon ElastiCache\. Foll
 
 **Topics**
 + [Caching strategies](Strategies.md)
++ [Best practices: Pub/Sub and Enhanced I/O Multiplexing](best-practices-pubsub.md)
 + [Configuring your ElastiCache client for efficient load balancing](BestPractices.LoadBalancing.md)
 + [IPv6 client examples](network-type-best-practices.md)

@@ -9,4 +9,3 @@ For more information on connecting to cluster mode disabled clusters, see [Findi
 If you wish to use Lettuce’s dynamic topology discovery functionality, then you can create a cluster mode enabled cluster with the same shard configuration as your existing cluster\. However, for cluster mode enabled clusters we recommend configuring at least 3 shards with at least one 1 replica to support fast failover\.
 
 **Topics**
-+ [Lettuce client configuration](BestPractices.Clients-lettuce.md)

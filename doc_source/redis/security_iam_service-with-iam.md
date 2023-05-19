@@ -148,7 +148,7 @@ To view examples of ElastiCache identity\-based policies, see [Identity\-based p
 
 |  |  | 
 | --- |--- |
-|  Supports ACLs  |    No   | 
+|  Supports ACLs  |    Yes  | 
 
 Access control lists \(ACLs\) control which principals \(account members, users, or roles\) have permissions to access a resource\. ACLs are similar to resource\-based policies, although they do not use the JSON policy document format\.
 

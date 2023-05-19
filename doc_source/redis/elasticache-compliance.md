@@ -35,8 +35,8 @@ You can request access to the AWS FedRAMP Security Packages through the FedRAMP 
 **Requirements**
 
 To enable FedRAMP support on your ElastiCache for Redis cluster, your cluster and nodes within the cluster must satisfy the following requirements\.
-+ **Engine version requirements** – Your cluster must be running ElastiCache for Redis 3\.2\.6, 4\.0\.10 and later for both cluster mode enabled and disabled to qualify for FedRAMP compliance\.
-  + Starting with ElastiCache for Redis versions 3\.2\.6, 4\.0\.10 and later for both cluster mode enabled and disabled, you can also enable additional data security features such as:
++ **Engine version requirements** – Your cluster must be running ElastiCache for Redis 3\.2\.6, 4\.0\.10, 7\.0 and later for both cluster mode enabled and disabled to qualify for FedRAMP compliance\.
+  + Starting with ElastiCache for Redis versions 3\.2\.6, note that versions of 3\.x are ready for [Redis versions end of life schedule](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html)\. For clusters running versions 4\.0\.10, 7\.0 and later for both cluster mode enabled and disabled, you can also enable additional data security features such as:
     + [ElastiCache in\-transit encryption \(TLS\)](in-transit-encryption.md)
     + [At\-Rest Encryption in ElastiCache for Redis](at-rest-encryption.md)
     + [Authenticating with the Redis AUTH command](auth.md)
@@ -57,10 +57,13 @@ To use ElastiCache for Redis in compliance with HIPAA, you need to set up a Busi
 
 To enable HIPAA support on your ElastiCache for Redis cluster, your cluster and nodes within the cluster must satisfy the following requirements\.
 + **Engine version requirements** – Your cluster must be running one of the following ElastiCache for Redis versions to qualify for HIPAA eligibility\.
+  + [ElastiCache for Redis version 7\.0 \(enhanced\)](supported-engine-versions.md#redis-version-7.0) or higher\.
   + [ElastiCache for Redis version 6\.0 \(enhanced\)](supported-engine-versions.md#redis-version-6.0) or higher\.
-  + [ElastiCache for Redis version 5\.0\.0 \(enhanced\)](supported-engine-versions.md#redis-version-5-0) or higher\.
-  + [ElastiCache for Redis version 4\.0\.10 \(enhanced\)](supported-engine-versions.md#redis-version-4-0-10)
-  + [ElastiCache for Redis version 3\.2\.6 \(enhanced\)](supported-engine-versions.md#redis-version-3-2-6)
+  + [ElastiCache for Redis version 5\.0\.6 \(enhanced\)](supported-engine-versions.md#redis-version-5-0.6) or higher\.
+  + [ElastiCache for Redis version 4\.0\.10 \(enhanced\)](supported-engine-versions.md#redis-version-4-0-10) or higher\.
+  + [ElastiCache for Redis version 3\.2\.10 \(enhanced\)](supported-engine-versions.md#redis-version-3-2-10) or higher\.
+**Important**  
+ElastiCache for Redis versions running 3\.x are reaching their End of Life \(EOL\) schedule\. For more information, see [Redis versions end of life schedule](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/deprecated-engine-versions.html)\.
 + **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, M6g, T2, T3, T4g, R4, R5, R6g or R6gd\. For more information, see the following:
   + [Supported node types](CacheNodes.SupportedTypes.md)
   + [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)
@@ -84,7 +87,7 @@ The AWS PCI DSS Compliance program includes Amazon ElastiCache for Redis as a PC
 **Requirements**
 
 To enable PCI DSS support on your ElastiCache for Redis cluster, your cluster and nodes within the cluster must satisfy the following requirements\.
-+ **Engine version requirements** – Your cluster must be running ElastiCache for Redis 3\.2\.6, 4\.0\.10 and later for both cluster mode enabled and disabled\.
++ **Engine version requirements** – Your cluster must be running ElastiCache for Redis 3\.2\.6, 4\.0\.10, 7\.0 and later for both cluster mode enabled and disabled\.
 + **Node type requirements** – Your cluster must be running a current\-generation node type— M4, M5, M6g, T2, T3, T4g, R4, R5, R6g or R6gd\. For more information, see the following:
   + [Supported node types](CacheNodes.SupportedTypes.md)
   + [Choosing your node size](nodes-select-size.md#CacheNodes.SelectSize)

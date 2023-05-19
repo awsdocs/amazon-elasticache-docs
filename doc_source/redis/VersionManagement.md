@@ -8,13 +8,16 @@ You initiate engine version upgrades to your cluster or replication group by mod
 + [Modifying an ElastiCache cluster](Clusters.Modify.md)
 + [Modifying a replication group](Replication.Modify.md)
 
-Note the following:
+## Upgrade considerations<a name="VersionManagement-upgrade-considerations"></a>
+
+Consider the following when choosing to upgrade:
 + Engine version management is designed so that you can have as much control as possible over how patching occurs\. However, ElastiCache reserves the right to patch your cluster on your behalf in the unlikely event of a critical security vulnerability in the system or cache software\.
 + Beginning with Redis 6\.0, ElastiCache for Redis will offer a single version for each Redis OSS minor release, rather than offering multiple patch versions\.
-+ Starting with Redis engine version 5\.0\.5, you can upgrade your cluster version with minimal downtime\. The cluster is available for reads during the entire upgrade and is available for writes for most of the upgrade duration, except during the failover operation which lasts a few seconds\.
-+ You can also upgrade your ElastiCache clusters with versions earlier than 5\.0\.5\. The process involved is the same but may incur longer failover time during DNS propagation \(30s\-1m\)\. 
-+ ElastiCache for Redis doesn't support switching between Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\)\.
++ Starting with Redis engine version 5\.0\.6, you can upgrade your cluster version with minimal downtime\. The cluster is available for reads during the entire upgrade and is available for writes for most of the upgrade duration, except during the failover operation which lasts a few seconds\.
++ You can also upgrade your ElastiCache clusters with versions earlier than 5\.0\.6\. The process involved is the same but may incur longer failover time during DNS propagation \(30s\-1m\)\. 
++ Beginning with Redis 7, ElastiCache for Redis supports switching between Redis \(cluster mode disabled\) and Redis \(cluster mode enabled\)\.
 + The Amazon ElastiCache for Redis engine upgrade process is designed to make a best effort to retain your existing data and requires successful Redis replication\. 
++ When upgrading the engine, ElastiCache for Redis will terminate existing client connections\. To minimize downtime during engine upgrades, we recommend you implement [best practices for Redis clients](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/BestPractices.Clients.html) with error retries and exponential backoff and the best practices for [minimizing downtime during maintenance](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/BestPractices.MinimizeDowntime.html)\. 
 + You can't upgrade directly from Redis \(cluster mode disabled\) to Redis \(cluster mode enabled\) when you upgrade your engine\. The following procedure shows you how to upgrade from Redis \(cluster mode disabled\) to Redis \(cluster mode enabled\)\.
 
 **To upgrade from a Redis \(cluster mode disabled\) to Redis \(cluster mode enabled\) engine version**

@@ -10,7 +10,7 @@ Due to the limited amount of previous generation node types, we cannot guarantee
 
 The following procedure describes how to migrate your Redis cluster node type using the ElastiCache Console\. During this process, your Redis cluster will continue to serve requests with minimal downtime\. Depending on your cluster configuration you may see the following downtimes\. The following are estimates and may differ based on your specific configurations:
 + Cluster mode disabled \(single node\) may see approximately 60 seconds, primarily due to DNS propagation\.
-+ Cluster mode disabled \(with replica node\) may see approximately 1 second for clusters running Redis 5\.0\.5 and above\. All lower version can experience approximately 10 seconds\.
++ Cluster mode disabled \(with replica node\) may see approximately 1 second for clusters running Redis 5\.0\.6 and above\. All lower version can experience approximately 10 seconds\.
 + Cluster mode enabled may see approximately 1 second\.
 
 **To modify a Redis cluster node type using the console:**

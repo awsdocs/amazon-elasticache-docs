@@ -2,7 +2,10 @@
 
 This section defines end of life \(EOL\) dates for older major versions as they are announced\. This allows you to make version and upgrade decisions for the future\.
 
-The following tables summarizes each version and its announced EOL date, as well as the recommended upgrade target version\. 
+**Note**  
+ElastiCache for Redis patch versions from 5\.0\.0 to 5\.0\.5 are deprecated\. Use versions 5\.0\.6 or greater\.
+
+The following table summarizes each version and its announced EOL date, as well as the recommended upgrade target version\. 
 
 **Scheduled EOL**
 
