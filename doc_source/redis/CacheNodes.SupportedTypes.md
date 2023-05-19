@@ -22,15 +22,15 @@ Instance types with burstable network performance use a network I/O credit mecha
 | cache\.m6g\.xlarge | 5\.0\.6 | Y | Y | Y | 1\.25 | 10\.0 | 
 | cache\.m6g\.2xlarge | 5\.0\.6 | Y | Y | Y | 2\.5 | 10\.0 | 
 | cache\.m6g\.4xlarge | 5\.0\.6 | Y | Y | Y | 5\.0 | 10\.0 | 
-| cache\.m6g\.8xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
-| cache\.m6g\.12xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
-| cache\.m6g\.16xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
+| cache\.m6g\.8xlarge | 5\.0\.6 | Y | Y | Y | 12 | N/A | 
+| cache\.m6g\.12xlarge | 5\.0\.6 | Y | Y | Y | 20 | N/A | 
+| cache\.m6g\.16xlarge | 5\.0\.6 | Y | Y | Y | 25 | N/A | 
 | cache\.m5\.large | 3\.2\.4 | N | N | N | 0\.75 | 10\.0 | 
 | cache\.m5\.xlarge | 3\.2\.4 | Y | N | N | 1\.25 | 10\.0 | 
 | cache\.m5\.2xlarge | 3\.2\.4 | Y | Y | Y | 2\.5 | 10\.0 | 
 | cache\.m5\.4xlarge | 3\.2\.4 | Y | Y | Y | 5\.0 | 10\.0 | 
-| cache\.m5\.12xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
-| cache\.m5\.24xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
+| cache\.m5\.12xlarge | 3\.2\.4 | Y | Y | Y | 12 | N/A | 
+| cache\.m5\.24xlarge | 3\.2\.4 | Y | Y | Y | 25 | N/A | 
 | cache\.m4\.large | 3\.2\.4 | N | N | N | 0\.45 | 1\.2 | 
 | cache\.m4\.xlarge | 3\.2\.4 | Y | N | N | 0\.75 | 2\.8 | 
 | cache\.m4\.2xlarge | 3\.2\.4 | Y | Y | Y | 1\.0 | 10\.0 | 
@@ -55,21 +55,21 @@ Instance types with burstable network performance use a network I/O credit mecha
 | cache\.r6g\.xlarge | 5\.0\.6 | Y | Y | Y | 1\.25 | 10\.0 | 
 | cache\.r6g\.2xlarge | 5\.0\.6 | Y | Y | Y | 2\.5 | 10\.0 | 
 | cache\.r6g\.4xlarge | 5\.0\.6 | Y | Y | Y | 5\.0 | 10\.0 | 
-| cache\.r6g\.8xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
-| cache\.r6g\.12xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
-| cache\.r6g\.16xlarge | 5\.0\.6 | Y | Y | Y | N/A | N/A | 
+| cache\.r6g\.8xlarge | 5\.0\.6 | Y | Y | Y | 12 | N/A | 
+| cache\.r6g\.12xlarge | 5\.0\.6 | Y | Y | Y | 20 | N/A | 
+| cache\.r6g\.16xlarge | 5\.0\.6 | Y | Y | Y | 25 | N/A | 
 | cache\.r5\.large | 3\.2\.4 | N | N | N | 0\.75 | 10\.0 | 
 | cache\.r5\.xlarge | 3\.2\.4 | Y | N | N | 1\.25 | 10\.0 | 
 | cache\.r5\.2xlarge | 3\.2\.4 | Y | Y | Y | 2\.5 | 10\.0 | 
 | cache\.r5\.4xlarge | 3\.2\.4 | Y | Y | Y | 5\.0 | 10\.0 | 
-| cache\.r5\.12xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
-| cache\.r5\.24xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
+| cache\.r5\.12xlarge | 3\.2\.4 | Y | Y | Y | 12 | N/A | 
+| cache\.r5\.24xlarge | 3\.2\.4 | Y | Y | Y | 25 | N/A | 
 | cache\.r4\.large | 3\.2\.4 | N | N | N | 0\.75 | 10\.0 | 
 | cache\.r4\.xlarge | 3\.2\.4 | Y | N | N | 1\.25 | 10\.0 | 
 | cache\.r4\.2xlarge | 3\.2\.4 | Y | Y | Y | 2\.5 | 10\.0 | 
 | cache\.r4\.4xlarge | 3\.2\.4 | Y | Y | Y | 5\.0 | 10\.0 | 
-| cache\.r4\.8xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
-| cache\.r4\.16xlarge | 3\.2\.4 | Y | Y | Y | N/A | N/A | 
+| cache\.r4\.8xlarge | 3\.2\.4 | Y | Y | Y | 12 | N/A | 
+| cache\.r4\.16xlarge | 3\.2\.4 | Y | Y | Y | 25 | N/A | 
 
 **Memory optimized with data tiering**
 
