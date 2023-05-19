@@ -70,9 +70,9 @@ Instance types with burstable network performance use a network I/O credit mecha
 | cache\.m6g\.xlarge | 1\.5\.16 | 1\.25 | 10\.0 | 
 | cache\.m6g\.2xlarge | 1\.5\.16 | 2\.5 | 10\.0 | 
 | cache\.m6g\.4xlarge | 1\.5\.16 | 5\.0 | 10\.0 | 
-| cache\.m6g\.8xlarge | 1\.5\.16 | N/A | N/A | 
-| cache\.m6g\.12xlarge | 1\.5\.16 | N/A | N/A | 
-| cache\.m6g\.16xlarge | 1\.5\.16 | N/A | N/A | 
+| cache\.m6g\.8xlarge | 1\.5\.16 | 12 | N/A | 
+| cache\.m6g\.12xlarge | 1\.5\.16 | 20 | N/A | 
+| cache\.m6g\.16xlarge | 1\.5\.16 | 25 | N/A | 
 | cache\.m5\.large | 1\.5\.16 | 0\.75 | 10\.0 | 
 | cache\.m5\.xlarge | 1\.5\.16 | 1\.25 | 10\.0 | 
 | cache\.m5\.2xlarge | 1\.5\.16 | 2\.5 | 10\.0 | 
@@ -103,21 +103,21 @@ Instance types with burstable network performance use a network I/O credit mecha
 | cache\.r6g\.xlarge | 1\.5\.16 | 1\.25 | 10\.0 | 
 | cache\.r6g\.2xlarge | 1\.5\.16 | 2\.5 | 10\.0 | 
 | cache\.r6g\.4xlarge | 1\.5\.16 | 5\.0 | 10\.0 | 
-| cache\.r6g\.8xlarge | 1\.5\.16 | N/A | N/A | 
-| cache\.r6g\.12xlarge | 1\.5\.16 | N/A | N/A | 
-| cache\.r6g\.16xlarge | 1\.5\.16 | N/A | N/A | 
+| cache\.r6g\.8xlarge | 1\.5\.16 | 12 | N/A | 
+| cache\.r6g\.12xlarge | 1\.5\.16 | 20 | N/A | 
+| cache\.r6g\.16xlarge | 1\.5\.16 | 25 | N/A | 
 | cache\.r5\.large | 1\.5\.16 | 0\.75 | 10\.0 | 
 | cache\.r5\.xlarge | 1\.5\.16 | 1\.25 | 10\.0 | 
 | cache\.r5\.2xlarge | 1\.5\.16 | 2\.5 | 10\.0 | 
 | cache\.r5\.4xlarge | 1\.5\.16 | 5\.0 | 10\.0 | 
-| cache\.r5\.12xlarge | 1\.5\.16 | N/A | N/A | 
-| cache\.r5\.24xlarge | 1\.5\.16 | N/A | N/A | 
+| cache\.r5\.12xlarge | 1\.5\.16 | 20 | N/A | 
+| cache\.r5\.24xlarge | 1\.5\.16 | 25 | N/A | 
 | cache\.r4\.large | 1\.5\.16 | 0\.75 | 10\.0 | 
 | cache\.r4\.xlarge | 1\.5\.16 | 1\.25 | 10\.0 | 
 | cache\.r4\.2xlarge | 1\.5\.16 | 2\.5 | 10\.0 | 
 | cache\.r4\.4xlarge | 1\.5\.16 | 5\.0 | 10\.0 | 
-| cache\.r4\.8xlarge | 1\.5\.16 | N/A | N/A | 
-| cache\.r4\.16xlarge | 1\.5\.16 | N/A | N/A | 
+| cache\.r4\.8xlarge | 1\.5\.16 | 12 | N/A | 
+| cache\.r4\.16xlarge | 1\.5\.16 | 25 | N/A | 
 
 ## Supported node types by AWS Region<a name="CacheNodes.SupportedTypesByRegion"></a>
 
