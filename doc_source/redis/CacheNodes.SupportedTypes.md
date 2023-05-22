@@ -79,9 +79,9 @@ Instance types with burstable network performance use a network I/O credit mecha
 | cache\.r6gd\.xlarge | 6\.2\.0 | Y | N | N | 1\.25 | 10 | 
 | cache\.r6gd\.2xlarge | 6\.2\.0 | Y | Y | Y | 2\.5 | 10 | 
 | cache\.r6gd\.4xlarge | 6\.2\.0 | Y | Y | Y | 5\.0 | 10 | 
-| cache\.r6gd\.8xlarge | 6\.2\.0 | Y | Y | Y | N/A | N/A | 
-| cache\.r6gd\.12xlarge | 6\.2\.0 | Y | Y | Y | N/A | N/A | 
-| cache\.r6gd\.16xlarge | 6\.2\.0 | Y | Y | Y | N/A | N/A | 
+| cache\.r6gd\.8xlarge | 6\.2\.0 | Y | Y | Y | 12 | N/A | 
+| cache\.r6gd\.12xlarge | 6\.2\.0 | Y | Y | Y | 20 | N/A | 
+| cache\.r6gd\.16xlarge | 6\.2\.0 | Y | Y | Y | 25 | N/A | 
 
 ## Supported node types by AWS Region<a name="CacheNodes.SupportedTypesByRegion"></a>
 
