@@ -1,9 +1,0 @@
-# Parameter management<a name="ParameterGroups.Management"></a>
-
-Parameters are grouped together into named parameter groups for easier parameter management\. A parameter group represents a combination of specific values for the parameters that are passed to the engine software during startup\. These values determine how the engine processes on each node behave at runtime\. The parameter values on a specific parameter group apply to all nodes that are associated with the group, regardless of which cluster they belong to\.
-
-To fine\-tune your cluster's performance, you can modify some parameter values or change the cluster's parameter group\.
-+ You cannot modify or delete the default parameter groups\. If you need custom parameter values, you must create a custom parameter group\.
-+ The parameter group family and the cluster you're assigning it to must be compatible\. For example, if your cluster is running Memcached version 1\.4\.8, you can only use parameter groups, default or custom, from the Memcached 1\.4 family\.
-+ If you change a cluster's parameter group, the values for any conditionally modifiable parameter must be the same in both the current and new parameter groups\.
-+ When you change a cluster's parameters, the change is applied to the cluster immediately\. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group\. To determine when a particular parameter change is applied, see the **Changes Take Effect** column in the tables for [Memcached specific parameters](ParameterGroups.Memcached.md)\. For information on rebooting a cluster's nodes, see [Rebooting a cluster](Clusters.Rebooting.md)\.

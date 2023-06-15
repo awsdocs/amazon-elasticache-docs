@@ -1,3 +1,0 @@
-# Best practices: Pub/Sub and Enhanced I/O Multiplexing<a name="best-practices-pubsub"></a>
-
-When using Redis version 7 or later, we recommend using [sharded Pub/Sub](https://redis.io/docs/manual/pubsub/#sharded-pubsub)\. You also improve throughput and latency using [enhanced I/O multiplexing](http://aws.amazon.com/memorydb/features/#Ultra-fast_performance), which is automatically available when using Redis version 7 or later and requires no client changes\. It is ideal for pub/sub workloads, which often are throughput\-bound with multiple client connections\.
